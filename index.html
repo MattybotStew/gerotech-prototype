@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerotech — Michigan's Premier CNC Machinery Distributor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SECTION 1: Alert Banner
+       ============================================================ -->
+  <div class="alert-banner" role="banner" aria-label="Contact information">
+    <div class="alert-banner__inner">
+      <div class="alert-banner__item">
+        <span class="alert-banner__label">Headquarters &amp; Sales:</span>
+        <a class="alert-banner__link" href="tel:+17343797788">734-379-7788</a>
+      </div>
+      <div class="alert-banner__item">
+        <span class="alert-banner__label">Service:</span>
+        <a class="alert-banner__link" href="tel:+12484768787">248-476-8787</a>
+      </div>
+      <div class="alert-banner__item">
+        <span class="alert-banner__label">Grand Rapids:</span>
+        <a class="alert-banner__link" href="tel:+16167351100">616-735-1100</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 2: Sticky Header
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="Gerotech Home">
+        <div class="logo-placeholder">LOGO</div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">
+              Machines <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="engineered-solutions.html">Engineered Solutions</a>
+          </li>
+          <li class="site-nav__item has-dropdown">
+            <a class="site-nav__link" href="#" aria-haspopup="true">
+              Support <span class="arrow" aria-hidden="true">▼</span>
+            </a>
+            <div class="dropdown" role="menu">
+              <a class="dropdown__link" href="#" role="menuitem">Service Request</a>
+              <a class="dropdown__link" href="#" role="menuitem">Parts</a>
+              <a class="dropdown__link" href="#" role="menuitem">Training</a>
+              <a class="dropdown__link" href="#" role="menuitem">Documentation</a>
+            </div>
+          </li>
+          <li class="site-nav__item has-dropdown">
+            <a class="site-nav__link" href="#" aria-haspopup="true">
+              About <span class="arrow" aria-hidden="true">▼</span>
+            </a>
+            <div class="dropdown" role="menu">
+              <a class="dropdown__link" href="#" role="menuitem">Our Story</a>
+              <a class="dropdown__link" href="#" role="menuitem">Team</a>
+              <a class="dropdown__link" href="#" role="menuitem">Careers</a>
+              <a class="dropdown__link" href="#" role="menuitem">Contact</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="btn-get-quote" href="#">Get a Quote</a>
+      <button class="header-search" aria-label="Search">&#128269;</button>
+      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a class="mobile-nav__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">Machines ↗</a>
+      <a class="mobile-nav__link" href="engineered-solutions.html">Engineered Solutions</a>
+      <a class="mobile-nav__link" href="#">Support</a>
+      <a class="mobile-nav__link" href="#">About</a>
+      <a class="mobile-nav__link" href="#">Get a Quote</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION 3: Hero Slider
+         ============================================================ -->
+    <section class="hero-slider" aria-label="Homepage hero carousel">
+      <div class="slide is-active" role="tabpanel" aria-label="Slide 1 of 3">
+        <div class="slide__placeholder">
+          <div class="slide__placeholder-label">Slide 1 — CNC Machinery</div>
+          <div class="slide__placeholder-sub">Image + headline placeholder</div>
+        </div>
+      </div>
+      <div class="slide" role="tabpanel" aria-label="Slide 2 of 3">
+        <div class="slide__placeholder">
+          <div class="slide__placeholder-label">Slide 2 — Engineered Solutions</div>
+          <div class="slide__placeholder-sub">Image + headline placeholder</div>
+        </div>
+      </div>
+      <div class="slide" role="tabpanel" aria-label="Slide 3 of 3">
+        <div class="slide__placeholder">
+          <div class="slide__placeholder-label">Slide 3 — Support &amp; Service</div>
+          <div class="slide__placeholder-sub">Image + headline placeholder</div>
+        </div>
+      </div>
+
+      <button class="slider-arrow slider-arrow--prev" aria-label="Previous slide">&#8592;</button>
+      <button class="slider-arrow slider-arrow--next" aria-label="Next slide">&#8594;</button>
+      <div class="slider-dots" role="tablist" aria-label="Slide navigation">
+        <button class="dot is-active" role="tab" aria-label="Go to slide 1"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 2"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 3"></button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: Intro + 3 Category Cards
+         ============================================================ -->
+    <section class="intro-section section">
+      <div class="container">
+        <div class="intro-section__lead">
+          <p class="eyebrow">Since 1987</p>
+          <h2 class="intro-section__headline">Michigan's Premier CNC Machinery Distributor &amp; Engineering Partner</h2>
+          <p class="intro-section__body">
+            For nearly four decades, Gerotech has been the trusted source for cutting-edge CNC machinery and
+            application-driven engineering solutions across Michigan and beyond. We don't just sell machines —
+            we partner with manufacturers to keep them running faster, safer, and smarter.
+          </p>
+          <a class="btn btn--outline-dark" href="#">Learn About Gerotech</a>
+        </div>
+
+        <div class="grid-3" style="margin-top: var(--sp-48);">
+          <article class="category-card">
+            <div class="category-card__icon">⚙️</div>
+            <h3 class="category-card__title">CNC Machines</h3>
+            <p class="category-card__body">
+              Premium CNC machining centers, turning centers, EDM, and more from the world's leading
+              manufacturers — matched to your production requirements.
+            </p>
+            <a class="category-card__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">Browse Machines ↗</a>
+          </article>
+
+          <article class="category-card">
+            <div class="category-card__icon">🔧</div>
+            <h3 class="category-card__title">Engineered Solutions</h3>
+            <p class="category-card__body">
+              Machine modification, customization, and full automation integration — engineered around
+              your existing equipment and production goals.
+            </p>
+            <a class="category-card__link" href="engineered-solutions.html">Explore Solutions →</a>
+          </article>
+
+          <article class="category-card">
+            <div class="category-card__icon">🛠️</div>
+            <h3 class="category-card__title">Service &amp; Support</h3>
+            <p class="category-card__body">
+              Factory-trained technicians, responsive service, and comprehensive support programs to
+              maximize uptime and protect your investment.
+            </p>
+            <a class="category-card__link" href="#">View Support Options →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5: Partner Logo Row (12 logos)
+         ============================================================ -->
+    <section class="partners-section section--sm">
+      <div class="container">
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">Proud to Represent</p>
+          <h2 class="section-title">World-Class Manufacturing Partners</h2>
+        </div>
+        <div class="partners-grid">
+          <div class="partner-logo">Partner 1</div>
+          <div class="partner-logo">Partner 2</div>
+          <div class="partner-logo">Partner 3</div>
+          <div class="partner-logo">Partner 4</div>
+          <div class="partner-logo">Partner 5</div>
+          <div class="partner-logo">Partner 6</div>
+          <div class="partner-logo">Partner 7</div>
+          <div class="partner-logo">Partner 8</div>
+          <div class="partner-logo">Partner 9</div>
+          <div class="partner-logo">Partner 10</div>
+          <div class="partner-logo">Partner 11</div>
+          <div class="partner-logo">Partner 12</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6: Testimonial Split
+         ============================================================ -->
+    <section class="testimonial-section section">
+      <div class="container">
+        <div class="testimonial-split">
+          <div class="img-placeholder testimonial-split__photo img-placeholder--dark">
+            Photo — Michael Rudisill
+          </div>
+          <div class="testimonial-split__panel">
+            <blockquote>
+              <p class="testimonial-split__quote">
+                I have never had such consistent, quality customer support from a company and an overall
+                great experience. Every contact has been timely, there has been good communication, friendly
+                service, and each time they are happy to educate me along the way and I walk away with more
+                information and peace of mind than I had hoped for.
+              </p>
+              <footer>
+                <p class="testimonial-split__name">Michael Rudisill</p>
+                <p class="testimonial-split__title">Gerotech Customer</p>
+              </footer>
+            </blockquote>
+            <a class="btn btn--outline-white" href="#">Learn More About Gerotech</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7: News Feed
+         ============================================================ -->
+    <section class="news-section section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Stay Informed</p>
+          <h2 class="section-title">Latest Projects &amp; News</h2>
+        </div>
+        <div class="news-section__grid">
+          <article class="news-card">
+            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <div class="news-card__content">
+              <p class="news-card__meta">Project — June 2025</p>
+              <h3 class="news-card__title">Automated Robotic Cell Delivered to Tier-1 Automotive Supplier</h3>
+              <p class="news-card__excerpt">
+                Gerotech engineers designed and integrated a complete FANUC robotic automation cell,
+                reducing cycle times by 38% for a major Michigan supplier.
+              </p>
+            </div>
+          </article>
+          <article class="news-card">
+            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <div class="news-card__content">
+              <p class="news-card__meta">News — May 2025</p>
+              <h3 class="news-card__title">Gerotech Expands Grand Rapids Service Territory</h3>
+              <p class="news-card__excerpt">
+                Our Grand Rapids office is now fully staffed with factory-trained service technicians
+                serving manufacturers across West Michigan.
+              </p>
+            </div>
+          </article>
+          <article class="news-card">
+            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <div class="news-card__content">
+              <p class="news-card__meta">Project — April 2025</p>
+              <h3 class="news-card__title">Hydraulic Workholding System Installed on Legacy Okuma</h3>
+              <p class="news-card__excerpt">
+                A custom hydraulic workholding and auto-door system breathed new life into a legacy
+                machining center, extending its productive life by years.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 8: CTA Band
+         ============================================================ -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="cta-band__card">
+        <div class="cta-band__copy">
+          <p class="eyebrow cta-band__eyebrow">Take Action Now</p>
+          <h2 class="cta-band__headline">Put our engineers to work on your project</h2>
+        </div>
+        <a class="btn btn--primary btn--lg" href="#">Engage With Us Today</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 9: Email Signup
+         ============================================================ -->
+    <section class="email-signup" aria-label="Mailing list signup">
+      <h2 class="email-signup__title">Stay in the Loop</h2>
+      <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
+      <form class="email-signup__form" action="#" method="post" novalidate>
+        <label for="email-input" class="sr-only">Email address</label>
+        <input
+          class="email-signup__input"
+          id="email-input"
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+        />
+        <button class="email-signup__submit" type="submit">Sign Up</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       SECTION 10: Footer
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <div class="logo-placeholder">LOGO</div>
+          <p class="site-footer__tagline">
+            Michigan's Premier CNC Machinery Distributor &amp; Engineering Solutions Provider —
+            serving manufacturers since 1987.
+          </p>
+          <address class="site-footer__address">
+            29220 Commerce Drive<br />
+            Flat Rock, MI 48134<br />
+            <a href="tel:+17343797788">734-379-7788</a>
+          </address>
+          <div class="site-footer__socials">
+            <a class="social-icon" href="#" aria-label="LinkedIn">in</a>
+            <a class="social-icon" href="#" aria-label="Facebook">f</a>
+            <a class="social-icon" href="#" aria-label="YouTube">▶</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="site-footer__col-title">Machines</p>
+          <ul class="site-footer__links">
+            <li><a href="#">Machining Centers</a></li>
+            <li><a href="#">Turning Centers</a></li>
+            <li><a href="#">EDM</a></li>
+            <li><a href="#">Automation</a></li>
+            <li><a href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">All Machines ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="site-footer__col-title">Solutions &amp; Support</p>
+          <ul class="site-footer__links">
+            <li><a href="engineered-solutions.html">Engineered Solutions</a></li>
+            <li><a href="#">Service Request</a></li>
+            <li><a href="#">Parts</a></li>
+            <li><a href="#">Training</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="site-footer__col-title">Company</p>
+          <ul class="site-footer__links">
+            <li><a href="#">About Gerotech</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>&copy; 2025 Gerotech, Inc. All rights reserved.</span>
+        <div style="display:flex; gap: var(--sp-16);">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/slider.js"></script>
+</body>
+</html>
