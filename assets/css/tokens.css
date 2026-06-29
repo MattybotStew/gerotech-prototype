@@ -1,0 +1,67 @@
+/* ============================================================
+   GEROTECH — DESIGN TOKENS
+   All color/spacing/radius changes go here first.
+   ============================================================ */
+
+:root {
+  /* ── Brand Colors ─────────────────────────────────────── */
+  --clr-orange:        #F38A2C;
+  --clr-orange-light:  #F9A94A;
+  --clr-ink:           #0D0D0D;
+  --clr-dark-bg:       #1C1C21;
+  --clr-dark-nav:      #3A3A40;
+  --clr-gray-body:     #808080;
+  --clr-gray-muted:    #9A9AA8;
+  --clr-gray-border:   #D6D6D6;
+  --clr-gray-card:     #F9F9FB;
+  --clr-gray-band:     #F2F2F2;
+  --clr-white:         #FFFFFF;
+  --clr-black:         #000000;
+
+  /* ── Typography ───────────────────────────────────────── */
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-extrabold: 800;
+
+  /* ── Spacing Scale ────────────────────────────────────── */
+  --sp-4:   4px;
+  --sp-8:   8px;
+  --sp-12:  12px;
+  --sp-16:  16px;
+  --sp-20:  20px;
+  --sp-24:  24px;
+  --sp-32:  32px;
+  --sp-40:  40px;
+  --sp-48:  48px;
+  --sp-64:  64px;
+  --sp-80:  80px;
+  --sp-96:  96px;
+  --sp-120: 120px;
+
+  /* ── Border Radius ────────────────────────────────────── */
+  --radius-btn:     8px;
+  --radius-card:    18px;
+  --radius-card-lg: 20px;
+  --radius-pill:    99px;
+
+  /* ── Shadows ──────────────────────────────────────────── */
+  --shadow-card:       0 4px 24px rgba(0, 0, 0, 0.07);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.13);
+  --shadow-nav:        0 2px 16px rgba(0, 0, 0, 0.12);
+
+  /* ── Layout ───────────────────────────────────────────── */
+  --max-home: 1200px;
+  --max-es:   1120px;
+
+  /* ── Motion ───────────────────────────────────────────── */
+  --ease: 0.22s ease;
+  --ease-slow: 0.35s ease;
+
+  /* ── Z-Index ──────────────────────────────────────────── */
+  --z-alert:    300;
+  --z-header:   200;
+  --z-dropdown: 100;
+}
