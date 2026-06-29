@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineered Solutions — Gerotech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SECTION 1: Alert Banner
+       ============================================================ -->
+  <div class="alert-banner" role="banner" aria-label="Contact information">
+    <div class="alert-banner__inner">
+      <div class="alert-banner__item">
+        <span class="alert-banner__label">Headquarters &amp; Sales:</span>
+        <a class="alert-banner__link" href="tel:+17343797788">734-379-7788</a>
+      </div>
+      <div class="alert-banner__item">
+        <span class="alert-banner__label">Service:</span>
+        <a class="alert-banner__link" href="tel:+12484768787">248-476-8787</a>
+      </div>
+      <div class="alert-banner__item">
+        <span class="alert-banner__label">Grand Rapids:</span>
+        <a class="alert-banner__link" href="tel:+16167351100">616-735-1100</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 2: Sticky Header
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="Gerotech Home">
+        <div class="logo-placeholder">LOGO</div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">
+              Machines <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="engineered-solutions.html" aria-current="page">Engineered Solutions</a>
+          </li>
+          <li class="site-nav__item has-dropdown">
+            <a class="site-nav__link" href="#" aria-haspopup="true">
+              Support <span class="arrow" aria-hidden="true">▼</span>
+            </a>
+            <div class="dropdown" role="menu">
+              <a class="dropdown__link" href="#" role="menuitem">Service Request</a>
+              <a class="dropdown__link" href="#" role="menuitem">Parts</a>
+              <a class="dropdown__link" href="#" role="menuitem">Training</a>
+              <a class="dropdown__link" href="#" role="menuitem">Documentation</a>
+            </div>
+          </li>
+          <li class="site-nav__item has-dropdown">
+            <a class="site-nav__link" href="#" aria-haspopup="true">
+              About <span class="arrow" aria-hidden="true">▼</span>
+            </a>
+            <div class="dropdown" role="menu">
+              <a class="dropdown__link" href="#" role="menuitem">Our Story</a>
+              <a class="dropdown__link" href="#" role="menuitem">Team</a>
+              <a class="dropdown__link" href="#" role="menuitem">Careers</a>
+              <a class="dropdown__link" href="#" role="menuitem">Contact</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="btn-get-quote" href="#">Get a Quote</a>
+      <button class="header-search" aria-label="Search">&#128269;</button>
+      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a class="mobile-nav__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">Machines ↗</a>
+      <a class="mobile-nav__link" href="engineered-solutions.html">Engineered Solutions</a>
+      <a class="mobile-nav__link" href="#">Support</a>
+      <a class="mobile-nav__link" href="#">About</a>
+      <a class="mobile-nav__link" href="#">Get a Quote</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION 3: ES Hero
+         ============================================================ -->
+    <section class="es-hero" aria-label="Engineered Solutions hero">
+      <div class="container container--es">
+        <p class="eyebrow eyebrow--white">Engineering-Driven Manufacturing Solutions</p>
+        <h1 class="es-hero__headline">Your Manufacturing Solutions Partner</h1>
+        <p class="es-hero__body">
+          From machine modification and customization to full automation cells, Gerotech engineers
+          solutions that keep manufacturers running faster, safer, and smarter — backed by decades
+          of application expertise.
+        </p>
+        <div class="es-hero__actions">
+          <a class="btn btn--primary btn--lg" href="#">Get a Quote</a>
+          <a class="btn btn--outline-white btn--lg" href="#es-grid">Explore Engineered Solutions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: Why Gerotech
+         ============================================================ -->
+    <section class="why-section" aria-labelledby="why-headline">
+      <div class="why-section__inner">
+        <div class="why-section__copy">
+          <p class="eyebrow">Why Gerotech</p>
+          <h2 class="why-section__copy-headline" id="why-headline">
+            Engineering Expertise Backed by Decades of Application Experience
+          </h2>
+          <p class="why-section__copy-body">
+            Our in-house engineering team doesn't rely on off-the-shelf solutions. We assess your
+            equipment, understand your production goals, and design modifications and automation
+            systems built specifically for your floor — any make, any control.
+          </p>
+          <a class="btn btn--primary" href="#">Talk to an Engineer</a>
+        </div>
+
+        <div class="why-section__features">
+          <div class="why-feature">
+            <div class="why-feature__icon">🏭</div>
+            <div>
+              <h3 class="why-feature__title">Machine Modification</h3>
+              <p class="why-feature__body">
+                Hydraulic and pneumatic additions, auto-doors, workholding, and broken tool detection —
+                we upgrade your existing equipment to meet new demands.
+              </p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature__icon">⚙️</div>
+            <div>
+              <h3 class="why-feature__title">Machine Customization</h3>
+              <p class="why-feature__body">
+                Remote tool offset and control-level customizations that give operators more capability
+                and reduce setup time.
+              </p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature__icon">🤖</div>
+            <div>
+              <h3 class="why-feature__title">Automation Integration</h3>
+              <p class="why-feature__body">
+                Robot selection, simulation with ROBOGUIDE, and full cell integration — we design and
+                build automation around your production reality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5: Stat Strip
+         ============================================================ -->
+    <section class="stat-strip section--sm" aria-label="Key statistics">
+      <div class="stat-strip__inner">
+        <p class="stat-strip__eyebrow">Every Single Day at Gerotech&hellip;</p>
+        <div class="stat-strip__grid">
+          <div class="stat-pill">
+            <p class="stat-pill__number">37+</p>
+            <p class="stat-pill__label">Years in Business</p>
+          </div>
+          <div class="stat-pill">
+            <p class="stat-pill__number">3</p>
+            <p class="stat-pill__label">Michigan Locations</p>
+          </div>
+          <div class="stat-pill">
+            <p class="stat-pill__number">100s</p>
+            <p class="stat-pill__label">Machines Serviced Annually</p>
+          </div>
+          <div class="stat-pill">
+            <p class="stat-pill__number">1</p>
+            <p class="stat-pill__label">Engineering Team, All In-House</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6: Engineered Solutions Grid (filterable)
+         ============================================================ -->
+    <section class="es-grid-section" id="es-grid" aria-labelledby="es-grid-headline">
+      <div class="es-grid-section__inner">
+        <div class="es-grid-section__controls">
+          <div>
+            <p class="eyebrow">What We Do</p>
+            <h2 class="section-title" id="es-grid-headline">Engineered Solutions</h2>
+          </div>
+          <div class="filter-tabs" role="tablist" aria-label="Filter solutions by category">
+            <button class="filter-tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="filter-tab" data-filter="machine-modification" role="tab" aria-selected="false">Machine Modification</button>
+            <button class="filter-tab" data-filter="machine-customization" role="tab" aria-selected="false">Machine Customization</button>
+            <button class="filter-tab" data-filter="automation-integration" role="tab" aria-selected="false">Automation Integration</button>
+          </div>
+        </div>
+
+        <div class="es-grid">
+          <article class="service-card" data-category="machine-modification">
+            <span class="service-card__category">Machine Modification</span>
+            <h3 class="service-card__title">Hydraulic Additions</h3>
+            <p class="service-card__body">
+              Integrate hydraulic circuits into existing CNC machines for workholding, clamping,
+              and specialized tooling applications.
+            </p>
+            <a class="service-card__link" href="#">Learn More →</a>
+          </article>
+
+          <article class="service-card" data-category="machine-modification">
+            <span class="service-card__category">Machine Modification</span>
+            <h3 class="service-card__title">Pneumatic Additions</h3>
+            <p class="service-card__body">
+              Add pneumatic circuits for air blowoff, chip clearing, fixture actuators, and
+              other production-enhancing functions.
+            </p>
+            <a class="service-card__link" href="#">Learn More →</a>
+          </article>
+
+          <article class="service-card" data-category="machine-modification">
+            <span class="service-card__category">Machine Modification</span>
+            <h3 class="service-card__title">Auto-Doors</h3>
+            <p class="service-card__body">
+              Automated door systems that integrate with the machine cycle for robot-ready
+              automation and safer, faster operation.
+            </p>
+            <a class="service-card__link" href="#">Learn More →</a>
+          </article>
+
+          <article class="service-card" data-category="machine-modification">
+            <span class="service-card__category">Machine Modification</span>
+            <h3 class="service-card__title">Workholding</h3>
+            <p class="service-card__body">
+              Custom workholding solutions designed and integrated into your machine for improved
+              repeatability, reduced setup time, and higher throughput.
+            </p>
+            <a class="service-card__link" href="#">Learn More →</a>
+          </article>
+
+          <article class="service-card" data-category="machine-modification">
+            <span class="service-card__category">Machine Modification</span>
+            <h3 class="service-card__title">Broken Tool Detection</h3>
+            <p class="service-card__body">
+              Automated broken tool detection systems that stop the machine before a bad part
+              is made — protecting tooling, fixtures, and your machine.
+            </p>
+            <a class="service-card__link" href="#">Learn More →</a>
+          </article>
+
+          <article class="service-card" data-category="machine-customization">
+            <span class="service-card__category">Machine Customization</span>
+            <h3 class="service-card__title">Remote Tool Offset</h3>
+            <p class="service-card__body">
+              Control-level programming that allows operators to adjust tool offsets from a
+              remote panel or HMI — reducing door openings and improving ergonomics.
+            </p>
+            <a class="service-card__link" href="#">Learn More →</a>
+          </article>
+
+          <article class="service-card" data-category="automation-integration">
+            <span class="service-card__category">Automation Integration</span>
+            <h3 class="service-card__title">Simulation (ROBOGUIDE)</h3>
+            <p class="service-card__body">
+              FANUC ROBOGUIDE simulation lets us design, validate, and optimize your robot cell
+              before a single bolt is turned — reducing risk and accelerating deployment.
+            </p>
+            <a class="service-card__link" href="#">Learn More →</a>
+          </article>
+
+          <article class="service-card" data-category="automation-integration">
+            <span class="service-card__category">Automation Integration</span>
+            <h3 class="service-card__title">Robot Selection</h3>
+            <p class="service-card__body">
+              Application-matched robot selection from the full FANUC lineup — payload, reach,
+              speed, and IP rating matched to your specific production environment.
+            </p>
+            <a class="service-card__link" href="#">Learn More →</a>
+          </article>
+
+          <div class="service-card service-card--placeholder" aria-hidden="true">
+            <span>More Solutions Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7: FANUC ASI Credential Band
+         ============================================================ -->
+    <section class="credential-band" aria-label="FANUC ASI credential">
+      <div class="credential-band__inner">
+        <div class="credential-band__badge">
+          FANUC ASI<br />Badge<br />Placeholder
+        </div>
+        <div class="credential-band__copy">
+          <p class="eyebrow">Authorized System Integrator</p>
+          <h2 class="credential-band__headline">
+            FANUC Authorized System Integrator
+          </h2>
+          <p class="credential-band__body">
+            Gerotech is a FANUC Authorized System Integrator (ASI) — one of a select group of
+            companies certified to design, build, and support complete FANUC robotic automation
+            systems. This credential means factory-trained engineers, direct technical support from
+            FANUC, and proven integration methodology on every project.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 8: Technology Partners
+         ============================================================ -->
+    <section class="tech-partners-section" aria-labelledby="tech-partners-headline">
+      <div class="tech-partners-section__inner">
+        <div>
+          <p class="eyebrow">Our Technology Ecosystem</p>
+          <h2 class="tech-partners-section__copy-headline" id="tech-partners-headline">
+            The Right Technology for Every Application
+          </h2>
+          <p class="tech-partners-section__copy-body">
+            We work with the world's leading automation and controls manufacturers to source the
+            right components for every solution — no brand allegiance, just engineering judgment
+            matched to your application.
+          </p>
+          <a class="btn btn--outline-dark" href="#">See All Partners</a>
+        </div>
+
+        <div class="tech-logo-grid">
+          <div class="partner-logo">FANUC</div>
+          <div class="partner-logo">Okuma</div>
+          <div class="partner-logo">Mazak</div>
+          <div class="partner-logo">Doosan</div>
+          <div class="partner-logo">Makino</div>
+          <div class="partner-logo">Heidenhain</div>
+          <div class="partner-logo">Renishaw</div>
+          <div class="partner-logo">Schunk</div>
+          <div class="partner-logo">Blum</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 9: Capability Band
+         ============================================================ -->
+    <section class="capability-band" aria-labelledby="capability-headline">
+      <div class="capability-band__inner">
+        <div>
+          <p class="eyebrow eyebrow--white">Beyond a Single Brand</p>
+          <h2 class="capability-band__headline" id="capability-headline">
+            Your Machine.<br />Our Solution.
+          </h2>
+          <p class="capability-band__body">
+            Whatever sits on your floor, any make and any control, our engineers modify,
+            customize, and automate around it.
+          </p>
+          <div class="capability-band__actions">
+            <a class="btn btn--primary btn--lg" href="#">Get a Quote</a>
+            <a class="btn btn--outline-white btn--lg" href="#es-grid">Explore Engineered Solutions</a>
+          </div>
+        </div>
+
+        <ul class="capability-bullets" aria-label="Key capabilities">
+          <li class="capability-bullet">
+            <span class="capability-bullet__num" aria-hidden="true">01</span>
+            <span class="capability-bullet__text">
+              Any make, any control — we engineer to your existing equipment
+            </span>
+          </li>
+          <li class="capability-bullet">
+            <span class="capability-bullet__num" aria-hidden="true">02</span>
+            <span class="capability-bullet__text">
+              In-house design, programming, and integration
+            </span>
+          </li>
+          <li class="capability-bullet">
+            <span class="capability-bullet__num" aria-hidden="true">03</span>
+            <span class="capability-bullet__text">
+              From a single modification to a full automation cell
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 10: Testimonials (2 bordered cards)
+         ============================================================ -->
+    <section class="es-testimonials-section" aria-labelledby="testimonials-headline">
+      <div class="es-testimonials-section__inner">
+        <div class="section-header">
+          <p class="eyebrow">What Customers Say</p>
+          <h2 class="section-title" id="testimonials-headline">Trusted by Michigan Manufacturers</h2>
+        </div>
+        <div class="grid-2">
+          <article class="testimonial-card">
+            <blockquote>
+              <p class="testimonial-card__quote">
+                I have never had such consistent, quality customer support from a company and an
+                overall great experience. Every contact has been timely, there has been good
+                communication, friendly service, and each time they are happy to educate me along
+                the way and I walk away with more information and peace of mind than I had hoped for.
+              </p>
+              <footer>
+                <p class="testimonial-card__name">Michael Rudisill</p>
+                <p class="testimonial-card__sub">Gerotech Customer</p>
+              </footer>
+            </blockquote>
+          </article>
+
+          <article class="testimonial-card">
+            <blockquote>
+              <p class="testimonial-card__quote">
+                The Gerotech team understood exactly what we needed and delivered a solution that
+                exceeded our expectations. The automation cell they designed has transformed our
+                throughput and quality metrics. We couldn't be more satisfied.
+              </p>
+              <footer>
+                <p class="testimonial-card__name">Testimonial Placeholder</p>
+                <p class="testimonial-card__sub">Customer Name &amp; Company</p>
+              </footer>
+            </blockquote>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 11: News Feed
+         ============================================================ -->
+    <section class="news-section section" aria-labelledby="news-headline">
+      <div class="container container--es">
+        <div class="section-header">
+          <p class="eyebrow">Stay Informed</p>
+          <h2 class="section-title" id="news-headline">Latest Projects &amp; News</h2>
+        </div>
+        <div class="news-section__grid">
+          <article class="news-card">
+            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <div class="news-card__content">
+              <p class="news-card__meta">Project — June 2025</p>
+              <h3 class="news-card__title">Automated Robotic Cell Delivered to Tier-1 Automotive Supplier</h3>
+              <p class="news-card__excerpt">
+                Gerotech engineers designed and integrated a complete FANUC robotic automation cell,
+                reducing cycle times by 38%.
+              </p>
+            </div>
+          </article>
+          <article class="news-card">
+            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <div class="news-card__content">
+              <p class="news-card__meta">News — May 2025</p>
+              <h3 class="news-card__title">Gerotech Expands Grand Rapids Service Territory</h3>
+              <p class="news-card__excerpt">
+                Our Grand Rapids office is now fully staffed with factory-trained service technicians
+                serving manufacturers across West Michigan.
+              </p>
+            </div>
+          </article>
+          <article class="news-card">
+            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <div class="news-card__content">
+              <p class="news-card__meta">Project — April 2025</p>
+              <h3 class="news-card__title">Hydraulic Workholding System Installed on Legacy Okuma</h3>
+              <p class="news-card__excerpt">
+                A custom hydraulic workholding and auto-door system extended a legacy machining
+                center's productive life by years.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 12: CTA Band
+         ============================================================ -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="cta-band__card">
+        <div class="cta-band__copy">
+          <p class="eyebrow cta-band__eyebrow">Take Action Now</p>
+          <h2 class="cta-band__headline">Ready to Engineer a Better Way to Manufacture?</h2>
+        </div>
+        <a class="btn btn--primary btn--lg" href="#">Get a Quote</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       SECTION 13: Footer (black version)
+       ============================================================ -->
+  <footer class="site-footer site-footer--black" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <div class="logo-placeholder">LOGO</div>
+          <p class="site-footer__tagline">
+            Michigan's Premier CNC Machinery Distributor &amp; Engineering Solutions Provider —
+            serving manufacturers since 1987.
+          </p>
+          <address class="site-footer__address">
+            29220 Commerce Drive<br />
+            Flat Rock, MI 48134<br />
+            <a href="tel:+17343797788">734-379-7788</a>
+          </address>
+          <div class="site-footer__socials">
+            <a class="social-icon" href="#" aria-label="LinkedIn">in</a>
+            <a class="social-icon" href="#" aria-label="Facebook">f</a>
+            <a class="social-icon" href="#" aria-label="YouTube">▶</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="site-footer__col-title">Machines</p>
+          <ul class="site-footer__links">
+            <li><a href="#">Machining Centers</a></li>
+            <li><a href="#">Turning Centers</a></li>
+            <li><a href="#">EDM</a></li>
+            <li><a href="#">Automation</a></li>
+            <li><a href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">All Machines ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="site-footer__col-title">Solutions &amp; Support</p>
+          <ul class="site-footer__links">
+            <li><a href="engineered-solutions.html">Engineered Solutions</a></li>
+            <li><a href="#">Service Request</a></li>
+            <li><a href="#">Parts</a></li>
+            <li><a href="#">Training</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="site-footer__col-title">Company</p>
+          <ul class="site-footer__links">
+            <li><a href="#">About Gerotech</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>&copy; 2025 Gerotech, Inc. All rights reserved.</span>
+        <div style="display:flex; gap: var(--sp-16);">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/filter.js"></script>
+</body>
+</html>
