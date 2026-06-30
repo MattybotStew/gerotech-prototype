@@ -8,12 +8,16 @@ Two-page static HTML/CSS/JS **wireframe/prototype** for **Gerotech, Inc.** — M
 
 **Current stage: Wireframe.** Structural layout, real copy, and functional interactions are in place. Placeholder visuals (emoji icons, dashed-border image divs, logo placeholder) are intentional — they mark slots that will be upgraded to real design assets. The CSS token system is the bridge: wireframe values can be refined without touching component markup.
 
+**Live site:** https://gerotech.com/ (WordPress, custom theme, Smart Slider 3, Contact Form 7, Max Mega Menu)
+
 ## Pages
 
 | Page | URL | Sections |
 |------|-----|----------|
 | Homepage | `index.html` | 10 sections: Alert Banner, Sticky Header, Hero Slider, Intro + 3 Category Cards, Partner Logos, Testimonial Split, News Feed, CTA Band, Email Signup, Footer |
 | Engineered Solutions | `engineered-solutions.html` | 13 sections: same header + hero, Why Gerotech, Stat Strip, Filterable Service Grid, FANUC ASI Band, Tech Partners, Capability Band, Testimonials, News, CTA, Footer (black) |
+| About (stub) | `about.html` | Minimal — needs content |
+| Support (stub) | `support.html` | Minimal — needs content |
 
 ## Architecture
 
@@ -116,13 +120,59 @@ Note: `slider.js` only on homepage (`index.html`). `filter.js` only on ES page.
 | Dark mode | Not implemented — wireframe is light-only with dark accent sections |
 | Real images | None — all visual assets are placeholder divs pending client-provided photography |
 
+## Live Site Comparison (https://gerotech.com/)
+
+### What the live site has that the wireframe can leverage
+
+| Asset | Live Site | Wireframe Status |
+|-------|-----------|-----------------|
+| **Logo** | Exists at `/wp-content/themes/gerotech/images/logo_desktop_white.png` and `logo_tagline.jpg` | Dashed placeholder — can grab real logo |
+| **Partner logos** | HAAS, Takamaz, Midaco, FANUC, OnRobot, Dynatect, Royal Products, Marpos, Tsudakoma(Koma), Alberti, Renishaw, Keyence, 5th Axis (13 partners, real logo images) | 12 placeholder tiles — can source real logos |
+| **Testimonial photo** | `/wp-content/uploads/2021/07/Webp.net-resizeimage-3.jpg` | Placeholder — real image exists |
+| **Hero slides** | 6 slides via Smart Slider 3 with real machine photos and promotional content | 3 placeholder slides |
+| **Mailing list fields** | First name, last name, company name, zip code, email (5 fields) | Only email (1 field) — live collects more data |
+| **Service/process icons** | Real product photos (Machines, Tooling, Automation, Engineered Solutions, Training, Parts and Support) | None — wireframe uses emoji category cards |
+
+### IA Differences
+
+| Element | Live Site (WordPress) | Wireframe (Static) |
+|---------|----------------------|-------------------|
+| **Top banner** | Logo + phone numbers + GET A QUOTE (single row) | Dark alert bar with phone numbers (logo below in header) |
+| **Nav order** | Company, Machines (mega menu), Engineered Solutions, Support | Machines, Engineered Solutions, Support, About |
+| **Machines section** | Huge mega menu with VMC/HMC/Turning/Rotaries/Tooling/Financing/HFO subcategories | External link to gerotech.com/machines |
+| **ES subpages** | 7 dedicated pages (Automated System, Engineering Process Optimization, Custom Workholding, Training, Modification, Integration Partners, Unique Applications) | Single filterable grid page with 8 service cards |
+| **Support subpages** | Service Request Forms, Training, Rotary Repair, Planned Maintenance | Simple dropdown (Service Request, Parts, Training, Documentation) |
+| **Mobile nav** | 6 items (ES, Training, Service, About, Careers, Contact) | 5 items (Machines, ES, Support, About, Get a Quote) |
+
+### Design Differences
+
+| Aspect | Live Site | Wireframe |
+|--------|-----------|-----------|
+| **Primary accent** | Orange `#F38A2C` + Red `#C8102E`/`#CF0A2C` (two accents) | Orange `#F38A2C` only (one accent) |
+| **Fonts** | Oswald, Roboto, Outfit, Open Sans (mixed, no single system) | Plus Jakarta Sans (one font family) |
+| **Slider tech** | Smart Slider 3 (WordPress plugin, 6 slides, autoplay 8s) | Custom HTML/CSS/JS (3 slides, autoplay 5s) |
+| **Below slider** | 6 process icon buttons with product photos, then intro text + 3-col text, then partner logos | Intro + 3 category cards, then partner logos |
+| **Testimonial format** | `~Michael Rudisill~` (tildes) | Proper blockquote with `<footer>` |
+| **Footer** | Simpler: logo, address line, copyright + privacy | 4-column with logo, tagline, address, socials, 3 link columns |
+| **CTA button color** | Red `#C8102E` for some buttons (showroom slide) | Orange only |
+| **Background** | White, no dark sections besides footer and some slider slides | Alternating white/gray-band/dark-bg sections |
+
+### Content to Carry Forward from Live Site
+
+1. **Real partner logos** (13 partners) — replace 12 placeholders, match actual partners
+2. **Testimonial photo** — real image available at gerotech.com
+3. **Company logo** — grab from live site
+4. **Mailing list fields** — consider adding more fields (name, company, zip) if client expects it
+5. **Slider content** — 6 live slides have real promotions (training, showroom machines, rotary products, winner's circle) that could inform hero content
+6. **Service pages** — ES page has 7 dedicated subpages on live site; wireframe condenses to 8 filterable cards
+
 ## Wireframe → Full Design Upgrade Path
 
 Priority order for upgrading from wireframe to finished design:
 
 1. **Real SVG icons** — Replace emoji placeholders (⚙️ 🔧 🛠️ 🏭 🤖) with Phosphor or Tabler SVG icons
-2. **Real images** — Generate or source hero photography, testimonial photo, news thumbnails, partner logos
-3. **Logo** — Replace dashed placeholder with actual Gerotech logo
+2. **Real images** — Generate or source hero photography, testimonial photo, news thumbnails, partner logos (many exist on live site)
+3. **Logo** — Replace dashed placeholder with actual Gerotech logo (available on live site)
 4. **Typography refinement** — Plus Jakarta Sans is solid; consider display weight tuning for hero headlines
 5. **Eyebrow/label reduction** — Audit and reduce section eyebrow labels (currently above the recommended cap)
 6. **Dark mode** — Add system-aware dark mode if needed for brand expression
