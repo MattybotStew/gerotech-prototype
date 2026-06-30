@@ -1224,3 +1224,179 @@
   transition: background var(--ease);
 }
 .mega-nav__cta-btn:hover { background: var(--clr-orange-light); }
+
+/* ── MCS Detail Page Hero ────────────────────────────────────── */
+.mcs-hero {
+  background: var(--clr-gray-card);
+  padding: var(--sp-48) var(--sp-24) var(--sp-64);
+}
+.mcs-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-8);
+  margin-bottom: var(--sp-16);
+  padding-bottom: var(--sp-8);
+}
+.mcs-hero__crumb-link {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--clr-gray-body);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+.mcs-hero__crumb-link:hover { color: var(--clr-orange); }
+.mcs-hero__crumb-sep {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--clr-gray-border);
+}
+.mcs-hero__crumb-current {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-ink);
+}
+.mcs-hero__badge {
+  display: inline-flex;
+  background: rgba(243,138,44,0.1);
+  color: var(--clr-orange);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--sp-16);
+}
+.mcs-hero__headline {
+  font-family: var(--font-sans);
+  font-size: 48px;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 var(--sp-12);
+  max-width: 760px;
+}
+.mcs-hero__body {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  color: var(--clr-gray-body);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 740px;
+}
+
+/* ── MCS Grid (2-col) ───────────────────────────────────────── */
+.mcs-grid-section {
+  background: var(--clr-white);
+  padding: var(--sp-80) var(--sp-24);
+}
+.mcs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.mcs-card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-gray-border);
+  border-radius: var(--radius-card-lg);
+  overflow: hidden;
+  transition: box-shadow var(--ease);
+}
+.mcs-card:hover { box-shadow: var(--shadow-card-hover); }
+.mcs-card__image {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--clr-gray-border);
+  min-height: 275px;
+}
+.mcs-card__content {
+  padding: var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+.mcs-card__title {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-ink);
+  margin: 0;
+}
+.mcs-card__body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--clr-gray-body);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+.mcs-card__actions {
+  display: flex;
+  gap: var(--sp-12);
+  flex-wrap: wrap;
+}
+
+/* ── MCS Product Gallery ────────────────────────────────────── */
+.mcs-gallery-section {
+  background: var(--clr-gray-band);
+  padding: var(--sp-80) var(--sp-24);
+}
+.mcs-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-24);
+}
+.mcs-gallery-card {
+  background: var(--clr-gray-card);
+  border: 1px solid var(--clr-gray-border);
+  border-radius: var(--radius-card-lg);
+  overflow: hidden;
+  transition: box-shadow var(--ease);
+}
+.mcs-gallery-card:hover { box-shadow: var(--shadow-card-hover); }
+.mcs-gallery-card__image {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--clr-gray-border);
+  min-height: 154px;
+}
+.mcs-gallery-card__label {
+  padding: var(--sp-12) var(--sp-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+.mcs-gallery-card__label h3 {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-ink);
+  margin: 0;
+}
+.mcs-gallery-card__status {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+.mcs-gallery-card__status--pending {
+  background: rgba(243,138,44,0.1);
+  color: #B06A1A;
+}
+.mcs-gallery-card__status--ready {
+  background: #E6F7E6;
+  color: #2D7A2D;
+}
+.mcs-gallery-card__status--blocked {
+  background: #FCE8E8;
+  color: #B03A3A;
+}

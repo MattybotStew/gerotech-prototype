@@ -317,4 +317,6 @@ button { cursor: pointer; }
   .stat-strip__grid { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
   .es-hero__headline { font-size: 30px; }
+  .mcs-hero__headline { font-size: 28px; }
+  .mcs-card__actions { flex-direction: column; }
 }
