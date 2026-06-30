@@ -1077,10 +1077,18 @@
 }
 .mega-nav {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-6px);
   width: 680px;
+  /* transparent top padding bridges the gap so hover isn't lost */
+  padding: 8px 0 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--ease), transform var(--ease);
+  z-index: var(--z-dropdown);
+}
+.mega-nav__inner {
   background: var(--clr-white);
   border-radius: var(--radius-card-lg);
   box-shadow: var(--shadow-card-hover);
@@ -1088,10 +1096,6 @@
   display: grid;
   grid-template-columns: 1.1fr 1.2fr 1fr;
   gap: var(--sp-24);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--ease), transform var(--ease);
-  z-index: var(--z-dropdown);
 }
 /* re-center under the nav item rather than the page */
 .has-mega { position: relative; }
