@@ -116,7 +116,7 @@
 /* Dropdown */
 .dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 0;
   background: var(--clr-white);
   border-radius: var(--radius-card);
@@ -128,6 +128,14 @@
   transform: translateY(-6px);
   transition: opacity var(--ease), transform var(--ease);
   z-index: var(--z-dropdown);
+}
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
 }
 .has-dropdown:hover .dropdown,
 .has-dropdown:focus-within .dropdown {
