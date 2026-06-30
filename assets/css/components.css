@@ -1043,3 +1043,27 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* ── Scroll animation stagger ─────────────────────────────── */
+.grid-3 > *:nth-child(2),
+.grid-2 > *:nth-child(2),
+.es-grid > *:nth-child(2),
+.stat-strip__grid > *:nth-child(2),
+.partners-grid > *:nth-child(2),
+.news-section__grid > *:nth-child(2) {
+  transition-delay: 0.08s !important;
+}
+.grid-3 > *:nth-child(3),
+.grid-2 > *:nth-child(2),
+.es-grid > *:nth-child(3),
+.stat-strip__grid > *:nth-child(3),
+.partners-grid > *:nth-child(3),
+.news-section__grid > *:nth-child(3) {
+  transition-delay: 0.16s !important;
+}
+.es-grid > *:nth-child(4) { transition-delay: 0.08s !important; }
+.es-grid > *:nth-child(5) { transition-delay: 0.16s !important; }
+.es-grid > *:nth-child(6) { transition-delay: 0.24s !important; }
+.es-grid > *:nth-child(7) { transition-delay: 0.08s !important; }
+.es-grid > *:nth-child(8) { transition-delay: 0.16s !important; }
+.es-grid > *:nth-child(9) { transition-delay: 0.24s !important; }
