@@ -1073,7 +1073,7 @@
 .has-mega:focus-within .mega-nav {
   opacity: 1;
   pointer-events: all;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 .mega-nav {
   position: absolute;
@@ -1094,8 +1094,7 @@
   z-index: var(--z-dropdown);
 }
 /* re-center under the nav item rather than the page */
-.has-mega { position: static; }
-.site-nav { position: relative; }
+.has-mega { position: relative; }
 .mega-nav__col-title {
   font-family: var(--font-sans);
   font-size: 10px;
