@@ -21,7 +21,7 @@ Static HTML/CSS/JS **wireframe/prototype** for **Gerotech, Inc.** — Michigan-b
 | Homepage | `index.html` | ✅ 10 sections, copy verified against live site |
 | Engineered Solutions (hub) | `engineered-solutions.html` | ✅ Filterable grid + 8 sections |
 | Machine Custom Solutions | `machine-custom-solutions.html` | ✅ 8 services, product gallery with status tags |
-| Machine Customization | `machine-customization.html` | ✅ 5 services (hydraulics, pneumatics, auto-doors, workholding, broken tool detection) |
+| Machine Modification | `machine-modification.html` | ✅ 5 services (hydraulics, pneumatics, auto-doors, workholding, broken tool detection) |
 | Automation Integration | `automation-integration.html` | ✅ 4 services (ROBOGUIDE, robot selection, cell integration, cobots) |
 | Application | `application.html` | ✅ 4 services (programming, macros, training, probing) |
 | Training | `training.html` | ✅ 4 Haas courses (operator + programming) |
@@ -35,7 +35,7 @@ gerotech-prototype/
 ├── index.html                   # Homepage
 ├── engineered-solutions.html    # ES landing hub
 ├── machine-custom-solutions.html# Detail: Column Risers, Sheet Metal, Spin Forming, etc.
-├── machine-customization.html   # Detail: Hydraulics, Pneumatics, Auto-Doors, etc.
+├── machine-modification.html   # Detail: Hydraulics, Pneumatics, Auto-Doors, etc.
 ├── automation-integration.html  # Detail: ROBOGUIDE, Robot Selection, Cobots
 ├── application.html             # Detail: Programming, Macros, Training, Probing
 ├── training.html                # Haas training courses
