@@ -1067,3 +1067,157 @@
 .es-grid > *:nth-child(7) { transition-delay: 0.08s !important; }
 .es-grid > *:nth-child(8) { transition-delay: 0.16s !important; }
 .es-grid > *:nth-child(9) { transition-delay: 0.24s !important; }
+
+/* ── Mega Nav (Engineered Solutions) ──────────────────────── */
+.has-mega:hover .mega-nav,
+.has-mega:focus-within .mega-nav {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+.mega-nav {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  width: 680px;
+  background: var(--clr-white);
+  border-radius: var(--radius-card-lg);
+  box-shadow: var(--shadow-card-hover);
+  padding: var(--sp-24);
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 1fr;
+  gap: var(--sp-24);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--ease), transform var(--ease);
+  z-index: var(--z-dropdown);
+}
+/* re-center under the nav item rather than the page */
+.has-mega { position: static; }
+.site-nav { position: relative; }
+.mega-nav__col-title {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: var(--fw-extrabold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-gray-muted);
+  margin: 0 0 var(--sp-12);
+  padding-bottom: var(--sp-8);
+  border-bottom: 1px solid var(--clr-gray-border);
+}
+.mega-nav__category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-20);
+}
+.mega-nav__category:last-child { margin-bottom: 0; }
+.mega-nav__cat-link {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  color: var(--clr-ink);
+  text-decoration: none;
+  padding: var(--sp-4) var(--sp-8);
+  border-radius: 6px;
+  transition: background var(--ease), color var(--ease);
+}
+.mega-nav__cat-link:hover {
+  background: rgba(243,138,44,0.08);
+  color: var(--clr-orange);
+}
+.mega-nav__cat-desc {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--clr-gray-muted);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 var(--sp-8);
+}
+.mega-nav__service-link {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  color: var(--clr-gray-body);
+  text-decoration: none;
+  padding: var(--sp-4) var(--sp-8);
+  border-radius: 6px;
+  transition: background var(--ease), color var(--ease);
+  margin-bottom: 4px;
+}
+.mega-nav__service-link:hover {
+  background: var(--clr-gray-card);
+  color: var(--clr-ink);
+}
+.mega-nav__services-group {
+  margin-bottom: var(--sp-16);
+}
+.mega-nav__services-group:last-child { margin-bottom: 0; }
+.mega-nav__services-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clr-orange);
+  padding: 0 var(--sp-8);
+  margin-bottom: var(--sp-4);
+}
+.mega-nav__cta-panel {
+  background: var(--clr-dark-bg);
+  border-radius: var(--radius-card);
+  padding: var(--sp-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-16);
+  height: 100%;
+}
+.mega-nav__cta-badge {
+  width: 48px;
+  height: 48px;
+  border: 1px dashed rgba(255,255,255,0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  color: var(--clr-gray-muted);
+  text-align: center;
+  line-height: 1.3;
+}
+.mega-nav__cta-headline {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: var(--fw-extrabold);
+  color: var(--clr-white);
+  line-height: 1.3;
+  margin: 0;
+}
+.mega-nav__cta-body {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--clr-gray-muted);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+.mega-nav__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-orange);
+  color: var(--clr-white);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  padding: 10px var(--sp-16);
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  transition: background var(--ease);
+}
+.mega-nav__cta-btn:hover { background: var(--clr-orange-light); }
