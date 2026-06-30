@@ -4,7 +4,9 @@
 
 ## Overview
 
-Two-page static HTML/CSS/JS prototype for **Gerotech, Inc.** — Michigan-based CNC machinery distributor & engineering solutions provider (serving manufacturers since 1987). Built for a **July 7, 2026** client presentation. No frameworks, no build tools.
+Two-page static HTML/CSS/JS **wireframe/prototype** for **Gerotech, Inc.** — Michigan-based CNC machinery distributor & engineering solutions provider (serving manufacturers since 1987). Built for a **July 7, 2026** client presentation. No frameworks, no build tools.
+
+**Current stage: Wireframe.** Structural layout, real copy, and functional interactions are in place. Placeholder visuals (emoji icons, dashed-border image divs, logo placeholder) are intentional — they mark slots that will be upgraded to real design assets. The CSS token system is the bridge: wireframe values can be refined without touching component markup.
 
 ## Pages
 
@@ -95,6 +97,8 @@ Note: `slider.js` only on homepage (`index.html`). `filter.js` only on ES page.
 
 ## Current State & Known Placeholders
 
+**This is a wireframe.** Placeholders are intentional — they mark slots for design upgrades.
+
 | Item | Status |
 |------|--------|
 | Hero slider images | 3 placeholder slides |
@@ -102,12 +106,28 @@ Note: `slider.js` only on homepage (`index.html`). `filter.js` only on ES page.
 | Testimonial photo | Placeholder div |
 | News thumbnails | Placeholder divs |
 | Company logo | Dashed placeholder box |
+| UI icons | Emoji characters (⚙️ 🔧 🛠️ etc.) — wireframe markers, to be replaced with real SVG icons |
 | Many CTA links | `href="#"` — needs real URLs |
 | Second testimonial (ES page) | Placeholder text ("Testimonial Placeholder" / "Customer Name & Company") |
 | about.html, support.html | Stub pages, minimal content |
 | Social media links | `href="#"` |
 | Search functionality | Button exists, no search implementation |
 | Email signup form | No backend/action URL |
+| Dark mode | Not implemented — wireframe is light-only with dark accent sections |
+| Real images | None — all visual assets are placeholder divs pending client-provided photography |
+
+## Wireframe → Full Design Upgrade Path
+
+Priority order for upgrading from wireframe to finished design:
+
+1. **Real SVG icons** — Replace emoji placeholders (⚙️ 🔧 🛠️ 🏭 🤖) with Phosphor or Tabler SVG icons
+2. **Real images** — Generate or source hero photography, testimonial photo, news thumbnails, partner logos
+3. **Logo** — Replace dashed placeholder with actual Gerotech logo
+4. **Typography refinement** — Plus Jakarta Sans is solid; consider display weight tuning for hero headlines
+5. **Eyebrow/label reduction** — Audit and reduce section eyebrow labels (currently above the recommended cap)
+6. **Dark mode** — Add system-aware dark mode if needed for brand expression
+7. **CTA label standardization** — Ensure one label per intent across all pages
+8. **Reduced motion support** — Add `prefers-reduced-motion` check to animations.js
 
 ## Interactive Components
 
