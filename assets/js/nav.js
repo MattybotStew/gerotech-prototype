@@ -1,21 +1,22 @@
-(function () {
-  const header = document.querySelector('.site-header');
-  const alertBanner = document.querySelector('.alert-banner');
+window.initNav = function () {
+  var header = document.querySelector('.site-header');
+  var alertBanner = document.querySelector('.alert-banner');
+  if (!header) return;
 
   // ── Sticky scroll behavior ──────────────────────────────
   function updateSticky() {
-    const offset = alertBanner ? alertBanner.offsetHeight : 0;
+    var offset = alertBanner ? alertBanner.offsetHeight : 0;
     header.classList.toggle('is-sticky', window.scrollY > offset);
   }
   window.addEventListener('scroll', updateSticky, { passive: true });
   updateSticky();
 
   // ── Mobile toggle ───────────────────────────────────────
-  const mobileToggle = document.querySelector('.mobile-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
+  var mobileToggle = document.querySelector('.mobile-toggle');
+  var mobileNav = document.querySelector('.mobile-nav');
   if (mobileToggle && mobileNav) {
     mobileToggle.addEventListener('click', function () {
-      const isOpen = mobileNav.classList.toggle('is-open');
+      var isOpen = mobileNav.classList.toggle('is-open');
       mobileToggle.setAttribute('aria-expanded', String(isOpen));
     });
   }
@@ -28,4 +29,7 @@
       if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
     }
   });
-})();
+};
+
+// Try immediately — guard inside initNav handles missing header gracefully
+window.initNav();
