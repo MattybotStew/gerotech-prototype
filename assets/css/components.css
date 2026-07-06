@@ -1684,3 +1684,69 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Why Manufacturers Trust Gerotech — Accordion ───────────── */
+.trust-section {
+  background: var(--clr-gray-band);
+  padding: var(--sp-80) var(--sp-24);
+}
+.trust-section__inner {
+  max-width: var(--max-es);
+  margin: 0 auto;
+}
+.trust-section .section-header {
+  margin-bottom: var(--sp-48);
+}
+.trust-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+.trust-item {
+  border: 1.5px solid rgba(0,0,0,0.07);
+  border-radius: 16px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.trust-item[open] {
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.trust-item__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-16);
+  padding: var(--sp-20) var(--sp-24);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--clr-dark-bg);
+  user-select: none;
+}
+.trust-item__q::-webkit-details-marker { display: none; }
+.trust-item[open] .trust-item__q { color: var(--clr-orange); }
+.trust-item__icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--clr-orange);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.trust-item[open] .trust-item__icon { transform: rotate(45deg); }
+.trust-item__a {
+  padding: 0 var(--sp-24) var(--sp-24);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--clr-gray-body);
+  line-height: 1.7;
+}
