@@ -21,16 +21,26 @@ All 17 Figma comments from the client review have been implemented:
 - Detail pages updated: machine-custom-solutions, application, automation-integration heroes + card grids
 - Mega-nav updated with new category names and service lists
 
-### Blocked / Open Decisions
-1. Hero slides (#57) — content doc names 3 categories but no hero copy/images provided yet
-2. "Remove T" (#56) — unclear what T refers to; needs client clarification
-3. Highlight key info in slider (#45) — which info to highlight not specified
-4. Remove 3 homepage sections + Haas showcase (#50) — which 3 sections not confirmed
-5. CTA destination (#48) — pending client decision
-6. Wireframe sign-off from Rochelle/CEO — confirm status
-7. Training: own nav item vs. under Support dropdown
-8. FANUC badge usage rights — placeholder only
-9. Stat strip numbers — need real numbers from client
+### Project Timeline
+- July 10 — Gerotech wireframe feedback due ← NEXT
+- July 21 — CM presents Page Design
+- July 24 — Gerotech design feedback
+- August 4 — CM presents Design Revision
+- August 10 — Design Approval
+- August 11 — Development Begins (WordPress)
+
+### Confirmed on last call — awaiting deliverables
+1. **Testimonials** — Gerotech delivers real quotes by July 10
+2. **HAAS showcase** — CM to propose a homepage layout featuring HAAS more prominently
+3. **Contact/inquiry form** — client wants a general form option beyond "Get a Quote"; group email + form. CM to propose approach.
+4. **News CTA destination** — "Latest Projects & News" section link TBD
+
+### Still blocked — do not guess
+1. Automation and Controls Solutions extra content depth (PDF pages 4+) — content strategy TBD
+2. Training: own nav item vs. under Support dropdown
+3. FANUC badge usage rights — placeholder only
+4. Stat strip numbers — need real figures from client
+5. Hybrid vs. pure-tab URL structure for ES sub-pages
 
 ---
 
