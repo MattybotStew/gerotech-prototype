@@ -107,11 +107,14 @@ button { cursor: pointer; }
 
 /* ── News Section ─────────────────────────────────────────── */
 .news-section { background: var(--clr-gray-card); }
-.news-section__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-32);
-  align-items: start;
+.news-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+.news-section__more {
+  margin-top: var(--sp-32);
+  text-align: center;
 }
 
 /* ── ES Hero ──────────────────────────────────────────────── */
@@ -283,8 +286,13 @@ button { cursor: pointer; }
   .grid-4,
   .grid-6,
   .es-grid,
-  .news-section__grid,
   .partners-grid { grid-template-columns: 1fr; }
+
+  /* News list: stack thumb below content on mobile */
+  .news-card { flex-direction: column; }
+  .news-card__thumb { width: 100%; height: 160px; }
+
+  .slide__headline { font-size: 30px; }
 
   .why-section__inner,
   .capability-band__inner,

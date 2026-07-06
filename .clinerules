@@ -7,7 +7,17 @@
 
 **Last Updated:** 2026-07-06
 **Active Agent:** Claude Code
-**Last Commit:** f967ce1 — feat: restructure ES services to 3 categories per content doc
+**Last Commit:** see `git log` — latest work is on branch `claude/file-reading-19koen` (Figma design-review alignment)
+
+### Figma design review (file YgHwqyyFj57c1ZSbmfkL0c) — implemented
+- Hero slide 1: real copy from design (Training at Macomb Community College, "View Training Schedule" → training.html); expanded to 6 slides, slides 2–6 placeholders awaiting client copy
+- Intro cards: Machines/Solutions/Support → ES categories (Machine Custom Solutions / Applications / Automated Solutions) linking to detail pages, per HOME design node 6218:10
+- News section (homepage + ES): "Latest Projects & News from the Floor", vertical list layout, thumbnail on right, Show More button; CSS class `news-section__grid` renamed to `news-section__list`
+
+### Figma design review — deferred / needs clarification
+- Alert banner (32px top bar in all designs) — no copy yet, not implemented
+- Partners section — design still shows it, prototype removed it per comment #51 → conflicting, ask client
+- Detail pages: design shows 2-col card grid w/ images, dual CTAs ("Get Quote" + "Talk to an Engineer"), product gallery — hold for design phase
 
 ### Figma Comments — ALL DONE
 All 17 Figma comments from the client review have been implemented:
