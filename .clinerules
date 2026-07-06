@@ -5,22 +5,32 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-06 (restored from backup — update when you resume work)
-**Active Agent:** —
-**Last Known State:** July 7 client presentation completed
+**Last Updated:** 2026-07-06
+**Active Agent:** Claude Code
+**Last Commit:** f967ce1 — feat: restructure ES services to 3 categories per content doc
 
-### In Progress
-- (update when resuming)
+### Figma Comments — ALL DONE
+All 17 Figma comments from the client review have been implemented:
+- Partners section removed from homepage
+- "Take Action Now" eyebrow removed from all CTA bands
+- Testimonial carousel (3 slides, dot nav) on homepage + ES page
+- Stat strip redesigned: numbers in boxes
+- Section breathing room added
+- ES grid restructured to 3 categories: Machine Customization (9), Applications (6), Automation and Controls Solutions (6)
+- Category names updated site-wide per content doc (PDF from CloudMellow handoff)
+- Detail pages updated: machine-custom-solutions, application, automation-integration heroes + card grids
+- Mega-nav updated with new category names and service lists
 
 ### Blocked / Open Decisions
-1. Wireframe sign-off from Rochelle/CEO — was pending as of June 29; confirm status post-presentation
-2. Hybrid vs. pure-tab URL structure for ES sub-pages
-3. "Machine Customization" vs "Machine Custom Solutions" naming — placeholder, unconfirmed
-4. Training: own nav item vs. under Support dropdown
-5. FANUC badge usage rights — placeholder only, not real FANUC logo
-6. Final service count for Machine Customization category
-7. Showroom/Rotary Products — not in wireframe, needs client decision
-8. Stat strip number ("XX machines modified...") — needs real number from client
+1. Hero slides (#57) — content doc names 3 categories but no hero copy/images provided yet
+2. "Remove T" (#56) — unclear what T refers to; needs client clarification
+3. Highlight key info in slider (#45) — which info to highlight not specified
+4. Remove 3 homepage sections + Haas showcase (#50) — which 3 sections not confirmed
+5. CTA destination (#48) — pending client decision
+6. Wireframe sign-off from Rochelle/CEO — confirm status
+7. Training: own nav item vs. under Support dropdown
+8. FANUC badge usage rights — placeholder only
+9. Stat strip numbers — need real numbers from client
 
 ---
 
