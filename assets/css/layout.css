@@ -107,11 +107,10 @@ button { cursor: pointer; }
 
 /* ── News Section ─────────────────────────────────────────── */
 .news-section { background: var(--clr-gray-card); }
-.news-section__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-32);
-  align-items: start;
+.news-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
 }
 
 /* ── ES Hero ──────────────────────────────────────────────── */
@@ -283,7 +282,7 @@ button { cursor: pointer; }
   .grid-4,
   .grid-6,
   .es-grid,
-  .news-section__grid,
+  .news-section__list,
   .partners-grid { grid-template-columns: 1fr; }
 
   .why-section__inner,

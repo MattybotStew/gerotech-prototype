@@ -19,24 +19,45 @@
 
     <!-- ============================================================
          SECTION 3: Hero Slider
+         Slide 1 copy confirmed from Figma (6377:40). Slides 2–6 awaiting client copy.
          ============================================================ -->
     <section class="hero-slider" aria-label="Homepage hero carousel">
-      <div class="slide is-active" role="tabpanel" aria-label="Slide 1 of 3">
-        <div class="slide__placeholder">
-          <div class="slide__placeholder-label">Slide 1 — CNC Machinery</div>
-          <div class="slide__placeholder-sub">Image + headline placeholder</div>
+      <div class="slide is-active" role="tabpanel" aria-label="Slide 1 of 6">
+        <div class="slide__bg">Slide image — client-provided (training / showroom). Full-width.</div>
+        <div class="slide__content">
+          <h2 class="slide__headline">Gerotech Training is Back at Macomb Community College</h2>
+          <p class="slide__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
+          <a class="btn btn--primary" href="#">View Training Schedule</a>
         </div>
       </div>
-      <div class="slide" role="tabpanel" aria-label="Slide 2 of 3">
+      <div class="slide" role="tabpanel" aria-label="Slide 2 of 6">
         <div class="slide__placeholder">
-          <div class="slide__placeholder-label">Slide 2 — Engineered Solutions</div>
-          <div class="slide__placeholder-sub">Image + headline placeholder</div>
+          <div class="slide__placeholder-label">Slide 2 — Placeholder</div>
+          <div class="slide__placeholder-sub">Awaiting client copy</div>
         </div>
       </div>
-      <div class="slide" role="tabpanel" aria-label="Slide 3 of 3">
+      <div class="slide" role="tabpanel" aria-label="Slide 3 of 6">
         <div class="slide__placeholder">
-          <div class="slide__placeholder-label">Slide 3 — Support & Service</div>
-          <div class="slide__placeholder-sub">Image + headline placeholder</div>
+          <div class="slide__placeholder-label">Slide 3 — Placeholder</div>
+          <div class="slide__placeholder-sub">Awaiting client copy</div>
+        </div>
+      </div>
+      <div class="slide" role="tabpanel" aria-label="Slide 4 of 6">
+        <div class="slide__placeholder">
+          <div class="slide__placeholder-label">Slide 4 — Placeholder</div>
+          <div class="slide__placeholder-sub">Awaiting client copy</div>
+        </div>
+      </div>
+      <div class="slide" role="tabpanel" aria-label="Slide 5 of 6">
+        <div class="slide__placeholder">
+          <div class="slide__placeholder-label">Slide 5 — Placeholder</div>
+          <div class="slide__placeholder-sub">Awaiting client copy</div>
+        </div>
+      </div>
+      <div class="slide" role="tabpanel" aria-label="Slide 6 of 6">
+        <div class="slide__placeholder">
+          <div class="slide__placeholder-label">Slide 6 — Placeholder</div>
+          <div class="slide__placeholder-sub">Awaiting client copy</div>
         </div>
       </div>
 
@@ -46,6 +67,9 @@
         <button class="dot is-active" role="tab" aria-label="Go to slide 1"></button>
         <button class="dot" role="tab" aria-label="Go to slide 2"></button>
         <button class="dot" role="tab" aria-label="Go to slide 3"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 4"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 5"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 6"></button>
       </div>
     </section>
 
@@ -68,36 +92,34 @@
         </div>
 
         <div class="grid-3" style="margin-top: var(--sp-48);">
-          <!-- Card copy confirmed against live site per handoff Section 8 -->
+          <article class="category-card">
+            <div class="category-card__icon">🔩</div>
+            <h3 class="category-card__title">Machine Custom Solutions</h3>
+            <p class="category-card__body">
+              Column risers, auto doors, hydraulics, sheet metal modifications, custom workholding,
+              process engineering, and specialty builds tailored to your machine.
+            </p>
+            <a class="category-card__link" href="machine-custom-solutions.html">Explore →</a>
+          </article>
+
           <article class="category-card">
             <div class="category-card__icon">⚙️</div>
-            <h3 class="category-card__title">Machines</h3>
+            <h3 class="category-card__title">Applications</h3>
             <p class="category-card__body">
-              Our knowledgeable sales staff are able to help you choose the perfect machines for your
-              applications. From Mills to Lathes to robots, our experts have something for any application.
+              Part programming, process troubleshooting and optimization, tooling recommendations,
+              demo support, and operator training.
             </p>
-            <a class="category-card__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">Browse Machines ↗</a>
+            <a class="category-card__link" href="application.html">Explore →</a>
           </article>
 
           <article class="category-card">
-            <div class="category-card__icon">🔧</div>
-            <h3 class="category-card__title">Solutions</h3>
+            <div class="category-card__icon">🤖</div>
+            <h3 class="category-card__title">Automated Solutions</h3>
             <p class="category-card__body">
-              Gerotech offers fully engineered turnkey services for any of your custom manufacturing needs.
-              Our experts have years of experience solving unique problems. See what Gerotech can do for you!
+              Electrical controls, HMI design, layered controls, automation cell design, robot EOAT,
+              and pre-engineered automation packages.
             </p>
-            <a class="category-card__link" href="engineered-solutions.html">Explore Solutions →</a>
-          </article>
-
-          <article class="category-card">
-            <div class="category-card__icon">🛠️</div>
-            <h3 class="category-card__title">Support</h3>
-            <p class="category-card__body">
-              Our service department is staffed with factory-trained and certified personnel. Every one of
-              our technicians receives comprehensive training on a variety of topics, including new machine
-              installation, electrical and mechanical repair, ball bar testing, and software upgrades.
-            </p>
-            <a class="category-card__link" href="#">View Support Options →</a>
+            <a class="category-card__link" href="automation-integration.html">Explore →</a>
           </article>
         </div>
       </div>
@@ -254,11 +276,10 @@
       <div class="container">
         <div class="section-header">
           <p class="eyebrow">Stay Informed</p>
-          <h2 class="section-title">Latest Projects & News</h2>
+          <h2 class="section-title">Latest Projects &amp; News from the Floor</h2>
         </div>
-        <div class="news-section__grid">
+        <div class="news-section__list">
           <article class="news-card">
-            <div class="img-placeholder news-card__thumb">Thumb</div>
             <div class="news-card__content">
               <p class="news-card__meta">Project — June 2025</p>
               <h3 class="news-card__title">Automated Robotic Cell Delivered to Tier-1 Automotive Supplier</h3>
@@ -267,9 +288,9 @@
                 reducing cycle times by 38% for a major Michigan supplier.
               </p>
             </div>
+            <div class="img-placeholder news-card__thumb">Thumb</div>
           </article>
           <article class="news-card">
-            <div class="img-placeholder news-card__thumb">Thumb</div>
             <div class="news-card__content">
               <p class="news-card__meta">News — May 2025</p>
               <h3 class="news-card__title">Gerotech Expands Grand Rapids Service Territory</h3>
@@ -278,9 +299,9 @@
                 serving manufacturers across West Michigan.
               </p>
             </div>
+            <div class="img-placeholder news-card__thumb">Thumb</div>
           </article>
           <article class="news-card">
-            <div class="img-placeholder news-card__thumb">Thumb</div>
             <div class="news-card__content">
               <p class="news-card__meta">Project — April 2025</p>
               <h3 class="news-card__title">Hydraulic Workholding System Installed on Legacy Okuma</h3>
@@ -289,7 +310,11 @@
                 machining center, extending its productive life by years.
               </p>
             </div>
+            <div class="img-placeholder news-card__thumb">Thumb</div>
           </article>
+        </div>
+        <div style="margin-top: var(--sp-32);">
+          <a class="btn btn--outline-dark" href="#">Show More</a>
         </div>
       </div>
     </section>
