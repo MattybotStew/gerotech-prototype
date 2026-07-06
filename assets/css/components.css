@@ -65,6 +65,13 @@
   text-decoration: none;
   margin-right: auto;
 }
+.site-header__logo-text {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--clr-dark-bg);
+}
 .logo-placeholder {
   width: 140px;
   height: 40px;
