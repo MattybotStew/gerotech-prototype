@@ -104,57 +104,89 @@
     </section>
 
     <!-- ============================================================
-         SECTION 5: Partner Logo Row (12 logos)
-         Partner list per live site (13 live, Takamaz to be removed = 12)
-         ============================================================ -->
-    <section class="partners-section section--sm">
-      <div class="container">
-        <div class="section-header section-header--centered">
-          <p class="eyebrow">Proud to Represent</p>
-          <h2 class="section-title">World-Class Manufacturing Partners</h2>
-        </div>
-        <div class="partners-grid">
-          <!-- Live partner order: HAAS, Midaco, FANUC, OnRobot, Dynatect, Royal Products, Marposs, Tsudakoma, Alberti, Renishaw, Keyence, 5th Axis (Takamaz removed per handoff) -->
-          <div class="partner-logo">Partner 1</div>
-          <div class="partner-logo">Partner 2</div>
-          <div class="partner-logo">Partner 3</div>
-          <div class="partner-logo">Partner 4</div>
-          <div class="partner-logo">Partner 5</div>
-          <div class="partner-logo">Partner 6</div>
-          <div class="partner-logo">Partner 7</div>
-          <div class="partner-logo">Partner 8</div>
-          <div class="partner-logo">Partner 9</div>
-          <div class="partner-logo">Partner 10</div>
-          <div class="partner-logo">Partner 11</div>
-          <div class="partner-logo">Partner 12</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         SECTION 6: Testimonial Split
+         SECTION 6: Testimonial Carousel
          Quote confirmed real, live on site per handoff Section 8
          ============================================================ -->
-    <section class="testimonial-section section">
+    <section class="testimonial-section section" aria-label="Customer testimonials">
       <div class="container">
-        <div class="testimonial-split">
-          <div class="img-placeholder testimonial-split__photo img-placeholder--dark">
-            Photo — Michael Rudisill
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">What Customers Say</p>
+          <h2 class="section-title">Trusted by Michigan Manufacturers</h2>
+        </div>
+
+        <div class="testimonial-carousel" id="testimonial-carousel">
+          <div class="testimonial-carousel__track">
+
+            <article class="testimonial-carousel__slide is-active" role="tabpanel" aria-label="Testimonial 1 of 3">
+              <div class="testimonial-split">
+                <div class="img-placeholder testimonial-split__photo img-placeholder--dark">
+                  Photo — Michael Rudisill
+                </div>
+                <div class="testimonial-split__panel">
+                  <blockquote>
+                    <p class="testimonial-split__quote">
+                      I have never had such consistent, quality customer support from a company and an overall
+                      great experience. Every contact has been timely, there has been good communication, friendly
+                      service, and each time they are happy to educate me along the way and I walk away with more
+                      information and peace of mind than I had hoped for.
+                    </p>
+                    <footer>
+                      <p class="testimonial-split__name">Michael Rudisill</p>
+                      <p class="testimonial-split__title">Gerotech Customer</p>
+                    </footer>
+                  </blockquote>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-carousel__slide" role="tabpanel" aria-label="Testimonial 2 of 3">
+              <div class="testimonial-split">
+                <div class="img-placeholder testimonial-split__photo img-placeholder--dark">
+                  Photo — Placeholder
+                </div>
+                <div class="testimonial-split__panel">
+                  <blockquote>
+                    <p class="testimonial-split__quote">
+                      The Gerotech team understood exactly what we needed and delivered a solution that
+                      exceeded our expectations. The automation cell they designed has transformed our
+                      throughput and quality metrics. We couldn't be more satisfied.
+                    </p>
+                    <footer>
+                      <p class="testimonial-split__name">Testimonial Placeholder</p>
+                      <p class="testimonial-split__title">Customer Name &amp; Company</p>
+                    </footer>
+                  </blockquote>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-carousel__slide" role="tabpanel" aria-label="Testimonial 3 of 3">
+              <div class="testimonial-split">
+                <div class="img-placeholder testimonial-split__photo img-placeholder--dark">
+                  Photo — Placeholder
+                </div>
+                <div class="testimonial-split__panel">
+                  <blockquote>
+                    <p class="testimonial-split__quote">
+                      Working with Gerotech has been a game-changer for our facility. Their engineers
+                      came on-site, assessed our workflow, and built a custom solution that cut our
+                      setup time in half. Highly recommend their team.
+                    </p>
+                    <footer>
+                      <p class="testimonial-split__name">Testimonial Placeholder</p>
+                      <p class="testimonial-split__title">Customer Name &amp; Company</p>
+                    </footer>
+                  </blockquote>
+                </div>
+              </div>
+            </article>
+
           </div>
-          <div class="testimonial-split__panel">
-            <blockquote>
-              <p class="testimonial-split__quote">
-                I have never had such consistent, quality customer support from a company and an overall
-                great experience. Every contact has been timely, there has been good communication, friendly
-                service, and each time they are happy to educate me along the way and I walk away with more
-                information and peace of mind than I had hoped for.
-              </p>
-              <footer>
-                <p class="testimonial-split__name">Michael Rudisill</p>
-                <p class="testimonial-split__title">Gerotech Customer</p>
-              </footer>
-            </blockquote>
-            <a class="btn btn--outline-white" href="#">Learn More About Gerotech</a>
+
+          <div class="testimonial-carousel__dots" role="tablist" aria-label="Testimonial navigation">
+            <button class="testimonial-dot is-active" role="tab" aria-label="Go to testimonial 1"></button>
+            <button class="testimonial-dot" role="tab" aria-label="Go to testimonial 2"></button>
+            <button class="testimonial-dot" role="tab" aria-label="Go to testimonial 3"></button>
           </div>
         </div>
       </div>
@@ -214,7 +246,6 @@
     <section class="cta-band" aria-label="Call to action">
       <div class="cta-band__card">
         <div class="cta-band__copy">
-          <p class="eyebrow cta-band__eyebrow">Take Action Now</p>
           <h2 class="cta-band__headline">Put our engineers to work on your project</h2>
         </div>
         <a class="btn btn--primary btn--lg" href="#">Engage with us today</a>
@@ -252,5 +283,6 @@
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/slider.js"></script>
   <script src="assets/js/animations.js"></script>
+  <script src="assets/js/testimonials.js"></script>
 </body>
 </html>

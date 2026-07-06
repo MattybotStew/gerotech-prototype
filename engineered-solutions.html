@@ -340,36 +340,68 @@
           <p class="eyebrow">What Customers Say</p>
           <h2 class="section-title" id="testimonials-headline">Trusted by Michigan Manufacturers</h2>
         </div>
-        <div class="grid-2">
-          <article class="testimonial-card">
-            <blockquote>
-              <p class="testimonial-card__quote">
-                I have never had such consistent, quality customer support from a company and an
-                overall great experience. Every contact has been timely, there has been good
-                communication, friendly service, and each time they are happy to educate me along
-                the way and I walk away with more information and peace of mind than I had hoped for.
-              </p>
-              <footer>
-                <p class="testimonial-card__name">Michael Rudisill</p>
-                <p class="testimonial-card__sub">Gerotech Customer</p>
-              </footer>
-            </blockquote>
-          </article>
 
-          <article class="testimonial-card">
-            <blockquote>
-              <p class="testimonial-card__quote">
-                The Gerotech team understood exactly what we needed and delivered a solution that
-                exceeded our expectations. The automation cell they designed has transformed our
-                throughput and quality metrics. We couldn't be more satisfied.
-              </p>
-              <footer>
-                <p class="testimonial-card__name">Testimonial Placeholder</p>
-                <p class="testimonial-card__sub">Customer Name &amp; Company</p>
-              </footer>
-            </blockquote>
-          </article>
+        <div class="testimonial-carousel" id="es-testimonial-carousel">
+          <div class="testimonial-carousel__track testimonial-carousel__track--cards">
+
+            <article class="testimonial-carousel__slide is-active" role="tabpanel" aria-label="Testimonial 1 of 3">
+              <div class="testimonial-card">
+                <blockquote>
+                  <p class="testimonial-card__quote">
+                    I have never had such consistent, quality customer support from a company and an
+                    overall great experience. Every contact has been timely, there has been good
+                    communication, friendly service, and each time they are happy to educate me along
+                    the way and I walk away with more information and peace of mind than I had hoped for.
+                  </p>
+                  <footer>
+                    <p class="testimonial-card__name">Michael Rudisill</p>
+                    <p class="testimonial-card__sub">Gerotech Customer</p>
+                  </footer>
+                </blockquote>
+              </div>
+            </article>
+
+            <article class="testimonial-carousel__slide" role="tabpanel" aria-label="Testimonial 2 of 3">
+              <div class="testimonial-card">
+                <blockquote>
+                  <p class="testimonial-card__quote">
+                    The Gerotech team understood exactly what we needed and delivered a solution that
+                    exceeded our expectations. The automation cell they designed has transformed our
+                    throughput and quality metrics. We couldn't be more satisfied.
+                  </p>
+                  <footer>
+                    <p class="testimonial-card__name">Testimonial Placeholder</p>
+                    <p class="testimonial-card__sub">Customer Name &amp; Company</p>
+                  </footer>
+                </blockquote>
+              </div>
+            </article>
+
+            <article class="testimonial-carousel__slide" role="tabpanel" aria-label="Testimonial 3 of 3">
+              <div class="testimonial-card">
+                <blockquote>
+                  <p class="testimonial-card__quote">
+                    Working with Gerotech has been a game-changer for our facility. Their engineers
+                    came on-site, assessed our workflow, and built a custom solution that cut our
+                    setup time in half. Highly recommend their team.
+                  </p>
+                  <footer>
+                    <p class="testimonial-card__name">Testimonial Placeholder</p>
+                    <p class="testimonial-card__sub">Customer Name &amp; Company</p>
+                  </footer>
+                </blockquote>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="testimonial-carousel__dots" role="tablist" aria-label="Testimonial navigation">
+            <button class="testimonial-dot is-active" role="tab" aria-label="Go to testimonial 1"></button>
+            <button class="testimonial-dot" role="tab" aria-label="Go to testimonial 2"></button>
+            <button class="testimonial-dot" role="tab" aria-label="Go to testimonial 3"></button>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -426,7 +458,6 @@
     <section class="cta-band" aria-label="Call to action">
       <div class="cta-band__card">
         <div class="cta-band__copy">
-          <p class="eyebrow cta-band__eyebrow">Take Action Now</p>
           <h2 class="cta-band__headline">Ready to Engineer a Better Way to Manufacture?</h2>
         </div>
         <a class="btn btn--primary btn--lg" href="#">Get a Quote</a>
@@ -441,5 +472,6 @@
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/filter.js"></script>
   <script src="assets/js/animations.js"></script>
+  <script src="assets/js/testimonials.js"></script>
 </body>
 </html>

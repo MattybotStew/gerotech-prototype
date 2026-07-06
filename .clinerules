@@ -1,0 +1,64 @@
+# Gerotech Prototype — Shared Agent Rules
+# Read this before touching any file. Update after every change.
+
+---
+
+## Current Session State
+
+**Last Updated:** 2026-07-06 (restored from backup — update when you resume work)
+**Active Agent:** —
+**Last Known State:** July 7 client presentation completed
+
+### In Progress
+- (update when resuming)
+
+### Blocked / Open Decisions
+1. Wireframe sign-off from Rochelle/CEO — was pending as of June 29; confirm status post-presentation
+2. Hybrid vs. pure-tab URL structure for ES sub-pages
+3. "Machine Customization" vs "Machine Custom Solutions" naming — placeholder, unconfirmed
+4. Training: own nav item vs. under Support dropdown
+5. FANUC badge usage rights — placeholder only, not real FANUC logo
+6. Final service count for Machine Customization category
+7. Showroom/Rotary Products — not in wireframe, needs client decision
+8. Stat strip number ("XX machines modified...") — needs real number from client
+
+---
+
+## Who else is working on this codebase
+
+**Cline** and **Claude Code** both work on this codebase. Keep this file up-to-date so the other agent always knows current state before touching anything.
+
+---
+
+## Project Context
+
+- **Client:** Gerotech — Michigan CNC machinery distributor, Haas Factory Outlet, est. 1987
+- **Agency:** CloudMellow (Matt)
+- **This repo:** Static HTML/CSS/JS prototype (NOT the production build — final site will be WordPress)
+- **Post-presentation next step:** Incorporate Rochelle's feedback, then proceed toward design phase
+
+---
+
+## Tech Stack
+
+- Pure HTML5 / CSS3 (custom properties) / vanilla JS (ES6) — zero frameworks
+- Font: Plus Jakarta Sans (400/500/600/700/800) via Google Fonts
+- CSS load order: `assets/css/tokens.css` → `assets/css/components.css` → `assets/css/layout.css`
+- JS: `nav.js` (both pages), `slider.js` (homepage only), `filter.js` (ES page only), `animations.js` (both)
+
+## Key Brand Tokens
+- Orange: `#F38A2C` (`--clr-orange`)
+- Dark bg: `#1C1C21` (`--clr-dark-bg`)
+- Dark nav/footer: `#3A3A40` (`--clr-dark-nav`)
+- Max-width: 1200px (homepage) / 1120px (ES page)
+- Radii: buttons 8px, cards 18–20px, pills 99px
+
+---
+
+## What NOT To Do
+
+- Never replace `<div class="img-placeholder">` with real images until assets are confirmed
+- Never guess at open client decisions — use placeholder + HTML comment
+- Never use real FANUC logo — badge usage rights unconfirmed
+- Never change CSS load order
+- Never hardcode brand colors outside `tokens.css`

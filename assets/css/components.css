@@ -836,14 +836,18 @@
 .stat-pill {
   background: var(--clr-white);
   border: 1px solid var(--clr-gray-border);
-  border-radius: var(--radius-pill);
-  padding: var(--sp-20) var(--sp-32);
+  border-radius: var(--radius-card);
+  padding: var(--sp-32) var(--sp-32);
   text-align: center;
   box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-8);
 }
 .stat-pill__number {
   font-family: var(--font-sans);
-  font-size: 36px;
+  font-size: 42px;
   font-weight: var(--fw-extrabold);
   color: var(--clr-orange);
   margin: 0;
@@ -852,8 +856,10 @@
 .stat-pill__label {
   font-family: var(--font-sans);
   font-size: 13px;
+  font-weight: var(--fw-semibold);
   color: var(--clr-gray-body);
-  margin: var(--sp-4) 0 0;
+  margin: 0;
+  text-align: center;
 }
 
 /* ── FANUC / Credential Band ──────────────────────────────── */
@@ -1407,4 +1413,53 @@
 .mcs-gallery-card__status--blocked {
   background: #FCE8E8;
   color: #B03A3A;
+}
+
+/* ── Testimonial Carousel ─────────────────────────────────── */
+.testimonial-carousel {
+  position: relative;
+}
+.testimonial-carousel__track {
+  position: relative;
+}
+.testimonial-carousel__slide {
+  display: none;
+}
+.testimonial-carousel__slide.is-active {
+  display: block;
+}
+.testimonial-carousel__track--cards .testimonial-carousel__slide.is-active {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.testimonial-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-8);
+  margin-top: var(--sp-32);
+}
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--clr-gray-200);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.testimonial-dot.is-active {
+  background: var(--clr-orange);
+  transform: scale(1.2);
+}
+.testimonial-dot:hover:not(.is-active) {
+  background: var(--clr-gray-500);
+}
+
+/* ── Section spacing (#59) ────────────────────────────────── */
+.stat-strip + .es-grid-section {
+  padding-top: var(--sp-80);
+}
+.why-section + .stat-strip {
+  margin-top: var(--sp-48);
 }
