@@ -6,10 +6,10 @@
 ## Current Session State
 
 **Last Updated:** 2026-07-06
-**Active Agent:** Claude Code
+**Active Agent:** Cline (Claude Code was active earlier this session)
 **Last Commit:** d564578 — feat: replace intro category cards with Haas machine browse on homepage
 
-### What was completed this session
+### What was completed this session (Claude Code)
 - **Modal system** added to all 3 detail pages (machine-custom-solutions, application, automation-integration): `<template>`-based popups, `modal.js` IIFE, full CSS
 - **Automation & Controls Solutions modals** populated with real client PDF copy (Electrical Controls, HMI Design, Layered Controls, Automation Cell Design, Pre-Engineered Solutions — 5/6 cards)
 - **Machine Customization cards** restructured to match client doc: Machine Column Risers, Safety & Environmental Modifications, Sheet Metal Modifications, Auto Doors, Hydraulic–Pneumatics, Custom Workholding, Process Engineering, Specialty Machine
@@ -19,6 +19,17 @@
 - **Technology Partners section** removed from ES page
 - **Logo** changed from dashed placeholder to `GEROTECH` white wordmark text (`.site-header__logo-text`)
 - **Homepage Haas section**: removed 3 Engineered Solutions category cards; Haas machine grid (Vertical Mills, Turning Centers, 5-Axis, Automation) now sits directly below the Since 1987 intro text
+
+### What was completed this session (Cline)
+- **Footer mailing list signup form** added to `partials/site-footer.html` — inline email input + "Subscribe" button in Brand column (below social icons), with full CSS in `components.css`. Tracks FIGMA ORDER_ID#41 (Constant Contact discussion).
+- **CSS bug fix**: replaced undefined `--clr-gray-200` / `--clr-gray-500` with valid tokens in `.testimonial-dot`
+- **Automation & Controls Solutions modals fully populated** from client presentation (Slides 4-16) — 94-line file rewritten with `<details>` accordions for Electrical Controls (6 sections covering Concept & System Design, Electrical Engineering, Panel Build, PLC/HMI, Commissioning, Control Platforms), Layered Controls (3 sections — Layer 1/2/3 with full copy), Automation Cell Design (expanded), and Pre-Engineered Solutions (Standardized Software Design Methodology added). Modal accordion CSS added to `components.css`.
+
+### Figma comment threads processed
+- **ORDER_ID#41** (tbridges, re: Constant Contact mailing list automation): UI form added to footer. The backend Constant Contact integration is a WordPress concern — UI placeholder only in this static prototype.
+- **ORDER_ID#61** (Project Management, re: testimonial dots): Already implemented — 3-dot carousel nav on ES page with active/hover states.
+- **ORDER_ID#48** (tbridges, re: News CTA destination): Acknowledged. The "Show More" link destination for the News section is still under client discussion. No action in prototype yet.
+- **ORDER_ID#58** (Project Management, re: update cards from presentation): Now fully complete — all 3 detail page modals populated with presentation content.
 
 ### Project Timeline
 - July 10 — Gerotech wireframe feedback due ← NEXT
@@ -41,8 +52,8 @@
 ### Still blocked — do not guess
 1. Training: own nav item vs. under Support dropdown
 2. FANUC badge usage rights — badge is placeholder only
-3. News "Show More" destination URL
-4. Figma node 6462-427 has client comments that couldn't be read (MCP has no comments tool — user must share them manually)
+3. News "Show More" destination URL (FIGMA ORDER_ID#48 — under client discussion)
+4. Constant Contact API integration (FIGMA ORDER_ID#41 — WordPress concern, UI form is in place)
 
 ---
 

@@ -769,6 +769,49 @@
   transition: background var(--ease);
 }
 .social-icon:hover { background: var(--clr-orange); }
+/* Mailing list signup in footer (FIGMA ORDER_ID#41) */
+.site-footer__signup {
+  margin-top: var(--sp-20);
+}
+.site-footer__signup-label {
+  display: block;
+  font-size: 12px;
+  color: var(--clr-gray-muted);
+  margin-bottom: var(--sp-8);
+}
+.site-footer__signup-row {
+  display: flex;
+  gap: var(--sp-8);
+}
+.site-footer__signup-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-btn);
+  background: rgba(255,255,255,0.08);
+  color: var(--clr-white);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  outline: none;
+  transition: border-color var(--ease);
+}
+.site-footer__signup-input::placeholder { color: var(--clr-gray-muted); }
+.site-footer__signup-input:focus { border-color: var(--clr-orange); }
+.site-footer__signup-btn {
+  padding: 10px 18px;
+  background: var(--clr-orange);
+  color: var(--clr-white);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--ease);
+}
+.site-footer__signup-btn:hover { background: var(--clr-orange-light); }
 .site-footer__bottom {
   display: flex;
   align-items: center;
@@ -1504,6 +1547,49 @@
   gap: var(--sp-12);
   flex-wrap: wrap;
 }
+/* Modal accordion details (for Electrical Controls, Layered Controls, etc.) */
+.mcs-modal__detail details {
+  border: 1px solid var(--clr-gray-border);
+  border-radius: 10px;
+  margin-bottom: var(--sp-12);
+  overflow: hidden;
+}
+.mcs-modal__detail details summary {
+  padding: 14px var(--sp-16);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: var(--fw-bold);
+  color: var(--clr-dark-bg);
+  background: var(--clr-gray-card);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mcs-modal__detail details summary::-webkit-details-marker { display: none; }
+.mcs-modal__detail details summary::after {
+  content: '+';
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--clr-orange);
+  transition: transform 0.2s ease;
+}
+.mcs-modal__detail details[open] summary::after {
+  content: '−';
+  transform: rotate(0deg);
+}
+.mcs-modal__detail details p,
+.mcs-modal__detail details ul {
+  padding: var(--sp-12) var(--sp-16);
+}
+.mcs-modal__detail details ul {
+  margin: 0;
+  padding-left: var(--sp-32);
+}
+.mcs-modal__detail details p + p {
+  padding-top: 0;
+}
 
 /* ── MCS Product Gallery ────────────────────────────────────── */
 .mcs-gallery-section {
@@ -1594,7 +1680,7 @@
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: var(--clr-gray-200);
+  background: var(--clr-gray-border);
   cursor: pointer;
   padding: 0;
   transition: background 0.2s ease, transform 0.2s ease;
@@ -1604,7 +1690,7 @@
   transform: scale(1.2);
 }
 .testimonial-dot:hover:not(.is-active) {
-  background: var(--clr-gray-500);
+  background: var(--clr-gray-body);
 }
 
 /* ── Section spacing (#59) ────────────────────────────────── */
