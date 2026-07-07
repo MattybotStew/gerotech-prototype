@@ -7,19 +7,18 @@
 
 **Last Updated:** 2026-07-06
 **Active Agent:** Claude Code
-**Last Commit:** f967ce1 — feat: restructure ES services to 3 categories per content doc
+**Last Commit:** d564578 — feat: replace intro category cards with Haas machine browse on homepage
 
-### Figma Comments — ALL DONE
-All 17 Figma comments from the client review have been implemented:
-- Partners section removed from homepage
-- "Take Action Now" eyebrow removed from all CTA bands
-- Testimonial carousel (3 slides, dot nav) on homepage + ES page
-- Stat strip redesigned: numbers in boxes
-- Section breathing room added
-- ES grid restructured to 3 categories: Machine Customization (9), Applications (6), Automation and Controls Solutions (6)
-- Category names updated site-wide per content doc (PDF from CloudMellow handoff)
-- Detail pages updated: machine-custom-solutions, application, automation-integration heroes + card grids
-- Mega-nav updated with new category names and service lists
+### What was completed this session
+- **Modal system** added to all 3 detail pages (machine-custom-solutions, application, automation-integration): `<template>`-based popups, `modal.js` IIFE, full CSS
+- **Automation & Controls Solutions modals** populated with real client PDF copy (Electrical Controls, HMI Design, Layered Controls, Automation Cell Design, Pre-Engineered Solutions — 5/6 cards)
+- **Machine Customization cards** restructured to match client doc: Machine Column Risers, Safety & Environmental Modifications, Sheet Metal Modifications, Auto Doors, Hydraulic–Pneumatics, Custom Workholding, Process Engineering, Specialty Machine
+- **Stat strip** → `[XX]+` placeholder format (awaiting real numbers)
+- **Testimonials 2–3** → `[Testimonial quote — awaiting client copy]` placeholder on homepage + ES page
+- **"Why Manufacturers Trust Gerotech" accordion** added to ES page (5 placeholder Q&A items)
+- **Technology Partners section** removed from ES page
+- **Logo** changed from dashed placeholder to `GEROTECH` white wordmark text (`.site-header__logo-text`)
+- **Homepage Haas section**: removed 3 Engineered Solutions category cards; Haas machine grid (Vertical Mills, Turning Centers, 5-Axis, Automation) now sits directly below the Since 1987 intro text
 
 ### Project Timeline
 - July 10 — Gerotech wireframe feedback due ← NEXT
@@ -29,18 +28,21 @@ All 17 Figma comments from the client review have been implemented:
 - August 10 — Design Approval
 - August 11 — Development Begins (WordPress)
 
-### Confirmed on last call — awaiting deliverables
-1. **Testimonials** — Gerotech delivers real quotes by July 10
-2. **HAAS showcase** — CM to propose a homepage layout featuring HAAS more prominently
-3. **Contact/inquiry form** — client wants a general form option beyond "Get a Quote"; group email + form. CM to propose approach.
-4. **News CTA destination** — "Latest Projects & News" section link TBD
+### Awaiting client copy / assets
+1. **Testimonials 2–3** — real quotes, names, photos (due July 10)
+2. **Hero slides 2–6** — copy (due July 10)
+3. **Stat strip numbers** — real figures
+4. **"Why Manufacturers Trust Gerotech" accordion** — 5 Q&A items
+5. **Machine Customization modals** — 6 of 8 cards need copy (Safety & Environmental, Auto Doors, Hydraulic-Pneumatics, Custom Workholding, Process Engineering, Specialty Machine)
+6. **Applications modals** — all 6 cards need copy
+7. **Robot EOAT modal** — no copy in PDF
+8. **All `img-placeholder` elements** — awaiting real photos
 
 ### Still blocked — do not guess
-1. Automation and Controls Solutions extra content depth (PDF pages 4+) — content strategy TBD
-2. Training: own nav item vs. under Support dropdown
-3. FANUC badge usage rights — placeholder only
-4. Stat strip numbers — need real figures from client
-5. Hybrid vs. pure-tab URL structure for ES sub-pages
+1. Training: own nav item vs. under Support dropdown
+2. FANUC badge usage rights — badge is placeholder only
+3. News "Show More" destination URL
+4. Figma node 6462-427 has client comments that couldn't be read (MCP has no comments tool — user must share them manually)
 
 ---
 
