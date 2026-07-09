@@ -21,6 +21,15 @@ window.initNav = function () {
     });
   }
 
+  // ── Escape closes any open dropdown / mega menu ────────
+  // Menus open via :hover / :focus-within, so blurring the
+  // focused link is enough to dismiss them for keyboard users.
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.activeElement && header.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
+  });
+
   // ── Close mobile nav on outside click ──────────────────
   document.addEventListener('click', function (e) {
     if (!mobileNav) return;

@@ -86,9 +86,17 @@
 }
 
 /* Nav links */
+/* the <nav> wrapper is the header's flex item — it must stretch too,
+   or the taller hover zone below never reaches the list items */
+.site-header__inner > nav {
+  display: flex;
+  align-self: stretch;
+}
 .site-nav {
   display: flex;
-  align-items: center;
+  /* items stretch to full header height so dropdown hover isn't lost
+     in the gap between a link and its panel */
+  align-items: stretch;
   gap: var(--sp-4);
   list-style: none;
   margin: 0;
@@ -96,6 +104,8 @@
 }
 .site-nav__item {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .site-nav__link {
   display: flex;
@@ -1295,6 +1305,146 @@
   transition: background var(--ease);
 }
 .mega-nav__cta-btn:hover { background: var(--clr-orange-light); }
+
+/* ── Mega Nav — Machines (Haas catalog) ──────────────────── */
+/* The li is static so the panel anchors to .site-header (sticky = positioned),
+   letting it center on the full header width instead of the nav item.
+   Safari mispositions position:fixed with top:auto inside sticky headers,
+   so absolute-to-header is the only cross-browser option here. */
+.has-mega--machines { position: static; }
+.mega-nav--machines {
+  /* top overlaps the header's 16px bottom padding; the transparent
+     padding-top bridges it so hover isn't lost on the way down */
+  top: calc(100% - 16px);
+  left: 50%;
+  width: min(1080px, calc(100vw - 48px));
+  padding: 16px 0 0;
+}
+.mega-nav__inner--machines {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 var(--sp-32);
+  padding: var(--sp-32) var(--sp-32) var(--sp-20);
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+}
+.mega-nav__machine-group {
+  margin-bottom: var(--sp-24);
+}
+.mega-nav__machine-group:last-child { margin-bottom: 0; }
+.mega-nav__machine-title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--fw-extrabold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-ink);
+  margin: 0 0 var(--sp-8);
+  padding: 0 var(--sp-8) var(--sp-8);
+  position: relative;
+}
+.mega-nav__machine-title::after {
+  content: '';
+  position: absolute;
+  left: var(--sp-8);
+  bottom: 0;
+  width: 28px;
+  height: 2px;
+  background: var(--clr-orange);
+}
+.mega-nav__machine-link {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  color: var(--clr-gray-body);
+  text-decoration: none;
+  padding: 5px var(--sp-8);
+  border-radius: 6px;
+  transition: background var(--ease), color var(--ease);
+}
+.mega-nav__machine-link:hover {
+  background: rgba(243,138,44,0.08);
+  color: var(--clr-orange);
+}
+.mega-nav__machine-help {
+  background: var(--clr-dark-bg);
+  border-radius: var(--radius-card);
+  padding: var(--sp-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+  margin-top: var(--sp-24);
+}
+.mega-nav__machine-help-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  color: var(--clr-white);
+  line-height: 1.4;
+  margin: 0;
+}
+.mega-nav__machines-footer {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--clr-gray-border);
+  margin-top: var(--sp-20);
+  padding-top: var(--sp-16);
+  display: flex;
+  justify-content: center;
+}
+.mega-nav__machines-footer-link {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-orange);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+.mega-nav__machines-footer-link:hover {
+  color: var(--clr-orange-light);
+  text-decoration: underline;
+}
+
+/* Mobile nav — collapsible Machines group */
+.mobile-nav__group {
+  width: 100%;
+}
+.mobile-nav__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+}
+.mobile-nav__summary::-webkit-details-marker { display: none; }
+.mobile-nav__summary .arrow {
+  font-size: 10px;
+  opacity: 0.6;
+  transition: transform var(--ease);
+}
+.mobile-nav__group[open] .mobile-nav__summary .arrow {
+  transform: rotate(180deg);
+}
+.mobile-nav__sublinks {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-4) 0 var(--sp-12) var(--sp-16);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-nav__sublink {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  padding: var(--sp-8) 0;
+  transition: color var(--ease);
+}
+.mobile-nav__sublink:hover {
+  color: var(--clr-orange-light);
+}
+.mobile-nav__sublink--external {
+  color: var(--clr-orange);
+}
 
 /* ── MCS Detail Page Hero ────────────────────────────────────── */
 .mcs-hero {

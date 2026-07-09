@@ -25,10 +25,105 @@
 
       <nav aria-label="Main navigation">
         <ul class="site-nav">
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">
-              Machines <span aria-hidden="true">↗</span>
+          <li class="site-nav__item has-mega has-mega--machines">
+            <a class="site-nav__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer" aria-haspopup="true">
+              Machines <span class="arrow" aria-hidden="true">▼</span>
             </a>
+            <!-- TODO: machine category/model links pending — hrefs are "#" placeholders -->
+            <div class="mega-nav mega-nav--machines" role="menu" aria-label="Machines menu">
+              <div class="mega-nav__inner mega-nav__inner--machines">
+
+                <!-- Col 1 -->
+                <div class="mega-nav__machine-group">
+                  <p class="mega-nav__machine-title">Vertical Mills</p>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">VF Series</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Universal Machines</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">VR Series</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">VP-5 Prismatic</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Pallet-Changing VMCs</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Mini Mills</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Mold Machines</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">High-Speed Drill Centers</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Drill/Tap/Mill Series</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Toolroom Mills</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Pocket Mill</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Compact Mills</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Gantry Series</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">SR Sheet Routers</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Extra-Large VMC</a>
+                  <a class="mega-nav__machine-link" href="#" role="menuitem">Double-Column Mills</a>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                  <div class="mega-nav__machine-group">
+                    <p class="mega-nav__machine-title">Lathes</p>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">ST Series</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Dual-Spindle</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Box Way Series</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Toolroom Lathes</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Chucker Lathe</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Haas Bar Feeders</a>
+                  </div>
+                  <div class="mega-nav__machine-group">
+                    <p class="mega-nav__machine-title">Rotaries &amp; Indexers</p>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Rotary Tables</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Indexers</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">5-Axis Rotaries</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Extra-Large Rotaries</a>
+                  </div>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                  <div class="mega-nav__machine-group">
+                    <p class="mega-nav__machine-title">Horizontal Mills</p>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">50-Taper</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">40-Taper</a>
+                  </div>
+                  <div class="mega-nav__machine-group">
+                    <p class="mega-nav__machine-title">Automation Systems</p>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Mill Automation</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Lathe Automation</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Automatic Parts Loaders</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Automation Models</a>
+                  </div>
+                  <div class="mega-nav__machine-group">
+                    <p class="mega-nav__machine-title">Desktop Machines</p>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Desktop Mill</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Desktop Lathe</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Control Simulator, Standard</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Control Simulator, Premium</a>
+                  </div>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                  <div class="mega-nav__machine-group">
+                    <p class="mega-nav__machine-title">Shop Equipment</p>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Knee Mill</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Haas Manual Lathes</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Haas Saws</a>
+                  </div>
+                  <div class="mega-nav__machine-group">
+                    <p class="mega-nav__machine-title">Fabrication Machines</p>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">Laser Cutting Machines</a>
+                    <a class="mega-nav__machine-link" href="#" role="menuitem">CNC Press Brakes</a>
+                  </div>
+                  <div class="mega-nav__machine-help">
+                    <p class="mega-nav__machine-help-title">Not sure which machine fits your job?</p>
+                    <a class="mega-nav__cta-btn" href="engineered-solutions.html">Talk to an Engineer →</a>
+                  </div>
+                </div>
+
+                <div class="mega-nav__machines-footer">
+                  <a class="mega-nav__machines-footer-link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">
+                    Browse the full Haas catalog <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+              </div><!-- /.mega-nav__inner -->
+            </div>
           </li>
           <li class="site-nav__item has-mega">
             <a class="site-nav__link" href="engineered-solutions.html">
@@ -124,7 +219,21 @@
     </div>
 
     <nav class="mobile-nav" aria-label="Mobile navigation">
-      <a class="mobile-nav__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">Machines ↗</a>
+      <details class="mobile-nav__group">
+        <summary class="mobile-nav__link mobile-nav__summary">Machines <span class="arrow" aria-hidden="true">▼</span></summary>
+        <div class="mobile-nav__sublinks">
+          <!-- TODO: machine category links pending — hrefs are "#" placeholders -->
+          <a class="mobile-nav__sublink" href="#">Vertical Mills</a>
+          <a class="mobile-nav__sublink" href="#">Lathes</a>
+          <a class="mobile-nav__sublink" href="#">Horizontal Mills</a>
+          <a class="mobile-nav__sublink" href="#">Rotaries &amp; Indexers</a>
+          <a class="mobile-nav__sublink" href="#">Automation Systems</a>
+          <a class="mobile-nav__sublink" href="#">Desktop Machines</a>
+          <a class="mobile-nav__sublink" href="#">Shop Equipment</a>
+          <a class="mobile-nav__sublink" href="#">Fabrication Machines</a>
+          <a class="mobile-nav__sublink mobile-nav__sublink--external" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">Full Haas Catalog ↗</a>
+        </div>
+      </details>
       <a class="mobile-nav__link" href="engineered-solutions.html">Engineered Solutions</a>
       <a class="mobile-nav__link" href="training.html">Training</a>
       <a class="mobile-nav__link" href="support.html">Support</a>

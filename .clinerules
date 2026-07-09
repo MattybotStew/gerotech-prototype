@@ -5,9 +5,17 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-06
-**Active Agent:** Cline (Claude Code was active earlier this session)
-**Last Commit:** d564578 — feat: replace intro category cards with Haas machine browse on homepage
+**Last Updated:** 2026-07-09
+**Active Agent:** Claude Code
+**Last Commit:** 45d2052 — Adopt agent-agnostic setup: AGENTS.md canonical, add shared session journal
+
+### What was completed 2026-07-09 (Claude Code)
+- **Machines mega dropdown** added to header nav (`partials/site-header.html`): full Haas catalog — 8 categories, 41 model links (Vertical Mills, Lathes, Horizontal Mills, Rotaries & Indexers, Automation Systems, Desktop Machines, Shop Equipment, Fabrication Machines). All model links are `href="#"` placeholders — **Matt will add real URLs later** (TODO comments in partial). Panel includes "Talk to an Engineer" CTA card + "Browse the full Haas catalog ↗" footer link.
+- CSS: new `.mega-nav--machines` section in `components.css` — panel anchors absolutely to the sticky `.site-header` (li is `position: static`), viewport-centered at min(1080px, 100vw-48px), 4-col grid, orange-rule category titles, scrolls on short viewports. **Do not switch it to `position: fixed; top: auto`** — Safari mispositions that inside sticky headers when scrolled.
+- Nav hover fix: `.site-header__inner > nav`, `.site-nav`, and `.site-nav__item` now stretch to full header height so hover isn't lost traversing from a link into its dropdown panel (verified WebKit + Chromium via Playwright).
+- **Mobile nav**: "Machines ↗" flat link replaced with `<details>` accordion (8 category links + Full Haas Catalog external link).
+- **nav.js**: Escape key now closes any open dropdown/mega menu (blurs focused link).
+- Verified via Playwright at 1440px and 390px.
 
 ### What was completed this session (Claude Code)
 - **Modal system** added to all 3 detail pages (machine-custom-solutions, application, automation-integration): `<template>`-based popups, `modal.js` IIFE, full CSS
@@ -48,6 +56,7 @@
 6. **Applications modals** — all 6 cards need copy
 7. **Robot EOAT modal** — no copy in PDF
 8. **All `img-placeholder` elements** — awaiting real photos
+9. **Machines mega-menu link URLs** — all 41 model links are `#` placeholders (Matt to supply destinations)
 
 ### Still blocked — do not guess
 1. Training: own nav item vs. under Support dropdown
