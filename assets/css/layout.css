@@ -31,6 +31,8 @@ button { cursor: pointer; }
 }
 .section--sm { padding: var(--sp-48) var(--sp-24); }
 .section--lg { padding: var(--sp-120) var(--sp-24); }
+.section--white { background: var(--clr-white); }
+.section--gray { background: var(--clr-gray-card); }
 
 /* ── Section Headers ──────────────────────────────────────── */
 .section-header {
@@ -56,6 +58,7 @@ button { cursor: pointer; }
   max-width: 640px;
 }
 .section-body--centered { margin-left: auto; margin-right: auto; }
+.section-body--spaced { margin-bottom: var(--sp-32); }
 
 /* ── Grid Utilities ───────────────────────────────────────── */
 .grid-3 {
@@ -67,6 +70,13 @@ button { cursor: pointer; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--sp-24);
+}
+.grid-2--split {
+  gap: var(--sp-64);
+  align-items: center;
+}
+.grid--offset-top {
+  margin-top: var(--sp-48);
 }
 .grid-4 {
   display: grid;
@@ -135,6 +145,11 @@ button { cursor: pointer; }
 .intro-section__image {
   width: 100%;
 }
+.intro-section__image img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+}
 .intro-section__machines {
   margin-top: 88px;
 }
@@ -179,6 +194,9 @@ button { cursor: pointer; }
   background: var(--clr-dark-bg);
   padding: var(--sp-96) var(--sp-24);
   text-align: center;
+}
+.es-hero--compact {
+  padding: var(--sp-80) var(--sp-24);
 }
 .es-hero__headline {
   font-family: var(--font-display);

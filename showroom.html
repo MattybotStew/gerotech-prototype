@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerotech — Showroom Layout</title>
+  <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <style>
+    /* ── Showroom-specific styles ──────────────────────────── */
+
+    /* Full-bleed machine showcase — 3 machines with dark overlay labels */
+    .showcase-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .showcase-strip__item {
+      position: relative;
+      overflow: hidden;
+      height: 420px;
+    }
+    .showcase-strip__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .showcase-strip__item:hover img {
+      transform: scale(1.06);
+    }
+    .showcase-strip__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,13,13,0.15) 0%, rgba(13,13,13,0.55) 70%, rgba(13,13,13,0.85) 100%);
+      pointer-events: none;
+    }
+    .showcase-strip__label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .showcase-strip__label .eyebrow {
+      color: var(--clr-orange-light);
+    }
+    .showcase-strip__label h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-h3);
+      letter-spacing: var(--ls-h3);
+      font-weight: var(--fw-bold);
+      color: var(--clr-white);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .showcase-strip__label p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .showcase-strip {
+        grid-template-columns: 1fr;
+      }
+      .showcase-strip__item {
+        height: 300px;
+      }
+    }
+
+    /* Stats bar — dark band with large numbers */
+    .stats-bar {
+      background: var(--clr-ink);
+      padding: 56px var(--sp-24);
+    }
+    .stats-bar__inner {
+      max-width: var(--max-home);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      gap: var(--sp-32);
+      text-align: center;
+      flex-wrap: wrap;
+    }
+    .stats-bar__stat {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .stats-bar__number {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: var(--fw-bold);
+      color: var(--clr-orange);
+      line-height: 1;
+    }
+    .stats-bar__label {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--clr-gray-muted);
+    }
+
+    /* Full-width testimonial banner */
+    .testimonial-banner {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonial-banner__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .testimonial-banner__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,13,13,0.78) 0%, rgba(13,13,13,0.65) 50%, rgba(28,28,33,0.82) 100%);
+      pointer-events: none;
+    }
+    .testimonial-banner__content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .testimonial-banner__quote {
+      font-family: var(--font-display);
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-bold);
+      color: var(--clr-white);
+      line-height: var(--lh-h2);
+      letter-spacing: var(--ls-h2);
+      text-wrap: balance;
+      margin: 0 0 var(--sp-24);
+    }
+    .testimonial-banner__name {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: var(--fw-bold);
+      color: var(--clr-orange);
+      margin: 0;
+    }
+    .testimonial-banner__title {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--clr-gray-muted);
+      margin: var(--sp-4) 0 0;
+    }
+    @media (max-width: 768px) {
+      .testimonial-banner { min-height: 400px; }
+      .testimonial-banner__content { padding: 56px 24px; }
+    }
+
+    /* Horizontal news row */
+    .news-row {
+      padding: 88px var(--sp-24);
+      background: var(--clr-white);
+    }
+    .news-row__inner {
+      max-width: var(--max-home);
+      margin: 0 auto;
+    }
+    .news-row .section-header {
+      margin-bottom: var(--sp-40);
+    }
+    .news-row__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-24);
+    }
+    .news-row__card {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-gray-border);
+      border-radius: 0;
+      overflow: hidden;
+      transition: box-shadow var(--ease), transform var(--ease);
+    }
+    .news-row__card:hover {
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-2px);
+    }
+    .news-row__card img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .news-row__card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-8);
+    }
+    .news-row__card-body .news-card__meta {
+      font-size: 11px;
+    }
+    .news-row__card-body .news-card__title {
+      font-size: 17px;
+    }
+    @media (max-width: 1024px) {
+      .news-row__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .news-row__grid { grid-template-columns: 1fr; }
+    }
+
+    /* Bottom CTA — dark band with outline button alternative */
+    .cta-band--showroom {
+      background: var(--clr-ink);
+      padding: 64px var(--sp-24);
+      text-align: center;
+    }
+    .cta-band--showroom .cta-band__headline--photo {
+      margin-bottom: var(--sp-24);
+      font-size: var(--fs-h2);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-band--showroom .btn--lg {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div data-include="partials/site-header.html"></div>
+
+  <main>
+
+    <!-- ============================================================
+         HERO — Left-aligned full-bleed (same as current)
+         ============================================================ -->
+    <section class="hero-slider" aria-label="Homepage hero carousel">
+      <div class="hero-slider__track">
+        <div class="slide is-active" role="tabpanel" aria-label="Slide 1 of 4">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop" alt="Training and showroom" loading="eager" fetchpriority="high" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Complimentary Training</p>
+            <h1 class="slide__headline">Gerotech Training is Back at Macomb Community College</h1>
+            <p class="slide__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
+            <a class="btn btn--primary" href="#">View Training Schedule</a>
+          </div>
+        </div>
+        <div class="slide" role="tabpanel" aria-label="Slide 2 of 4">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1711418235199-171c8ecb9d12?q=80&w=1920&auto=format&fit=crop" alt="Manufacturing facility" loading="lazy" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">CNC Machinery</p>
+            <h2 class="slide__headline">Michigan's Largest Haas Factory Outlet</h2>
+            <p class="slide__body">Full inventory of Haas CNC mills, lathes, 5-axis machines, and automation systems — ready for demo at our Flat Rock showroom.</p>
+            <a class="btn btn--primary" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">Browse Machines ↗</a>
+          </div>
+        </div>
+        <div class="slide" role="tabpanel" aria-label="Slide 3 of 4">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining" loading="lazy" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Engineered Solutions</p>
+            <h2 class="slide__headline">Custom Turnkey Systems — Designed, Built, Installed</h2>
+            <p class="slide__body">From column risers to full automation cells, our in-house engineering team delivers solutions tailored to your production floor.</p>
+            <a class="btn btn--primary" href="engineered-solutions.html">Explore Solutions</a>
+          </div>
+        </div>
+        <div class="slide" role="tabpanel" aria-label="Slide 4 of 4">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=1920&auto=format&fit=crop" alt="Automation" loading="lazy" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Automation & Robotics</p>
+            <h2 class="slide__headline">FANUC-Certified Automation Integrators</h2>
+            <p class="slide__body">Collaborative robots, pallet changers, and fully integrated cells that keep your spindles turning 24/7.</p>
+            <a class="btn btn--primary" href="automation-integration.html">See Automation Capabilities</a>
+          </div>
+        </div>
+      </div>
+      <button class="slider-arrow slider-arrow--prev" aria-label="Previous slide">←</button>
+      <button class="slider-arrow slider-arrow--next" aria-label="Next slide">→</button>
+      <div class="slider-dots" role="tablist" aria-label="Slide navigation">
+        <button class="dot is-active" role="tab" aria-label="Go to slide 1"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 2"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 3"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 4"></button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MACHINE SHOWCASE — 3 full-bleed images, hardware first
+         ============================================================ -->
+    <section class="showcase-strip" aria-label="Machine categories">
+      <div class="showcase-strip__item">
+        <img src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=900&auto=format&fit=crop" alt="CNC Machining Centers" loading="lazy" />
+        <div class="showcase-strip__overlay" aria-hidden="true"></div>
+        <div class="showcase-strip__label">
+          <p class="eyebrow">Machining Centers</p>
+          <h3>Vertical Mills & 5-Axis</h3>
+          <p>VF Series, UMC Series, Mini Mills, and more</p>
+        </div>
+      </div>
+      <div class="showcase-strip__item">
+        <img src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=900&auto=format&fit=crop" alt="CNC Turning Centers" loading="lazy" />
+        <div class="showcase-strip__overlay" aria-hidden="true"></div>
+        <div class="showcase-strip__label">
+          <p class="eyebrow">Turning Centers</p>
+          <h3>CNC Lathes</h3>
+          <p>ST Series, TL Series, DS, Toolroom Lathe</p>
+        </div>
+      </div>
+      <div class="showcase-strip__item">
+        <img src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=900&auto=format&fit=crop" alt="Automation and robotics" loading="lazy" />
+        <div class="showcase-strip__overlay" aria-hidden="true"></div>
+        <div class="showcase-strip__label">
+          <p class="eyebrow">Automation</p>
+          <h3>Pallet & Robot Systems</h3>
+          <p>FANUC Robots, Pallet Changers, Cobots</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STATS BAR — numbers over dark band
+         ============================================================ -->
+    <section class="stats-bar" aria-label="By the numbers">
+      <div class="stats-bar__inner">
+        <div class="stats-bar__stat">
+          <div class="stats-bar__number">1987</div>
+          <div class="stats-bar__label">Founded</div>
+        </div>
+        <div class="stats-bar__stat">
+          <div class="stats-bar__number">3</div>
+          <div class="stats-bar__label">Michigan Locations</div>
+        </div>
+        <div class="stats-bar__stat">
+          <div class="stats-bar__number">500+</div>
+          <div class="stats-bar__label">Machines Sold</div>
+        </div>
+        <div class="stats-bar__stat">
+          <div class="stats-bar__number">24/7</div>
+          <div class="stats-bar__label">Service & Support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         "SINCE 1987" INTRO — text block, no image
+         ============================================================ -->
+    <section class="intro-section" style="padding-bottom: 88px;">
+      <div class="container" style="max-width: 780px; text-align: center;">
+        <div class="intro-section__since" style="justify-content: center;">
+          <span class="intro-section__rule" aria-hidden="true"></span>
+          <span class="intro-section__since-label">Since 1987</span>
+        </div>
+        <h2 class="intro-section__headline" style="margin: 0 auto var(--sp-20);">Michigan's Premier Distributor for CNC Machinery, Robotics, and Engineered Turnkey Solutions</h2>
+        <p class="intro-section__body" style="margin: 0 auto var(--sp-32); max-width: 680px;">
+          Since 1987, Gerotech has sold CNC Machinery and Engineered Turnkey Solutions to manufacturers
+          worldwide. We have sold Mills, Lathes, 5-Axis Machines along with Industrial and Collaborative
+          Robotic Solutions. We do it through people who listen, respond, build, deliver, and support as
+          committed partners in order to transform your manufacturing challenges into competitive advantages.
+        </p>
+        <a class="btn btn--outline-dark" href="#">Learn About Gerotech</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIAL BANNER — full-width quote over dark image
+         ============================================================ -->
+    <section class="testimonial-banner" aria-label="Testimonial">
+      <img class="testimonial-banner__bg" src="https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?q=80&w=1920&auto=format&fit=crop" alt="Gerotech facility" loading="lazy" />
+      <div class="testimonial-banner__overlay" aria-hidden="true"></div>
+      <div class="testimonial-banner__content">
+        <p class="eyebrow" style="color: var(--clr-orange-light);">What Our Customers Say</p>
+        <blockquote style="margin: 0;">
+          <p class="testimonial-banner__quote">"I have never had such consistent, quality customer support from a company and an overall great experience."</p>
+        </blockquote>
+        <p class="testimonial-banner__name">Michael Rudisill</p>
+        <p class="testimonial-banner__title">Gerotech Customer</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         NEWS ROW — horizontal card grid, 3 columns
+         ============================================================ -->
+    <section class="news-row" aria-label="Latest news">
+      <div class="news-row__inner">
+        <div class="section-header">
+          <p class="eyebrow">Stay Informed</p>
+          <h2 class="section-title">Latest Projects & News from the Floor</h2>
+        </div>
+        <div class="news-row__grid">
+          <article class="news-row__card">
+            <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=600&auto=format&fit=crop" alt="Robotic cell" loading="lazy" />
+            <div class="news-row__card-body">
+              <p class="news-card__meta">Project — June 2025</p>
+              <h3 class="news-card__title">Automated Robotic Cell Delivered to Tier-1 Automotive Supplier</h3>
+              <p class="news-card__excerpt">Gerotech engineers designed and integrated a complete FANUC robotic automation cell, reducing cycle times by 38%.</p>
+            </div>
+          </article>
+          <article class="news-row__card">
+            <img src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?q=80&w=600&auto=format&fit=crop" alt="Service team" loading="lazy" />
+            <div class="news-row__card-body">
+              <p class="news-card__meta">News — May 2025</p>
+              <h3 class="news-card__title">Gerotech Expands Grand Rapids Service Territory</h3>
+              <p class="news-card__excerpt">Our Grand Rapids office is now fully staffed with factory-trained service technicians.</p>
+            </div>
+          </article>
+          <article class="news-row__card">
+            <img src="https://images.unsplash.com/photo-1711418235334-8895331a6cf9?q=80&w=600&auto=format&fit=crop" alt="Retrofit project" loading="lazy" />
+            <div class="news-row__card-body">
+              <p class="news-card__meta">Project — April 2025</p>
+              <h3 class="news-card__title">Hydraulic Workholding System Installed on Legacy Okuma</h3>
+              <p class="news-card__excerpt">A custom hydraulic workholding and auto-door system breathed new life into a legacy machining center.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BAND — dark with orange button, centered
+         ============================================================ -->
+    <section class="cta-band--showroom" aria-label="Call to action">
+      <h2 class="cta-band__headline cta-band__headline--photo">Put our engineers to work on your project</h2>
+      <a class="btn btn--primary btn--lg" href="#">Engage with us today</a>
+    </section>
+
+    <!-- ============================================================
+         EMAIL SIGNUP — same as current
+         ============================================================ -->
+    <section class="email-signup" aria-label="Mailing list signup">
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Stay in the Loop</h2>
+          <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate>
+          <label for="email-input" class="sr-only">Email address</label>
+          <input class="email-signup__input" id="email-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <button class="email-signup__submit" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-include="partials/site-footer.html"></div>
+
+  <script src="assets/js/include-partials.js"></script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/slider.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

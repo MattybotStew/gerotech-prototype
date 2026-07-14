@@ -5,52 +5,91 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-13
+**Last Updated:** 2026-07-14
 **Active Agent:** Claude Code
-**Last Commit:** 7aacb46 — (awaiting commit of Figma redesign update + .dc.html alignment)
+**Last Commit:** 5ec038f — Hero variant 3 + tabbed machine panels + photo CTA
 
-### What was completed 2026-07-13 (Claude Code — Whole-site design improvement pass)
-Approved plan executed across all 9 pages (see JOURNAL for detail):
-- **Fonts fixed site-wide:** all 8 subpages were loading dead Plus Jakarta Sans and rendering fallback sans-serif; now load the Typekit Navigo kit like index.html.
-- **Design language unified:** squared `.mcs-card`/`.mcs-gallery-card`/`.service-card`/`.category-card`/`.stat-pill`/`.testimonial-card` (radius 0); interior section rhythm 80→88px.
-- **POLICY CHANGE (Matt-approved):** Unsplash stand-in imagery is now allowed as placeholder treatment. All 53 interior `.img-placeholder` divs replaced with curated `<img>` stand-ins (only the 17 verified homepage URLs reused; credit + "awaiting client photo" HTML comment on each). FANUC badge placeholder untouched.
-- **Responsive:** mobile nav switch moved 768→1000px (header needs ~975px; logo no longer crushes), hero 480px@768/440px@480, section padding 64/56 on mobile, news cards stack @480, alert banner shows HQ number only @480, machine-browse breakpoints normalized to 1024/640.
-- **A11y:** global `:focus-visible` (orange outline), skip-to-content link in header partial (`#main` id on every page), `prefers-reduced-motion` (CSS + JS guards; autoplay off), carousel dots get `aria-selected`, off-screen slides `aria-hidden` + links tabindex -1, autoplay pauses on hover/focus, duplicate `role="banner"` removed from alert banner, homepage h1 added (slide 1 headline), hero LCP img now eager/fetchpriority=high, news thumbs have width/height.
-- **Polish:** unified card hover (lift + shadow) across all card types, image zoom-on-hover in card shells, staggered scroll-reveal (60ms cascade), about.html inline-styled headline → `.section-title`/`.section-body`, `es-hero__headline--md` modifier replaces inline h1 font-sizes (fixed 390px overflow on about/support).
-- **Verified (Playwright, Chromium):** all 9 pages × 4 widths — zero console errors, zero failed requests, Navigo loads everywhere, no horizontal overflow, keyboard pass (skip link first tab stop, 2px focus outline), reduced-motion pass (no autoplay, no hidden content).
+### What was completed 2026-07-14 (Claude Code — Homepage patterns propagated site-wide)
 
-### Previously completed 2026-07-13 (Claude Code — "Gerotech Homepage.dc.html" alignment pass)
-Implemented the homepage redesign spec from the Deep Code export ("Gerotech Homepage - Standalone.html" in ~/Downloads, unpacked from its bundler format). Most of the design was already in place from the earlier Figma integration; this pass closed the gaps:
-- **Logos:** extracted the two logo SVGs shipped in the design bundle → `assets/images/gerotech-logo.svg` (dark, header, 30px) and `gerotech-logo-white.svg` (footer, 28px). Header now uses the SVG (was PNG); footer wordmark text replaced with the white SVG image.
-- **Hero slider:** converted from crossfade to design-spec sliding track (`.hero-slider__track`, translateX, 0.45s cubic-bezier). Slides 2–6 now use the design's dashed "Slide N — Placeholder / Awaiting client copy" box (`.slide--placeholder`, `.slide__ph`) with lighter overlay; removed made-up eyebrows. `.slide__bg` fixed for real `<img>` (object-fit: cover). Autoplay 6s (design default). Dots: bottom 22px, gap 9px.
-- **Testimonials:** homepage carousel now slides (new `.testimonial-carousel__track--slide` + `.testimonial-carousel__row`; ES page cards variant unchanged). Squared edges per design (radius removed), panel padding 60/52, photo min-height 420px, quote mark 56px/900. Inactive dot color → new token `--clr-gray-dot` (#C9C9D2).
-- **News:** thumbs 132×94 square (was 120×88 r10), title 18px/700, excerpt 14px max-width 720px, meta tracking 0.08em, row padding 24px.
-- **CTA band:** card max-width 940px (was 1044), headline max-width 460px / lh 1.18 / balance.
-- **Email signup:** section gap 8px, sub margin-bottom 18px, input 13×16 with new token `--clr-gray-input` (#D6D6D6), submit 13×22.
-- **Intro:** machines block margin-top 88px per design.
-- **Verified** with Playwright (Chromium, 1440px + 390px): slider/testimonial motion, logo rendering, all sections, no console errors.
-- **DECISION — fonts:** the .dc.html spec uses Archivo + IBM Plex Sans, but the repo was deliberately switched to Navigo (Adobe Fonts/typekit) after that export (brand standards). Kept Navigo via the existing `--font-display`/`--font-sans` tokens. Flag to Matt if the design fonts should win.
+- **DECISION REVERSED (Matt, 2026-07-14):** interior pages no longer keep the white-card CTA. All 8 interior pages (about, support, application, automation-integration, engineered-solutions, machine-custom-solutions, machine-modification, training) now use the homepage's `cta-band--photo` treatment — same placeholder image as homepage, each page keeps its own eyebrow/headline/button (about + support keep their tel: links).
+- Dark email-signup section added to about + support (the only pages missing it; unique input ids `email-input-ab` / `email-input-su`).
+- Navigation needed no changes — header/footer are shared partials (`partials/site-header.html` already has the Machines mega dropdown) loaded on every page.
+- showroom.html untouched (exploratory page with its own CTA experiment).
+- Verified via Playwright at 1440px: CTA + signup on about/support/training/engineered-solutions/application, zero console errors.
 
-### Previously completed 2026-07-13 (Cline — Figma Redesign Integration)
-- **Full Figma redesign (file: `YgHwqyyFj57c1ZSbmfkL0c`) integrated** into static prototype.
-- **New fonts:** Archivo (headlines, `--font-display`) + IBM Plex Sans (body/UI, `--font-sans`), replacing Plus Jakarta Sans. Added Google Fonts import to `index.html`.
-- **Updated `tokens.css`:** Added `--font-display`, updated `--font-sans`, changed `--clr-gray-body` to `#6B6B76`, `--clr-gray-border` to `#E4E4EA`, updated `--shadow-nav` to `0 2px 16px rgba(0, 0, 0, 0.06)`.
-- **Header redesign (`partials/site-header.html` + CSS):** White background, bottom border (`#E4E4EA`), box shadow. Logo text color changed to `--clr-ink` (dark). Nav links dark, hover to `rgba(0,0,0,0.04)`. Search icon and mobile toggle now dark. "Get a Quote" padding updated to `10px 22px`.
-- **Hero slider:** Height changed to 560px. Glassmorphism arrows (backdrop-filter blur, semi-transparent bg). Font: Archivo for headline. Dots at bottom-30px.
-- **Intro section:** Split into 2-col grid (text left + image right). "Since 1987" with orange rule. Machine cards section separated below with padding-top.
-- **Machine cards:** Grid gap 18px. Card images 168px tall. No border-radius on card (straight edges). Category labels 10px/0.1em uppercase. Card names in Archivo 17px ExtraBold.
-- **Testimonial section:** Background changed to `--clr-gray-band` (`#F2F2F2`). Shadow card (unchanged layout).
-- **News section:** Background white, padding 88px. Meta font-weight bold. Title in Archivo 17px ExtraBold.
-- **CTA band:** Padding 72px sides. Card padding 56px 52px. Max-width 1044px. Flex-wrap for responsive. Headline in Archivo 32px ExtraBold.
-- **Email signup:** Padding 56px. Title in Archivo 24px ExtraBold. Form max-width 440px. Input padding 14px 17px. Submit padding 14px 22px.
-- **Footer:** Top padding-bottom 49px. Logo in Archivo. All text explicitly set to IBM Plex Sans.
-- **Section spacing:** Default section padding changed to 88px vertical.
-- **Responsive:** Added intro-section__grid collapse at 1024px.
-- **Eyebrow:** Letter-spacing updated to 0.14em.
-- **Buttons:** Default padding 14px 28px, large 17px 34px.
+### What was completed 2026-07-14 (Claude Code — Inline CSS migration)
 
-### Previously completed (carried forward)
-All content from prior sessions preserved — modals, machine customizations, mega nav, testimonials, accordion, etc.
+- Removed index.html's entire inline `<style>` block: machine tab + panel styles now live at the bottom of components.css ("Machine Browse" sections), tokenized (`--fs-ui`, `--sp-*` where tokens exist).
+- Removed ALL inline `style=""` attributes from index, about, support, engineered-solutions. New classes: `.slide__bg--right` (hero crop bias), `.news-more`, `.about-photo`, `.intro-section__image img` rule, and layout.css modifiers `.section--white`, `.section--gray`, `.es-hero--compact`, `.grid-2--split`, `.grid--offset-top`, `.section-body--spaced`.
+- Deliberately left inline: showroom.html + hero-variations.html `<style>` blocks (exploratory variant pages, not yet promoted to the design system).
+- Verified via Playwright screenshots (1440px): homepage tabs/panels, hero object-position, about, support — pixel-equivalent, zero console errors.
+
+### What was completed 2026-07-14 (Claude Code — Machine tab polish)
+
+- Fixed stray curved lines on inactive machine tabs (index.html inline styles): separators (`border-left` on `.machine-tab + .machine-tab`) were combined with `border-radius`, so each divider arced at top/bottom. Inactive tabs are now square (`border-radius: 0`) with straight dividers; only `.machine-tab.is-active` gets the radius (pill on mobile).
+- Repaired broken CSS in components.css `.slide__content--left`: an earlier uncommitted edit left the old rule body orphaned after the selector was replaced, causing parse errors around line 2180. Removed the orphaned fragment.
+
+### What was completed 2026-07-14 (Cline — Design iteration pass)
+
+**Hero — Variant 3 (Left-Aligned Full-Bleed):**
+- Converted from centered slider to left-aligned full-bleed with horizontal gradient overlay
+- Content wraps to `max-width: var(--max-home)` matching other section containers
+- All 6 slides have dummy content (CNC Machinery, Engineered Solutions, Service, Automation, About)
+- Responsive fallback: centered + vertical gradient on mobile (≤768px)
+
+**Machine Browse — Tabbed Panel System:**
+- Replaced 4-column card grid with a tabbed panel layout (5 categories)
+- **New 5th category: HAAS Tooling** (client request)
+- Tabs: Machining Centers, Turning Centers, 5-Axis, Automation, HAAS Tooling
+- Each tab reveals a split-image panel (large photo left, content + model list + CTA right)
+- Tab container has no border or radius; only the active tab is rounded (`var(--radius-btn)`), inactive tabs square with straight dividers (updated by Claude Code, see above)
+- JS tab switching (one panel visible at a time, aria-selected attributes)
+
+**CTA Band:**
+- Photo hero-style (`cta-band--photo`) with full-bleed image + dark overlay
+- "Get Started" eyebrow above headline
+- "Engage with us today" orange CTA button
+
+**Email Signup:**
+- Dark bg (`--clr-dark-nav`) with side-by-side layout (`email-signup__inner`/`email-signup__copy`)
+- Title "Stay in the Loop" + subtitle on left, form on right
+
+**Header refinements (carried forward from 07-13):**
+- White bg, `#E4E4EA` bottom border, `0 2px 16px rgba(0,0,0,0.06)` shadow
+- Navigo logo (SVG from Figma), dark text
+- Nav carets changed to orange `+` plus signs
+- Search icon: orange `--clr-orange` background with white SVG icon (exact Figma SVG)
+- "Get a Quote" button: uppercase, 0.05em tracking
+
+**Footer:**
+- Solid `--clr-ink` background
+- 4-column grid with SVG logo (white variant)
+- Social icons (LinkedIn, Instagram, YouTube)
+- Legal links in a flex container
+
+**Typography (Excellent rating per UI/UX Pro Max review):**
+- Font: Navigo via Adobe Fonts (kit `lqh7ybe`) — replaced Archivo + IBM Plex Sans
+- 2-weight system (400 + 700 only): tokens correctly map 500→400, 600/800→700
+- Fluid clamp type scale: `--fs-hero/h1/h2/h3` for headings, `--fs-lede/body/ui/caption` for text
+- Line-height: 1.15 headings, 1.6 body
+- Text-wrap: `balance` on all headings, `pretty` on body
+- All CTA buttons use `text-transform: uppercase` + 0.05em letter-spacing
+
+**Accessibility:**
+- Global `:focus-visible` (orange 2px outline)
+- Skip-to-content link in header partial
+- `prefers-reduced-motion` (CSS + JS guards)
+- Carousel dots: `aria-selected`, off-screen slides `aria-hidden` + links tabindex -1
+- Hero LCP img: `loading="eager" fetchpriority="high"`
+
+**Design language:**
+- Card radius: 0 (squared edges on all cards — `.mcat-card`, `.service-card`, `.category-card`, `.stat-pill`, `.testimonial-card`)
+- Section padding: 88px vertical
+- Interior rhythm: 32px gap between machine headline and content
+- Unified card hover: lift + shadow across all card types
+- Image zoom-on-hover in card shells
+
+**17 Unsplash stand-in images** placed across hero, intro, machine panels, testimonials, and news sections.
 
 ### Still blocked — do not guess
 1. Training: own nav item vs. under Support dropdown
@@ -59,7 +98,9 @@ All content from prior sessions preserved — modals, machine customizations, me
 4. Constant Contact API integration (WordPress concern)
 
 ### Awaiting client copy / assets
-All items from prior sessions still pending.
+- Slides 2-6 copy (currently using strategic dummy content)
+- Testimonial photos and quotes (client-provided)
+- HAAS Tooling card image (currently reusing training photo)
 
 ---
 
@@ -80,15 +121,16 @@ All items from prior sessions still pending.
 ## Tech Stack
 
 - Pure HTML5 / CSS3 (custom properties) / vanilla JS (ES6) — zero frameworks
-- Fonts: Archivo (headlines) + IBM Plex Sans (body/UI) via Google Fonts
+- Fonts: Navigo (Adobe Fonts, kit `lqh7ybe`) — 400 + 700 weights only
 - CSS load order: `assets/css/tokens.css` → `assets/css/components.css` → `assets/css/layout.css`
-- JS: `nav.js` (both pages), `slider.js` (homepage only), `filter.js` (ES page only), `animations.js` (both)
+- JS: `nav.js` (both pages), `slider.js` (homepage only), `filter.js` (ES page only), `animations.js` (both), `testimonials.js` (homepage)
 
-## Typography System (2026-07-13 review)
+## Typography System (2026-07-14 review)
 
 - **The Adobe Fonts kit (lqh7ybe) serves Navigo 400 + 700 ONLY** (plus italics). Weights 500/600/800 silently fall back — never use them. All `--fw-*` tokens now map to the two real faces. If Matt adds weights to the kit, update tokens.css.
 - Type scale lives in tokens.css: `--fs-hero/display/h1/h2/h3` (fluid clamps — do NOT re-override sizes in media queries) + `--fs-lede/body/ui/caption`. Tracking: `--ls-hero…h3` (negative, tightens with size), `--ls-caps` 0.14em (eyebrows), `--ls-meta` 0.08em (card labels). Leading: `--lh-*`.
 - All headlines use scale tokens + `text-wrap: balance`; body/quotes use `--lh-body` and `text-wrap: pretty`; intro body capped at 62ch measure.
+- Buttons: `text-transform: uppercase` + 0.05em letter-spacing, `--fw-bold` (maps to Navigo 700)
 
 ## Key Brand Tokens
 - Orange: `#F38A2C` (`--clr-orange`)
@@ -97,7 +139,7 @@ All items from prior sessions still pending.
 - Body gray: `#6B6B76` (`--clr-gray-body`)
 - Border: `#E4E4EA` (`--clr-gray-border`)
 - Max-width: 1200px (homepage) / 1120px (ES page)
-- Radii: buttons 8px, cards 18–20px, pills 99px
+- Radii: buttons 8px, cards 0 (squared), pills 99px
 
 ---
 
@@ -108,3 +150,4 @@ All items from prior sessions still pending.
 - Never use real FANUC logo — badge usage rights unconfirmed
 - Never change CSS load order
 - Never hardcode brand colors outside `tokens.css`
+- Navigo weights 500/600/800 are NOT available in the kit — use 400 or 700 only

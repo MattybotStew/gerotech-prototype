@@ -14,7 +14,7 @@
   <div data-include="partials/site-header.html"></div>
 
   <main id="main">
-    <section class="es-hero" style="padding: var(--sp-80) var(--sp-24);" aria-label="Support hero">
+    <section class="es-hero es-hero--compact" aria-label="Support hero">
       <div class="container container--es">
         <p class="eyebrow eyebrow--white">We're Here to Help</p>
         <h1 class="es-hero__headline es-hero__headline--md">Service &amp; Support</h1>
@@ -26,13 +26,13 @@
       </div>
     </section>
 
-    <section class="section" style="background: var(--clr-white);">
+    <section class="section section--white">
       <div class="container container--es">
         <div class="section-header section-header--centered">
           <p class="eyebrow">How Can We Help?</p>
           <h2 class="section-title">Support Options</h2>
         </div>
-        <div class="grid-2" style="gap: var(--sp-24); margin-top: var(--sp-48);">
+        <div class="grid-2 grid--offset-top">
           <article class="category-card">
             <div class="category-card__icon">🔧</div>
             <h3 class="category-card__title">Service Request</h3>
@@ -61,13 +61,30 @@
       </div>
     </section>
 
-    <section class="cta-band" aria-label="Call to action">
-      <div class="cta-band__card">
-        <div class="cta-band__copy">
-          <p class="eyebrow cta-band__eyebrow">Need Help Now?</p>
-          <h2 class="cta-band__headline">Call our service team directly</h2>
-        </div>
+    <section class="cta-band cta-band--photo" aria-label="Call to action">
+      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop" alt="Engineering team" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
+      <div class="cta-band__overlay" aria-hidden="true"></div>
+      <div class="cta-band__content">
+        <p class="slide__eyebrow">Need Help Now?</p>
+        <h2 class="cta-band__headline cta-band__headline--photo">Call our service team directly</h2>
         <a class="btn btn--primary btn--lg" href="tel:+12484768787">248-476-8787</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Email Signup
+         ============================================================ -->
+    <section class="email-signup" aria-label="Mailing list signup">
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Stay in the Loop</h2>
+          <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate>
+          <label for="email-input-su" class="sr-only">Email address</label>
+          <input class="email-signup__input" id="email-input-su" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <button class="email-signup__submit" type="submit">Sign Up</button>
+        </form>
       </div>
     </section>
   </main>

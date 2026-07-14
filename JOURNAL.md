@@ -2,6 +2,21 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Claude Code (Fable 5) — homepage patterns propagated to interior pages
+- Matt asked to roll homepage additions out site-wide. Photo CTA band (`cta-band--photo`) replaced the white-card CTA on all 8 interior pages — DECISION REVERSED from 2026-07-13 ("interior pages keep the white-card CTA"); each page keeps its own copy and tel: links, all use the homepage's placeholder image for now.
+- Email signup added to about + support (only pages missing it). Navigation untouched — header/footer partials are already shared across all pages.
+- showroom.html left alone (exploratory, has its own CTA variant). Verified via Playwright screenshots, no console errors.
+
+## 2026-07-14 — Claude Code (Fable 5) — inline CSS migrated to global stylesheets
+- Matt asked to globalize inline/hardcoded CSS. index.html's `<style>` block (machine tabs/panels) moved into components.css and tokenized; all `style=""` attributes stripped from index/about/support/engineered-solutions in favor of classes: `.slide__bg--right`, `.news-more`, `.about-photo`, `.section--white/--gray`, `.es-hero--compact`, `.grid-2--split`, `.grid--offset-top`, `.section-body--spaced`.
+- Left alone on purpose: showroom.html and hero-variations.html `<style>` blocks — exploratory variant pages; promote their styles to components.css only if/when the designs are adopted.
+- Verified with Playwright at 1440px (tabs default + switched, hero crop, about, support): rendering unchanged, no console errors.
+
+## 2026-07-14 — Claude Code (Fable 5) — machine tab visual fix
+- Fixed stray radius-matching arcs on inactive machine tabs (homepage). Cause: index.html's inline `<style>` gave `.machine-tab + .machine-tab` dividers both `border-left` and `border-radius`, curving each divider. Inactive tabs are now square with straight dividers; only the active tab is rounded (pill on mobile, dividers dropped there).
+- Note: the machine-tab styles that actually apply live in index.html's inline `<style>` block — the `.machine-tab` rules at the bottom of components.css are overridden by it (left in place, uncommitted from a prior session).
+- Repaired pre-existing parse error in components.css: orphaned declaration block after `.slide__content--left` (leftover body from a replaced rule in an earlier uncommitted edit) — removed.
+
 ## 2026-07-13 — Claude Code (Fable 5) — whole-site design improvement
 - Executed Matt-approved 4-phase plan across all 9 pages. Biggest fix: subpages loaded dead Plus Jakarta Sans and rendered fallback sans-serif — all now load the Typekit Navigo kit.
 - Consistency: squared all interior card types, 80→88px rhythm, replaced all 53 interior dashed placeholders with Unsplash stand-ins (POLICY CHANGE, Matt-approved — .clinerules updated; each img carries a credit/awaiting-client comment; only reused the 17 verified homepage URLs).
