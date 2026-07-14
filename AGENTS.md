@@ -31,6 +31,34 @@ CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC mac
 
 ## Session continuity
 
-This project is worked on by multiple AI agents (Claude Code, Cline, Gemini CLI, Deep Code, …).
-- At session start: read `JOURNAL.md` (newest first), `.clinerules`, and recent `git log`.
-- Before ending a session: add a short entry at the top of `JOURNAL.md` — date, agent/model, what was done, decisions, loose ends. Update `.clinerules` state section.
+This project is worked on in **Cursor** and **VS Code (Cline)** — plus other agents as needed.
+
+### Sync workflow (all editors)
+
+| When | Action |
+|------|--------|
+| **Session start** | Read `.clinerules`, then `JOURNAL.md` (newest first), then `git log -5` |
+| **Session end** | Prepend to `JOURNAL.md`; update **Current Session State** in `.clinerules` |
+| **Handoff code** | Commit + push so the other editor pulls the same branch |
+
+Shared config (committed in repo):
+
+- `.clinerules` — live state (Cline reads this automatically)
+- `AGENTS.md` / `CLAUDE.md` — LLM instructions (Cursor + Claude Code)
+- `.cursor/rules/gerotech-agent-sync.mdc` — Cursor always-on sync rule
+- `.vscode/tasks.json` — **Serve Gerotech (8080)** dev server
+- `.vscode/mcp.json` — Figma MCP for VS Code Copilot Agent
+
+### Local preview
+
+From repo root: `python3 -m http.server 8080` → http://localhost:8080/
+
+In VS Code: **Terminal → Run Task → Serve Gerotech (8080)**.
+
+### Figma (each editor authenticates once)
+
+- **Cursor:** Settings → MCP → figma → Connect (or `/add-plugin figma`)
+- **VS Code Copilot:** Open `.vscode/mcp.json` → Start figma server → sign in
+- **Cline:** Cline panel → MCP Servers → add HTTP server `https://mcp.figma.com/mcp`
+
+Then paste a Figma frame link and ask to implement using this project's HTML/BEM/tokens.

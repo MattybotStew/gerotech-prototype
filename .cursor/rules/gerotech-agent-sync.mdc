@@ -1,0 +1,37 @@
+---
+description: Cross-editor sync — Cursor, VS Code (Cline), shared session state
+alwaysApply: true
+---
+
+# Gerotech — multi-agent sync (Cursor + Cline)
+
+This repo is edited in **Cursor** and **VS Code (Cline)**. Stay aligned via git + shared files.
+
+## Every session — read first
+
+1. `.clinerules` — live session state, blockers, recent decisions
+2. `JOURNAL.md` — newest entry first
+3. `git log -5 --oneline`
+
+Also useful: `AGENTS.md`, `design-spec.md`, `cline-project-handoff.md`
+
+## Every session — write before ending
+
+1. Prepend a short entry to `JOURNAL.md` (date, agent, what changed, loose ends)
+2. Update **Current Session State** in `.clinerules` (last updated, active agent, last commit)
+
+## Code conventions (do not drift)
+
+- Static HTML/CSS/JS only — no frameworks or build tools
+- CSS order: `tokens.css` → `components.css` → `layout.css`
+- Navigo font kit `lqh7ybe` — weights **400 and 700 only**
+- BEM classes; brand colors only in `tokens.css`
+- Unsplash placeholders OK; never guess open client decisions
+
+## Local preview
+
+Run **Tasks: Run Task → Serve Gerotech (8080)** or `python3 -m http.server 8080` from repo root.
+
+## Figma
+
+Paste a frame/layer link with `node-id`. Use `get_design_context`, then adapt to this project's HTML/BEM/tokens — not React/Tailwind verbatim.

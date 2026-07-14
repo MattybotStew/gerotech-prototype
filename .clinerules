@@ -106,7 +106,9 @@
 
 ## Who else is working on this codebase
 
-**Cline** and **Claude Code** both work on this codebase. Keep this file up-to-date so the other agent always knows current state before touching anything.
+**Cursor (Composer/Agent)** and **VS Code (Cline)** both edit this repo. Sync via git + this file + `JOURNAL.md` — see `AGENTS.md` → Session continuity.
+
+Before ending any session: update **Current Session State** above and prepend to `JOURNAL.md`.
 
 ---
 
