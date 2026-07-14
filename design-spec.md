@@ -57,12 +57,19 @@
 
 ## Interior hero system (2026-07-14)
 
-| Pattern | Class | Used on |
-|---------|-------|---------|
-| **Dark photo, left-aligned** | `.es-hero` + `.es-hero--photo-*` / `.es-hero--blueprint` | ES hub, About, Support, Training |
-| **Dark photo + breadcrumb** | `.mcs-hero.mcs-hero--photo` + photo modifier | MCS, Application, Automation detail pages |
+All interior heroes use the homepage hero pattern: full-bleed photo, left gradient overlay (`105deg`), left-aligned copy (centers on mobile ≤768px). Background images live in `elevated.css` `::before` pseudo-elements.
 
-All interior heroes use the homepage hero pattern: full-bleed photo, left gradient overlay, left-aligned copy (centers on mobile ≤768px).
+| Page | HTML classes | BG modifier |
+|------|--------------|-------------|
+| Engineered Solutions | `.es-hero.es-hero--blueprint` | Blueprint overlay + photo |
+| About | `.es-hero.es-hero--compact.es-hero--photo-about` | Facility/training photo |
+| Support | `.es-hero.es-hero--compact.es-hero--photo-support` | Service team photo |
+| Training | `.es-hero.es-hero--photo-training` | Training photo |
+| Machine Custom Solutions | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-mcs` | Shop floor photo |
+| Applications | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-app` | Applications photo |
+| Automation & Controls | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-auto` | Robotics photo |
+
+MCS detail pages include breadcrumb on the photo hero. Non-photo `.mcs-hero` (light gray + orange bar) remains in CSS for legacy/exploratory pages only.
 
 ## Primary CTA destinations (prototype)
 
@@ -141,7 +148,16 @@ All images are **Unsplash stand-ins** (`<img>` tags with HTML comment crediting 
 
 - Replace `src` URL with client file in `assets/images/` (or CMS path in WordPress build)
 - Keep `alt` text descriptive; preserve `loading="lazy"` / `decoding="async"` where present
-- **Verify Unsplash URLs** before demos — photo IDs can 404 over time (see JOURNAL 2026-07-14)
+- **Verify Unsplash URLs** before demos — photo IDs can 404 over time
+
+### Known URL swaps (2026-07-14)
+
+| Replaced (404) | Current stand-in | Typical use |
+|----------------|------------------|-------------|
+| `photo-1713869791526-ba21b52e5528` | `photo-1647427060118-4911c9821b82` | Facility, training, intro, CTA |
+| `photo-1565903020905-e53d59a4040b` | `photo-1716191299980-a6e8827ba10b` | Automation, robotics, news |
+
+Affected files: `index.html`, `application.html`, `machine-custom-solutions.html`, `automation-integration.html`, `assets/css/elevated.css` (hero bg URLs).
 
 ## Site-wide UX (prototype)
 

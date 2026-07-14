@@ -28,6 +28,7 @@ Also useful: `AGENTS.md`, `design-spec.md`, `docs/PROJECT_BRIEF.md`, `cline-proj
 - BEM classes; brand colors only in `tokens.css`
 - Unsplash placeholders OK (comment each img); verify URLs — some 404 over time
 - Hero + CTA photo bands: left-aligned, left gradient overlay (matches homepage)
+- Interior heroes: ES `.es-hero--blueprint`; About/Support/Training `.es-hero--photo-*`; MCS `.mcs-hero--photo` + `mcs-hero--photo-mcs|app|auto` — backgrounds in `elevated.css`
 - Never guess open client decisions
 
 ## Local preview

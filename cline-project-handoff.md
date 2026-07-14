@@ -6,14 +6,15 @@
 
 ## ⚡ Prototype status — 2026-07-14 (supersedes wireframe stage below)
 
-The HTML prototype on **`master`** is now **presentation-ready**, not a wireframe:
+The HTML prototype on **`master`** is now **presentation-ready**, not a wireframe. **`master` is synced with GitHub** (2026-07-14).
 
 - **Navigo** typography (Adobe kit `lqh7ybe`); add **Medium (500)** when ready
 - **CSS:** `tokens.css` → `components.css` → `layout.css` → **`elevated.css`**
 - **All heroes + CTA photo bands:** left-aligned full-bleed photo (matches homepage hero)
+- **Interior hero classes:** ES `.es-hero--blueprint`; About/Support/Training `.es-hero--photo-*`; MCS detail `.mcs-hero--photo` + modifier — see `design-spec.md`
 - **Homepage:** 3-slide hero, trust strip, category cards, machine tabs, testimonials, news
 - **ES hub:** Full section stack including tech partners + capability cards
-- **Images:** Unsplash stand-ins (not dashed-border divs); verify URLs — some 404 over time
+- **Images:** Unsplash stand-ins (not dashed-border divs); verify URLs — some 404 over time (swap table in `design-spec.md`)
 - **UX:** Search modal, email signup thanks, sticky header, wired mailto/tel CTAs
 - **Read first:** `.clinerules` + `JOURNAL.md` + `docs/PROJECT_BRIEF.md` for current state
 

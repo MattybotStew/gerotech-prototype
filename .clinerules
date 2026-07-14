@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-14 (agent docs sync + interior hero pass)
+**Last Updated:** 2026-07-14 (agent docs refresh)
 **Active Agent:** Cursor
-**Branch:** `master`
-**Last Commit:** `79b9726` — interior photo heroes left-aligned
+**Branch:** `master` — synced with `origin/master`
+**Last Commit:** `45977a9` — sync all agent markdown docs
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
@@ -21,7 +21,21 @@
 - **FANUC badge:** ⚠️ Styled placeholder — official logo pending client/legal
 - **Mega-menu machine catalog links:** ⚠️ Still `#` pending Haas catalog URLs
 - **Navigo Medium (500):** ❌ Recommended for kit `lqh7ybe` — tokens ready, not in kit yet
-- **Unsplash URLs:** ⚠️ Verify periodically — `photo-1713869791526` and `photo-1565903020905` were 404 (fixed 2026-07-14)
+- **Unsplash URLs:** ⚠️ Verify periodically — replaced 404 IDs with `photo-1647427060118` (facility/training) and `photo-1716191299980` (automation/robotics); see `design-spec.md` → Image Placeholders
+
+### Interior hero modifiers (CSS in `elevated.css`)
+
+| Page | Class |
+|------|-------|
+| Engineered Solutions | `.es-hero.es-hero--blueprint` |
+| About | `.es-hero.es-hero--photo-about` |
+| Support | `.es-hero.es-hero--photo-support` |
+| Training | `.es-hero.es-hero--photo-training` |
+| Machine Custom Solutions | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-mcs` |
+| Applications | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-app` |
+| Automation & Controls | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-auto` |
+
+Light-gray MCS hero orange bar (`.mcs-hero:not(.mcs-hero--photo)`) only applies to non-photo MCS heroes — all live MCS detail pages use photo heroes.
 
 ### What was completed 2026-07-14 (Cursor — interior hero unification)
 - **All interior heroes** → left-aligned photo hero (same as homepage): ES, About, Support, Training, MCS, Application, Automation

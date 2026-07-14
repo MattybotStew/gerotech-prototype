@@ -12,7 +12,7 @@ Static HTML/CSS/JS **presentation prototype** for **Gerotech, Inc.** — Michiga
 
 **Agency:** CloudMellow (Matt)
 
-**Repo:** https://github.com/MattybotStew/gerotech-prototype — branch **`master`**
+**Repo:** https://github.com/MattybotStew/gerotech-prototype — branch **`master`** (synced with origin, 2026-07-14)
 
 ## Pages (11 HTML)
 
@@ -102,10 +102,15 @@ Machines ↗ | Engineered Solutions ▼ | Training | Support ▼ | About ▼ | [
 
 Full-bleed Unsplash photo + **left gradient overlay** (105°) + **left-aligned** white copy. Mobile ≤768px: vertical gradient, centered copy.
 
-- Homepage: `.hero-slider` / `.slide__content--left`
-- Hub pages: `.es-hero` + `.es-hero--photo-*` or `.es-hero--blueprint`
-- Detail pages: `.mcs-hero.mcs-hero--photo` + photo modifier class
-- CTA bands: `.cta-band--photo` (same treatment)
+| Page | Classes |
+|------|---------|
+| Homepage | `.hero-slider` / `.slide__content--left` |
+| ES hub | `.es-hero.es-hero--blueprint` |
+| About / Support / Training | `.es-hero` + `.es-hero--photo-about` / `-support` / `-training` |
+| MCS / Application / Automation | `.mcs-hero.mcs-hero--photo` + `mcs-hero--photo-mcs` / `-app` / `-auto` |
+| CTA bands (all pages) | `.cta-band--photo` (same treatment) |
+
+Background URLs defined in `assets/css/elevated.css`.
 
 ## CSS Loading Order
 
@@ -143,7 +148,7 @@ Full-bleed Unsplash photo + **left gradient overlay** (105°) + **left-aligned**
 | Privacy / Terms URLs | Placeholder → about.html |
 | Social icons | Hidden until URLs confirmed |
 | Constant Contact signup | Prototype thanks state only |
-| Client photography | Unsplash stand-ins — verify URLs before demos |
+| Client photography | Unsplash stand-ins — verify URLs before demos; see `design-spec.md` for 2026-07-14 URL swaps |
 
 ## Key Source Files
 

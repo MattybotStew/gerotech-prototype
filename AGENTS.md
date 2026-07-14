@@ -10,7 +10,7 @@ Read `.clinerules` at the start of every session. It contains current project st
 
 CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC machinery distributor, Haas Factory Outlet, est. 1987). This repo is a **static HTML/CSS/JS prototype** — NOT the production build. The final site will be WordPress.
 
-**Branch:** `master` (presentation-ready prototype as of 2026-07-14)
+**Branch:** `master` — presentation-ready, synced with `origin/master` (2026-07-14)
 
 ## Stack
 
@@ -29,6 +29,7 @@ CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC mac
 - Buttons: `text-transform: uppercase` + 0.05em letter-spacing
 - Card border-radius: **0** (squared edges per Figma)
 - **Hero pattern (homepage + all interior pages):** full-bleed photo, left gradient overlay (`105deg`), left-aligned copy; centers on mobile ≤768px
+- **Interior hero classes** (backgrounds in `elevated.css`): ES hub `.es-hero--blueprint`; About/Support/Training `.es-hero--photo-*`; MCS detail pages `.mcs-hero--photo` + `mcs-hero--photo-mcs|app|auto`
 - **CTA bands:** `.cta-band--photo` — same left-aligned photo treatment as hero
 - See `design-spec.md` and `cline-project-handoff.md` for full project context
 

@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Agent docs refresh (Cursor)
+- **Docs:** Refreshed `AGENTS.md`, `.clinerules`, `JOURNAL.md`, `design-spec.md`, `docs/PROJECT_BRIEF.md`, `cline-project-handoff.md`, `.cursor/rules/gerotech-agent-sync.mdc`.
+- **Fixes:** `.clinerules` last-commit pointer → `45977a9`; documented all interior hero modifier classes; Unsplash 404 swap IDs recorded.
+- **Remote:** `master` confirmed synced with `origin/master` (no unpushed commits).
+
 ## 2026-07-14 — Agent docs sync + interior hero unification (Cursor)
 - **Docs:** Updated `AGENTS.md`, `CLAUDE.md`, `docs/PROJECT_BRIEF.md`, `design-spec.md`, `.cursor/rules/gerotech-agent-sync.mdc`, `.clinerules`.
 - **Heroes:** All interior pages now use left-aligned photo hero (commit `79b9726`).
