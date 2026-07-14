@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Merge beauty pass + per-page CTA images (Cursor)
+- **Merged** `cursor/beauty-pass-polish` → `master` (partners, model tags, hero motion, ES SVG icons, token/CSS polish).
+- **Salvaged from Cline WIP:** Each page now has its own `cta-band--photo` background (9 unique Unsplash stand-ins; no longer one shared image). Interior pages: about, application, automation-integration, engineered-solutions, machine-custom-solutions, machine-modification, support, training.
+- **Discarded:** Duplicate/incomplete beauty-pass staged edits on `cursor/cline-beauty-pass`; `.claude/settings.json` (local paths, not committed).
+- **Next:** Orphan machine-modification.html, FANUC badge, `#` CTAs, real partner logos when client supplies assets.
+
 ## 2026-07-14 — Beauty pass (Cursor)
 - **Design polish:** Squared card radii (`--radius-card` → 0), orange/ink tints, intro image offset frame, partner wordmark grid (12 brands), model-tag chips on all 5 machine panels, hero Ken Burns, news-card hover lift, testimonial track shadow, machine-tab horizontal scroll on mobile.
 - **Homepage:** Partners section after intro (Haas, Midaco, Fanuc, OnRobot, Dynatect, Royal Products, Marpos, Tsudakoma, Alberti, Renishaw, Keyence, 5th Axis). Testimonial slides 2–3 filled with draft quotes (no bracket placeholders).

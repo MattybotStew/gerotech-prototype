@@ -5,16 +5,23 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-14 (beauty pass)
+**Last Updated:** 2026-07-14 (merge + CTA images)
 **Active Agent:** Cursor
-**Last Commit:** feat(design): beauty pass — partners, motion, tags, icons
+**Last Commit:** feat(cta): per-page photo CTA backgrounds across site
 
 ## Current State (2026-07-14)
 - MCS naming split: ✅ COMPLETED
-- Beauty pass (partners, tags, icons, motion): ✅ COMPLETED
+- Beauty pass (partners, tags, icons, motion): ✅ COMPLETED — merged to master
+- Per-page CTA photo backgrounds: ✅ COMPLETED (9 unique stand-ins)
 - Orphan machine-modification.html: ❌ Needs integration or removal
 - FANUC badge: ❌ Placeholder only (awaiting client)
 - `#` CTAs: ❌ Needs clarification
+
+### What was completed 2026-07-14 (Cursor — merge + CTA images)
+
+- **Merge:** `cursor/beauty-pass-polish` fast-forwarded into `master`.
+- **CTA bands:** Replaced the shared placeholder image with page-specific Unsplash stand-ins on index + all 8 interior pages (salvaged from `cursor/cline-beauty-pass` WIP; duplicate beauty-pass CSS/HTML from that branch was not committed).
+- **Not committed:** `.claude/settings.json` (machine-local paths); Builder extension settings in `.vscode/settings.json` (npm dev server — project has no npm dev script).
 
 ### What was completed 2026-07-14 (Cursor — beauty pass)
 
@@ -29,7 +36,7 @@
 
 ### What was completed 2026-07-14 (Claude Code — Homepage patterns propagated site-wide)
 
-- **DECISION REVERSED (Matt, 2026-07-14):** interior pages no longer keep the white-card CTA. All 8 interior pages (about, support, application, automation-integration, engineered-solutions, machine-custom-solutions, machine-modification, training) now use the homepage's `cta-band--photo` treatment — same placeholder image as homepage, each page keeps its own eyebrow/headline/button (about + support keep their tel: links).
+- **DECISION REVERSED (Matt, 2026-07-14):** interior pages no longer keep the white-card CTA. All 8 interior pages (about, support, application, automation-integration, engineered-solutions, machine-custom-solutions, machine-modification, training) now use the homepage's `cta-band--photo` treatment — **each page has its own Unsplash stand-in** (2026-07-14 merge); each page keeps its own eyebrow/headline/button (about + support keep their tel: links).
 - Dark email-signup section added to about + support (the only pages missing it; unique input ids `email-input-ab` / `email-input-su`).
 - Navigation needed no changes — header/footer are shared partials (`partials/site-header.html` already has the Machines mega dropdown) loaded on every page.
 - showroom.html untouched (exploratory page with its own CTA experiment).
