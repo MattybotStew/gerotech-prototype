@@ -5,9 +5,27 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-14
-**Active Agent:** Claude Code
-**Last Commit:** 972bad8 — Globalize inline CSS + propagate homepage patterns site-wide
+**Last Updated:** 2026-07-14 (beauty pass)
+**Active Agent:** Cursor
+**Last Commit:** feat(design): beauty pass — partners, motion, tags, icons
+
+## Current State (2026-07-14)
+- MCS naming split: ✅ COMPLETED
+- Beauty pass (partners, tags, icons, motion): ✅ COMPLETED
+- Orphan machine-modification.html: ❌ Needs integration or removal
+- FANUC badge: ❌ Placeholder only (awaiting client)
+- `#` CTAs: ❌ Needs clarification
+
+### What was completed 2026-07-14 (Cursor — beauty pass)
+
+- **Tokens & CSS:** `--radius-card`/`--radius-card-lg` → 0; `--clr-orange-tint`, `--clr-ink-tint`; intro image frame (orange offset border); partner wordmark grid; `.model-tags`/`.model-tag`; hero Ken Burns; news-card hover; machine-tab horizontal scroll; testimonial track shadow; consolidated duplicate machine-tab / why-feature SVG rules.
+- **Homepage:** Intro image wrapped in `.intro-section__image-frame`; new partners section (12 wordmarks, no Takamaz); all 5 machine panels use model tags; testimonial slides 2–3 have polished draft quotes.
+- **Engineered Solutions:** Emoji replaced with inline SVG stroke icons in `.why-feature__icon`.
+
+### What was completed 2026-07-14 (Cursor — afternoon)
+
+- **Cross-editor sync:** Added `.cursor/rules/`, `.vscode/` (dev server task, Figma MCP, extensions) + updated `AGENTS.md` (7080de6).
+- **MCS naming split:** Hero, badge, breadcrumb, and section headings on `machine-custom-solutions.html` now visually separate "Machine" (lead, gray) from "Custom Solutions" (primary). New `.mcs-name-split*` classes in components.css (b992e93). Nav/mega-menu still "Machine Customization" until client confirms.
 
 ### What was completed 2026-07-14 (Claude Code — Homepage patterns propagated site-wide)
 

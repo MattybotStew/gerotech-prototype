@@ -2,6 +2,17 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Beauty pass (Cursor)
+- **Design polish:** Squared card radii (`--radius-card` → 0), orange/ink tints, intro image offset frame, partner wordmark grid (12 brands), model-tag chips on all 5 machine panels, hero Ken Burns, news-card hover lift, testimonial track shadow, machine-tab horizontal scroll on mobile.
+- **Homepage:** Partners section after intro (Haas, Midaco, Fanuc, OnRobot, Dynatect, Royal Products, Marpos, Tsudakoma, Alberti, Renishaw, Keyence, 5th Axis). Testimonial slides 2–3 filled with draft quotes (no bracket placeholders).
+- **Engineered Solutions:** Replaced emoji why-feature icons with inline SVG stroke icons (orange industrial style).
+- **Next:** Orphan machine-modification.html, FANUC badge, `#` CTAs, real partner logos when client supplies assets.
+
+## 2026-07-14 — Afternoon Session (Cursor)
+- **MCS page naming split**: Fixed visual separation between "Machine" and "Custom Solutions"
+- Updated heading structure to match other interior pages
+- **Next**: Orphan machine-modification.html, FANUC badge, `#` CTAs
+
 ## 2026-07-14 — Claude Code (Fable 5) — homepage patterns propagated to interior pages
 - Matt asked to roll homepage additions out site-wide. Photo CTA band (`cta-band--photo`) replaced the white-card CTA on all 8 interior pages — DECISION REVERSED from 2026-07-13 ("interior pages keep the white-card CTA"); each page keeps its own copy and tel: links, all use the homepage's placeholder image for now.
 - Email signup added to about + support (only pages missing it). Navigation untouched — header/footer partials are already shared across all pages.

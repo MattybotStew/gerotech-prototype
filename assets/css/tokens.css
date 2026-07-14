@@ -79,9 +79,13 @@
 
   /* ── Border Radius ────────────────────────────────────── */
   --radius-btn:     8px;
-  --radius-card:    18px;
-  --radius-card-lg: 20px;
+  --radius-card:    0;
+  --radius-card-lg: 0;
   --radius-pill:    99px;
+
+  /* ── Surface tints ────────────────────────────────────── */
+  --clr-orange-tint: rgba(243, 138, 44, 0.1);
+  --clr-ink-tint:    rgba(13, 13, 13, 0.04);
 
   /* ── Shadows ──────────────────────────────────────────── */
   --shadow-card:       0 4px 24px rgba(0, 0, 0, 0.07);

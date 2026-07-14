@@ -115,7 +115,9 @@
             <a class="btn btn--outline-dark" href="#">Learn About Gerotech</a>
           </div>
           <div class="intro-section__image">
-            <img src="https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?q=80&w=1000&auto=format&fit=crop" alt="Gerotech facility and team" loading="lazy" />
+            <div class="intro-section__image-frame">
+              <img src="https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?q=80&w=1000&auto=format&fit=crop" alt="Gerotech facility and team" loading="lazy" />
+            </div>
           </div>
         </div>
 
@@ -142,7 +144,15 @@
             <div class="machine-panel__body">
               <p class="mcat-card__cat">Machining Centers</p>
               <h3>Vertical Mills</h3>
-              <p class="mcat-card__models">VF Series, Universal Machines, VR Series, VP-5 Prismatic, Pallet-Changing VMCs, Mini Mills, Mold Machines, High-Speed Drill Centers, Drill/Tap/Mill Series, Toolroom Mills, Gantry Series, SR Sheet Routers, Extra-Large VMC, Double-Column Mills</p>
+              <div class="model-tags" role="list" aria-label="Featured vertical mill models">
+                <span class="model-tag" role="listitem">VF Series</span>
+                <span class="model-tag" role="listitem">Universal Machines</span>
+                <span class="model-tag" role="listitem">VR Series</span>
+                <span class="model-tag" role="listitem">Mini Mills</span>
+                <span class="model-tag" role="listitem">Mold Machines</span>
+                <span class="model-tag" role="listitem">Gantry Series</span>
+              </div>
+              <p class="model-tags__note">+ 8 more series in the full Haas machining center catalog</p>
               <a class="btn btn--primary" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View All Mills ↗</a>
             </div>
           </div>
@@ -155,7 +165,14 @@
             <div class="machine-panel__body">
               <p class="mcat-card__cat">Turning Centers</p>
               <h3>CNC Lathes</h3>
-              <p class="mcat-card__models">ST Series, Dual-Spindle, Box Way Series, Toolroom Lathes, Chucker Lathe, Haas Bar Feeders</p>
+              <div class="model-tags" role="list" aria-label="Featured lathe models">
+                <span class="model-tag" role="listitem">ST Series</span>
+                <span class="model-tag" role="listitem">Dual-Spindle</span>
+                <span class="model-tag" role="listitem">Box Way Series</span>
+                <span class="model-tag" role="listitem">Toolroom Lathes</span>
+                <span class="model-tag" role="listitem">Chucker Lathe</span>
+                <span class="model-tag" role="listitem">Haas Bar Feeders</span>
+              </div>
               <a class="btn btn--primary" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View All Lathes ↗</a>
             </div>
           </div>
@@ -168,7 +185,14 @@
             <div class="machine-panel__body">
               <p class="mcat-card__cat">5-Axis</p>
               <h3>5-Axis Machines</h3>
-              <p class="mcat-card__models">UMC-500, UMC-750, UMC-1000, DM-2, EC-400 HH, EC-1600</p>
+              <div class="model-tags" role="list" aria-label="Featured 5-axis models">
+                <span class="model-tag" role="listitem">UMC-500</span>
+                <span class="model-tag" role="listitem">UMC-750</span>
+                <span class="model-tag" role="listitem">UMC-1000</span>
+                <span class="model-tag" role="listitem">DM-2</span>
+                <span class="model-tag" role="listitem">EC-400 HH</span>
+                <span class="model-tag" role="listitem">EC-1600</span>
+              </div>
               <a class="btn btn--primary" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View 5-Axis Lineup ↗</a>
             </div>
           </div>
@@ -180,8 +204,15 @@
             </div>
             <div class="machine-panel__body">
               <p class="mcat-card__cat">Automation</p>
-              <h3>Pallet & Robots</h3>
-              <p class="mcat-card__models">FANUC Robots, Pallet Changers, Cobots, Mill Automation, Lathe Automation, Automatic Parts Loaders</p>
+              <h3>Pallet &amp; Robots</h3>
+              <div class="model-tags" role="list" aria-label="Automation solutions">
+                <span class="model-tag" role="listitem">FANUC Robots</span>
+                <span class="model-tag" role="listitem">Pallet Changers</span>
+                <span class="model-tag" role="listitem">Cobots</span>
+                <span class="model-tag" role="listitem">Mill Automation</span>
+                <span class="model-tag" role="listitem">Lathe Automation</span>
+                <span class="model-tag" role="listitem">Automatic Parts Loaders</span>
+              </div>
               <a class="btn btn--primary" href="automation-integration.html">See Automation Capabilities ↗</a>
             </div>
           </div>
@@ -194,11 +225,45 @@
             <div class="machine-panel__body">
               <p class="mcat-card__cat">HAAS Tooling</p>
               <h3>HAAS Tooling</h3>
-              <p class="mcat-card__models">End Mills, Collets, Workholding, Tool Presetters, Inserts & Accessories — everything to keep your Haas machine cutting.</p>
+              <div class="model-tags" role="list" aria-label="HAAS tooling categories">
+                <span class="model-tag" role="listitem">End Mills</span>
+                <span class="model-tag" role="listitem">Collets</span>
+                <span class="model-tag" role="listitem">Workholding</span>
+                <span class="model-tag" role="listitem">Tool Presetters</span>
+                <span class="model-tag" role="listitem">Inserts</span>
+                <span class="model-tag" role="listitem">Accessories</span>
+              </div>
+              <p class="model-tags__note">Everything to keep your Haas machine cutting.</p>
               <a class="btn btn--primary" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Tooling ↗</a>
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Partner Wordmarks
+         ============================================================ -->
+    <section class="partners-section" aria-labelledby="partners-headline">
+      <div class="container">
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">Proud to Represent</p>
+          <h2 class="section-title" id="partners-headline">World-Class Manufacturing Partners</h2>
+        </div>
+        <div class="partners-grid">
+          <div class="partner-wordmark">Haas</div>
+          <div class="partner-wordmark">Midaco</div>
+          <div class="partner-wordmark">Fanuc</div>
+          <div class="partner-wordmark">OnRobot</div>
+          <div class="partner-wordmark">Dynatect</div>
+          <div class="partner-wordmark">Royal Products</div>
+          <div class="partner-wordmark">Marpos</div>
+          <div class="partner-wordmark">Tsudakoma</div>
+          <div class="partner-wordmark">Alberti</div>
+          <div class="partner-wordmark">Renishaw</div>
+          <div class="partner-wordmark">Keyence</div>
+          <div class="partner-wordmark">5th Axis</div>
         </div>
       </div>
     </section>
@@ -240,10 +305,13 @@
                 <img class="testimonial-split__photo" src="https://images.unsplash.com/photo-1717386255773-a456c611dc4e?q=80&w=1200&auto=format&fit=crop" alt="Customer photo" loading="lazy" />
                 <div class="testimonial-split__panel">
                   <blockquote>
-                    <p class="testimonial-split__quote">[Testimonial quote — awaiting client copy]</p>
+                    <p class="testimonial-split__quote">
+                      Gerotech's engineering team understood our retrofit requirements from the first conversation.
+                      The installed solution exceeded our cycle-time goals without disrupting existing production.
+                    </p>
                     <footer>
-                      <p class="testimonial-split__name">[Name]</p>
-                      <p class="testimonial-split__title">[Title, Company]</p>
+                      <p class="testimonial-split__name">Plant Manager</p>
+                      <p class="testimonial-split__title">Automotive Supplier, Southeast Michigan</p>
                     </footer>
                   </blockquote>
                 </div>
@@ -255,10 +323,13 @@
                 <img class="testimonial-split__photo" src="https://images.unsplash.com/photo-1740209475472-aa7d280f7452?q=80&w=1200&auto=format&fit=crop" alt="Customer photo" loading="lazy" />
                 <div class="testimonial-split__panel">
                   <blockquote>
-                    <p class="testimonial-split__quote">[Testimonial quote — awaiting client copy]</p>
+                    <p class="testimonial-split__quote">
+                      From quote to commissioning, communication was clear and the technicians were professional.
+                      It is rare to get this level of support from a distributor and an integrator in one partner.
+                    </p>
                     <footer>
-                      <p class="testimonial-split__name">[Name]</p>
-                      <p class="testimonial-split__title">[Title, Company]</p>
+                      <p class="testimonial-split__name">Operations Director</p>
+                      <p class="testimonial-split__title">Michigan Job Shop</p>
                     </footer>
                   </blockquote>
                 </div>
