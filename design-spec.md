@@ -21,7 +21,35 @@
 | Gray card bg | `#F9F9FB` |
 | Gray band | `#F2F2F2` |
 
-**Font:** Navigo (Adobe kit `lqh7ybe`, weights 400 + 700) — consider adding 500 to kit for finer UI hierarchy  
+**Font:** Navigo via Adobe Fonts — kit [`lqh7ybe`](https://use.typekit.net/lqh7ybe.css)
+
+### Typekit — what to add (kit `lqh7ybe`)
+
+**Currently enabled (4 faces):**
+| Style | Weight | Use |
+|-------|--------|-----|
+| Regular | 400 | Body, descriptions |
+| Regular Italic | 400 italic | Quotes (rare) |
+| Bold | 700 | Headlines, buttons, emphasis |
+| Bold Italic | 700 italic | — |
+
+**Add this next (required for UI polish):**
+| Style | Weight | Why |
+|-------|--------|-----|
+| **Medium** | **500** | Eyebrows, breadcrumbs, nav links, card labels, stat labels, `.mcs-name-split__lead` — stops everything collapsing to 400 vs 700 |
+
+**Optional (only if you want more display range):**
+| Style | Weight | Why |
+|-------|--------|-----|
+| Black | 900 | Hero numerals / stat pills only — use sparingly |
+
+**Do not add:** Thin, ExtraLight, Light — too soft for industrial B2B.
+
+**After adding Medium in [Adobe Fonts → Web Projects → lqh7ybe → Navigo](https://fonts.adobe.com/fonts/navigo):**
+1. Republish the kit (Adobe does this automatically on save).
+2. Hard-refresh the site — tokens already map `--fw-medium: 500`.
+3. No CSS changes needed unless you add Black (then set `--fw-extrabold: 900`).
+
 **Max-width:** Homepage 1200px | ES page 1120px  
 **Border radius:** Cards 0 (squared) | Buttons 8px | Pills 99px
 

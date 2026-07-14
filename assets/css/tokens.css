@@ -30,10 +30,10 @@
      500/600/800 fall back to those faces, so tokens map to what actually
      renders. If more weights are added to kit lqh7ybe, update here. */
   --fw-regular:   400;
-  --fw-medium:    400;
-  --fw-semibold:  700;
+  --fw-medium:    500;   /* Requires Navigo Medium in kit lqh7ybe — falls back to 400 until added */
+  --fw-semibold:  500;   /* Same as Medium until Bold is needed for emphasis */
   --fw-bold:      700;
-  --fw-extrabold: 700;
+  --fw-extrabold: 700;   /* Optional: add Navigo Black (900) to kit for display-only use */
 
   /* ── Type Scale (fluid display tiers, fixed text tiers) ── */
   --fs-hero:    clamp(32px, 6vw, 72px);          /* page hero statements */

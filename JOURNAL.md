@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Elevation pass: photography, Typekit prep, ES/MCS (Cursor)
+- **Photography:** Hero slide 2 + intro image aligned to warmer industrial set; `decoding="async"` on homepage heroes; subtle saturation/contrast on hero/CTA photos; MCS sheet-metal card swapped off mismatched asset.
+- **Typekit:** `design-spec.md` documents exactly what to add — **Navigo Medium (500)** required; Black (900) optional; no Thin/Light.
+- **Tokens:** `--fw-medium` / `--fw-semibold` → 500 (falls back to 400 until kit updated).
+- **ES hub:** Dark hero with blueprint bg overlay; why-feature hover accents; stat strip borders; trust accordion open state; credential band hover.
+- **MCS:** Left orange accent bar on hero; gallery card lift + image zoom.
+- **Branch:** `cursor/design-elevated` — ready to merge → `master`.
+
 ## 2026-07-14 — Design elevation pass (Cursor)
 - **New layer:** `assets/css/elevated.css` loaded site-wide after layout.css — sticky header blur, hero depth, trust strip, button/card micro-interactions, section rhythm.
 - **Homepage:** Trust metrics strip below hero (Since 1987, 3 locations, Haas FFO, FANUC ASI) replaces removed partner band with sharper proof points.

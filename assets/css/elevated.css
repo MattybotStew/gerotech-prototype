@@ -350,3 +350,147 @@ body {
     height: clamp(440px, 85vh, 520px);
   }
 }
+
+/* ── Typography (Medium weight when kit updated) ──────────── */
+.eyebrow,
+.trust-strip__label,
+.mcs-hero__breadcrumb,
+.mcs-hero__badge,
+.stat-pill__label,
+.service-card__category,
+.filter-tab,
+.site-nav__link {
+  font-weight: var(--fw-medium);
+}
+
+/* ── Photography cohesion ─────────────────────────────────── */
+.slide__bg,
+.cta-band__bg,
+.mcs-card__image,
+.mcs-gallery-card__image,
+.news-card__thumb,
+.intro-section__media img {
+  object-fit: cover;
+}
+
+.slide__bg,
+.cta-band__bg {
+  filter: saturate(0.92) contrast(1.04);
+}
+
+/* ── Engineered Solutions hub ─────────────────────────────── */
+.es-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
+}
+
+.es-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(13, 13, 13, 0.94) 0%, rgba(28, 28, 33, 0.88) 55%, rgba(28, 28, 33, 0.72) 100%),
+    url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1920&auto=format&fit=crop') center / cover no-repeat;
+  z-index: 0;
+}
+
+.es-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.es-hero .eyebrow::before {
+  display: block;
+}
+
+.why-feature {
+  border-left: 3px solid transparent;
+  padding-left: var(--sp-16);
+  transition: border-color var(--ease), background var(--ease);
+}
+
+.why-feature:hover {
+  border-left-color: var(--clr-orange);
+  background: rgba(243, 138, 44, 0.04);
+}
+
+.why-feature__icon {
+  transition: transform var(--ease-slow), background var(--ease);
+}
+
+.why-feature:hover .why-feature__icon {
+  transform: scale(1.05);
+}
+
+.stat-strip {
+  border-top: 1px solid var(--clr-gray-border);
+  border-bottom: 1px solid var(--clr-gray-border);
+}
+
+.stat-pill__number {
+  font-variant-numeric: tabular-nums;
+}
+
+.trust-item {
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.trust-item[open] {
+  border-color: rgba(243, 138, 44, 0.35);
+  box-shadow: var(--shadow-card);
+}
+
+.credential-band {
+  transition: box-shadow var(--ease-slow);
+}
+
+.credential-band:hover {
+  box-shadow: inset 0 0 0 1px rgba(243, 138, 44, 0.2);
+}
+
+/* ── Machine Custom Solutions ─────────────────────────────── */
+.mcs-hero {
+  position: relative;
+  border-bottom: 1px solid var(--clr-gray-border);
+}
+
+.mcs-hero::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--clr-orange) 0%, var(--clr-light-orange) 100%);
+}
+
+.mcs-hero__headline .mcs-name-split__lead {
+  font-weight: var(--fw-medium);
+}
+
+.mcs-gallery-card {
+  transition: transform var(--ease-slow), box-shadow var(--ease-slow);
+}
+
+.mcs-gallery-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.mcs-gallery-card__image {
+  transition: transform var(--ease-slow);
+}
+
+.mcs-gallery-card:hover .mcs-gallery-card__image {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .mcs-hero::before {
+    width: 100%;
+    height: 3px;
+    bottom: auto;
+  }
+}
