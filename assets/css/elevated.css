@@ -386,19 +386,41 @@ body {
   background: transparent;
 }
 
+.es-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
 .es-hero::before {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.94) 0%, rgba(28, 28, 33, 0.92) 100%);
+}
+
+.es-hero--blueprint::before {
   background:
     linear-gradient(135deg, rgba(13, 13, 13, 0.94) 0%, rgba(28, 28, 33, 0.88) 55%, rgba(28, 28, 33, 0.72) 100%),
     url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1920&auto=format&fit=crop') center / cover no-repeat;
-  z-index: 0;
 }
 
-.es-hero .container {
-  position: relative;
-  z-index: 1;
+.es-hero--photo-about::before {
+  background:
+    linear-gradient(135deg, rgba(13, 13, 13, 0.92) 0%, rgba(28, 28, 33, 0.85) 100%),
+    url('https://images.unsplash.com/photo-1713869791526-ba21b52e5528?q=80&w=1920&auto=format&fit=crop') center / cover no-repeat;
+}
+
+.es-hero--photo-support::before {
+  background:
+    linear-gradient(135deg, rgba(13, 13, 13, 0.92) 0%, rgba(28, 28, 33, 0.85) 100%),
+    url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1920&auto=format&fit=crop') center / cover no-repeat;
+}
+
+.es-hero--photo-training::before {
+  background:
+    linear-gradient(135deg, rgba(13, 13, 13, 0.92) 0%, rgba(28, 28, 33, 0.85) 100%),
+    url('https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop') center / cover no-repeat;
 }
 
 .es-hero .eyebrow::before {
@@ -493,4 +515,201 @@ body {
     height: 3px;
     bottom: auto;
   }
+}
+
+/* ── Homepage category row ────────────────────────────────── */
+.intro-section__categories {
+  margin-top: var(--sp-64);
+  padding-top: var(--sp-48);
+  border-top: 1px solid var(--clr-gray-border);
+}
+
+/* ── Capability cards (ES) ────────────────────────────────── */
+.capability-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-16);
+}
+
+.capability-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-20);
+  padding: var(--sp-24);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: border-color var(--ease), transform var(--ease-slow), box-shadow var(--ease-slow);
+}
+
+.capability-card:hover {
+  border-color: rgba(243, 138, 44, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.capability-card__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  color: var(--clr-orange);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2.5ch;
+  font-variant-numeric: tabular-nums;
+}
+
+.capability-card__text {
+  margin: 0;
+  padding-top: var(--sp-4);
+  font-size: 16px;
+  color: var(--clr-white);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+}
+
+/* ── Tech partners grid polish ────────────────────────────── */
+.tech-logo-grid .partner-wordmark {
+  min-height: 72px;
+}
+
+/* ── Training schedule anchor ─────────────────────────────── */
+.training-schedule-section {
+  scroll-margin-top: 120px;
+}
+
+/* ── Search modal ─────────────────────────────────────────── */
+.search-modal[hidden] {
+  display: none;
+}
+
+.search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--sp-24);
+  padding-top: clamp(80px, 12vh, 140px);
+}
+
+.search-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.search-modal__panel {
+  position: relative;
+  width: min(560px, 100%);
+  background: var(--clr-white);
+  padding: var(--sp-32);
+  box-shadow: var(--shadow-card-hover);
+  border-top: 3px solid var(--clr-orange);
+}
+
+.search-modal__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  margin: 0 0 var(--sp-8);
+}
+
+.search-modal__hint {
+  font-size: var(--fs-ui);
+  color: var(--clr-gray-body);
+  margin: 0 0 var(--sp-20);
+}
+
+.search-modal__input {
+  width: 100%;
+  padding: var(--sp-12) var(--sp-16);
+  border: 1px solid var(--clr-gray-border);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  margin-bottom: var(--sp-20);
+}
+
+.search-modal__input:focus {
+  outline: none;
+  border-color: var(--clr-orange);
+  box-shadow: 0 0 0 3px var(--clr-orange-tint);
+}
+
+.search-modal__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-8);
+}
+
+.search-modal__link {
+  padding: var(--sp-8) var(--sp-12);
+  background: var(--clr-gray-card);
+  border: 1px solid var(--clr-gray-border);
+  font-size: var(--fs-ui);
+  font-weight: var(--fw-medium);
+  color: var(--clr-ink);
+  text-decoration: none;
+  transition: border-color var(--ease), color var(--ease);
+}
+
+.search-modal__link:hover {
+  border-color: var(--clr-orange);
+  color: var(--clr-orange);
+}
+
+.search-modal__close {
+  position: absolute;
+  top: var(--sp-12);
+  right: var(--sp-12);
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--clr-gray-band);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--clr-ink);
+}
+
+body.search-open {
+  overflow: hidden;
+}
+
+/* ── Email signup thanks state ────────────────────────────── */
+.email-signup__thanks {
+  margin: var(--sp-12) 0 0;
+  font-size: var(--fs-ui);
+  color: var(--clr-orange-light);
+  font-weight: var(--fw-medium);
+}
+
+.email-signup__form.is-submitted .email-signup__input,
+.email-signup__form.is-submitted .email-signup__submit {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── CTA band rhythm (site-wide) ──────────────────────────── */
+.cta-band--photo .cta-band__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-20);
+}
+
+.cta-band--photo .slide__eyebrow {
+  margin-bottom: 0;
+}
+
+.cta-band--photo .cta-band__headline--photo {
+  margin: 0;
+}
+
+/* ── Extended photography filter ────────────────────────── */
+.testimonial-split__photo,
+.about-photo,
+.mcs-card__image {
+  filter: saturate(0.92) contrast(1.04);
 }

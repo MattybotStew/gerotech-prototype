@@ -5,17 +5,17 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-14 (design recommendations pass)
+**Last Updated:** 2026-07-14 (full design fixes pass)
 **Active Agent:** Cursor
-**Branch:** `cursor/cline-beauty-pass`
-**Last Commit:** feat(design): implement presentation recommendations from audit
+**Branch:** `master`
+**Last Commit:** design fixes pass (pending)
 
 ## Current State (2026-07-14)
-- Beauty pass + per-page CTAs: ✅ COMPLETED
-- Design recommendations audit: ✅ IMPLEMENTED (see JOURNAL 2026-07-14)
+- Beauty pass + elevation pass: ✅ COMPLETED on `master`
+- Design fixes pass: ✅ Homepage category cards, ES tech partners, capability cards, scoped heroes, search modal, signup thanks, footer links, SVG category icons
 - Orphan machine-modification.html: ✅ Redirects to MCS
 - FANUC badge: ⚠️ Styled placeholder — official logo pending client/legal
-- `#` CTAs on main pages: ✅ Wired to mailto/tel/internal pages (machine catalog `#` URLs still pending)
+- Mega-menu machine catalog links: ⚠️ Still `#` pending Haas catalog URLs
 - Navigo 500 in Adobe kit: ❌ Recommend client add weight to kit `lqh7ybe`
 
 ### What was completed 2026-07-14 (Cursor — design recommendations)
@@ -169,8 +169,8 @@ Before ending any session: update **Current Session State** above and prepend to
 
 - Pure HTML5 / CSS3 (custom properties) / vanilla JS (ES6) — zero frameworks
 - Fonts: Navigo (Adobe Fonts, kit `lqh7ybe`) — 400 + 700 weights only
-- CSS load order: `assets/css/tokens.css` → `assets/css/components.css` → `assets/css/layout.css`
-- JS: `nav.js` (both pages), `slider.js` (homepage only), `filter.js` (ES page only), `animations.js` (both), `testimonials.js` (homepage)
+- CSS load order: `assets/css/tokens.css` → `assets/css/components.css` → `assets/css/layout.css` → `assets/css/elevated.css`
+- JS: `nav.js` (sticky, mobile, search modal, signup), `slider.js`, `filter.js`, `animations.js`, `testimonials.js`, `machine-tabs.js`, `modal.js`
 
 ## Typography System (2026-07-14 review)
 

@@ -89,15 +89,16 @@ Hub pages use dark heroes for category landing; detail/drill-down pages use ligh
 ## Homepage Sections
 
 1. Alert banner — dark, 3 click-to-call phone numbers
-2. Sticky header — logo | Machines ↗ | Engineered Solutions | Support ▼ | About ▼ | Get a Quote | 🔍
-3. Hero slider — dark, 520px, 3 placeholder slides, arrows + dots
-4. Intro + 3 category cards — Since 1987, Michigan's Premier Distributor
-5. Partner logo row — 12 logos, 2 rows of 6, dashed tiles
-6. Testimonial split — photo left, dark panel right, Michael Rudisill quote
-7. News feed — 3 items with thumbnails
-8. CTA band — dark bg, white card, "Put our engineers to work on your project"
-9. Email signup — mailing list, email input + Sign Up
-10. Footer — dark (#3A3A40), 4-column, logo, socials, address
+2. Sticky header — logo | Machines ↗ | Engineered Solutions | Support ▼ | About ▼ | Get a Quote | Search
+3. Hero slider — 3 slides (Training, Machines, ES + FANUC ASI), arrows + dots
+4. Trust strip — Since 1987, 3 locations, Haas FFO, FANUC ASI
+5. Intro + 3 category cards — Machines, Engineered Solutions, Service & Support
+6. Machine browse tabs — 5 categories with model tags
+7. Testimonial carousel — split photo + dark panel
+8. News feed — 3 items with thumbnails
+9. CTA band — photo hero, mailto quote
+10. Email signup — prototype thanks state on submit
+11. Footer — 4-column, wired internal links
 
 ---
 
@@ -110,8 +111,8 @@ Hub pages use dark heroes for category landing; detail/drill-down pages use ligh
 5. Stat strip — gray, 4 pill cards
 6. ES grid — 3×3, 8 service cards + 1 placeholder, filterable
 7. FANUC ASI band — dark, badge + copy
-8. Technology Partners — 2-col, 3×3 logo grid
-9. Capability band — dark, "Your Machine. Our Solution.", 3 numbered bullets
+8. Technology Partners — 2-col, 9 wordmark grid
+9. Capability band — boxed numbered cards (01–03)
 10. Testimonials — 2 bordered cards
 11. News feed (same pattern)
 12. CTA band — "Ready to Engineer a Better Way to Manufacture?"

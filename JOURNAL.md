@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Full design fixes pass (Cursor)
+- **Bugs:** Homepage `#main` skip target; scoped `.es-hero` photo modifiers (blueprint / about / support / training).
+- **Homepage:** 3 category cards (Machines, ES, Support); slide 3 FANUC ASI eyebrow; cohesive news thumbs; machine tabs → `machine-tabs.js`.
+- **ES hub:** Technology Partners section (9 wordmarks); capability band → boxed `.capability-card` layout.
+- **Site-wide:** Search modal with quick links; email signup thanks state; footer links wired; CTA band rhythm; SVG category icons (about/support).
+- **Automation:** Gallery renamed "Installed Automation Projects".
+- **CSS:** Removed dead `.partners-section` / `.partner-logo`; kept `.partner-wordmark` for ES partners grid.
+
 ## 2026-07-14 — Elevation pass: photography, Typekit prep, ES/MCS (Cursor)
 - **Photography:** Hero slide 2 + intro image aligned to warmer industrial set; `decoding="async"` on homepage heroes; subtle saturation/contrast on hero/CTA photos; MCS sheet-metal card swapped off mismatched asset.
 - **Typekit:** `design-spec.md` documents exactly what to add — **Navigo Medium (500)** required; Black (900) optional; no Thin/Light.

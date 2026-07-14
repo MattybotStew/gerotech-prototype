@@ -15,7 +15,7 @@
   <div data-include="partials/site-header.html"></div>
 
   <main id="main">
-    <section class="es-hero es-hero--compact" aria-label="About hero">
+    <section class="es-hero es-hero--compact es-hero--photo-about" aria-label="About hero">
       <div class="container container--es">
         <p class="eyebrow eyebrow--white">Since 1987</p>
         <h1 class="es-hero__headline es-hero__headline--md">Michigan's Trusted Manufacturing Partner</h1>
@@ -62,19 +62,25 @@
         </div>
         <div class="grid-3 grid--offset-top">
           <article class="category-card">
-            <div class="category-card__icon">🏢</div>
+            <div class="category-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg>
+            </div>
             <h3 class="category-card__title">Headquarters</h3>
             <p class="category-card__body">29220 Commerce Drive<br />Flat Rock, MI 48134</p>
             <a class="category-card__link" href="tel:+17343797788">734-379-7788 →</a>
           </article>
           <article class="category-card">
-            <div class="category-card__icon">🔧</div>
+            <div class="category-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
             <h3 class="category-card__title">Service Center</h3>
             <p class="category-card__body">Michigan Service Location<br />Address Placeholder</p>
             <a class="category-card__link" href="tel:+12484768787">248-476-8787 →</a>
           </article>
           <article class="category-card">
-            <div class="category-card__icon">📍</div>
+            <div class="category-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
             <h3 class="category-card__title">Grand Rapids</h3>
             <p class="category-card__body">West Michigan Location<br />Address Placeholder</p>
             <a class="category-card__link" href="tel:+16167351100">616-735-1100 →</a>

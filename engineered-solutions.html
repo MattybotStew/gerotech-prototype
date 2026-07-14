@@ -20,7 +20,7 @@
     <!-- ============================================================
          SECTION 3: ES Hero
          ============================================================ -->
-    <section class="es-hero" aria-label="Engineered Solutions hero">
+    <section class="es-hero es-hero--blueprint" aria-label="Engineered Solutions hero">
       <div class="container container--es">
         <p class="eyebrow eyebrow--white">Engineering-Driven Manufacturing Solutions</p>
         <h1 class="es-hero__headline">Your Manufacturing Solutions Partner</h1>
@@ -384,6 +384,38 @@
       </div>
     </section>
 
+    <!-- ============================================================
+         SECTION 8: Technology Partners
+         ============================================================ -->
+    <section class="tech-partners-section" aria-labelledby="tech-partners-headline">
+      <div class="tech-partners-section__inner">
+        <div>
+          <p class="eyebrow">Our Technology Ecosystem</p>
+          <h2 class="tech-partners-section__copy-headline" id="tech-partners-headline">
+            The Right Technology for Every Application
+          </h2>
+          <p class="tech-partners-section__copy-body">
+            We work with leading automation and controls manufacturers to source the right
+            components for every solution — engineering judgment matched to your application,
+            not brand allegiance.
+          </p>
+          <a class="btn btn--outline-dark" href="engineered-solutions.html#es-grid">Explore Solutions</a>
+        </div>
+
+        <div class="tech-logo-grid">
+          <div class="partner-wordmark">FANUC</div>
+          <div class="partner-wordmark">Haas</div>
+          <div class="partner-wordmark">Midaco</div>
+          <div class="partner-wordmark">OnRobot</div>
+          <div class="partner-wordmark">Renishaw</div>
+          <div class="partner-wordmark">Keyence</div>
+          <div class="partner-wordmark">Dynatect</div>
+          <div class="partner-wordmark">Royal Products</div>
+          <div class="partner-wordmark">5th Axis</div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===[ FIGMA ORDER_ID#46: "We love this content. Is there another design for the number sections. Maybe put that content into boxes to match the theme of the rest of the layout? We're open to ideas." (tbridges) ]=== -->
     <!-- ===[ FIGMA ORDER_ID#60: "Please update this section to display the numbered content in a different way." (Project Management) ]=== -->
     <!-- ===[ FIGMA ORDER_ID#10: "As much as we love this phrase, we'll need to change it to 'Your Machine. Our Solution.'" (tbridges) ]=== -->
@@ -408,26 +440,20 @@
           </div>
         </div>
 
-        <ul class="capability-bullets" aria-label="Key capabilities">
-          <li class="capability-bullet">
-            <span class="capability-bullet__num" aria-hidden="true">01</span>
-            <span class="capability-bullet__text">
-              Any make, any control — we engineer to your existing equipment
-            </span>
-          </li>
-          <li class="capability-bullet">
-            <span class="capability-bullet__num" aria-hidden="true">02</span>
-            <span class="capability-bullet__text">
-              In-house design, programming, and integration
-            </span>
-          </li>
-          <li class="capability-bullet">
-            <span class="capability-bullet__num" aria-hidden="true">03</span>
-            <span class="capability-bullet__text">
-              From a single modification to a full automation cell
-            </span>
-          </li>
-        </ul>
+        <div class="capability-cards" aria-label="Key capabilities">
+          <article class="capability-card">
+            <span class="capability-card__num" aria-hidden="true">01</span>
+            <p class="capability-card__text">Any make, any control — we engineer to your existing equipment</p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-card__num" aria-hidden="true">02</span>
+            <p class="capability-card__text">In-house design, programming, and integration</p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-card__num" aria-hidden="true">03</span>
+            <p class="capability-card__text">From a single modification to a full automation cell</p>
+          </article>
+        </div>
       </div>
     </section>
 
