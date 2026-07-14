@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Presentation-ready verification (Cursor, cursor/cline-beauty-pass)
+- **Branch:** `cursor/cline-beauty-pass` reset from latest `master` (`83ae812`). All beauty-pass goals A–C already implemented on master — this pass verified, did not re-implement.
+- **Verified @1440px:** Homepage (partners band, intro frame, model tags, testimonials, Ken Burns), ES (SVG why-feature icons), MCS (name split hero).
+- **Verified @390px:** Homepage machine tabs horizontal scroll; no console errors on fetch of all 9 pages.
+- **Per-page CTA images:** 9 unique Unsplash stand-ins confirmed.
+- **Not changed (per blockers):** Nav "Machine Customization" vs page "Custom Solutions", orphan machine-modification.html, FANUC badge placeholder, `#` CTAs.
+- **Not pushed** — awaiting Matt.
+
 ## 2026-07-14 — Merge beauty pass + per-page CTA images (Cursor)
 - **Merged** `cursor/beauty-pass-polish` → `master` (partners, model tags, hero motion, ES SVG icons, token/CSS polish).
 - **Salvaged from Cline WIP:** Each page now has its own `cta-band--photo` background (9 unique Unsplash stand-ins; no longer one shared image). Interior pages: about, application, automation-integration, engineered-solutions, machine-custom-solutions, machine-modification, support, training.

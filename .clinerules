@@ -5,17 +5,28 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-14 (merge + CTA images)
+**Last Updated:** 2026-07-14 (presentation-ready verification)
 **Active Agent:** Cursor
-**Last Commit:** feat(cta): per-page photo CTA backgrounds across site
+**Branch:** `cursor/cline-beauty-pass` (from master `83ae812`)
+**Last Commit:** chore: verify presentation-ready beauty pass on cline branch
 
 ## Current State (2026-07-14)
 - MCS naming split: ✅ COMPLETED
-- Beauty pass (partners, tags, icons, motion): ✅ COMPLETED — merged to master
+- Beauty pass (partners, tags, icons, motion): ✅ COMPLETED — on master + verified on `cursor/cline-beauty-pass`
 - Per-page CTA photo backgrounds: ✅ COMPLETED (9 unique stand-ins)
+- Presentation-ready QA (1440 + 390, console): ✅ VERIFIED 2026-07-14
 - Orphan machine-modification.html: ❌ Needs integration or removal
 - FANUC badge: ❌ Placeholder only (awaiting client)
 - `#` CTAs: ❌ Needs clarification
+
+### What was completed 2026-07-14 (Cursor — presentation-ready verification)
+
+- **Branch:** `cursor/cline-beauty-pass` created from latest master; goals A–C were already landed via `adcd5a1` + `83ae812`.
+- **Homepage:** Partners band (12 wordmarks), intro orange frame, Ken Burns hero, model-tag chips, polished testimonial quotes, mobile tab scroll — all present.
+- **Engineered Solutions:** Emoji replaced with inline SVG stroke icons in `.why-feature__icon`.
+- **Site-wide:** News-card hover, `--radius-card: 0`, per-page CTA photos — confirmed.
+- **Screenshot QA:** Homepage, ES, MCS at 1440px; mobile machine tabs at 390px; HTTP 200 on all 9 pages.
+- **Left untouched:** Nav label split, orphan page, FANUC badge, `#` CTAs.
 
 ### What was completed 2026-07-14 (Cursor — merge + CTA images)
 
