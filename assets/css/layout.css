@@ -421,7 +421,20 @@ button { cursor: pointer; }
     text-align: center;
     padding: var(--sp-40) var(--sp-24);
   }
-  .cta-band--photo { padding: 88px var(--sp-24); }
+  .cta-band--photo { min-height: clamp(320px, 55vh, 440px); }
+  .cta-band--photo .cta-band__content {
+    text-align: center;
+    align-items: center;
+  }
+  .cta-band--photo .cta-band__headline--photo {
+    max-width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-band--photo .cta-band__overlay {
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.78) 0%, rgba(13, 13, 13, 0.55) 45%, rgba(28, 28, 33, 0.65) 100%);
+  }
 
   .email-signup__form { flex-direction: column; }
 
