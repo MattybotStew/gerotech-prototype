@@ -1,81 +1,88 @@
 # Gerotech Website Prototype — Project Brief
 
-> Shared reference for AI agents (Cline, Claude, etc.). Keep updated as the project evolves.
+> Shared reference for AI agents (Cursor, Cline, Claude, etc.). Keep updated as the project evolves.
 
 ## Overview
 
-Static HTML/CSS/JS **wireframe/prototype** for **Gerotech, Inc.** — Michigan-based CNC machinery distributor & engineering solutions provider (serving manufacturers since 1987). Built for a **July 7, 2026** client presentation. No frameworks, no build tools.
+Static HTML/CSS/JS **presentation prototype** for **Gerotech, Inc.** — Michigan-based CNC machinery distributor & engineering solutions provider (serving manufacturers since 1987). Built for the **July 7, 2026** client presentation.
 
-**Current stage: Wireframe.** Structural layout, real copy (verified against live site), and functional interactions are in place. Placeholder visuals (emoji icons, dashed-border image divs, logo placeholder) are intentional — they mark slots for design upgrade.
+**Current stage: Presentation-ready prototype (2026-07-14).** Real copy, Navigo typography, Unsplash photo stand-ins, functional interactions (hero slider, ES filter, modals, search modal, machine tabs). Logo SVGs in repo. WordPress is the production target.
 
-**Live site:** https://gerotech.com/ (WordPress, custom theme, Smart Slider 3, Contact Form 7, Max Mega Menu)
+**Live site:** https://gerotech.com/ (WordPress — reference only; prototype is ahead of live ES hub)
 
-**Agency:** CloudMellow — 16-week engagement. This prototype is built ahead of their design phase.
+**Agency:** CloudMellow (Matt)
 
-**Client contact:** CEO Rochelle attends July 7 presentation.
+**Repo:** https://github.com/MattybotStew/gerotech-prototype — branch **`master`**
 
-## Pages (10 total)
+## Pages (11 HTML)
 
 | Page | File | Status |
 |------|------|--------|
-| Homepage | `index.html` | ✅ 10 sections, copy verified against live site |
-| Engineered Solutions (hub) | `engineered-solutions.html` | ✅ Filterable grid + 8 sections |
-| Machine Custom Solutions | `machine-custom-solutions.html` | ✅ 8 services, product gallery with status tags |
-| Machine Modification | `machine-modification.html` | ✅ 5 services (hydraulics, pneumatics, auto-doors, workholding, broken tool detection) |
-| Automation Integration | `automation-integration.html` | ✅ 4 services (ROBOGUIDE, robot selection, cell integration, cobots) |
-| Application | `application.html` | ✅ 4 services (programming, macros, training, probing) |
-| Training | `training.html` | ✅ 4 Haas courses (operator + programming) |
-| Support | `support.html` | ⬜ Stub |
-| About | `about.html` | ⬜ Stub |
+| Homepage | `index.html` | ✅ Hero slider (3 slides), trust strip, category cards, machine tabs, testimonials, news |
+| Engineered Solutions | `engineered-solutions.html` | ✅ Full hub: stats, grid, FANUC band, tech partners, capability cards, trust FAQ |
+| Machine Custom Solutions | `machine-custom-solutions.html` | ✅ Photo hero, 8 service cards, Installed Projects gallery, modals |
+| Automation & Controls | `automation-integration.html` | ✅ Photo hero, services, Installed Projects gallery, modals |
+| Applications | `application.html` | ✅ Photo hero, 4 application services, modals |
+| Training | `training.html` | ✅ Photo hero, 4 Haas courses |
+| Support | `support.html` | ✅ Photo hero, 4 support option cards (SVG icons) |
+| About | `about.html` | ✅ Photo hero, story, stats, locations |
+| Machine Modification | `machine-modification.html` | ✅ Redirect → MCS |
+| Showroom | `showroom.html` | 🔵 Exploratory variant page |
+| Hero variations | `hero-variations.html` | 🔵 Exploratory layout tests |
+
+Shared: `partials/site-header.html`, `partials/site-footer.html`
 
 ## Architecture
 
 ```
 gerotech-prototype/
-├── index.html                   # Homepage
-├── engineered-solutions.html    # ES landing hub
-├── machine-custom-solutions.html# Detail: Column Risers, Sheet Metal, Spin Forming, etc.
-├── machine-modification.html   # Detail: Hydraulics, Pneumatics, Auto-Doors, etc.
-├── automation-integration.html  # Detail: ROBOGUIDE, Robot Selection, Cobots
-├── application.html             # Detail: Programming, Macros, Training, Probing
-├── training.html                # Haas training courses
-├── about.html                   # Stub
-├── support.html                 # Stub
-├── cline-project-handoff.md     # Full project handoff doc for AI agents
-├── design-spec.md               # Client-facing design spec
+├── index.html + 8 interior pages (see table)
+├── partials/site-header.html    # Alert, nav, mega-menu, search modal
+├── partials/site-footer.html
+├── AGENTS.md / CLAUDE.md        # LLM instructions
+├── JOURNAL.md / .clinerules     # Session sync (read every session)
+├── design-spec.md               # Design tokens + section inventory
+├── cline-project-handoff.md     # Historical context + live site audit
 ├── assets/
 │   ├── css/
-│   │   ├── tokens.css           # Design tokens (CSS custom properties)
-│   │   ├── components.css       # All reusable UI components (~1400 lines)
-│   │   └── layout.css           # Base reset, grids, section layouts, responsive
+│   │   ├── tokens.css           # Design tokens
+│   │   ├── components.css       # BEM components (~2500 lines)
+│   │   ├── layout.css           # Grids, sections, responsive
+│   │   └── elevated.css         # Polish: heroes, hovers, trust strip
 │   ├── js/
-│   │   ├── nav.js               # Sticky header + mobile toggle
-│   │   ├── slider.js            # HeroSlider class (prev/next, dots, 5s autoplay)
-│   │   ├── filter.js            # ES grid filter tabs (data-category)
-│   │   └── animations.js        # Scroll-triggered fade-in-up (IntersectionObserver)
-│   └── images/placeholders/     # Drop client images here
+│   │   ├── include-partials.js
+│   │   ├── nav.js               # Sticky, mobile, search modal, signup thanks
+│   │   ├── slider.js            # Homepage hero carousel
+│   │   ├── filter.js            # ES grid filter tabs
+│   │   ├── animations.js        # Scroll reveal
+│   │   ├── testimonials.js      # Testimonial carousels
+│   │   ├── machine-tabs.js      # Homepage machine browse
+│   │   └── modal.js             # MCS / Automation card modals
+│   └── images/
+│       ├── gerotech-logo.svg
+│       └── gerotech-logo-white.svg
 └── docs/
     ├── PROJECT_BRIEF.md         # ← This file
-    └── superpowers/plans/       # Original implementation plan
+    └── superpowers/plans/       # Original implementation plan (historical)
 ```
 
-## Navigation Structure (Desktop Nav)
+## Navigation Structure (Desktop)
 
 ```
-Machines ↗ | Engineered Solutions ▼ | Training | Support ▼ | About ▼ | [Get a Quote] [🔍]
+Machines ↗ | Engineered Solutions ▼ | Training | Support ▼ | About ▼ | [Get a Quote] [Search]
 ```
 
-- **Machines ↗** — external link to gerotech.com/machines, opens new tab
-- **Engineered Solutions ▼** — mega nav with 3 columns (By Category, All Services, CTA)
-  - By Category: Machine Custom Solutions, Machine Customization, Automation Integration
-  - All Services: links to all Detail pages
-- **Training** — standalone nav item (per client, moved from Support dropdown)
-- **Support ▼** — dropdown: Service Request, Parts, Documentation (Training removed)
-- **About ▼** — dropdown: Our Story, Team, Careers, Contact
+- **Machines** — mega-menu (Haas catalog links still `#` pending); external catalog link
+- **Engineered Solutions** — mega-menu with MCS / Application / Automation + CTA
+- **Training** — standalone link → `training.html`
+- **Support** — dropdown: Service, Parts, Documentation
+- **About** — dropdown: Our Story, Team, Careers, Contact
+- **Get a Quote** — `mailto:sales@gerotech.com`
+- **Search** — opens prototype modal with quick links
 
 ## Design System
 
-**CSS custom properties live in `tokens.css`** — all color/spacing/radius changes go there first.
+**CSS custom properties in `tokens.css`** — all color/spacing changes go there first.
 
 | Token | Value |
 |-------|-------|
@@ -84,72 +91,87 @@ Machines ↗ | Engineered Solutions ▼ | Training | Support ▼ | About ▼ | [
 | Ink/black | `#0D0D0D` |
 | Dark bg | `#1C1C21` |
 | Dark nav/footer | `#3A3A40` |
-| Gray body | `#808080` |
-| Gray muted | `#9A9AA8` |
-| Gray border | `#D6D6D6` |
-| Gray card bg | `#F9F9FB` |
-| Gray band | `#F2F2F2` |
 
-**Font:** Plus Jakarta Sans (400/500/600/700/800) via Google Fonts  
-**Max-width:** Homepage 1200px | ES page + Detail pages 1120px  
-**Border radius:** 8px (buttons) | 18–20px (cards) | 99px (pills)  
-**Breakpoints:** 1024px, 768px, 480px
+**Font:** Navigo via Adobe Fonts kit [`lqh7ybe`](https://use.typekit.net/lqh7ybe.css) — **400 + 700** in kit; **add Medium (500)** for UI hierarchy (tokens ready)
+
+**Max-width:** Homepage 1200px | ES + detail pages 1120px  
+**Border radius:** Cards **0** | Buttons 8px | Pills 99px  
+**Breakpoints:** 1024px, 1000px (nav collapse), 768px, 480px
+
+### Hero pattern (site-wide)
+
+Full-bleed Unsplash photo + **left gradient overlay** (105°) + **left-aligned** white copy. Mobile ≤768px: vertical gradient, centered copy.
+
+- Homepage: `.hero-slider` / `.slide__content--left`
+- Hub pages: `.es-hero` + `.es-hero--photo-*` or `.es-hero--blueprint`
+- Detail pages: `.mcs-hero.mcs-hero--photo` + photo modifier class
+- CTA bands: `.cta-band--photo` (same treatment)
 
 ## CSS Loading Order
 
-1. `tokens.css` — must be first
-2. `components.css` — component styles
-3. `layout.css` — layout, grids, responsive
+1. `tokens.css`
+2. `components.css`
+3. `layout.css`
+4. **`elevated.css`** — always last
 
-## JavaScript Loading
+## JavaScript by Page
 
 | Page | Scripts |
 |------|---------|
-| index.html | nav.js, slider.js, animations.js |
-| engineered-solutions.html | nav.js, filter.js, animations.js |
-| All Detail pages | nav.js, animations.js |
+| All pages | `include-partials.js`, `nav.js` |
+| Homepage | + `slider.js`, `animations.js`, `testimonials.js`, `machine-tabs.js` |
+| ES hub | + `filter.js`, `animations.js`, `testimonials.js` |
+| MCS, Application, Automation | + `animations.js`, `modal.js` |
+| Other interior | + `animations.js` |
 
-## Figma Comments — Implementation Status
+## Primary CTAs (wired)
 
-| # | Comment | Status |
-|---|---------|--------|
-| #42 | "Change all orange headers to Machine Customization" | ✅ Done — renamed from Machine Modification |
-| #32 | "Training needs its own nav item" | ✅ Standalone nav item + training.html page with 4 Haas courses |
-| #31 | "Application as its own category" | ✅ Application filter tab + Detail page |
-| #30 | "Separate Machine Custom Solutions and Automation Integration" | ✅ Separate Detail pages |
-| #26 | "Remove Takamaz" | ✅ 12 partner slots, Takamaz excluded |
-| #36 | "Links open in new browser window" | ✅ All external links have `target="_blank"` |
-| #28 | "All phones clickable" | ✅ All use proper `tel:+1` E.164 format (live site had broken tel: links) |
-| #34 | "Highlight Haas more than we do now" | ⬜ Flagged — training.html features Haas prominently, hero may need updates |
-| #40 | "Remove CTA" | ⬜ Need to identify which CTA |
-| #41 | Mailing list Constant Contact | 🔵 Process question — live site uses CF7 → email group → manual Constant Contact entry |
+| Action | Destination |
+|--------|-------------|
+| Get a Quote | `mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request` |
+| Talk to an Engineer | `tel:+17343797788` |
+| Service | `tel:+12484768787` |
 
-## Current State & Known Placeholders
+## Open / Blocked (do not guess)
 
 | Item | Status |
 |------|--------|
-| All images | Placeholder divs with dashed borders |
-| UI icons | Emoji markers (⚙️ 🔧 🛠️) — need real SVG icons |
-| Many CTA links | `href="#"` — needs real URLs |
-| Second testimonial (ES page) | Placeholder text |
-| Social media links | `href="#"` — no real profiles confirmed |
-| Search functionality | Button exists, no search implementation |
-| Email signup form | Email only — live site uses 5 fields (name, company, zip) |
-| Dark mode | Not implemented |
-| Logo | Dashed placeholder box |
+| FANUC official logo | Placeholder badge only — legal TBD |
+| Mega-menu machine URLs (~40) | `#` pending Haas catalog structure |
+| Nav label "Machine Customization" vs page "Custom Solutions" | IA decision open |
+| News/blog URL | Footer → about.html temporarily |
+| Privacy / Terms URLs | Placeholder → about.html |
+| Social icons | Hidden until URLs confirmed |
+| Constant Contact signup | Prototype thanks state only |
+| Client photography | Unsplash stand-ins — verify URLs before demos |
 
 ## Key Source Files
 
-- `cline-project-handoff.md` — Full project context: timeline, agency details, live site audit, open decisions, confirmed copy. **Read this first before making changes.**
-- `docs/superpowers/plans/2026-06-29-gerotech-website.md` — Original implementation plan
-- `design-spec.md` — Client-facing component library
+- `.clinerules` — **Read first every session** — live state + blockers
+- `JOURNAL.md` — Chronological change log
+- `design-spec.md` — Tokens, sections, Typekit guidance
+- `cline-project-handoff.md` — Live site audit, timeline, Figma comment history
+- `AGENTS.md` / `CLAUDE.md` — Stack + conventions for LLMs
 
 ## Key Conventions
 
-- **BEM naming** for CSS (`.site-footer__col-title`)
-- **ARIA attributes** throughout
-- **External links**: `target="_blank" rel="noopener noreferrer"`
-- **Phone numbers**: `tel:+1` E.164 format
-- **Address**: 29220 Commerce Drive, Flat Rock, MI 48134
-- **Footer variants**: `.site-footer` (dark nav — homepage), `.site-footer--black` (ES + Detail pages)
-- **Social icons**: LinkedIn, YouTube, Instagram per Figma
+- **BEM** naming (`.service-card__category`)
+- **ARIA** throughout; skip link → `#main`
+- **External links:** `target="_blank" rel="noopener noreferrer"`
+- **Phone:** `tel:+1` E.164
+- **Address:** 29220 Commerce Drive, Flat Rock, MI 48134
+- **Never** use real FANUC logo until legal approval
+- **Never** change CSS load order
+- **Never** hardcode brand colors outside `tokens.css`
+
+## Local Dev
+
+```bash
+cd gerotech-prototype
+python3 -m http.server 8080
+# → http://localhost:8080/
+```
+
+If port hangs: `kill $(lsof -t -iTCP:8080 -sTCP:LISTEN)` and restart.
+
+VS Code: **Terminal → Run Task → Serve Gerotech (8080)**

@@ -5,20 +5,35 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-14 (full design fixes pass)
+**Last Updated:** 2026-07-14 (agent docs sync + interior hero pass)
 **Active Agent:** Cursor
 **Branch:** `master`
-**Last Commit:** design fixes pass (pending)
+**Last Commit:** `79b9726` — interior photo heroes left-aligned
 
 ## Current State (2026-07-14)
-- Beauty pass + elevation pass: ✅ COMPLETED on `master`
-- Design fixes pass: ✅ Homepage category cards, ES tech partners, capability cards, scoped heroes, search modal, signup thanks, footer links, SVG category icons
-- Orphan machine-modification.html: ✅ Redirects to MCS
-- FANUC badge: ⚠️ Styled placeholder — official logo pending client/legal
-- Mega-menu machine catalog links: ⚠️ Still `#` pending Haas catalog URLs
-- Navigo 500 in Adobe kit: ❌ Recommend client add weight to kit `lqh7ybe`
+- **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
+- **Hero system:** Homepage slider + all interior pages use left-aligned photo hero (full-bleed bg, left gradient, white copy)
+- **CTA bands:** `.cta-band--photo` matches hero (left-aligned, per-page Unsplash bg)
+- **Homepage:** Trust strip (replaces partner band), 3 category cards, 3 hero slides, machine tabs, testimonial carousel
+- **ES hub:** Tech partners wordmarks, capability cards (01–03), stats/trust FAQ/testimonials filled
+- **UX:** Search modal, email signup thanks state, sticky header blur, footer links wired
+- **Orphan machine-modification.html:** ✅ Redirects to MCS
+- **FANUC badge:** ⚠️ Styled placeholder — official logo pending client/legal
+- **Mega-menu machine catalog links:** ⚠️ Still `#` pending Haas catalog URLs
+- **Navigo Medium (500):** ❌ Recommended for kit `lqh7ybe` — tokens ready, not in kit yet
+- **Unsplash URLs:** ⚠️ Verify periodically — `photo-1713869791526` and `photo-1565903020905` were 404 (fixed 2026-07-14)
 
-### What was completed 2026-07-14 (Cursor — design recommendations)
+### What was completed 2026-07-14 (Cursor — interior hero unification)
+- **All interior heroes** → left-aligned photo hero (same as homepage): ES, About, Support, Training, MCS, Application, Automation
+- **MCS detail pages** → `.mcs-hero--photo` with dark treatment + breadcrumbs on photo bg
+- **CSS:** `elevated.css` — shared overlay gradients, mobile center fallback
+
+### What was completed 2026-07-14 (Cursor — CTA + image fixes)
+- **CTA band** → left-aligned photo hero style (was centered dark block)
+- **Broken Unsplash URLs** fixed on intro + CTA (404 images)
+- Commits: `d7138d0`, `4331930`
+
+### What was completed 2026-07-14 (Cursor — full design fixes pass)
 
 - **Hero:** 3 slides max; H1 on slide 1 only; View Training → `training.html`.
 - **ES:** Stats, trust FAQ, testimonials, FANUC award block styling, name-split filter tabs.
@@ -174,7 +189,7 @@ Before ending any session: update **Current Session State** above and prepend to
 
 ## Typography System (2026-07-14 review)
 
-- **The Adobe Fonts kit (lqh7ybe) serves Navigo 400 + 700 ONLY** (plus italics). Weights 500/600/800 silently fall back — never use them. All `--fw-*` tokens now map to the two real faces. If Matt adds weights to the kit, update tokens.css.
+- **The Adobe Fonts kit (lqh7ybe) serves Navigo 400 + 700** (plus italics). Tokens map `--fw-medium` / `--fw-semibold` to **500** — add Medium to kit for UI labels; until then 500 falls back to 400. Do not use 600/800 unless added to kit.
 - Type scale lives in tokens.css: `--fs-hero/display/h1/h2/h3` (fluid clamps — do NOT re-override sizes in media queries) + `--fs-lede/body/ui/caption`. Tracking: `--ls-hero…h3` (negative, tightens with size), `--ls-caps` 0.14em (eyebrows), `--ls-meta` 0.08em (card labels). Leading: `--lh-*`.
 - All headlines use scale tokens + `text-wrap: balance`; body/quotes use `--lh-body` and `text-wrap: pretty`; intro body capped at 62ch measure.
 - Buttons: `text-transform: uppercase` + 0.05em letter-spacing, `--fw-bold` (maps to Navigo 700)
@@ -197,4 +212,4 @@ Before ending any session: update **Current Session State** above and prepend to
 - Never use real FANUC logo — badge usage rights unconfirmed
 - Never change CSS load order
 - Never hardcode brand colors outside `tokens.css`
-- Navigo weights 500/600/800 are NOT available in the kit — use 400 or 700 only
+- Navigo Medium (500) recommended for kit `lqh7ybe` — tokens ready; 500 falls back to 400 until added

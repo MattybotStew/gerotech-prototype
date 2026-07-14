@@ -4,6 +4,23 @@
 
 ---
 
+## ⚡ Prototype status — 2026-07-14 (supersedes wireframe stage below)
+
+The HTML prototype on **`master`** is now **presentation-ready**, not a wireframe:
+
+- **Navigo** typography (Adobe kit `lqh7ybe`); add **Medium (500)** when ready
+- **CSS:** `tokens.css` → `components.css` → `layout.css` → **`elevated.css`**
+- **All heroes + CTA photo bands:** left-aligned full-bleed photo (matches homepage hero)
+- **Homepage:** 3-slide hero, trust strip, category cards, machine tabs, testimonials, news
+- **ES hub:** Full section stack including tech partners + capability cards
+- **Images:** Unsplash stand-ins (not dashed-border divs); verify URLs — some 404 over time
+- **UX:** Search modal, email signup thanks, sticky header, wired mailto/tel CTAs
+- **Read first:** `.clinerules` + `JOURNAL.md` + `docs/PROJECT_BRIEF.md` for current state
+
+Historical wireframe/timeline context below is still useful for client decisions and live-site audit.
+
+---
+
 ## 1. The Project, in One Paragraph
 
 CloudMellow (the design/dev agency) is rebuilding the website for Gerotech, a Michigan CNC machinery distributor and engineering solutions company (Haas Factory Outlet, est. 1987). It's a 16-week engagement: discovery → wireframes → SEO audit → design → development. We are currently in the **wireframe approval / pre-design phase**. I (the user) am building an HTML/CSS/JS prototype to get ahead of the design phase and have something concrete to work from before the July 7 design presentation to the client (including their CEO, Rochelle).

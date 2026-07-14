@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Agent docs sync + interior hero unification (Cursor)
+- **Docs:** Updated `AGENTS.md`, `CLAUDE.md`, `docs/PROJECT_BRIEF.md`, `design-spec.md`, `.cursor/rules/gerotech-agent-sync.mdc`, `.clinerules`.
+- **Heroes:** All interior pages now use left-aligned photo hero (commit `79b9726`).
+- **CTA:** Photo CTA bands left-aligned like hero (`d7138d0`).
+- **Images:** Fixed 404 Unsplash URLs on homepage intro/CTA (`4331930`).
+
 ## 2026-07-14 — Full design fixes pass (Cursor)
 - **Bugs:** Homepage `#main` skip target; scoped `.es-hero` photo modifiers (blueprint / about / support / training).
 - **Homepage:** 3 category cards (Machines, ES, Support); slide 3 FANUC ASI eyebrow; cohesive news thumbs; machine tabs → `machine-tabs.js`.

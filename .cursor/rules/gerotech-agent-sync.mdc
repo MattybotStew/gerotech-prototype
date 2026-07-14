@@ -13,7 +13,7 @@ This repo is edited in **Cursor** and **VS Code (Cline)**. Stay aligned via git 
 2. `JOURNAL.md` — newest entry first
 3. `git log -5 --oneline`
 
-Also useful: `AGENTS.md`, `design-spec.md`, `cline-project-handoff.md`
+Also useful: `AGENTS.md`, `design-spec.md`, `docs/PROJECT_BRIEF.md`, `cline-project-handoff.md`
 
 ## Every session — write before ending
 
@@ -23,14 +23,18 @@ Also useful: `AGENTS.md`, `design-spec.md`, `cline-project-handoff.md`
 ## Code conventions (do not drift)
 
 - Static HTML/CSS/JS only — no frameworks or build tools
-- CSS order: `tokens.css` → `components.css` → `layout.css`
-- Navigo font kit `lqh7ybe` — weights **400 and 700 only**
+- CSS order: `tokens.css` → `components.css` → `layout.css` → **`elevated.css`**
+- Navigo font kit `lqh7ybe` — **400 + 700** in kit; tokens ready for **500** when Matt adds Medium
 - BEM classes; brand colors only in `tokens.css`
-- Unsplash placeholders OK; never guess open client decisions
+- Unsplash placeholders OK (comment each img); verify URLs — some 404 over time
+- Hero + CTA photo bands: left-aligned, left gradient overlay (matches homepage)
+- Never guess open client decisions
 
 ## Local preview
 
 Run **Tasks: Run Task → Serve Gerotech (8080)** or `python3 -m http.server 8080` from repo root.
+
+If connection refused or empty response: `kill $(lsof -t -iTCP:8080 -sTCP:LISTEN)` then restart.
 
 ## Figma
 

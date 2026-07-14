@@ -96,7 +96,7 @@ All interior heroes use the homepage hero pattern: full-bleed photo, left gradie
 6. Machine browse tabs — 5 categories with model tags
 7. Testimonial carousel — split photo + dark panel
 8. News feed — 3 items with thumbnails
-9. CTA band — photo hero, mailto quote
+9. CTA band — left-aligned photo hero (`.cta-band--photo`), mailto quote
 10. Email signup — prototype thanks state on submit
 11. Footer — 4-column, wired internal links
 
@@ -106,7 +106,7 @@ All interior heroes use the homepage hero pattern: full-bleed photo, left gradie
 
 1. Alert banner (same)
 2. Sticky header (same, "Engineered Solutions" active)
-3. Hero — dark, 72px H1 "Your Manufacturing Solutions Partner", 2 CTAs
+3. Hero — left-aligned photo, full-bleed bg, H1 "Your Manufacturing Solutions Partner", 2 CTAs
 4. Why Gerotech — 2-col, copy + CTA left, 3 feature rows right
 5. Stat strip — gray, 4 pill cards
 6. ES grid — 3×3, 8 service cards + 1 placeholder, filterable
@@ -115,8 +115,8 @@ All interior heroes use the homepage hero pattern: full-bleed photo, left gradie
 9. Capability band — boxed numbered cards (01–03)
 10. Testimonials — 2 bordered cards
 11. News feed (same pattern)
-12. CTA band — "Ready to Engineer a Better Way to Manufacture?"
-13. Footer — black (#0D0D0D)
+12. CTA band — left-aligned photo hero
+13. Footer — dark (#0D0D0D)
 
 ---
 
@@ -137,10 +137,21 @@ All interior heroes use the homepage hero pattern: full-bleed photo, left gradie
 
 ## Image Placeholders
 
-All images are placeholder `div` elements with dashed borders. When client provides images:
+All images are **Unsplash stand-ins** (`<img>` tags with HTML comment crediting source). When client provides assets:
 
-- Replace `<div class="img-placeholder ...">` with `<img src="..." alt="..." />`
-- The placeholder's border-radius and dimensions will transfer to the `<img>` via CSS
+- Replace `src` URL with client file in `assets/images/` (or CMS path in WordPress build)
+- Keep `alt` text descriptive; preserve `loading="lazy"` / `decoding="async"` where present
+- **Verify Unsplash URLs** before demos — photo IDs can 404 over time (see JOURNAL 2026-07-14)
+
+## Site-wide UX (prototype)
+
+| Feature | Implementation |
+|---------|----------------|
+| Search | Header button → modal with quick links (`nav.js`) |
+| Email signup | Prototype thanks message on submit (`nav.js`) |
+| Sticky header | Blur + shadow on scroll (`elevated.css` + `nav.js`) |
+| Alert banner | Collapses on scroll |
+| Footer socials | Hidden until client confirms URLs |
 
 ---
 
@@ -150,15 +161,35 @@ All images are placeholder `div` elements with dashed borders. When client provi
 gerotech-prototype/
 ├── index.html
 ├── engineered-solutions.html
+├── machine-custom-solutions.html
+├── automation-integration.html
+├── application.html
+├── training.html
+├── support.html
+├── about.html
+├── machine-modification.html   ← redirect stub → MCS
+├── partials/
+│   ├── site-header.html        ← alert, nav, search modal
+│   └── site-footer.html
 ├── design-spec.md
+├── AGENTS.md / CLAUDE.md
+├── JOURNAL.md / .clinerules
 └── assets/
     ├── css/
-    │   ├── tokens.css        ← All CSS variables; client color tweaks go here
-    │   ├── components.css    ← Reusable UI atoms
-    │   └── layout.css        ← Page structure, grid, responsive
+    │   ├── tokens.css          ← Design tokens
+    │   ├── components.css      ← UI atoms + BEM components
+    │   ├── layout.css          ← Grids, sections, responsive
+    │   └── elevated.css        ← Polish layer (heroes, trust strip, hovers)
     ├── js/
-    │   ├── nav.js            ← Sticky header + mobile toggle
-    │   ├── slider.js         ← Hero carousel
-    │   └── filter.js         ← ES grid filter tabs
-    └── images/placeholders/  ← Drop client images here
+    │   ├── include-partials.js
+    │   ├── nav.js              ← Sticky, mobile, search, signup
+    │   ├── slider.js           ← Homepage hero carousel
+    │   ├── filter.js           ← ES grid filter tabs
+    │   ├── animations.js       ← Scroll reveal
+    │   ├── testimonials.js     ← Homepage + ES carousels
+    │   ├── machine-tabs.js     ← Homepage machine browse
+    │   └── modal.js            ← MCS / Automation card modals
+    └── images/
+        ├── gerotech-logo.svg
+        └── gerotech-logo-white.svg
 ```
