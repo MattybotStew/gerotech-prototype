@@ -59,10 +59,10 @@
 
 | Pattern | Class | Used on |
 |---------|-------|---------|
-| **Dark full-bleed hub** | `.es-hero` | Engineered Solutions hub, Training |
-| **Light gray + breadcrumb** | `.mcs-hero` | MCS, Application, Automation detail pages |
+| **Dark photo, left-aligned** | `.es-hero` + `.es-hero--photo-*` / `.es-hero--blueprint` | ES hub, About, Support, Training |
+| **Dark photo + breadcrumb** | `.mcs-hero.mcs-hero--photo` + photo modifier | MCS, Application, Automation detail pages |
 
-Hub pages use dark heroes for category landing; detail/drill-down pages use light heroes with breadcrumbs.
+All interior heroes use the homepage hero pattern: full-bleed photo, left gradient overlay, left-aligned copy (centers on mobile ≤768px).
 
 ## Primary CTA destinations (prototype)
 
