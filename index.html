@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gerotech — Michigan's Premier CNC Machinery Distributor</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -15,54 +13,68 @@
 
   <div data-include="partials/site-header.html"></div>
 
-  <main>
+  <main id="main">
 
     <!-- ============================================================
-         SECTION 3: Hero Slider
-         Slide 1 copy confirmed from Figma (6377:40). Slides 2–6 awaiting client copy.
+         Hero Carousel (Figma redesign — 6 slides, glassmorphism arrows)
          ============================================================ -->
     <section class="hero-slider" aria-label="Homepage hero carousel">
-      <div class="slide is-active" role="tabpanel" aria-label="Slide 1 of 6">
-        <div class="slide__bg">Slide image — client-provided (training / showroom). Full-width.</div>
-        <div class="slide__content">
-          <h2 class="slide__headline">Gerotech Training is Back at Macomb Community College</h2>
-          <p class="slide__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
-          <a class="btn btn--primary" href="#">View Training Schedule</a>
+      <div class="hero-slider__track">
+        <div class="slide is-active" role="tabpanel" aria-label="Slide 1 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop" alt="Training and showroom" loading="eager" fetchpriority="high" />
+          <div class="slide__overlay" aria-hidden="true"></div>
+          <div class="slide__content">
+            <p class="slide__eyebrow">Complimentary Training</p>
+            <h1 class="slide__headline">Gerotech Training is Back at Macomb Community College</h1>
+            <p class="slide__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
+            <a class="btn btn--primary" href="#">View Training Schedule</a>
+          </div>
         </div>
-      </div>
-      <div class="slide" role="tabpanel" aria-label="Slide 2 of 6">
-        <div class="slide__placeholder">
-          <div class="slide__placeholder-label">Slide 2 — Placeholder</div>
-          <div class="slide__placeholder-sub">Awaiting client copy</div>
+        <!-- Slides 2–6: dashed placeholder treatment — awaiting client copy -->
+        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 2 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1711418235199-171c8ecb9d12?q=80&w=1920&auto=format&fit=crop" alt="Manufacturing facility" loading="lazy" />
+          <div class="slide__overlay" aria-hidden="true"></div>
+          <div class="slide__ph">
+            <p class="slide__ph-title">Slide 2 — Placeholder</p>
+            <p class="slide__ph-sub">Awaiting client copy</p>
+          </div>
         </div>
-      </div>
-      <div class="slide" role="tabpanel" aria-label="Slide 3 of 6">
-        <div class="slide__placeholder">
-          <div class="slide__placeholder-label">Slide 3 — Placeholder</div>
-          <div class="slide__placeholder-sub">Awaiting client copy</div>
+        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 3 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining" loading="lazy" />
+          <div class="slide__overlay" aria-hidden="true"></div>
+          <div class="slide__ph">
+            <p class="slide__ph-title">Slide 3 — Placeholder</p>
+            <p class="slide__ph-sub">Awaiting client copy</p>
+          </div>
         </div>
-      </div>
-      <div class="slide" role="tabpanel" aria-label="Slide 4 of 6">
-        <div class="slide__placeholder">
-          <div class="slide__placeholder-label">Slide 4 — Placeholder</div>
-          <div class="slide__placeholder-sub">Awaiting client copy</div>
+        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 4 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1615286922420-c6b348ffbd62?q=80&w=1920&auto=format&fit=crop" alt="Laser technology" loading="lazy" />
+          <div class="slide__overlay" aria-hidden="true"></div>
+          <div class="slide__ph">
+            <p class="slide__ph-title">Slide 4 — Placeholder</p>
+            <p class="slide__ph-sub">Awaiting client copy</p>
+          </div>
         </div>
-      </div>
-      <div class="slide" role="tabpanel" aria-label="Slide 5 of 6">
-        <div class="slide__placeholder">
-          <div class="slide__placeholder-label">Slide 5 — Placeholder</div>
-          <div class="slide__placeholder-sub">Awaiting client copy</div>
+        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 5 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=1920&auto=format&fit=crop" alt="Automation" loading="lazy" />
+          <div class="slide__overlay" aria-hidden="true"></div>
+          <div class="slide__ph">
+            <p class="slide__ph-title">Slide 5 — Placeholder</p>
+            <p class="slide__ph-sub">Awaiting client copy</p>
+          </div>
         </div>
-      </div>
-      <div class="slide" role="tabpanel" aria-label="Slide 6 of 6">
-        <div class="slide__placeholder">
-          <div class="slide__placeholder-label">Slide 6 — Placeholder</div>
-          <div class="slide__placeholder-sub">Awaiting client copy</div>
+        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 6 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1624841970647-87dce8628d72?q=80&w=1920&auto=format&fit=crop" alt="Industrial facility" loading="lazy" />
+          <div class="slide__overlay" aria-hidden="true"></div>
+          <div class="slide__ph">
+            <p class="slide__ph-title">Slide 6 — Placeholder</p>
+            <p class="slide__ph-sub">Awaiting client copy</p>
+          </div>
         </div>
       </div>
 
-      <button class="slider-arrow slider-arrow--prev" aria-label="Previous slide">&#8592;</button>
-      <button class="slider-arrow slider-arrow--next" aria-label="Next slide">&#8594;</button>
+      <button class="slider-arrow slider-arrow--prev" aria-label="Previous slide">←</button>
+      <button class="slider-arrow slider-arrow--next" aria-label="Next slide">→</button>
       <div class="slider-dots" role="tablist" aria-label="Slide navigation">
         <button class="dot is-active" role="tab" aria-label="Go to slide 1"></button>
         <button class="dot" role="tab" aria-label="Go to slide 2"></button>
@@ -74,73 +86,79 @@
     </section>
 
     <!-- ============================================================
-         SECTION 4: Intro + 3 Category Cards
-         Copy confirmed against live site per handoff Section 8
+         Intro Section (Figma redesign — left text, right image)
          ============================================================ -->
-    <section class="intro-section section">
+    <section class="intro-section">
       <div class="container">
-        <div class="intro-section__lead">
-          <p class="eyebrow">Since 1987</p>
-          <h2 class="intro-section__headline">Michigan's Premier Distributor for CNC Machinery, Robotics, and Engineered Turnkey Solutions</h2>
-          <p class="intro-section__body">
-            Since 1987, Gerotech has sold CNC Machinery and Engineered Turnkey Solutions to manufacturers
-            worldwide. We have sold Mills, Lathes, 5-Axis Machines along with Industrial and Collaborative
-            Robotic Solutions. We do it through people who listen, respond, build, deliver, and support as
-            committed partners in order to transform your manufacturing challenges into competitive advantages.
-          </p>
-          <a class="btn btn--outline-dark" href="#">Learn About Gerotech</a>
+        <div class="intro-section__grid">
+          <div class="intro-section__text">
+            <div class="intro-section__since">
+              <span class="intro-section__rule" aria-hidden="true"></span>
+              <span class="intro-section__since-label">Since 1987</span>
+            </div>
+            <h2 class="intro-section__headline">Michigan's Premier Distributor for CNC Machinery, Robotics, and Engineered Turnkey Solutions</h2>
+            <p class="intro-section__body">
+              Since 1987, Gerotech has sold CNC Machinery and Engineered Turnkey Solutions to manufacturers
+              worldwide. We have sold Mills, Lathes, 5-Axis Machines along with Industrial and Collaborative
+              Robotic Solutions. We do it through people who listen, respond, build, deliver, and support as
+              committed partners in order to transform your manufacturing challenges into competitive advantages.
+            </p>
+            <a class="btn btn--outline-dark" href="#">Learn About Gerotech</a>
+          </div>
+          <div class="intro-section__image">
+            <img src="https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?q=80&w=1000&auto=format&fit=crop" alt="Gerotech facility and team" loading="lazy" style="width:100%;height:460px;object-fit:cover;" />
+          </div>
         </div>
 
-        <div class="machine-browse__hd" style="margin-top: var(--sp-48);">
+        <div class="intro-section__machines">
           <p class="eyebrow">HAAS CNC Machinery</p>
-          <h2 class="machine-browse__headline">Find the Right Machine for Your Application.</h2>
-        </div>
-        <div class="machine-browse__grid" style="margin-top: var(--sp-32);">
-          <article class="mcat-card">
-            <div class="img-placeholder mcat-card__img">Photo — Vertical Mills</div>
-            <div class="mcat-card__body">
-              <p class="mcat-card__cat">Machining Centers</p>
-              <h3 class="mcat-card__name">Vertical Mills</h3>
-              <p class="mcat-card__models">Mini Mill, VF Series, VR Series, UMC 5-Axis</p>
-              <a class="mcat-card__cta" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
-            </div>
-          </article>
-          <article class="mcat-card">
-            <div class="img-placeholder mcat-card__img">Photo — CNC Lathes</div>
-            <div class="mcat-card__body">
-              <p class="mcat-card__cat">Turning Centers</p>
-              <h3 class="mcat-card__name">CNC Lathes</h3>
-              <p class="mcat-card__models">ST Series, TL Series, DS, Toolroom Lathe</p>
-              <a class="mcat-card__cta" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
-            </div>
-          </article>
-          <article class="mcat-card">
-            <div class="img-placeholder mcat-card__img">Photo — 5-Axis</div>
-            <div class="mcat-card__body">
-              <p class="mcat-card__cat">5-Axis</p>
-              <h3 class="mcat-card__name">5-Axis Machines</h3>
-              <p class="mcat-card__models">UMC-500, UMC-750, DM-2, EC-400 HH</p>
-              <a class="mcat-card__cta" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
-            </div>
-          </article>
-          <article class="mcat-card">
-            <div class="img-placeholder mcat-card__img">Photo — Automation</div>
-            <div class="mcat-card__body">
-              <p class="mcat-card__cat">Automation</p>
-              <h3 class="mcat-card__name">Pallet &amp; Robots</h3>
-              <p class="mcat-card__models">FANUC Robots, Pallet Changers, Cobots</p>
-              <a class="mcat-card__cta" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
-            </div>
-          </article>
+          <h2 class="intro-section__machine-headline">Find the Right Machine for Your Application.</h2>
+          <div class="machine-browse__grid">
+            <article class="mcat-card">
+              <img class="mcat-card__img" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=800&auto=format&fit=crop" alt="Vertical Mills" loading="lazy" style="object-fit:cover;" />
+              <div class="mcat-card__body">
+                <p class="mcat-card__cat">Machining Centers</p>
+                <h3 class="mcat-card__name">Vertical Mills</h3>
+                <p class="mcat-card__models">Mini Mill, VF Series, VR Series, UMC 5-Axis</p>
+                <a class="mcat-card__cta" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
+              </div>
+            </article>
+            <article class="mcat-card">
+              <img class="mcat-card__img" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=800&auto=format&fit=crop" alt="CNC Lathes" loading="lazy" style="object-fit:cover;" />
+              <div class="mcat-card__body">
+                <p class="mcat-card__cat">Turning Centers</p>
+                <h3 class="mcat-card__name">CNC Lathes</h3>
+                <p class="mcat-card__models">ST Series, TL Series, DS, Toolroom Lathe</p>
+                <a class="mcat-card__cta" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
+              </div>
+            </article>
+            <article class="mcat-card">
+              <img class="mcat-card__img" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=800&auto=format&fit=crop" alt="5-Axis Machines" loading="lazy" style="object-fit:cover;" />
+              <div class="mcat-card__body">
+                <p class="mcat-card__cat">5-Axis</p>
+                <h3 class="mcat-card__name">5-Axis Machines</h3>
+                <p class="mcat-card__models">UMC-500, UMC-750, DM-2, EC-400 HH</p>
+                <a class="mcat-card__cta" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
+              </div>
+            </article>
+            <article class="mcat-card">
+              <img class="mcat-card__img" src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=800&auto=format&fit=crop" alt="Automation and pallet systems" loading="lazy" style="object-fit:cover;" />
+              <div class="mcat-card__body">
+                <p class="mcat-card__cat">Automation</p>
+                <h3 class="mcat-card__name">Pallet & Robots</h3>
+                <p class="mcat-card__models">FANUC Robots, Pallet Changers, Cobots</p>
+                <a class="mcat-card__cta" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         SECTION 5: Testimonial Carousel
-         Quote confirmed real, live on site per handoff Section 8
+         Testimonial Carousel (Figma redesign — light gray bg, card shadow)
          ============================================================ -->
-    <section class="testimonial-section section" aria-label="Customer testimonials">
+    <section class="testimonial-section" aria-label="Customer testimonials">
       <div class="container">
         <div class="section-header section-header--centered">
           <p class="eyebrow">What Customers Say</p>
@@ -148,13 +166,12 @@
         </div>
 
         <div class="testimonial-carousel" id="testimonial-carousel">
-          <div class="testimonial-carousel__track">
+          <div class="testimonial-carousel__track testimonial-carousel__track--slide">
+            <div class="testimonial-carousel__row">
 
             <article class="testimonial-carousel__slide is-active" role="tabpanel" aria-label="Testimonial 1 of 3">
               <div class="testimonial-split">
-                <div class="img-placeholder testimonial-split__photo img-placeholder--dark">
-                  Photo — Michael Rudisill
-                </div>
+                <img class="testimonial-split__photo" src="https://images.unsplash.com/photo-1643359905563-f747213c9703?q=80&w=1200&auto=format&fit=crop" alt="Michael Rudisill" loading="lazy" style="object-fit:cover;" />
                 <div class="testimonial-split__panel">
                   <blockquote>
                     <p class="testimonial-split__quote">
@@ -174,7 +191,7 @@
 
             <article class="testimonial-carousel__slide" role="tabpanel" aria-label="Testimonial 2 of 3">
               <div class="testimonial-split">
-                <div class="img-placeholder testimonial-split__photo img-placeholder--dark">Photo — Awaiting client</div>
+                <img class="testimonial-split__photo" src="https://images.unsplash.com/photo-1717386255773-a456c611dc4e?q=80&w=1200&auto=format&fit=crop" alt="Customer photo" loading="lazy" style="object-fit:cover;" />
                 <div class="testimonial-split__panel">
                   <blockquote>
                     <p class="testimonial-split__quote">[Testimonial quote — awaiting client copy]</p>
@@ -189,7 +206,7 @@
 
             <article class="testimonial-carousel__slide" role="tabpanel" aria-label="Testimonial 3 of 3">
               <div class="testimonial-split">
-                <div class="img-placeholder testimonial-split__photo img-placeholder--dark">Photo — Awaiting client</div>
+                <img class="testimonial-split__photo" src="https://images.unsplash.com/photo-1740209475472-aa7d280f7452?q=80&w=1200&auto=format&fit=crop" alt="Customer photo" loading="lazy" style="object-fit:cover;" />
                 <div class="testimonial-split__panel">
                   <blockquote>
                     <p class="testimonial-split__quote">[Testimonial quote — awaiting client copy]</p>
@@ -202,6 +219,7 @@
               </div>
             </article>
 
+            </div>
           </div>
 
           <div class="testimonial-carousel__dots" role="tablist" aria-label="Testimonial navigation">
@@ -214,13 +232,13 @@
     </section>
 
     <!-- ============================================================
-         SECTION 7: News Feed
+         News Feed
          ============================================================ -->
-    <section class="news-section section">
+    <section class="news-section">
       <div class="container">
         <div class="section-header">
           <p class="eyebrow">Stay Informed</p>
-          <h2 class="section-title">Latest Projects &amp; News from the Floor</h2>
+          <h2 class="section-title">Latest Projects & News from the Floor</h2>
         </div>
         <div class="news-section__list">
           <article class="news-card">
@@ -232,7 +250,7 @@
                 reducing cycle times by 38% for a major Michigan supplier.
               </p>
             </div>
-            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=500&auto=format&fit=crop" alt="Robotic cell" loading="lazy" style="object-fit:cover;" />
           </article>
           <article class="news-card">
             <div class="news-card__content">
@@ -243,7 +261,7 @@
                 serving manufacturers across West Michigan.
               </p>
             </div>
-            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?q=80&w=500&auto=format&fit=crop" alt="Service team" loading="lazy" style="object-fit:cover;" />
           </article>
           <article class="news-card">
             <div class="news-card__content">
@@ -254,7 +272,7 @@
                 machining center, extending its productive life by years.
               </p>
             </div>
-            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1711418235334-8895331a6cf9?q=80&w=500&auto=format&fit=crop" alt="Retrofit project" loading="lazy" style="object-fit:cover;" />
           </article>
         </div>
         <div style="margin-top: var(--sp-32);">
@@ -264,27 +282,28 @@
     </section>
 
     <!-- ============================================================
-         SECTION 8: CTA Band
-         Copy confirmed against live site per handoff Section 8
+         CTA Band (Figma redesign — dark bg, white card with orange btn)
          ============================================================ -->
-    <section class="cta-band" aria-label="Call to action">
-      <div class="cta-band__card">
-        <div class="cta-band__copy">
-          <h2 class="cta-band__headline">Put our engineers to work on your project</h2>
-        </div>
+    <section class="cta-band cta-band--photo" aria-label="Call to action">
+      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1598299803204-b73796f43289?q=80&w=1920&auto=format&fit=crop" alt="" loading="lazy" /><!-- Stand-in: Unsplash/Sam Moghadam — awaiting client photo -->
+      <div class="cta-band__overlay" aria-hidden="true"></div>
+      <div class="cta-band__content">
+        <p class="slide__eyebrow">Let's Work Together</p>
+        <h2 class="cta-band__headline cta-band__headline--photo">Put our engineers to work on your project</h2>
         <a class="btn btn--primary btn--lg" href="#">Engage with us today</a>
       </div>
     </section>
 
     <!-- ============================================================
-         SECTION 9: Email Signup
-         NOTE: Live site collects first name, last name, company, zip, email (5 fields).
-         Current wireframe has email only. See handoff Section 3 re: Content to Carry Forward.
+         Email Signup (Figma redesign)
          ============================================================ -->
     <section class="email-signup" aria-label="Mailing list signup">
-      <h2 class="email-signup__title">Stay in the Loop</h2>
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Stay in the Loop</h2>
       <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
-      <form class="email-signup__form" action="#" method="post" novalidate>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate>
         <label for="email-input" class="sr-only">Email address</label>
         <input
           class="email-signup__input"
@@ -297,6 +316,7 @@
         />
         <button class="email-signup__submit" type="submit">Sign Up</button>
       </form>
+      </div>
     </section>
 
   </main>

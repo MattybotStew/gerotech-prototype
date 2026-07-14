@@ -1,6 +1,8 @@
 /* ============================================================
    GEROTECH — DESIGN TOKENS
    All color/spacing/radius changes go here first.
+   Updated from Figma redesign (2026-07-13).
+   Font: Navigo (Adobe Fonts) — site-wide
    ============================================================ */
 
 :root {
@@ -10,21 +12,55 @@
   --clr-ink:           #0D0D0D;
   --clr-dark-bg:       #1C1C21;
   --clr-dark-nav:      #3A3A40;
-  --clr-gray-body:     #808080;
+  --clr-gray-body:     #6B6B76;          /* Figma: IBM Plex Sans body */
   --clr-gray-muted:    #9A9AA8;
-  --clr-gray-border:   #D6D6D6;
+  --clr-gray-border:   #E4E4EA;          /* Figma: header bottom border */
+  --clr-gray-input:    #D6D6D6;          /* Figma: email signup input border */
+  --clr-gray-dot:      #C9C9D2;          /* Figma: inactive testimonial dot */
   --clr-gray-card:     #F9F9FB;
   --clr-gray-band:     #F2F2F2;
   --clr-white:         #FFFFFF;
   --clr-black:         #000000;
 
   /* ── Typography ───────────────────────────────────────── */
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'navigo', sans-serif;   /* Headlines — Adobe Fonts */
+  --font-sans:    'navigo', sans-serif;   /* Body / UI — Adobe Fonts */
+
+  /* The Adobe Fonts kit serves Navigo 400 + 700 only (plus italics).
+     500/600/800 fall back to those faces, so tokens map to what actually
+     renders. If more weights are added to kit lqh7ybe, update here. */
   --fw-regular:   400;
-  --fw-medium:    500;
-  --fw-semibold:  600;
+  --fw-medium:    400;
+  --fw-semibold:  700;
   --fw-bold:      700;
-  --fw-extrabold: 800;
+  --fw-extrabold: 700;
+
+  /* ── Type Scale (fluid display tiers, fixed text tiers) ── */
+  --fs-hero:    clamp(32px, 6vw, 72px);          /* page hero statements */
+  --fs-display: clamp(30px, 4.5vw + 6px, 56px);  /* secondary heroes */
+  --fs-h1:      clamp(28px, 3.2vw, 46px);        /* feature headlines */
+  --fs-h2:      clamp(26px, 1.8vw + 12px, 36px); /* section titles */
+  --fs-h3:      clamp(22px, 1.5vw + 9px, 30px);  /* sub-section titles */
+  --fs-lede:    18px;                            /* ledes, quotes */
+  --fs-body:    16px;
+  --fs-ui:      14px;
+  --fs-caption: 12px;
+
+  /* ── Tracking (tightens as display size grows) ────────── */
+  --ls-hero:    -0.025em;
+  --ls-display: -0.02em;
+  --ls-h1:      -0.015em;
+  --ls-h2:      -0.01em;
+  --ls-h3:      -0.005em;
+  --ls-caps:    0.14em;   /* eyebrows / section labels */
+  --ls-meta:    0.08em;   /* card-level uppercase labels */
+
+  /* ── Leading ──────────────────────────────────────────── */
+  --lh-hero: 1.04;
+  --lh-h1:   1.1;
+  --lh-h2:   1.15;
+  --lh-h3:   1.25;
+  --lh-body: 1.7;
 
   /* ── Spacing Scale ────────────────────────────────────── */
   --sp-4:   4px;
@@ -50,10 +86,10 @@
   /* ── Shadows ──────────────────────────────────────────── */
   --shadow-card:       0 4px 24px rgba(0, 0, 0, 0.07);
   --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.13);
-  --shadow-nav:        0 2px 16px rgba(0, 0, 0, 0.12);
+  --shadow-nav:        0 2px 16px rgba(0, 0, 0, 0.06);  /* Figma: header shadow */
 
   /* ── Layout ───────────────────────────────────────────── */
-  --max-home: 1200px;
+  --max-home: 1200px;    /* Figma: 1440px design, 120px side padding = 1200px content */
   --max-es:   1120px;
 
   /* ── Motion ───────────────────────────────────────────── */

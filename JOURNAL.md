@@ -2,6 +2,29 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-13 — Claude Code (Fable 5) — whole-site design improvement
+- Executed Matt-approved 4-phase plan across all 9 pages. Biggest fix: subpages loaded dead Plus Jakarta Sans and rendered fallback sans-serif — all now load the Typekit Navigo kit.
+- Consistency: squared all interior card types, 80→88px rhythm, replaced all 53 interior dashed placeholders with Unsplash stand-ins (POLICY CHANGE, Matt-approved — .clinerules updated; each img carries a credit/awaiting-client comment; only reused the 17 verified homepage URLs).
+- Responsive: mobile nav switch at 1000px (was 768; header needs ~975px), hero/section/news/alert-banner mobile rules added, es-hero__headline--md modifier replaced inline h1 sizes (fixed 66px overflow on about @390).
+- A11y/perf: :focus-visible system, skip link + #main on all pages, prefers-reduced-motion (CSS + autoplay/reveal guards), carousel aria-selected/aria-hidden/tabindex management, autoplay pause on hover/focus, single banner landmark, homepage h1, eager LCP hero img.
+- Polish: unified card hover lift, image zoom in card shells, 60ms staggered reveal.
+- Verified: 9 pages × 4 widths, zero console errors/404s, Navigo everywhere, no overflow; keyboard + reduced-motion passes.
+- Loose ends unchanged by design: open client decisions (naming split on MCS page, orphan machine-modification.html, FANUC badge, ES stats/accordion copy, `#` CTAs).
+- Follow-up (Matt request): homepage CTA band redesigned as hero-style full-bleed photo section (`.cta-band--photo` variant; new Unsplash stand-in Sam Moghadam, darker 0.85/0.75/0.82 overlay). Interior pages keep the white-card CTA.
+- Follow-up (Matt request): desktop font-size double-check — swept every rendered size on all 9 pages @1440 via computed styles. Fixed 7 stragglers: slide__body 16→18 (lede), credential-band 28→h3, capability-bullet__num 48→h1, .btn 15→14 / .btn--lg 17→16 (uppercase sits a step smaller), mega-nav micro-type consolidated (col-title+services-label 10→11, cat-desc 11→12, badge 9→10). Deliberate off-scale values documented: 42px stat numerals, 22px mcs-card titles, 24px signup title.
+- Follow-up (Matt request): full typography system overhaul (kept Navigo). KEY FINDING: typekit kit serves 400+700 only — 500/600/800 were falling back silently; tokens now map to real faces. Added fluid modular scale (--fs-hero→caption), tiered negative tracking (--ls-*), leading tokens, two caps-tracking standards (0.14/0.08em), balance/pretty wrapping, 62ch intro measure; removed all media-query font-size overrides (clamps handle it); unified card titles at 18px, fixed mcs-hero weight outlier. Verified computed styles on 3 pages × 2 widths. Flag to Matt: consider adding 500/800 to the kit for more weight contrast.
+- Follow-up (Matt request): signup band bg → dark-nav grey #3A3A40 (the footer's old color) w/ white title + muted-grey sub; footer bg → black (--clr-ink #0D0D0D). Applies on all 7 pages via shared classes.
+- Follow-up (Matt request): all button text uppercase w/ 0.05em tracking (.btn family, .btn-get-quote, .email-signup__submit, .mega-nav__cta-btn). Done in CSS via text-transform — markup copy unchanged.
+- Follow-up (Matt request): testimonial panel vertical rhythm fixed — quote-mark line box crushed to 0.6 (was leaving ~40px dead space), blockquote made flex column w/ 24px gap so attribution no longer crams against the quote.
+- Follow-up (Matt request): eyebrow→headline gap unified to exactly 8px everywhere (fixed es-hero 12px, mcs-hero badge 16px, hero slide 12px, intro "Since 1987" 32px, CTA band double-gap; measured with Playwright across pages). Email signup restructured on all 7 pages: new `__inner`/`__copy` wrappers — copy left-aligned, form right (flex row, wraps to stacked left-aligned on mobile).
+
+## 2026-07-13 — Claude Code (Fable 5)
+- Implemented "Gerotech Homepage.dc.html" (Deep Code standalone export found in ~/Downloads; the attached zip never reached disk — user confirmed the Downloads file as source). Unpacked its gzip/base64 bundle to read the design template.
+- Most of the design was already in from Cline's Figma pass; this was a gap-closing alignment: bundled logo SVGs wired into header (dark) + footer (white, replaces text wordmark), hero converted to sliding track with dashed "Awaiting client copy" placeholder boxes on slides 2–6, homepage testimonials converted to sliding variant (ES page untouched), squared edges on testimonial/news imagery, news/CTA/email-signup metrics matched to spec, two new neutral tokens (--clr-gray-dot, --clr-gray-input).
+- Decision: kept Navigo (Adobe Fonts) rather than the spec's Archivo/IBM Plex — the Navigo swap postdates the design export and looks like a deliberate brand-standards move. Flag to Matt.
+- Verified with Playwright (Chromium, 1440/390px, scrolled all sections): motion, logos, no console errors.
+- Loose end: hero slide 1 "View Training Schedule" and CTA/quote buttons still `#` placeholders (unchanged, per open client decisions).
+
 ## 2026-07-09 — Claude Code (Fable 5)
 - Added Machines mega dropdown to the shared header partial: full Haas catalog (8 categories / 41 models per client screenshot), 4-column viewport-centered panel matching the existing ES mega-nav design system, plus "Talk to an Engineer" CTA and full-catalog footer link.
 - Mobile nav: Machines is now a `<details>` accordion with the 8 category links.

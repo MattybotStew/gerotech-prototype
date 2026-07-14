@@ -5,64 +5,61 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-09
+**Last Updated:** 2026-07-13
 **Active Agent:** Claude Code
-**Last Commit:** 45d2052 — Adopt agent-agnostic setup: AGENTS.md canonical, add shared session journal
+**Last Commit:** 7aacb46 — (awaiting commit of Figma redesign update + .dc.html alignment)
 
-### What was completed 2026-07-09 (Claude Code)
-- **Machines mega dropdown** added to header nav (`partials/site-header.html`): full Haas catalog — 8 categories, 41 model links (Vertical Mills, Lathes, Horizontal Mills, Rotaries & Indexers, Automation Systems, Desktop Machines, Shop Equipment, Fabrication Machines). All model links are `href="#"` placeholders — **Matt will add real URLs later** (TODO comments in partial). Panel includes "Talk to an Engineer" CTA card + "Browse the full Haas catalog ↗" footer link.
-- CSS: new `.mega-nav--machines` section in `components.css` — panel anchors absolutely to the sticky `.site-header` (li is `position: static`), viewport-centered at min(1080px, 100vw-48px), 4-col grid, orange-rule category titles, scrolls on short viewports. **Do not switch it to `position: fixed; top: auto`** — Safari mispositions that inside sticky headers when scrolled.
-- Nav hover fix: `.site-header__inner > nav`, `.site-nav`, and `.site-nav__item` now stretch to full header height so hover isn't lost traversing from a link into its dropdown panel (verified WebKit + Chromium via Playwright).
-- **Mobile nav**: "Machines ↗" flat link replaced with `<details>` accordion (8 category links + Full Haas Catalog external link).
-- **nav.js**: Escape key now closes any open dropdown/mega menu (blurs focused link).
-- Verified via Playwright at 1440px and 390px.
+### What was completed 2026-07-13 (Claude Code — Whole-site design improvement pass)
+Approved plan executed across all 9 pages (see JOURNAL for detail):
+- **Fonts fixed site-wide:** all 8 subpages were loading dead Plus Jakarta Sans and rendering fallback sans-serif; now load the Typekit Navigo kit like index.html.
+- **Design language unified:** squared `.mcs-card`/`.mcs-gallery-card`/`.service-card`/`.category-card`/`.stat-pill`/`.testimonial-card` (radius 0); interior section rhythm 80→88px.
+- **POLICY CHANGE (Matt-approved):** Unsplash stand-in imagery is now allowed as placeholder treatment. All 53 interior `.img-placeholder` divs replaced with curated `<img>` stand-ins (only the 17 verified homepage URLs reused; credit + "awaiting client photo" HTML comment on each). FANUC badge placeholder untouched.
+- **Responsive:** mobile nav switch moved 768→1000px (header needs ~975px; logo no longer crushes), hero 480px@768/440px@480, section padding 64/56 on mobile, news cards stack @480, alert banner shows HQ number only @480, machine-browse breakpoints normalized to 1024/640.
+- **A11y:** global `:focus-visible` (orange outline), skip-to-content link in header partial (`#main` id on every page), `prefers-reduced-motion` (CSS + JS guards; autoplay off), carousel dots get `aria-selected`, off-screen slides `aria-hidden` + links tabindex -1, autoplay pauses on hover/focus, duplicate `role="banner"` removed from alert banner, homepage h1 added (slide 1 headline), hero LCP img now eager/fetchpriority=high, news thumbs have width/height.
+- **Polish:** unified card hover (lift + shadow) across all card types, image zoom-on-hover in card shells, staggered scroll-reveal (60ms cascade), about.html inline-styled headline → `.section-title`/`.section-body`, `es-hero__headline--md` modifier replaces inline h1 font-sizes (fixed 390px overflow on about/support).
+- **Verified (Playwright, Chromium):** all 9 pages × 4 widths — zero console errors, zero failed requests, Navigo loads everywhere, no horizontal overflow, keyboard pass (skip link first tab stop, 2px focus outline), reduced-motion pass (no autoplay, no hidden content).
 
-### What was completed this session (Claude Code)
-- **Modal system** added to all 3 detail pages (machine-custom-solutions, application, automation-integration): `<template>`-based popups, `modal.js` IIFE, full CSS
-- **Automation & Controls Solutions modals** populated with real client PDF copy (Electrical Controls, HMI Design, Layered Controls, Automation Cell Design, Pre-Engineered Solutions — 5/6 cards)
-- **Machine Customization cards** restructured to match client doc: Machine Column Risers, Safety & Environmental Modifications, Sheet Metal Modifications, Auto Doors, Hydraulic–Pneumatics, Custom Workholding, Process Engineering, Specialty Machine
-- **Stat strip** → `[XX]+` placeholder format (awaiting real numbers)
-- **Testimonials 2–3** → `[Testimonial quote — awaiting client copy]` placeholder on homepage + ES page
-- **"Why Manufacturers Trust Gerotech" accordion** added to ES page (5 placeholder Q&A items)
-- **Technology Partners section** removed from ES page
-- **Logo** changed from dashed placeholder to `GEROTECH` white wordmark text (`.site-header__logo-text`)
-- **Homepage Haas section**: removed 3 Engineered Solutions category cards; Haas machine grid (Vertical Mills, Turning Centers, 5-Axis, Automation) now sits directly below the Since 1987 intro text
+### Previously completed 2026-07-13 (Claude Code — "Gerotech Homepage.dc.html" alignment pass)
+Implemented the homepage redesign spec from the Deep Code export ("Gerotech Homepage - Standalone.html" in ~/Downloads, unpacked from its bundler format). Most of the design was already in place from the earlier Figma integration; this pass closed the gaps:
+- **Logos:** extracted the two logo SVGs shipped in the design bundle → `assets/images/gerotech-logo.svg` (dark, header, 30px) and `gerotech-logo-white.svg` (footer, 28px). Header now uses the SVG (was PNG); footer wordmark text replaced with the white SVG image.
+- **Hero slider:** converted from crossfade to design-spec sliding track (`.hero-slider__track`, translateX, 0.45s cubic-bezier). Slides 2–6 now use the design's dashed "Slide N — Placeholder / Awaiting client copy" box (`.slide--placeholder`, `.slide__ph`) with lighter overlay; removed made-up eyebrows. `.slide__bg` fixed for real `<img>` (object-fit: cover). Autoplay 6s (design default). Dots: bottom 22px, gap 9px.
+- **Testimonials:** homepage carousel now slides (new `.testimonial-carousel__track--slide` + `.testimonial-carousel__row`; ES page cards variant unchanged). Squared edges per design (radius removed), panel padding 60/52, photo min-height 420px, quote mark 56px/900. Inactive dot color → new token `--clr-gray-dot` (#C9C9D2).
+- **News:** thumbs 132×94 square (was 120×88 r10), title 18px/700, excerpt 14px max-width 720px, meta tracking 0.08em, row padding 24px.
+- **CTA band:** card max-width 940px (was 1044), headline max-width 460px / lh 1.18 / balance.
+- **Email signup:** section gap 8px, sub margin-bottom 18px, input 13×16 with new token `--clr-gray-input` (#D6D6D6), submit 13×22.
+- **Intro:** machines block margin-top 88px per design.
+- **Verified** with Playwright (Chromium, 1440px + 390px): slider/testimonial motion, logo rendering, all sections, no console errors.
+- **DECISION — fonts:** the .dc.html spec uses Archivo + IBM Plex Sans, but the repo was deliberately switched to Navigo (Adobe Fonts/typekit) after that export (brand standards). Kept Navigo via the existing `--font-display`/`--font-sans` tokens. Flag to Matt if the design fonts should win.
 
-### What was completed this session (Cline)
-- **Footer mailing list signup form** added to `partials/site-footer.html` — inline email input + "Subscribe" button in Brand column (below social icons), with full CSS in `components.css`. Tracks FIGMA ORDER_ID#41 (Constant Contact discussion).
-- **CSS bug fix**: replaced undefined `--clr-gray-200` / `--clr-gray-500` with valid tokens in `.testimonial-dot`
-- **Automation & Controls Solutions modals fully populated** from client presentation (Slides 4-16) — 94-line file rewritten with `<details>` accordions for Electrical Controls (6 sections covering Concept & System Design, Electrical Engineering, Panel Build, PLC/HMI, Commissioning, Control Platforms), Layered Controls (3 sections — Layer 1/2/3 with full copy), Automation Cell Design (expanded), and Pre-Engineered Solutions (Standardized Software Design Methodology added). Modal accordion CSS added to `components.css`.
+### Previously completed 2026-07-13 (Cline — Figma Redesign Integration)
+- **Full Figma redesign (file: `YgHwqyyFj57c1ZSbmfkL0c`) integrated** into static prototype.
+- **New fonts:** Archivo (headlines, `--font-display`) + IBM Plex Sans (body/UI, `--font-sans`), replacing Plus Jakarta Sans. Added Google Fonts import to `index.html`.
+- **Updated `tokens.css`:** Added `--font-display`, updated `--font-sans`, changed `--clr-gray-body` to `#6B6B76`, `--clr-gray-border` to `#E4E4EA`, updated `--shadow-nav` to `0 2px 16px rgba(0, 0, 0, 0.06)`.
+- **Header redesign (`partials/site-header.html` + CSS):** White background, bottom border (`#E4E4EA`), box shadow. Logo text color changed to `--clr-ink` (dark). Nav links dark, hover to `rgba(0,0,0,0.04)`. Search icon and mobile toggle now dark. "Get a Quote" padding updated to `10px 22px`.
+- **Hero slider:** Height changed to 560px. Glassmorphism arrows (backdrop-filter blur, semi-transparent bg). Font: Archivo for headline. Dots at bottom-30px.
+- **Intro section:** Split into 2-col grid (text left + image right). "Since 1987" with orange rule. Machine cards section separated below with padding-top.
+- **Machine cards:** Grid gap 18px. Card images 168px tall. No border-radius on card (straight edges). Category labels 10px/0.1em uppercase. Card names in Archivo 17px ExtraBold.
+- **Testimonial section:** Background changed to `--clr-gray-band` (`#F2F2F2`). Shadow card (unchanged layout).
+- **News section:** Background white, padding 88px. Meta font-weight bold. Title in Archivo 17px ExtraBold.
+- **CTA band:** Padding 72px sides. Card padding 56px 52px. Max-width 1044px. Flex-wrap for responsive. Headline in Archivo 32px ExtraBold.
+- **Email signup:** Padding 56px. Title in Archivo 24px ExtraBold. Form max-width 440px. Input padding 14px 17px. Submit padding 14px 22px.
+- **Footer:** Top padding-bottom 49px. Logo in Archivo. All text explicitly set to IBM Plex Sans.
+- **Section spacing:** Default section padding changed to 88px vertical.
+- **Responsive:** Added intro-section__grid collapse at 1024px.
+- **Eyebrow:** Letter-spacing updated to 0.14em.
+- **Buttons:** Default padding 14px 28px, large 17px 34px.
 
-### Figma comment threads processed
-- **ORDER_ID#41** (tbridges, re: Constant Contact mailing list automation): UI form added to footer. The backend Constant Contact integration is a WordPress concern — UI placeholder only in this static prototype.
-- **ORDER_ID#61** (Project Management, re: testimonial dots): Already implemented — 3-dot carousel nav on ES page with active/hover states.
-- **ORDER_ID#48** (tbridges, re: News CTA destination): Acknowledged. The "Show More" link destination for the News section is still under client discussion. No action in prototype yet.
-- **ORDER_ID#58** (Project Management, re: update cards from presentation): Now fully complete — all 3 detail page modals populated with presentation content.
-
-### Project Timeline
-- July 10 — Gerotech wireframe feedback due ← NEXT
-- July 21 — CM presents Page Design
-- July 24 — Gerotech design feedback
-- August 4 — CM presents Design Revision
-- August 10 — Design Approval
-- August 11 — Development Begins (WordPress)
-
-### Awaiting client copy / assets
-1. **Testimonials 2–3** — real quotes, names, photos (due July 10)
-2. **Hero slides 2–6** — copy (due July 10)
-3. **Stat strip numbers** — real figures
-4. **"Why Manufacturers Trust Gerotech" accordion** — 5 Q&A items
-5. **Machine Customization modals** — 6 of 8 cards need copy (Safety & Environmental, Auto Doors, Hydraulic-Pneumatics, Custom Workholding, Process Engineering, Specialty Machine)
-6. **Applications modals** — all 6 cards need copy
-7. **Robot EOAT modal** — no copy in PDF
-8. **All `img-placeholder` elements** — awaiting real photos
-9. **Machines mega-menu link URLs** — all 41 model links are `#` placeholders (Matt to supply destinations)
+### Previously completed (carried forward)
+All content from prior sessions preserved — modals, machine customizations, mega nav, testimonials, accordion, etc.
 
 ### Still blocked — do not guess
 1. Training: own nav item vs. under Support dropdown
 2. FANUC badge usage rights — badge is placeholder only
-3. News "Show More" destination URL (FIGMA ORDER_ID#48 — under client discussion)
-4. Constant Contact API integration (FIGMA ORDER_ID#41 — WordPress concern, UI form is in place)
+3. News "Show More" destination URL
+4. Constant Contact API integration (WordPress concern)
+
+### Awaiting client copy / assets
+All items from prior sessions still pending.
 
 ---
 
@@ -77,21 +74,28 @@
 - **Client:** Gerotech — Michigan CNC machinery distributor, Haas Factory Outlet, est. 1987
 - **Agency:** CloudMellow (Matt)
 - **This repo:** Static HTML/CSS/JS prototype (NOT the production build — final site will be WordPress)
-- **Post-presentation next step:** Incorporate Rochelle's feedback, then proceed toward design phase
 
 ---
 
 ## Tech Stack
 
 - Pure HTML5 / CSS3 (custom properties) / vanilla JS (ES6) — zero frameworks
-- Font: Plus Jakarta Sans (400/500/600/700/800) via Google Fonts
+- Fonts: Archivo (headlines) + IBM Plex Sans (body/UI) via Google Fonts
 - CSS load order: `assets/css/tokens.css` → `assets/css/components.css` → `assets/css/layout.css`
 - JS: `nav.js` (both pages), `slider.js` (homepage only), `filter.js` (ES page only), `animations.js` (both)
+
+## Typography System (2026-07-13 review)
+
+- **The Adobe Fonts kit (lqh7ybe) serves Navigo 400 + 700 ONLY** (plus italics). Weights 500/600/800 silently fall back — never use them. All `--fw-*` tokens now map to the two real faces. If Matt adds weights to the kit, update tokens.css.
+- Type scale lives in tokens.css: `--fs-hero/display/h1/h2/h3` (fluid clamps — do NOT re-override sizes in media queries) + `--fs-lede/body/ui/caption`. Tracking: `--ls-hero…h3` (negative, tightens with size), `--ls-caps` 0.14em (eyebrows), `--ls-meta` 0.08em (card labels). Leading: `--lh-*`.
+- All headlines use scale tokens + `text-wrap: balance`; body/quotes use `--lh-body` and `text-wrap: pretty`; intro body capped at 62ch measure.
 
 ## Key Brand Tokens
 - Orange: `#F38A2C` (`--clr-orange`)
 - Dark bg: `#1C1C21` (`--clr-dark-bg`)
 - Dark nav/footer: `#3A3A40` (`--clr-dark-nav`)
+- Body gray: `#6B6B76` (`--clr-gray-body`)
+- Border: `#E4E4EA` (`--clr-gray-border`)
 - Max-width: 1200px (homepage) / 1120px (ES page)
 - Radii: buttons 8px, cards 18–20px, pills 99px
 
@@ -99,7 +103,7 @@
 
 ## What NOT To Do
 
-- Never replace `<div class="img-placeholder">` with real images until assets are confirmed
+- Client photography still pending — Unsplash stand-ins (each marked with an HTML comment) are approved placeholder treatment; swap them for client assets when confirmed. Do not present stand-ins as final imagery.
 - Never guess at open client decisions — use placeholder + HTML comment
 - Never use real FANUC logo — badge usage rights unconfirmed
 - Never change CSS load order

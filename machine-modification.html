@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Machine Modification — Gerotech</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -15,7 +13,7 @@
 
   <div data-include="partials/site-header.html"></div>
 
-  <main>
+  <main id="main">
 
     <!-- Page Hero -->
     <section class="mcs-hero" aria-labelledby="mod-hero-headline">
@@ -48,7 +46,7 @@
 
         <div class="mcs-grid">
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Hydraulic Additions<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=800&auto=format&fit=crop" alt="Hydraulic Additions" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Hydraulic Additions -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Hydraulic Additions</h3>
               <p class="mcs-card__body">
@@ -64,7 +62,7 @@
           </article>
 
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Pneumatic Additions<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=800&auto=format&fit=crop" alt="Pneumatic Additions" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Pneumatic Additions -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Pneumatic Additions</h3>
               <p class="mcs-card__body">
@@ -80,7 +78,7 @@
           </article>
 
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Auto-Doors<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1615286922420-c6b348ffbd62?q=80&w=800&auto=format&fit=crop" alt="Auto-Doors" loading="lazy" /><!-- Stand-in: Unsplash/Opt Lasers — awaiting client photo: Auto-Doors -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Auto-Doors</h3>
               <p class="mcs-card__body">
@@ -96,7 +94,7 @@
           </article>
 
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Workholding<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=800&auto=format&fit=crop" alt="Workholding" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Workholding -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Workholding</h3>
               <p class="mcs-card__body">
@@ -112,7 +110,7 @@
           </article>
 
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Broken Tool Detection<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=800&auto=format&fit=crop" alt="Broken Tool Detection" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Broken Tool Detection -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Broken Tool Detection</h3>
               <p class="mcs-card__body">
@@ -142,13 +140,17 @@
 
     <!-- Email Signup -->
     <section class="email-signup" aria-label="Mailing list signup">
-      <h2 class="email-signup__title">Stay in the Loop</h2>
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Stay in the Loop</h2>
       <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
-      <form class="email-signup__form" action="#" method="post" novalidate>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate>
         <label for="email-input-mm" class="sr-only">Email address</label>
         <input class="email-signup__input" id="email-input-mm" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
         <button class="email-signup__submit" type="submit">Sign Up</button>
       </form>
+      </div>
     </section>
 
   </main>

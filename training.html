@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Training — Gerotech</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -15,7 +13,7 @@
 
   <div data-include="partials/site-header.html"></div>
 
-  <main>
+  <main id="main">
     <section class="es-hero" aria-labelledby="training-headline">
       <div class="container container--es">
         <p class="eyebrow eyebrow--white">Operator & Programming Training</p>
@@ -30,7 +28,7 @@
         <div class="section-header"><p class="eyebrow">Available Courses</p><h2 class="section-title" id="training-courses">Training Programs</h2></div>
         <div class="mcs-grid">
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Mill Operator<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=800&auto=format&fit=crop" alt="Mill Operator" loading="lazy" /><!-- Stand-in: Unsplash/Guick — awaiting client photo: Mill Operator -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Mill Operator</h3>
               <p class="mcs-card__body">Learn machine setup, tool loading, program execution, and basic maintenance on Haas vertical machining centers.</p>
@@ -38,7 +36,7 @@
             </div>
           </article>
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Lathe Operator<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=800&auto=format&fit=crop" alt="Lathe Operator" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Lathe Operator -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Lathe Operator</h3>
               <p class="mcs-card__body">Hands-on training covering setup, tooling, program execution, and safety on Haas CNC lathes.</p>
@@ -46,7 +44,7 @@
             </div>
           </article>
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Mill Programming<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=800&auto=format&fit=crop" alt="Mill Programming" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Mill Programming -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Basic Mill Programming</h3>
               <p class="mcs-card__body">G-code fundamentals, toolpath creation, and program optimization for Haas mills.</p>
@@ -54,7 +52,7 @@
             </div>
           </article>
           <article class="mcs-card">
-            <div class="img-placeholder mcs-card__image">Image — Advanced Programming<br/>Client-provided</div>
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=800&auto=format&fit=crop" alt="Advanced Programming" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Advanced Programming -->
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Advanced Mill Programming</h3>
               <p class="mcs-card__body">Macro programming, probing routines, and advanced toolpath strategies for complex parts.</p>
@@ -69,7 +67,14 @@
       <div class="cta-band__card"><div class="cta-band__copy"><p class="eyebrow cta-band__eyebrow">Custom Training</p><h2 class="cta-band__headline">Need something specific? We offer custom training tailored to your shop.</h2></div><a class="btn btn--primary btn--lg" href="#">Request Custom Training</a></div>
     </section>
 
-    <section class="email-signup" aria-label="Mailing list signup"><h2 class="email-signup__title">Stay in the Loop</h2><p class="email-signup__sub">Get the latest training schedules, news, and machine updates from Gerotech.</p><form class="email-signup__form" action="#" method="post" novalidate><label for="email-input-tr" class="sr-only">Email address</label><input class="email-signup__input" id="email-input-tr" type="email" name="email" placeholder="your@email.com" required autocomplete="email" /><button class="email-signup__submit" type="submit">Sign Up</button></form></section>
+    <section class="email-signup" aria-label="Mailing list signup">
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Stay in the Loop</h2><p class="email-signup__sub">Get the latest training schedules, news, and machine updates from Gerotech.</p>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate><label for="email-input-tr" class="sr-only">Email address</label><input class="email-signup__input" id="email-input-tr" type="email" name="email" placeholder="your@email.com" required autocomplete="email" /><button class="email-signup__submit" type="submit">Sign Up</button></form>
+      </div>
+    </section>
   </main>
 
   <div data-include="partials/site-footer.html"></div>

@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Engineered Solutions — Gerotech</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -15,7 +13,7 @@
 
   <div data-include="partials/site-header.html"></div>
 
-  <main>
+  <main id="main">
 
     <!-- ===[ FIGMA ORDER_ID#57: "Please update these hero slides based on the content document" (Project Management) ]=== -->
     <!-- ============================================================
@@ -572,7 +570,7 @@
                 reducing cycle times by 38%.
               </p>
             </div>
-            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=500&auto=format&fit=crop" alt="Robotic cell" loading="lazy" style="object-fit:cover;" /><!-- Stand-in: Unsplash/Possessed Photography — awaiting client photo -->
           </article>
           <article class="news-card">
             <div class="news-card__content">
@@ -583,7 +581,7 @@
                 serving manufacturers across West Michigan.
               </p>
             </div>
-            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?q=80&w=500&auto=format&fit=crop" alt="Service team" loading="lazy" style="object-fit:cover;" /><!-- Stand-in: Unsplash/Homa Appliances — awaiting client photo -->
           </article>
           <article class="news-card">
             <div class="news-card__content">
@@ -594,7 +592,7 @@
                 center's productive life by years.
               </p>
             </div>
-            <div class="img-placeholder news-card__thumb">Thumb</div>
+            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1711418235334-8895331a6cf9?q=80&w=500&auto=format&fit=crop" alt="Retrofit project" loading="lazy" style="object-fit:cover;" /><!-- Stand-in: Unsplash/Le Trung — awaiting client photo -->
           </article>
         </div>
       </div>
@@ -617,13 +615,17 @@
          SECTION 13.5: Email Signup
          ============================================================ -->
     <section class="email-signup" aria-label="Mailing list signup">
-      <h2 class="email-signup__title">Stay in the Loop</h2>
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Stay in the Loop</h2>
       <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
-      <form class="email-signup__form" action="#" method="post" novalidate>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate>
         <label for="email-input-es" class="sr-only">Email address</label>
         <input class="email-signup__input" id="email-input-es" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
         <button class="email-signup__submit" type="submit">Sign Up</button>
       </form>
+      </div>
     </section>
 
   </main>

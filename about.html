@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Gerotech</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -15,11 +13,11 @@
 
   <div data-include="partials/site-header.html"></div>
 
-  <main>
+  <main id="main">
     <section class="es-hero" style="padding: var(--sp-80) var(--sp-24);" aria-label="About hero">
       <div class="container container--es">
         <p class="eyebrow eyebrow--white">Since 1987</p>
-        <h1 class="es-hero__headline" style="font-size: 56px;">Michigan's Trusted Manufacturing Partner</h1>
+        <h1 class="es-hero__headline es-hero__headline--md">Michigan's Trusted Manufacturing Partner</h1>
         <p class="es-hero__body">For nearly four decades, Gerotech has built lasting relationships with Michigan manufacturers by delivering the right machines, the right engineering, and the right support — every time.</p>
         <div class="es-hero__actions">
           <a class="btn btn--primary btn--lg" href="#">Get a Quote</a>
@@ -33,12 +31,12 @@
         <div class="grid-2" style="gap: var(--sp-64); align-items: center;">
           <div>
             <p class="eyebrow">Our Story</p>
-            <h2 style="font-family: var(--font-sans); font-size: 38px; font-weight: var(--fw-extrabold); color: var(--clr-ink); line-height: 1.2; margin: var(--sp-8) 0 var(--sp-20);">37 Years of Application Expertise</h2>
-            <p style="font-family: var(--font-sans); font-size: 16px; color: var(--clr-gray-body); line-height: 1.75; margin: 0 0 var(--sp-16);">Founded in 1987, Gerotech started as a CNC machinery distributor with a simple belief: manufacturers deserve a partner who understands their floor, not just a vendor who takes their order.</p>
-            <p style="font-family: var(--font-sans); font-size: 16px; color: var(--clr-gray-body); line-height: 1.75; margin: 0 0 var(--sp-32);">Over the decades, we've expanded from distribution into engineering — building an in-house team that modifies, customizes, and automates around the machines our customers already own. Today, Gerotech operates from three Michigan locations, serving manufacturers across the state and beyond.</p>
+            <h2 class="section-title">37 Years of Application Expertise</h2>
+            <p class="section-body">Founded in 1987, Gerotech started as a CNC machinery distributor with a simple belief: manufacturers deserve a partner who understands their floor, not just a vendor who takes their order.</p>
+            <p class="section-body" style="margin-bottom: var(--sp-32);">Over the decades, we've expanded from distribution into engineering — building an in-house team that modifies, customizes, and automates around the machines our customers already own. Today, Gerotech operates from three Michigan locations, serving manufacturers across the state and beyond.</p>
             <a class="btn btn--outline-dark" href="engineered-solutions.html">See Our Engineering Work →</a>
           </div>
-          <div class="img-placeholder" style="height: 400px;">Company Photo Placeholder</div>
+          <img src="https://images.unsplash.com/photo-1624841970647-87dce8628d72?q=80&w=1000&auto=format&fit=crop" alt="Gerotech facility" loading="lazy" style="width:100%;height:400px;object-fit:cover;" /><!-- Stand-in: Unsplash/Mastars — awaiting client company photo -->
         </div>
       </div>
     </section>
@@ -99,5 +97,6 @@
 
   <script src="assets/js/include-partials.js"></script>
   <script src="assets/js/nav.js"></script>
+  <script src="assets/js/animations.js"></script>
 </body>
 </html>

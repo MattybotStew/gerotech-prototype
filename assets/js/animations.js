@@ -1,13 +1,15 @@
 (function () {
   // Fade-in-up on scroll for sections and cards
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   const targets = document.querySelectorAll(
     '.category-card, .news-card, .service-card, .testimonial-card, ' +
     '.stat-pill, .partner-logo, .why-feature, .capability-bullet, ' +
     '.section-header, .intro-section__lead, .cta-band__card, ' +
-    '.testimonial-split, .credential-band__inner, .tech-partners-section__inner'
+    '.testimonial-split, .credential-band__inner, .tech-partners-section__inner, ' +
+    '.mcat-card, .mcs-card, .mcs-gallery-card'
   );
-
-  if (!('IntersectionObserver' in window)) return;
 
   targets.forEach(function (el) {
     el.style.opacity = '0';
@@ -16,12 +18,13 @@
   });
 
   const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
+    // Stagger the batch that entered together so card grids cascade
+    const entering = entries.filter(function (e) { return e.isIntersecting; });
+    entering.forEach(function (entry, i) {
+      entry.target.style.transitionDelay = (i * 60) + 'ms';
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 

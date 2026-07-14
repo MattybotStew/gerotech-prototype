@@ -1,6 +1,7 @@
 /* ============================================================
    GEROTECH — LAYOUT
    Base reset, containers, section spacing, page-specific grid.
+   Updated from Figma redesign (2026-07-13).
    ============================================================ */
 
 /* ── Reset ────────────────────────────────────────────────── */
@@ -24,9 +25,9 @@ button { cursor: pointer; }
 }
 .container--es { max-width: var(--max-es); }
 
-/* ── Section Spacing ──────────────────────────────────────── */
+/* ── Section Spacing (Figma — 88px vertical, 120px sides) ─── */
 .section {
-  padding: var(--sp-80) var(--sp-24);
+  padding: 88px var(--sp-24);
 }
 .section--sm { padding: var(--sp-48) var(--sp-24); }
 .section--lg { padding: var(--sp-120) var(--sp-24); }
@@ -37,11 +38,14 @@ button { cursor: pointer; }
 }
 .section-header--centered { text-align: center; }
 .section-title {
-  font-size: 36px;
-  font-weight: var(--fw-extrabold);
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
   color: var(--clr-ink);
-  line-height: 1.2;
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
   margin: var(--sp-8) 0 0;
+  text-wrap: balance;
 }
 .section-title--white { color: var(--clr-white); }
 .section-body {
@@ -75,23 +79,74 @@ button { cursor: pointer; }
   gap: var(--sp-16);
 }
 
-/* ── Intro Section (homepage) ─────────────────────────────── */
-.intro-section { background: var(--clr-white); }
-.intro-section__lead {
-  max-width: 780px;
+/* ── Intro Section (Figma redesign — 2-col with image) ────── */
+.intro-section {
+  background: var(--clr-white);
+  padding: 88px var(--sp-24);
+}
+.intro-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: var(--sp-64);
+  align-items: center;
+}
+.intro-section__text {
+  max-width: none;
+}
+.intro-section__since {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--sp-8);
+}
+.intro-section__rule {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--clr-orange);
+}
+.intro-section__since-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-orange);
 }
 .intro-section__headline {
-  font-size: 42px;
-  font-weight: var(--fw-extrabold);
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
   color: var(--clr-ink);
-  line-height: 1.15;
-  margin: var(--sp-8) 0 var(--sp-16);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-h1);
+  text-wrap: balance;
+  margin: 0 0 var(--sp-16);
 }
 .intro-section__body {
-  font-size: 16px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
   color: var(--clr-gray-body);
-  line-height: 1.7;
+  line-height: var(--lh-body);
+  max-width: 62ch;
+  text-wrap: pretty;
   margin-bottom: var(--sp-32);
+}
+.intro-section__image {
+  width: 100%;
+}
+.intro-section__machines {
+  margin-top: 88px;
+}
+.intro-section__machine-headline {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  color: var(--clr-dark-bg);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h3);
+  margin: var(--sp-8) 0 var(--sp-32) 0;
+  text-wrap: balance;
 }
 
 /* ── Partner Logos section ────────────────────────────────── */
@@ -102,11 +157,17 @@ button { cursor: pointer; }
   gap: var(--sp-12);
 }
 
-/* ── Testimonial Section (homepage) ──────────────────────── */
-.testimonial-section { background: var(--clr-white); }
+/* ── Testimonial Section (Figma — light gray bg) ─────────── */
+.testimonial-section {
+  background: var(--clr-gray-band);
+  padding: 88px var(--sp-24);
+}
 
 /* ── News Section ─────────────────────────────────────────── */
-.news-section { background: var(--clr-gray-card); }
+.news-section {
+  background: var(--clr-white);
+  padding: 88px var(--sp-24);
+}
 .news-section__list {
   display: flex;
   flex-direction: column;
@@ -120,17 +181,21 @@ button { cursor: pointer; }
   text-align: center;
 }
 .es-hero__headline {
-  font-size: 72px;
-  font-weight: var(--fw-extrabold);
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-bold);
   color: var(--clr-white);
-  line-height: 1.05;
-  margin: var(--sp-12) 0 var(--sp-20);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-hero);
+  text-wrap: balance;
+  margin: var(--sp-8) 0 var(--sp-20);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
+.es-hero__headline--md { font-size: var(--fs-display); letter-spacing: var(--ls-display); }
 .es-hero__body {
-  font-size: 17px;
+  font-size: var(--fs-lede);
   color: var(--clr-gray-muted);
   line-height: 1.7;
   max-width: 640px;
@@ -146,7 +211,7 @@ button { cursor: pointer; }
 /* ── Why Gerotech (ES) ────────────────────────────────────── */
 .why-section {
   background: var(--clr-white);
-  padding: var(--sp-80) var(--sp-24);
+  padding: 88px var(--sp-24);
 }
 .why-section__inner {
   max-width: var(--max-es);
@@ -157,10 +222,13 @@ button { cursor: pointer; }
   align-items: start;
 }
 .why-section__copy-headline {
-  font-size: 38px;
-  font-weight: var(--fw-extrabold);
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
   color: var(--clr-ink);
-  line-height: 1.2;
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  text-wrap: balance;
   margin: var(--sp-8) 0 var(--sp-20);
 }
 .why-section__copy-body {
@@ -192,7 +260,7 @@ button { cursor: pointer; }
 /* ── ES Grid Section ──────────────────────────────────────── */
 .es-grid-section {
   background: var(--clr-white);
-  padding: var(--sp-80) var(--sp-24);
+  padding: 88px var(--sp-24);
 }
 .es-grid-section__inner {
   max-width: var(--max-es);
@@ -215,7 +283,7 @@ button { cursor: pointer; }
 /* ── Tech Partners (ES) ───────────────────────────────────── */
 .tech-partners-section {
   background: var(--clr-gray-band);
-  padding: var(--sp-80) var(--sp-24);
+  padding: 88px var(--sp-24);
 }
 .tech-partners-section__inner {
   max-width: var(--max-es);
@@ -226,10 +294,12 @@ button { cursor: pointer; }
   align-items: center;
 }
 .tech-partners-section__copy-headline {
-  font-size: 32px;
-  font-weight: var(--fw-extrabold);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
   color: var(--clr-ink);
-  line-height: 1.2;
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h3);
   margin: var(--sp-8) 0 var(--sp-16);
 }
 .tech-partners-section__copy-body {
@@ -247,7 +317,7 @@ button { cursor: pointer; }
 /* ── ES Testimonials ──────────────────────────────────────── */
 .es-testimonials-section {
   background: var(--clr-white);
-  padding: var(--sp-80) var(--sp-24);
+  padding: 88px var(--sp-24);
 }
 .es-testimonials-section__inner {
   max-width: var(--max-es);
@@ -256,26 +326,45 @@ button { cursor: pointer; }
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .es-hero__headline { font-size: 54px; }
-  .capability-band__headline { font-size: 42px; }
+  .intro-section__grid {
+    grid-template-columns: 1fr;
+  }
+  .intro-section__image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .es-grid { grid-template-columns: repeat(2, 1fr); }
   .site-footer__top { grid-template-columns: 1fr 1fr; gap: var(--sp-32); }
   .tech-logo-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 768px) {
-  /* Nav */
+/* Full header needs ~975px — collapse to mobile nav before it crushes the logo */
+@media (max-width: 1000px) {
   .site-nav,
   .btn-get-quote,
   .header-search { display: none; }
   .mobile-toggle { display: flex; }
+}
 
-  /* Typography */
-  .es-hero__headline { font-size: 38px; }
-  .intro-section__headline { font-size: 30px; }
-  .section-title { font-size: 26px; }
-  .capability-band__headline { font-size: 34px; }
+@media (max-width: 768px) {
+  /* Section rhythm scales down */
+  .section,
+  .intro-section,
+  .testimonial-section,
+  .news-section,
+  .why-section,
+  .es-grid-section,
+  .tech-partners-section,
+  .es-testimonials-section,
+  .mcs-grid-section,
+  .mcs-gallery-section,
+  .trust-section { padding-top: 64px; padding-bottom: 64px; }
+  .intro-section__machines { margin-top: 64px; }
+
+  /* Hero */
+  .hero-slider { height: 480px; }
+
 
   /* Layouts */
   .grid-3,
@@ -297,6 +386,7 @@ button { cursor: pointer; }
     text-align: center;
     padding: var(--sp-40) var(--sp-24);
   }
+  .cta-band--photo { padding: 88px var(--sp-24); }
 
   .email-signup__form { flex-direction: column; }
 
@@ -312,10 +402,30 @@ button { cursor: pointer; }
 }
 
 @media (max-width: 480px) {
-  .alert-banner__inner { gap: var(--sp-12); flex-direction: column; }
+  /* Alert banner: HQ number only on small phones */
+  .alert-banner__item:not(:first-child) { display: none; }
+
+  .section,
+  .intro-section,
+  .testimonial-section,
+  .news-section,
+  .why-section,
+  .es-grid-section,
+  .tech-partners-section,
+  .es-testimonials-section,
+  .mcs-grid-section,
+  .mcs-gallery-section,
+  .trust-section { padding-top: 56px; padding-bottom: 56px; }
+
+  .hero-slider { height: 440px; }
+  .slide__ph { padding: 32px 28px; }
+
+  .news-card { flex-direction: column; align-items: flex-start; gap: var(--sp-16); }
+  .news-card__thumb { width: 100%; height: 160px; }
+
+  .testimonial-split__panel { padding: 40px 28px; }
+
   .stat-strip__grid { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
-  .es-hero__headline { font-size: 30px; }
-  .mcs-hero__headline { font-size: 28px; }
   .mcs-card__actions { flex-direction: column; }
 }
