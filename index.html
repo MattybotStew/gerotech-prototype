@@ -13,62 +13,73 @@
 
   <div data-include="partials/site-header.html"></div>
 
-  <main id="main">
+  <main>
 
     <!-- ============================================================
-         Hero Carousel (Figma redesign — 6 slides, glassmorphism arrows)
+         Hero Carousel (Variant 3 — Left-aligned full-bleed)
          ============================================================ -->
     <section class="hero-slider" aria-label="Homepage hero carousel">
       <div class="hero-slider__track">
+        <!-- Slide 1 — confirmed copy -->
         <div class="slide is-active" role="tabpanel" aria-label="Slide 1 of 6">
-          <img class="slide__bg" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop" alt="Training and showroom" loading="eager" fetchpriority="high" />
-          <div class="slide__overlay" aria-hidden="true"></div>
-          <div class="slide__content">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop" alt="Training and showroom" loading="eager" fetchpriority="high" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
             <p class="slide__eyebrow">Complimentary Training</p>
             <h1 class="slide__headline">Gerotech Training is Back at Macomb Community College</h1>
             <p class="slide__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
             <a class="btn btn--primary" href="#">View Training Schedule</a>
           </div>
         </div>
-        <!-- Slides 2–6: dashed placeholder treatment — awaiting client copy -->
-        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 2 of 6">
-          <img class="slide__bg" src="https://images.unsplash.com/photo-1711418235199-171c8ecb9d12?q=80&w=1920&auto=format&fit=crop" alt="Manufacturing facility" loading="lazy" />
-          <div class="slide__overlay" aria-hidden="true"></div>
-          <div class="slide__ph">
-            <p class="slide__ph-title">Slide 2 — Placeholder</p>
-            <p class="slide__ph-sub">Awaiting client copy</p>
+        <!-- Slides 2–6: awaiting client copy — dummy content -->
+        <div class="slide" role="tabpanel" aria-label="Slide 2 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1711418235199-171c8ecb9d12?q=80&w=1920&auto=format&fit=crop" alt="Manufacturing facility" loading="lazy" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">CNC Machinery</p>
+            <h2 class="slide__headline">Michigan's Largest Haas Factory Outlet</h2>
+            <p class="slide__body">Full inventory of Haas CNC mills, lathes, 5-axis machines, and automation systems — ready for demo at our Flat Rock showroom.</p>
+            <a class="btn btn--primary" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">Browse Machines ↗</a>
           </div>
         </div>
-        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 3 of 6">
-          <img class="slide__bg" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining" loading="lazy" />
-          <div class="slide__overlay" aria-hidden="true"></div>
-          <div class="slide__ph">
-            <p class="slide__ph-title">Slide 3 — Placeholder</p>
-            <p class="slide__ph-sub">Awaiting client copy</p>
+        <div class="slide" role="tabpanel" aria-label="Slide 3 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining" loading="lazy" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Engineered Solutions</p>
+            <h2 class="slide__headline">Custom Turnkey Systems — Designed, Built, Installed</h2>
+            <p class="slide__body">From column risers to full automation cells, our in-house engineering team delivers solutions tailored to your production floor.</p>
+            <a class="btn btn--primary" href="engineered-solutions.html">Explore Solutions</a>
           </div>
         </div>
-        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 4 of 6">
-          <img class="slide__bg" src="https://images.unsplash.com/photo-1615286922420-c6b348ffbd62?q=80&w=1920&auto=format&fit=crop" alt="Laser technology" loading="lazy" />
-          <div class="slide__overlay" aria-hidden="true"></div>
-          <div class="slide__ph">
-            <p class="slide__ph-title">Slide 4 — Placeholder</p>
-            <p class="slide__ph-sub">Awaiting client copy</p>
+        <div class="slide" role="tabpanel" aria-label="Slide 4 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1615286922420-c6b348ffbd62?q=80&w=1920&auto=format&fit=crop" alt="Laser technology" loading="lazy" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Service & Support</p>
+            <h2 class="slide__headline">Factory-Trained Technicians — When You Need Them</h2>
+            <p class="slide__body">Three Michigan locations with certified Haas service technicians. Same-day response for critical downtime.</p>
+            <a class="btn btn--primary" href="support.html">Request Service</a>
           </div>
         </div>
-        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 5 of 6">
-          <img class="slide__bg" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=1920&auto=format&fit=crop" alt="Automation" loading="lazy" />
-          <div class="slide__overlay" aria-hidden="true"></div>
-          <div class="slide__ph">
-            <p class="slide__ph-title">Slide 5 — Placeholder</p>
-            <p class="slide__ph-sub">Awaiting client copy</p>
+        <div class="slide" role="tabpanel" aria-label="Slide 5 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=1920&auto=format&fit=crop" alt="Automation" loading="lazy" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Automation & Robotics</p>
+            <h2 class="slide__headline">FANUC-Certified Automation Integrators</h2>
+            <p class="slide__body">Collaborative robots, pallet changers, and fully integrated cells that keep your spindles turning 24/7.</p>
+            <a class="btn btn--primary" href="automation-integration.html">See Automation Capabilities</a>
           </div>
         </div>
-        <div class="slide slide--placeholder" role="tabpanel" aria-label="Slide 6 of 6">
-          <img class="slide__bg" src="https://images.unsplash.com/photo-1624841970647-87dce8628d72?q=80&w=1920&auto=format&fit=crop" alt="Industrial facility" loading="lazy" />
-          <div class="slide__overlay" aria-hidden="true"></div>
-          <div class="slide__ph">
-            <p class="slide__ph-title">Slide 6 — Placeholder</p>
-            <p class="slide__ph-sub">Awaiting client copy</p>
+        <div class="slide" role="tabpanel" aria-label="Slide 6 of 6">
+          <img class="slide__bg" src="https://images.unsplash.com/photo-1624841970647-87dce8628d72?q=80&w=1920&auto=format&fit=crop" alt="Industrial facility" loading="lazy" style="object-position: 65% center;" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Since 1987</p>
+            <h2 class="slide__headline">Partner With Michigan's Most Trusted CNC Distributor</h2>
+            <p class="slide__body">Three decades of engineering expertise. People who listen, respond, build, deliver, and support — every step of the way.</p>
+            <a class="btn btn--primary" href="about.html">About Gerotech</a>
           </div>
         </div>
       </div>
@@ -166,8 +177,7 @@
         </div>
 
         <div class="testimonial-carousel" id="testimonial-carousel">
-          <div class="testimonial-carousel__track testimonial-carousel__track--slide">
-            <div class="testimonial-carousel__row">
+          <div class="testimonial-carousel__track">
 
             <article class="testimonial-carousel__slide is-active" role="tabpanel" aria-label="Testimonial 1 of 3">
               <div class="testimonial-split">
@@ -219,7 +229,6 @@
               </div>
             </article>
 
-            </div>
           </div>
 
           <div class="testimonial-carousel__dots" role="tablist" aria-label="Testimonial navigation">
@@ -250,7 +259,7 @@
                 reducing cycle times by 38% for a major Michigan supplier.
               </p>
             </div>
-            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=500&auto=format&fit=crop" alt="Robotic cell" loading="lazy" style="object-fit:cover;" />
+            <img class="news-card__thumb" src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=500&auto=format&fit=crop" alt="Robotic cell" loading="lazy" style="object-fit:cover;" />
           </article>
           <article class="news-card">
             <div class="news-card__content">
@@ -261,7 +270,7 @@
                 serving manufacturers across West Michigan.
               </p>
             </div>
-            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?q=80&w=500&auto=format&fit=crop" alt="Service team" loading="lazy" style="object-fit:cover;" />
+            <img class="news-card__thumb" src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?q=80&w=500&auto=format&fit=crop" alt="Service team" loading="lazy" style="object-fit:cover;" />
           </article>
           <article class="news-card">
             <div class="news-card__content">
@@ -272,7 +281,7 @@
                 machining center, extending its productive life by years.
               </p>
             </div>
-            <img class="news-card__thumb" width="132" height="94" src="https://images.unsplash.com/photo-1711418235334-8895331a6cf9?q=80&w=500&auto=format&fit=crop" alt="Retrofit project" loading="lazy" style="object-fit:cover;" />
+            <img class="news-card__thumb" src="https://images.unsplash.com/photo-1711418235334-8895331a6cf9?q=80&w=500&auto=format&fit=crop" alt="Retrofit project" loading="lazy" style="object-fit:cover;" />
           </article>
         </div>
         <div style="margin-top: var(--sp-32);">
@@ -282,40 +291,40 @@
     </section>
 
     <!-- ============================================================
-         CTA Band (Figma redesign — dark bg, white card with orange btn)
+         CTA Band (Photo hero-style — full-bleed image + overlay)
          ============================================================ -->
     <section class="cta-band cta-band--photo" aria-label="Call to action">
-      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1598299803204-b73796f43289?q=80&w=1920&auto=format&fit=crop" alt="" loading="lazy" /><!-- Stand-in: Unsplash/Sam Moghadam — awaiting client photo -->
+      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop" alt="Engineering team" loading="lazy" />
       <div class="cta-band__overlay" aria-hidden="true"></div>
       <div class="cta-band__content">
-        <p class="slide__eyebrow">Let's Work Together</p>
+        <p class="slide__eyebrow">Get Started</p>
         <h2 class="cta-band__headline cta-band__headline--photo">Put our engineers to work on your project</h2>
         <a class="btn btn--primary btn--lg" href="#">Engage with us today</a>
       </div>
     </section>
 
     <!-- ============================================================
-         Email Signup (Figma redesign)
+         Email Signup (Dark bg, side-by-side layout)
          ============================================================ -->
     <section class="email-signup" aria-label="Mailing list signup">
       <div class="email-signup__inner">
         <div class="email-signup__copy">
           <h2 class="email-signup__title">Stay in the Loop</h2>
-      <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
+          <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
         </div>
         <form class="email-signup__form" action="#" method="post" novalidate>
-        <label for="email-input" class="sr-only">Email address</label>
-        <input
-          class="email-signup__input"
-          id="email-input"
-          type="email"
-          name="email"
-          placeholder="your@email.com"
-          required
-          autocomplete="email"
-        />
-        <button class="email-signup__submit" type="submit">Sign Up</button>
-      </form>
+          <label for="email-input" class="sr-only">Email address</label>
+          <input
+            class="email-signup__input"
+            id="email-input"
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          />
+          <button class="email-signup__submit" type="submit">Sign Up</button>
+        </form>
       </div>
     </section>
 

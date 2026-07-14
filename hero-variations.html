@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerotech — Hero Variations</title>
+  <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <style>
+    /* ── Variation page layout ────────────────────────────── */
+    .var-section {
+      margin-bottom: 80px;
+    }
+    .var-label {
+      position: absolute;
+      bottom: 16px;
+      right: 24px;
+      background: var(--clr-orange);
+      color: var(--clr-white);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      z-index: 5;
+    }
+    .var-section h2 {
+      font-family: var(--font-display);
+      font-size: var(--fs-h3);
+      letter-spacing: var(--ls-h3);
+      line-height: var(--lh-h2);
+      color: var(--clr-ink);
+      padding: 40px 24px 0;
+      max-width: var(--max-home);
+      margin: 0 auto;
+    }
+    .var-section .var-sub {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--clr-gray-body);
+      max-width: var(--max-home);
+      margin: 4px auto 0;
+      padding: 0 24px;
+    }
+
+    /* ── VARIANT 1: Split Hero ────────────────────────────── */
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+      background: var(--clr-white);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-split__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 10% 80px 120px;
+      gap: 20px;
+    }
+    .hero-split__image {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-split__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-split__headline {
+      font-family: var(--font-display);
+      font-size: var(--fs-h1);
+      font-weight: var(--fw-bold);
+      color: var(--clr-ink);
+      line-height: var(--lh-h1);
+      letter-spacing: var(--ls-h1);
+      margin: 0;
+      text-wrap: balance;
+    }
+    .hero-split__body {
+      font-family: var(--font-sans);
+      font-size: var(--fs-lede);
+      color: var(--clr-gray-body);
+      line-height: 1.6;
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .hero-split { grid-template-columns: 1fr; }
+      .hero-split__text { padding: 48px 24px; }
+      .hero-split__image { min-height: 320px; }
+    }
+
+    /* ── VARIANT 2: Tall Centered Slider ──────────────────── */
+    .hero-tall {
+      position: relative;
+      background: var(--clr-dark-bg);
+      height: 640px;
+      overflow: hidden;
+    }
+    .hero-tall__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-tall__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,13,13,0.78) 0%, rgba(13,13,13,0.40) 50%, rgba(28,28,33,0.60) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-tall__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 22px;
+    }
+    .hero-tall__headline {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: var(--fw-bold);
+      color: var(--clr-white);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin: 0;
+      text-wrap: balance;
+    }
+    .hero-tall__body {
+      font-family: var(--font-sans);
+      font-size: var(--fs-lede);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0;
+    }
+    .hero-tall__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ── VARIANT 3: Left-Aligned Full-Bleed ───────────────── */
+    .hero-left {
+      position: relative;
+      background: var(--clr-dark-bg);
+      height: 560px;
+      overflow: hidden;
+    }
+    .hero-left__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 65% center;
+    }
+    .hero-left__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(13,13,13,0.82) 0%, rgba(13,13,13,0.55) 45%, rgba(13,13,13,0.25) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-left__content {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+      margin-left: 120px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      gap: 20px;
+    }
+    .hero-left__headline {
+      font-family: var(--font-display);
+      font-size: var(--fs-h1);
+      font-weight: var(--fw-bold);
+      color: var(--clr-white);
+      line-height: var(--lh-h1);
+      letter-spacing: var(--ls-h1);
+      margin: 0;
+      text-wrap: balance;
+    }
+    .hero-left__body {
+      font-family: var(--font-sans);
+      font-size: var(--fs-lede);
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .hero-left__content { margin-left: 0; padding: 0 24px; }
+      .hero-left__overlay { background: linear-gradient(180deg, rgba(13,13,13,0.72) 0%, rgba(13,13,13,0.45) 45%, rgba(28,28,33,0.55) 100%); }
+    }
+
+    /* ── VARIANT 4: Bottom-Attached Content ───────────────── */
+    .hero-bottom {
+      position: relative;
+      background: var(--clr-dark-bg);
+      height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero-bottom__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-bottom__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,13,13,0.30) 50%, rgba(13,13,13,0.75) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-bottom__bar {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: var(--clr-dark-bg);
+      padding: 36px 0 40px;
+    }
+    .hero-bottom__inner {
+      max-width: var(--max-home);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .hero-bottom__headline {
+      font-family: var(--font-display);
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-bold);
+      color: var(--clr-white);
+      line-height: var(--lh-h2);
+      letter-spacing: var(--ls-h2);
+      margin: 0;
+      max-width: 600px;
+      text-wrap: balance;
+    }
+    @media (max-width: 768px) {
+      .hero-bottom { height: 440px; }
+      .hero-bottom__inner { flex-direction: column; text-align: center; }
+    }
+
+    /* ── VARIANT 5: Minimal Static Hero ───────────────────── */
+    .hero-static {
+      position: relative;
+      background: var(--clr-dark-bg);
+      height: 560px;
+      overflow: hidden;
+    }
+    .hero-static__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-static__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,13,13,0.72) 0%, rgba(13,13,13,0.45) 45%, rgba(28,28,33,0.55) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-static__content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 20px;
+    }
+    .hero-static__headline {
+      font-family: var(--font-display);
+      font-size: var(--fs-h1);
+      font-weight: var(--fw-bold);
+      color: var(--clr-white);
+      line-height: var(--lh-h1);
+      letter-spacing: var(--ls-h1);
+      margin: 0;
+      text-wrap: balance;
+    }
+    .hero-static__body {
+      font-family: var(--font-sans);
+      font-size: var(--fs-lede);
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div data-include="partials/site-header.html"></div>
+
+  <main>
+
+    <!-- ═══════ VARIANT 1: Split Hero ═══════ -->
+    <div class="var-section">
+      <h2>Variant 1 — Split Hero</h2>
+      <p class="var-sub">Text + image side by side • No overlay • Editorial feel • Good for brand storytelling</p>
+    </div>
+    <section class="hero-split" aria-label="Hero — split layout">
+      <div class="hero-split__text">
+        <p class="eyebrow">Complimentary Training</p>
+        <h1 class="hero-split__headline">Gerotech Training is Back at Macomb Community College</h1>
+        <p class="hero-split__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
+        <div><a class="btn btn--primary" href="#">View Training Schedule</a></div>
+      </div>
+      <div class="hero-split__image">
+        <img src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1200&auto=format&fit=crop" alt="Training and showroom" loading="lazy" />
+      </div>
+      <span class="var-label">V1</span>
+    </section>
+
+    <!-- ═══════ VARIANT 2: Tall Centered Slider ═══════ -->
+    <div class="var-section">
+      <h2>Variant 2 — Tall Centered Slider</h2>
+      <p class="var-sub">640px height • Larger headline • Dual CTAs • More dramatic</p>
+    </div>
+    <section class="hero-tall" aria-label="Hero — tall centered">
+      <img class="hero-tall__bg" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining" loading="lazy" />
+      <div class="hero-tall__overlay" aria-hidden="true"></div>
+      <div class="hero-tall__content">
+        <p class="slide__eyebrow">Complimentary Training</p>
+        <h1 class="hero-tall__headline">Gerotech Training is Back at Macomb Community College</h1>
+        <p class="hero-tall__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
+        <div class="hero-tall__actions">
+          <a class="btn btn--primary" href="#">View Training Schedule</a>
+          <a class="btn btn--outline-white" href="#">Learn More</a>
+        </div>
+      </div>
+      <span class="var-label">V2</span>
+    </section>
+
+    <!-- ═══════ VARIANT 3: Left-Aligned Full-Bleed ═══════ -->
+    <div class="var-section">
+      <h2>Variant 3 — Left-Aligned Full-Bleed</h2>
+      <p class="var-sub">Full-bleed image • Left-anchored copy • Horizontal gradient • Authoritative industrial feel</p>
+    </div>
+    <section class="hero-left" aria-label="Hero — left aligned">
+      <img class="hero-left__bg" src="https://images.unsplash.com/photo-1711418235199-171c8ecb9d12?q=80&w=1920&auto=format&fit=crop" alt="Manufacturing" loading="lazy" />
+      <div class="hero-left__overlay" aria-hidden="true"></div>
+      <div class="hero-left__content">
+        <p class="slide__eyebrow">Complimentary Training</p>
+        <h1 class="hero-left__headline">Gerotech Training is Back at Macomb Community College</h1>
+        <p class="hero-left__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
+        <div><a class="btn btn--primary" href="#">View Training Schedule</a></div>
+      </div>
+      <span class="var-label">V3</span>
+    </section>
+
+    <!-- ═══════ VARIANT 4: Bottom-Attached Content ═══════ -->
+    <div class="var-section">
+      <h2>Variant 4 — Bottom-Attached Content</h2>
+      <p class="var-sub">Photography-first • Content sits in a dark bar at bottom • Image breathes</p>
+    </div>
+    <section class="hero-bottom" aria-label="Hero — bottom attached">
+      <img class="hero-bottom__bg" src="https://images.unsplash.com/photo-1615286922420-c6b348ffbd62?q=80&w=1920&auto=format&fit=crop" alt="Laser technology" loading="lazy" />
+      <div class="hero-bottom__overlay" aria-hidden="true"></div>
+      <div class="hero-bottom__bar">
+        <div class="hero-bottom__inner">
+          <h1 class="hero-bottom__headline">Gerotech Training is Back at Macomb Community College</h1>
+          <a class="btn btn--primary" href="#">View Training Schedule</a>
+        </div>
+      </div>
+      <span class="var-label">V4</span>
+    </section>
+
+    <!-- ═══════ VARIANT 5: Minimal Static Hero ═══════ -->
+    <div class="var-section">
+      <h2>Variant 5 — Minimal Static Hero</h2>
+      <p class="var-sub">Single image • Single CTA • No slider • No autoplay • Confident & fast</p>
+    </div>
+    <section class="hero-static" aria-label="Hero — minimal static">
+      <img class="hero-static__bg" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=1920&auto=format&fit=crop" alt="Automation" loading="lazy" />
+      <div class="hero-static__overlay" aria-hidden="true"></div>
+      <div class="hero-static__content">
+        <p class="slide__eyebrow">Complimentary Training</p>
+        <h1 class="hero-static__headline">Gerotech Training is Back at Macomb Community College</h1>
+        <p class="hero-static__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
+        <div><a class="btn btn--primary" href="#">View Training Schedule</a></div>
+      </div>
+      <span class="var-label">V5</span>
+    </section>
+
+  </main>
+
+  <div data-include="partials/site-footer.html"></div>
+
+  <script src="assets/js/include-partials.js"></script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>
