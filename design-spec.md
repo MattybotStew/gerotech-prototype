@@ -21,9 +21,28 @@
 | Gray card bg | `#F9F9FB` |
 | Gray band | `#F2F2F2` |
 
-**Font:** Plus Jakarta Sans (400, 500, 600, 700, 800) — Google Fonts  
+**Font:** Navigo (Adobe kit `lqh7ybe`, weights 400 + 700) — consider adding 500 to kit for finer UI hierarchy  
 **Max-width:** Homepage 1200px | ES page 1120px  
-**Border radius:** Buttons 8px | Cards 18–20px | Pills 99px
+**Border radius:** Cards 0 (squared) | Buttons 8px | Pills 99px
+
+---
+
+## Interior hero system (2026-07-14)
+
+| Pattern | Class | Used on |
+|---------|-------|---------|
+| **Dark full-bleed hub** | `.es-hero` | Engineered Solutions hub, Training |
+| **Light gray + breadcrumb** | `.mcs-hero` | MCS, Application, Automation detail pages |
+
+Hub pages use dark heroes for category landing; detail/drill-down pages use light heroes with breadcrumbs.
+
+## Primary CTA destinations (prototype)
+
+| Action | Destination |
+|--------|-------------|
+| Get a Quote | `mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request` |
+| Talk to an Engineer | `tel:+17343797788` |
+| Service Request | `tel:+12484768787` |
 
 ---
 

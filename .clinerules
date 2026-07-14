@@ -5,19 +5,28 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-14 (presentation-ready verification)
+**Last Updated:** 2026-07-14 (design recommendations pass)
 **Active Agent:** Cursor
-**Branch:** `cursor/cline-beauty-pass` (from master `83ae812`)
-**Last Commit:** chore: verify presentation-ready beauty pass on cline branch
+**Branch:** `cursor/cline-beauty-pass`
+**Last Commit:** feat(design): implement presentation recommendations from audit
 
 ## Current State (2026-07-14)
-- MCS naming split: ✅ COMPLETED
-- Beauty pass (partners, tags, icons, motion): ✅ COMPLETED — on master + verified on `cursor/cline-beauty-pass`
-- Per-page CTA photo backgrounds: ✅ COMPLETED (9 unique stand-ins)
-- Presentation-ready QA (1440 + 390, console): ✅ VERIFIED 2026-07-14
-- Orphan machine-modification.html: ❌ Needs integration or removal
-- FANUC badge: ❌ Placeholder only (awaiting client)
-- `#` CTAs: ❌ Needs clarification
+- Beauty pass + per-page CTAs: ✅ COMPLETED
+- Design recommendations audit: ✅ IMPLEMENTED (see JOURNAL 2026-07-14)
+- Orphan machine-modification.html: ✅ Redirects to MCS
+- FANUC badge: ⚠️ Styled placeholder — official logo pending client/legal
+- `#` CTAs on main pages: ✅ Wired to mailto/tel/internal pages (machine catalog `#` URLs still pending)
+- Navigo 500 in Adobe kit: ❌ Recommend client add weight to kit `lqh7ybe`
+
+### What was completed 2026-07-14 (Cursor — design recommendations)
+
+- **Hero:** 3 slides max; H1 on slide 1 only; View Training → `training.html`.
+- **ES:** Stats, trust FAQ, testimonials, FANUC award block styling, name-split filter tabs.
+- **Naming:** Nav mega-menu + Automation page use `.mcs-name-split` pattern.
+- **MCS:** Installed Projects gallery (distinct from service cards); modal copy complete.
+- **CTAs:** Get a Quote → mailto; Talk to Engineer → tel; support/training wired.
+- **UX:** Alert banner lighter + collapses on scroll; social icons hidden pending URLs.
+- **machine-modification.html:** Canonical redirect to MCS.
 
 ### What was completed 2026-07-14 (Cursor — presentation-ready verification)
 

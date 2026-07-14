@@ -7,6 +7,9 @@ window.initNav = function () {
   function updateSticky() {
     var offset = alertBanner ? alertBanner.offsetHeight : 0;
     header.classList.toggle('is-sticky', window.scrollY > offset);
+    if (alertBanner) {
+      alertBanner.classList.toggle('is-collapsed', window.scrollY > 24);
+    }
   }
   window.addEventListener('scroll', updateSticky, { passive: true });
   updateSticky();

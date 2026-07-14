@@ -2,6 +2,17 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Design recommendations implementation (Cursor)
+- **Homepage:** Hero trimmed to 3 slides (Training, Machines, ES); slide 1 owns H1; primary CTAs wired (training, about, mailto quote).
+- **ES hub:** Draft stats (35+ years, 3 locations, 500+ machines, 12 engineers); trust FAQ filled; testimonial placeholders replaced; FANUC badge styled as award block; filter tabs use name-split pattern.
+- **Nav:** Mega-menu labels aligned — Machine / Custom Solutions, Automation / Controls Solutions; Get a Quote → mailto.
+- **Automation page:** Name-split hero pattern applied.
+- **MCS:** Gallery reframed as "Installed Projects" with project captions; modal copy filled; CTAs wired.
+- **Orphan page:** `machine-modification.html` redirects to MCS.
+- **Site-wide:** Lighter alert banner + collapse on scroll; footer socials hidden until URLs confirmed; support/training `#` CTAs wired.
+- **Docs:** `design-spec.md` updated with interior hero system + CTA destinations.
+- **Not done (needs client/external):** Navigo 500 in Adobe kit; official FANUC logo; real sales email confirmation; machine catalog `#` URLs.
+
 ## 2026-07-14 — Presentation-ready verification (Cursor, cursor/cline-beauty-pass)
 - **Branch:** `cursor/cline-beauty-pass` reset from latest `master` (`83ae812`). All beauty-pass goals A–C already implemented on master — this pass verified, did not re-implement.
 - **Verified @1440px:** Homepage (partners band, intro frame, model tags, testimonials, Ken Burns), ES (SVG why-feature icons), MCS (name split hero).
