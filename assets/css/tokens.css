@@ -99,6 +99,12 @@
   /* ── Motion ───────────────────────────────────────────── */
   --ease: 0.22s ease;
   --ease-slow: 0.35s ease;
+  --ease-spring: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Enhanced shadows ───────────────────────────────── */
+  --shadow-btn:        0 2px 8px rgba(243, 138, 44, 0.25);
+  --shadow-btn-hover:  0 8px 24px rgba(243, 138, 44, 0.35);
+  --shadow-elevated:   0 12px 48px rgba(0, 0, 0, 0.1);
 
   /* ── Z-Index ──────────────────────────────────────────── */
   --z-alert:    300;

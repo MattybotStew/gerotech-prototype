@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-14 — Design elevation pass (Cursor)
+- **New layer:** `assets/css/elevated.css` loaded site-wide after layout.css — sticky header blur, hero depth, trust strip, button/card micro-interactions, section rhythm.
+- **Homepage:** Trust metrics strip below hero (Since 1987, 3 locations, Haas FFO, FANUC ASI) replaces removed partner band with sharper proof points.
+- **Tokens:** `--shadow-btn`, `--shadow-btn-hover`, `--ease-spring`.
+- **Branch:** `cursor/design-elevated` — not merged.
+
 ## 2026-07-14 — Design recommendations implementation (Cursor)
 - **Homepage:** Hero trimmed to 3 slides (Training, Machines, ES); slide 1 owns H1; primary CTAs wired (training, about, mailto quote).
 - **ES hub:** Draft stats (35+ years, 3 locations, 500+ machines, 12 engineers); trust FAQ filled; testimonial placeholders replaced; FANUC badge styled as award block; filter tabs use name-split pattern.

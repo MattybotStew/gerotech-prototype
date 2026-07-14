@@ -8,7 +8,7 @@
     '.stat-pill, .partner-logo, .why-feature, .capability-bullet, ' +
     '.section-header, .intro-section__lead, .cta-band__card, ' +
     '.testimonial-split, .credential-band__inner, .tech-partners-section__inner, ' +
-    '.mcat-card, .mcs-card, .mcs-gallery-card'
+    '.mcat-card, .mcs-card, .mcs-gallery-card, .trust-strip__item, .machine-panel'
   );
 
   targets.forEach(function (el) {

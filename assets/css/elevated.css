@@ -1,0 +1,352 @@
+/* ============================================================
+   GEROTECH — DESIGN ELEVATION (UI/UX pass)
+   Load after layout.css. Overrides and additive polish only.
+   ============================================================ */
+
+/* ── Global polish ────────────────────────────────────────── */
+::selection {
+  background: var(--clr-orange-tint);
+  color: var(--clr-ink);
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Sticky header ────────────────────────────────────────── */
+.site-header {
+  transition: box-shadow var(--ease-slow), background var(--ease-slow), backdrop-filter var(--ease-slow);
+}
+
+.site-header.is-sticky {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--clr-gray-border), var(--shadow-nav);
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero-slider {
+  height: clamp(480px, 72vh, 640px);
+}
+
+.slide__overlay--left {
+  background: linear-gradient(
+    105deg,
+    rgba(13, 13, 13, 0.88) 0%,
+    rgba(13, 13, 13, 0.62) 42%,
+    rgba(13, 13, 13, 0.18) 72%,
+    rgba(13, 13, 13, 0.05) 100%
+  );
+}
+
+.slide__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-12);
+  margin-bottom: var(--sp-12);
+}
+
+.slide__eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--clr-orange);
+  flex-shrink: 0;
+}
+
+.slide__headline {
+  max-width: 16ch;
+}
+
+.slide__content--left .slide__headline {
+  max-width: 14ch;
+}
+
+.slider-arrow {
+  transition: background var(--ease), transform var(--ease), border-color var(--ease);
+}
+
+.slider-arrow:hover {
+  transform: translateY(-50%) scale(1.04);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.slider-dots {
+  gap: var(--sp-8);
+}
+
+.slider-dots .dot,
+.testimonial-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  transition: width var(--ease-slow), background var(--ease), opacity var(--ease);
+}
+
+.slider-dots .dot.is-active,
+.testimonial-dot.is-active {
+  width: 28px;
+  background: var(--clr-orange);
+}
+
+/* ── Trust strip (homepage) ───────────────────────────────── */
+.trust-strip {
+  background: var(--clr-ink);
+  border-bottom: 3px solid var(--clr-orange);
+  padding: var(--sp-20) var(--sp-24);
+}
+
+.trust-strip__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-24);
+  align-items: start;
+}
+
+.trust-strip__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding-left: var(--sp-16);
+  border-left: 2px solid rgba(243, 138, 44, 0.5);
+}
+
+.trust-strip__value {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: var(--fw-bold);
+  color: var(--clr-white);
+  letter-spacing: var(--ls-h3);
+  line-height: 1.2;
+}
+
+.trust-strip__label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-regular);
+  color: var(--clr-gray-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+/* ── Intro + machine browse ───────────────────────────────── */
+.intro-section {
+  background: linear-gradient(180deg, var(--clr-white) 0%, var(--clr-gray-card) 100%);
+}
+
+.intro-section__since-label {
+  letter-spacing: var(--ls-caps);
+}
+
+.intro-section__image-frame::before {
+  opacity: 1;
+  box-shadow: 8px 8px 0 var(--clr-orange);
+}
+
+.intro-section__machines {
+  margin-top: var(--sp-64);
+  padding-top: var(--sp-64);
+  border-top: 1px solid var(--clr-gray-border);
+}
+
+.machine-tabs {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-gray-border);
+  padding: var(--sp-4);
+  gap: var(--sp-4);
+}
+
+.machine-tab {
+  border-radius: var(--radius-btn);
+  transition: background var(--ease), color var(--ease), box-shadow var(--ease);
+}
+
+.machine-tab + .machine-tab {
+  border-left: none;
+}
+
+.machine-tab.is-active {
+  box-shadow: var(--shadow-btn);
+}
+
+.machine-panel {
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--ease-slow);
+}
+
+.machine-panel.is-active {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.model-tag {
+  transition: border-color var(--ease), background var(--ease), transform var(--ease);
+}
+
+.model-tag:hover {
+  transform: translateY(-1px);
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.btn--primary:hover {
+  box-shadow: var(--shadow-btn-hover);
+  transform: translateY(-2px);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.btn-get-quote {
+  transition: background var(--ease), transform var(--ease), box-shadow var(--ease);
+}
+
+.btn-get-quote:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-btn-hover);
+}
+
+/* ── Section rhythm ───────────────────────────────────────── */
+.section-header .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-12);
+}
+
+.section-header .eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--clr-orange);
+}
+
+.section-header--centered .eyebrow::before {
+  display: none;
+}
+
+.testimonial-section {
+  background: var(--clr-gray-band);
+}
+
+.news-section {
+  background: var(--clr-white);
+}
+
+/* ── Testimonial split ────────────────────────────────────── */
+.testimonial-carousel__track {
+  border: 1px solid var(--clr-gray-border);
+}
+
+.testimonial-split__panel {
+  background: linear-gradient(145deg, var(--clr-dark-bg) 0%, #141418 100%);
+}
+
+/* ── News cards ───────────────────────────────────────────── */
+.news-card {
+  border: 1px solid transparent;
+  transition: transform var(--ease-slow), box-shadow var(--ease-slow), border-color var(--ease);
+}
+
+.news-card:hover {
+  border-color: var(--clr-gray-border);
+  transform: translateY(-4px);
+}
+
+.news-card__title {
+  transition: color var(--ease);
+}
+
+.news-card:hover .news-card__title {
+  color: var(--clr-orange);
+}
+
+/* ── Interior cards (site-wide) ───────────────────────────── */
+.service-card,
+.mcs-card,
+.category-card,
+.mcat-card {
+  transition: transform var(--ease-slow), box-shadow var(--ease-slow), border-color var(--ease);
+}
+
+.service-card:hover,
+.mcs-card:hover,
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.stat-pill {
+  border: 1px solid var(--clr-gray-border);
+  transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+}
+
+.stat-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(243, 138, 44, 0.35);
+  box-shadow: var(--shadow-card);
+}
+
+/* ── CTA photo band ───────────────────────────────────────── */
+.cta-band--photo .cta-band__content {
+  max-width: 640px;
+}
+
+.cta-band__headline--photo {
+  text-wrap: balance;
+}
+
+/* ── Forms ────────────────────────────────────────────────── */
+.email-signup__input:focus {
+  outline: none;
+  border-color: var(--clr-orange);
+  box-shadow: 0 0 0 3px var(--clr-orange-tint);
+}
+
+/* ── Filter tabs (ES) ─────────────────────────────────────── */
+.filter-tab {
+  transition: background var(--ease), color var(--ease), box-shadow var(--ease);
+}
+
+.filter-tab.is-active {
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* ── Reduced motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary:hover,
+  .news-card:hover,
+  .service-card:hover,
+  .mcs-card:hover,
+  .stat-pill:hover,
+  .slider-arrow:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .trust-strip__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-20);
+  }
+}
+
+@media (max-width: 520px) {
+  .trust-strip__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-slider {
+    height: clamp(440px, 85vh, 520px);
+  }
+}
