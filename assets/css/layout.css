@@ -12,6 +12,7 @@ body {
   color: var(--clr-ink);
   background: var(--clr-white);
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 img, video { display: block; max-width: 100%; }
 button { cursor: pointer; }
