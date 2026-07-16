@@ -767,22 +767,23 @@ body {
 }
 
 .award-banner__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-48);
   max-width: var(--max-home);
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .award-banner__photo {
-  float: left;
+  flex-shrink: 0;
   width: 300px;
   height: 300px;
   object-fit: contain;
-  margin: 0 var(--sp-48) var(--sp-16) 0;
 }
 
 .award-banner__copy {
-  overflow: hidden;
-  padding-top: var(--sp-8);
+  flex: 1;
+  min-width: 0;
 }
 
 .award-banner__eyebrow {
@@ -828,17 +829,18 @@ body {
     margin-bottom: var(--sp-48);
   }
 
+  .award-banner__inner {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-24);
+  }
+
   .award-banner__photo {
-    float: none;
-    display: block;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto var(--sp-24);
+    width: 240px;
+    height: 240px;
   }
 
   .award-banner__copy {
-    overflow: visible;
-    padding-top: 0;
     text-align: center;
   }
 }
