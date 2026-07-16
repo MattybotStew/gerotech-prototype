@@ -77,6 +77,11 @@
   --sp-96:  96px;
   --sp-120: 120px;
 
+  /* ── Section rhythm (site-wide vertical padding) ───────── */
+  --section-y:    88px;   /* desktop / tablet */
+  --section-y-sm: 64px;   /* ≤768px */
+  --section-y-xs: 56px;   /* ≤480px */
+
   /* ── Border Radius ────────────────────────────────────── */
   --radius-btn:     8px;
   --radius-card:    0;

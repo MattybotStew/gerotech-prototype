@@ -406,7 +406,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 19px;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: var(--fw-regular);
   transition: background var(--ease);
   z-index: 2;
 }
@@ -762,7 +764,8 @@
   width: 100%;
   max-width: var(--max-home);
   margin: 0 auto;
-  padding: var(--sp-48) var(--sp-24);
+  padding-block: var(--section-y);
+  padding-inline: var(--sp-24);
   text-align: left;
   align-items: flex-start;
 }
@@ -786,7 +789,6 @@
 /* ── Email Signup (Figma — centered, Archivo title) ──────── */
 .email-signup {
   background: var(--clr-dark-nav);
-  padding: 56px var(--sp-24);
 }
 .email-signup__inner {
   max-width: var(--max-home);
@@ -1060,7 +1062,8 @@
 /* ── Stat Strip ───────────────────────────────────────────── */
 .stat-strip {
   background: var(--clr-gray-band);
-  padding: var(--sp-48) var(--sp-24);
+  padding-block: var(--section-y);
+  padding-inline: var(--sp-24);
 }
 .stat-pill {
   background: var(--clr-white);
@@ -1094,7 +1097,6 @@
 /* ── FANUC / Credential Band ──────────────────────────────── */
 .credential-band {
   background: var(--clr-dark-bg);
-  padding: var(--sp-64) var(--sp-24);
 }
 .credential-band__inner {
   display: flex;
@@ -1158,7 +1160,6 @@
 /* ── Capability Band ──────────────────────────────────────── */
 .capability-band {
   background: var(--clr-dark-bg);
-  padding: var(--sp-96) var(--sp-24);
 }
 .capability-band__inner {
   max-width: var(--max-es);
@@ -1679,10 +1680,10 @@
 }
 .mcs-hero__headline {
   font-family: var(--font-display);
-  font-size: var(--fs-display);
+  font-size: var(--fs-h1); /* match homepage .slide__headline */
   font-weight: var(--fw-bold);
   color: var(--clr-ink);
-  letter-spacing: var(--ls-display);
+  letter-spacing: var(--ls-h1);
   line-height: var(--lh-h1);
   text-wrap: balance;
   margin: 0 0 var(--sp-12);
@@ -1774,7 +1775,6 @@
 /* ── MCS Grid (2-col) ───────────────────────────────────────── */
 .mcs-grid-section {
   background: var(--clr-white);
-  padding: 88px var(--sp-24);
 }
 .mcs-grid {
   display: grid;
@@ -1976,7 +1976,6 @@ img.mcs-card__image {
 /* ── MCS Product Gallery ────────────────────────────────────── */
 .mcs-gallery-section {
   background: var(--clr-gray-band);
-  padding: 88px var(--sp-24);
 }
 .mcs-gallery-grid {
   display: grid;
@@ -2117,14 +2116,6 @@ img.mcs-gallery-card__image {
   background: var(--clr-gray-body);
 }
 
-/* ── Section spacing (#59) ────────────────────────────────── */
-.stat-strip + .es-grid-section {
-  padding-top: var(--sp-80);
-}
-.why-section + .stat-strip {
-  margin-top: var(--sp-48);
-}
-
 /* ── Machine Browse Section ───────────────────────────────── */
 .machine-browse {
   background: var(--clr-gray-band);
@@ -2213,7 +2204,6 @@ img.mcs-gallery-card__image {
 /* ── Why Manufacturers Trust Gerotech — Accordion ───────────── */
 .trust-section {
   background: var(--clr-gray-band);
-  padding: 88px var(--sp-24);
 }
 .trust-section__inner {
   max-width: var(--max-es);
@@ -2371,7 +2361,7 @@ img.mcs-gallery-card__image {
 }
 .slide__content--left .slide__headline,
 .slide__content--left .slide__body {
-  max-width: 560px;
+  max-width: 600px;
   margin-left: 0;
   margin-right: auto;
 }

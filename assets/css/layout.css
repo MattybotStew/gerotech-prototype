@@ -25,12 +25,26 @@ button { cursor: pointer; }
 }
 .container--es { max-width: var(--max-es); }
 
-/* ── Section Spacing (Figma — 88px vertical, 120px sides) ─── */
-.section {
-  padding: 88px var(--sp-24);
+/* ── Section Spacing (uniform site-wide) ──────────────────── */
+.section,
+.intro-section,
+.testimonial-section,
+.news-section,
+.why-section,
+.es-grid-section,
+.tech-partners-section,
+.es-testimonials-section,
+.mcs-grid-section,
+.mcs-gallery-section,
+.trust-section,
+.capability-band,
+.credential-band,
+.email-signup {
+  padding-block: var(--section-y);
+  padding-inline: var(--sp-24);
 }
-.section--sm { padding: var(--sp-48) var(--sp-24); }
-.section--lg { padding: var(--sp-120) var(--sp-24); }
+.section--sm { padding-block: var(--sp-48); }
+.section--lg { padding-block: var(--sp-120); }
 .section--white { background: var(--clr-white); }
 .section--gray { background: var(--clr-gray-card); }
 
@@ -92,7 +106,6 @@ button { cursor: pointer; }
 /* ── Intro Section (Figma redesign — 2-col with image) ────── */
 .intro-section {
   background: var(--clr-white);
-  padding: 88px var(--sp-24);
 }
 .intro-section__grid {
   display: grid;
@@ -169,7 +182,7 @@ button { cursor: pointer; }
   box-shadow: var(--shadow-card-hover);
 }
 .intro-section__machines {
-  margin-top: 88px;
+  margin-top: var(--section-y);
 }
 .intro-section__machine-headline {
   font-family: var(--font-display);
@@ -192,13 +205,11 @@ button { cursor: pointer; }
 /* ── Testimonial Section (Figma — light gray bg) ─────────── */
 .testimonial-section {
   background: var(--clr-gray-band);
-  padding: 88px var(--sp-24);
 }
 
 /* ── News Section ─────────────────────────────────────────── */
 .news-section {
   background: var(--clr-white);
-  padding: 88px var(--sp-24);
 }
 .news-section__list {
   display: flex;
@@ -217,18 +228,18 @@ button { cursor: pointer; }
 }
 .es-hero__headline {
   font-family: var(--font-display);
-  font-size: var(--fs-hero);
+  font-size: var(--fs-h1); /* match homepage .slide__headline */
   font-weight: var(--fw-bold);
   color: var(--clr-white);
-  line-height: var(--lh-hero);
-  letter-spacing: var(--ls-hero);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-h1);
   text-wrap: balance;
   margin: var(--sp-8) 0 var(--sp-20);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
-.es-hero__headline--md { font-size: var(--fs-display); letter-spacing: var(--ls-display); }
+.es-hero__headline--md { font-size: var(--fs-h1); letter-spacing: var(--ls-h1); }
 .es-hero__body {
   font-size: var(--fs-lede);
   color: var(--clr-gray-muted);
@@ -246,7 +257,6 @@ button { cursor: pointer; }
 /* ── Why Gerotech (ES) ────────────────────────────────────── */
 .why-section {
   background: var(--clr-white);
-  padding: 88px var(--sp-24);
 }
 .why-section__inner {
   max-width: var(--max-es);
@@ -295,7 +305,6 @@ button { cursor: pointer; }
 /* ── ES Grid Section ──────────────────────────────────────── */
 .es-grid-section {
   background: var(--clr-white);
-  padding: 88px var(--sp-24);
 }
 .es-grid-section__inner {
   max-width: var(--max-es);
@@ -318,7 +327,6 @@ button { cursor: pointer; }
 /* ── Tech Partners (ES) ───────────────────────────────────── */
 .tech-partners-section {
   background: var(--clr-gray-band);
-  padding: 88px var(--sp-24);
 }
 .tech-partners-section__inner {
   max-width: var(--max-es);
@@ -352,7 +360,6 @@ button { cursor: pointer; }
 /* ── ES Testimonials ──────────────────────────────────────── */
 .es-testimonials-section {
   background: var(--clr-white);
-  padding: 88px var(--sp-24);
 }
 .es-testimonials-section__inner {
   max-width: var(--max-es);
@@ -384,18 +391,9 @@ button { cursor: pointer; }
 
 @media (max-width: 768px) {
   /* Section rhythm scales down */
-  .section,
-  .intro-section,
-  .testimonial-section,
-  .news-section,
-  .why-section,
-  .es-grid-section,
-  .tech-partners-section,
-  .es-testimonials-section,
-  .mcs-grid-section,
-  .mcs-gallery-section,
-  .trust-section { padding-top: 64px; padding-bottom: 64px; }
-  .intro-section__machines { margin-top: 64px; }
+  :root { --section-y: var(--section-y-sm); }
+
+  .intro-section__machines { margin-top: var(--section-y); }
 
   /* Hero */
   .hero-slider { height: 480px; }
@@ -453,17 +451,7 @@ button { cursor: pointer; }
   /* Alert banner: HQ number only on small phones */
   .alert-banner__item:not(:first-child) { display: none; }
 
-  .section,
-  .intro-section,
-  .testimonial-section,
-  .news-section,
-  .why-section,
-  .es-grid-section,
-  .tech-partners-section,
-  .es-testimonials-section,
-  .mcs-grid-section,
-  .mcs-gallery-section,
-  .trust-section { padding-top: 56px; padding-bottom: 56px; }
+  :root { --section-y: var(--section-y-xs); }
 
   .hero-slider { height: 440px; }
   .slide__ph { padding: 32px 28px; }
