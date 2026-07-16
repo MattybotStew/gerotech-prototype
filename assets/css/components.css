@@ -1632,6 +1632,26 @@
 .mobile-nav__sublink--external {
   color: var(--clr-orange);
 }
+.mobile-nav__sublabel {
+  color: var(--clr-orange);
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  padding: var(--sp-12) 0 var(--sp-4);
+  cursor: default;
+  pointer-events: none;
+}
+.mobile-nav__sublabel:hover {
+  color: var(--clr-orange);
+}
+.mobile-nav__sublink--cta {
+  color: var(--clr-orange);
+  font-weight: var(--fw-bold);
+  margin-top: var(--sp-8);
+  padding: var(--sp-8) 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
 
 /* ── MCS Detail Page Hero ────────────────────────────────────── */
 .mcs-hero {
