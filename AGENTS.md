@@ -79,10 +79,17 @@ From repo root: `python3 -m http.server 8080` → http://localhost:8080/
 
 In VS Code: **Terminal → Run Task → Serve Gerotech (8080)**.
 
-### Figma (each editor authenticates once)
+### Figma → Cline workflow (local MCP)
 
-- **Cursor:** Settings → MCP → figma → Connect (or `/add-plugin figma`)
-- **VS Code Copilot:** Open `.vscode/mcp.json` → Start figma server → sign in
-- **Cline:** Cline panel → MCP Servers → add HTTP server `https://mcp.figma.com/mcp`
+Your Figma MCP runs locally at `http://127.0.0.1:3845/mcp`. Configured in two places:
 
-Then paste a Figma frame link and ask to implement using this project's HTML/BEM/tokens.
+- **Cline:** `~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json` — Cline reads this automatically on start
+- **VS Code Copilot:** `.vscode/mcp.json` — for Copilot Agent
+
+**Workflow:**
+1. Open a Figma design file in browser
+2. Copy a frame/layer link from Figma
+3. In Cline, paste the link and ask to implement using this project's HTML/BEM/tokens
+4. Cline uses the Figma MCP to read the frame's properties and generate matching code
+
+**Note:** The Figma MCP server must be running (`http://127.0.0.1:3845/mcp`) before Cline starts — restart Cline's MCP servers if you start it after.
