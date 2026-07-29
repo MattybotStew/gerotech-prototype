@@ -2,6 +2,20 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+- **Machine browse (#73):** Official Haas logo (`assets/images/haas-logo.png`) in dealer header; “Browse Haas Machines ↗” CTA; “Authorized Factory Outlet” badge.
+
+## 2026-07-29 — Header polish: alert banner + search (Cursor)
+- **Alert banner:** Background `#000` (`--clr-black`) per Figma.
+- **Search button:** Light gray bg (`--clr-gray-border`), dark icon (`--clr-ink`) per Figma.
+
+## 2026-07-29 — Figma homepage comments (Cursor)
+- **Trust strip:** Removed Wixom from locations line (`Flat Rock · Grand Rapids`).
+- **Award banner:** Removed eyebrow + credit lines; body reworded per tbridges (#71).
+- **Machine browse:** Haas text wordmark + dealer lead copy; headline now references Haas (#73).
+- **Header:** Primary CTA → "Talk to a Sales Engineer"; ES mega button matches; "Talk to an Engineer" kept on engineering paths (#74/#75).
+- **Homepage CTA:** Headline changed from "Put our engineers…" to "Ready to discuss your project?" (#76/#77).
+- **Loose ends:** Official Haas logo asset still pending; Flat Rock in trust strip kept (HQ) — client asked re content sheet (#70).
+
 ## 2026-07-14 — Agent docs refresh (Cursor)
 - **Docs:** Refreshed `AGENTS.md`, `.clinerules`, `JOURNAL.md`, `design-spec.md`, `docs/PROJECT_BRIEF.md`, `cline-project-handoff.md`, `.cursor/rules/gerotech-agent-sync.mdc`.
 - **Fixes:** `.clinerules` last-commit pointer → `45977a9`; documented all interior hero modifier classes; Unsplash 404 swap IDs recorded.

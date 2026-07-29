@@ -6,7 +6,7 @@
 
 /* ── Alert Banner ─────────────────────────────────────────── */
 .alert-banner {
-  background: var(--clr-dark-nav);
+  background: var(--clr-black);
   color: var(--clr-white);
   font-family: var(--font-sans);
   font-size: 12px;
@@ -206,22 +206,23 @@
   transform: translateY(-1px);
 }
 
-/* Search icon (Figma — in header, now dark) */
+/* Search icon (Figma — light gray bg, dark icon) */
 .header-search {
-  background: var(--clr-orange);
+  background: var(--clr-gray-border);
   border: none;
-  color: var(--clr-white);
+  color: var(--clr-ink);
   cursor: pointer;
   padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-btn);
-  transition: background var(--ease);
+  transition: background var(--ease), color var(--ease);
   font-size: 18px;
 }
 .header-search:hover {
-  background: var(--clr-orange-light);
+  background: var(--clr-gray-band);
+  color: var(--clr-black);
 }
 
 /* Mobile toggle — dark icon on white bg */

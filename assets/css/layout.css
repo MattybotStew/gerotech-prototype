@@ -182,6 +182,18 @@ button { cursor: pointer; }
   object-fit: cover;
   box-shadow: var(--shadow-card-hover);
 }
+
+.intro-section__image-frame--product {
+  background: var(--clr-white);
+  overflow: hidden;
+}
+
+.intro-section__image-frame--product img {
+  object-fit: contain;
+  background: var(--clr-white);
+  padding: var(--sp-24);
+  box-shadow: none;
+}
 .intro-section__machines {
   margin-top: var(--section-y);
 }

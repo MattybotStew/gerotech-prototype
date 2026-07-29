@@ -141,6 +141,61 @@ body {
   margin-top: var(--section-y);
 }
 
+/* Haas dealer branding — homepage machine browse */
+.machine-dealer-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-32);
+  margin-bottom: var(--sp-32);
+}
+
+.haas-dealer-brand {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.haas-dealer-brand__logo {
+  display: block;
+  width: 320px;
+  height: auto;
+  max-width: 100%;
+}
+
+.machine-dealer-header__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.machine-dealer-header__lead {
+  margin: var(--sp-12) 0 0;
+  max-width: 62ch;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--clr-gray-body);
+  text-wrap: pretty;
+}
+
+@media (max-width: 768px) {
+  .machine-dealer-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--sp-20);
+  }
+
+  .haas-dealer-brand {
+    margin-left: 0;
+  }
+
+  .machine-dealer-header__lead {
+    margin-inline: auto;
+  }
+}
+
 .machine-tabs {
   background: var(--clr-white);
   border: 1px solid var(--clr-gray-border);
