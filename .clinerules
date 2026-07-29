@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-29 (Cursor — Figma homepage + Haas branding)
+**Last Updated:** 2026-07-29 (Cursor — mega-menu CTA panel + button polish)
 **Active Agent:** Cursor
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `5080f20` — Apply Figma homepage feedback and Haas branding updates
+**Last Commit:** `0cf65b1` — Simplify ES mega-menu CTA panel and tighten button sizing
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete

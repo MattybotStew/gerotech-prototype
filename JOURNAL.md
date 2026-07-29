@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-29 — Mega-menu CTA panel + button polish (Cursor)
+- **ES mega-menu CTA panel:** Reduced to button-only — removed FANUC badge, headline, and body copy; panel padding tightened.
+- **Mega-menu CTAs:** Removed `→` suffixes from “Talk to an Engineer” and “Talk to a Sales Engineer”; buttons use `width: fit-content` and hug label text.
+- **Layout:** ES mega width 748px; third column grid ratio 1.1fr; machine-help column `align-items: flex-start`.
+- **Nav:** Desktop/mobile dropdown `+` carets and styles unchanged.
+
 - **Machine browse (#73):** Official Haas logo (`assets/images/haas-logo.png`) in dealer header; “Browse Haas Machines ↗” CTA; “Authorized Factory Outlet” badge.
 
 ## 2026-07-29 — Header polish: alert banner + search (Cursor)
