@@ -185,7 +185,7 @@ button { cursor: pointer; }
 
 .intro-section__image-frame--product {
   background: var(--clr-white);
-  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
 }
 
 .intro-section__image-frame--product img {
