@@ -2,6 +2,25 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-29 — ES mega-menu 2-col + category CTA (Cursor)
+- **Layout:** Pure 2-column ES mega (By Category | All Services); removed horizontal CTA band + robot image.
+- **CTA:** “Talk to a Sales Engineer” pinned to bottom of first column via flex + `margin-top: auto`.
+- **Loose ends:** Not committed; `es-mega-cta-robot.png` unused in markup.
+
+## 2026-07-29 — ES mega-menu horizontal CTA band (Cursor)
+- **Layout (option C):** ES mega → 2 nav columns + full-width dark CTA band below (photo left, headline/body/button right). Width `min(880px, calc(100vw - 48px))`.
+- **Replaces:** Narrow Col 3 vertical stack that broke “Talk to a Sales Engineer” button.
+- **Loose ends:** Not committed; mobile ES CTA still “Talk to an Engineer →”.
+
+## 2026-07-29 — ES mega-menu CTA robot image — white-bar fix (Cursor)
+- **Issue:** White vertical bars beside robot photo — letterboxing baked into original Figma export plus bare `<img>` scaling full file width.
+- **Fix:** Replaced asset with cleaner center-crop (`300×1024`); added `.mega-nav__cta-media` wrapper (overflow hidden, horizontal bleed); img `height: 100%` + `object-fit: cover`.
+- **Loose ends:** Not committed; button copy/link unchanged.
+
+## 2026-07-29 — ES mega-menu CTA robot image (Cursor)
+- **ES mega-menu Col 3:** Restored Figma robot-arm photo above “Talk to a Sales Engineer” button; image exported from Figma node 6805:69 → `assets/images/es-mega-cta-robot.png`.
+- **CSS:** CTA panel back to flex column (dark bg, 20px padding, image flex-grow + cover, button unchanged fit-content).
+
 ## 2026-07-29 — Mega-menu CTA panel + button polish (Cursor)
 - **ES mega-menu CTA panel:** Reduced to button-only — removed FANUC badge, headline, and body copy; panel padding tightened.
 - **Mega-menu CTAs:** Removed `→` suffixes from “Talk to an Engineer” and “Talk to a Sales Engineer”; buttons use `width: fit-content` and hug label text.
