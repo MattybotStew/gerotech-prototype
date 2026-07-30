@@ -17,6 +17,8 @@
   Promise.all(promises)
     .then(function () {
       if (typeof window.initNav === 'function') window.initNav();
+      if (typeof window.initTestimonialCarousels === 'function') window.initTestimonialCarousels();
+      document.dispatchEvent(new CustomEvent('partials:loaded'));
     })
     .catch(function (err) {
       console.error('[include-partials]', err.message);

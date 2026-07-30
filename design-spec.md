@@ -55,21 +55,21 @@
 
 ---
 
-## Interior hero system (2026-07-14)
+## Interior hero system (2026-07-30)
 
-All interior heroes use the homepage hero pattern: full-bleed photo, left gradient overlay (`105deg`), left-aligned copy (centers on mobile ≤768px). Background images live in `elevated.css` `::before` pseudo-elements.
+All interior pages use **`.page-hero`** — the same structure as the homepage hero slide: full-bleed `<img class="slide__bg">`, left gradient overlay (`.slide__overlay--left`), left-aligned copy (`.slide__content--left` with `.slide__eyebrow`, `.slide__headline`, `.slide__body`). Per-page photos are set via the hero `<img src>` in each HTML file (Unsplash stand-ins until client assets). ES detail pages add optional `.page-hero__breadcrumb`.
 
-| Page | HTML classes | BG modifier |
-|------|--------------|-------------|
-| Engineered Solutions | `.es-hero.es-hero--blueprint` | Blueprint overlay + photo |
-| About | `.es-hero.es-hero--compact.es-hero--photo-about` | Facility/training photo |
-| Support | `.es-hero.es-hero--compact.es-hero--photo-support` | Service team photo |
-| Training | `.es-hero.es-hero--photo-training` | Training photo |
-| Machine Custom Solutions | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-mcs` | Shop floor photo |
-| Applications | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-app` | Applications photo |
-| Automation & Controls | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-auto` | Robotics photo |
+| Page | Hero image (stand-in) |
+|------|------------------------|
+| Engineered Solutions | Blueprint / facility |
+| About | Facility / training |
+| Support | Service technician |
+| Training | Training classroom |
+| Machine Custom Solutions | Shop floor |
+| Applications | CNC machining |
+| Automation & Controls | Robotics |
 
-MCS detail pages include breadcrumb on the photo hero. Non-photo `.mcs-hero` (light gray + orange bar) remains in CSS for legacy/exploratory pages only.
+Homepage keeps `.hero-slider` (carousel). CTA bands use `.cta-band--photo` (same left-aligned photo treatment).
 
 ## Primary CTA destinations (prototype)
 

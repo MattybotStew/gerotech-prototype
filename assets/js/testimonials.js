@@ -2,7 +2,6 @@
   class TestimonialCarousel {
     constructor(el) {
       this.el = el;
-      // Sliding variant (homepage) translates the row; cards variant (ES page) toggles is-active only
       this.row = el.querySelector('.testimonial-carousel__track--slide .testimonial-carousel__row');
       this.slides = Array.from(el.querySelectorAll('.testimonial-carousel__slide'));
       this.dots = Array.from(el.querySelectorAll('.testimonial-dot'));
@@ -21,7 +20,6 @@
       this.slides.forEach((slide, i) => {
         const active = i === this.current;
         slide.classList.toggle('is-active', active);
-        // Sliding variant keeps all slides rendered — hide inactive ones from AT/keyboard
         if (this.row) {
           slide.setAttribute('aria-hidden', active ? 'false' : 'true');
           slide.querySelectorAll('a, button').forEach(link => {
@@ -37,5 +35,15 @@
     }
   }
 
-  document.querySelectorAll('.testimonial-carousel').forEach(el => new TestimonialCarousel(el));
+  function initTestimonialCarousels() {
+    document.querySelectorAll('.testimonial-carousel').forEach(function (el) {
+      if (el.dataset.carouselInit) return;
+      el.dataset.carouselInit = '1';
+      new TestimonialCarousel(el);
+    });
+  }
+
+  window.initTestimonialCarousels = initTestimonialCarousels;
+  initTestimonialCarousels();
+  document.addEventListener('partials:loaded', initTestimonialCarousels);
 })();

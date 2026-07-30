@@ -5,14 +5,14 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-29 (Cursor — header CTA → Get a Quote)
+**Last Updated:** 2026-07-30 (Cursor — stat strip counter redesign)
 **Active Agent:** Cursor
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `b012756` — Simplify ES mega-menu CTA panel and tighten button sizing (uncommitted: ES mega 2-col layout)
+**Last Commit:** `d1a39f3` — uncommitted: ES hub refinement, stat counter, trust icon fix
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
-- **Hero system:** Homepage slider + all interior pages use left-aligned photo hero (full-bleed bg, left gradient, white copy)
+- **Hero system:** Homepage `.hero-slider` + all interior pages use unified `.page-hero` (same markup as homepage slide: `slide__bg`, `slide__overlay--left`, `slide__content--left`)
 - **CTA bands:** `.cta-band--photo` matches hero (left-aligned, per-page Unsplash bg)
 - **Homepage:** Trust strip (replaces partner band), 3 category cards, 3 hero slides, machine tabs, testimonial carousel
 - **ES hub:** Tech partners wordmarks, capability cards (01–03), stats/trust FAQ/testimonials filled
@@ -23,19 +23,9 @@
 - **Navigo Medium (500):** ❌ Recommended for kit `lqh7ybe` — tokens ready, not in kit yet
 - **Unsplash URLs:** ⚠️ Verify periodically — replaced 404 IDs with `photo-1647427060118` (facility/training) and `photo-1716191299980` (automation/robotics); see `design-spec.md` → Image Placeholders
 
-### Interior hero modifiers (CSS in `elevated.css`)
+### Interior hero (CSS in `components.css` + `elevated.css`)
 
-| Page | Class |
-|------|-------|
-| Engineered Solutions | `.es-hero.es-hero--blueprint` |
-| About | `.es-hero.es-hero--photo-about` |
-| Support | `.es-hero.es-hero--photo-support` |
-| Training | `.es-hero.es-hero--photo-training` |
-| Machine Custom Solutions | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-mcs` |
-| Applications | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-app` |
-| Automation & Controls | `.mcs-hero.mcs-hero--photo.mcs-hero--photo-auto` |
-
-Light-gray MCS hero orange bar (`.mcs-hero:not(.mcs-hero--photo)`) only applies to non-photo MCS heroes — all live MCS detail pages use photo heroes.
+All interior pages: **`.page-hero`** — same structure as homepage hero slide. Per-page background via `<img class="slide__bg">` in HTML. ES detail pages (MCS, Application, Automation) include `.page-hero__breadcrumb`.
 
 ### What was completed 2026-07-14 (Cursor — interior hero unification)
 - **All interior heroes** → left-aligned photo hero (same as homepage): ES, About, Support, Training, MCS, Application, Automation

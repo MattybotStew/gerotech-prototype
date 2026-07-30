@@ -4,8 +4,8 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const targets = document.querySelectorAll(
-    '.category-card, .news-card, .service-card, .testimonial-card, ' +
-    '.stat-pill, .partner-wordmark, .why-feature, .capability-card, .capability-bullet, ' +
+    '.category-card, .news-card, .service-card, ' +
+    '.partner-wordmark, .why-feature, .capability-card, .capability-bullet, ' +
     '.section-header, .intro-section__lead, .cta-band__card, ' +
     '.testimonial-split, .credential-band__inner, .tech-partners-section__inner, ' +
     '.mcat-card, .mcs-card, .mcs-gallery-card, .trust-strip__item, .machine-panel'

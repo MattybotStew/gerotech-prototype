@@ -19,27 +19,26 @@
     <!-- ============================================================
          SECTION 3: Page Hero (Detail page — Figma node 6227:289)
          ============================================================ -->
-    <section class="mcs-hero mcs-hero--photo mcs-hero--photo-mcs" aria-labelledby="mcs-hero-headline">
-      <div class="container container--es">
-        <!-- Breadcrumb -->
-        <nav class="mcs-hero__breadcrumb" aria-label="Breadcrumb">
-          <a class="mcs-hero__crumb-link" href="index.html">Home</a>
-          <span class="mcs-hero__crumb-sep" aria-hidden="true">/</span>
-          <a class="mcs-hero__crumb-link" href="engineered-solutions.html">Engineered Solutions</a>
-          <span class="mcs-hero__crumb-sep" aria-hidden="true">/</span>
-          <span class="mcs-hero__crumb-current"><span class="mcs-name-split__lead">Machine</span> <span class="mcs-name-split__main">Custom Solutions</span></span>
+    <section class="page-hero" aria-labelledby="mcs-hero-headline">
+      <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=1920&auto=format&fit=crop" alt="CNC machine on shop floor" loading="eager" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
+      <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+      <div class="slide__content slide__content--left">
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a class="page-hero__crumb-link" href="index.html">Home</a>
+          <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
+          <a class="page-hero__crumb-link" href="engineered-solutions.html">Engineered Solutions</a>
+          <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
+          <span class="page-hero__crumb-current"><span class="mcs-name-split__lead">Machine</span> <span class="mcs-name-split__main">Custom Solutions</span></span>
         </nav>
-
-        <!-- PLACEHOLDER NAME: category label split per Figma — "Machine" (lead) + "Custom Solutions" (primary). Nav/mega-menu still uses "Machine Customization" until client confirms; see cline-project-handoff.md §9. -->
-        <span class="mcs-hero__badge mcs-hero__badge--split"><span class="mcs-name-split__lead">Machine</span><span class="mcs-name-split__main">Custom Solutions</span></span>
-
-        <h1 class="mcs-hero__headline" id="mcs-hero-headline">
-          <span class="mcs-name-split">
+        <!-- PLACEHOLDER NAME: "Machine" (lead) + "Custom Solutions" (primary). Nav/mega-menu still uses "Machine Customization" until client confirms; see cline-project-handoff.md §9. -->
+        <p class="slide__eyebrow">Engineered Solutions</p>
+        <h1 class="slide__headline" id="mcs-hero-headline">
+          <span class="mcs-name-split mcs-name-split--hero">
             <span class="mcs-name-split__lead">Machine</span>
             <span class="mcs-name-split__main">Custom Solutions</span>
           </span>
         </h1>
-        <p class="mcs-hero__body">
+        <p class="slide__body">
           Column risers, auto doors, hydraulics, sheet metal modifications, custom workholding,
           process engineering, and specialty builds — we customize your equipment for any production requirement.
         </p>

@@ -105,12 +105,10 @@ Full-bleed Unsplash photo + **left gradient overlay** (105°) + **left-aligned**
 | Page | Classes |
 |------|---------|
 | Homepage | `.hero-slider` / `.slide__content--left` |
-| ES hub | `.es-hero.es-hero--blueprint` |
-| About / Support / Training | `.es-hero` + `.es-hero--photo-about` / `-support` / `-training` |
-| MCS / Application / Automation | `.mcs-hero.mcs-hero--photo` + `mcs-hero--photo-mcs` / `-app` / `-auto` |
+| All interior pages | `.page-hero` + `.slide__bg` / `.slide__overlay--left` / `.slide__content--left` |
 | CTA bands (all pages) | `.cta-band--photo` (same treatment) |
 
-Background URLs defined in `assets/css/elevated.css`.
+Per-page hero photos are set via `<img class="slide__bg">` in each HTML file.
 
 ## CSS Loading Order
 

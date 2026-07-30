@@ -2,6 +2,32 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-30 — Global testimonial template (Cursor)
+- **Partial:** `partials/testimonials-block.html` — homepage split-photo carousel (3 slides, dot nav).
+- **Pages:** Homepage + ES hub include the partial; removed ES card variant (`.es-testimonials-section`, `.testimonial-card` carousel).
+- **JS:** `testimonials.js` + `include-partials.js` init after partial load.
+
+## 2026-07-30 — Stat strip → trust-strip style (Cursor)
+- **Style:** ES + About stat sections now use homepage `.trust-strip` dark bar (orange left rule, white value, grey label, orange bottom border).
+- **Counter:** `data-count` on `.trust-strip__value`; headline sits in `.stat-strip__intro` above the bar.
+
+## 2026-07-30 — Stat strip counter redesign (Cursor)
+- **Style:** Replaced card pills with flat `.stat-counter` columns — white bg, vertical dividers, large orange numbers, reference-style headline.
+- **Animation:** New `stat-counter.js` — counts up on scroll via `data-count` / `data-suffix`; respects `prefers-reduced-motion`.
+- **Pages:** `engineered-solutions.html`, `about.html` (Year Founded + “100s” stay static).
+
+## 2026-07-30 — ES hub design refinement (Cursor)
+- **Why section:** Stronger headline (“Why Manufacturers Trust Gerotech”); explore links to MCS, Applications, Automation category pages; MCS/Automation name-split titles.
+- **ES grid:** Centered header + lede; filters on own row; footer guidance CTA (“Not sure which solution fits your shop?”); category pills aligned to “Machine Custom Solutions” / “Automation Controls Solutions”.
+- **News:** Split layout (headline + lede + More Updates left, feed right) on gray band; category meta labels on cards.
+- **Spacing:** Extra margin below FANUC credential band (#59).
+- **Loose ends:** Not committed; “More Updates” href `#` pending news/blog page (ORDER #48); service card copy still placeholder.
+
+## 2026-07-30 — Unified interior page hero (Cursor)
+- **Hero:** All 7 interior pages now use `.page-hero` — same HTML/CSS as homepage hero slide (`slide__bg`, `slide__overlay--left`, `slide__content--left`, `slide__eyebrow/headline/body`).
+- **Removed:** Per-page `es-hero` / `mcs-hero--photo` CSS modifiers from `elevated.css`; backgrounds moved to `<img>` in each page.
+- **ES detail pages:** Breadcrumb retained as `.page-hero__breadcrumb`; duplicate category badges removed.
+
 ## 2026-07-29 — ES mega-menu 2-col + category CTA (Cursor)
 - **Layout:** Pure 2-column ES mega (By Category | All Services); removed horizontal CTA band + robot image.
 - **CTA:** “Talk to a Sales Engineer” pinned to bottom of first column via flex + `margin-top: auto`.

@@ -34,7 +34,6 @@ button { cursor: pointer; }
 .why-section,
 .es-grid-section,
 .tech-partners-section,
-.es-testimonials-section,
 .mcs-grid-section,
 .mcs-gallery-section,
 .trust-section,
@@ -224,10 +223,33 @@ button { cursor: pointer; }
 .news-section {
   background: var(--clr-white);
 }
+.news-section.section--gray {
+  background: var(--clr-gray-card);
+}
 .news-section__list {
   display: flex;
   flex-direction: column;
   gap: var(--sp-4);
+}
+.news-section--split .news-section__layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+  gap: var(--sp-64);
+  align-items: start;
+}
+.news-section__aside .section-title {
+  margin-bottom: var(--sp-16);
+}
+.news-section__lede {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--clr-gray-body);
+  line-height: 1.65;
+  margin: 0 0 var(--sp-32);
+}
+.news-section--split .news-more {
+  margin-top: 0;
+  width: fit-content;
 }
 
 /* ── ES Hero ──────────────────────────────────────────────── */
@@ -297,22 +319,9 @@ button { cursor: pointer; }
 }
 
 /* ── Stat Strip ───────────────────────────────────────────── */
-.stat-strip__inner {
+.stat-strip__intro {
   max-width: var(--max-es);
   margin: 0 auto;
-}
-.stat-strip__eyebrow {
-  font-family: var(--font-sans);
-  font-size: 22px;
-  font-weight: var(--fw-extrabold);
-  color: var(--clr-ink);
-  margin: 0 0 var(--sp-32);
-  text-align: center;
-}
-.stat-strip__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--sp-16);
 }
 
 /* ── ES Grid Section ──────────────────────────────────────── */
@@ -323,6 +332,45 @@ button { cursor: pointer; }
   max-width: var(--max-es);
   margin: 0 auto;
 }
+.es-grid-section__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--sp-48);
+}
+.es-grid-section__header .section-title {
+  margin-top: var(--sp-12);
+}
+.es-grid-section__lede {
+  font-family: var(--font-sans);
+  font-size: var(--fs-lede);
+  color: var(--clr-gray-body);
+  line-height: 1.65;
+  margin: var(--sp-20) auto 0;
+  max-width: 560px;
+}
+.es-grid-section__filters {
+  justify-content: center;
+  gap: var(--sp-12);
+  margin-bottom: var(--sp-64);
+}
+.es-grid-section .filter-tab {
+  padding: var(--sp-12) var(--sp-24);
+}
+.es-grid-section__guide {
+  margin: var(--sp-48) 0 0;
+  padding-top: var(--sp-32);
+  border-top: 1px solid var(--clr-gray-border);
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--clr-gray-body);
+}
+.es-grid-section__guide a {
+  color: var(--clr-orange);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+}
+.es-grid-section__guide a:hover { text-decoration: underline; }
 .es-grid-section__controls {
   display: flex;
   align-items: center;
@@ -370,15 +418,6 @@ button { cursor: pointer; }
   gap: var(--sp-12);
 }
 
-/* ── ES Testimonials ──────────────────────────────────────── */
-.es-testimonials-section {
-  background: var(--clr-white);
-}
-.es-testimonials-section__inner {
-  max-width: var(--max-es);
-  margin: 0 auto;
-}
-
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .intro-section__grid {
@@ -422,7 +461,8 @@ button { cursor: pointer; }
 
   .why-section__inner,
   .capability-band__inner,
-  .tech-partners-section__inner { grid-template-columns: 1fr; }
+  .tech-partners-section__inner,
+  .news-section--split .news-section__layout { grid-template-columns: 1fr; }
 
   .testimonial-split { grid-template-columns: 1fr; }
   .testimonial-split__photo { min-height: 240px; }
@@ -449,8 +489,6 @@ button { cursor: pointer; }
 
   .email-signup__form { flex-direction: column; }
 
-  .stat-strip__grid { grid-template-columns: repeat(2, 1fr); }
-
   .site-footer__top { grid-template-columns: 1fr; }
 
   .credential-band__inner { flex-direction: column; }
@@ -474,7 +512,6 @@ button { cursor: pointer; }
 
   .testimonial-split__panel { padding: 40px 28px; }
 
-  .stat-strip__grid { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
   .mcs-card__actions { flex-direction: column; }
 }
