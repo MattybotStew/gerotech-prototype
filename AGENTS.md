@@ -69,7 +69,7 @@ Shared config (committed in repo):
 - `AGENTS.md` / `CLAUDE.md` — LLM instructions (Cursor + Claude Code)
 - `.cursor/rules/gerotech-agent-sync.mdc` — Cursor always-on sync rule
 - `.vscode/tasks.json` — **Serve Gerotech (8080)** dev server
-- `.vscode/mcp.json` — Figma MCP for VS Code Copilot Agent
+- `.vscode/mcp.json` — Figma MCP (remote) for VS Code Copilot Agent
 
 ### Local preview
 
@@ -79,17 +79,25 @@ From repo root: `python3 -m http.server 8080` → http://localhost:8080/
 
 In VS Code: **Terminal → Run Task → Serve Gerotech (8080)**.
 
-### Figma → Cline workflow (local MCP)
+### Figma → agent workflow (global remote MCP)
 
-Your Figma MCP runs locally at `http://127.0.0.1:3845/mcp`. Configured in two places:
+Figma is used via the **remote** MCP at `https://mcp.figma.com/mcp` — works in **any project**, no Figma desktop app or local `:3845` server required.
 
-- **Cline:** `~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json` — Cline reads this automatically on start
-- **VS Code Copilot:** `.vscode/mcp.json` — for Copilot Agent
+| Client | Config |
+|--------|--------|
+| **Cursor** | Figma plugin (`/add-plugin figma`) + global `~/.cursor/mcp.json` |
+| **VS Code Copilot** | `.vscode/mcp.json` (this repo) or user-level MCP |
+| **Cline** | Add remote HTTP server `https://mcp.figma.com/mcp` in Cline MCP settings |
 
-**Workflow:**
-1. Open a Figma design file in browser
-2. Copy a frame/layer link from Figma
-3. In Cline, paste the link and ask to implement using this project's HTML/BEM/tokens
-4. Cline uses the Figma MCP to read the frame's properties and generate matching code
+**Workflow (any project):**
+1. Open the design at [figma.com](https://www.figma.com) (FigmaAgent supplies local fonts if installed)
+2. Copy a frame/layer link (`figma.com/design/:fileKey/...?node-id=...`)
+3. In **Agent mode**, paste the link and ask to implement using this project's HTML/BEM/tokens
+4. Prefer skill **`figma-design-to-code`** before `get_design_context`
+5. First use: authenticate Figma MCP (**Settings → MCP → Figma → Connect**) if tools show `needsAuth`
 
-**Note:** The Figma MCP server must be running (`http://127.0.0.1:3845/mcp`) before Cline starts — restart Cline's MCP servers if you start it after.
+**Gerotech file keys (reference):**
+- File: `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design)
+- ES wireframe node: `6217:425` · Homepage wireframe: `6218:10`
+
+**Note:** Local Dev Mode MCP (`http://127.0.0.1:3845/mcp`) only works with Figma **desktop** + Dev Mode MCP enabled. This machine uses **web Figma + remote MCP** instead — do not depend on `:3845`.

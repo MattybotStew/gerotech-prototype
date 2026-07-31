@@ -338,6 +338,15 @@ body {
   text-wrap: balance;
 }
 
+/* ── CTA cinematic band (footer) ──────────────────────────── */
+.cta-band--cinema .cta-band__headline {
+  text-wrap: balance;
+}
+
+.cta-band--cinema .slide__eyebrow::before {
+  margin-inline: auto;
+}
+
 /* ── Forms ────────────────────────────────────────────────── */
 .email-signup__input:focus {
   outline: none;

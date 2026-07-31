@@ -787,6 +787,66 @@
   margin-top: var(--sp-20);
 }
 
+/* Cinematic center — footer CTA (full-bleed photo, centered copy, dual actions) */
+.cta-band--cinema {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  min-height: clamp(420px, 55vh, 560px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-dark-bg);
+}
+.cta-band--cinema .cta-band__bg {
+  object-position: center 35%;
+}
+.cta-band--cinema .cta-band__overlay {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(13, 13, 13, 0.35) 0%, rgba(13, 13, 13, 0.72) 100%),
+    linear-gradient(180deg, rgba(13, 13, 13, 0.55) 0%, rgba(28, 28, 33, 0.82) 100%);
+}
+.cta-band--cinema .cta-band__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: var(--sp-64) var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-24);
+}
+.cta-band--cinema .cta-band__headline {
+  color: var(--clr-white);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-h1);
+  margin: 0;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+.cta-band--cinema .cta-band__body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-lede);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.86);
+  margin: 0;
+  max-width: 52ch;
+}
+.cta-band--cinema .cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-16);
+  justify-content: center;
+}
+.cta-band--cinema .slide__eyebrow {
+  margin: 0;
+}
+
 /* ── Email Signup (Figma — centered, Archivo title) ──────── */
 .email-signup {
   background: var(--clr-dark-nav);

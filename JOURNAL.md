@@ -2,6 +2,17 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-31 — Cinematic footer CTA site-wide (Cursor)
+- **Component:** New `cta-band--cinema` — centered full-bleed photo, radial vignette, body lede, dual CTAs.
+- **Pages:** Replaced `cta-band--photo` on all 8 core pages (homepage + interiors).
+- **Showcase:** Hero option 03 renamed to footer CTA preview; uses production `cta-band--cinema` markup.
+
+## 2026-07-31 — Hero design options page (Cursor)
+- **Page:** `hero-variations.html` — rebuilt as a polished 7-option hero showcase with sticky jump nav, metadata tags, and varied Gerotech copy.
+- **CSS:** New `assets/css/hero-showcase.css` (exploratory page only — not in global load order).
+- **Options:** 01 live carousel · 02 editorial split · 03 cinematic center · 04 left gradient static · 05 photo dock · 06 trust-integrated · 07 minimal statement.
+- **Loose ends:** Not committed; preview at `/hero-variations.html`.
+
 ## 2026-07-30 — Global testimonial template (Cursor)
 - **Partial:** `partials/testimonials-block.html` — homepage split-photo carousel (3 slides, dot nav).
 - **Pages:** Homepage + ES hub include the partial; removed ES card variant (`.es-testimonials-section`, `.testimonial-card` carousel).

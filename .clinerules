@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-30 (Cursor — stat strip counter redesign)
+**Last Updated:** 2026-07-31 (Cursor — committing hero showcase + cinematic footer CTA)
 **Active Agent:** Cursor
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `d1a39f3` — uncommitted: ES hub refinement, stat counter, trust icon fix
+**Last Commit:** `7b6483f` — Unify interior heroes, refine ES hub, standardize shared UI blocks
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
