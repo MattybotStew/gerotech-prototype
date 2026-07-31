@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-31 (Cursor — committed + pushed `af67a29`)
+**Last Updated:** 2026-07-31 (Cursor — committing hero showcase trim)
 **Active Agent:** Cursor
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `af67a29` — Hero showcase page + cinematic footer CTA site-wide
+**Last Commit:** `5ef5de0` — Update clinerules session pointer after hero CTA push
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
