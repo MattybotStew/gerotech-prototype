@@ -388,7 +388,7 @@
   color: rgba(255,255,255,0.82);
   line-height: 1.6;
   margin: 0 auto var(--sp-32);
-  max-width: 600px;
+  max-width: var(--hero-copy-max);
 }
 /* Figma glassmorphism arrows */
 .slider-arrow {
@@ -2449,7 +2449,7 @@ img.mcs-gallery-card__image {
 }
 .slide__content--left .slide__headline,
 .slide__content--left .slide__body {
-  max-width: 600px;
+  max-width: var(--hero-copy-max);
   margin-left: 0;
   margin-right: auto;
 }
@@ -2466,6 +2466,10 @@ img.mcs-gallery-card__image {
     max-width: 100%;
     padding-left: var(--sp-24);
     margin: 0 auto;
+  }
+  .slide__content--left .slide__headline,
+  .slide__content--left .slide__body {
+    max-width: 100%;
   }
   .slide__content--left .slide__body {
     margin: 0 auto var(--sp-32);

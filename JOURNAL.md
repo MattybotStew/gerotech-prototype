@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-07-31 — Hero showcase polish + wider hero copy (Cursor)
+- **Copy width:** `--hero-copy-max: 820px` on left-aligned hero headline/body (was 600px).
+- **Showcase:** Removed Photo dock + Minimal options; four finalists remain. Trust hero copy spacing; editorial split headline 10% smaller.
+- **Loose ends:** Not committed yet in this entry — see git.
+
 ## 2026-07-31 — Cinematic footer CTA site-wide (Cursor)
 - **Component:** New `cta-band--cinema` — centered full-bleed photo, radial vignette, body lede, dual CTAs.
 - **Pages:** Replaced `cta-band--photo` on all 8 core pages (homepage + interiors).

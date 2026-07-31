@@ -100,6 +100,7 @@
   /* ── Layout ───────────────────────────────────────────── */
   --max-home: 1200px;    /* Figma: 1440px design, 120px side padding = 1200px content */
   --max-es:   1120px;
+  --hero-copy-max: 820px; /* left-aligned hero headline + body column */
 
   /* ── Motion ───────────────────────────────────────────── */
   --ease: 0.22s ease;

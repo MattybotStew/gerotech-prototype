@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-31 (Cursor — committing hero showcase trim)
+**Last Updated:** 2026-07-31 (Cursor — committing hero showcase polish)
 **Active Agent:** Cursor
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `5ef5de0` — Update clinerules session pointer after hero CTA push
+**Last Commit:** `152f166` — Remove live footer CTA from hero showcase comparison page
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
