@@ -5,100 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Gerotech</title>
   <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
-  <link rel="stylesheet" href="assets/css/tokens.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/css/layout.css" />
-  <link rel="stylesheet" href="assets/css/elevated.css" />
+  <link rel="stylesheet" href="assets/css/tokens.css?v=20260731b" />
+  <link rel="stylesheet" href="assets/css/components.css?v=20260731b" />
+  <link rel="stylesheet" href="assets/css/layout.css?v=20260731b" />
+  <link rel="stylesheet" href="assets/css/elevated.css?v=20260731b" />
 </head>
 <body>
 
   <div data-include="partials/site-header.html"></div>
 
   <main id="main">
-    <section class="page-hero" aria-label="About hero">
-      <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop" alt="Gerotech facility" loading="eager" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
-      <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
-      <div class="slide__content slide__content--left">
-        <p class="slide__eyebrow">Since 1987</p>
-        <h1 class="slide__headline">Michigan's Trusted Manufacturing Partner</h1>
-        <p class="slide__body">For nearly four decades, Gerotech has built lasting relationships with Michigan manufacturers by delivering the right machines, the right engineering, and the right support — every time.</p>
-        <div class="page-hero__actions">
-          <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
-          <a class="btn btn--outline-white btn--lg" href="tel:+17343797788">Call Us: 734-379-7788</a>
+
+    <!-- Trust-integrated hero (showcase Option 04) -->
+    <section class="page-hero-trust" aria-label="About Gerotech">
+      <img class="page-hero-trust__bg" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop" alt="Engineer reviewing CNC equipment on the shop floor" loading="eager" fetchpriority="high" decoding="async" /><!-- Stand-in: Unsplash/ThisIsEngineering — awaiting client photo -->
+      <div class="page-hero-trust__overlay" aria-hidden="true"></div>
+      <div class="page-hero-trust__content">
+        <div class="page-hero-trust__copy">
+          <p class="slide__eyebrow">About Gerotech</p>
+          <h1 class="page-hero-trust__headline">Your source for advanced manufacturing solutions</h1>
+          <p class="page-hero-trust__body">Since 1987, we have engineered and serviced CNC machines for a broad spectrum of manufacturers nationwide. We do it through people who listen, respond, build, deliver, and support as committed partners in order to transform your manufacturing challenges into competitive advantages.</p>
+          <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Engage with us today</a>
+        </div>
+        <div class="page-hero-trust__strip" aria-label="Gerotech at a glance">
+          <div class="page-hero-trust__stat">
+            <span class="page-hero-trust__value">Since 1987</span>
+            <span class="page-hero-trust__label">Michigan CNC distributor</span>
+          </div>
+          <div class="page-hero-trust__stat">
+            <span class="page-hero-trust__value">2 Locations</span>
+            <span class="page-hero-trust__label">Flat Rock · Grand Rapids</span>
+          </div>
+          <div class="page-hero-trust__stat">
+            <span class="page-hero-trust__value">30,000 sq ft</span>
+            <span class="page-hero-trust__label">Engineering facility</span>
+          </div>
+          <div class="page-hero-trust__stat">
+            <span class="page-hero-trust__value">FANUC ASI</span>
+            <span class="page-hero-trust__label">Authorized integrator</span>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Our People -->
     <section class="section section--white">
       <div class="container container--es">
         <div class="grid-2 grid-2--split">
           <div>
-            <p class="eyebrow">Our Story</p>
-            <h2 class="section-title">37 Years of Application Expertise</h2>
-            <p class="section-body">Founded in 1987, Gerotech started as a CNC machinery distributor with a simple belief: manufacturers deserve a partner who understands their floor, not just a vendor who takes their order.</p>
-            <p class="section-body section-body--spaced">Over the decades, we've expanded from distribution into engineering — building an in-house team that modifies, customizes, and automates around the machines our customers already own. Today, Gerotech operates from three Michigan locations, serving manufacturers across the state and beyond.</p>
-            <a class="btn btn--outline-dark" href="engineered-solutions.html">See Our Engineering Work →</a>
+            <p class="eyebrow">Our People</p>
+            <h2 class="section-title">Engineers who design the right CNC solution for you</h2>
+            <p class="section-body">No matter your situation, our team of advanced process engineers, tooling engineers, CAD/CAM specialists, machine tool designers, and service engineers work to design the right CNC solution for you.</p>
+            <a class="btn btn--outline-dark" href="engineered-solutions.html">Explore Engineered Solutions →</a>
           </div>
-          <img class="about-photo" src="https://images.unsplash.com/photo-1624841970647-87dce8628d72?q=80&w=1000&auto=format&fit=crop" alt="Gerotech facility" loading="lazy" /><!-- Stand-in: Unsplash/Mastars — awaiting client company photo -->
+          <img class="about-photo" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="Engineering team working at CNC programming stations" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
         </div>
       </div>
     </section>
 
-    <section class="stat-strip" aria-labelledby="stat-headline">
-      <div class="stat-strip__intro">
-        <h2 class="stat-strip__headline" id="stat-headline">Gerotech By the Numbers</h2>
-      </div>
-      <div class="trust-strip">
-        <div class="container trust-strip__inner">
-          <div class="trust-strip__item">
-            <span class="trust-strip__value">1987</span>
-            <span class="trust-strip__label">Year Founded</span>
-          </div>
-          <div class="trust-strip__item">
-            <span class="trust-strip__value" data-count="3">0</span>
-            <span class="trust-strip__label">Michigan Locations</span>
-          </div>
-          <div class="trust-strip__item">
-            <span class="trust-strip__value" data-count="37" data-suffix="+">0</span>
-            <span class="trust-strip__label">Years in Business</span>
-          </div>
-          <div class="trust-strip__item">
-            <span class="trust-strip__value">100s</span>
-            <span class="trust-strip__label">Machines Serviced Annually</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- Our Facilities -->
     <section class="section section--gray">
       <div class="container container--es">
-        <div class="section-header section-header--centered">
-          <p class="eyebrow">Our Locations</p>
-          <h2 class="section-title">Three Ways to Reach Us</h2>
+        <div class="grid-2 grid-2--split">
+          <img class="about-photo" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=1200&auto=format&fit=crop" alt="CNC machines on the shop floor at Gerotech facility" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash/Guick — awaiting client photo -->
+          <div>
+            <p class="eyebrow">Our Facilities</p>
+            <h2 class="section-title">Built to engineer, test, and support your systems</h2>
+            <p class="section-body">We opened our Flat Rock Engineering Facility in 1995. At 30,000 square feet, it is designed with all the resources, space, machine handling equipment, tooling, test equipment, and flexibility to efficiently build, setup, test, and runoff your engineered system prior to installation on your floor.</p>
+            <p class="section-body section-body--spaced">At our 6,000 square foot Grand Rapids Technical Showroom, we provide local facilities, resources, people, and services for customers in the West Michigan area.</p>
+          </div>
         </div>
-        <div class="grid-3 grid--offset-top">
+      </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="section section--white">
+      <div class="container container--es">
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">Visit Us</p>
+          <h2 class="section-title">Two Michigan Locations</h2>
+        </div>
+        <div class="grid-2 grid--offset-top">
           <article class="category-card">
             <div class="category-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg>
             </div>
-            <h3 class="category-card__title">Headquarters</h3>
+            <h3 class="category-card__title">Flat Rock — Headquarters &amp; Engineering</h3>
             <p class="category-card__body">29220 Commerce Drive<br />Flat Rock, MI 48134</p>
             <a class="category-card__link" href="tel:+17343797788">734-379-7788 →</a>
           </article>
           <article class="category-card">
             <div class="category-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <h3 class="category-card__title">Service Center</h3>
-            <p class="category-card__body">Michigan Service Location<br />Address Placeholder</p>
-            <a class="category-card__link" href="tel:+12484768787">248-476-8787 →</a>
-          </article>
-          <article class="category-card">
-            <div class="category-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <h3 class="category-card__title">Grand Rapids</h3>
-            <p class="category-card__body">West Michigan Location<br />Address Placeholder</p>
+            <h3 class="category-card__title">Grand Rapids — Technical Showroom</h3>
+            <p class="category-card__body">West Michigan showroom<br /><!-- Address pending client confirmation --></p>
             <a class="category-card__link" href="tel:+16167351100">616-735-1100 →</a>
           </article>
         </div>
@@ -106,22 +107,19 @@
     </section>
 
     <section class="cta-band cta-band--cinema" aria-label="Call to action">
-      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1920&auto=format&fit=crop" alt="Team collaboration" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
+      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=1920&auto=format&fit=crop" alt="Factory engineer inspecting industrial machinery" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
       <div class="cta-band__overlay" aria-hidden="true"></div>
       <div class="cta-band__content">
         <p class="slide__eyebrow">Let's Work Together</p>
-        <h2 class="cta-band__headline">Ready to talk to our team?</h2>
+        <h2 class="cta-band__headline">Put our engineers to work on your project</h2>
         <p class="cta-band__body">Michigan's CNC distributor since 1987 — machines, engineering, and support under one roof.</p>
         <div class="cta-band__actions">
-          <a class="btn btn--primary btn--lg" href="tel:+17343797788">734-379-7788</a>
-          <a class="btn btn--outline-white" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
+          <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Engage with us today</a>
+          <a class="btn btn--outline-white" href="tel:+17343797788">734-379-7788</a>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         Email Signup
-         ============================================================ -->
     <section class="email-signup" aria-label="Mailing list signup">
       <div class="email-signup__inner">
         <div class="email-signup__copy">
@@ -142,6 +140,5 @@
   <script src="assets/js/include-partials.js"></script>
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/animations.js"></script>
-  <script src="assets/js/stat-counter.js"></script>
 </body>
 </html>

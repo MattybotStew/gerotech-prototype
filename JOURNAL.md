@@ -2,7 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
-## 2026-07-31 — Hero showcase polish + wider hero copy (Cursor)
+## 2026-07-31 — Careers page + About rebuild (Cursor)
+- **Careers:** New `careers.html` — trust-integrated hero, culture split, open positions table, benefits cards, cinema CTA; live copy from gerotech.com/careers/.
+- **Nav:** Header/footer Careers links → `careers.html`.
+- **CSS:** `.careers-table` + `.careers-benefits-note` in `components.css`.
+- **About:** Rebuilt with live About copy + `page-hero-trust` (prior session work, same batch).
+- **Loose ends:** Job links use mailto placeholders — wire to client ATS when available.
+
 - **Copy width:** `--hero-copy-max: 820px` on left-aligned hero headline/body (was 600px).
 - **Showcase:** Removed Photo dock + Minimal options; four finalists remain. Trust hero copy spacing; editorial split headline 10% smaller.
 - **Loose ends:** Not committed yet in this entry — see git.

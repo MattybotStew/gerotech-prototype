@@ -802,6 +802,7 @@ body.search-open {
 /* ── Extended photography filter ────────────────────────── */
 .testimonial-split__photo,
 .about-photo,
+.page-hero-trust__bg,
 .mcs-card__image {
   filter: saturate(0.92) contrast(1.04);
 }
