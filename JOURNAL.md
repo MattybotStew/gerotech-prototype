@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-03 — Applications page: hero + CTA copy removal, new cards (Cline)
+- **Application page (`application.html`):** Removed hero body sentence ("Part programming, process troubleshooting, optimization, tooling recommendations, demos, and training — our application engineers help you get the most out of your equipment.") and removed CTA band body sentence ("Our application engineers help you get the most from your machines, tooling, and production processes.").
+- **Application page:** Added 2 new cards to the Application Services grid — **RFID** and **Fire Suppression** (8 cards total now). Both use placeholder copy ("Content coming soon.") + HTML comments flagging no detail copy provided; Unsplash stand-in images pending client photography.
+- **Loose ends:** RFID + Fire Suppression detail copy still TBD (same as ES page placeholders).
+
 ## 2026-08-03 — Figma design review: ES cards + MCS modals (Cline)
 - **ES page (`engineered-solutions.html`):** Removed "Why Gerotech" eyebrow (both Why-features + trust sections) + "More Coming Soon" placeholder card; added "Everyday at Gerotech…" tagline placeholder (copy TBD); updated Machine Column Risers + Sheet Metal Modifications card copy; added 6 new Machine Customization cards — Spin Forming, 5-Axis Grinding, Mist & Dust Collection, Tool Offsets, RFID (placeholder), Fire Suppression (placeholder). Machine Customization group now totals 14 cards.
 - **MCS page (`machine-custom-solutions.html`):** Updated modal copy for Machine Column Risers, Sheet Metal Modifications, Safety & Environmental, Auto Doors (full copy from Figma comments); removed hero eyebrow; flagged 4 cards needing content (Hydraulic/Pneumatic, Custom Workholding, Process Engineering, Specialty Machine) as HTML comments only (no visible "Content TBD."); removed email signup section.
