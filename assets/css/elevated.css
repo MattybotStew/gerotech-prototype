@@ -476,7 +476,7 @@ body {
 }
 
 .mcs-hero__headline .mcs-name-split__lead {
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-bold);
 }
 
 .mcs-gallery-card {
