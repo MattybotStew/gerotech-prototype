@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-03 — Figma design review: ES cards + MCS modals (Cline)
+- **ES page (`engineered-solutions.html`):** Removed "Why Gerotech" eyebrow (both Why-features + trust sections) + "More Coming Soon" placeholder card; added "Everyday at Gerotech…" tagline placeholder (copy TBD); updated Machine Column Risers + Sheet Metal Modifications card copy; added 6 new Machine Customization cards — Spin Forming, 5-Axis Grinding, Mist & Dust Collection, Tool Offsets, RFID (placeholder), Fire Suppression (placeholder). Machine Customization group now totals 14 cards.
+- **MCS page (`machine-custom-solutions.html`):** Updated modal copy for Machine Column Risers, Sheet Metal Modifications, Safety & Environmental, Auto Doors (full copy from Figma comments); removed hero eyebrow; flagged 4 cards needing content (Hydraulic/Pneumatic, Custom Workholding, Process Engineering, Specialty Machine) as HTML comments only (no visible "Content TBD."); removed email signup section.
+- **Application page (`application.html`):** Removed hero eyebrow + email signup section.
+- **Automation page:** Removed stray "(Slide 15)" from "Standardized Software Design Methodology" summary + visible "Client provides final copy." from Robot EOAT modal (kept as HTML comments).
+- **Verified:** All 4 ES pages HTTP 200; 14 machine cards; breadcrumb targets resolve; no visible stray authoring notes.
+- **Loose ends:** Tagline/RFID/Fire Suppression copy TBD; MCS card content TBD; dialog removal (item 15) ambiguous — needs commenter clarification; ES "Update spacing" near signup flagged; Automation "Stay in the Loop" email signup still present (PM decision — removed on MCS + Applications, kept on ES main + Automation).
+
 ## 2026-07-31 — Careers page + About rebuild (Cursor)
 - **Careers:** New `careers.html` — trust-integrated hero, culture split, open positions table, benefits cards, cinema CTA; live copy from gerotech.com/careers/.
 - **Nav:** Header/footer Careers links → `careers.html`.

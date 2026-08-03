@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-07-31 (Cursor — careers page)
-**Active Agent:** Cursor
-**Branch:** `master` — local changes uncommitted
-**Last Commit:** `152f166` — Remove live footer CTA from hero showcase comparison page
+**Last Updated:** 2026-08-03 (Cline — Figma design review: ES cards + MCS modals + verification fixes)
+**Active Agent:** Cline
+**Branch:** `master` — synced with `origin/master`
+**Last Commit:** `e26df0a` — Add Careers page and rebuild About with live site content (uncommitted Figma review changes on top)
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete

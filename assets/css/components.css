@@ -849,7 +849,7 @@
 
 /* ── Email Signup (Figma — centered, Archivo title) ──────── */
 .email-signup {
-  background: var(--clr-dark-nav);
+  background: var(--clr-dark-band);
 }
 .email-signup__inner {
   max-width: var(--max-home);
