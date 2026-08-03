@@ -8,7 +8,7 @@
 **Last Updated:** 2026-08-03 (Cline — Figma design review: ES cards + MCS modals + verification fixes)
 **Active Agent:** Cline
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `b8316da` — Unify Machine Custom Solutions name to one bold weight and one line
+**Last Commit:** `d06b660` — Unify color and size of Machine Custom Solutions and ES titles across all contexts
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
