@@ -1361,16 +1361,6 @@
   text-decoration: none;
 }
 .why-feature__link:hover { text-decoration: underline; }
-.why-feature__title .mcs-name-split__lead {
-  display: inline;
-  font-weight: var(--fw-bold);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 2px;
-}
-.why-feature__title .mcs-name-split__main {
-  display: inline;
-}
 
 /* ── Careers page ─────────────────────────────────────────── */
 .careers-table-wrap {

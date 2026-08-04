@@ -5,10 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-03 (Cline — Applications page: removed hero body + CTA copy, added RFID + Fire Suppression cards)
-**Active Agent:** Cline
-**Branch:** `master` — synced with `origin/master`
-**Last Commit:** `d06b660` — Unify color and size of Machine Custom Solutions and ES titles across all contexts
+**Last Updated:** 2026-08-04 (Cursor — Excel content sync across 5 pages)
+**Active Agent:** Cursor
+**Branch:** `master`
+**Last Commit:** `759479d` — Applications page: remove hero + CTA body copy, add RFID and Fire Suppression cards
+**Uncommitted:** Excel content sync (homepage 5-slide hero + intro/CTA/newsletter; ES card removals + copy; MCS/Apps/Auto modal CTA + hero/eyebrow updates)
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete

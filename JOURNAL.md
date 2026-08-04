@@ -2,6 +2,15 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-04 — Excel content sync (5 pages) (Cursor)
+- **Homepage (`index.html`):** 5-slide hero (training, showroom inventory multi-CTA, rotary, training duplicate, Winner's Circle); intro + cinema CTA + newsletter copy from content doc. Slide 2 H1 demoted to H2 (H1 only on slide 1).
+- **ES hub:** Why-section body + Get A Quote; removed 7 grid cards (Spin Forming, 5-Axis Grinding, Mist & Dust, Tool Offsets, RFID, Fire Suppression, Electrical); Sheet Metal detailed body; CTA headline + newsletter subtitle.
+- **MCS:** Hero eyebrow `MACHINE CUSTOMIZATIONS`; modal templates keep Talk to an Engineer only (Get a Quote removed).
+- **Applications:** Eyebrow + H1 `Applications Solutions`; removed RFID/Fire Suppression cards; modal Get a Quote removed (page CTA kept).
+- **Automation:** Eyebrow + name-split add “and”; removed Electrical card + gallery tile; modal Get a Quote removed; CTA headline updated.
+- **Verified:** All 5 pages HTTP 200; ES service cards = 19; MCS/App/Auto cards = 8/6/5.
+- **Loose ends:** Excel dump via openpyxl was approval-blocked this session — copy applied from approved prompt + existing partial homepage edits; Figma `6:124` still lags Excel. Uncommitted CSS name-split why-feature rule removal left as-is (no CSS scope in this pass). Not committed.
+
 ## 2026-08-03 — Applications page: hero + CTA copy removal, new cards (Cline)
 - **Application page (`application.html`):** Removed hero body sentence ("Part programming, process troubleshooting, optimization, tooling recommendations, demos, and training — our application engineers help you get the most out of your equipment.") and removed CTA band body sentence ("Our application engineers help you get the most from your machines, tooling, and production processes.").
 - **Application page:** Added 2 new cards to the Application Services grid — **RFID** and **Fire Suppression** (8 cards total now). Both use placeholder copy ("Content coming soon.") + HTML comments flagging no detail copy provided; Unsplash stand-in images pending client photography.
