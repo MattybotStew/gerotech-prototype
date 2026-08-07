@@ -40,7 +40,7 @@
   /* ── Type Scale (fluid display tiers, fixed text tiers) ── */
   /* Barlow Condensed is narrower than Navigo — display tiers run bigger
      (~25-28% larger) to preserve visual weight and presence. */
-  --fs-hero:    clamp(40px, 8vw, 100px);           /* page hero statements */
+  --fs-hero:    clamp(40px, 8vw, 106px);           /* page hero statements */
   --fs-display: clamp(36px, 6vw + 6px, 78px);      /* secondary heroes */
   --fs-h1:      clamp(34px, 4.5vw, 64px);          /* feature headlines */
   --fs-h2:      clamp(30px, 2.6vw + 12px, 50px);   /* section titles */

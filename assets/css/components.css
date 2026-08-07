@@ -3502,6 +3502,14 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 600;
 }
 
+/* Hero headline exception — biggest statement, full bold weight */
+.slide__headline {
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-hero);
+}
+
 /* ── Mega-nav — FANUC ASI CTA column (Figma redesign) ── */
 .mega-nav__col--cta {
   display: flex;
