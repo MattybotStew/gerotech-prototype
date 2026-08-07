@@ -5,12 +5,23 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cline — homepage Figma redesign + stat counter)
+**Last Updated:** 2026-08-07 (Cline — Barlow Condensed headline font swap + hero updates)
 **Active Agent:** Cline
 **Branch:** `master`
-**Last Commit:** `90cfe32` — Add stat counter section per Figma (37+, 4,000+, 12, #1) with count-up animation
+**Last Commit:** `a652914` — Hero eyebrow: 'Authorized Haas Factory Outlet' → 'Gerotech'
 **Uncommitted:** None (working tree clean)
-**Rollback point:** `pre-headline-font` tag — before trying new headline font (current = Navigo)
+**Rollback point:** `pre-headline-font` tag — before headline font swap (was Navigo)
+
+### Current headline font: Barlow Condensed (Google Fonts)
+- **Display font:** `--font-display: 'Barlow Condensed'` — headlines only (hero, section titles, card titles, stat counter, etc.)
+- **Body/UI font:** `--font-sans: 'navigo'` — unchanged (Adobe Fonts kit `lqh7ybe`)
+- **Google Fonts link** added to all 12 HTML files (`Barlow+Condensed:wght@500;600;700`)
+- **Display weight:** 600 (semi-bold) via override rule in components.css; hero headline exception at 700 (bold)
+- **Display scale:** bumped ~25-28% (Barlow Condensed is narrower); `--fs-hero: clamp(40px, 8vw, 106px)`, `--fs-h1: clamp(34px, 4.5vw, 64px)`, `--fs-h2: clamp(30px, 2.6vw + 12px, 50px)`
+- **Tracking/leading:** loosened tracking, tightened leading for condensed face
+- **Hero text:** eyebrow "Gerotech", headline "The Haas Outlet for Michigan." (106px bold)
+- **Header:** L/R padding removed; hero content container 1200px centered (`--max-home`)
+- **Homepage:** Figma redesign (hero/intro/machine cards/CTA/email signup) + stat counter (37+, 4,000+, 12, #1) + FANUC ASI mega-menu + top bar + footer updates
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete

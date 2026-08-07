@@ -16,7 +16,7 @@ CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC mac
 
 - Pure HTML5 / CSS3 (custom properties) / vanilla JS (ES6)
 - Zero frameworks, no build tools, no package manager
-- Font: Navigo via Adobe Fonts (kit `lqh7ybe` — **400 + 700** in kit; tokens map `--fw-medium: 500` — add Medium to kit when ready)
+- Fonts: **Barlow Condensed** (Google Fonts, 500/600/700) for headlines (`--font-display`) + **Navigo** (Adobe Fonts kit `lqh7ybe`, 400 + 700) for body/UI (`--font-sans`)
 - **CSS load order:** `tokens.css` → `components.css` → `layout.css` → **`elevated.css`**
 - **JS:** `include-partials.js`, `nav.js` (sticky, mobile, search modal, signup thanks), `slider.js`, `filter.js`, `animations.js`, `testimonials.js`, `machine-tabs.js`, `modal.js`
 

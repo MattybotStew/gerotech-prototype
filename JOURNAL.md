@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Barlow Condensed headline font + hero updates (Cline)
+- **Headline font swap:** `--font-display` → **Barlow Condensed** (Google Fonts, 500/600/700); `--font-sans` stays Navigo. Google Fonts link added to all 12 HTML files. Display weight 600 via override rule in components.css; hero exception 700 (bold). Display scale bumped ~25-28% (Barlow Condensed is narrower): `--fs-hero: clamp(40px, 8vw, 106px)`, `--fs-h1: clamp(34px, 4.5vw, 64px)`, `--fs-h2: clamp(30px, 2.6vw + 12px, 50px)`. Tracking loosened, leading tightened for condensed face.
+- **Hero text:** eyebrow → "Gerotech"; headline → "The Haas Outlet for Michigan." (106px bold, `pre-headline-font` tag = rollback point).
+- **Header/container:** header L/R padding removed; hero peek content container → 1200px centered (`--max-home`).
+- **Commits:** `37db95c` (font swap + scale), `7207966` (hero 106px bold), `d83e5e5` (header/container), `c348225` (hero headline), `a652914` (hero eyebrow) — all on `origin/master`.
+- **Rollback:** `git reset --hard pre-headline-font` restores Navigo headline state.
+
 ## 2026-08-07 — Homepage Figma redesign + stat counter (Cline)
 - **Homepage redesign per Figma (node 7009:17 / home frame):** hero slide 1 → "Gerotech is the Front Door to Haas in Michigan"; intro → "Michigan's Premier Distributor for CNC Machinery, Robotics, and Engineered Turnkey Solutions"; machine tabs → **4-card grid**; removed award banner + trust strip; CTA → "Put Our Engineers to Work on Your Project"; email signup → "Stay in the Loop".
 - **Header:** FANUC ASI mega-menu column added; nav links UPPERCASE; top bar (`.alert-banner`) → white labels, space-between, 12px padding, 1200px container; factored Figma node 7009:79.
