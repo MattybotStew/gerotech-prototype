@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cursor — machine lineup Figma 7043:223)
+**Last Updated:** 2026-08-07 (Cursor — merged to master)
 **Active Agent:** Cursor
-**Branch:** `cursor/hero-bg-and-progress`
-**Last Commit:** `9050b9f` — Implement homepage audit cleanup recommendations.
-**Uncommitted:** Yes — machine lineup section (`index.html`, CSS, asset, docs)
+**Branch:** `master` (synced with `origin/master` @ `3ba1225`)
+**Last Commit:** `3ba1225` — Replace machine cards with Figma tabbed lineup section.
+**Uncommitted:** No
 
 ### Latest homepage changes (this session)
 - **Machine lineup (7043:223):** Replaced 4-card grid with dark tabbed split panel; Figma photo for Machining Centers tab

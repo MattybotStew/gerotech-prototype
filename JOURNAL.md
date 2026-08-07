@@ -2,6 +2,10 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Merged `cursor/hero-bg-and-progress` → `master` (Cursor)
+- **Fast-forward** `a578b27..3ba1225` — hero peek/autoplay, Haas Relationship, audit cleanup, machine lineup.
+- **`master`** now synced with `origin/master`.
+
 ## 2026-08-07 — Machine lineup from Figma 7043:223 (Cursor)
 - **Replaced** 4-card `.machine-cards` grid with dark `.machine-lineup` — 5 tabs, split photo/panel, model tag chips.
 - **Asset:** `assets/images/machine-milling-centers.png` (Figma export for Machining Centers tab).
