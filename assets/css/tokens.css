@@ -1,4 +1,4 @@
-/* ============================================================
+   /* ============================================================
    GEROTECH — DESIGN TOKENS
    All color/spacing/radius changes go here first.
    Updated from Figma redesign (2026-07-13).
@@ -24,43 +24,48 @@
   --clr-black:         #000000;
 
   /* ── Typography ───────────────────────────────────────── */
-  --font-display: 'navigo', sans-serif;   /* Headlines — Adobe Fonts */
-  --font-sans:    'navigo', sans-serif;   /* Body / UI — Adobe Fonts */
+  --font-display: 'Barlow Condensed', sans-serif;   /* Headlines — Google Fonts (condensed, industrial) */
+  --font-sans:    'navigo', sans-serif;             /* Body / UI — Adobe Fonts */
 
   /* The Adobe Fonts kit serves Navigo 400 + 700 only (plus italics).
-     500/600/800 fall back to those faces, so tokens map to what actually
-     renders. If more weights are added to kit lqh7ybe, update here. */
+     Barlow Condensed (Google Fonts) is loaded at 500/600/700.
+     --fw-bold (700) now renders as Barlow Condensed 700 for display;
+     600 = semi-bold for most headlines (visually matches Navigo 700). */
   --fw-regular:   400;
-  --fw-medium:    500;   /* Requires Navigo Medium in kit lqh7ybe — falls back to 400 until added */
-  --fw-semibold:  500;   /* Same as Medium until Bold is needed for emphasis */
+  --fw-medium:    500;
+  --fw-semibold:  600;
   --fw-bold:      700;
-  --fw-extrabold: 700;   /* Optional: add Navigo Black (900) to kit for display-only use */
+  --fw-extrabold: 700;
 
   /* ── Type Scale (fluid display tiers, fixed text tiers) ── */
-  --fs-hero:    clamp(32px, 6vw, 72px);          /* page hero statements */
-  --fs-display: clamp(30px, 4.5vw + 6px, 56px);  /* secondary heroes */
-  --fs-h1:      clamp(28px, 3.2vw, 46px);        /* feature headlines */
-  --fs-h2:      clamp(26px, 1.8vw + 12px, 36px); /* section titles */
-  --fs-h3:      clamp(22px, 1.5vw + 9px, 30px);  /* sub-section titles */
-  --fs-lede:    18px;                            /* ledes, quotes */
+  /* Barlow Condensed is narrower than Navigo — display tiers run bigger
+     (~25-28% larger) to preserve visual weight and presence. */
+  --fs-hero:    clamp(40px, 8vw, 100px);           /* page hero statements */
+  --fs-display: clamp(36px, 6vw + 6px, 78px);      /* secondary heroes */
+  --fs-h1:      clamp(34px, 4.5vw, 64px);          /* feature headlines */
+  --fs-h2:      clamp(30px, 2.6vw + 12px, 50px);   /* section titles */
+  --fs-h3:      clamp(26px, 2vw + 9px, 40px);      /* sub-section titles */
+  --fs-lede:    18px;                              /* ledes, quotes */
   --fs-body:    16px;
   --fs-ui:      14px;
   --fs-caption: 12px;
 
   /* ── Tracking (tightens as display size grows) ────────── */
-  --ls-hero:    -0.025em;
-  --ls-display: -0.02em;
-  --ls-h1:      -0.015em;
-  --ls-h2:      -0.01em;
+  /* Barlow Condensed has narrower glyphs — less negative tracking avoids a cramped look. */
+  --ls-hero:    -0.015em;
+  --ls-display: -0.012em;
+  --ls-h1:      -0.01em;
+  --ls-h2:      -0.008em;
   --ls-h3:      -0.005em;
   --ls-caps:    0.14em;   /* eyebrows / section labels */
   --ls-meta:    0.08em;   /* card-level uppercase labels */
 
   /* ── Leading ──────────────────────────────────────────── */
-  --lh-hero: 1.04;
-  --lh-h1:   1.1;
-  --lh-h2:   1.15;
-  --lh-h3:   1.25;
+  /* Barlow Condensed has a tighter x-height — headlines can sit closer. */
+  --lh-hero: 1.0;
+  --lh-h1:   1.05;
+  --lh-h2:   1.1;
+  --lh-h3:   1.15;
   --lh-body: 1.7;
 
   /* ── Spacing Scale ────────────────────────────────────── */
