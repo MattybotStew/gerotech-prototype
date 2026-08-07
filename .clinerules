@@ -5,19 +5,15 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cursor — homepage audit cleanup)
+**Last Updated:** 2026-08-07 (Cursor — machine lineup Figma 7043:223)
 **Active Agent:** Cursor
 **Branch:** `cursor/hero-bg-and-progress`
-**Last Commit:** `ebfcd62` — Sync design-spec with current homepage Figma build.
-**Uncommitted:** Yes — audit cleanup (`index.html`, CSS, docs)
-**Rollback point:** `pre-headline-font` tag — before headline font swap (was Navigo)
+**Last Commit:** `9050b9f` — Implement homepage audit cleanup recommendations.
+**Uncommitted:** Yes — machine lineup section (`index.html`, CSS, asset, docs)
 
 ### Latest homepage changes (this session)
-- **Haas Relationship (7047:904):** copy + Haas wordmark split intro; 2×2 capability grid retained
-- **Peek autoplay fix:** Always advances; orange ring JS-driven via setInterval; no hover/focus pause (`8d075f6`)
-- **Peek index progress + hero slide 1:** `e690009` (Figma `7046:872` → `hero-slide-01.jpg`)
-- **Stat counter:** matched Figma `7045:552` (dividers, bold numbers, label tracking)
-- **Since 1987 intro removed** → Haas Relationship section above machine cards
+- **Machine lineup (7043:223):** Replaced 4-card grid with dark tabbed split panel; Figma photo for Machining Centers tab
+- **Audit cleanup (`9050b9f`):** Hero outlet story, duplicate Haas logo removed, copy/CTA tightening
 
 ### Current headline font: Barlow Condensed (Google Fonts)
 - **Display font:** `--font-display: 'Barlow Condensed'` — headlines only (hero, section titles, card titles, stat counter, etc.)

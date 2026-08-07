@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Machine lineup from Figma 7043:223 (Cursor)
+- **Replaced** 4-card `.machine-cards` grid with dark `.machine-lineup` — 5 tabs, split photo/panel, model tag chips.
+- **Asset:** `assets/images/machine-milling-centers.png` (Figma export for Machining Centers tab).
+- **JS:** Re-enabled `machine-tabs.js` on homepage; panels toggle `hidden` + `is-active`.
+- **Tabs:** Machining Centers, Turning Centers, 5-Axis, Automation, Haas Tooling — other tabs use Unsplash stand-ins.
+
 ## 2026-08-07 — Homepage audit cleanup implemented (Cursor)
 - **Hero slide 1:** Outlet story aligned with shop-floor photo; peek labels synced; CTA → `#machine-browse`.
 - **Machine browse:** Renamed to `.machine-browse`; removed duplicate Haas logo; application-focused copy.

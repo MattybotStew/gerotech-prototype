@@ -113,7 +113,7 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 | 3 | Peek hero | `.hero-slider--peek` | 3 slides — see **Hero slides** below. Figma slide 1: `7046:872` |
 | 4 | Stat counter | `.stat-counter` | 37+, 4,000+, 12, #1 — hairline dividers, count-up animation. Figma: `7045:552` |
 | 5 | Haas Relationship | `.haas-relationship` | Eyebrow (`.eyebrow-row`) + split intro + 2×2 grid + CTAs. Figma: `7047:904` |
-| 6 | Machine browse | `.machine-browse` `#machine-browse` | Section header + **4** machine cards. All cards → `gerotech.com/machines` ↗ |
+| 6 | Machine lineup | `.machine-lineup` `#machine-browse` | Dark section — 5 tabs + split panel (Figma `7043:223`). Default tab: Vertical Mills |
 | 7 | Testimonials | `partials/testimonials-block.html` | Carousel, split photo + dark panel, 3 slides |
 | 8 | News feed | `.news-section` | 3 cards; Show More hidden pending news page |
 | 9 | CTA band | `.cta-band--cinema` | Centered copy on full-bleed photo; mailto + tel CTAs |
@@ -141,7 +141,19 @@ Peek cards read `data-peek-eyebrow` / `data-peek-title` from each `.slide` (sync
 
 Icons: `assets/images/icons/haas-rel-{sales,apps,warranty,service}.svg`
 
-### Machine browse cards
+### Machine lineup tabs (Figma 7043:223)
+
+| Tab | Panel title | CTA |
+|-----|-------------|-----|
+| Machining Centers | Vertical Mills | View All Mills → `gerotech.com/machines` |
+| Turning Centers | CNC Lathes | View All Lathes → `gerotech.com/machines` |
+| 5-Axis | 5-Axis Machines | View All 5-Axis → `gerotech.com/machines` |
+| Automation | Pallet Systems & Robots | View Automation → `gerotech.com/machines` |
+| Haas Tooling | Tooling & Workholding | View Haas Tooling → `gerotech.com/machines` |
+
+Default panel photo: `assets/images/machine-milling-centers.png` (Figma export). Tab switching: `machine-tabs.js`.
+
+### Machine browse cards (legacy — replaced 2026-08-07)
 
 | Card | Category | Models (sample) |
 |------|----------|-----------------|
@@ -222,6 +234,7 @@ Most images are **Unsplash stand-ins** (`<img>` tags with HTML comment crediting
 | File | Use |
 |------|-----|
 | `assets/images/hero-slide-01.jpg` | Hero slide 1 background (Figma `7046:872`) |
+| `assets/images/machine-milling-centers.png` | Machine lineup — Machining Centers panel (Figma `7043:223`) |
 | `assets/images/haas-logo.png` | Haas wordmark — Haas Relationship intro only |
 | `assets/images/icons/haas-rel-*.svg` | Haas Relationship capability icons (4) |
 | `assets/images/testimonial-shop-floor.png` | Testimonial slide 1 photo |
@@ -283,13 +296,14 @@ gerotech-prototype/
     │   ├── filter.js           ← ES grid filter tabs
     │   ├── animations.js       ← Scroll reveal
     │   ├── testimonials.js     ← Homepage + ES carousels
-    │   ├── machine-tabs.js     ← Legacy (was homepage tab browse; unused on index)
+    │   ├── machine-tabs.js     ← Homepage machine lineup tabs
     │   └── modal.js            ← MCS / Automation card modals
     └── images/
         ├── gerotech-logo.svg
         ├── gerotech-logo-white.svg
         ├── haas-logo.png
         ├── hero-slide-01.jpg
+        ├── machine-milling-centers.png
         ├── testimonial-shop-floor.png
         └── icons/
             └── haas-rel-{sales,apps,warranty,service}.svg
