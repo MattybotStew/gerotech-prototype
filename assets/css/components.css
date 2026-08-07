@@ -3153,6 +3153,49 @@ img.mcs-gallery-card__image {
   .machine-panel__body { padding: var(--sp-32) var(--sp-24); }
 }
 
+/* ── Stat Counter (Figma redesign — 4-col grid, big condensed numbers) ── */
+.stat-counter {
+  background: var(--clr-white);
+}
+.stat-counter__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding-block: var(--sp-24);
+}
+.stat-counter__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-32);
+  text-align: left;
+}
+.stat-counter__value {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--clr-ink);
+  margin: 0;
+}
+.stat-counter__label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--clr-gray-body);
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .stat-counter__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .stat-counter__grid { grid-template-columns: 1fr; }
+  .stat-counter__item { padding: var(--sp-24); }
+}
+
 /* ── Machine Browse — Cards (Figma redesign: 4-card grid) ── */
 .machine-cards {
   display: grid;
