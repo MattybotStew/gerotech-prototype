@@ -2,6 +2,21 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — ES hub gateway layout (Cursor)
+- **Client (Tristien/Mike):** ES page redundant — mega menu + Why Explore links + filterable service grid all led to same content. Keep mega menu + Why→detail pages + trust strip; remove grid; emphasize FANUC.
+- **Removed:** Entire `#es-grid` What We Do section (filters, cards, guide) + `filter.js` from `engineered-solutions.html`.
+- **FANUC:** New `.credential-band--featured` chapter after stats — larger badge, H2 claim, benefits list, Talk to an Engineer + Explore Automation; `id="fanuc"`. Placeholder badge only (logo still pending).
+- **CTAs:** Hero/partners/capability → `Explore Capabilities` → `#why-headline`. FAQ H2 → **Common Questions**. Partners copy softens FANUC double-sell.
+- **CSS:** Featured band in `components.css` / `layout.css` / `elevated.css`.
+- **Loose ends:** Not committed; visual QA at 390px; official FANUC logo; Figma `6:124` still has old grid — align when convenient. Peek-card homepage WIP still uncommitted from Aug 4.
+
+## 2026-08-04 — Figma peek-card homepage hero (Cursor)
+- **Live homepage:** Replaced classic arrows/dots carousel with Figma Make-style **peek-card** hero (`.hero-slider--peek`): left circular index, bottom-right preview cards for other slides, 3 slides (Macomb training / New Arrivals / Engineered Solutions), 10s autoplay, 450ms opacity crossfade.
+- **Artifact:** Excel 5-slide hero saved at `artifacts/homepage-hero-excel-5-slide.html` — restore by swapping that `<section>` onto `index.html`.
+- **JS/CSS:** `slider.js` supports peek + classic paths; peek styles in `components.css`.
+- **Verified:** index, hero-variations, artifact HTTP 200.
+- **Loose ends:** Not committed; peek mobile layout may need visual QA at 390px.
+
 ## 2026-08-04 — Excel content sync (5 pages) (Cursor)
 - **Homepage (`index.html`):** 5-slide hero (training, showroom inventory multi-CTA, rotary, training duplicate, Winner's Circle); intro + cinema CTA + newsletter copy from content doc. Slide 2 H1 demoted to H2 (H1 only on slide 1).
 - **ES hub:** Why-section body + Get A Quote; removed 7 grid cards (Spin Forming, 5-Axis Grinding, Mist & Dust, Tool Offsets, RFID, Fire Suppression, Electrical); Sheet Metal detailed body; CTA headline + newsletter subtitle.

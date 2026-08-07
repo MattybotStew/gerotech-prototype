@@ -29,6 +29,9 @@ body {
 .hero-slider {
   height: clamp(480px, 72vh, 640px);
 }
+.hero-slider--peek {
+  height: 75vh;
+}
 
 .slide__overlay--left {
   background: linear-gradient(
@@ -389,6 +392,9 @@ body {
   .hero-slider {
     height: clamp(440px, 85vh, 520px);
   }
+  .hero-slider--peek {
+    height: 75vh;
+  }
 }
 
 /* ── Typography (Medium weight when kit updated) ──────────── */
@@ -451,12 +457,24 @@ body {
   padding-bottom: var(--sp-48);
 }
 
+.credential-band--featured {
+  padding-bottom: clamp(72px, 10vw, 112px);
+}
+
 .credential-band + .tech-partners-section {
   padding-top: var(--sp-48);
 }
 
+.credential-band--featured + .tech-partners-section {
+  padding-top: var(--sp-64);
+}
+
 .credential-band:hover {
   box-shadow: inset 0 0 0 1px rgba(243, 138, 44, 0.2);
+}
+
+.credential-band--featured:hover {
+  box-shadow: inset 0 0 0 1px rgba(243, 138, 44, 0.28);
 }
 
 /* ── Machine Custom Solutions (gallery etc.) ───────────────── */

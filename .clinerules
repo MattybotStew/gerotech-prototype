@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-04 (Cursor — Excel content sync across 5 pages)
+**Last Updated:** 2026-08-07 (Cursor — ES hub gateway + FANUC featured)
 **Active Agent:** Cursor
 **Branch:** `master`
-**Last Commit:** `759479d` — Applications page: remove hero + CTA body copy, add RFID and Fire Suppression cards
-**Uncommitted:** Excel content sync (homepage 5-slide hero + intro/CTA/newsletter; ES card removals + copy; MCS/Apps/Auto modal CTA + hero/eyebrow updates)
+**Last Commit:** `cc6d4de` — Sync homepage and ES pages to approved content document
+**Uncommitted:** ES hub grid removed + FANUC featured band; peek-card homepage WIP + Excel artifact still pending from Aug 4
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete

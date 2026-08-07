@@ -1,0 +1,73 @@
+<!--
+  ARTIFACT — Homepage hero (Excel 5-slide), archived 2026-08-04.
+  Restore: replace the live .hero-slider on index.html with this entire <section>.
+  Companion to Figma peek-card hero (hero-slider--peek) now on the homepage.
+-->
+    <section class="hero-slider" aria-label="Homepage hero carousel">
+      <div class="hero-slider__track">
+        <div class="slide is-active" role="tabpanel" aria-label="Slide 1 of 5">
+          <!-- Client photo: Haas training showroom floor -->
+          <img class="slide__bg slide__bg--right" src="assets/images/hero-training-showroom.jpg" alt="Training and showroom" loading="eager" fetchpriority="high" decoding="async" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Complimentary Training</p>
+            <h1 class="slide__headline">Complimentary Haas Training Classes</h1>
+            <p class="slide__body">We offer regularly scheduled operator and programming training at no additional cost for as long as you own your Haas machines. Learn from our skilled trainers who know your industry inside and out.</p>
+            <a class="btn btn--primary" href="training.html">View Classes &amp; Upcoming Schedules</a>
+          </div>
+        </div>
+        <div class="slide" role="tabpanel" aria-label="Slide 2 of 5">
+          <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop" alt="Robotic automation on the shop floor" loading="lazy" decoding="async" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Haas Showroom Inventory</p>
+            <h2 class="slide__headline">Our Showroom Machines Are For Sale!</h2>
+            <p class="slide__body"><strong>READY TO SHIP</strong><br>Price on the UMC-750 and ST-25Y now available at a deep discount. Request more info to receive updated pricing.</p>
+            <a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Request%20Info%20on%20UMC-750">Request Info on UMC-750</a>
+            <a class="btn btn--outline-white" href="mailto:sales@gerotech.com?subject=Request%20Info%20on%20ST-25Y">Request Info on ST-25Y</a>
+            <a class="btn btn--outline-white" href="mailto:sales@gerotech.com?subject=Request%20Info%20on%20VF-2SS%20%2B%20COBOT">Request Info on VF-2SS + COBOT</a>
+            <!-- ST-30 marked as sold — CTA omitted per content doc -->
+          </div>
+        </div>
+        <div class="slide" role="tabpanel" aria-label="Slide 3 of 5">
+          <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining" loading="lazy" decoding="async" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Haas Showroom Inventory</p>
+            <h2 class="slide__headline">Showroom Inventory — Available Today. Ready to Ship.</h2>
+            <p class="slide__body">Maximize Your Machining Potential with Our Rotary Products (featuring the HAAS TRT100 and HAAS TRT210).</p>
+            <a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Request%20Pricing%20-%20Rotary%20Products">Request Pricing</a>
+          </div>
+        </div>
+        <div class="slide" role="tabpanel" aria-label="Slide 4 of 5">
+          <img class="slide__bg slide__bg--right" src="assets/images/hero-training-showroom.jpg" alt="Training and showroom" loading="lazy" decoding="async" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Complimentary Training</p>
+            <h2 class="slide__headline">Complimentary Haas Training Classes</h2>
+            <p class="slide__body">We offer regularly scheduled operator and programming training at no additional cost for as long as you own your Haas machines. Learn from our skilled trainers who know your industry inside and out.</p>
+            <a class="btn btn--primary" href="training.html">View Classes &amp; Upcoming Schedules</a>
+          </div>
+        </div>
+        <div class="slide" role="tabpanel" aria-label="Slide 5 of 5">
+          <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining" loading="lazy" decoding="async" />
+          <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+          <div class="slide__content slide__content--left">
+            <p class="slide__eyebrow">Haas Winner's Circle</p>
+            <h2 class="slide__headline">HAAS Winner's Circle 1-Year Membership – NOW ONLY $10</h2>
+            <p class="slide__body">Unlock exclusive benefits, discounts, and more with HAAS Winner's Circle.</p>
+            <a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Join%20Winner%27s%20Circle">JOIN WINNER'S CIRCLE</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="slider-arrow slider-arrow--prev" aria-label="Previous slide">‹</button>
+      <button class="slider-arrow slider-arrow--next" aria-label="Next slide">›</button>
+      <div class="slider-dots" role="tablist" aria-label="Slide navigation">
+        <button class="dot is-active" role="tab" aria-label="Go to slide 1"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 2"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 3"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 4"></button>
+        <button class="dot" role="tab" aria-label="Go to slide 5"></button>
+      </div>
+    </section>
