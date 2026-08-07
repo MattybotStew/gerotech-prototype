@@ -5,16 +5,16 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cursor — peek hero progress ring)
+**Last Updated:** 2026-08-07 (Cursor — fix peek autoplay + orange progress)
 **Active Agent:** Cursor
-**Branch:** `master`
-**Last Commit:** `a578b27` — Replace homepage Since 1987 intro with Figma Haas Relationship section.
-**Uncommitted:** Yes — `slider.js` + progress CSS; `index.html` (hero slide 1 bg); `assets/images/hero-slide-01.jpg`; Haas Relationship; JOURNAL/.clinerules
+**Branch:** `cursor/hero-bg-and-progress`
+**Last Commit:** `e690009` — Add Figma hero slide 1 photo and autoplay progress ring.
+**Uncommitted:** Yes — autoplay fix (`slider.js` + progress CSS) + JOURNAL/.clinerules
 **Rollback point:** `pre-headline-font` tag — before headline font swap (was Navigo)
 
 ### Latest homepage changes (this session)
-- **Peek index progress:** Orange circular stroke counts down with 10s autoplay; pauses on hover/focus; resets on slide change (`slider.js` + `components.css`)
-- **Hero slide 1:** Figma `7046:872` → `assets/images/hero-slide-01.jpg` (Haas shop floor)
+- **Peek autoplay fix:** Always advances; orange ring JS-driven via setInterval; no hover/focus pause; no reduced-motion gate on timer/ring
+- **Peek index progress + hero slide 1:** committed in `e690009` (Figma `7046:872` → `hero-slide-01.jpg`)
 - **Stat counter:** matched Figma `7045:552` (dividers, bold numbers, label tracking)
 - **Since 1987 intro removed** → **Haas Relationship** section (Figma `7045:583`) above machine cards
 

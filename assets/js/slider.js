@@ -1,5 +1,6 @@
 (function () {
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /** Circumference of progress circle (r=21): 2π × 21 */
+  const PROGRESS_CIRC = 2 * Math.PI * 21;
 
   class HeroSlider {
     constructor(el) {
@@ -9,16 +10,15 @@
       this.dots = Array.from(el.querySelectorAll('.dot'));
       this.indexBadge = el.querySelector('.hero-slider__index');
       this.indexNum = el.querySelector('.hero-slider__index-num');
+      this.progressBar = el.querySelector('.hero-slider__progress-bar');
       this.peeksHost = el.querySelector('.hero-slider__peeks');
       this.isPeek = el.classList.contains('hero-slider--peek');
       this.current = 0;
       this.total = this.slides.length;
       this.autoplayTimer = null;
+      this.progressInterval = null;
       this.autoplayMs = this.isPeek ? 10000 : 6000;
-      this.remainingMs = this.autoplayMs;
       this.segmentStartedAt = 0;
-      this.pointerInside = false;
-      this.focusInside = false;
 
       const prev = el.querySelector('.slider-arrow--prev');
       const next = el.querySelector('.slider-arrow--next');
@@ -32,24 +32,10 @@
         });
       });
 
-      // Pause autoplay (and progress ring) while hovering or focusing the carousel
-      el.addEventListener('mouseenter', () => {
-        this.pointerInside = true;
-        this.stopAutoplay();
-      });
-      el.addEventListener('mouseleave', () => {
-        this.pointerInside = false;
-        if (!this.focusInside) this.startAutoplay();
-      });
-      el.addEventListener('focusin', () => {
-        this.focusInside = true;
-        this.stopAutoplay();
-      });
-      el.addEventListener('focusout', (e) => {
-        if (el.contains(e.relatedTarget)) return;
-        this.focusInside = false;
-        if (!this.pointerInside) this.startAutoplay();
-      });
+      if (this.progressBar) {
+        this.progressBar.style.strokeDasharray = String(PROGRESS_CIRC);
+        this.setProgress(0);
+      }
 
       this.goTo(0);
       this.startAutoplay();
@@ -59,83 +45,64 @@
       return String(i + 1).padStart(2, '0');
     }
 
-    /** True when the timer + orange stroke should be running. */
-    canAutoplay() {
-      return !reducedMotion && !this.pointerInside && !this.focusInside;
+    /** progress: 0 (empty) → 1 (full orange ring) */
+    setProgress(progress) {
+      if (!this.progressBar || !this.isPeek) return;
+      const p = Math.min(1, Math.max(0, progress));
+      this.progressBar.style.strokeDashoffset = String(PROGRESS_CIRC * (1 - p));
     }
 
-    /** Reset ring to empty idle state (no animation). */
-    clearProgress() {
-      if (!this.indexBadge || !this.isPeek) return;
-      this.indexBadge.classList.remove('is-progressing', 'is-paused');
+    clearProgressAnim() {
+      if (this.progressRaf) {
+        cancelAnimationFrame(this.progressRaf);
+        this.progressRaf = null;
+      }
+      if (this.progressInterval) {
+        clearInterval(this.progressInterval);
+        this.progressInterval = null;
+      }
+      if (this.indexBadge) this.indexBadge.classList.remove('is-progressing');
+      this.setProgress(0);
     }
 
-    /** Restart orange stroke from empty over the full autoplay interval. */
-    restartProgress() {
-      if (!this.indexBadge || !this.isPeek) return;
-      this.clearProgress();
-      if (reducedMotion) return;
-      this.indexBadge.style.setProperty('--hero-progress-ms', this.autoplayMs + 'ms');
-      // Force reflow so the animation restarts cleanly
-      void this.indexBadge.offsetWidth;
+    tickProgress() {
+      if (!this.progressBar || !this.isPeek) return;
+      if (!this.segmentStartedAt) return;
+
+      const elapsed = performance.now() - this.segmentStartedAt;
+      const progress = Math.min(1, elapsed / this.autoplayMs);
+      this.setProgress(progress);
+
+      if (progress >= 1 && this.progressInterval) {
+        clearInterval(this.progressInterval);
+        this.progressInterval = null;
+      }
+    }
+
+    startProgress() {
+      this.clearProgressAnim();
+      if (!this.isPeek || !this.progressBar) return;
       this.indexBadge.classList.add('is-progressing');
+      this.segmentStartedAt = performance.now();
+      this.tickProgress();
+      // setInterval (not rAF) — keeps filling when the tab/webview is backgrounded
+      this.progressInterval = setInterval(() => this.tickProgress(), 50);
     }
 
     startAutoplay() {
-      if (!this.canAutoplay()) {
-        // Hover/focus: keep ring empty or paused — do not start the timer
-        if (this.isPeek && this.indexBadge && !this.indexBadge.classList.contains('is-progressing')) {
-          this.clearProgress();
-        }
-        return;
-      }
-
       clearTimeout(this.autoplayTimer);
+      this.startProgress();
 
-      const resuming =
-        this.remainingMs > 0 && this.remainingMs < this.autoplayMs;
-
-      if (resuming) {
-        if (this.indexBadge) this.indexBadge.classList.remove('is-paused');
-      } else {
-        this.remainingMs = this.autoplayMs;
-        this.restartProgress();
-      }
-
-      this.segmentStartedAt = performance.now();
       this.autoplayTimer = setTimeout(() => {
-        this.remainingMs = this.autoplayMs;
-        this.segmentStartedAt = 0;
         this.next();
-      }, this.remainingMs);
-    }
-
-    stopAutoplay() {
-      clearTimeout(this.autoplayTimer);
-      this.autoplayTimer = null;
-
-      if (this.segmentStartedAt) {
-        const elapsed = performance.now() - this.segmentStartedAt;
-        this.remainingMs = Math.max(0, this.remainingMs - elapsed);
-        this.segmentStartedAt = 0;
-      }
-
-      if (this.indexBadge) this.indexBadge.classList.add('is-paused');
+      }, this.autoplayMs);
     }
 
     /** Full restart after slide change (auto or manual). */
     resetAutoplay() {
       clearTimeout(this.autoplayTimer);
       this.autoplayTimer = null;
-      this.segmentStartedAt = 0;
-      this.remainingMs = this.autoplayMs;
-
-      if (this.canAutoplay()) {
-        this.startAutoplay();
-      } else {
-        // Slide changed while paused — show empty ring until autoplay resumes
-        this.clearProgress();
-      }
+      this.startAutoplay();
     }
 
     renderPeeks() {

@@ -2,12 +2,18 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Fix peek hero autoplay + orange progress (Cursor)
+- **Bug:** Autoplay + orange ring never ran — `canAutoplay()` gated on `prefers-reduced-motion` and full-hero hover/focus pause (first viewport = always “paused” while inspecting).
+- **Fix (`slider.js`):** Always auto-advance (10s peek / 6s classic); removed hover/focus pause; JS-driven `stroke-dashoffset` via `setInterval(50)` synced to the same clock (not CSS keyframes / rAF — survives background tabs). Manual peek/dot/arrow still resets via `resetAutoplay()`.
+- **CSS:** Dropped keyframe / `is-paused` animation hooks; ring look unchanged.
+- **Branch:** `cursor/hero-bg-and-progress` — uncommitted follow-up on top of `e690009`.
+
 ## 2026-08-07 — Hero peek index autoplay progress ring (Cursor)
 - **Progress ring:** Orange SVG stroke on `.hero-slider__index` fills over peek autoplay (10s) via `stroke-dashoffset` + `--hero-progress-ms`.
 - **JS (`slider.js`):** `setTimeout` + remaining-time tracking so hover/focus pauses both timer and CSS animation (`is-paused`), then resumes; slide change (auto/manual) resets ring; `prefers-reduced-motion` skips autoplay + animation.
 - **CSS:** Explicit `from` keyframe; reduced-motion hides orange stroke, keeps static index + gray track.
 - **HTML:** No change (SVG scaffold already in `index.html`) — avoids conflicting with concurrent hero-slide-01 bg work.
-- **Loose ends:** Uncommitted; hard-refresh localhost:8080 to QA orange fill + pause on hover.
+- **Loose ends:** Superseded by autoplay fix entry above.
 
 ## 2026-08-07 — Homepage hero slide 1 background from Figma (Cursor)
 - **Hero slide 1 bg:** Replaced `hero-training-showroom.jpg` with Figma export `assets/images/hero-slide-01.jpg` (node `7046:872` — Haas Automation shop floor / VF-4 line, JPEG 1328×784).

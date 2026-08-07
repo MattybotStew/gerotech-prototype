@@ -605,35 +605,13 @@
   stroke: var(--clr-orange);
   stroke-width: 2.5;
   stroke-linecap: round;
-  /* circumference = 2π × 21 ≈ 131.95 — starts empty (full offset) */
+  /* circumference = 2π × 21 ≈ 131.95 — JS sets dashoffset each frame */
   stroke-dasharray: 131.95;
   stroke-dashoffset: 131.95;
-}
-.hero-slider__index.is-progressing .hero-slider__progress-bar {
-  animation: hero-index-progress var(--hero-progress-ms, 10s) linear forwards;
-}
-.hero-slider__index.is-paused .hero-slider__progress-bar {
-  animation-play-state: paused;
-}
-@keyframes hero-index-progress {
-  from {
-    stroke-dashoffset: 131.95;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
 }
 .hero-slider__index-num {
   position: relative;
   z-index: 1;
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-slider__index.is-progressing .hero-slider__progress-bar,
-  .hero-slider__progress-bar {
-    animation: none !important;
-    stroke-dashoffset: 131.95;
-    stroke: transparent;
-  }
 }
 .hero-slider__peeks {
   position: absolute;
