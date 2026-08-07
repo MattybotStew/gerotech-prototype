@@ -3414,7 +3414,7 @@ img.mcs-gallery-card__image {
   }
 }
 
-/* ── Haas Relationship (Figma 7045:583) ── */
+/* ── Haas Relationship (Figma 7047:904 — copy + Haas wordmark) ── */
 .haas-relationship {
   background: var(--clr-white);
   padding-block: var(--sp-96);
@@ -3423,7 +3423,7 @@ img.mcs-gallery-card__image {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 0 var(--sp-32);
+  margin: 0;
 }
 .haas-relationship__rule {
   display: block;
@@ -3444,8 +3444,17 @@ img.mcs-gallery-card__image {
 .haas-relationship__intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--sp-32);
-  align-items: start;
+  gap: var(--sp-40);
+  align-items: center;
+  margin-top: var(--sp-32);
+}
+.haas-relationship__copy-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-40);
+  padding-top: var(--sp-8);
+  min-width: 0;
 }
 .haas-relationship__headline {
   font-family: var(--font-display);
@@ -3456,7 +3465,7 @@ img.mcs-gallery-card__image {
   color: var(--clr-ink);
   text-wrap: balance;
   margin: 0;
-  max-width: 12ch;
+  width: 100%;
 }
 .haas-relationship__lede {
   font-family: var(--font-sans);
@@ -3465,8 +3474,24 @@ img.mcs-gallery-card__image {
   line-height: 1.625;
   color: var(--clr-gray-body);
   text-wrap: pretty;
-  margin: var(--sp-8) 0 0;
-  max-width: 42ch;
+  margin: 0;
+  width: 100%;
+  max-width: 36ch;
+}
+.haas-relationship__brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.haas-relationship__brand-logo {
+  display: block;
+  width: 100%;
+  max-width: 558px;
+  height: auto;
+  max-height: 372px;
+  object-fit: contain;
+  object-position: center;
 }
 .haas-relationship__divider {
   border: none;
@@ -3537,14 +3562,18 @@ img.mcs-gallery-card__image {
   }
   .haas-relationship__intro {
     grid-template-columns: 1fr;
-    gap: var(--sp-20);
+    gap: var(--sp-32);
   }
-  .haas-relationship__headline {
-    max-width: none;
+  .haas-relationship__copy-col {
+    gap: var(--sp-24);
+    padding-top: 0;
   }
   .haas-relationship__lede {
     max-width: none;
-    margin-top: 0;
+  }
+  .haas-relationship__brand-logo {
+    max-width: 360px;
+    max-height: 240px;
   }
   .haas-relationship__divider {
     margin: var(--sp-48) 0 var(--sp-40);
@@ -3557,6 +3586,9 @@ img.mcs-gallery-card__image {
 @media (max-width: 640px) {
   .haas-relationship__title {
     font-size: 28px;
+  }
+  .haas-relationship__brand-logo {
+    max-width: 280px;
   }
 }
 

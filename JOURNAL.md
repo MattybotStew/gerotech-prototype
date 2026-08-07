@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Haas Relationship layout upgrade (Figma 7047:904) (Cursor)
+- **Intro:** Split redesign — left column stacks headline + lede (40px gap); right column shows Haas wordmark (`haas-logo.png`).
+- **HTML/CSS:** `.haas-relationship__copy-col` + `__brand` / `__brand-logo`; eyebrow sits above the split; feature grid unchanged.
+- **Branch:** `cursor/hero-bg-and-progress` — uncommitted.
+
 ## 2026-08-07 — Fix peek hero autoplay + orange progress (Cursor)
 - **Bug:** Autoplay + orange ring never ran — `canAutoplay()` gated on `prefers-reduced-motion` and full-hero hover/focus pause (first viewport = always “paused” while inspecting).
 - **Fix (`slider.js`):** Always auto-advance (10s peek / 6s classic); removed hover/focus pause; JS-driven `stroke-dashoffset` via `setInterval(50)` synced to the same clock (not CSS keyframes / rAF — survives background tabs). Manual peek/dot/arrow still resets via `resetAutoplay()`.

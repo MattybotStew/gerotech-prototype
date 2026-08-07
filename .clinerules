@@ -5,18 +5,19 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cursor — fix peek autoplay + orange progress)
+**Last Updated:** 2026-08-07 (Cursor — Haas Relationship Figma 7047:904)
 **Active Agent:** Cursor
 **Branch:** `cursor/hero-bg-and-progress`
-**Last Commit:** `e690009` — Add Figma hero slide 1 photo and autoplay progress ring.
-**Uncommitted:** Yes — autoplay fix (`slider.js` + progress CSS) + JOURNAL/.clinerules
+**Last Commit:** `8d075f6` — Fix peek hero autoplay and orange progress ring.
+**Uncommitted:** Yes — Haas Relationship split + wordmark (`index.html`, `components.css`, JOURNAL/.clinerules)
 **Rollback point:** `pre-headline-font` tag — before headline font swap (was Navigo)
 
 ### Latest homepage changes (this session)
-- **Peek autoplay fix:** Always advances; orange ring JS-driven via setInterval; no hover/focus pause; no reduced-motion gate on timer/ring
-- **Peek index progress + hero slide 1:** committed in `e690009` (Figma `7046:872` → `hero-slide-01.jpg`)
+- **Haas Relationship (7047:904):** copy + Haas wordmark split intro; 2×2 capability grid retained
+- **Peek autoplay fix:** Always advances; orange ring JS-driven via setInterval; no hover/focus pause (`8d075f6`)
+- **Peek index progress + hero slide 1:** `e690009` (Figma `7046:872` → `hero-slide-01.jpg`)
 - **Stat counter:** matched Figma `7045:552` (dividers, bold numbers, label tracking)
-- **Since 1987 intro removed** → **Haas Relationship** section (Figma `7045:583`) above machine cards
+- **Since 1987 intro removed** → Haas Relationship section above machine cards
 
 ### Current headline font: Barlow Condensed (Google Fonts)
 - **Display font:** `--font-display: 'Barlow Condensed'` — headlines only (hero, section titles, card titles, stat counter, etc.)
