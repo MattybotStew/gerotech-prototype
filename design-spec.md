@@ -1,6 +1,7 @@
 # Gerotech Website Prototype — Design Spec
 
 **Presentation date:** July 7, 2026  
+**Last updated:** August 7, 2026 (homepage Figma pass)  
 **Client:** Gerotech — CNC Machinery Distributor + Engineering Solutions, Michigan  
 **Build:** Static HTML/CSS/JS, no framework
 
@@ -21,7 +22,9 @@
 | Gray card bg | `#F9F9FB` |
 | Gray band | `#F2F2F2` |
 
-**Font:** Navigo via Adobe Fonts — kit [`lqh7ybe`](https://use.typekit.net/lqh7ybe.css)
+**Fonts:**
+- **Display (headlines):** Barlow Condensed — Google Fonts (`500` / `600` / `700`) → `--font-display`
+- **Body / UI:** Navigo via Adobe Fonts — kit [`lqh7ybe`](https://use.typekit.net/lqh7ybe.css) → `--font-sans`
 
 ### Typekit — what to add (kit `lqh7ybe`)
 
@@ -55,7 +58,13 @@
 
 ---
 
-## Interior hero system (2026-07-30)
+## Hero systems
+
+### Homepage — peek hero (2026-08)
+
+`.hero-slider.hero-slider--peek` — Figma Make pattern. Full-bleed `<img class="slide__bg">`, left gradient overlay, left-aligned copy. Controls: numeric index with SVG progress ring + dynamically built peek tab cards (not arrows/dots).
+
+### Interior pages — `.page-hero` (2026-07-30)
 
 All interior pages use **`.page-hero`** — the same structure as the homepage hero slide: full-bleed `<img class="slide__bg">`, left gradient overlay (`.slide__overlay--left`), left-aligned copy (`.slide__content--left` with `.slide__eyebrow`, `.slide__headline`, `.slide__body`). Per-page photos are set via the hero `<img src>` in each HTML file (Unsplash stand-ins until client assets). ES detail pages add optional `.page-hero__breadcrumb`.
 
@@ -69,7 +78,7 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 | Applications | CNC machining |
 | Automation & Controls | Robotics |
 
-Homepage keeps `.hero-slider` (carousel). CTA bands use `.cta-band--photo` (same left-aligned photo treatment).
+**CTA bands:** Interior pages use `.cta-band--photo` (left-aligned). Homepage closing CTA uses `.cta-band--cinema` (centered on full-bleed photo).
 
 ## Primary CTA destinations (prototype)
 
@@ -95,17 +104,76 @@ Homepage keeps `.hero-slider` (carousel). CTA bands use `.cta-band--photo` (same
 
 ## Homepage Sections
 
-1. Alert banner — dark, 3 click-to-call phone numbers
-2. Sticky header — logo | Machines ↗ | Engineered Solutions | Support ▼ | About ▼ | Get a Quote | Search
-3. Hero slider — 3 slides (Training, Machines, ES + FANUC ASI), arrows + dots
-4. Trust strip — Since 1987, 3 locations, Haas FFO, FANUC ASI
-5. Intro + 3 category cards — Machines, Engineered Solutions, Service & Support
-6. Machine browse tabs — 5 categories with model tags
-7. Testimonial carousel — split photo + dark panel
-8. News feed — 3 items with thumbnails
-9. CTA band — left-aligned photo hero (`.cta-band--photo`), mailto quote
-10. Email signup — prototype thanks state on submit
-11. Footer — 4-column, wired internal links
+**Narrative flow:** Hero → proof (stats) → Haas outlet story → machine browse → social proof → news → convert.
+
+| # | Section | Class / partial | Notes |
+|---|---------|-----------------|-------|
+| 1 | Alert banner | `.alert-banner` | Dark bar, 3 click-to-call numbers; collapses on scroll |
+| 2 | Sticky header | `partials/site-header.html` | Logo · Machines ↗ · Engineered Solutions · Support ▼ · About ▼ · Get a Quote · Search |
+| 3 | Peek hero | `.hero-slider--peek` | 3 slides — see **Hero slides** below. Figma slide 1: `7046:872` |
+| 4 | Stat counter | `.stat-counter` | 37+, 4,000+, 12, #1 — hairline dividers, count-up animation. Figma: `7045:552` |
+| 5 | Haas Relationship | `.haas-relationship` | Eyebrow + split intro (copy left, Haas wordmark right) + 2×2 capability grid. Figma: `7047:904` |
+| 6 | Machine browse | `.intro-section` → `#machine-browse` | Dealer header + **4** machine category cards (not tabs). Cards 1–3 → `gerotech.com/machines`; card 4 → `automation-integration.html` |
+| 7 | Testimonials | `partials/testimonials-block.html` | Carousel, split photo + dark panel, 3 slides |
+| 8 | News feed | `.news-section` | 3 cards + **Show More** → `about.html` (placeholder — no news page yet) |
+| 9 | CTA band | `.cta-band--cinema` | Centered copy on full-bleed photo; mailto + tel CTAs |
+| 10 | Email signup | `.email-signup` | Prototype thanks state on submit (`nav.js`) |
+| 11 | Footer | `partials/site-footer.html` | 4-column, wired internal links |
+
+### Hero slides (homepage)
+
+| Slide | Eyebrow | Headline | CTA | Image |
+|-------|---------|----------|-----|-------|
+| 1 | Gerotech | The Haas Outlet for Michigan. | View Training Schedule → `training.html` | `assets/images/hero-slide-01.jpg` (Figma `7046:872`) |
+| 2 | New Arrivals | Michigan's Haas Factory Outlet — In-Stock & Ready | Browse Inventory → `#machine-browse` | Unsplash stand-in |
+| 3 | Engineered Solutions | Automation Built for Michigan Shop Floors | Explore Solutions → `engineered-solutions.html` | Unsplash stand-in |
+
+Peek cards (bottom tabs) read `data-peek-eyebrow` / `data-peek-title` from each `.slide`. **Known drift:** slide 1 peek attrs still say “Authorized Haas Factory Outlet” while on-slide eyebrow is “Gerotech” — sync before client demo.
+
+### Haas Relationship capability grid
+
+| # | Label | Title |
+|---|-------|-------|
+| 01 | Sales | The full Haas line, one source. |
+| 02 | Application Support | Factory-backed engineering. |
+| 03 | Warranty | Coverage owned locally. |
+| 04 | Service & Parts | Factory-trained technicians. |
+
+Icons: `assets/images/icons/haas-rel-{sales,apps,warranty,service}.svg`
+
+### Machine browse cards
+
+| Card | Category | Models (sample) |
+|------|----------|-----------------|
+| Vertical Mills | Machining Centers | Mini Mill, VF Series, VR Series, UMC 5-Axis |
+| CNC Lathes | Turning Centers | ST Series, TL Series, DS, Toolroom Lathe |
+| 5-Axis Machines | 5-Axis | UMC-500, UMC-750, DM-2, EC-400 HH |
+| Pallet & Robots | Automation | FANUC Robots, Pallet Changers, Cobots |
+
+### Removed from homepage (2026-08)
+
+| Former section | Replaced by |
+|----------------|-------------|
+| Trust strip (Since 1987, 3 locations, Haas FFO, FANUC ASI) | Stat counter + Haas Relationship |
+| Intro + 3 category cards (Machines / ES / Support) | Hero slide 3 + Haas Relationship + machine browse |
+| Machine browse tabs (5 categories + model tags) | 4-card `.machine-cards` grid |
+
+Archived Excel 5-slide hero: `artifacts/homepage-hero-excel-5-slide.html`
+
+### Homepage — open cleanup (pre-production)
+
+| Item | Status |
+|------|--------|
+| Duplicate Haas logo (Haas Relationship + machine browse header) | ⚠️ Remove from machine browse |
+| Hero slide 1: training copy vs shop-floor photo | ⚠️ Align story + alt text |
+| Peek `data-peek-*` vs on-slide copy (slide 1) | ⚠️ Sync |
+| Hero slides 2–3 Figma/client photos | ⚠️ Unsplash stand-ins |
+| News “Show More” destination | ⚠️ Placeholder → `about.html` |
+| Stat claims (#1 Midwest, 4,000+ machines) | ⚠️ Client sign-off |
+| `.intro-section` wrapper name | Legacy — rename to `.machine-browse` when refactoring |
+| `machine-tabs.js` | No longer loaded on homepage; kept for reference |
+
+**Figma file:** `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design)
 
 ---
 
@@ -144,17 +212,27 @@ Homepage keeps `.hero-slider` (carousel). CTA bands use `.cta-band--photo` (same
 
 ## Image Placeholders
 
-All images are **Unsplash stand-ins** (`<img>` tags with HTML comment crediting source). When client provides assets:
+Most images are **Unsplash stand-ins** (`<img>` tags with HTML comment crediting source). Client/Figma assets live in `assets/images/`. When client provides final assets:
 
 - Replace `src` URL with client file in `assets/images/` (or CMS path in WordPress build)
 - Keep `alt` text descriptive; preserve `loading="lazy"` / `decoding="async"` where present
 - **Verify Unsplash URLs** before demos — photo IDs can 404 over time
 
+### Client / Figma assets (homepage)
+
+| File | Use |
+|------|-----|
+| `assets/images/hero-slide-01.jpg` | Hero slide 1 background (Figma `7046:872`) |
+| `assets/images/haas-logo.png` | Haas wordmark — Haas Relationship + machine browse header |
+| `assets/images/icons/haas-rel-*.svg` | Haas Relationship capability icons (4) |
+| `assets/images/testimonial-shop-floor.png` | Testimonial slide 1 photo |
+| `assets/images/gerotech-logo.svg` / `gerotech-logo-white.svg` | Header / footer |
+
 ### Known URL swaps (2026-07-14)
 
 | Replaced (404) | Current stand-in | Typical use |
 |----------------|------------------|-------------|
-| `photo-1713869791526-ba21b52e5528` | `photo-1647427060118-4911c9821b82` | Facility, training, intro, CTA |
+| `photo-1713869791526-ba21b52e5528` | `photo-1647427060118-4911c9821b82` | Facility, training, CTA |
 | `photo-1565903020905-e53d59a4040b` | `photo-1716191299980-a6e8827ba10b` | Automation, robotics, news |
 
 Affected files: `index.html`, `application.html`, `machine-custom-solutions.html`, `automation-integration.html`, `assets/css/elevated.css` (hero bg URLs).
@@ -167,6 +245,8 @@ Affected files: `index.html`, `application.html`, `machine-custom-solutions.html
 | Email signup | Prototype thanks message on submit (`nav.js`) |
 | Sticky header | Blur + shadow on scroll (`elevated.css` + `nav.js`) |
 | Alert banner | Collapses on scroll |
+| Homepage hero | Peek cards + 10s autoplay + orange progress ring (`slider.js`) |
+| Stat counter | Count-up on scroll into view (`stat-counter.js`) |
 | Footer socials | Hidden until client confirms URLs |
 
 ---
@@ -195,17 +275,23 @@ gerotech-prototype/
     │   ├── tokens.css          ← Design tokens
     │   ├── components.css      ← UI atoms + BEM components
     │   ├── layout.css          ← Grids, sections, responsive
-    │   └── elevated.css        ← Polish layer (heroes, trust strip, hovers)
+    │   └── elevated.css        ← Polish layer (heroes, machine browse, hovers)
     ├── js/
     │   ├── include-partials.js
     │   ├── nav.js              ← Sticky, mobile, search, signup
-    │   ├── slider.js           ← Homepage hero carousel
+    │   ├── slider.js           ← Homepage peek hero (autoplay + progress ring)
+    │   ├── stat-counter.js     ← Homepage stat count-up
     │   ├── filter.js           ← ES grid filter tabs
     │   ├── animations.js       ← Scroll reveal
     │   ├── testimonials.js     ← Homepage + ES carousels
-    │   ├── machine-tabs.js     ← Homepage machine browse
+    │   ├── machine-tabs.js     ← Legacy (was homepage tab browse; unused on index)
     │   └── modal.js            ← MCS / Automation card modals
     └── images/
         ├── gerotech-logo.svg
-        └── gerotech-logo-white.svg
+        ├── gerotech-logo-white.svg
+        ├── haas-logo.png
+        ├── hero-slide-01.jpg
+        ├── testimonial-shop-floor.png
+        └── icons/
+            └── haas-rel-{sales,apps,warranty,service}.svg
 ```

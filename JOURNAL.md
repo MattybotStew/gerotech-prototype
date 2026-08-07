@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Homepage design audit + design-spec sync (Cursor)
+- **Audit:** High-level homepage review — narrative flow, Haas repetition, hero/peek drift, duplicate logo, placeholders.
+- **Docs:** Rewrote `design-spec.md` homepage sections to match current build (peek hero, stat counter, Haas Relationship, 4-card machine browse, cinema CTA); added Figma node refs, removed sections, open cleanup table, Barlow Condensed + asset inventory.
+- **Loose ends:** P0 cleanup items documented in spec — not implemented this session.
+
 ## 2026-08-07 — Haas Relationship layout upgrade (Figma 7047:904) (Cursor)
 - **Intro:** Split redesign — left column stacks headline + lede (40px gap); right column shows Haas wordmark (`haas-logo.png`).
 - **HTML/CSS:** `.haas-relationship__copy-col` + `__brand` / `__brand-logo`; eyebrow sits above the split; feature grid unchanged.

@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cursor — Haas Relationship Figma 7047:904)
+**Last Updated:** 2026-08-07 (Cursor — design-spec homepage sync)
 **Active Agent:** Cursor
 **Branch:** `cursor/hero-bg-and-progress`
-**Last Commit:** `8d075f6` — Fix peek hero autoplay and orange progress ring.
-**Uncommitted:** Yes — Haas Relationship split + wordmark (`index.html`, `components.css`, JOURNAL/.clinerules)
+**Last Commit:** `3449b8c` — Upgrade Haas Relationship intro with Figma wordmark split.
+**Uncommitted:** Yes — `design-spec.md`, JOURNAL, `.clinerules`
 **Rollback point:** `pre-headline-font` tag — before headline font swap (was Navigo)
 
 ### Latest homepage changes (this session)
