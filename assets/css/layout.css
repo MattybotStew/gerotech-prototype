@@ -29,6 +29,7 @@ button { cursor: pointer; }
 /* ── Section Spacing (uniform site-wide) ──────────────────── */
 .section,
 .intro-section,
+.machine-browse,
 .testimonial-section,
 .news-section,
 .why-section,

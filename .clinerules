@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cursor — design-spec homepage sync)
+**Last Updated:** 2026-08-07 (Cursor — homepage audit cleanup)
 **Active Agent:** Cursor
 **Branch:** `cursor/hero-bg-and-progress`
-**Last Commit:** `3449b8c` — Upgrade Haas Relationship intro with Figma wordmark split.
-**Uncommitted:** Yes — `design-spec.md`, JOURNAL, `.clinerules`
+**Last Commit:** `ebfcd62` — Sync design-spec with current homepage Figma build.
+**Uncommitted:** Yes — audit cleanup (`index.html`, CSS, docs)
 **Rollback point:** `pre-headline-font` tag — before headline font swap (was Navigo)
 
 ### Latest homepage changes (this session)

@@ -2,6 +2,16 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Homepage audit cleanup implemented (Cursor)
+- **Hero slide 1:** Outlet story aligned with shop-floor photo; peek labels synced; CTA → `#machine-browse`.
+- **Machine browse:** Renamed to `.machine-browse`; removed duplicate Haas logo; application-focused copy.
+- **Haas Relationship:** Added CTAs; eyebrow → shared `.eyebrow-row` + `.eyebrow`.
+- **News:** Removed Show More (pending news page); eyebrow → “From the Floor”.
+- **CTA / signup:** Trimmed cinema body; `.eyebrow--white`; signup → “Join Our Mailing List”.
+- **Cards:** All four link to `gerotech.com/machines` ↗.
+- **CSS:** Removed `.machine-dealer-header` / `.haas-dealer-brand`; white/gray section rhythm.
+- **Loose ends:** Hero slides 2–3 photos, stat claims, client assets — see `design-spec.md`.
+
 ## 2026-08-07 — Homepage design audit + design-spec sync (Cursor)
 - **Audit:** High-level homepage review — narrative flow, Haas repetition, hero/peek drift, duplicate logo, placeholders.
 - **Docs:** Rewrote `design-spec.md` homepage sections to match current build (peek hero, stat counter, Haas Relationship, 4-card machine browse, cinema CTA); added Figma node refs, removed sections, open cleanup table, Barlow Condensed + asset inventory.

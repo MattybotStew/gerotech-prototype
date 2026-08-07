@@ -28,11 +28,11 @@
           class="slide is-active"
           role="tabpanel"
           aria-label="Slide 1 of 3"
-          data-peek-eyebrow="Authorized Haas Factory Outlet"
+          data-peek-eyebrow="Gerotech"
           data-peek-title="The Haas Outlet for Michigan"
         >
           <!-- Figma 7046:872 — Haas Automation shop floor (VF-4 / VF-3 line) -->
-          <img class="slide__bg slide__bg--right" src="assets/images/hero-slide-01.jpg" alt="Training and showroom" loading="eager" fetchpriority="high" decoding="async" />
+          <img class="slide__bg slide__bg--right" src="assets/images/hero-slide-01.jpg" alt="Haas VF series machining centers on the Gerotech shop floor" loading="eager" fetchpriority="high" decoding="async" />
           <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
           <div class="slide__content slide__content--left">
             <p class="slide__eyebrow">Gerotech</p>
@@ -40,8 +40,8 @@
               The Haas Outlet<br />
               for Michigan.
             </h1>
-            <p class="slide__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations</p>
-            <a class="btn btn--primary" href="training.html">View Training Schedule</a>
+            <p class="slide__body">Michigan's authorized Haas Factory Outlet — sales, demos, application support, warranty, and factory-trained service from one team.</p>
+            <a class="btn btn--primary" href="#machine-browse">Explore the Haas Line</a>
           </div>
         </div>
         <div
@@ -49,7 +49,7 @@
           role="tabpanel"
           aria-label="Slide 2 of 3"
           data-peek-eyebrow="New Arrivals"
-          data-peek-title="Michigan's Haas"
+          data-peek-title="In-Stock &amp; Ready"
         >
           <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop" alt="Robotic automation on the shop floor" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
           <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
@@ -69,7 +69,7 @@
           role="tabpanel"
           aria-label="Slide 3 of 3"
           data-peek-eyebrow="Engineered Solutions"
-          data-peek-title="Automation Built"
+          data-peek-title="Automation for Michigan"
         >
           <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
           <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
@@ -127,9 +127,9 @@
          ============================================================ -->
     <section class="haas-relationship" aria-labelledby="haas-rel-headline">
       <div class="container">
-        <div class="haas-relationship__eyebrow">
-          <span class="haas-relationship__rule" aria-hidden="true"></span>
-          <p class="haas-relationship__eyebrow-text">The Haas Relationship</p>
+        <div class="eyebrow-row">
+          <span class="eyebrow-row__rule" aria-hidden="true"></span>
+          <p class="eyebrow">The Haas Relationship</p>
         </div>
 
         <div class="haas-relationship__intro">
@@ -199,35 +199,26 @@
             </div>
           </article>
         </div>
+
+        <div class="haas-relationship__actions">
+          <a class="btn btn--primary" href="#machine-browse">Browse Haas Machines</a>
+          <a class="btn btn--outline-dark" href="tel:+17343797788">Talk to an Engineer</a>
+        </div>
       </div>
     </section>
 
     <!-- ============================================================
          Machine browse — 4-card grid (Figma redesign)
          ============================================================ -->
-    <section class="intro-section" aria-labelledby="machine-browse-headline">
+    <section class="machine-browse" id="machine-browse" aria-labelledby="machine-browse-headline">
       <div class="container">
-        <div class="intro-section__machines" id="machine-browse">
-          <div class="machine-dealer-header">
-            <div class="machine-dealer-header__copy">
-              <p class="eyebrow">HAAS CNC Machinery</p>
-              <h2 id="machine-browse-headline" class="intro-section__machine-headline">Find the Right Machine for Your Application.</h2>
-              <p class="machine-dealer-header__lead">
-                Gerotech is Michigan's authorized Haas Factory Outlet. We sell, demo, and support the full
-                Haas line — mills, lathes, 5-axis machines, automation, and tooling.
-              </p>
-            </div>
-            <div class="haas-dealer-brand">
-              <img
-                class="haas-dealer-brand__logo"
-                src="assets/images/haas-logo.png"
-                alt="Haas Automation"
-                width="360"
-                height="240"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+        <div class="machine-browse__inner">
+          <div class="section-header">
+            <p class="eyebrow">Haas CNC Machinery</p>
+            <h2 id="machine-browse-headline" class="section-title">Find the Right Machine for Your Application.</h2>
+            <p class="machine-browse__lead">
+              Browse mills, lathes, 5-axis machines, and automation — matched to your parts, volume, and floor layout.
+            </p>
           </div>
 
           <div class="machine-cards">
@@ -279,7 +270,7 @@
                 <p class="machine-card__cat">Automation</p>
                 <h3 class="machine-card__title">Pallet & Robots</h3>
                 <p class="machine-card__models">FANUC Robots, Pallet Changers, Cobots</p>
-                <a class="machine-card__link" href="automation-integration.html">View Models ↗</a>
+                <a class="machine-card__link" href="https://gerotech.com/machines" target="_blank" rel="noopener noreferrer">View Models ↗</a>
               </div>
             </article>
           </div>
@@ -298,8 +289,8 @@
     <section class="news-section">
       <div class="container">
         <div class="section-header">
-          <p class="eyebrow">Stay Informed</p>
-          <h2 class="section-title">Latest Projects & News from the Floor</h2>
+          <p class="eyebrow">From the Floor</p>
+          <h2 class="section-title">Latest Projects &amp; News</h2>
         </div>
         <div class="news-section__list">
           <article class="news-card">
@@ -336,9 +327,7 @@
             <img class="news-card__thumb" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop" alt="Retrofit project" loading="lazy" decoding="async" />
           </article>
         </div>
-        <div class="news-more">
-          <a class="btn btn--outline-dark" href="about.html">Show More</a>
-        </div>
+        <!-- Show More: pending dedicated news page — client TBD -->
       </div>
     </section>
 
@@ -349,9 +338,9 @@
       <img class="cta-band__bg" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop" alt="Manufacturing and engineering collaboration" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
       <div class="cta-band__overlay" aria-hidden="true"></div>
       <div class="cta-band__content">
-        <p class="slide__eyebrow">Get Started</p>
+        <p class="eyebrow eyebrow--white">Get Started</p>
         <h2 class="cta-band__headline">Put Our Engineers to Work on Your Project</h2>
-        <p class="cta-band__body">Whether you're looking for a Haas CNC machine, automation, engineering expertise, or factory-trained support, our experienced team is ready to help. Tell us about your project, and we'll connect you with the right expert to move your operation forward.</p>
+        <p class="cta-band__body">From Haas CNC machines to automation and factory-trained support — tell us about your project and we'll connect you with the right expert.</p>
         <div class="cta-band__actions">
           <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Expert%20Inquiry">Engage with Us Today</a>
           <a class="btn btn--outline-white" href="tel:+17343797788">Talk to an Engineer</a>
@@ -365,8 +354,8 @@
     <section class="email-signup" aria-label="Mailing list signup">
       <div class="email-signup__inner">
         <div class="email-signup__copy">
-          <h2 class="email-signup__title">Stay in the Loop</h2>
-          <p class="email-signup__sub">Get the latest projects, news, and machine updates from Gerotech.</p>
+          <h2 class="email-signup__title">Join Our Mailing List</h2>
+          <p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
         </div>
         <form class="email-signup__form" action="#" method="post" novalidate>
           <label for="email-input" class="sr-only">Email address</label>

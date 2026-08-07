@@ -1,7 +1,7 @@
 # Gerotech Website Prototype — Design Spec
 
 **Presentation date:** July 7, 2026  
-**Last updated:** August 7, 2026 (homepage Figma pass)  
+**Last updated:** August 7, 2026 (homepage audit cleanup)  
 **Client:** Gerotech — CNC Machinery Distributor + Engineering Solutions, Michigan  
 **Build:** Static HTML/CSS/JS, no framework
 
@@ -112,10 +112,10 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 | 2 | Sticky header | `partials/site-header.html` | Logo · Machines ↗ · Engineered Solutions · Support ▼ · About ▼ · Get a Quote · Search |
 | 3 | Peek hero | `.hero-slider--peek` | 3 slides — see **Hero slides** below. Figma slide 1: `7046:872` |
 | 4 | Stat counter | `.stat-counter` | 37+, 4,000+, 12, #1 — hairline dividers, count-up animation. Figma: `7045:552` |
-| 5 | Haas Relationship | `.haas-relationship` | Eyebrow + split intro (copy left, Haas wordmark right) + 2×2 capability grid. Figma: `7047:904` |
-| 6 | Machine browse | `.intro-section` → `#machine-browse` | Dealer header + **4** machine category cards (not tabs). Cards 1–3 → `gerotech.com/machines`; card 4 → `automation-integration.html` |
+| 5 | Haas Relationship | `.haas-relationship` | Eyebrow (`.eyebrow-row`) + split intro + 2×2 grid + CTAs. Figma: `7047:904` |
+| 6 | Machine browse | `.machine-browse` `#machine-browse` | Section header + **4** machine cards. All cards → `gerotech.com/machines` ↗ |
 | 7 | Testimonials | `partials/testimonials-block.html` | Carousel, split photo + dark panel, 3 slides |
-| 8 | News feed | `.news-section` | 3 cards + **Show More** → `about.html` (placeholder — no news page yet) |
+| 8 | News feed | `.news-section` | 3 cards; Show More hidden pending news page |
 | 9 | CTA band | `.cta-band--cinema` | Centered copy on full-bleed photo; mailto + tel CTAs |
 | 10 | Email signup | `.email-signup` | Prototype thanks state on submit (`nav.js`) |
 | 11 | Footer | `partials/site-footer.html` | 4-column, wired internal links |
@@ -124,11 +124,11 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 
 | Slide | Eyebrow | Headline | CTA | Image |
 |-------|---------|----------|-----|-------|
-| 1 | Gerotech | The Haas Outlet for Michigan. | View Training Schedule → `training.html` | `assets/images/hero-slide-01.jpg` (Figma `7046:872`) |
+| 1 | Gerotech | The Haas Outlet for Michigan. | Explore the Haas Line → `#machine-browse` | `assets/images/hero-slide-01.jpg` (Figma `7046:872`) |
 | 2 | New Arrivals | Michigan's Haas Factory Outlet — In-Stock & Ready | Browse Inventory → `#machine-browse` | Unsplash stand-in |
 | 3 | Engineered Solutions | Automation Built for Michigan Shop Floors | Explore Solutions → `engineered-solutions.html` | Unsplash stand-in |
 
-Peek cards (bottom tabs) read `data-peek-eyebrow` / `data-peek-title` from each `.slide`. **Known drift:** slide 1 peek attrs still say “Authorized Haas Factory Outlet” while on-slide eyebrow is “Gerotech” — sync before client demo.
+Peek cards read `data-peek-eyebrow` / `data-peek-title` from each `.slide` (synced with on-slide copy as of 2026-08-07).
 
 ### Haas Relationship capability grid
 
@@ -164,14 +164,13 @@ Archived Excel 5-slide hero: `artifacts/homepage-hero-excel-5-slide.html`
 
 | Item | Status |
 |------|--------|
-| Duplicate Haas logo (Haas Relationship + machine browse header) | ⚠️ Remove from machine browse |
-| Hero slide 1: training copy vs shop-floor photo | ⚠️ Align story + alt text |
-| Peek `data-peek-*` vs on-slide copy (slide 1) | ⚠️ Sync |
 | Hero slides 2–3 Figma/client photos | ⚠️ Unsplash stand-ins |
-| News “Show More” destination | ⚠️ Placeholder → `about.html` |
 | Stat claims (#1 Midwest, 4,000+ machines) | ⚠️ Client sign-off |
-| `.intro-section` wrapper name | Legacy — rename to `.machine-browse` when refactoring |
-| `machine-tabs.js` | No longer loaded on homepage; kept for reference |
+| Dedicated news page + Show More link | ⚠️ Button removed until page exists |
+| Testimonial slides 2–3 client photos | ⚠️ Unsplash stand-ins |
+| Navigo Medium (500) in Adobe kit | ⚠️ Recommended for eyebrows/labels |
+| FANUC ASI above fold on homepage | ⚠️ Client decision — was in old trust strip |
+| `machine-tabs.js` | Legacy file — not loaded on homepage |
 
 **Figma file:** `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design)
 
@@ -223,7 +222,7 @@ Most images are **Unsplash stand-ins** (`<img>` tags with HTML comment crediting
 | File | Use |
 |------|-----|
 | `assets/images/hero-slide-01.jpg` | Hero slide 1 background (Figma `7046:872`) |
-| `assets/images/haas-logo.png` | Haas wordmark — Haas Relationship + machine browse header |
+| `assets/images/haas-logo.png` | Haas wordmark — Haas Relationship intro only |
 | `assets/images/icons/haas-rel-*.svg` | Haas Relationship capability icons (4) |
 | `assets/images/testimonial-shop-floor.png` | Testimonial slide 1 photo |
 | `assets/images/gerotech-logo.svg` / `gerotech-logo-white.svg` | Header / footer |

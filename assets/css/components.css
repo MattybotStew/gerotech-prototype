@@ -362,6 +362,24 @@
   color: var(--clr-orange);
 }
 
+/* Eyebrow + orange rule (Haas Relationship, etc.) */
+.eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+.eyebrow-row__rule {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--clr-orange);
+  flex-shrink: 0;
+}
+.eyebrow-row .eyebrow {
+  margin: 0;
+}
+
 /* ── Hero Slider (Figma — 560px, glassmorphism arrows, dot nav) ── */
 .hero-slider {
   position: relative;
@@ -3419,28 +3437,6 @@ img.mcs-gallery-card__image {
   background: var(--clr-white);
   padding-block: var(--sp-96);
 }
-.haas-relationship__eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0;
-}
-.haas-relationship__rule {
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--clr-orange);
-  flex-shrink: 0;
-}
-.haas-relationship__eyebrow-text {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: var(--fw-semibold);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--clr-orange);
-  margin: 0;
-}
 .haas-relationship__intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3556,9 +3552,18 @@ img.mcs-gallery-card__image {
   text-wrap: pretty;
   margin: var(--sp-12) 0 0;
 }
+.haas-relationship__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-16);
+  margin-top: var(--sp-64);
+}
 @media (max-width: 900px) {
   .haas-relationship {
     padding-block: var(--sp-64);
+  }
+  .haas-relationship__actions {
+    justify-content: center;
   }
   .haas-relationship__intro {
     grid-template-columns: 1fr;

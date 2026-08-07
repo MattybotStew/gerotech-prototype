@@ -127,7 +127,21 @@ body {
   line-height: 1.4;
 }
 
-/* ── Intro + machine browse ───────────────────────────────── */
+/* ── Machine browse (homepage) ─────────────────────────────── */
+.machine-browse .section-header {
+  margin-bottom: var(--sp-32);
+  max-width: 720px;
+}
+.machine-browse__lead {
+  margin: var(--sp-12) 0 0;
+  max-width: 62ch;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--clr-gray-body);
+  text-wrap: pretty;
+}
+
+/* Legacy intro-section (showroom + archived patterns) */
 .intro-section {
   background: linear-gradient(180deg, var(--clr-white) 0%, var(--clr-gray-card) 100%);
 }
@@ -145,57 +159,12 @@ body {
   margin-top: 0;
 }
 
-/* Haas dealer branding — homepage machine browse */
-.machine-dealer-header {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--sp-32);
-  margin-bottom: var(--sp-32);
-}
-
-.haas-dealer-brand {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-}
-
-.haas-dealer-brand__logo {
-  display: block;
-  width: 320px;
-  height: auto;
-  max-width: 100%;
-}
-
-.machine-dealer-header__copy {
-  flex: 1;
-  min-width: 0;
-}
-
-.machine-dealer-header__lead {
-  margin: var(--sp-12) 0 0;
-  max-width: 62ch;
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  color: var(--clr-gray-body);
-  text-wrap: pretty;
-}
-
 @media (max-width: 768px) {
-  .machine-dealer-header {
-    flex-direction: column;
-    align-items: center;
+  .machine-browse .section-header {
     text-align: center;
-    gap: var(--sp-20);
+    margin-inline: auto;
   }
-
-  .haas-dealer-brand {
-    margin-left: 0;
-  }
-
-  .machine-dealer-header__lead {
+  .machine-browse__lead {
     margin-inline: auto;
   }
 }
