@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Haas Relationship section + stat-counter Figma sync (Cursor)
+- **Stat counter (Figma 7045:552):** hairline column dividers + bottom rule; values Barlow Condensed 700 / 48px; labels 11px / 1.5px tracking; left-aligned columns.
+- **Homepage intro:** Removed Since 1987 text+image block. Replaced with **Haas Relationship** section (Figma 7045:583) — eyebrow, split headline/lede, hairline divider, 2×2 feature grid (Sales / Application Support / Warranty / Service & Parts).
+- **Assets:** Figma-exported icons in `assets/images/icons/haas-rel-*.svg` (cart, gear, shield, wrench).
+- **CSS:** `.haas-relationship*` in `components.css`; machine browse kept as separate `.intro-section` (margin-top cleared in `elevated.css`).
+- **Loose ends:** Uncommitted; browser MCP flaky this session — hard-refresh localhost:8080 for visual QA; not committed.
+
 ## 2026-08-07 — Barlow Condensed headline font + hero updates (Cline)
 - **Headline font swap:** `--font-display` → **Barlow Condensed** (Google Fonts, 500/600/700); `--font-sans` stays Navigo. Google Fonts link added to all 12 HTML files. Display weight 600 via override rule in components.css; hero exception 700 (bold). Display scale bumped ~25-28% (Barlow Condensed is narrower): `--fs-hero: clamp(40px, 8vw, 106px)`, `--fs-h1: clamp(34px, 4.5vw, 64px)`, `--fs-h2: clamp(30px, 2.6vw + 12px, 50px)`. Tracking loosened, leading tightened for condensed face.
 - **Hero text:** eyebrow → "Gerotech"; headline → "The Haas Outlet for Michigan." (106px bold, `pre-headline-font` tag = rollback point).

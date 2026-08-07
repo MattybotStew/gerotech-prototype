@@ -5,12 +5,16 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cline — Barlow Condensed headline font swap + hero updates)
-**Active Agent:** Cline
+**Last Updated:** 2026-08-07 (Cursor — Haas Relationship section + stat-counter Figma sync)
+**Active Agent:** Cursor
 **Branch:** `master`
-**Last Commit:** `a652914` — Hero eyebrow: 'Authorized Haas Factory Outlet' → 'Gerotech'
-**Uncommitted:** None (working tree clean)
+**Last Commit:** `933e276` — Move stat counter section directly under hero
+**Uncommitted:** Yes — `index.html`, `components.css`, `elevated.css`, `assets/images/icons/haas-rel-*.svg`, JOURNAL/.clinerules
 **Rollback point:** `pre-headline-font` tag — before headline font swap (was Navigo)
+
+### Latest homepage changes (this session)
+- **Stat counter:** matched Figma `7045:552` (dividers, bold numbers, label tracking)
+- **Since 1987 intro removed** → **Haas Relationship** section (Figma `7045:583`) above machine cards
 
 ### Current headline font: Barlow Condensed (Google Fonts)
 - **Display font:** `--font-display: 'Barlow Condensed'` — headlines only (hero, section titles, card titles, stat counter, etc.)

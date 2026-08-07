@@ -142,7 +142,7 @@ body {
 }
 
 .intro-section__machines {
-  margin-top: var(--section-y);
+  margin-top: 0;
 }
 
 /* Haas dealer branding — homepage machine browse */

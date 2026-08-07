@@ -123,44 +123,82 @@
     </section>
 
     <!-- ============================================================
-         Intro Section (Figma redesign — left text, right image)
+         Haas Relationship (Figma 7045:583) — replaces Since 1987 intro
          ============================================================ -->
-    <section class="intro-section">
+    <section class="haas-relationship" aria-labelledby="haas-rel-headline">
       <div class="container">
-        <div class="intro-section__grid">
-          <div class="intro-section__text">
-            <div class="intro-section__since">
-              <span class="intro-section__rule" aria-hidden="true"></span>
-              <span class="intro-section__since-label">Since 1987</span>
+        <div class="haas-relationship__eyebrow">
+          <span class="haas-relationship__rule" aria-hidden="true"></span>
+          <p class="haas-relationship__eyebrow-text">The Haas Relationship</p>
+        </div>
+
+        <div class="haas-relationship__intro">
+          <h2 id="haas-rel-headline" class="haas-relationship__headline">What being the authorized outlet means.</h2>
+          <p class="haas-relationship__lede">
+            Haas Automation runs an exclusive outlet model: one authorized partner per territory. In Michigan, that partner is Gerotech, and every part of the Haas ownership experience runs through one team.
+          </p>
+        </div>
+
+        <hr class="haas-relationship__divider" />
+
+        <div class="haas-relationship__grid">
+          <article class="haas-relationship__item">
+            <div class="haas-relationship__icon" aria-hidden="true">
+              <img src="assets/images/icons/haas-rel-sales.svg" alt="" width="18" height="18" />
             </div>
-            <h2 class="intro-section__headline">Michigan's Premier Distributor for CNC Machinery, Robotics, and Engineered Turnkey Solutions</h2>
-            <p class="intro-section__body">
-              Since 1987, Gerotech has sold CNC Machinery and Engineered Turnkey Solutions to manufacturers worldwide. We have sold Mills, Lathes, 5-Axis Machines along with Industrial and Collaborative Robotic Solutions. We do it through people who listen, respond, build, deliver, and support as committed partners in order to transform your manufacturing challenges into competitive advantages.
-            </p>
-            <a class="btn btn--outline-dark" href="about.html">Learn About Gerotech</a>
-          </div>
-          <div class="intro-section__image">
-            <div class="intro-section__image-frame intro-section__image-frame--product">
-              <img
-                src="assets/images/haas-umc-1000ss.png"
-                alt="Haas UMC-1000SS vertical machining center"
-                loading="lazy"
-                decoding="async"
-              />
+            <div class="haas-relationship__copy">
+              <p class="haas-relationship__label">01 · Sales</p>
+              <h3 class="haas-relationship__title">The full Haas line, one source.</h3>
+              <p class="haas-relationship__body">Mills, lathes, 5-axis machines, automation, and tooling — sold, demoed, and quoted directly through the factory outlet.</p>
             </div>
-          </div>
+          </article>
+
+          <article class="haas-relationship__item">
+            <div class="haas-relationship__icon" aria-hidden="true">
+              <img src="assets/images/icons/haas-rel-apps.svg" alt="" width="18" height="18" />
+            </div>
+            <div class="haas-relationship__copy">
+              <p class="haas-relationship__label">02 · Application Support</p>
+              <h3 class="haas-relationship__title">Factory-backed engineering.</h3>
+              <p class="haas-relationship__body">On-staff engineers match the right Haas machine to the job and prove out the process before it hits your floor.</p>
+            </div>
+          </article>
+
+          <article class="haas-relationship__item">
+            <div class="haas-relationship__icon" aria-hidden="true">
+              <img src="assets/images/icons/haas-rel-warranty.svg" alt="" width="18" height="18" />
+            </div>
+            <div class="haas-relationship__copy">
+              <p class="haas-relationship__label">03 · Warranty</p>
+              <h3 class="haas-relationship__title">Coverage owned locally.</h3>
+              <p class="haas-relationship__body">Warranty work is handled by the same outlet that sold the machine — no routing customers back to the factory.</p>
+            </div>
+          </article>
+
+          <article class="haas-relationship__item">
+            <div class="haas-relationship__icon" aria-hidden="true">
+              <img src="assets/images/icons/haas-rel-service.svg" alt="" width="18" height="18" />
+            </div>
+            <div class="haas-relationship__copy">
+              <p class="haas-relationship__label">04 · Service &amp; Parts</p>
+              <h3 class="haas-relationship__title">Factory-trained technicians.</h3>
+              <p class="haas-relationship__body">Certified Haas service, genuine parts, and training keep machines running across Flat Rock and Grand Rapids territories.</p>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
+    <!-- ============================================================
+         Machine browse — 4-card grid (Figma redesign)
+         ============================================================ -->
+    <section class="intro-section" aria-labelledby="machine-browse-headline">
       <div class="container">
-        <!-- ====================================================
-             MACHINE CARDS — 4-card grid (Figma redesign)
-             ==================================================== -->
         <div class="intro-section__machines" id="machine-browse">
           <div class="machine-dealer-header">
             <div class="machine-dealer-header__copy">
               <p class="eyebrow">HAAS CNC Machinery</p>
-              <h2 class="intro-section__machine-headline">Find the Right Machine for Your Application.</h2>
+              <h2 id="machine-browse-headline" class="intro-section__machine-headline">Find the Right Machine for Your Application.</h2>
               <p class="machine-dealer-header__lead">
                 Gerotech is Michigan's authorized Haas Factory Outlet. We sell, demo, and support the full
                 Haas line — mills, lathes, 5-axis machines, automation, and tooling.
@@ -232,7 +270,6 @@
               </div>
             </article>
           </div>
-
         </div>
       </div>
     </section>
