@@ -15,6 +15,10 @@
       this.total = this.slides.length;
       this.autoplayTimer = null;
       this.autoplayMs = this.isPeek ? 10000 : 6000;
+      this.remainingMs = this.autoplayMs;
+      this.segmentStartedAt = 0;
+      this.pointerInside = false;
+      this.focusInside = false;
 
       const prev = el.querySelector('.slider-arrow--prev');
       const next = el.querySelector('.slider-arrow--next');
@@ -28,11 +32,24 @@
         });
       });
 
-      // Pause autoplay while the user is reading or navigating the carousel
-      el.addEventListener('mouseenter', () => this.stopAutoplay());
-      el.addEventListener('mouseleave', () => this.startAutoplay());
-      el.addEventListener('focusin', () => this.stopAutoplay());
-      el.addEventListener('focusout', () => this.startAutoplay());
+      // Pause autoplay (and progress ring) while hovering or focusing the carousel
+      el.addEventListener('mouseenter', () => {
+        this.pointerInside = true;
+        this.stopAutoplay();
+      });
+      el.addEventListener('mouseleave', () => {
+        this.pointerInside = false;
+        if (!this.focusInside) this.startAutoplay();
+      });
+      el.addEventListener('focusin', () => {
+        this.focusInside = true;
+        this.stopAutoplay();
+      });
+      el.addEventListener('focusout', (e) => {
+        if (el.contains(e.relatedTarget)) return;
+        this.focusInside = false;
+        if (!this.pointerInside) this.startAutoplay();
+      });
 
       this.goTo(0);
       this.startAutoplay();
@@ -42,14 +59,83 @@
       return String(i + 1).padStart(2, '0');
     }
 
-    restartProgress() {
+    /** True when the timer + orange stroke should be running. */
+    canAutoplay() {
+      return !reducedMotion && !this.pointerInside && !this.focusInside;
+    }
+
+    /** Reset ring to empty idle state (no animation). */
+    clearProgress() {
       if (!this.indexBadge || !this.isPeek) return;
       this.indexBadge.classList.remove('is-progressing', 'is-paused');
+    }
+
+    /** Restart orange stroke from empty over the full autoplay interval. */
+    restartProgress() {
+      if (!this.indexBadge || !this.isPeek) return;
+      this.clearProgress();
       if (reducedMotion) return;
       this.indexBadge.style.setProperty('--hero-progress-ms', this.autoplayMs + 'ms');
       // Force reflow so the animation restarts cleanly
       void this.indexBadge.offsetWidth;
       this.indexBadge.classList.add('is-progressing');
+    }
+
+    startAutoplay() {
+      if (!this.canAutoplay()) {
+        // Hover/focus: keep ring empty or paused — do not start the timer
+        if (this.isPeek && this.indexBadge && !this.indexBadge.classList.contains('is-progressing')) {
+          this.clearProgress();
+        }
+        return;
+      }
+
+      clearTimeout(this.autoplayTimer);
+
+      const resuming =
+        this.remainingMs > 0 && this.remainingMs < this.autoplayMs;
+
+      if (resuming) {
+        if (this.indexBadge) this.indexBadge.classList.remove('is-paused');
+      } else {
+        this.remainingMs = this.autoplayMs;
+        this.restartProgress();
+      }
+
+      this.segmentStartedAt = performance.now();
+      this.autoplayTimer = setTimeout(() => {
+        this.remainingMs = this.autoplayMs;
+        this.segmentStartedAt = 0;
+        this.next();
+      }, this.remainingMs);
+    }
+
+    stopAutoplay() {
+      clearTimeout(this.autoplayTimer);
+      this.autoplayTimer = null;
+
+      if (this.segmentStartedAt) {
+        const elapsed = performance.now() - this.segmentStartedAt;
+        this.remainingMs = Math.max(0, this.remainingMs - elapsed);
+        this.segmentStartedAt = 0;
+      }
+
+      if (this.indexBadge) this.indexBadge.classList.add('is-paused');
+    }
+
+    /** Full restart after slide change (auto or manual). */
+    resetAutoplay() {
+      clearTimeout(this.autoplayTimer);
+      this.autoplayTimer = null;
+      this.segmentStartedAt = 0;
+      this.remainingMs = this.autoplayMs;
+
+      if (this.canAutoplay()) {
+        this.startAutoplay();
+      } else {
+        // Slide changed while paused — show empty ring until autoplay resumes
+        this.clearProgress();
+      }
     }
 
     renderPeeks() {
@@ -112,23 +198,6 @@
 
     prev() { this.goTo(this.current - 1); this.resetAutoplay(); }
     next() { this.goTo(this.current + 1); this.resetAutoplay(); }
-
-    startAutoplay() {
-      if (reducedMotion) return;
-      clearInterval(this.autoplayTimer);
-      this.autoplayTimer = setInterval(() => this.next(), this.autoplayMs);
-      this.restartProgress();
-    }
-
-    stopAutoplay() {
-      clearInterval(this.autoplayTimer);
-      if (this.indexBadge) this.indexBadge.classList.add('is-paused');
-    }
-
-    resetAutoplay() {
-      this.stopAutoplay();
-      this.startAutoplay();
-    }
   }
 
   document.querySelectorAll('.hero-slider').forEach(el => new HeroSlider(el));

@@ -2,6 +2,18 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Hero peek index autoplay progress ring (Cursor)
+- **Progress ring:** Orange SVG stroke on `.hero-slider__index` fills over peek autoplay (10s) via `stroke-dashoffset` + `--hero-progress-ms`.
+- **JS (`slider.js`):** `setTimeout` + remaining-time tracking so hover/focus pauses both timer and CSS animation (`is-paused`), then resumes; slide change (auto/manual) resets ring; `prefers-reduced-motion` skips autoplay + animation.
+- **CSS:** Explicit `from` keyframe; reduced-motion hides orange stroke, keeps static index + gray track.
+- **HTML:** No change (SVG scaffold already in `index.html`) — avoids conflicting with concurrent hero-slide-01 bg work.
+- **Loose ends:** Uncommitted; hard-refresh localhost:8080 to QA orange fill + pause on hover.
+
+## 2026-08-07 — Homepage hero slide 1 background from Figma (Cursor)
+- **Hero slide 1 bg:** Replaced `hero-training-showroom.jpg` with Figma export `assets/images/hero-slide-01.jpg` (node `7046:872` — Haas Automation shop floor / VF-4 line, JPEG 1328×784).
+- **HTML:** `index.html` first `.slide__bg` src → local asset; comment notes Figma node. Kept `slide__bg--right` (65% crop) + existing alt/loading attrs — Figma was plain `object-cover`; left-copy bias still fits this frame.
+- **Loose ends:** Uncommitted; slides 2–3 still Unsplash stand-ins.
+
 ## 2026-08-07 — Haas Relationship section + stat-counter Figma sync (Cursor)
 - **Stat counter (Figma 7045:552):** hairline column dividers + bottom rule; values Barlow Condensed 700 / 48px; labels 11px / 1.5px tracking; left-aligned columns.
 - **Homepage intro:** Removed Since 1987 text+image block. Replaced with **Haas Relationship** section (Figma 7045:583) — eyebrow, split headline/lede, hairline divider, 2×2 feature grid (Sales / Application Support / Warranty / Service & Parts).
