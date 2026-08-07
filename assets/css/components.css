@@ -11,7 +11,7 @@
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: var(--fw-medium);
-  padding: 6px var(--sp-16);
+  padding: 12px var(--sp-16);
   position: relative;
   z-index: 1001;
   transition: transform 0.25s ease, opacity 0.25s ease;
@@ -26,9 +26,11 @@
 .alert-banner__inner {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 36px;
   flex-wrap: wrap;
+  max-width: var(--max-home);
+  margin: 0 auto;
 }
 .alert-banner__item {
   display: flex;
@@ -36,12 +38,13 @@
   gap: var(--sp-8);
 }
 .alert-banner__label {
-  color: var(--clr-gray-muted);
+  color: var(--clr-white);
+  text-transform: uppercase;
 }
 .alert-banner__link {
   color: var(--clr-orange);
   text-decoration: none;
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-regular);
   transition: color var(--ease);
 }
 .alert-banner__link:hover {
@@ -124,6 +127,8 @@
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   padding: var(--sp-8) var(--sp-12);
   border-radius: var(--radius-btn);
   transition: background var(--ease), color var(--ease);
@@ -3146,4 +3151,135 @@ img.mcs-gallery-card__image {
   .machine-panel { grid-template-columns: 1fr; }
   .machine-panel__photo { min-height: 260px; }
   .machine-panel__body { padding: var(--sp-32) var(--sp-24); }
+}
+
+/* ── Machine Browse — Cards (Figma redesign: 4-card grid) ── */
+.machine-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-24);
+}
+.machine-card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-gray-border);
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--ease), transform var(--ease);
+}
+.machine-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+.machine-card__photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.machine-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.machine-card:hover .machine-card__photo img {
+  transform: scale(1.05);
+}
+.machine-card__body {
+  padding: var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  flex: 1;
+}
+.machine-card__cat {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+  color: var(--clr-orange);
+  margin: 0;
+}
+.machine-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  color: var(--clr-dark-bg);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h3);
+  margin: 0;
+}
+.machine-card__models {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--clr-gray-body);
+  margin: 0;
+}
+.machine-card__link {
+  margin-top: auto;
+  padding-top: var(--sp-8);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--fs-ui);
+  color: var(--clr-orange);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+.machine-card__link:hover {
+  color: var(--clr-orange-dark);
+}
+@media (max-width: 1024px) {
+  .machine-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .machine-cards { grid-template-columns: 1fr; }
+}
+
+/* ── Mega-nav — FANUC ASI CTA column (Figma redesign) ── */
+.mega-nav__col--cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+  padding: var(--sp-24);
+  background: var(--clr-dark-bg);
+  border-radius: 0;
+  min-width: 240px;
+}
+.mega-nav__cta-badge {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+  color: var(--clr-orange);
+  margin: 0;
+}
+.mega-nav__cta-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  color: var(--clr-white);
+  line-height: var(--lh-h2);
+  margin: 0;
+}
+.mega-nav__cta-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--clr-gray-muted);
+  margin: 0;
+}
+.mega-nav__cta-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--fs-ui);
+  color: var(--clr-orange);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+.mega-nav__cta-btn:hover {
+  color: var(--clr-orange-light);
 }
