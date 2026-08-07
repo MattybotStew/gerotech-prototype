@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-07 — Homepage Figma redesign + stat counter (Cline)
+- **Homepage redesign per Figma (node 7009:17 / home frame):** hero slide 1 → "Gerotech is the Front Door to Haas in Michigan"; intro → "Michigan's Premier Distributor for CNC Machinery, Robotics, and Engineered Turnkey Solutions"; machine tabs → **4-card grid**; removed award banner + trust strip; CTA → "Put Our Engineers to Work on Your Project"; email signup → "Stay in the Loop".
+- **Header:** FANUC ASI mega-menu column added; nav links UPPERCASE; top bar (`.alert-banner`) → white labels, space-between, 12px padding, 1200px container; factored Figma node 7009:79.
+- **Footer:** Machines col → EDM/Automation; Company col → News.
+- **Stat counter (node 7030:228):** new `.stat-counter` section (37+ / 4,000+ / 12 / #1) with count-up animation via `stat-counter.js`.
+- **Commits:** `d4954f1` (homepage redesign), `90cfe32` (stat counter) — both on `origin/master`.
+- **Rollback point:** tag **`pre-headline-font`** pushed — before trying a new headline font (current = Navigo). Roll back with `git reset --hard pre-headline-font`.
+
 ## 2026-08-07 — ES hub gateway layout (Cursor)
 - **Client (Tristien/Mike):** ES page redundant — mega menu + Why Explore links + filterable service grid all led to same content. Keep mega menu + Why→detail pages + trust strip; remove grid; emphasize FANUC.
 - **Removed:** Entire `#es-grid` What We Do section (filters, cards, guide) + `filter.js` from `engineered-solutions.html`.

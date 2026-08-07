@@ -5,11 +5,12 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cursor — ES hub gateway + FANUC featured)
-**Active Agent:** Cursor
+**Last Updated:** 2026-08-07 (Cline — homepage Figma redesign + stat counter)
+**Active Agent:** Cline
 **Branch:** `master`
-**Last Commit:** `cc6d4de` — Sync homepage and ES pages to approved content document
-**Uncommitted:** ES hub grid removed + FANUC featured band; peek-card homepage WIP + Excel artifact still pending from Aug 4
+**Last Commit:** `90cfe32` — Add stat counter section per Figma (37+, 4,000+, 12, #1) with count-up animation
+**Uncommitted:** None (working tree clean)
+**Rollback point:** `pre-headline-font` tag — before trying new headline font (current = Navigo)
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
