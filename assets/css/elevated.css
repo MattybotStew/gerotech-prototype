@@ -347,8 +347,7 @@ body {
 .trust-strip__label,
 .page-hero__breadcrumb,
 .service-card__category,
-.filter-tab,
-.site-nav__link {
+.filter-tab {
   font-weight: var(--fw-medium);
 }
 

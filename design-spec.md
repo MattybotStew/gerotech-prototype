@@ -235,7 +235,7 @@ Most images are **Unsplash stand-ins** (`<img>` tags with HTML comment crediting
 |------|-----|
 | `assets/images/hero-slide-01.jpg` | Hero slide 1 background (Figma `7046:872`) |
 | `assets/images/machine-milling-centers.png` | Machine lineup — Machining Centers panel (Figma `7043:223`) |
-| `assets/images/haas-logo.png` | Haas wordmark — Haas Relationship intro only |
+| `assets/images/haas-logo.svg` | Haas wordmark — Haas Relationship intro (Figma SVG) |
 | `assets/images/icons/haas-rel-*.svg` | Haas Relationship capability icons (4) |
 | `assets/images/testimonial-shop-floor.png` | Testimonial slide 1 photo |
 | `assets/images/gerotech-logo.svg` / `gerotech-logo-white.svg` | Header / footer |
@@ -301,7 +301,7 @@ gerotech-prototype/
     └── images/
         ├── gerotech-logo.svg
         ├── gerotech-logo-white.svg
-        ├── haas-logo.png
+        ├── haas-logo.svg
         ├── hero-slide-01.jpg
         ├── machine-milling-centers.png
         ├── testimonial-shop-floor.png
