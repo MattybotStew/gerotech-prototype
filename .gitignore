@@ -1,1 +1,9 @@
 .aider*
+
+# figma-pipeline generated artifacts
+figma-output.json
+src/figma/
+.env
+
+# dependencies
+node_modules/
