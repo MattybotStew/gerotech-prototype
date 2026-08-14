@@ -33,15 +33,27 @@ window.initNav = function () {
     var searchClose = searchModal.querySelector('.search-modal__close');
     var searchBackdrop = searchModal.querySelector('.search-modal__backdrop');
 
+    // Everything behind the modal becomes non-interactive (aria-modal contract)
+    var backgroundEls = [document.querySelector('#main'), document.querySelector('.site-header'), document.querySelector('.site-footer')];
+    function setBackgroundInert(inert) {
+      backgroundEls.forEach(function (el) {
+        if (!el) return;
+        if (inert) el.setAttribute('inert', '');
+        else el.removeAttribute('inert');
+      });
+    }
+
     function openSearch() {
       searchModal.hidden = false;
       document.body.classList.add('search-open');
+      setBackgroundInert(true);
       if (searchInput) searchInput.focus();
     }
 
     function closeSearch() {
       searchModal.hidden = true;
       document.body.classList.remove('search-open');
+      setBackgroundInert(false);
       searchBtn.focus();
     }
 
@@ -50,7 +62,31 @@ window.initNav = function () {
     if (searchBackdrop) searchBackdrop.addEventListener('click', closeSearch);
 
     searchModal.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeSearch();
+      if (e.key === 'Escape') {
+        closeSearch();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+
+      // Trap Tab / Shift+Tab inside the modal
+      var focusables = Array.prototype.filter.call(
+        searchModal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+        function (node) { return node.offsetParent !== null; } // only visible elements
+      );
+      if (!focusables.length) return;
+
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first || !searchModal.contains(document.activeElement)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (document.activeElement === last || !searchModal.contains(document.activeElement)) {
+        e.preventDefault();
+        first.focus();
+      }
     });
 
     searchModal.querySelectorAll('.search-modal__link').forEach(function (link) {

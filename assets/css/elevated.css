@@ -292,7 +292,7 @@ body {
 }
 
 .cta-band--cinema .slide__eyebrow::before {
-  margin-inline: auto;
+  margin-inline: 0;
 }
 
 /* ── Forms ────────────────────────────────────────────────── */

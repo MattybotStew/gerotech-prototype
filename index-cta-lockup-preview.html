@@ -3,13 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerotech — Michigan's Premier CNC Machinery Distributor</title>
+  <title>Gerotech — CTA Lockup Preview (homepage variant)</title>
   <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/elevated.css" />
+  <style>
+    /* ============================================================
+       EXPLORATORY PREVIEW — CTA "lockup" variant (Candidate 2, best-of-n)
+       Homepage-only. index.html + components.css are untouched.
+       Promote to components.css only if this design is adopted.
+       ============================================================ */
+    .cta-band--cinema-lockup {
+      min-height: clamp(480px, 62vh, 640px);
+    }
+    .cta-band--cinema-lockup .cta-band__bg {
+      object-position: center 42%;
+    }
+    .cta-band--cinema-lockup .cta-band__overlay {
+      background:
+        linear-gradient(180deg, rgba(13,13,13,0.05) 0%, rgba(13,13,13,0.15) 55%, rgba(13,13,13,0.88) 100%),
+        linear-gradient(100deg, rgba(13,13,13,0.94) 0%, rgba(13,13,13,0.76) 45%, rgba(13,13,13,0.38) 75%, rgba(13,13,13,0.16) 100%);
+    }
+    .cta-band--cinema-lockup .cta-band__content {
+      padding-block: var(--sp-96);
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: var(--sp-64);
+      align-items: center;
+    }
+    .cta-band--cinema-lockup .cta-band__copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--sp-20);
+      min-width: 0;
+    }
+    .cta-band--cinema-lockup .eyebrow-row .eyebrow {
+      margin: 0;
+    }
+    .cta-band--cinema-lockup .cta-band__headline {
+      max-width: 16ch;
+    }
+    .cta-band--cinema-lockup .cta-band__accent {
+      color: var(--clr-orange);
+    }
+    .cta-band--cinema-lockup .cta-band__rule {
+      display: block;
+      width: 56px;
+      height: 3px;
+      background: var(--clr-orange);
+    }
+    .cta-band--cinema-lockup .cta-band__body {
+      max-width: 46ch;
+    }
+    .cta-band--cinema-lockup .cta-band__actions {
+      margin-top: var(--sp-8);
+    }
+    .cta-band--cinema-lockup .cta-band__trust {
+      margin-top: var(--sp-8);
+    }
+    .cta-band--cinema-lockup .cta-band__call {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--sp-8);
+      padding: var(--sp-32);
+      background: rgba(13, 13, 13, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-top: 4px solid var(--clr-orange);
+      text-decoration: none;
+      transition:
+        background var(--ease),
+        border-color var(--ease);
+    }
+    .cta-band--cinema-lockup .cta-band__call:hover,
+    .cta-band--cinema-lockup .cta-band__call:focus-visible {
+      background: rgba(13, 13, 13, 0.72);
+      border-color: rgba(243, 138, 44, 0.6);
+    }
+    .cta-band--cinema-lockup .cta-band__call-label {
+      font-family: var(--font-sans);
+      font-size: var(--fs-caption);
+      font-weight: var(--fw-bold);
+      letter-spacing: var(--ls-caps);
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .cta-band--cinema-lockup .cta-band__call-number {
+      font-family: var(--font-display);
+      font-weight: var(--fw-bold);
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--clr-white);
+    }
+    .cta-band--cinema-lockup .cta-band__call:hover .cta-band__call-number,
+    .cta-band--cinema-lockup .cta-band__call:focus-visible .cta-band__call-number {
+      color: var(--clr-orange-light);
+    }
+    .cta-band--cinema-lockup .cta-band__call-note {
+      font-family: var(--font-sans);
+      font-size: var(--fs-ui);
+      line-height: var(--lh-body);
+      color: rgba(255, 255, 255, 0.86);
+      margin: 0;
+    }
+    @media (max-width: 1024px) {
+      .cta-band--cinema-lockup .cta-band__content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--sp-40);
+      }
+      .cta-band--cinema-lockup .cta-band__call {
+        max-width: 440px;
+      }
+    }
+    @media (max-width: 768px) {
+      .cta-band--cinema-lockup {
+        min-height: 0;
+      }
+      .cta-band--cinema-lockup .cta-band__content {
+        padding-block: var(--section-y-sm);
+      }
+    }
+    @media (max-width: 480px) {
+      .cta-band--cinema-lockup .cta-band__content {
+        padding-inline: var(--sp-20);
+        gap: var(--sp-32);
+      }
+      .cta-band--cinema-lockup .cta-band__actions .btn {
+        width: 100%;
+      }
+      .cta-band--cinema-lockup .cta-band__trust {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cta-band--cinema-lockup .cta-band__trust .model-tag {
+        justify-content: center;
+      }
+      .cta-band--cinema-lockup .cta-band__call {
+        max-width: none;
+        width: 100%;
+        padding: var(--sp-24);
+      }
+    }
+
+    /* ============================================================
+       Full-page accent system — extends the lockup language site-wide
+       .accent        → bright orange, for DARK surfaces (hero, dark bands)
+       .accent--deep  → accessible deep orange, for LIGHT surfaces
+       .headline-rule → short orange divider under a headline
+       ============================================================ */
+    .accent { color: var(--clr-orange); }
+    .accent--deep { color: var(--clr-orange-deep); }
+    .headline-rule {
+      display: block;
+      width: 56px;
+      height: 3px;
+      background: var(--clr-orange);
+      margin-top: var(--sp-16);
+    }
+    .headline-rule--deep { background: var(--clr-orange-deep); }
+
+    /* Testimonials — card grid (reuses the .testimonial-card component) */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-24);
+      list-style: none;
+      margin: var(--sp-48) 0 0;
+      padding: 0;
+    }
+    .testimonial-grid .testimonial-card {
+      background: var(--clr-white);
+    }
+    @media (max-width: 1024px) {
+      .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonial-grid .testimonial-card:last-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .testimonial-grid .testimonial-card:last-child { grid-column: auto; }
+    }
+  </style>
 </head>
 <body>
 
@@ -380,9 +558,33 @@
     </section>
 
     <!-- ============================================================
-         Testimonial Carousel
+         Testimonials — card grid (reuses the .testimonial-card component)
          ============================================================ -->
-    <div data-include="partials/testimonials-block.html"></div>
+    <section class="testimonial-section" aria-labelledby="testimonials-headline">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Testimonials</p>
+          <h2 id="testimonials-headline" class="section-title">Trusted by <span class="accent--deep">Michigan</span> Manufacturers</h2>
+        </div>
+        <ul class="testimonial-grid">
+          <li class="testimonial-card">
+            <p class="testimonial-card__quote">I have never had such consistent, quality customer support from a company and an overall great experience. Every contact has been timely, there has been good communication, friendly service, and each time they are happy to educate me along the way.</p>
+            <p class="testimonial-card__name">Michael Rudisill</p>
+            <p class="testimonial-card__sub">Gerotech Customer</p>
+          </li>
+          <li class="testimonial-card">
+            <p class="testimonial-card__quote">Gerotech's engineering team understood our retrofit requirements from the first conversation. The installed solution exceeded our cycle-time goals without disrupting existing production.</p>
+            <p class="testimonial-card__name">Plant Manager</p>
+            <p class="testimonial-card__sub">Automotive Supplier, Southeast Michigan</p>
+          </li>
+          <li class="testimonial-card">
+            <p class="testimonial-card__quote">From quote to commissioning, communication was clear and the technicians were professional. It is rare to get this level of support from a distributor and an integrator in one partner.</p>
+            <p class="testimonial-card__name">Operations Director</p>
+            <p class="testimonial-card__sub">Michigan Job Shop</p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
     <!-- ============================================================
          News Feed

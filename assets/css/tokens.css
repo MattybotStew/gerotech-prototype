@@ -9,6 +9,7 @@
   /* ── Brand Colors ─────────────────────────────────────── */
   --clr-orange:        #F38A2C;
   --clr-orange-light:  #F9A94A;
+  --clr-orange-deep:   #B45000;   /* accessible orange for text/icons on LIGHT surfaces (~5.1:1 on white) */
   --clr-ink:           #0D0D0D;
   --clr-dark-bg:       #1C1C21;
   --clr-dark-band:     #242426;

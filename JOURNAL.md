@@ -2,6 +2,18 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-14 — Site-wide design pass (Codewhale)
+- **Lockup CTA site-wide:** `.cta-band--cinema-lockup` (copy-left editorial + call card) promoted to components.css and applied to all 9 pages, each preserving its own copy. Careers/Support/Training keep their custom actions (no call card; copy spans full width).
+- **Accent system:** `.accent`/`.accent--deep`/`.headline-rule` added to components.css; orange accent words in hero/section headlines across pages (bright orange on dark, deep `--clr-orange-deep` on light).
+- **Testimonials:** shared partial converted from split-photo carousel to `.testimonial-card` grid (`.testimonial-grid` in layout.css); Homepage + ES now use it.
+- **Contrast:** new `--clr-orange-deep` (#B45000, ~5.1:1); buttons `.btn-get-quote`/`.btn--primary` → ink-on-orange; `.btn--outline-orange`, `.eyebrow`, card labels/links → deep orange on light surfaces; dark surfaces keep bright orange.
+- **A11y:** search modal focus trap (Tab/Shift+Tab) + background `inert` while open.
+- **CTA layout:** homepage cinema CTA → 1200px container, left-aligned.
+- **ES stat counter:** old `.stat-strip`/`.trust-strip` → homepage `.stat-counter` (37+/4,000+/12/#1).
+- **Kept as-is (decision):** About + Careers hero trust facts; showroom/hero-variations exploratory pages.
+- **Preview:** `index-cta-lockup-preview.html` committed as an exploratory lockup variant.
+- **Loose ends:** `--clr-gray-muted` (#9A9AA8, ~2.8:1) still low-contrast on light surfaces; 57 dead `href="#"` links; mega-menu hover labels on white still bright orange.
+
 ## 2026-08-07 — Merged `cursor/hero-bg-and-progress` → `master` (Cursor)
 - **Fast-forward** `a578b27..3ba1225` — hero peek/autoplay, Haas Relationship, audit cleanup, machine lineup.
 - **`master`** now synced with `origin/master`.

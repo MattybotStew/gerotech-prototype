@@ -5,15 +5,22 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-07 (Cursor — merged to master)
-**Active Agent:** Cursor
-**Branch:** `master` (synced with `origin/master` @ `3ba1225`)
-**Last Commit:** `3ba1225` — Replace machine cards with Figma tabbed lineup section.
+**Last Updated:** 2026-08-14 (Codewhale — site-wide design pass)
+**Active Agent:** Codewhale
+**Branch:** `master`
+**Last Commit:** site-wide lockup/accent/testimonial redesign
 **Uncommitted:** No
 
-### Latest homepage changes (this session)
-- **Machine lineup (7043:223):** Replaced 4-card grid with dark tabbed split panel; Figma photo for Machining Centers tab
-- **Audit cleanup (`9050b9f`):** Hero outlet story, duplicate Haas logo removed, copy/CTA tightening
+### 2026-08-14 session (Codewhale)
+- **Lockup CTA (site-wide):** `.cta-band--cinema-lockup` (copy-left + call card) added to components.css; applied to all 9 pages with per-page copy. Careers / Support / Training keep their own actions (no call card — full-width copy).
+- **Accent system:** `.accent` / `.accent--deep` / `.headline-rule` in components.css; orange accent words in hero + section headlines site-wide (bright orange on dark, deep orange on light).
+- **Testimonials:** shared partial converted from split-photo carousel to `.testimonial-card` grid (`.testimonial-grid` in layout.css); live on Homepage + Engineered Solutions.
+- **Contrast fixes:** added `--clr-orange-deep` token; `.btn-get-quote`/`.btn--primary` now ink-on-orange; `.btn--outline-orange`, eyebrows, and light-surface accent text use deep orange.
+- **A11y:** search modal traps focus (Tab/Shift+Tab) and makes background inert while open.
+- **CTA band:** homepage cinema CTA → 1200px, left-aligned text.
+- **ES stat counter:** replaced old `.stat-strip`/`.trust-strip` with homepage `.stat-counter` (37+/4,000+/12/#1).
+- **Decision:** About + Careers hero trust facts kept as-is (not converted to counter).
+- **Preview:** `index-cta-lockup-preview.html` — exploratory lockup variant, committed.
 
 ### Current headline font: Barlow Condensed (Google Fonts)
 - **Display font:** `--font-display: 'Barlow Condensed'` — headlines only (hero, section titles, card titles, stat counter, etc.)

@@ -223,6 +223,27 @@ button { cursor: pointer; }
   background: var(--clr-gray-band);
 }
 
+/* Testimonial card grid (site-wide) */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-24);
+  list-style: none;
+  margin: var(--sp-48) 0 0;
+  padding: 0;
+}
+.testimonial-grid .testimonial-card {
+  background: var(--clr-white);
+}
+@media (max-width: 1024px) {
+  .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonial-grid .testimonial-card:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial-grid .testimonial-card:last-child { grid-column: auto; }
+}
+
 /* ── News Section ─────────────────────────────────────────── */
 .news-section {
   background: var(--clr-white);
