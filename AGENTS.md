@@ -101,3 +101,5 @@ Figma is used via the **remote** MCP at `https://mcp.figma.com/mcp` — works in
 - ES wireframe node: `6217:425` · Homepage wireframe: `6218:10`
 
 **Note:** Local Dev Mode MCP (`http://127.0.0.1:3845/mcp`) only works with Figma **desktop** + Dev Mode MCP enabled. This machine uses **web Figma + remote MCP** instead — do not depend on `:3845`.
+
+@FIGMA.md

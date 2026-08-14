@@ -192,6 +192,17 @@ Before ending any session: update **Current Session State** above and prepend to
 
 ---
 
+## Figma (remote MCP — available in every editor)
+
+- **Server:** `https://mcp.figma.com/mcp` (remote MCP — no Figma desktop app, no local `:3845`)
+- **File key:** `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design) · ES wireframe node `6217:425` · Homepage wireframe `6218:10`
+- **Canonical doc:** `FIGMA.md` — read it for the full design-to-code flow and per-tool config
+- **Config committed:** `.mcp.json` (generic), `.cursor/mcp.json` + `.cursor/rules/figma.mdc` (Cursor), `.vscode/mcp.json` (VS Code)
+- **One-time per tool/machine:** connect Figma OAuth; enable **Share → MCP access** in the Figma file (one-time, shared)
+- **Workflow:** paste a frame/layer link with `node-id` → `get_design_context` → `get_screenshot` → implement in this repo's HTML/BEM/tokens (not React/Tailwind verbatim)
+
+---
+
 ## Project Context
 
 - **Client:** Gerotech — Michigan CNC machinery distributor, Haas Factory Outlet, est. 1987
