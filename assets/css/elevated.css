@@ -30,7 +30,7 @@ body {
   height: clamp(480px, 72vh, 640px);
 }
 .hero-slider--peek {
-  height: 75vh;
+  height: auto;
 }
 
 .slide__overlay--left {
@@ -338,7 +338,7 @@ body {
     height: clamp(440px, 85vh, 520px);
   }
   .hero-slider--peek {
-    height: 75vh;
+    height: auto;
   }
 }
 

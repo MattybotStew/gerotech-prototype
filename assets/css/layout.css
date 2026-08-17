@@ -504,7 +504,7 @@ button { cursor: pointer; }
 
   /* Hero */
   .hero-slider { height: 480px; }
-  .hero-slider--peek { height: 75vh; }
+  .hero-slider--peek { height: auto; }
 
 
   /* Layouts */
@@ -584,7 +584,7 @@ button { cursor: pointer; }
   :root { --section-y: var(--section-y-xs); }
 
   .hero-slider { height: 440px; }
-  .hero-slider--peek { height: 75vh; }
+  .hero-slider--peek { height: auto; }
   .slide__ph { padding: 32px 28px; }
 
   .btn { white-space: normal; }

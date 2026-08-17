@@ -2,6 +2,17 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-17 — Peek hero full-width at ≤900px (Figma 7094:5096) (Cursor)
+- **Figma:** `7094:5096` — tablet/mobile breakpoint; hero copy should span full viewport (24px inset only).
+- **Fix:** At `max-width: 900px`, removed `--max-home` / `16ch` / `--hero-copy-max` constraints on peek hero copy; peek-card band `width: 100%`.
+- **Loose ends:** Uncommitted. Figma MCP could not resolve node (file access limited).
+
+## 2026-08-17 — Homepage peek hero height (Figma 7094:5312) (Cursor)
+- **Figma:** `7094:5312` — slide 1 tabpanel; height hugs copy, not fixed viewport.
+- **Peek hero:** `.hero-slider--peek` → `height: auto`; active slide `position: relative` so track sizes to content. Copy block `padding-top/bottom: 100px`. Removed `75vh` overrides in `elevated.css` + `layout.css`.
+- **Mobile:** Bottom padding adds 96px clearance above peek-card band at ≤900px.
+- **Loose ends:** Uncommitted.
+
 ## 2026-08-17 — Responsive audit: Phases 4–7 (Cline, visual verification)
 - **Phase 4 (grid ladder):** `.grid-4` 4→2→1, `.grid-6`/`.partners-grid` 6→3→1, `.grid-2` collapse at 640 (was 480). `.haas-relationship__grid` 4→2×2 (≤1024, cross dividers)→1 (≤640). Added `min-width: 0` to all utility-grid items — fixes images/text forcing their track wider than the container.
 - **Phase 5 (hero alignment):** mobile heroes now stay left-aligned site-wide (`.slide__content--left` + `.page-hero__actions` at ≤768), matching the homepage peek; removed the interior-only center override.
