@@ -493,7 +493,7 @@ button { cursor: pointer; }
     padding-block: var(--sp-12);
   }
   .alert-banner__inner {
-    gap: var(--sp-16);
+    gap: var(--sp-8);
     justify-content: center;
   }
 
