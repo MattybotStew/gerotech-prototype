@@ -2,6 +2,51 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-17 — Testimonial card refresh (Cursor)
+- **Scope:** CSS-only refresh of `.testimonial-card` in components.css — shared partial `partials/testimonials-block.html` is unchanged, so Homepage + ES both pick it up.
+- **Added:** 48px orange top rule (`.headline-rule` motif) that widens to 88px on hover; oversized serif closing quote in `--clr-orange-tint` parked in the empty bottom-right corner (replaces the small inline `"` on `__quote::before`).
+- **Attribution:** hairline divider above the name; name now Barlow Condensed 20px (was Navigo 14px); role/company now an 11px uppercase micro-label with `--ls-meta` tracking. `__sub` gets `min-height: 2.7em` so a 2-line role (e.g. "Automotive Supplier, Southeast Michigan") doesn't push the divider out of line with the other cards.
+- **Layout:** card `gap` → 0 with explicit margins; `__quote` gets `flex: 1` so attributions bottom-align. Hover adds a 4px lift + orange-tinted border; `prefers-reduced-motion` disables the lift.
+- **Also:** `.testimonial-card` added to `animations.js` scroll-reveal targets (the old `.testimonial-split` target is stale since the carousel became a grid).
+- **Loose ends:** Uncommitted. Verified Homepage + ES at 1440px and 390px.
+
+## 2026-08-17 — Latest Projects & News redesign (Cursor)
+- **Layout:** Replaced 3 identical `.news-card` rows with editorial split — `.news-editorial` grid (1.08fr / 1fr): dark photo lead story + 3 numbered secondary rows (02–04).
+- **Lead story (`.news-feature`):** Full-bleed photo, 105deg left gradient + bottom scrim (matches hero/CTA band treatment), orange `.news-tag` chip, Barlow Condensed headline, and a 3-up outcome stat row (38% / FANUC / Turnkey) on a hairline rule.
+- **Secondary rows (`.news-item`):** Barlow Condensed index numerals (02/03/04, matching the Haas band `01 ·` motif), tinted `.news-tag--light` chips, 132×96 thumb; hover tints row, shifts padding, zooms thumb, turns index + title deep orange. `justify-content: space-between` aligns the column to the feature height.
+- **Added a 4th item** (Training — Macomb operator sessions) so the right column balances the lead card.
+- **Also:** `.news-feature` / `.news-item` added to `animations.js` scroll-reveal targets and to the elevated.css photography-cohesion rule; reduced-motion disables image zoom.
+- **Untouched:** `.news-card` styles remain (still used by engineered-solutions, showroom, preview pages).
+- **Loose ends:** Uncommitted. Story links still omitted pending the dedicated news page (client TBD) — no new dead `href="#"` added.
+
+## 2026-08-17 — Haas features band color invert (Cursor)
+- **7080:2240 band:** Inverted to white bg + dark text — `--clr-ink` titles, `--clr-gray-body` copy, `--clr-gray-muted` labels; icon tiles `--clr-gray-card` with black SVGs; dividers `rgba(0,0,0,0.08)`.
+- **Loose ends:** Uncommitted.
+
+## 2026-08-17 — Haas watermark stacking fix (Cursor)
+- **Layer split:** `.haas-relationship__bg` (watermark only, absolute inset 0, overflow hidden) + `.haas-relationship__content` (z-index 1) inside `__top`; `isolation: isolate` on top wrapper.
+- **Result:** Headline, lede, and Haas logo card render above 5% watermark; dark features band (`01 · Sales`, etc.) sits below with solid `--clr-ink` — no watermark bleed.
+- **Loose ends:** Uncommitted; preview localhost:8080.
+
+## 2026-08-17 — Haas Relationship features band (Figma 7080:2240) (Cursor)
+- **Section:** Dark 4-column capability grid (Sales / Application Support / Warranty / Service & Parts) — part of existing Haas Relationship block on homepage, not a new page.
+- **HTML:** Wrapped grid in `.haas-relationship__features` full-bleed band; removed `<hr class="haas-relationship__divider">`; CTAs moved to separate white `.container` below band.
+- **CSS:** `components.css` — 4-col grid, column dividers `rgba(255,255,255,0.1)`, icon wrappers 40px / 10% white bg / 4px radius, 24px white titles, 10px uppercase labels, 14px body; mobile stacks single column with row dividers.
+- **Assets:** Reused existing `assets/images/icons/haas-rel-*.svg` with `filter: brightness(0) invert(1)` for white-on-dark (no new SVG commits).
+- **Placement:** Homepage `index.html` — inside `.haas-relationship`, between intro split (7080:1405) and action buttons, above Machine Lineup.
+- **Loose ends:** Uncommitted; preview localhost:8080 — scroll to Haas Relationship section.
+
+## 2026-08-17 — Haas Relationship watermark behind copy (Cursor)
+- **Figma 7080:1405:** Repositioned Haas wordmark watermark — `position: absolute` inside `.haas-relationship__intro`, z-index 0 behind copy/brand; Figma left bleed (~-402px); section `overflow-x: clip` prevents horizontal scroll.
+- **Removed:** `haas-scroll-bg.js` parallax (user wanted static absolute, not scroll-driven transform).
+- **Headline:** Split line breaks + separate `accent--deep` on "authorized" / "outlet" per Figma.
+- **Loose ends:** Uncommitted; preview at localhost:8080 — Haas Relationship section.
+
+## 2026-08-17 — Haas Relationship scroll watermark (Cursor) [superseded]
+- **Figma 7080:1405:** Added parallax-scrolling Haas wordmark background to `.haas-relationship` — `haas-wordmark-watermark.svg` at 5% opacity, `haas-scroll-bg.js` ties horizontal drift to page scroll; respects `prefers-reduced-motion`.
+- **Headline:** Split line breaks + separate `accent--deep` on "authorized" / "outlet" per Figma.
+- **Loose ends:** Uncommitted; preview at localhost:8080 — scroll through Haas Relationship section to see drift.
+
 ## 2026-08-14 — Site-wide design pass (Codewhale)
 - **Lockup CTA site-wide:** `.cta-band--cinema-lockup` (copy-left editorial + call card) promoted to components.css and applied to all 9 pages, each preserving its own copy. Careers/Support/Training keep their custom actions (no call card; copy spans full width).
 - **Accent system:** `.accent`/`.accent--deep`/`.headline-rule` added to components.css; orange accent words in hero/section headlines across pages (bright orange on dark, deep `--clr-orange-deep` on light).

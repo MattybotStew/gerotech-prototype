@@ -357,6 +357,8 @@ body {
 .mcs-card__image,
 .mcs-gallery-card__image,
 .news-card__thumb,
+.news-feature__bg,
+.news-item__thumb,
 .intro-section__media img {
   object-fit: cover;
 }

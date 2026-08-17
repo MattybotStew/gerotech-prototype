@@ -5,13 +5,18 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-14 (Codewhale — site-wide design pass)
-**Active Agent:** Codewhale
+**Last Updated:** 2026-08-17 (Cursor — testimonial card refresh)
+**Active Agent:** Cursor
 **Branch:** `master`
 **Last Commit:** site-wide lockup/accent/testimonial redesign
-**Uncommitted:** No
+**Uncommitted:** Haas Relationship watermark + features band + stacking layers, News editorial redesign, testimonial card refresh
 
-### 2026-08-14 session (Codewhale)
+### 2026-08-17 session (Cursor)
+- **Haas features band invert:** 7080:2240 grid → white bg, dark ink titles, gray body/labels, black icons on `--clr-gray-card` tiles; hairline dividers `rgba(0,0,0,0.08)`.
+- **News redesign:** Homepage "Latest Projects & News" → `.news-editorial` split (dark photo lead `.news-feature` with stat row + numbered `.news-item` rows 02–04). Old `.news-card` styles kept for ES/showroom/preview pages. Story links still pending news page.
+- **Testimonial refresh:** `.testimonial-card` — orange top rule (widens on hover), serif quote watermark bottom-right, hairline divider + Barlow Condensed name + uppercase micro role label. CSS-only; shared partial untouched so Homepage + ES stay in sync.
+- **Haas Relationship features band:** Figma 7080:2240 — replaced 2×2 light grid + hr divider with full-bleed dark `.haas-relationship__features` (4 columns, vertical dividers, stacked icon/label/title/body); white icons via CSS filter on existing `haas-rel-*` SVGs; CTAs remain in white band below.
+- **Haas Relationship watermark:** Figma 7080:1405 — `haas-wordmark-watermark.svg` at 5% opacity, `position: absolute` inside `.haas-relationship__intro` behind copy/brand (z-index 0/1); Figma left bleed ~-402px; removed parallax `haas-scroll-bg.js`; headline line breaks + split accent per Figma.
 - **Lockup CTA (site-wide):** `.cta-band--cinema-lockup` (copy-left + call card) added to components.css; applied to all 9 pages with per-page copy. Careers / Support / Training keep their own actions (no call card — full-width copy).
 - **Accent system:** `.accent` / `.accent--deep` / `.headline-rule` in components.css; orange accent words in hero + section headlines site-wide (bright orange on dark, deep orange on light).
 - **Testimonials:** shared partial converted from split-photo carousel to `.testimonial-card` grid (`.testimonial-grid` in layout.css); live on Homepage + Engineered Solutions.
