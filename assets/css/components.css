@@ -1545,7 +1545,7 @@
 .email-signup__input {
   flex: 1;
   align-self: stretch;
-  padding: 13px 16px;
+  padding: 9px 14px;
   border: 1px solid var(--clr-gray-input);
   border-radius: var(--radius-btn);
   font-family: var(--font-sans);
@@ -1559,7 +1559,7 @@
   background: var(--clr-orange);
   color: var(--clr-white);
   border: none;
-  padding: 13px 22px;
+  padding: 9px 18px;
   border-radius: var(--radius-btn);
   font-family: var(--font-sans);
   font-size: 14px;

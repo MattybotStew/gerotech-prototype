@@ -744,6 +744,14 @@ body.search-open {
   overflow: hidden;
 }
 
+/* ── Email signup ─────────────────────────────────────────── */
+/* Slim the signup band — the shared --section-y (88px) block padding
+   is too tall for a compact form row. Override in elevated.css so it
+   beats the layout.css section rule (load order). */
+.email-signup {
+  padding-block: var(--sp-48);
+}
+
 /* ── Email signup thanks state ────────────────────────────── */
 .email-signup__thanks {
   margin: var(--sp-12) 0 0;
