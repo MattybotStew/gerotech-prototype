@@ -5,11 +5,33 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-17 (Cursor — testimonials/email signup sync + JS cleanup)
-**Active Agent:** Cursor
+**Last Updated:** 2026-08-17 (Cline — responsive audit, universal spacing)
+**Active Agent:** Cline
 **Branch:** `master`
 **Last Commit:** site-wide lockup/accent/testimonial redesign
-**Uncommitted:** Haas/news/testimonial/icon-tile refresh + site-wide sync + agent doc updates
+**Uncommitted:** Cursor WIP (Haas/news/testimonial/icon-tile + ES modal/lightbox + header fix) + Cline responsive spacing (Phases 1–3: single gutter source, unified 1200px container, `--section-y-lg`)
+
+### 2026-08-17 session (Cline — responsive audit · universal spacing, Phases 1–3)
+- **Full static responsive audit** — found "weird layouts" rooted in: (1) double horizontal gutter (48px vs 24px) where a `.container` is nested inside a padded section class; (2) mixed container widths per page (1200 vs 1120); (3) hardcoded `--sp-96` block padding on full-bleed bands ignoring the `--section-y` token.
+- **One gutter source:** removed `padding-inline: var(--sp-24)` from the `layout.css` section list; `.container` is now the single horizontal-gutter provider. Added `padding-inline: var(--sp-24)` to the `__inner` wrappers that don't use `.container` (why/es-grid/tech-partners/capability/credential/trust/email-signup). Fixed the 48px double-gutter bug on news, testimonials, mcs-grid (application/automation/MCS), and `.machine-lineup`.
+- **One container width:** `--max-es` 1120 → 1200 (unified to `--max-home`) so hero / stat-counter / body left edges align on interior pages.
+- **Token-driven vertical rhythm:** added `--section-y-lg: clamp(72px, 8.5vw, 120px)`; `.machine-lineup`, `.haas-relationship__top`, `.cta-band--cinema-lockup .cta-band__content` now use it (removed their hardcoded `--sp-96`/`--sp-64` + the fixed media overrides).
+- **Files:** `tokens.css`, `layout.css`, `components.css`. CSS brace-counts verified balanced.
+- **Remaining (not done):** Phase 4 breakpoint-ladder + grid-step consistency (grid-4/6, partners, haas features jump straight to 1-col), Phase 5 mobile hero alignment (homepage peek stays left, interior heroes center), Phase 6 legacy cleanup, Phase 7 Playwright screenshot pass at 360/768/1024/1440.
+- **Note:** working tree already had uncommitted Cursor WIP (modal.js, several HTML, docs) — left untouched, not committed.
+
+### 2026-08-17 session (Cursor — header responsive layout)
+- **Root cause:** `.site-header__inner` lacked `width: 100%` — on mobile the flex row shrink-wrapped (logo + hamburger) and centered in the viewport, so logo no longer aligned with `.container` left inset.
+- **Fix:** `width: 100%` on header + alert inners; alert bar horizontal padding unified to `var(--sp-24)` on inner (was 16px on banner). At ≤1000px hide desktop `<nav>` wrapper; hamburger gets `margin-left: auto`. ≤768px tighter header row + centered alert items; ≤480px slightly smaller logo.
+- **Files:** `components.css`, `layout.css`.
+
+### 2026-08-17 session (Cursor — header logo padding)
+- **`.site-header__inner`:** Added `padding-inline: var(--sp-24)` (was vertical-only) so logo aligns with `.container` / section rhythm; logo no longer flush to viewport left edge.
+
+### 2026-08-17 session (Cursor — ES detail UX)
+- **Figma `7009:58`:** Mobile contact bar (black/white/orange) — not a lightbox. Close + lightbox chrome uses that high-contrast treatment.
+- **`.mcs-modal__close`:** Ink disc, white X, white ring + shadow; orange hover. Top scrim on `.mcs-modal__img`. MCS / Application / Automation.
+- **Gallery lightbox:** `.mcs-gallery-card` opens `.gallery-lightbox` (arrows, keys, swipe, thumb scroller) via `modal.js`.
 
 ### 2026-08-17 session (Cursor — continued)
 - **Testimonials partial:** `partials/testimonials-block.html` — `.accent--deep` on "Michigan" + `.headline-rule--deep` under title (matches news section header pattern site-wide).

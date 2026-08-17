@@ -42,7 +42,6 @@ button { cursor: pointer; }
 .credential-band,
 .email-signup {
   padding-block: var(--section-y);
-  padding-inline: var(--sp-24);
 }
 .credential-band--featured {
   padding-block: clamp(72px, 10vw, 112px);
@@ -321,6 +320,7 @@ button { cursor: pointer; }
 .why-section__inner {
   max-width: var(--max-es);
   margin: 0 auto;
+  padding-inline: var(--sp-24);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--sp-64);
@@ -356,6 +356,7 @@ button { cursor: pointer; }
 .es-grid-section__inner {
   max-width: var(--max-es);
   margin: 0 auto;
+  padding-inline: var(--sp-24);
 }
 .es-grid-section__header {
   text-align: center;
@@ -417,6 +418,7 @@ button { cursor: pointer; }
 .tech-partners-section__inner {
   max-width: var(--max-es);
   margin: 0 auto;
+  padding-inline: var(--sp-24);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--sp-64);
@@ -460,13 +462,28 @@ button { cursor: pointer; }
 
 /* Full header needs ~975px — collapse to mobile nav before it crushes the logo */
 @media (max-width: 1000px) {
+  .site-header__inner > nav,
   .site-nav,
   .btn-get-quote,
   .header-search { display: none; }
-  .mobile-toggle { display: flex; }
+  .mobile-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+  .site-header__logo { margin-right: 0; }
 }
 
 @media (max-width: 768px) {
+  /* Header + alert bar — match container inset, tighter mobile row */
+  .site-header__inner {
+    gap: var(--sp-16);
+    padding-block: var(--sp-12);
+  }
+  .alert-banner__inner {
+    gap: var(--sp-16);
+    justify-content: center;
+  }
+
   /* Section rhythm scales down */
   :root { --section-y: var(--section-y-sm); }
 
@@ -534,7 +551,17 @@ button { cursor: pointer; }
 
 @media (max-width: 480px) {
   /* Alert banner: HQ number only on small phones */
+  .alert-banner { padding-block: 10px; }
+  .alert-banner__inner {
+    gap: var(--sp-8);
+    justify-content: center;
+  }
   .alert-banner__item:not(:first-child) { display: none; }
+
+  .site-header__inner {
+    padding-block: var(--sp-12);
+  }
+  .site-header__logo-img { height: 26px; }
 
   :root { --section-y: var(--section-y-xs); }
 

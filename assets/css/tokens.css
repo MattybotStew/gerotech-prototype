@@ -88,6 +88,9 @@
   --section-y:    88px;   /* desktop / tablet */
   --section-y-sm: 64px;   /* ≤768px */
   --section-y-xs: 56px;   /* ≤480px */
+  /* Full-bleed hero-adjacent bands (machine-lineup, haas top, cinema CTA).
+     Self-scaling clamp so these scale with the token system automatically. */
+  --section-y-lg: clamp(72px, 8.5vw, 120px);
 
   /* ── Border Radius ────────────────────────────────────── */
   --radius-btn:     8px;
@@ -106,7 +109,7 @@
 
   /* ── Layout ───────────────────────────────────────────── */
   --max-home: 1200px;    /* Figma: 1440px design, 120px side padding = 1200px content */
-  --max-es:   1120px;
+  --max-es:   1200px;    /* unified to --max-home so hero / stat-counter / body left edges align site-wide */
   --hero-copy-max: 820px; /* left-aligned hero headline + body column */
 
   /* ── Motion ───────────────────────────────────────────── */

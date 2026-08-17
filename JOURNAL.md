@@ -2,6 +2,36 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-17 — Responsive audit: universal spacing/padding (Cline, Phases 1–3)
+- **Static audit** (no browser automation available in plan mode — Playwright not installed). Root causes of the "weird layouts":
+  1. **Double horizontal gutter (48px vs 24px):** `.container` adds `padding-inline: 24px` AND the `layout.css` section class list adds another 24px. Sections that nest a `.container` (news, testimonials, mcs-grid, machine-lineup) got 48px mobile insets while `__inner` sections got 24px.
+  2. **Mixed container widths per page:** `--max-es` was 1120px while hero/stat-counter use 1200px — left edges didn't align on interior pages.
+  3. **Hardcoded vertical rhythm:** full-bleed bands used `--sp-96`/`--sp-64` block padding that ignored the `--section-y` token + its media scaling.
+- **Fixes (CSS-only, no markup):**
+  - Removed `padding-inline` from the `layout.css` section list; `.container` is the single gutter source. Added `padding-inline: var(--sp-24)` to `__inner` wrappers (why, es-grid, tech-partners, capability, credential, trust, email-signup).
+  - `--max-es` 1120 → 1200 (unified to `--max-home`).
+  - Added `--section-y-lg: clamp(72px, 8.5vw, 120px)`; applied to `.machine-lineup`, `.haas-relationship__top`, `.cta-band--cinema-lockup .cta-band__content`; removed the fixed media overrides that fought it.
+- **Files:** `assets/css/tokens.css`, `assets/css/layout.css`, `assets/css/components.css`. Brace counts balanced.
+- **Loose ends:** Phases 4–7 remain — grid-step/breakpoint consistency, mobile hero alignment consistency, legacy CSS cleanup, and a real Playwright screenshot pass at 360/768/1024/1440. Working tree already had uncommitted Cursor WIP (modal.js, HTML, docs) — not committed here.
+
+## 2026-08-17 — Header responsive layout fix (Cursor)
+- **Issue:** Logo appeared misaligned on mobile/tablet — header inner shrink-wrapped and centered instead of spanning full width; alert bar used 16px inset vs header/container 24px.
+- **Fix:** `width: 100%` on `.site-header__inner` + `.alert-banner__inner`; alert bar padding moved to inner (`padding-inline: var(--sp-24)`). Mobile breakpoint hides desktop `<nav>` wrapper, uses `margin-left: auto` on hamburger; tighter row padding + slightly smaller logo at ≤480px; alert bar centers at ≤768px.
+- **Files:** `assets/css/components.css`, `assets/css/layout.css`.
+- **Loose ends:** Uncommitted. Verify at ~1440 / 768 / 390px on localhost:8080 or :8899.
+
+## 2026-08-17 — Header logo left padding (Cursor)
+- **Issue:** Logo image flush to viewport left (`left: 0`); right-side header content appeared inset.
+- **Fix:** `.site-header__inner` horizontal padding `0` → `var(--sp-24)` to match `.container` and section `padding-inline`.
+- **File:** `assets/css/components.css` only.
+- **Loose ends:** Uncommitted. Browser MCP unavailable for live verify — refresh localhost:8080 to confirm.
+
+## 2026-08-17 — ES detail modal close + gallery lightbox (Cursor)
+- **Figma:** Pulled `7009:58` (Gerotech-Design). Node is the mobile contact bar (black / white / orange) — not a lightbox. No gallery lightbox exists in that frame, so chrome matches that high-contrast treatment rather than inventing a conflicting overlay.
+- **Close X:** `.mcs-modal__close` is now a 40px ink disc, white glyph, 2px white ring + shadow so it stays visible on light or dark card photos; orange/ink on hover. Top-of-image scrim on `.mcs-modal__img`. Applies to MCS, Application, Automation detail windows.
+- **Gallery lightbox:** Clicking `.mcs-gallery-card` opens a full-screen viewer (arrows, keyboard, swipe, scrollable orange-accent thumbs). Wired in `modal.js`; CSS in `components.css`. Same three ES detail pages.
+- **Loose ends:** Uncommitted. Figma `7009:58` is not the MCS/gallery page — confirm if a dedicated lightbox frame exists.
+
 ## 2026-08-17 — Testimonials + email signup site-wide sync (Cursor)
 - **Testimonials partial:** Added `.accent--deep` on "Michigan" + `.headline-rule--deep` under title in `partials/testimonials-block.html` — all pages pick up via include.
 - **Email signup:** Unified title/copy to match homepage (`Join Our Mailing List` with accent). Added missing section to Application + MCS.
