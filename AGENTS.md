@@ -31,7 +31,54 @@ CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC mac
 - **Hero pattern (homepage + all interior pages):** full-bleed photo, left gradient overlay (`105deg`), left-aligned copy; centers on mobile ≤768px
 - **Interior hero:** All sub-pages use **`.page-hero`** — same markup as homepage hero slide (`slide__bg`, `slide__overlay--left`, `slide__content--left`). Per-page photo via `<img src>` in HTML.
 - **CTA bands:** `.cta-band--photo` — same left-aligned photo treatment as hero
+- **CTA lockup (site-wide):** `.cta-band--cinema-lockup` — copy-left + optional call card; Careers / Support / Training omit the call card
 - See `design-spec.md` and `cline-project-handoff.md` for full project context
+
+## Design directions (2026-08-17)
+
+Homepage and shared components use an editorial, numbered-row system with inverted light bands and photo-led cards. **Do not revert** these patterns without explicit client direction.
+
+### Accent + section headers
+- Orange accent words in headlines: `.accent` on dark surfaces, `.accent--deep` on light
+- Short orange rule under titles: `.headline-rule` / `.headline-rule--deep` (48px bar — same motif on testimonial card tops)
+- Eyebrows: uppercase Navigo, `--ls-meta` tracking; deep orange on light sections
+- **Applied site-wide:** the section-header accent/rule system (accent word + headline-rule under `section-title`) now runs on Homepage + all 8 interior pages (ES, MCS, Automation, Application, Training, Support, About, Careers). Keep new section titles on the pattern. `.headline-rule--deep` on light (white/gray) sections.
+
+### Haas Relationship (Figma `7080:1405` intro · `7080:2240` features)
+- Section: `.haas-relationship` — eyebrow row, intro copy, features band, CTAs
+- **Watermark:** `assets/images/haas-wordmark-watermark.svg` at ~5% opacity inside `.haas-relationship__bg`; visible copy in `.haas-relationship__content` with `isolation: isolate` + z-index so intro/brand sit **above** the watermark. Watermark is **static** (`position: absolute`) behind intro only — not the features band. Section uses `overflow-x: clip`. No parallax.
+- **Features band:** `.haas-relationship__features` — **inverted light treatment:** white bg, `--clr-ink` titles, `--clr-gray-body` copy, `--clr-gray-muted` labels. Icon tiles on `--clr-gray-card` with black SVGs (CSS filter). Vertical hairline dividers `rgba(0,0,0,0.08)`. Four columns numbered `01 ·`–`04 ·`.
+
+### Latest Projects & News (homepage + ES editorial)
+- Class: `.news-section--editorial` → `.news-editorial` grid (`1.08fr / 1fr`)
+- **Lead story:** `.news-feature` — full-bleed photo, 105° left gradient + bottom scrim (matches hero/CTA), orange `.news-tag`, Barlow headline, 3-up stat row on hairline rule
+- **Secondary rows:** `.news-list` → numbered `.news-item` (index `02`–`04`), `.news-tag--light` chips, 132×96 thumb; hover tints row and turns index/title deep orange
+- **Scope (2026-08-17 session):** editorial split live on Homepage **and** Engineered Solutions (ES converted from legacy `.news-card`). Legacy `.news-card` styles remain in CSS for showroom/preview pages — do not remove.
+- Story links omitted until dedicated news page (client TBD) — no dead `href="#"`
+
+### Testimonials (shared partial)
+- Partial: `partials/testimonials-block.html` — Homepage, Engineered Solutions, **and all interior pages** (MCS, Automation, Application, Training, Support, About, Careers) via `<div data-include>` placed before each CTA band
+- Layout: `.testimonial-grid` (3 → 2+1 → 1 col in `layout.css`), **not** the old split-photo carousel
+- Card: `.testimonial-card` — orange top rule (widens on hover), oversized serif closing quote in `--clr-orange-tint` bottom-right, hairline divider above attribution, Barlow Condensed name (20px), uppercase micro role label (11px, `--ls-meta`). Hover: 4px lift + orange-tinted border. `prefers-reduced-motion` disables lift.
+- Scroll reveal: `.testimonial-card` in `animations.js` targets
+
+### Typography
+- **Display:** Barlow Condensed (`--font-display`) — section titles, card titles, stat numerals, testimonial names, news index numerals
+- **Body/UI:** Navigo (`--font-sans`) — paragraphs, labels, buttons
+- Buttons: uppercase + 0.05em letter-spacing
+
+### Photography + motion
+- Photo cards: left gradient overlay at 105°, bottom scrim where needed
+- Card image zoom on hover; disabled under `prefers-reduced-motion`
+- `elevated.css` photography cohesion includes `.news-feature__bg`, `.news-item__thumb` with hero/CTA images
+
+### Figma reference nodes (Gerotech-Design `YgHwqyyFj57c1ZSbmfkL0c`)
+| Area | Node |
+|------|------|
+| Haas Relationship intro + watermark | `7080:1405` |
+| Haas features band (inverted) | `7080:2240` |
+| Homepage wireframe | `6218:10` |
+| ES wireframe | `6217:425` |
 
 ## Pages (11 HTML)
 
@@ -49,7 +96,7 @@ CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC mac
 | Showroom | `showroom.html` (exploratory) |
 | Hero variations | `hero-variations.html` (exploratory) |
 
-Shared partials: `partials/site-header.html`, `partials/site-footer.html`
+Shared partials: `partials/site-header.html`, `partials/site-footer.html`, `partials/testimonials-block.html`
 
 ## Session continuity
 
@@ -98,6 +145,7 @@ Figma is used via the **remote** MCP at `https://mcp.figma.com/mcp` — works in
 
 **Gerotech file keys (reference):**
 - File: `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design)
+- Haas Relationship intro: `7080:1405` · Haas features band: `7080:2240`
 - ES wireframe node: `6217:425` · Homepage wireframe: `6218:10`
 
 **Note:** Local Dev Mode MCP (`http://127.0.0.1:3845/mcp`) only works with Figma **desktop** + Dev Mode MCP enabled. This machine uses **web Figma + remote MCP** instead — do not depend on `:3845`.

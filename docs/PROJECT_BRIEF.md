@@ -6,7 +6,7 @@
 
 Static HTML/CSS/JS **presentation prototype** for **Gerotech, Inc.** — Michigan-based CNC machinery distributor & engineering solutions provider (serving manufacturers since 1987). Built for the **July 7, 2026** client presentation.
 
-**Current stage: Presentation-ready prototype (2026-07-14).** Real copy, Navigo typography, Unsplash photo stand-ins, functional interactions (hero slider, ES filter, modals, search modal, machine tabs). Logo SVGs in repo. WordPress is the production target.
+**Current stage: Presentation-ready prototype (2026-08-17).** Barlow Condensed + Navigo typography, Unsplash photo stand-ins, functional interactions (hero slider, ES filter, modals, search modal, machine tabs). Homepage refreshed: Haas Relationship, editorial news, testimonial card grid. **Design directions:** `AGENTS.md` → Design directions (2026-08-17).
 
 **Live site:** https://gerotech.com/ (WordPress — reference only; prototype is ahead of live ES hub)
 
@@ -18,7 +18,7 @@ Static HTML/CSS/JS **presentation prototype** for **Gerotech, Inc.** — Michiga
 
 | Page | File | Status |
 |------|------|--------|
-| Homepage | `index.html` | ✅ Hero slider (3 slides), trust strip, category cards, machine tabs, testimonials, news |
+| Homepage | `index.html` | ✅ Hero slider, stat counter, Haas Relationship, machine lineup, testimonial grid, editorial news |
 | Engineered Solutions | `engineered-solutions.html` | ✅ Full hub: stats, grid, FANUC band, tech partners, capability cards, trust FAQ |
 | Machine Custom Solutions | `machine-custom-solutions.html` | ✅ Photo hero, 8 service cards, Installed Projects gallery, modals |
 | Automation & Controls | `automation-integration.html` | ✅ Photo hero, services, Installed Projects gallery, modals |
@@ -30,7 +30,7 @@ Static HTML/CSS/JS **presentation prototype** for **Gerotech, Inc.** — Michiga
 | Showroom | `showroom.html` | 🔵 Exploratory variant page |
 | Hero variations | `hero-variations.html` | 🔵 Exploratory layout tests |
 
-Shared: `partials/site-header.html`, `partials/site-footer.html`
+Shared: `partials/site-header.html`, `partials/site-footer.html`, `partials/testimonials-block.html`
 
 ## Architecture
 

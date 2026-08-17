@@ -1,9 +1,10 @@
 # Gerotech Website Prototype — Design Spec
 
 **Presentation date:** July 7, 2026  
-**Last updated:** August 7, 2026 (homepage audit cleanup)  
+**Last updated:** August 17, 2026 (homepage Haas/news/testimonial refresh)  
 **Client:** Gerotech — CNC Machinery Distributor + Engineering Solutions, Michigan  
-**Build:** Static HTML/CSS/JS, no framework
+**Build:** Static HTML/CSS/JS, no framework  
+**Agent design directions:** `AGENTS.md` → **Design directions (2026-08-17)**
 
 ---
 
@@ -78,7 +79,7 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 | Applications | CNC machining |
 | Automation & Controls | Robotics |
 
-**CTA bands:** Interior pages use `.cta-band--photo` (left-aligned). Homepage closing CTA uses `.cta-band--cinema` (centered on full-bleed photo).
+**CTA bands:** Interior pages use `.cta-band--photo` (left-aligned). Homepage + most pages use `.cta-band--cinema-lockup` (copy-left lockup + optional call card on full-bleed photo).
 
 ## Primary CTA destinations (prototype)
 
@@ -112,11 +113,11 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 | 2 | Sticky header | `partials/site-header.html` | Logo · Machines ↗ · Engineered Solutions · Support ▼ · About ▼ · Get a Quote · Search |
 | 3 | Peek hero | `.hero-slider--peek` | 3 slides — see **Hero slides** below. Figma slide 1: `7046:872` |
 | 4 | Stat counter | `.stat-counter` | 37+, 4,000+, 12, #1 — hairline dividers, count-up animation. Figma: `7045:552` |
-| 5 | Haas Relationship | `.haas-relationship` | Eyebrow (`.eyebrow-row`) + split intro + 2×2 grid + CTAs. Figma: `7047:904` |
+| 5 | Haas Relationship | `.haas-relationship` | Eyebrow + intro (watermark `7080:1405`) + inverted white features band (`7080:2240`, numbered `01 ·`–`04 ·`) + CTAs |
 | 6 | Machine lineup | `.machine-lineup` `#machine-browse` | Dark section — 5 tabs + split panel (Figma `7043:223`). Default tab: Vertical Mills |
-| 7 | Testimonials | `partials/testimonials-block.html` | Carousel, split photo + dark panel, 3 slides |
-| 8 | News feed | `.news-section` | 3 cards; Show More hidden pending news page |
-| 9 | CTA band | `.cta-band--cinema` | Centered copy on full-bleed photo; mailto + tel CTAs |
+| 7 | Testimonials | `partials/testimonials-block.html` | `.testimonial-grid` — 3 refreshed `.testimonial-card`s (orange top rule, quote watermark); Homepage + ES |
+| 8 | News feed | `.news-section--editorial` | `.news-editorial` split — photo lead `.news-feature` + numbered `.news-item` rows 02–04; `.news-card` legacy on ES/showroom |
+| 9 | CTA band | `.cta-band--cinema-lockup` | Copy-left lockup + optional call card on full-bleed photo; mailto + tel CTAs |
 | 10 | Email signup | `.email-signup` | Prototype thanks state on submit (`nav.js`) |
 | 11 | Footer | `partials/site-footer.html` | 4-column, wired internal links |
 
@@ -130,7 +131,11 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 
 Peek cards read `data-peek-eyebrow` / `data-peek-title` from each `.slide` (synced with on-slide copy as of 2026-08-07).
 
-### Haas Relationship capability grid
+### Haas Relationship capability grid (Figma `7080:2240` — inverted light band)
+
+Full-bleed **white** `.haas-relationship__features` band: dark ink titles, gray body copy, muted labels. Icon tiles on `--clr-gray-card` with black SVGs. Vertical hairline dividers `rgba(0,0,0,0.08)`.
+
+Intro area (Figma `7080:1405`): static Haas wordmark watermark at ~5% opacity behind copy only — layered via `.haas-relationship__bg` / `.haas-relationship__content`.
 
 | # | Label | Title |
 |---|-------|-------|
@@ -139,7 +144,7 @@ Peek cards read `data-peek-eyebrow` / `data-peek-title` from each `.slide` (sync
 | 03 | Warranty | Coverage owned locally. |
 | 04 | Service & Parts | Factory-trained technicians. |
 
-Icons: `assets/images/icons/haas-rel-{sales,apps,warranty,service}.svg`
+Icons: `assets/images/icons/haas-rel-{sales,apps,warranty,service}.svg` · Watermark: `assets/images/haas-wordmark-watermark.svg`
 
 ### Machine lineup tabs (Figma 7043:223)
 
@@ -295,7 +300,7 @@ gerotech-prototype/
     │   ├── stat-counter.js     ← Homepage stat count-up
     │   ├── filter.js           ← ES grid filter tabs
     │   ├── animations.js       ← Scroll reveal
-    │   ├── testimonials.js     ← Homepage + ES carousels
+    │   ├── testimonials.js     ← Legacy carousel (grid partial no longer uses it)
     │   ├── machine-tabs.js     ← Homepage machine lineup tabs
     │   └── modal.js            ← MCS / Automation card modals
     └── images/

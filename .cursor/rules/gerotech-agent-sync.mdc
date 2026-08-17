@@ -31,6 +31,15 @@ Also useful: `AGENTS.md`, `design-spec.md`, `docs/PROJECT_BRIEF.md`, `cline-proj
 - Interior heroes: all sub-pages **`.page-hero`** (homepage slide pattern); per-page `<img class="slide__bg">` in HTML
 - Never guess open client decisions
 
+## Design directions (2026-08-17 — do not drift)
+
+- **Accent system:** `.accent` / `.accent--deep` in headlines; `.headline-rule` under section titles (48px orange bar)
+- **Haas Relationship:** watermark in `.haas-relationship__bg` (static, intro only); features band inverted white + dark text (`7080:2240`); numbered `01 ·`–`04 ·` columns
+- **News (homepage):** `.news-editorial` split — photo lead `.news-feature` + numbered `.news-item` rows; keep `.news-card` on ES/showroom
+- **Testimonials:** `partials/testimonials-block.html` → `.testimonial-grid` + refreshed `.testimonial-card` (orange top rule, quote watermark, Barlow name); not carousel
+- **Display type:** Barlow Condensed for headlines/card titles/numerals; Navigo for body/UI
+- **Figma nodes:** Haas intro `7080:1405`, features `7080:2240` — full detail in `AGENTS.md` → Design directions
+
 ## Local preview
 
 Run **Tasks: Run Task → Serve Gerotech (8080)** or `python3 -m http.server 8080` from repo root.

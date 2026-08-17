@@ -5,11 +5,18 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-17 (Cursor — testimonial card refresh)
-**Active Agent:** Cursor
+**Last Updated:** 2026-08-17 (Cline — design system propagated site-wide)
+**Active Agent:** Cline
 **Branch:** `master`
 **Last Commit:** site-wide lockup/accent/testimonial redesign
-**Uncommitted:** Haas Relationship watermark + features band + stacking layers, News editorial redesign, testimonial card refresh
+**Uncommitted:** Design system propagated to all interior pages (section-header accents, headline-rules, stat counters, testimonials, ES editorial news) + agent doc updates
+
+### 2026-08-17 session (Cline)
+- **Section-header accent system site-wide:** Added `.accent--deep` accent words + `.headline-rule--deep` under every `section-title` on ES, MCS, Automation, Application, Training, Support, About, Careers (was homepage-only). Light sections use `.accent--deep` / `.headline-rule--deep`.
+- **ES news → editorial split:** Engineered Solutions "Latest Projects & News" converted from legacy `.news-section--split`/`.news-card` to the homepage's `.news-section--editorial` / `.news-editorial` (photo lead + numbered rows 02–04). No orphaned legacy classes.
+- **Stat counters added:** MCS, Automation, Application now include the `.stat-counter` band (37+/4,000+/12/#1) after their hero + wired `stat-counter.js`. About/Careers keep `.page-hero-trust` (existing decision); Training/Support unchanged.
+- **Testimonials site-wide:** shared `partials/testimonials-block.html` included before the CTA band on MCS, Automation, Application, Training, Support, About, Careers (was homepage + ES only).
+- **Verified:** all 9 pages serve 200; all edited HTML tag-balanced (err=0); editorial/news CSS classes present.
 
 ### 2026-08-17 session (Cursor)
 - **Haas features band invert:** 7080:2240 grid → white bg, dark ink titles, gray body/labels, black icons on `--clr-gray-card` tiles; hairline dividers `rgba(0,0,0,0.08)`.
@@ -37,12 +44,16 @@
 - **Hero text:** eyebrow "Gerotech", headline "The Haas Outlet for Michigan." (106px bold)
 - **Header:** L/R padding removed; hero content container 1200px centered (`--max-home`)
 - **Homepage:** Figma redesign (hero/intro/machine cards/CTA/email signup) + stat counter (37+, 4,000+, 12, #1) + FANUC ASI mega-menu + top bar + footer updates
+- **Haas Relationship (2026-08-17):** Figma `7080:1405`/`7080:2240` — static watermark behind intro (`.haas-relationship__bg` / `__content` layering); inverted white features band with numbered `01 ·`–`04 ·` columns
+- **News (2026-08-17):** Homepage `.news-editorial` split (`.news-feature` lead + numbered `.news-item` rows); `.news-card` legacy on ES/showroom
+- **Testimonials (2026-08-17):** Shared partial → `.testimonial-grid` + refreshed `.testimonial-card` (orange top rule, quote watermark, Barlow name) — not carousel
+- **Accent system:** `.accent` / `.accent--deep` / `.headline-rule` site-wide in section headlines
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
 - **Hero system:** Homepage `.hero-slider` + all interior pages use unified `.page-hero` (same markup as homepage slide: `slide__bg`, `slide__overlay--left`, `slide__content--left`)
 - **CTA bands:** `.cta-band--photo` matches hero (left-aligned, per-page Unsplash bg)
-- **Homepage:** Trust strip (replaces partner band), 3 category cards, 3 hero slides, machine tabs, testimonial carousel
+- **Homepage:** Trust strip replaced by stat counter + Haas Relationship; machine lineup tabs; testimonial card grid; editorial news split
 - **ES hub:** Tech partners wordmarks, capability cards (01–03), stats/trust FAQ/testimonials filled
 - **UX:** Search modal, email signup thanks state, sticky header blur, footer links wired
 - **Orphan machine-modification.html:** ✅ Redirects to MCS
@@ -175,11 +186,16 @@ All interior pages: **`.page-hero`** — same structure as homepage hero slide. 
 - Hero LCP img: `loading="eager" fetchpriority="high"`
 
 **Design language:**
-- Card radius: 0 (squared edges on all cards — `.mcat-card`, `.service-card`, `.category-card`, `.stat-pill`, `.testimonial-card`)
+- Card radius: 0 (squared edges on all cards — `.mcat-card`, `.service-card`, `.category-card`, `.stat-pill`, `.testimonial-card`, `.news-feature`)
 - Section padding: 88px vertical
 - Interior rhythm: 32px gap between machine headline and content
 - Unified card hover: lift + shadow across all card types
-- Image zoom-on-hover in card shells
+- Image zoom-on-hover in card shells (disabled under `prefers-reduced-motion`)
+- **Accent system:** `.accent` / `.accent--deep` in headlines; `.headline-rule` (48px orange bar) under section titles — same motif on testimonial card tops
+- **Numbered editorial rows:** Barlow Condensed index numerals (`01 ·`, `02`–`04`) on Haas features band + news secondary items
+- **Photo cards:** 105° left gradient + optional bottom scrim (hero, CTA, `.news-feature` lead)
+- **Inverted light bands:** white bg + dark ink text (Haas features band `7080:2240`) — not dark-on-dark for multi-column capability grids
+- **Haas watermark:** static, intro-only, layered via `.haas-relationship__bg` / `__content` — no parallax
 
 **17 Unsplash stand-in images** placed across hero, intro, machine panels, testimonials, and news sections.
 
@@ -207,7 +223,7 @@ Before ending any session: update **Current Session State** above and prepend to
 ## Figma (remote MCP — available in every editor)
 
 - **Server:** `https://mcp.figma.com/mcp` (remote MCP — no Figma desktop app, no local `:3845`)
-- **File key:** `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design) · ES wireframe node `6217:425` · Homepage wireframe `6218:10`
+- **File key:** `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design) · Haas intro `7080:1405` · Haas features `7080:2240` · ES wireframe `6217:425` · Homepage wireframe `6218:10`
 - **Canonical doc:** `FIGMA.md` — read it for the full design-to-code flow and per-tool config
 - **Config committed:** `.mcp.json` (generic), `.cursor/mcp.json` + `.cursor/rules/figma.mdc` (Cursor), `.vscode/mcp.json` (VS Code)
 - **One-time per tool/machine:** connect Figma OAuth; enable **Share → MCP access** in the Figma file (one-time, shared)
@@ -226,13 +242,15 @@ Before ending any session: update **Current Session State** above and prepend to
 ## Tech Stack
 
 - Pure HTML5 / CSS3 (custom properties) / vanilla JS (ES6) — zero frameworks
-- Fonts: Navigo (Adobe Fonts, kit `lqh7ybe`) — 400 + 700 weights only
+- Fonts: Barlow Condensed (Google Fonts) for display + Navigo (Adobe Fonts, kit `lqh7ybe`) — 400 + 700 for body/UI
 - CSS load order: `assets/css/tokens.css` → `assets/css/components.css` → `assets/css/layout.css` → `assets/css/elevated.css`
-- JS: `nav.js` (sticky, mobile, search modal, signup), `slider.js`, `filter.js`, `animations.js`, `testimonials.js`, `machine-tabs.js`, `modal.js`
+- JS: `nav.js` (sticky, mobile, search modal, signup), `slider.js`, `filter.js`, `animations.js`, `machine-tabs.js`, `modal.js` (`testimonials.js` legacy — grid partial does not use carousel)
 
-## Typography System (2026-07-14 review)
+## Typography System (2026-08-17)
 
-- **The Adobe Fonts kit (lqh7ybe) serves Navigo 400 + 700** (plus italics). Tokens map `--fw-medium` / `--fw-semibold` to **500** — add Medium to kit for UI labels; until then 500 falls back to 400. Do not use 600/800 unless added to kit.
+- **Display:** Barlow Condensed (`--font-display`, Google Fonts 500/600/700) — section titles, card titles, stat numerals, testimonial names, news index numerals
+- **Body/UI:** Navigo (`--font-sans`, Adobe kit `lqh7ybe`) — paragraphs, labels, buttons, eyebrows
+- **The Adobe Fonts kit serves Navigo 400 + 700** (plus italics). Tokens map `--fw-medium` / `--fw-semibold` to **500** — add Medium to kit for UI labels; until then 500 falls back to 400. Do not use 600/800 unless added to kit.
 - Type scale lives in tokens.css: `--fs-hero/display/h1/h2/h3` (fluid clamps — do NOT re-override sizes in media queries) + `--fs-lede/body/ui/caption`. Tracking: `--ls-hero…h3` (negative, tightens with size), `--ls-caps` 0.14em (eyebrows), `--ls-meta` 0.08em (card labels). Leading: `--lh-*`.
 - All headlines use scale tokens + `text-wrap: balance`; body/quotes use `--lh-body` and `text-wrap: pretty`; intro body capped at 62ch measure.
 - Buttons: `text-transform: uppercase` + 0.05em letter-spacing, `--fw-bold` (maps to Navigo 700)

@@ -2,6 +2,19 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-17 — Design system propagated site-wide (Cline)
+- **Section-header accent system:** Added `.accent--deep` accent words + `.headline-rule--deep` under every `section-title` on ES, MCS, Automation, Application, Training, Support, About, Careers (was homepage-only). Light (white/gray) sections use `.accent--deep` / `.headline-rule--deep`.
+- **ES news → editorial split:** Converted Engineered Solutions "Latest Projects & News" from legacy `.news-section--split`/`.news-card` to the homepage's `.news-section--editorial`/`.news-editorial` (photo lead + numbered rows 02–04, same content). No orphaned legacy classes.
+- **Stat counters:** MCS, Automation, Application now include the `.stat-counter` band (37+/4,000+/12/#1) after the hero and load `stat-counter.js`. About/Careers keep `.page-hero-trust` (existing decision); Training/Support unchanged.
+- **Testimonials site-wide:** Shared `partials/testimonials-block.html` included before the CTA band on MCS, Automation, Application, Training, Support, About, Careers (was homepage + ES only).
+- **Verified:** all 9 pages + partials HTTP 200; edited HTML tag-balanced (err=0); editorial/news CSS present in components.css.
+- **Loose ends:** Uncommitted. Story links still pending news page.
+
+## 2026-08-17 — Agent docs: design directions sync (Cursor)
+## 2026-08-17 — Agent docs: design directions sync (Cursor)
+- **Updated:** `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/gerotech-agent-sync.mdc`, `.clinerules`, `design-spec.md`, `cline-project-handoff.md` with 2026-08-17 design directions — Haas Relationship (watermark + inverted features band), editorial news split, testimonial card refresh, accent system, Figma node refs (`7080:1405`, `7080:2240`).
+- **Loose ends:** Uncommitted code + doc updates from today's session.
+
 ## 2026-08-17 — Testimonial card refresh (Cursor)
 - **Scope:** CSS-only refresh of `.testimonial-card` in components.css — shared partial `partials/testimonials-block.html` is unchanged, so Homepage + ES both pick it up.
 - **Added:** 48px orange top rule (`.headline-rule` motif) that widens to 88px on hover; oversized serif closing quote in `--clr-orange-tint` parked in the empty bottom-right corner (replaces the small inline `"` on `__quote::before`).

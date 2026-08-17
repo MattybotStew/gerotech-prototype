@@ -32,9 +32,33 @@
       </div>
     </section>
 
+    <!-- Stat Counter (matches homepage/ES) -->
+    <section class="stat-counter" aria-label="Gerotech by the numbers">
+      <div class="container">
+        <div class="stat-counter__grid">
+          <div class="stat-counter__item">
+            <p class="stat-counter__value" data-count="37" data-suffix="+">37+</p>
+            <p class="stat-counter__label">Years in Michigan</p>
+          </div>
+          <div class="stat-counter__item">
+            <p class="stat-counter__value" data-count="4000" data-suffix="+">4,000+</p>
+            <p class="stat-counter__label">Machines Placed</p>
+          </div>
+          <div class="stat-counter__item">
+            <p class="stat-counter__value" data-count="12">12</p>
+            <p class="stat-counter__label">Engineers On-Staff</p>
+          </div>
+          <div class="stat-counter__item">
+            <p class="stat-counter__value" data-count="1" data-prefix="#">#1</p>
+            <p class="stat-counter__label">Haas FO in the Midwest</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="mcs-grid-section" id="app-grid" aria-labelledby="app-grid-headline">
       <div class="container container--es">
-        <div class="section-header"><p class="eyebrow">What We Offer</p><h2 class="section-title" id="app-grid-headline">Application Services</h2></div>
+        <div class="section-header"><p class="eyebrow">What We Offer</p><h2 class="section-title" id="app-grid-headline"><span class="accent--deep">Application</span> Services</h2><span class="headline-rule headline-rule--deep" aria-hidden="true"></span></div>
         <div class="mcs-grid">
           <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
             <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=800&auto=format&fit=crop" alt="Part Programming" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Part Programming -->
@@ -76,7 +100,8 @@
     <section class="mcs-gallery-section" aria-labelledby="app-gallery-headline">
       <div class="container container--es">
         <div class="section-header">
-          <h2 class="section-title" id="app-gallery-headline">Applications — Product Gallery</h2>
+          <h2 class="section-title" id="app-gallery-headline">Applications — Product <span class="accent--deep">Gallery</span></h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
         </div>
         <div class="mcs-gallery-grid">
           <article class="mcs-gallery-card">
@@ -106,6 +131,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Customer testimonials (shared partial) -->
+    <div data-include="partials/testimonials-block.html"></div>
 
     <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
       <img class="cta-band__bg" src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop" alt="CNC machining and applications" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
@@ -156,6 +184,7 @@
   <script src="assets/js/include-partials.js"></script>
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/animations.js"></script>
+  <script src="assets/js/stat-counter.js"></script>
   <script src="assets/js/modal.js"></script>
 </body>
 </html>

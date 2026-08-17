@@ -38,9 +38,33 @@
       </div>
     </section>
 
+    <!-- Stat Counter (matches homepage/ES) -->
+    <section class="stat-counter" aria-label="Gerotech by the numbers">
+      <div class="container">
+        <div class="stat-counter__grid">
+          <div class="stat-counter__item">
+            <p class="stat-counter__value" data-count="37" data-suffix="+">37+</p>
+            <p class="stat-counter__label">Years in Michigan</p>
+          </div>
+          <div class="stat-counter__item">
+            <p class="stat-counter__value" data-count="4000" data-suffix="+">4,000+</p>
+            <p class="stat-counter__label">Machines Placed</p>
+          </div>
+          <div class="stat-counter__item">
+            <p class="stat-counter__value" data-count="12">12</p>
+            <p class="stat-counter__label">Engineers On-Staff</p>
+          </div>
+          <div class="stat-counter__item">
+            <p class="stat-counter__value" data-count="1" data-prefix="#">#1</p>
+            <p class="stat-counter__label">Haas FO in the Midwest</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="mcs-grid-section" id="ai-grid" aria-labelledby="ai-grid-headline">
       <div class="container container--es">
-        <div class="section-header"><p class="eyebrow">What We Offer</p><h2 class="section-title" id="ai-grid-headline">Automation and Controls Solutions Services</h2></div>
+        <div class="section-header"><p class="eyebrow">What We Offer</p><h2 class="section-title" id="ai-grid-headline">Automation and Controls <span class="accent--deep">Solutions</span> Services</h2><span class="headline-rule headline-rule--deep" aria-hidden="true"></span></div>
         <div class="mcs-grid">
 
           <!-- CARD 1: HMI Design (Electrical – Controls Solutions removed per content doc) -->
@@ -162,7 +186,8 @@
       <div class="container container--es">
         <div class="section-header">
           <p class="eyebrow">Project Gallery</p>
-          <h2 class="section-title" id="ai-gallery-headline">Installed Automation Projects</h2>
+          <h2 class="section-title" id="ai-gallery-headline">Installed Automation <span class="accent--deep">Projects</span></h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
         </div>
         <div class="mcs-gallery-grid">
           <article class="mcs-gallery-card">
@@ -188,6 +213,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Customer testimonials (shared partial) -->
+    <div data-include="partials/testimonials-block.html"></div>
 
     <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
       <img class="cta-band__bg" src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop" alt="Robotic automation cell" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
@@ -246,6 +274,7 @@
   <script src="assets/js/include-partials.js"></script>
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/animations.js"></script>
+  <script src="assets/js/stat-counter.js"></script>
   <script src="assets/js/modal.js"></script>
 </body>
 </html>
