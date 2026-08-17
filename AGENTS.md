@@ -72,6 +72,11 @@ Homepage and shared components use an editorial, numbered-row system with invert
 - Card image zoom on hover; disabled under `prefers-reduced-motion`
 - `elevated.css` photography cohesion includes `.news-feature__bg`, `.news-item__thumb` with hero/CTA images
 
+### Feature icon tiles (site-wide)
+- **Pattern:** 40×40 `--clr-gray-card` tile, 4px radius, 18px icon — matches Haas features band (`7080:2240`)
+- **Classes:** `.haas-relationship__icon` (img + `filter: brightness(0)`), `.category-card__icon`, `.why-feature__icon` (inline SVG, `stroke: var(--clr-ink)`)
+- Do not use orange-tint icon backgrounds or rounded-10/12px tiles on interior pages
+
 ### Figma reference nodes (Gerotech-Design `YgHwqyyFj57c1ZSbmfkL0c`)
 | Area | Node |
 |------|------|

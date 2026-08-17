@@ -2,6 +2,18 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-17 — Testimonials + email signup site-wide sync (Cursor)
+- **Testimonials partial:** Added `.accent--deep` on "Michigan" + `.headline-rule--deep` under title in `partials/testimonials-block.html` — all pages pick up via include.
+- **Email signup:** Unified title/copy to match homepage (`Join Our Mailing List` with accent). Added missing section to Application + MCS.
+- **Cleanup:** Removed dead `testimonials.js` from index + ES; dropped `.testimonial-split` from `animations.js`.
+- **Loose ends:** Uncommitted.
+
+## 2026-08-17 — Feature icon tiles unified site-wide (Cursor)
+- **Scope:** CSS-only — grouped `.haas-relationship__icon`, `.category-card__icon`, `.why-feature__icon` to match homepage Haas band pattern (40×40 `--clr-gray-card` tile, 4px radius, 18px ink/black icons).
+- **Before:** Interior pages used orange-tint backgrounds (10–12px radius) with orange stroke SVGs.
+- **Pages affected:** Support, About, Careers (category cards); Engineered Solutions (why-feature rows).
+- **Loose ends:** Uncommitted.
+
 ## 2026-08-17 — Design system propagated site-wide (Cline)
 - **Section-header accent system:** Added `.accent--deep` accent words + `.headline-rule--deep` under every `section-title` on ES, MCS, Automation, Application, Training, Support, About, Careers (was homepage-only). Light (white/gray) sections use `.accent--deep` / `.headline-rule--deep`.
 - **ES news → editorial split:** Converted Engineered Solutions "Latest Projects & News" from legacy `.news-section--split`/`.news-card` to the homepage's `.news-section--editorial`/`.news-editorial` (photo lead + numbered rows 02–04, same content). No orphaned legacy classes.
@@ -10,7 +22,6 @@ Shared session log for all AI agents. Newest entries at the top.
 - **Verified:** all 9 pages + partials HTTP 200; edited HTML tag-balanced (err=0); editorial/news CSS present in components.css.
 - **Loose ends:** Uncommitted. Story links still pending news page.
 
-## 2026-08-17 — Agent docs: design directions sync (Cursor)
 ## 2026-08-17 — Agent docs: design directions sync (Cursor)
 - **Updated:** `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/gerotech-agent-sync.mdc`, `.clinerules`, `design-spec.md`, `cline-project-handoff.md` with 2026-08-17 design directions — Haas Relationship (watermark + inverted features band), editorial news split, testimonial card refresh, accent system, Figma node refs (`7080:1405`, `7080:2240`).
 - **Loose ends:** Uncommitted code + doc updates from today's session.

@@ -7,7 +7,7 @@
     '.category-card, .news-card, .service-card, ' +
     '.partner-wordmark, .why-feature, .capability-card, .capability-bullet, ' +
     '.section-header, .machine-lineup__header, .cta-band__card, ' +
-    '.testimonial-split, .testimonial-card, .credential-band__inner, .tech-partners-section__inner, ' +
+    '.testimonial-card, .credential-band__inner, .tech-partners-section__inner, ' +
     '.mcat-card, .mcs-card, .mcs-gallery-card, .trust-strip__item, .machine-panel, ' +
     '.news-feature, .news-item'
   );

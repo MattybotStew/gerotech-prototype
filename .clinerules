@@ -5,11 +5,16 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-17 (Cline — design system propagated site-wide)
-**Active Agent:** Cline
+**Last Updated:** 2026-08-17 (Cursor — testimonials/email signup sync + JS cleanup)
+**Active Agent:** Cursor
 **Branch:** `master`
 **Last Commit:** site-wide lockup/accent/testimonial redesign
-**Uncommitted:** Design system propagated to all interior pages (section-header accents, headline-rules, stat counters, testimonials, ES editorial news) + agent doc updates
+**Uncommitted:** Haas/news/testimonial/icon-tile refresh + site-wide sync + agent doc updates
+
+### 2026-08-17 session (Cursor — continued)
+- **Testimonials partial:** `partials/testimonials-block.html` — `.accent--deep` on "Michigan" + `.headline-rule--deep` under title (matches news section header pattern site-wide).
+- **Email signup unified:** All 9 main pages now use homepage copy — `Join Our <span class="accent">Mailing List</span>` + shared subcopy. Added missing `.email-signup` to Application + MCS (`email-input-app` / `email-input-mcs`).
+- **JS cleanup:** Removed dead `testimonials.js` from `index.html` + `engineered-solutions.html`; dropped stale `.testimonial-split` from `animations.js` scroll targets.
 
 ### 2026-08-17 session (Cline)
 - **Section-header accent system site-wide:** Added `.accent--deep` accent words + `.headline-rule--deep` under every `section-title` on ES, MCS, Automation, Application, Training, Support, About, Careers (was homepage-only). Light sections use `.accent--deep` / `.headline-rule--deep`.
@@ -45,9 +50,9 @@
 - **Header:** L/R padding removed; hero content container 1200px centered (`--max-home`)
 - **Homepage:** Figma redesign (hero/intro/machine cards/CTA/email signup) + stat counter (37+, 4,000+, 12, #1) + FANUC ASI mega-menu + top bar + footer updates
 - **Haas Relationship (2026-08-17):** Figma `7080:1405`/`7080:2240` — static watermark behind intro (`.haas-relationship__bg` / `__content` layering); inverted white features band with numbered `01 ·`–`04 ·` columns
-- **News (2026-08-17):** Homepage `.news-editorial` split (`.news-feature` lead + numbered `.news-item` rows); `.news-card` legacy on ES/showroom
-- **Testimonials (2026-08-17):** Shared partial → `.testimonial-grid` + refreshed `.testimonial-card` (orange top rule, quote watermark, Barlow name) — not carousel
-- **Accent system:** `.accent` / `.accent--deep` / `.headline-rule` site-wide in section headlines
+- **News (2026-08-17):** Homepage + ES `.news-editorial` split (`.news-feature` lead + numbered `.news-item` rows); `.news-card` legacy on showroom/preview only
+- **Testimonials (2026-08-17):** Shared partial → `.testimonial-grid` + refreshed `.testimonial-card`; partial headline uses `.accent--deep` + `.headline-rule--deep` — not carousel
+- **Feature icon tiles (2026-08-17):** `.category-card__icon` + `.why-feature__icon` grouped with `.haas-relationship__icon` — 40×40 gray card, 4px radius, 18px ink icons (not orange-tint tiles)
 
 ## Current State (2026-07-14)
 - **Prototype stage:** Presentation-ready on `master` — beauty pass, elevation layer, design fixes, hero unification complete
