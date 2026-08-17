@@ -1412,13 +1412,14 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--sp-20);
+  width: 100%;
   min-width: 0;
 }
 .cta-band--cinema-lockup .eyebrow-row .eyebrow {
   margin: 0;
 }
 .cta-band--cinema-lockup .cta-band__headline {
-  max-width: 16ch;
+  max-width: none;
 }
 .cta-band--cinema-lockup .cta-band__accent {
   color: var(--clr-orange);
@@ -1430,7 +1431,7 @@
   background: var(--clr-orange);
 }
 .cta-band--cinema-lockup .cta-band__body {
-  max-width: 46ch;
+  max-width: none;
 }
 .cta-band--cinema-lockup .cta-band__actions {
   margin-top: var(--sp-8);
