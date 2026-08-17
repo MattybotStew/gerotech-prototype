@@ -11,6 +11,19 @@
 **Last Commit:** site-wide lockup/accent/testimonial redesign
 **Uncommitted:** Cursor WIP (Haas/news/testimonial/icon-tile + ES modal/lightbox + header fix) + Cline responsive spacing (Phases 1–3: single gutter source, unified 1200px container, `--section-y-lg`)
 
+**Last Updated:** 2026-08-17 (Cline — responsive audit, universal spacing, Phases 1–7)
+**Active Agent:** Cline
+**Branch:** `master`
+**Last Commit:** 5b7e7fe (Phases 1–3 responsive spacing, incl. prior Cursor WIP) — pushed
+**Uncommitted:** Cline Phases 4–7 — `layout.css` + `components.css` (grid-step ladder, mobile hero alignment, legacy cleanup, header collapse ≥1120, grid `min-width:0`, btn wrap)
+
+### 2026-08-17 session (Cline — responsive audit, Phases 4–7)
+- **Phase 4 (grid consistency):** shared breakpoint ladder — `.grid-4` 4→2→1 and `.grid-6`/`.partners-grid` 6→3→1 (tablet step at 1024, single column at 640); `.grid-2` collapse moved 480→640. `.haas-relationship__grid` now 4-col → 2×2 with cross dividers (≤1024) → 1-col (≤640). Grid items get `min-width: 0` so images/long text can't force overflow.
+- **Phase 5 (mobile hero alignment):** `.slide__content--left` + `.page-hero__actions` stay left-aligned at ≤768 site-wide (matches homepage peek), removing the interior-only mobile center override.
+- **Phase 6 (legacy cleanup):** removed orphaned `.machine-browse` and `.machine-cards`/`.machine-card` blocks; dropped `.machine-browse` from the layout section list. (trust-strip/testimonial-split/carousel kept — cross-file, lower value.)
+- **Phase 7 (Playwright verification):** installed Playwright in `/tmp` (repo kept clean). Programmatic scan of all 10 pages × 360/768/1024/1440 → **no horizontal overflow anywhere**. Fixes surfaced by the pass: header collapse breakpoint 1000→1120 (desktop nav overflowed at 1001–1119), about-page `.about-photo` grid overflow fixed via `min-width:0`, long `.btn` labels now wrap at ≤480. CSS brace-counts balanced; all pages serve 200.
+- **Files:** `layout.css`, `components.css` (uncommitted).
+
 ### 2026-08-17 session (Cline — responsive audit · universal spacing, Phases 1–3)
 - **Full static responsive audit** — found "weird layouts" rooted in: (1) double horizontal gutter (48px vs 24px) where a `.container` is nested inside a padded section class; (2) mixed container widths per page (1200 vs 1120); (3) hardcoded `--sp-96` block padding on full-bleed bands ignoring the `--section-y` token.
 - **One gutter source:** removed `padding-inline: var(--sp-24)` from the `layout.css` section list; `.container` is now the single horizontal-gutter provider. Added `padding-inline: var(--sp-24)` to the `__inner` wrappers that don't use `.container` (why/es-grid/tech-partners/capability/credential/trust/email-signup). Fixed the 48px double-gutter bug on news, testimonials, mcs-grid (application/automation/MCS), and `.machine-lineup`.

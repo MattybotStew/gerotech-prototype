@@ -2,6 +2,15 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-17 — Responsive audit: Phases 4–7 (Cline, visual verification)
+- **Phase 4 (grid ladder):** `.grid-4` 4→2→1, `.grid-6`/`.partners-grid` 6→3→1, `.grid-2` collapse at 640 (was 480). `.haas-relationship__grid` 4→2×2 (≤1024, cross dividers)→1 (≤640). Added `min-width: 0` to all utility-grid items — fixes images/text forcing their track wider than the container.
+- **Phase 5 (hero alignment):** mobile heroes now stay left-aligned site-wide (`.slide__content--left` + `.page-hero__actions` at ≤768), matching the homepage peek; removed the interior-only center override.
+- **Phase 6 (cleanup):** deleted orphaned `.machine-browse` + `.machine-cards` CSS blocks and their layout-list entry.
+- **Phase 7 (Playwright, in /tmp/pw):** scanned all 10 pages at 360/768/1024/1440 → **0 horizontal overflows** after these fixes: header collapse breakpoint 1000→1120 (desktop nav overflowed 1001–1119), `.about-photo` overflow fixed by grid `min-width:0`, `.btn` wraps at ≤480 (was overflowing a 312px split-grid column at 360).
+- **Verified:** CSS brace-counts balanced; all pages + CSS serve 200; console errors = 0.
+- **Files:** `assets/css/layout.css`, `assets/css/components.css` (uncommitted).
+- **Loose ends:** visual screenshot eyeball not possible (model lacks image input) — used programmatic geometry instead. trust-strip / testimonial-split / testimonial-carousel legacy CSS still present (cross-file, left in place).
+
 ## 2026-08-17 — Responsive audit: universal spacing/padding (Cline, Phases 1–3)
 - **Static audit** (no browser automation available in plan mode — Playwright not installed). Root causes of the "weird layouts":
   1. **Double horizontal gutter (48px vs 24px):** `.container` adds `padding-inline: 24px` AND the `layout.css` section class list adds another 24px. Sections that nest a `.container` (news, testimonials, mcs-grid, machine-lineup) got 48px mobile insets while `__inner` sections got 24px.
