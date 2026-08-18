@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-08-18 — Mega-nav CTA button text invisible (Cline)
+- **Bug:** Text disappeared on all 3 dropdown CTA buttons ("Talk to an Engineer", "Talk to a Sales Engineer", "Get a Quote →").
+- **Root cause:** Duplicate conflicting `.mega-nav__cta-btn` rule in `components.css`. Base rule (line ~2402, `b43c854c`) = filled orange button, white text. FANUC-ASI col block (line ~4699, `d4954f17`) used the **same global class** and set `color: var(--clr-orange)` — equal specificity, later in cascade → text turned orange on the orange background (≈1:1 contrast, invisible) for all 3 buttons.
+- **Fix:** Scoped the FANUC override to `.mega-nav__col--cta .mega-nav__cta-btn` and set `color: var(--clr-white)` (visible on orange fill); hover keeps white text while lightening background. The other two buttons return to base white-on-orange.
+- **Verified:** Playwright render (1440px) — all 3 buttons: color `rgb(255,255,255)`, bg `rgb(243,138,44)`, `visibility: visible`, weight 700. CSS braces balanced (747/747). Diff minimal (+6/−5) in `components.css`.
+- **Loose ends:** Uncommitted.
+
 ## 2026-08-17 — Peek hero full-width at ≤900px (Figma 7094:5096) (Cursor)
 - **Figma:** `7094:5096` — tablet/mobile breakpoint; hero copy should span full viewport (24px inset only).
 - **Fix:** At `max-width: 900px`, removed `--max-home` / `16ch` / `--hero-copy-max` constraints on peek hero copy; peek-card band `width: 100%`.

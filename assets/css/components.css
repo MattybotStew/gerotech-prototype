@@ -4696,17 +4696,18 @@ h1, h2, h3, h4, h5, h6,
   color: var(--clr-gray-muted);
   margin: 0;
 }
-.mega-nav__cta-btn {
+.mega-nav__col--cta .mega-nav__cta-btn {
   margin-top: auto;
   align-self: flex-start;
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: var(--fs-ui);
-  color: var(--clr-orange);
+  color: var(--clr-white);
   text-decoration: none;
-  transition: color var(--ease);
+  transition: background var(--ease), color var(--ease);
 }
-.mega-nav__cta-btn:hover {
-  color: var(--clr-orange-light);
+.mega-nav__col--cta .mega-nav__cta-btn:hover {
+  background: var(--clr-orange-light);
+  color: var(--clr-white);
 }
