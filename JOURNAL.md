@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-01 — Haas F1 lockup + white brand tile (Cursor)
+- **Logo:** Replaced `assets/images/haas-logo.svg` in the Haas Relationship intro with `assets/images/haas-f1-lockup.png` (from Downloads: `HaasF1TeamLogoLockup_Color (2).png`). Transparent PNG — Automation mark + F1 Team lockup. Applied on `index.html` and `index-cta-lockup-preview.html`.
+- **Brand tile:** `.haas-relationship__brand` is a 558×372 card (`aspect-ratio`, padding, 5px radius) with **`background: #fff`**. Old SVG gradient is no longer used.
+- **Loose ends:** Old `haas-logo.svg` left in assets. White left-side “HAAS” wordmark in the lockup sits on white — red H-mark still reads; say if a dark plate is preferred.
+
+
 ## 2026-08-18 — Mega-nav CTA button text invisible (Cline)
 - **Bug:** Text disappeared on all 3 dropdown CTA buttons ("Talk to an Engineer", "Talk to a Sales Engineer", "Get a Quote →").
 - **Root cause:** Duplicate conflicting `.mega-nav__cta-btn` rule in `components.css`. Base rule (line ~2402, `b43c854c`) = filled orange button, white text. FANUC-ASI col block (line ~4699, `d4954f17`) used the **same global class** and set `color: var(--clr-orange)` — equal specificity, later in cascade → text turned orange on the orange background (≈1:1 contrast, invisible) for all 3 buttons.

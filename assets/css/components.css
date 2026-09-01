@@ -4070,16 +4070,20 @@ img.mcs-gallery-card__image {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 558px;
+  aspect-ratio: 558 / 372;
+  padding: clamp(28px, 5vw, 48px) clamp(24px, 4.5vw, 40px);
+  border-radius: 5px;
+  background: #fff;
 }
 .haas-relationship__brand-logo {
   display: block;
   width: 100%;
-  max-width: 558px;
   height: auto;
-  max-height: 372px;
+  max-height: 100%;
   object-fit: contain;
   object-position: center;
-  border-radius: 5px;
 }
 .haas-relationship__features {
   position: relative;
@@ -4204,9 +4208,8 @@ img.mcs-gallery-card__image {
   .haas-relationship__lede {
     max-width: none;
   }
-  .haas-relationship__brand-logo {
-    max-width: 360px;
-    max-height: 240px;
+  .haas-relationship__brand {
+    max-width: 100%;
   }
   .haas-relationship__features {
     margin-top: 0;
@@ -4247,9 +4250,6 @@ img.mcs-gallery-card__image {
 @media (max-width: 640px) {
   .haas-relationship__title {
     font-size: 22px;
-  }
-  .haas-relationship__brand-logo {
-    max-width: 280px;
   }
   .haas-relationship__grid {
     grid-template-columns: 1fr;

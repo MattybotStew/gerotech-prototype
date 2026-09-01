@@ -5,11 +5,12 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-08-17 (Cline — responsive audit, universal spacing)
-**Active Agent:** Cline
+**Last Updated:** 2026-09-01 (Cursor — Haas F1 lockup + white brand tile)
+**Active Agent:** Cursor
 **Branch:** `master`
-**Last Commit:** site-wide lockup/accent/testimonial redesign
-**Uncommitted:** Cursor WIP (Haas/news/testimonial/icon-tile + ES modal/lightbox + header fix) + Cline responsive spacing (Phases 1–3: single gutter source, unified 1200px container, `--section-y-lg`)
+**Last Commit:** cb5e716 Fix invisible mega-nav dropdown CTA button text.
+**Uncommitted:** Haas F1 lockup (`haas-f1-lockup.png`) on `.haas-relationship__brand` with `#fff` background; plus prior uncommitted CSS/HTML from 2026-08-17/18 sessions.
+
 
 **Last Updated:** 2026-08-17 (Cline — responsive audit, universal spacing, Phases 1–7)
 **Active Agent:** Cline
