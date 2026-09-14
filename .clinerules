@@ -5,11 +5,12 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-01 (Cursor — Haas F1 lockup + white brand tile)
+**Last Updated:** 2026-09-14 (Cursor — Automation + ES heroes from client photos)
 **Active Agent:** Cursor
-**Branch:** `master`
-**Last Commit:** cb5e716 Fix invisible mega-nav dropdown CTA button text.
-**Uncommitted:** Haas F1 lockup (`haas-f1-lockup.png`) on `.haas-relationship__brand` with `#fff` background; plus prior uncommitted CSS/HTML from 2026-08-17/18 sessions.
+**Branch:** `design-audit-revision` (master fast-forwarded to same commit)
+**Last Commit:** be3eede Swap the Haas relationship mark for the F1 lockup on a white tile.
+**Uncommitted:** leftover local WIP + `es-hero.png` + `automation-hero.jpg` + HTML
+**Next:** Copy/nav/cards (#2, #3, #7, #10, #20, #22) when Matt says go. MCS workholding/gallery stay Unsplash.
 
 
 **Last Updated:** 2026-08-17 (Cline — responsive audit, universal spacing, Phases 1–7)

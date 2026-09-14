@@ -2,6 +2,26 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-14 — Automation hero swapped (Cursor)
+- Client cell photo saved as `assets/images/automation-hero.jpg` and wired on `automation-integration.html` `.page-hero`. Gallery/CTA Unsplash left in place.
+- Loose ends: gallery images still stand-ins.
+
+## 2026-09-14 — Haas F1 lockup verified; ES hero swapped (Cursor)
+- **#6:** Figma `7155:671` is the Haas F1 lockup on a white 5px tile — already live as `assets/images/haas-f1-lockup.png` in `.haas-relationship__brand` (476×137-ish contain in 558×372). No logo swap needed.
+- **#8:** Client photo from Downloads copied to `assets/images/es-hero.png` and wired on `engineered-solutions.html`.
+- MCS `machineCustomSolutions` attachments left unused — Custom Workholding + gallery stay Unsplash placeholders.
+- Loose ends: Automation hero still Unsplash; copy/nav items from comment plan not executed yet.
+
+## 2026-09-14 — Verified Figma client comments vs prototype (Cursor)
+- File `YgHwqyyFj57c1ZSbmfkL0c`, page `6:124` ✅ Design [WIP]. Comments API not readable (401); checked selected frames + live HTML.
+- Already in prototype: MCS titles/copy 11–16 + modal 24; FANUC ASI on ES; Haas relationship band; MCS/Automation/Applications gallery layouts; F1 lockup.
+- Still to do: homepage hero copy (#2–3); mega-nav Process Engineering + Specialty Machine (#7); Applications RFID + Fire Suppression cards (#22); gallery heading “Installed Projects” → “Gallery” (#10/20).
+- Blocked: logo/header/gallery images (#6,8,12,13,18,19); four MCS card bodies (#17a–d). Items #21/#23 look like MCS copy pinned on Applications/old Automation — confirm before applying.
+- Loose ends: not implemented this session.
+
+## 2026-09-01 — Published Haas F1 lockup to GitHub Pages (Cursor)
+- Fast-forwarded `master` to `be3eede` so https://mattybotstew.github.io/gerotech-prototype/ serves the F1 lockup (`haas-f1-lockup.png`, 200). Pages status: built.
+
 ## 2026-09-01 — Haas F1 lockup + white brand tile (Cursor)
 - **Logo:** Replaced `assets/images/haas-logo.svg` in the Haas Relationship intro with `assets/images/haas-f1-lockup.png` (from Downloads: `HaasF1TeamLogoLockup_Color (2).png`). Transparent PNG — Automation mark + F1 Team lockup. Applied on `index.html` and `index-cta-lockup-preview.html`.
 - **Brand tile:** `.haas-relationship__brand` is a 558×372 card (`aspect-ratio`, padding, 5px radius) with **`background: #fff`**. Old SVG gradient is no longer used.
