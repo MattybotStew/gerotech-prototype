@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-14 — MCS dropdown: Process Engineering + Specialty Machine (Cursor)
+- Added both links under Machine Custom Solutions in desktop mega-nav and mobile sub-nav (`partials/site-header.html`). Same href as other MCS items (`machine-custom-solutions.html`).
+- Checked mega-nav height at 1920×1080: extra rows still inside the panel (`vhClip` false). No CSS change.
+- Loose ends: Safety & Environmental still not in the dropdown (comment #7 did not ask for it).
+
 ## 2026-09-14 — Automation hero swapped (Cursor)
 - Client cell photo saved as `assets/images/automation-hero.jpg` and wired on `automation-integration.html` `.page-hero`. Gallery/CTA Unsplash left in place.
 - Loose ends: gallery images still stand-ins.
