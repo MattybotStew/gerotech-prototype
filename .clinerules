@@ -5,11 +5,14 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-14 (Cursor — interior stat counters removed)
-**Active Agent:** Cursor
+**Last Updated:** 2026-09-15 (opencode — nav links trimmed)
+**Active Agent:** opencode
 **Branch:** `master`
 **Last Commit:** Keep homepage stats only; drop interior below-hero counters.
-**Uncommitted:** `.codewhale/` only
+**Uncommitted:** `partials/site-header.html` (nav link trim), `JOURNAL.md`, `.codewhale/` only
+
+### 2026-09-15 session (nav link trim)
+- `partials/site-header.html`: Training / Support / About retain labels but lose `href` (non-links). Support + About `has-dropdown` classes, arrows, and dropdown menus removed. Desktop + mobile nav. Machines + Engineered Solutions stay linked. Get a Quote CTA and search-modal quick links left as-is (confirm if those should also unlink).
 
 
 **Last Updated:** 2026-08-17 (Cline — responsive audit, universal spacing, Phases 1–7)

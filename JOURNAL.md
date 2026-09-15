@@ -2,6 +2,9 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-15 — Nav links trimmed to Machines + Engineered Solutions
+- `partials/site-header.html`: Training / Support / About keep their labels but lose `href` (no longer links). Support + About `has-dropdown` wrappers and their dropdowns removed. Desktop + mobile nav. Machines and Engineered Solutions remain linked; Get a Quote CTA and search modal quick links untouched.
+
 ## 2026-09-14 — Interior below-hero stats removed
 - Dropped `.stat-counter` + `stat-counter.js` from ES, MCS, Automation, Applications. Homepage (and homepage lockup preview) keep the band. About/Careers still use in-hero `.page-hero-trust` facts. Training/Support never had the band.
 
