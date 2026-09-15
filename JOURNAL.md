@@ -2,6 +2,71 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-14 — Automation `7102:8937` comments
+- **#18** hero already client photo (`automation-hero.jpg`).
+- **#19** Installed Automation gallery already has the 7 Downloads JPEGs; cell design + EOAT cards already client photos.
+- **#20** heading is Installed Automation Gallery; eyebrow “Project Gallery” → Gallery. Reverted unauthorized CTA photo to Unsplash (comments only asked for header + gallery).
+- **#21** skipped (MCS copy on the older Automation frame). HMI / Layered / Pre-Engineered still Unsplash — not open unless Matt says images are done.
+
+## 2026-09-14 — Applications image comments closed
+- Matt confirmed Applications (`7102:6827`) photos are done: UMC-750 on Part Programming, Kidde on Fire Suppression. Remaining Unsplash (troubleshooting/optimization/tooling/demo/training/RFID) and Unsplash hero/CTA are not open image comments. Copy-only leftover: RFID/Fire modal bodies (“Content coming soon.”). #23 MCS copy still not applied.
+
+## 2026-09-14 — Applications `7102:6827` comments
+- **#22** RFID + Fire Suppression cards (and gallery tiles) already on `application.html`. Fire uses Kidde photo; RFID stays Unsplash (no asset) with “Content coming soon.”
+- Gallery Part Programming uses UMC-750 (`7102:8142`).
+- Reverted unauthorized UMC-750 hero/CTA back to Unsplash (same rule as MCS — no header swap in comments).
+- **#23** skipped: MCS copy (risers/sheet metal/spin forming/grinding/mist/tool offsets) was pinned on the Applications frame.
+
+## 2026-09-14 — MCS image comments closed
+- Matt confirmed MCS photos for `7102:5961` are done (#12 workholding, #13 gallery, service-card shots from Downloads). Hero stays Unsplash. Process Engineering / Specialty Machine Unsplash is not an open image comment. Remaining MCS items are copy-only (#17 four card bodies).
+
+## 2026-09-14 — MCS hero back to Unsplash
+- Reverted `machine-custom-solutions.html` page-hero from `mcs-gallery/sheet-metal-machine.jpg` to the original Unsplash stand-in. Client comments did not request an MCS header swap. CTA still uses the sheet-metal enclosure photo.
+
+## 2026-09-14 — Remaining Figma comments + Downloads photos
+- Homepage #2: hero H1 + peek title → “Your Haas Partner in Michigan's Lower Peninsula.” Body #3 already “The Source for Haas Machines for Michigan.” Skipped #4 news rename (ambiguous).
+- MCS: Installed Projects → **Installed Gallery**; Unsplash gallery/service/hero/CTA swapped for Downloads photos (column riser, Kidde fire, mist collectors, sheet metal set, auto/vertical doors, hydraulic rotary, fixtures). Process Engineering / Specialty Machine still Unsplash + short placeholder bodies (#17 — no client copy).
+- Automation: gallery heading → **Installed Automation Gallery**; CTA uses Haas robot-cell JPEG.
+- Applications: Fire Suppression (Kidde photo) + RFID (Unsplash; no photo in Downloads) cards and gallery tiles; modal bodies “Content coming soon.” Hero/CTA use UMC-750. Did not apply MCS copy to Apps/Automation frames.
+- Loose ends: RFID photo + body; Hydraulic/Process/Specialty long copy; HMI/Layered/Pre-Engineered still Unsplash.
+
+## 2026-09-14 — ES mega-nav: remove FANUC ASI card
+- Dropped the dark “Talk to an Engineer / Get a Quote” card from the Engineered Solutions dropdown. Two-column layout (By Category + All Services) remains.
+
+## 2026-09-14 — CTA trust tags removed site-wide
+- Deleted `.cta-band__trust` from Homepage, ES, MCS, Automation, Applications, About, Careers, and the lockup preview. Training/Support never had the row. Dropped unused lockup CSS for the tags.
+
+## 2026-09-14 — Homepage hero body copy (Cursor)
+- Slide 1 `.slide__body`: “The Source for Haas Machines for Michigan” (was authorized HFO sales/demos/service line).
+
+## 2026-09-14 — MCS gallery: Custom Fixture photo (Figma 7102:6773)
+- Replaced Custom Fixture Design Unsplash with `mcs-gallery/custom-fixtures.jpg`. Same photo on the Custom Workholding service card.
+
+## 2026-09-14 — MCS gallery: Auto Door + Sheet Metal; Automation cell JPEGs
+- Figma `7102:6759`: Auto Door Integration Unsplash → `mcs-gallery/auto-door-haas.jpg` (gallery + Auto Doors service card).
+- Figma `7102:6752`: Sheet Metal gallery Unsplash → stainless guards + painted enclosure; same stainless on the service card. Full white enclosure with circular intake from the Figma thread was not attached as a file — skipped.
+- Figma `7102:9505`: Installed Automation gallery items 01–04 swapped from PNGs to the four client JPEGs (Haas cell, robot line, guarded cell, Keyence vision).
+
+## 2026-09-14 — Applications gallery: UMC-750 photo (Figma 7102:8142)
+- Replaced Part Programming Unsplash with `assets/images/app-gallery-umc750.jpg`. Same photo on the Part Programming service card (same stock stand-in).
+
+## 2026-09-14 — EOAT gallery photos (Figma 7102:9509)
+- Comment: add dual-gripper, vacuum EOAT, and Schunk fixture shots to the gallery. Already in Installed Automation Projects; swapped PNGs for the client JPEGs.
+- Replaced Unsplash on the Robot EOAT service card with the dual-gripper photo.
+
+## 2026-09-14 — Automation Cell Design card photo (Cursor)
+- Figma `7102:9505` comment: replaced Unsplash on the Automation Cell Design service card with `assets/images/automation-cell-design.jpg` (FANUC M-20iD/25 · Haas ST-10).
+- FANUC ASI seal: clipped to a circle so PNG square corners don’t show on the dark band.
+
+## 2026-09-14 — FANUC ASI seal on ES credential band (Cursor)
+- Figma `7102:4501` comment: replace text square with official circular FANUC Authorized System Integrator mark (`assets/images/fanuc-asi-seal.png`, 196×196).
+- Featured badge no longer uses orange-bordered text tile.
+
+## 2026-09-14 — Installed Automation Projects gallery photos (Cursor)
+- Copied 7 client photos from `Downloads/Installed Automation Projects` to `assets/images/automation-gallery/`.
+- Replaced Unsplash gallery on `automation-integration.html` with all 7 (not forced onto HMI/Layered Controls titles). Labels describe what’s in each shot.
+- Loose ends: titles are descriptive stand-ins until client names them; CTA band still Unsplash.
+
 ## 2026-09-14 — MCS dropdown: Process Engineering + Specialty Machine (Cursor)
 - Added both links under Machine Custom Solutions in desktop mega-nav and mobile sub-nav (`partials/site-header.html`). Same href as other MCS items (`machine-custom-solutions.html`).
 - Checked mega-nav height at 1920×1080: extra rows still inside the panel (`vhClip` false). No CSS change.

@@ -1436,9 +1436,6 @@
 .cta-band--cinema-lockup .cta-band__actions {
   margin-top: var(--sp-8);
 }
-.cta-band--cinema-lockup .cta-band__trust {
-  margin-top: var(--sp-8);
-}
 .cta-band--cinema-lockup .cta-band__call {
   display: flex;
   flex-direction: column;
@@ -1506,13 +1503,6 @@
   }
   .cta-band--cinema-lockup .cta-band__actions .btn {
     width: 100%;
-  }
-  .cta-band--cinema-lockup .cta-band__trust {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .cta-band--cinema-lockup .cta-band__trust .model-tag {
-    justify-content: center;
   }
   .cta-band--cinema-lockup .cta-band__call {
     max-width: none;
@@ -1926,18 +1916,20 @@
   align-items: flex-start;
 }
 .credential-band__badge--featured {
-  width: 220px;
-  min-height: 180px;
-  padding: var(--sp-24);
-  border-color: rgba(243, 138, 44, 0.55);
-  background: rgba(243, 138, 44, 0.12);
+  width: 196px;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  border-radius: 50%;
 }
-.credential-band__badge--featured .credential-band__badge-mark {
-  font-size: clamp(28px, 3vw, 36px);
-}
-.credential-band__badge--featured .credential-band__badge-label {
-  font-size: 11px;
-  max-width: 14ch;
+.credential-band__badge-img {
+  display: block;
+  width: 196px;
+  height: 196px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 .credential-band--featured .credential-band__headline {
   font-size: var(--fs-h2);
@@ -4644,7 +4636,6 @@ h1, h2, h3, h4, h5, h6,
 .news-card__title,
 .mcat-card__name,
 .mcs-card__title,
-.mega-nav__cta-title,
 .credential-band__badge-mark,
 .page-hero-trust__headline {
   font-weight: 600;
@@ -4664,50 +4655,3 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 700;
 }
 
-/* ── Mega-nav — FANUC ASI CTA column (Figma redesign) ── */
-.mega-nav__col--cta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-12);
-  padding: var(--sp-24);
-  background: var(--clr-dark-bg);
-  border-radius: 0;
-  min-width: 240px;
-}
-.mega-nav__cta-badge {
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-caps);
-  color: var(--clr-orange);
-  margin: 0;
-}
-.mega-nav__cta-title {
-  font-family: var(--font-display);
-  font-size: var(--fs-h3);
-  font-weight: var(--fw-bold);
-  color: var(--clr-white);
-  line-height: var(--lh-h2);
-  margin: 0;
-}
-.mega-nav__cta-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--clr-gray-muted);
-  margin: 0;
-}
-.mega-nav__col--cta .mega-nav__cta-btn {
-  margin-top: auto;
-  align-self: flex-start;
-  font-weight: var(--fw-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: var(--fs-ui);
-  color: var(--clr-white);
-  text-decoration: none;
-  transition: background var(--ease), color var(--ease);
-}
-.mega-nav__col--cta .mega-nav__cta-btn:hover {
-  background: var(--clr-orange-light);
-  color: var(--clr-white);
-}
