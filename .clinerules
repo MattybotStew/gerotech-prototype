@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-14 (Cursor — Figma comment pass committed)
+**Last Updated:** 2026-09-14 (Cursor — interior stat counters removed)
 **Active Agent:** Cursor
 **Branch:** `master`
-**Last Commit:** (this commit) Apply Figma comment pass: client photos, homepage copy, galleries.
+**Last Commit:** Keep homepage stats only; drop interior below-hero counters.
 **Uncommitted:** `.codewhale/` only
 
 

@@ -2,6 +2,9 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-14 — Interior below-hero stats removed
+- Dropped `.stat-counter` + `stat-counter.js` from ES, MCS, Automation, Applications. Homepage (and homepage lockup preview) keep the band. About/Careers still use in-hero `.page-hero-trust` facts. Training/Support never had the band.
+
 ## 2026-09-14 — Automation `7102:8937` comments
 - **#18** hero already client photo (`automation-hero.jpg`).
 - **#19** Installed Automation gallery already has the 7 Downloads JPEGs; cell design + EOAT cards already client photos.
