@@ -2,6 +2,9 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Peek slider CTA spacing (Cursor)
+- Desktop: +15px margin-top on homepage peek hero buttons.
+
 ## 2026-09-16 — Homepage peek slides 2–3 (Cursor)
 - Slide 2: showroom photo, for-sale headline, warranty body, Browse Inventory → Haas HFO showroom.
 - Slide 3: automation cell photo, “Automation Built for Your Shop Floor,” body removed.

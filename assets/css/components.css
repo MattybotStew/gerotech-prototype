@@ -615,6 +615,11 @@
   align-self: flex-start;
   white-space: nowrap;
 }
+@media (min-width: 769px) {
+  .hero-slider--peek .slide__content--left .btn {
+    margin-top: 15px;
+  }
+}
 .hero-slider--peek .slide__content--left .slide__headline,
 .hero-slider--peek .slide__content--left .slide__body {
   margin-left: 0;
