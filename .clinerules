@@ -5,11 +5,17 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (opencode — gallery module preview: collections + video)
+**Last Updated:** 2026-09-16 (opencode — design-to-dev handoff plan)
 **Active Agent:** opencode
 **Branch:** `master`
 **Last Commit:** Keep homepage stats only; drop interior below-hero counters.
-**Uncommitted:** `gallery-module-preview.html`, `assets/css/gallery-module.css`, `assets/js/gallery-module.js`, `assets/videos/` (new, untracked), plus prior `partials/site-header.html` (nav link trim), `JOURNAL.md`, `.codewhale/`
+**Uncommitted:** `handoff/` (new — `gerotech-handoff-plan.docx` + `.html`), `gallery-module-preview.html`, `assets/css/gallery-module.css`, `assets/js/gallery-module.js`, `assets/videos/` (new, untracked), plus prior `partials/site-header.html` (nav link trim), `JOURNAL.md`, `.codewhale/`
+
+### 2026-09-16 session (opencode — design-to-dev handoff plan for PM)
+- **Deliverable:** `handoff/gerotech-handoff-plan.docx` — PM-facing Word doc (real tables via python-docx; `.html` kept as editable source). Covers current-site audit, theme strategy, builder comparison, 10 deliverables, scope, 6 phases, open decisions.
+- **Live-site audit (2026-09-16):** WordPress on **WP Engine** (old "Google Cloud" note wrong); custom `gerotech` theme; **no page builder** (homepage editor content empty — sections hardcoded in templates); plugins Megamenu, Smart Slider 3, CF7 + Honeypot, WPForms, iThemes Security, Search Regex; CPTs training/service/testimonials/people/careers; Google Font API.
+- **Recommendations (pending PM/client):** child theme of `gerotech` + CPTs extracted to a companion plugin (parent untouched → rollback); builder = **Gutenberg + ACF Blocks** (first) / **WP Bakery** (second); scope = **11 prototype pages only**; header/footer are theme-level, never builder-owned.
+- **Still open:** builder choice, nav plugin vs rebuild, URL strategy (replace top-level vs new), machine-catalog links, FANUC/Haas lockup rights, news/social/signup, client photography. **Next:** Phase 1 (freeze prototype) + Phase 2 (inspect staging theme to settle child-vs-new).
 
 ### 2026-09-16 session (opencode — gallery module: collections + video)
 - **Client request:** current flat one-photo-per-card gallery is wrong — they want **multiple images per category + a video option**. Built as an **isolated preview module** to share with the PM before rolling out to pages.

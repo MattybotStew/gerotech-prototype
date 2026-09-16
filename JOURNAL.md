@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Design-to-dev handoff plan for PM (opencode)
+- New `handoff/` folder: `gerotech-handoff-plan.docx` (PM-facing Word doc, 3 real tables) + `gerotech-handoff-plan.html` (editable source).
+- Grounded in a fresh live-site audit: WP Engine hosting (not Google Cloud), custom `gerotech` theme, **no page builder**, plugins Megamenu / Smart Slider 3 / CF7 + Honeypot / WPForms / iThemes Security / Search Regex, existing CPTs (training, service, testimonials, people, careers), Google Font API.
+- Recommendations in the doc: **child theme** of `gerotech` + CPTs moved to a companion plugin (parent untouched, instant rollback); page builder **Gutenberg + ACF Blocks** first, **WP Bakery** a defensible second; scope = **11 prototype pages only** (no 40-URL migration); 6-phase plan; header/footer are theme-level, never builder-owned.
+- No prototype pages or assets changed. Docs only.
+
 ## 2026-09-16 — Gallery module preview: collections + video (opencode)
 - Client wants multiple images per category and a video option; current flat `.mcs-gallery-card` (one photo each) is wrong. Built as an **isolated preview module** to share with the PM before touching live pages.
 - New (untracked): `gallery-module-preview.html`, `assets/css/gallery-module.css`, `assets/js/gallery-module.js`, `assets/videos/placeholder-*.mp4`.

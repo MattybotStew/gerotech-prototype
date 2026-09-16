@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Gerotech Website Redesign — Design-to-Development Handoff Plan</title>
+<style>
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1c1c21;
+    margin: 40px auto;
+    max-width: 760px;
+  }
+  h1 {
+    font-size: 22pt;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    color: #0d0d0d;
+  }
+  h2 {
+    font-size: 14pt;
+    margin: 28px 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #f38a2c;
+    color: #0d0d0d;
+  }
+  h3 {
+    font-size: 12pt;
+    margin: 18px 0 6px;
+    color: #0d0d0d;
+  }
+  p { margin: 0 0 10px; }
+  ul, ol { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 5px; }
+  .meta { color: #6b6b76; font-size: 10pt; margin-bottom: 4px; }
+  .meta strong { color: #1c1c21; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0 16px;
+    font-size: 10pt;
+  }
+  th, td {
+    border: 1px solid #d6d6d6;
+    padding: 7px 9px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f2f2f2;
+    color: #0d0d0d;
+    font-weight: 700;
+  }
+  .lead { font-size: 11pt; }
+  .rule { border: 0; border-top: 1px solid #e4e4ea; margin: 24px 0; }
+  .callout {
+    background: #f9f9fb;
+    border-left: 4px solid #f38a2c;
+    padding: 10px 14px;
+    margin: 12px 0 16px;
+  }
+  .callout p { margin: 0; }
+</style>
+</head>
+<body>
+
+<h1>Gerotech Website Redesign — Design-to-Development Handoff Plan</h1>
+<p class="meta"><strong>Prepared for:</strong> Project Management &nbsp;|&nbsp; <strong>Prepared by:</strong> CloudMellow (Matt)</p>
+<p class="meta"><strong>Date:</strong> September 16, 2026 &nbsp;|&nbsp; <strong>Status:</strong> Draft for review</p>
+
+<hr class="rule" />
+
+<h2>1. Purpose</h2>
+<p>This document defines how we hand the approved HTML/CSS/JS prototype to WordPress development, and recommends the page-builder approach. It covers the current production site, the recommended theme strategy, the builder decision, the handoff deliverables, scope, phasing, and the decisions we still need.</p>
+
+<h2>2. Executive Summary</h2>
+<ul>
+  <li>The new header and footer are <strong>global, theme-level elements</strong> — they will not be built in any page builder, regardless of which one we choose.</li>
+  <li>The live site currently runs a <strong>custom WordPress theme with no page builder at all</strong>; content is hardcoded in templates. We are not constrained by an existing builder.</li>
+  <li>We recommend a <strong>child theme</strong> of the current <em>gerotech</em> theme, with custom post types moved into a small companion plugin. This keeps changes isolated and gives us instant rollback.</li>
+  <li>On page builders, our recommendation is <strong>Gutenberg + ACF Blocks</strong> as the best fit for this bespoke design system, with <strong>WP Bakery as a strong second</strong> if the client or team prefers it. A short comparison is included; we propose finalising this before build.</li>
+  <li>Scope is the <strong>11 prototype pages only</strong> — no migration of the existing 40+ live URLs at this stage.</li>
+  <li>Work proceeds in <strong>six phases</strong>, from freezing the prototype to page builds and QA.</li>
+</ul>
+
+<h2>3. What We Verified About the Current Site</h2>
+<p>We inspected the live site on September 16, 2026 to ground the plan in facts:</p>
+<table>
+  <thead>
+    <tr><th style="width:22%;">Layer</th><th>Finding</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>CMS</td><td>WordPress on <strong>WP Engine</strong> hosting (earlier notes citing Google Cloud are outdated)</td></tr>
+    <tr><td>Theme</td><td>Custom, bespoke theme named <em>gerotech</em> — not a marketplace theme</td></tr>
+    <tr><td>Page builder</td><td><strong>None.</strong> Homepage content is empty in the editor; sections are hardcoded in theme templates using a custom grid</td></tr>
+    <tr><td>Plugins</td><td>Megamenu (navigation), Smart Slider 3 (hero), Contact Form 7 + Honeypot, WPForms, iThemes Security, Search Regex</td></tr>
+    <tr><td>Content model</td><td>Structured post types already exist: training classes, service pages, testimonials, people, careers</td></tr>
+    <tr><td>Fonts</td><td>Google Font API (the new design uses Barlow Condensed + Navigo)</td></tr>
+  </tbody>
+</table>
+<div class="callout">
+  <p><strong>Implication:</strong> there is no existing builder to be compatible with, and the bespoke sections in the new design (Haas watermark band, machine lineup tabs, editorial news split, stat counter, gallery collections) cannot be produced from stock builder components anyway. The design system — not the builder — must remain the source of truth.</p>
+</div>
+
+<h2>4. Recommended Approach</h2>
+
+<h3>4.1 Theme Strategy</h3>
+<p>We recommend a <strong>child theme of the existing <em>gerotech</em> theme</strong>, plus one structural improvement:</p>
+<ul>
+  <li><strong>Move custom post type registration into a small “Gerotech Core” plugin.</strong> Post types stored in a theme break when the theme changes; a plugin is the correct home and gives us a clean place for future custom fields.</li>
+  <li><strong>The child theme owns</strong> the new header, footer, and page templates, loads the new design tokens and stylesheets in the documented order, and disables the old theme’s grid CSS and scripts.</li>
+  <li><strong>The parent theme stays untouched</strong>, so we can roll back instantly if needed.</li>
+</ul>
+<p>This is safer than editing the parent theme directly. We would only build a fully new theme if, on inspection of the staging copy, the parent proves unmaintainable. That inspection is the one remaining fork in the road.</p>
+
+<h3>4.2 Page Builder Decision</h3>
+<p>The header and footer are excluded from this decision — they live in the theme. The builder only governs page content. Our assessment against this project’s actual criteria:</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width:30%;">Criterion</th>
+      <th style="width:23%;">WP Bakery</th>
+      <th style="width:24%;">Gutenberg + ACF Blocks</th>
+      <th style="width:23%;">Elementor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Fit with our custom design system</td><td>Poor unless we build custom elements; injects its own grid</td><td><strong>Native</strong> — markup stays ours</td><td>Poor — heavy wrapper markup</td></tr>
+    <tr><td>Client editing experience</td><td>Familiar, visual</td><td>Structured fields + live preview; excellent when well built</td><td>Familiar, visual</td></tr>
+    <tr><td>Shortcode / vendor lock-in</td><td>High</td><td><strong>None</strong></td><td>High</td></tr>
+    <tr><td>Performance</td><td>Adds weight</td><td><strong>Lightest</strong></td><td>Heaviest</td></tr>
+    <tr><td>Long-term maintenance (retainer)</td><td>Builder + our CSS can conflict</td><td><strong>Fewest moving parts</strong></td><td>Most moving parts</td></tr>
+    <tr><td>Compatibility with the classic theme</td><td>Excellent</td><td>Excellent</td><td>Good</td></tr>
+  </tbody>
+</table>
+<p><strong>Recommendation:</strong> <strong>Gutenberg + ACF Blocks.</strong> It is the only option where the prototype’s design system survives intact, the client gets structured editing fields, and there is no shortcode lock-in on a site we will maintain for years.</p>
+<p><strong>WP Bakery is a defensible second choice</strong> — appropriate if the client already knows it or the team standardises on it. In that case we would build custom Gerotech elements, disable its default grid, and still keep header, footer, and structured content in the theme. We will include build-cost estimates for both so the trade-off is concrete.</p>
+
+<h2>5. Handoff Deliverables</h2>
+<p>A <em>handoff/</em> package in the project repository:</p>
+<ol>
+  <li><strong>Builder decision document</strong> — the comparison above, finalised with costs.</li>
+  <li><strong>Component inventory</strong> — the core artifact: every section mapped to its code class, the pages it appears on, whether it is shared or page-specific, its editable fields, and its builder equivalent.</li>
+  <li><strong>Design tokens export</strong> — colours, spacing, type scale, fonts, breakpoints, radii.</li>
+  <li><strong>Header/footer specification</strong> — the new markup and behaviour as theme templates, including the decision on whether to keep the Megamenu plugin or rebuild the navigation.</li>
+  <li><strong>Content model</strong> — which sections are driven by structured content (galleries, testimonials, news) versus editable page fields, with the custom field definitions.</li>
+  <li><strong>Page template specifications</strong> — one sheet per page: section order, shared versus page-specific, editable fields.</li>
+  <li><strong>Interaction specification</strong> — slider, tabs, modals, search, sticky navigation, stat counter, gallery; including accessibility and motion-reduction behaviour.</li>
+  <li><strong>Asset manifest</strong> — final versus placeholder imagery, logos, icons, fonts, videos, and rights flags (notably the FANUC badge and Haas F1 lockup, both pending approval).</li>
+  <li><strong>Responsive and accessibility QA checklist</strong> — breakpoints, browser matrix, accessibility targets.</li>
+  <li><strong>Open decisions register</strong> — see Section 8.</li>
+</ol>
+
+<h2>6. Scope and Assumptions</h2>
+<p><strong>In scope:</strong> the 11 prototype pages (Homepage, Engineered Solutions, Machine Custom Solutions, Automation &amp; Controls, Applications, Training, Support, About, Careers, plus the Machine Modification redirect and the exploratory Showroom / Hero Variations pages as needed).</p>
+<p><strong>Out of scope:</strong> migration of the existing 40+ live URLs (training classes, service pages, people, careers detail pages). These are flagged for a later phase.</p>
+<p><strong>Assumptions:</strong></p>
+<ul>
+  <li>We retain the existing theme, plugins, and hosting; this is a redesign, not a replatform.</li>
+  <li>The prototype’s content and imagery are largely final, with client photography and a few copy items still outstanding.</li>
+  <li>Retainer hours cover our build; the client requires editing rights and a straightforward editing experience.</li>
+</ul>
+
+<h2>7. Phased Plan</h2>
+<table>
+  <thead>
+    <tr><th style="width:10%;">Phase</th><th style="width:52%;">Work</th><th style="width:38%;">Outcome</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Freeze the prototype; draft the builder decision document</td><td>Approved, versioned reference</td></tr>
+    <tr><td>2</td><td>Inspect the staging theme; confirm where post types register; finalise child-versus-new theme</td><td>Confirmed architecture</td></tr>
+    <tr><td>3</td><td>Write the remaining handoff documents</td><td>Complete handoff package</td></tr>
+    <tr><td>4</td><td>Build the theme skeleton (child theme, header/footer, styles, scripts)</td><td>Working theme shell</td></tr>
+    <tr><td>5</td><td>Implement the chosen builder elements and the content model</td><td>Editable page system</td></tr>
+    <tr><td>6</td><td>Build the 11 pages, wire client editing, run QA</td><td>Launch-ready site</td></tr>
+  </tbody>
+</table>
+
+<h2>8. Open Decisions and Client Inputs Needed</h2>
+<ol>
+  <li><strong>Page builder</strong> — confirm Gutenberg + ACF Blocks or WP Bakery (decision document to follow).</li>
+  <li><strong>Navigation</strong> — keep the Megamenu plugin or rebuild the navigation in the theme?</li>
+  <li><strong>URL strategy</strong> — do the prototype pages replace the existing top-level URLs (for example /engineered-solutions/, /support/, /about/) or take new ones? This affects search visibility.</li>
+  <li><strong>Machine catalogue links</strong> — approximately 40 placeholder links pending the Haas catalogue structure.</li>
+  <li><strong>FANUC badge and Haas F1 lockup</strong> — usage rights still unconfirmed; both are placeholders.</li>
+  <li><strong>News page, social URLs, and email signup integration</strong> — outstanding from the client.</li>
+  <li><strong>Client photography</strong> — the prototype uses temporary stock imagery throughout; final assets are needed before launch.</li>
+</ol>
+
+<h2>9. Recommendation</h2>
+<p>Proceed with <strong>Phase 1 and Phase 2 immediately</strong> — freeze the prototype and inspect the staging theme — while the builder decision is finalised in parallel. Our recommendation is <strong>Gutenberg + ACF Blocks</strong> on a <strong>child theme</strong>, scoped to the 11 prototype pages.</p>
+
+</body>
+</html>
