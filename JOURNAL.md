@@ -2,6 +2,15 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Gallery module preview: collections + video (opencode)
+- Client wants multiple images per category and a video option; current flat `.mcs-gallery-card` (one photo each) is wrong. Built as an **isolated preview module** to share with the PM before touching live pages.
+- New (untracked): `gallery-module-preview.html`, `assets/css/gallery-module.css`, `assets/js/gallery-module.js`, `assets/videos/placeholder-*.mp4`.
+- Model: one card = one category, with a `<template class="gallery-collection__data">` listing `[data-type="image|video"]` media. Badges + play glyph derived in JS; viewer scoped per collection and renders `<video controls>` inline. Chrome mirrors `.gallery-lightbox` but is namespaced `.gallery-viewer*` so it does not touch `components.css` / `modal.js`.
+- Preview mirrors MCS content: Column Riser, Fire Suppression, Sheet Metal Modification (3 photos + 1 video), Auto Door Integration (4 photos + 1 video), Hydraulic/Pneumatic, Custom Fixture Design, Safety & Environmental (2 photos).
+- Videos are ffmpeg-generated placeholders (commented) until client supplies footage.
+- Verified with headless-chrome screenshots (1440 + 390), image viewer, video viewer, mobile single column. Live pages unchanged.
+- Next: PM sign-off → promote and convert MCS, then Automation + Applications.
+
 ## 2026-09-15 — Nav links trimmed to Machines + Engineered Solutions
 - `partials/site-header.html`: Training / Support / About keep their labels but lose `href` (no longer links). Support + About `has-dropdown` wrappers and their dropdowns removed. Desktop + mobile nav. Machines and Engineered Solutions remain linked; Get a Quote CTA and search modal quick links untouched.
 

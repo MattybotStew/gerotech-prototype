@@ -5,11 +5,23 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-15 (opencode — nav links trimmed)
+**Last Updated:** 2026-09-16 (opencode — gallery module preview: collections + video)
 **Active Agent:** opencode
 **Branch:** `master`
 **Last Commit:** Keep homepage stats only; drop interior below-hero counters.
-**Uncommitted:** `partials/site-header.html` (nav link trim), `JOURNAL.md`, `.codewhale/` only
+**Uncommitted:** `gallery-module-preview.html`, `assets/css/gallery-module.css`, `assets/js/gallery-module.js`, `assets/videos/` (new, untracked), plus prior `partials/site-header.html` (nav link trim), `JOURNAL.md`, `.codewhale/`
+
+### 2026-09-16 session (opencode — gallery module: collections + video)
+- **Client request:** current flat one-photo-per-card gallery is wrong — they want **multiple images per category + a video option**. Built as an **isolated preview module** to share with the PM before rolling out to pages.
+- **New (untracked, nothing on live pages touched):**
+  - `gallery-module-preview.html` — exploratory preview page. Content mirrors MCS (7 categories from the current 13 flat cards). Header/footer partials + scripts included. Carries a "Preview module — not linked in the site nav" note.
+  - `assets/css/gallery-module.css` — namespaced `.gallery-collection*` + `.gallery-viewer*`. Deliberately **self-contained** (does not reuse/override `.mcs-gallery-*` / `.gallery-lightbox`). Responsive ladder 4→3→2→1.
+  - `assets/js/gallery-module.js` — parses `<template class="gallery-collection__data">` per card; derives count badges + `--has-video` class; builds a viewer scoped to the opened collection; supports images **and** `<video controls playsinline>`; keyboard (Esc/←/→/Tab trap), swipe, focus restore.
+  - `assets/videos/placeholder-*.mp4` — ffmpeg-generated sample clips, clearly commented as placeholders awaiting client footage.
+- **Data model:** each `.gallery-collection` card = one category; a `<template>` child lists its media as `[data-type="image|video"][data-src][data-poster][data-alt][data-caption]`. Badges/counts are derived, so authors only edit markup (maps cleanly to a WP ACF repeater later).
+- **Card a11y:** heading holds a real `<button class="gallery-collection__trigger">`; `::after` stretches it over the card (valid HTML — no block content inside a button).
+- **Verified:** chrome-headless-shell screenshots at 1440 + 390; image viewer (title/caption/`2 / 4`/active thumb), video viewer (poster + native controls + play badge on thumb), mobile 1-col. Live pages untouched.
+- **Not done / next:** PM review → on approval promote module and convert MCS (13 cards → 7 collections), then Automation + Applications. No `href`/nav entry added anywhere.
 
 ### 2026-09-15 session (nav link trim)
 - `partials/site-header.html`: Training / Support / About retain labels but lose `href` (non-links). Support + About `has-dropdown` classes, arrows, and dropdown menus removed. Desktop + mobile nav. Machines + Engineered Solutions stay linked. Get a Quote CTA and search-modal quick links left as-is (confirm if those should also unlink).
