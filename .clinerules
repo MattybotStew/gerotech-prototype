@@ -5,11 +5,20 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (opencode — design-to-dev handoff plan)
+**Last Updated:** 2026-09-16 (opencode — handoff plan + WP implementation plan)
 **Active Agent:** opencode
 **Branch:** `master`
 **Last Commit:** Keep homepage stats only; drop interior below-hero counters.
-**Uncommitted:** `handoff/` (new — `gerotech-handoff-plan.docx` + `.html`), `gallery-module-preview.html`, `assets/css/gallery-module.css`, `assets/js/gallery-module.js`, `assets/videos/` (new, untracked), plus prior `partials/site-header.html` (nav link trim), `JOURNAL.md`, `.codewhale/`
+**Uncommitted:** `handoff/implementation-plan-wordpress-theme-acf.md` (new), `gallery-module-preview.html`, `assets/css/gallery-module.css`, `assets/js/gallery-module.js`, `assets/videos/` (new, untracked), plus prior `partials/site-header.html` (nav link trim), `JOURNAL.md`, `.codewhale/`
+
+**Build direction (chosen 2026-09-16):** static HTML → WordPress child theme + ACF fields, **no page builder**. Full build plan: `handoff/implementation-plan-wordpress-theme-acf.md`. PM-facing rationale: `handoff/gerotech-handoff-plan.docx`. Next action: Phase 1 — inspect staging `gerotech` theme, confirm child-vs-new, check CPT registration.
+
+### 2026-09-16 session (opencode — handoff plan + WP implementation plan)
+- **Deliverable 1:** `handoff/gerotech-handoff-plan.docx` — PM-facing Word doc (real tables via python-docx; `.html` kept as editable source). Covers current-site audit, theme strategy, builder comparison, 10 deliverables, scope, 6 phases, open decisions.
+- **Deliverable 2:** `handoff/implementation-plan-wordpress-theme-acf.md` — build-facing plan for the **chosen approach: static HTML → WP child theme + ACF, no page builder.** Theme file tree, HTML→PHP map, ACF field model (incl. no-nested-repeaters / accent-word `em` / machine-lineup flat-repeater constraints), JS+asset port, forms, 9-phase sequence (~16–17 dev days), risks, open decisions.
+- **Live-site audit (2026-09-16):** WordPress on **WP Engine** (old "Google Cloud" note wrong); custom `gerotech` theme; **no page builder** (homepage editor content empty — sections hardcoded in templates); plugins Megamenu, Smart Slider 3, CF7 + Honeypot, WPForms, iThemes Security, Search Regex; CPTs training/service/testimonials/people/careers; Google Font API.
+- **Decision:** page builder rejected for v1 in favour of theme + ACF (fastest path; builder elements can be added later on retainer). If WP Bakery is revisited, cost estimate is ~46–70 dev days (24 custom elements + grid conflict + AJAX re-init + lock-in).
+- **Still open:** child-vs-new theme (needs staging), nav editable vs hardcoded, URL strategy, CPTs-now-vs-ACF-only, accent-word editing. **Next:** Phase 1 — inspect staging `gerotech` theme.
 
 ### 2026-09-16 session (opencode — design-to-dev handoff plan for PM)
 - **Deliverable:** `handoff/gerotech-handoff-plan.docx` — PM-facing Word doc (real tables via python-docx; `.html` kept as editable source). Covers current-site audit, theme strategy, builder comparison, 10 deliverables, scope, 6 phases, open decisions.

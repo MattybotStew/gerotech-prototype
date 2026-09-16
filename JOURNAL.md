@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — WP implementation plan: theme + ACF, no builder (opencode)
+- **Decision:** v1 build = static HTML → WordPress child theme + ACF fields, **no page builder** (fastest path; builder elements can be added later on retainer).
+- New `handoff/implementation-plan-wordpress-theme-acf.md`: theme file tree, HTML→PHP conversion map, ACF field model (constraints: repeaters can't nest → Groups/flattened rows; accent words via WYSIWYG `em`; machine lineup as one flat repeater), JS+asset port, forms, 9-phase sequence (~16–17 dev days), risks, open decisions, cold-pickup instructions.
+- `.clinerules` updated with build direction + next action.
+- Docs only — no prototype pages or assets changed.
+
 ## 2026-09-16 — Design-to-dev handoff plan for PM (opencode)
 - New `handoff/` folder: `gerotech-handoff-plan.docx` (PM-facing Word doc, 3 real tables) + `gerotech-handoff-plan.html` (editable source).
 - Grounded in a fresh live-site audit: WP Engine hosting (not Google Cloud), custom `gerotech` theme, **no page builder**, plugins Megamenu / Smart Slider 3 / CF7 + Honeypot / WPForms / iThemes Security / Search Regex, existing CPTs (training, service, testimonials, people, careers), Google Font API.
