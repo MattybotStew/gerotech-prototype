@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Lineup turning/rotaries/automation/tooling (Cursor)
+- Turning: ST-25Y photo; lathe series URLs (ST, Box Way, Chucker).
+- Rotaries + Automation: full panel copy; rotary links; Cobots + Bar Feeders Haas URLs.
+- Tooling: Haas Tooling eyebrow, **Tooling & Workholding** title, full one-stop copy.
+
 ## 2026-09-16 — Homepage polish (Cursor)
 - Peek heroes: min-height 500px, 100px vertical padding, copy vertically centered; CTAs not full-width (min-height 50px). Same padding/min-height on `.page-hero` / trust heroes. Interior `.btn--lg` stays auto-width in heroes.
 - Machining Centers: six series + Haas links (new tab); View All Mills → vertical-mills.html; extra panel copy gone. Photo is UMC-750 (`haas-umc-750.jpg`).

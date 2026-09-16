@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (Cursor — homepage polish + Figma comments, commit/push)
+**Last Updated:** 2026-09-16 (Cursor — lineup tabs copy/links + ST-25Y)
 **Active Agent:** Cursor
 **Branch:** `master`
 **Last Commit:** (this push)
-**Uncommitted:** `.codewhale/` only (not committed)
+**Uncommitted:** `.codewhale/` only
 
 ### 2026-09-16 session (Cursor — Design [WIP] 2 homepage comments)
 - Applied Figma agent “done” items + remaining text/structure on `index.html` from comment list (hero Haas red, stats 39+/14,000+, Haas headline, remove capability band + news + catalog link + CTA tags/subtext, lineup tabs/links, CTA copy/button).
