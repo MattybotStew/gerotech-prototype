@@ -2,6 +2,9 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Haas Tooling Winner's Circle panel (Cursor)
+- Replaced turquoise mill stand-in with white panel + Winner's Circle mark (`haas-winners-circle.png`).
+
 ## 2026-09-16 — Lineup turning/rotaries/automation/tooling (Cursor)
 - Turning: ST-25Y photo; lathe series URLs (ST, Box Way, Chucker).
 - Rotaries + Automation: full panel copy; rotary links; Cobots + Bar Feeders Haas URLs.

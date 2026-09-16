@@ -4447,6 +4447,15 @@ img.mcs-gallery-card__image {
   height: 100%;
   object-fit: cover;
 }
+.machine-panel--lineup .machine-panel__photo--logo {
+  background: #ffffff;
+}
+.machine-panel--lineup .machine-panel__photo--logo img {
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(28px, 6vw, 64px);
+  box-sizing: border-box;
+}
 .machine-panel__photo-shade {
   position: absolute;
   inset: 0;
