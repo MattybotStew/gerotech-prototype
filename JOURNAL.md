@@ -2,6 +2,9 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Haas Relationship eyebrow (Cursor)
+- “The Haas Relationship” label + rule use `#CF0A2C`.
+
 ## 2026-09-16 — Peek slider CTA spacing (Cursor)
 - Desktop: +15px margin-top on homepage peek hero buttons.
 

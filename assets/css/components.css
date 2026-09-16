@@ -401,6 +401,12 @@
 .eyebrow-row .eyebrow {
   margin: 0;
 }
+.haas-relationship .eyebrow-row .eyebrow {
+  color: #CF0A2C;
+}
+.haas-relationship .eyebrow-row__rule {
+  background: #CF0A2C;
+}
 
 /* ── Hero Slider (Figma — 560px, glassmorphism arrows, dot nav) ── */
 .hero-slider {
