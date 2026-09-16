@@ -552,6 +552,12 @@ button { cursor: pointer; }
   .credential-band__actions { justify-content: center; }
 
   .btn--lg { width: 100%; }
+  .hero-slider .btn--lg,
+  .page-hero .btn--lg,
+  .page-hero-trust .btn--lg {
+    width: auto;
+    max-width: 100%;
+  }
   .es-hero__actions { flex-direction: column; align-items: center; }
   .capability-band__actions { flex-direction: column; }
   .credential-band__actions { flex-direction: column; align-items: stretch; }

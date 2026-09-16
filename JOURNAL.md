@@ -2,6 +2,21 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Homepage polish (Cursor)
+- Peek heroes: min-height 500px, 100px vertical padding, copy vertically centered; CTAs not full-width (min-height 50px). Same padding/min-height on `.page-hero` / trust heroes. Interior `.btn--lg` stays auto-width in heroes.
+- Machining Centers: six series + Haas links (new tab); View All Mills → vertical-mills.html; extra panel copy gone. Photo is UMC-750 (`haas-umc-750.jpg`).
+- Haas F1 card: grey stroke; watermark vertically centered.
+- CTA: Tristien body line; phone lockup removed; body 52ch / copy max `--hero-copy-max`.
+- Testimonials: Ford + Kingbury quotes from comments. Equal-size lineup chips. Include-partials `no-store`.
+
+## 2026-09-16 — Homepage Figma comment pass (`7196:2420` / Design [WIP] 2)
+- Applied the Figma-agent batch (14,000+, Haas headline, Ford/Kingbury names, CTA heading, remove capability band + news + Full Haas Catalog + CTA subtext/tags) plus remaining homepage comments that do not need missing attachments.
+- Hero: **Haas Factory Outlet** + **A Division of Gerotech** in Haas red `#CF0A2C`; hero CTA button Haas red / white type.
+- Stats: **39+** and **14,000+** only (dropped 12 engineers and #1 Midwest).
+- Lineup: Rotaries & Indexers + Haas Automation + simplified Haas Tooling (haastooling.com + Winner’s Circle); mill series links; Gantry → Drill/Tap/Mill; View All Mills → haascnc.com; lathe boxes/links; panel body copy removed where comments asked.
+- CTA: ES description + **Engage with us today**. Kingbury quote from Ron Kingsbury LinkedIn; Ford quote body still pending (comment 198 not pasted).
+- Not done: attached photos (149, 165, 166, 179, 191), full “Gerotech is proud to serve…” paragraph (200), MCS video on `7196:3079` (140), truncated summaries left as quoted fragments.
+
 ## 2026-09-16 — WP implementation plan: theme + ACF, no builder (opencode)
 - **Decision:** v1 build = static HTML → WordPress child theme + ACF fields, **no page builder** (fastest path; builder elements can be added later on retainer).
 - New `handoff/implementation-plan-wordpress-theme-acf.md`: theme file tree, HTML→PHP conversion map, ACF field model (constraints: repeaters can't nest → Groups/flattened rows; accent words via WYSIWYG `em`; machine lineup as one flat repeater), JS+asset port, forms, 9-phase sequence (~16–17 dev days), risks, open decisions, cold-pickup instructions.

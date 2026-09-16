@@ -4,7 +4,7 @@
 
   var promises = Array.from(includes).map(function (el) {
     var src = el.getAttribute('data-include');
-    return fetch(src)
+    return fetch(src, { cache: 'no-store' })
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + src);
         return r.text();

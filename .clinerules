@@ -5,11 +5,15 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (opencode — handoff plan + WP implementation plan)
-**Active Agent:** opencode
+**Last Updated:** 2026-09-16 (Cursor — homepage polish + Figma comments, commit/push)
+**Active Agent:** Cursor
 **Branch:** `master`
-**Last Commit:** Keep homepage stats only; drop interior below-hero counters.
-**Uncommitted:** `handoff/implementation-plan-wordpress-theme-acf.md` (new), `gallery-module-preview.html`, `assets/css/gallery-module.css`, `assets/js/gallery-module.js`, `assets/videos/` (new, untracked), plus prior `partials/site-header.html` (nav link trim), `JOURNAL.md`, `.codewhale/`
+**Last Commit:** (this push)
+**Uncommitted:** `.codewhale/` only (not committed)
+
+### 2026-09-16 session (Cursor — Design [WIP] 2 homepage comments)
+- Applied Figma agent “done” items + remaining text/structure on `index.html` from comment list (hero Haas red, stats 39+/14,000+, Haas headline, remove capability band + news + catalog link + CTA tags/subtext, lineup tabs/links, CTA copy/button).
+- Still blocked: attached images (149/165/166/179/191), full Navigo paragraphs not pasted (200, 198 Ford quote body), MCS video (140), ES older image comments already handled earlier.
 
 **Build direction (chosen 2026-09-16):** static HTML → WordPress child theme + ACF fields, **no page builder**. Full build plan: `handoff/implementation-plan-wordpress-theme-acf.md`. PM-facing rationale: `handoff/gerotech-handoff-plan.docx`. Next action: Phase 1 — inspect staging `gerotech` theme, confirm child-vs-new, check CPT registration.
 
