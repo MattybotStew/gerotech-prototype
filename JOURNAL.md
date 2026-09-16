@@ -2,6 +2,10 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Homepage peek slides 2–3 (Cursor)
+- Slide 2: showroom photo, for-sale headline, warranty body, Browse Inventory → Haas HFO showroom.
+- Slide 3: automation cell photo, “Automation Built for Your Shop Floor,” body removed.
+
 ## 2026-09-16 — Haas Tooling Winner's Circle panel (Cursor)
 - Replaced turquoise mill stand-in with white panel + Winner's Circle mark (`haas-winners-circle.png`).
 
