@@ -1,103 +1,243 @@
 <?php
 /**
- * training page template.
+ * Training page template.
  *
- * Ported verbatim from the static prototype. Markup is static for v1;
- * strings and images become ACF fields in a later phase.
+ * Body content is ported from the dev site (gerotechdev) so the page matches
+ * the live training design exactly (hero, 8 course cards, custom-training
+ * block, Locations with Google Maps, Engage CTA). Links to dev are made
+ * root-relative; hero images are bundled in assets/images/legacy/.
+ *
+ * The parent theme's stylesheet is loaded scoped to `.legacy`
+ * (assets/css/legacy.css) so it cannot leak into our new header/footer.
+ * Header/footer are the child theme's (new design).
+ *
+ * NOTE: the Google Maps API key is the dev key, overridable via the
+ * `gerotech_google_maps_key` filter — replace before production.
  *
  * @package GerotechChild
  */
 
 get_header();
+
+$legacy_img = GEROTECH_CHILD_URI . '/assets/images/legacy';
 ?>
 
-<main id="main">
-    <section class="page-hero" aria-labelledby="training-headline">
-      <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop" alt="Haas training classroom" loading="eager" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
-      <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
-      <div class="slide__content slide__content--left">
-        <p class="slide__eyebrow">Operator &amp; Programming Training</p>
-        <h1 class="slide__headline" id="training-headline">Haas <span class="accent">Training</span> at Gerotech</h1>
-        <p class="slide__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations — for as long as you own your Haas machines.</p>
-        <div class="page-hero__actions">
-          <a class="btn btn--primary btn--lg" href="#training-schedule">View Schedule</a>
-          <a class="btn btn--outline-white btn--lg" href="mailto:sales@gerotech.com?subject=Custom%20Training%20Request">Request Custom Training</a>
-        </div>
-      </div>
-    </section>
+<div class="legacy">
 
-    <section class="section mcs-grid-section training-schedule-section" id="training-schedule" aria-labelledby="training-courses">
-      <div class="container container--es">
-        <div class="section-header"><p class="eyebrow">Available Courses</p><h2 class="section-title" id="training-courses">Training <span class="accent--deep">Programs</span></h2><span class="headline-rule headline-rule--deep" aria-hidden="true"></span></div>
-        <div class="mcs-grid">
-          <article class="mcs-card">
-            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=800&auto=format&fit=crop" alt="Mill Operator" loading="lazy" /><!-- Stand-in: Unsplash/Guick — awaiting client photo: Mill Operator -->
-            <div class="mcs-card__content">
-              <h3 class="mcs-card__title">Mill Operator</h3>
-              <p class="mcs-card__body">Learn machine setup, tool loading, program execution, and basic maintenance on Haas vertical machining centers.</p>
-              <div class="mcs-card__actions"><a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Training%20Registration">Register</a></div>
-            </div>
-          </article>
-          <article class="mcs-card">
-            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=800&auto=format&fit=crop" alt="Lathe Operator" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Lathe Operator -->
-            <div class="mcs-card__content">
-              <h3 class="mcs-card__title">Lathe Operator</h3>
-              <p class="mcs-card__body">Hands-on training covering setup, tooling, program execution, and safety on Haas CNC lathes.</p>
-              <div class="mcs-card__actions"><a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Training%20Registration">Register</a></div>
-            </div>
-          </article>
-          <article class="mcs-card">
-            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=800&auto=format&fit=crop" alt="Mill Programming" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Mill Programming -->
-            <div class="mcs-card__content">
-              <h3 class="mcs-card__title">Basic Mill Programming</h3>
-              <p class="mcs-card__body">G-code fundamentals, toolpath creation, and program optimization for Haas mills.</p>
-              <div class="mcs-card__actions"><a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Training%20Registration">Register</a></div>
-            </div>
-          </article>
-          <article class="mcs-card">
-            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=800&auto=format&fit=crop" alt="Advanced Programming" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Advanced Programming -->
-            <div class="mcs-card__content">
-              <h3 class="mcs-card__title">Advanced Mill Programming</h3>
-              <p class="mcs-card__body">Macro programming, probing routines, and advanced toolpath strategies for complex parts.</p>
-              <div class="mcs-card__actions"><a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Training%20Registration">Register</a></div>
-            </div>
-          </article>
-        </div>
-      </div>
+<section id="page_title" style="display: none;">
+		<div class="row clearfix">
+			<h1>Training</h1>
+		</div>
     </section>
-
-    <!-- Customer testimonials (shared partial) -->
-    <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
-
-    <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
-      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920&auto=format&fit=crop" alt="Training and classroom learning" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
-      <div class="cta-band__overlay" aria-hidden="true"></div>
-      <div class="cta-band__content">
-        <div class="cta-band__copy">
-          <div class="eyebrow-row">
-            <span class="eyebrow-row__rule" aria-hidden="true"></span>
-            <p class="eyebrow eyebrow--orange">Custom Training</p>
-          </div>
-          <h2 class="cta-band__headline">Need something specific for <span class="cta-band__accent">your shop</span>?</h2>
-          <span class="cta-band__rule" aria-hidden="true"></span>
-          <p class="cta-band__body">Complimentary and custom Haas training at Gerotech-supported locations across Michigan.</p>
-          <div class="cta-band__actions">
-            <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Custom%20Training%20Request">Request Custom Training</a>
-            <a class="btn btn--outline-white" href="<?php gerotech_page_link( 'training' ); ?>">View Training Schedule</a>
-          </div>
-        </div>
-      </div>
+	
+    <section id="head_image" class="video_t hide_on_mobile" style="background-image: url(<?php echo esc_url( $legacy_img . '/h_training.jpg' ); ?>);">
+		<div class="row clearfix">
+			<div class="head_text">
+				<h1>TRAINING</h1>
+				<h2>Sharpen your skills.</h2>
+			</div>
+		
+		</div>
     </section>
+	
+    <section id="head_image_mobile" class="video_t hide_on_desktop" style="background-image: url(<?php echo esc_url( $legacy_img . '/bkg_training_mobile.jpg' ); ?>);">
+	
+		<div class="row clearfix">
 
-    <section class="email-signup" aria-label="Mailing list signup">
-      <div class="email-signup__inner">
-        <div class="email-signup__copy">
-          <h2 class="email-signup__title">Join Our <span class="accent">Mailing List</span></h2><p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
-        </div>
-        <form class="email-signup__form" action="#" method="post" novalidate><label for="email-input-tr" class="sr-only">Email address</label><input class="email-signup__input" id="email-input-tr" type="email" name="email" placeholder="your@email.com" required autocomplete="email" /><button class="email-signup__submit" type="submit">Sign Up</button></form>
-      </div>
+			<div class="head_text">
+				<h1>TRAINING</h1>
+				<h2>Sharpen your skills.</h2>
+			</div>
+		
+		</div>
     </section>
-  </main>
+	
+    <section class="bkg_grey_shapes">
+		<div class="row_970 clearfix centered">
+		
+						
+			<p><a href="/scheduled-training/" class="btn_orange_outline training_page">View all upcoming training sessions</a></p>
+
+		</div>
+    </section>
+	
+    <section class="bkg_white">
+		<div class="row clearfix">
+
+			<h2 class="centered">Training Opportunities</h2>
+		
+							
+				<div class="quad">
+				
+					<h5 class="orange"><a href="/training/lathe-operator/">Haas Lathe 101</a></h5>
+					<p>This one day course covers power-up, keyboard layout - modes &amp; displays, tooling - loading &amp; lengths and offsets. Also includes work offsets, mid-program start, overrides, alarms, and power down. This class is developed around the new NGC control implemented around 2012.  Attendees for non-NGC controls are welcome but will find many new features and navigation of the NGC do not apply to the CHC control.</p>
+					<a href="/training/lathe-operator/" class="learn_more">LEARN MORE</a>
+				
+				</div>
+				
+							
+				<div class="quad">
+				
+					<h5 class="orange"><a href="/training/vps-lathe-programming/">VPS Lathe Programming</a></h5>
+					<p>This one day course will cover the use of the Tool Setting Probe to find tool geometry. Along with the use of the probe, students will learn the use of the all machining functions that are part of the VPS. Each student will have the opportunity to use the Tool Probe for setting tool geometry. This class is only for Lathes purchased since February 2016 that have Next Generation Control.</p>
+					<a href="/training/vps-lathe-programming/" class="learn_more">LEARN MORE</a>
+				
+				</div>
+				
+							
+				<div class="quad">
+				
+					<h5 class="orange"><a href="/training/lathe-intro-to-gm-code-programming/">Lathe-Intro to G&#038;M Code Programming</a></h5>
+					<p>This one day course covers the most commonly used G&amp;M codes for Lathe part programming. This is a prerequisite for Lathe programming class. This class is only for Lathes purchased since February 2016 that have Next Generation Control.</p>
+					<a href="/training/lathe-intro-to-gm-code-programming/" class="learn_more">LEARN MORE</a>
+				
+				</div>
+				
+							
+				<div class="quad">
+				
+					<h5 class="orange"><a href="/training/lathe-programming/">Lathe Programming</a></h5>
+					<p>This one day course covers program structure, including tool setup, part setup, along with subprograms and sub routines. Must have completed the Intro to Lathe G&amp;M code class. This class is only for Lathes purchased since February 2016 that have Next Generation Control.</p>
+					<a href="/training/lathe-programming/" class="learn_more">LEARN MORE</a>
+				
+				</div>
+				
+							
+				<div class="quad">
+				
+					<h5 class="orange"><a href="/training/mill-operator/">Haas Mill 101</a></h5>
+					<p>This one day course covers power-up, keyboard layout - modes and displays, tooling - loading &amp; lengths and offsets. Also includes work offsets, mid-program start, overrides, alarms, and power down.</p>
+					<a href="/training/mill-operator/" class="learn_more">LEARN MORE</a>
+				
+				</div>
+				
+							
+				<div class="quad">
+				
+					<h5 class="orange"><a href="/training/vps-mill-programming/">VPS Mill Programming</a></h5>
+					<p>This is a one day course will cover the use of the Table Probe to set tools and the Spindle Probe to find work offsets on a part. Along with the use of the probe, students will learn the use of the all machining functions that are part of the VPS. Each student will have the opportunity to use both the Table Probe for setting different tools and the Spindle Probe to find offsets on different types of work geometry.</p>
+					<a href="/training/vps-mill-programming/" class="learn_more">LEARN MORE</a>
+				
+				</div>
+				
+							
+				<div class="quad">
+				
+					<h5 class="orange"><a href="/training/advanced-mill-programming/">Mill-Intro to G&#038;M Code Programming</a></h5>
+					<p>This one day course covers the most commonly used G&amp;M codes for Mill part programming. This is a prerequisite for Mill programming class.</p>
+					<a href="/training/advanced-mill-programming/" class="learn_more">LEARN MORE</a>
+				
+				</div>
+				
+							
+				<div class="quad">
+				
+					<h5 class="orange"><a href="/training/basic-mill-programming/">Mill Programming</a></h5>
+					<p>This one day course covers program structure, including tool setup, part setup, along with subprograms and sub routines. Must have completed the Intro to Mill G&amp;M code class.</p>
+					<a href="/training/basic-mill-programming/" class="learn_more">LEARN MORE</a>
+				
+				</div>
+				
+					
+		</div>
+    </section>
+	
+    <section class="bkg_grey_shapes">
+		<div class="row_970 clearfix">
+		
+			<h2 class="centered">Upcoming Training Sessions</h2>
+			
+						
+			<div class="cl"></div>
+			
+			<p class="centered"><a href="/scheduled-training/" class="learn_more">VIEW ALL UPCOMING CLASSROOM TRAINING SESSIONS</a></p>
+
+		</div>
+    </section>
+	
+    <section class="bkg_white">
+		<div class="row_970 clearfix centered">
+
+			<p><span style="font-family: helvetica, arial, sans-serif;font-size: 36pt">Custom Training </span></p>
+<p style="text-align: left"><span style="font-family: helvetica, arial, sans-serif;font-size: 14pt"><strong data-start="172" data-end="216">Custom Training – Tailored to Your Needs</strong></span><br data-start="216" data-end="219" /><span style="font-family: helvetica, arial, sans-serif;font-size: 14pt">In addition to our regularly scheduled Haas Basic 101 and programming classes, we offer on-site <a href="/training/custom-classes/">custom training</a> at your facility. Our expert instructors can cover advanced topics such as, Multi-Axis Machining, </span><span style="font-family: helvetica, arial, sans-serif;font-size: 14pt">Live Tooling, Sub-Spindle Operations, Custom Macros &amp; Programming Routines, Process Development, and more. Each training session is designed to meet your specific goals, skill levels, and production requirements.</span></p>
+<p>&nbsp;</p>
+		
+		</div>
+    </section>
+	
+	<section id="locations">
+		<div class="row clearfix centered">
+		
+			<h2>Locations</h2>
+			
+			<div class="location_block">
+			
+				<div class="location_left">
+					<div id="location_flat_rock"></div>
+					<div class="location_head">Flat Rock, MI</div>
+					<div class="location_address">29220 Commerce Drive, Flat Rock, MI 48134</div>
+					<div class="location_phone_fax">P: <span class="orange">734-379-7788</span> &nbsp; F: <span class="orange">734-379-2244</span></div>
+				</div>
+
+				<div class="location_right">
+					<div id="location_grand_rapids"></div>
+					<div class="location_head">Grand Rapids, MI</div>
+					<div class="location_address">2716 Courier Court NW, Grand Rapids, MI 49544</div>
+					<div class="location_phone_fax">P: <span class="orange">616-735-1100</span> &nbsp; F: <span class="orange">616-735-0776</span></div>
+				</div>
+			
+			</div>
+		
+		</div>
+	</section>
+	
+	<script>
+
+      function initMap() {
+		  
+        var flat_rock = {lat: 42.0933039, lng: -83.2480333};
+        var map = new google.maps.Map(document.getElementById('location_flat_rock'), {
+          zoom: 16,
+          center: flat_rock
+        });
+        var marker = new google.maps.Marker({
+          position: flat_rock,
+          map: map
+        });
+		
+        var grand_rapids = {lat: 43.014185, lng: -85.7591209};
+        var map2 = new google.maps.Map(document.getElementById('location_grand_rapids'), {
+          zoom: 15,
+          center: grand_rapids
+        });
+        var marker = new google.maps.Marker({
+          position: grand_rapids,
+          map: map2
+        });
+		
+      }
+
+    </script>
+	
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<?php echo esc_attr( apply_filters( 'gerotech_google_maps_key', 'AIzaSyCkwtPM8ZrwMbcJ0cSz2J-4IDbMLnUZU8Q' ) ); ?>&callback=initMap">
+    </script>
+	
+	
+
+
+		<section id="engage">
+	
+		<div class="row clearfix">
+		
+			<p><span>Put our engineers to work on your project</span></p>
+			
+			<a href="/contact/" class="btn_engage">Engage with us today</a>
+		
+		</div>
+
+	</section>
+</div><!-- /.legacy -->
 
 <?php
 get_footer();

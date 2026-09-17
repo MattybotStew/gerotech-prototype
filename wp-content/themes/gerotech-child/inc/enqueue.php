@@ -68,7 +68,7 @@ function gerotech_child_enqueue_assets() {
 	// Support + Service bodies are ported from the dev site and styled by the
 	// parent theme's stylesheet, scoped to `.legacy` so it cannot leak into the
 	// new header/footer. Replica fonts come from the parent theme.
-	$legacy_pages = array( 'support', 'service' );
+	$legacy_pages = array( 'support', 'service', 'training' );
 	if ( is_page( $legacy_pages ) ) {
 		wp_enqueue_style( 'gerotech-legacy-fonts', get_template_directory_uri() . '/fonts.css', array(), null );
 		wp_enqueue_style(

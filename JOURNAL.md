@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Training page port (opencode)
+- **Request:** `gerotechdev.wpenginepowered.com/training/` should be the training page (our header/footer + dev body).
+- **`page-training.php` (rewritten):** ported the dev body — hero "TRAINING / Sharpen your skills." (desktop + mobile), "View all upcoming training sessions" button, **Training Opportunities** (8 `.quad` course cards), **Upcoming Training Sessions**, **Custom Training** rich-text block, **Locations** (Flat Rock + Grand Rapids with **Google Maps**), Engage CTA. No CF7 forms on this page.
+- **Localized:** dev-domain links → root-relative (all verified 200: `/training/lathe-operator/`, `/training/mill-operator/`, `/scheduled-training/`, `/training/custom-classes/`, `/contact/`); hero images bundled in `assets/images/legacy/` (`h_training.jpg`, `bkg_training_mobile.jpg`).
+- **Maps key:** the dev Google Maps key is kept as the default but is now overridable via the **`gerotech_google_maps_key`** filter — replace before production.
+- **Enqueue:** `legacy.css` + parent `fonts.css` now load on **support + service + training**.
+- **Verified:** local `/training/` desktop matches dev (hero, 8 cards, custom-training, both maps render).
+
 ## 2026-09-16 — Service page port + generalize legacy scope to `.legacy` (opencode)
 - **Request:** same treatment as Support for `gerotechdev.wpenginepowered.com/service/` — our header/footer, dev body.
 - **`page-service.php` (new):** ported the dev body programmatically — isolated `#meat` → `<footer`, stripped comments/scripts, and **replaced each rendered CF7 form with its shortcode** so submissions work (forms 317 Service Request, 500 General Service Inquiry, 322 Parts Order, 299 Rotary Repair, 321 Planned Maintenance, 300 Application Support). Includes the 5-column "World Class Service" block, tab nav, 6 tabbed panels, hidden Locations section, and the Engage CTA.

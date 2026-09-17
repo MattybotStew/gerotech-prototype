@@ -5,11 +5,13 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (opencode — Service page port; legacy scope renamed to `.legacy`)
+**Last Updated:** 2026-09-16 (opencode — Training page port; legacy pages now support/service/training)
 **Active Agent:** opencode
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `ec7bc4f` Add repo-to-Local theme sync script and document the sync chain.
-**Uncommitted:** Service page (`page-service.php`, `assets/js/legacy-tabs.js`), legacy scope rename (`legacy.css` replaces `legacy-support.css`; `page-support.php`, `inc/enqueue.php`), `JOURNAL.md`
+**Last Commit:** `65b600e` Port dev service page and generalize legacy CSS scope to .legacy.
+**Uncommitted:** Training page (`page-training.php`, `assets/images/legacy/h_training.jpg`, `bkg_training_mobile.jpg`, `inc/enqueue.php`), `JOURNAL.md`
+
+**Legacy (dev-body) pages:** `support`, `service`, `training` — dev body + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter.
 
 ### Prototype → WP build sync (read before editing shared assets)
 The **prototype is the source of truth** for shared front-end assets until design lock; the WP child theme is a copy.
