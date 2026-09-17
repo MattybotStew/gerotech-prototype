@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Support page: dev body + scoped legacy CSS; repo→Local sync (opencode)
+- **Request:** Support page must use our new header/footer but otherwise match `gerotechdev.wpenginepowered.com/support/`.
+- **Method:** ported the dev page's visible body (`#head_image` desktop/mobile hero → `.bkg_grey_shapes` intro → `.bkg_white.service_content` 5× `.fifth` columns + "Need Assistance?" → `#engage` CTA) into `page-support.php`, wrapped in `.legacy-support`. Generated `assets/css/legacy-support.css` by prefixing the parent `gerotech/style.css` (3781 lines) with `.legacy-support` via PostCSS — so the parent CSS styles the body but **cannot leak** into our header/footer. `body`/`html` selectors remapped to `.legacy-support` so base typography applies. Hero images downloaded to `assets/images/legacy/`.
+- **Enqueue:** `inc/enqueue.php` loads parent `fonts.css` (Replica) + `legacy-support.css` on the support page only.
+- **Note:** the dev support page is **not mobile-responsive** (fixed `.row`/`.row_970` widths overflow <1024) — our port matches it faithfully. Flagged for a decision.
+- **Root-cause fix:** discovered **two divergent child-theme copies** — the repo and the running LocalWP site. Repo was ahead (`components.css` +158 lines); Local had a redundant root `helpers.php`. Synced repo → Local and added **`scripts/sync-theme-to-local.sh`** (`--check` for drift). Documented the full chain in `.clinerules` + `AGENTS.md`: prototype assets → repo theme → Local site.
+- **Verified:** local `/support/` renders our header/footer + dev body; desktop matches dev; both stylesheets load.
+
 ## 2026-09-16 — Prototype → WP asset sync script (opencode)
 - **Problem:** prototype keeps changing while the WP child theme is a copy — risk of silent drift. Measured drift: prototype **ahead** of theme by 158 lines in `components.css` (the `.contact-*` styles); all other CSS/JS identical; image sets identical (43 each); theme has **zero** unique asset content.
 - **New `scripts/sync-theme-assets.sh`** — one-way prototype `assets/` → `wp-content/themes/gerotech-child/assets/`. Modes: default copy, `--check` (drift report, exit 1), `--prune` (drop orphaned theme images). Syncs 4 CSS + 7 JS + mirrored images; deliberately skips `include-partials.js` and `gallery-module.js`.

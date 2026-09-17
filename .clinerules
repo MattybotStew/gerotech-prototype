@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (opencode — prototype→theme asset sync script)
+**Last Updated:** 2026-09-16 (opencode — Support page: dev body + scoped legacy CSS; repo→Local sync)
 **Active Agent:** opencode
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `c06a6fb` Paint The Haas Relationship eyebrow Haas red.
-**Uncommitted:** new `scripts/sync-theme-assets.sh`; cleanup (deletions + new `handoff/*.md`); `.clinerules`/`JOURNAL.md`/`AGENTS.md` edits; theme `components.css` synced (was 158 lines behind)
+**Last Commit:** `0258543` Add WordPress child theme build and prototype asset sync script.
+**Uncommitted:** Support page (`page-support.php`, `inc/enqueue.php`, `assets/css/legacy-support.css`, `assets/images/legacy/`), `scripts/sync-theme-to-local.sh`, `.clinerules`/`AGENTS.md`/`JOURNAL.md`
 
 ### Prototype → WP build sync (read before editing shared assets)
 The **prototype is the source of truth** for shared front-end assets until design lock; the WP child theme is a copy.
@@ -23,6 +23,14 @@ The **prototype is the source of truth** for shared front-end assets until desig
 - After editing prototype CSS/JS/images: run `./scripts/sync-theme-assets.sh`. Use `--check` to see drift, `--prune` to drop orphaned theme images.
 - `include-partials.js` and `gallery-module.js` are deliberately **not** synced (PHP includes replace the former; the latter isn't promoted).
 - **At design lock:** tag the prototype, then the theme becomes source and syncing stops.
+
+### Repo theme → Local site sync (PHP + everything else)
+There are **two copies** of the child theme: the repo (`wp-content/themes/gerotech-child/`, source of truth, committed) and the running LocalWP site (`~/Local Sites/gerotech/app/public/wp-content/themes/gerotech-child/`).
+
+- After editing the theme (PHP, CSS, images) **run `./scripts/sync-theme-to-local.sh`** — or `--check` for drift. Edits made only in the repo will NOT appear at `gerotech.local` until this runs.
+- Full chain: prototype `assets/` → `sync-theme-assets.sh` → repo theme → `sync-theme-to-local.sh` → Local site.
+- WP Engine "Pull" can overwrite the Local theme dir — re-run the sync after a pull.
+- Local admin: `CloudMellow` / `localpass123` (reset via Local's bundled WP-CLI + MySQL socket if a pull overwrites users).
 
 ### Pickup notes (read this first)
 - Static HTML/CSS/JS only. Haas red is `#CF0A2C` (Pantone 186 C) — use it on Haas word/CTA/Haas Relationship eyebrow, not as a global orange replacement.

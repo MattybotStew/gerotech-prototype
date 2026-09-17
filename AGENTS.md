@@ -21,6 +21,8 @@ The prototype stays the **source of truth for shared assets** until design lock.
 - **Not synced:** `include-partials.js` (replaced by PHP includes) and `gallery-module.js` (not promoted).
 - **At design lock:** tag the prototype, then the theme becomes the source and syncing stops.
 
+**Repo theme → Local site:** the running LocalWP site has its own copy of the child theme. After editing the theme, run `./scripts/sync-theme-to-local.sh` (or `--check`) so changes appear at `gerotech.local`. A WP Engine "Pull" can overwrite the Local theme dir — re-run the sync afterward.
+
 ## Stack
 
 - Pure HTML5 / CSS3 (custom properties) / vanilla JS (ES6)
