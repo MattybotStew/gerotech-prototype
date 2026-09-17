@@ -64,17 +64,18 @@ function gerotech_child_enqueue_assets() {
 	// Child style.css (theme header only — no rules).
 	wp_enqueue_style( 'gerotech-child', get_stylesheet_uri(), array( 'gerotech-elevated' ), GEROTECH_CHILD_VERSION );
 
-	// ── Support page — legacy (dev) body content ─────────────
-	// The support page body is ported from the dev site and styled by the
-	// parent theme's stylesheet, scoped to `.legacy-support` so it cannot leak
-	// into the new header/footer. Replica fonts come from the parent theme.
-	if ( is_page( 'support' ) ) {
+	// ── Legacy (dev) body pages ──────────────────────────────
+	// Support + Service bodies are ported from the dev site and styled by the
+	// parent theme's stylesheet, scoped to `.legacy` so it cannot leak into the
+	// new header/footer. Replica fonts come from the parent theme.
+	$legacy_pages = array( 'support', 'service' );
+	if ( is_page( $legacy_pages ) ) {
 		wp_enqueue_style( 'gerotech-legacy-fonts', get_template_directory_uri() . '/fonts.css', array(), null );
 		wp_enqueue_style(
-			'gerotech-legacy-support',
-			GEROTECH_CHILD_URI . '/assets/css/legacy-support.css',
+			'gerotech-legacy',
+			GEROTECH_CHILD_URI . '/assets/css/legacy.css',
 			array( 'gerotech-child' ),
-			gerotech_asset_version( 'assets/css/legacy-support.css' )
+			gerotech_asset_version( 'assets/css/legacy.css' )
 		);
 	}
 
@@ -105,6 +106,11 @@ function gerotech_child_enqueue_assets() {
 	);
 	if ( is_page( $modal_pages ) ) {
 		wp_enqueue_script( 'gerotech-modal', $js . 'modal.js', array(), gerotech_asset_version( 'assets/js/modal.js' ), true );
+	}
+
+	// Legacy tab switcher — service page.
+	if ( is_page( 'service' ) ) {
+		wp_enqueue_script( 'gerotech-legacy-tabs', $js . 'legacy-tabs.js', array(), gerotech_asset_version( 'assets/js/legacy-tabs.js' ), true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'gerotech_child_enqueue_assets', 20 );

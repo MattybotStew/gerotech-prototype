@@ -2,6 +2,15 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Service page port + generalize legacy scope to `.legacy` (opencode)
+- **Request:** same treatment as Support for `gerotechdev.wpenginepowered.com/service/` — our header/footer, dev body.
+- **`page-service.php` (new):** ported the dev body programmatically — isolated `#meat` → `<footer`, stripped comments/scripts, and **replaced each rendered CF7 form with its shortcode** so submissions work (forms 317 Service Request, 500 General Service Inquiry, 322 Parts Order, 299 Rotary Repair, 321 Planned Maintenance, 300 Application Support). Includes the 5-column "World Class Service" block, tab nav, 6 tabbed panels, hidden Locations section, and the Engage CTA.
+- **Generalized scope:** regenerated the scoped parent CSS as **`assets/css/legacy.css`** with prefix **`.legacy`** (was `legacy-support.css` / `.legacy-support`); deleted the old file; updated `page-support.php` to `.legacy`.
+- **New `assets/js/legacy-tabs.js`** — vanilla replacement for the parent's dequeued jQuery `.to`/`data-tab` tab switcher; enqueued on the service page only.
+- **Enqueue:** `inc/enqueue.php` loads parent `fonts.css` + `legacy.css` on **support + service**; `legacy-tabs.js` on service.
+- **Verified:** local `/service/` and `/support/` render our header/footer + dev bodies; service desktop matches dev (5-col block, tabs, form 317 fields, engage). Radios render fine (earlier concern was a screenshot-scaling artifact).
+- **Follow-up flagged:** the service CF7 form bodies contain **`@gerotechdev.wpenginepowered.com`** addresses (32 refs) — inherited from the dev DB, matches dev, but must be corrected before production.
+
 ## 2026-09-16 — Support page: dev body + scoped legacy CSS; repo→Local sync (opencode)
 - **Request:** Support page must use our new header/footer but otherwise match `gerotechdev.wpenginepowered.com/support/`.
 - **Method:** ported the dev page's visible body (`#head_image` desktop/mobile hero → `.bkg_grey_shapes` intro → `.bkg_white.service_content` 5× `.fifth` columns + "Need Assistance?" → `#engage` CTA) into `page-support.php`, wrapped in `.legacy-support`. Generated `assets/css/legacy-support.css` by prefixing the parent `gerotech/style.css` (3781 lines) with `.legacy-support` via PostCSS — so the parent CSS styles the body but **cannot leak** into our header/footer. `body`/`html` selectors remapped to `.legacy-support` so base typography applies. Hero images downloaded to `assets/images/legacy/`.

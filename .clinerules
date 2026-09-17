@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (opencode — Support page: dev body + scoped legacy CSS; repo→Local sync)
+**Last Updated:** 2026-09-16 (opencode — Service page port; legacy scope renamed to `.legacy`)
 **Active Agent:** opencode
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `0258543` Add WordPress child theme build and prototype asset sync script.
-**Uncommitted:** Support page (`page-support.php`, `inc/enqueue.php`, `assets/css/legacy-support.css`, `assets/images/legacy/`), `scripts/sync-theme-to-local.sh`, `.clinerules`/`AGENTS.md`/`JOURNAL.md`
+**Last Commit:** `ec7bc4f` Add repo-to-Local theme sync script and document the sync chain.
+**Uncommitted:** Service page (`page-service.php`, `assets/js/legacy-tabs.js`), legacy scope rename (`legacy.css` replaces `legacy-support.css`; `page-support.php`, `inc/enqueue.php`), `JOURNAL.md`
 
 ### Prototype → WP build sync (read before editing shared assets)
 The **prototype is the source of truth** for shared front-end assets until design lock; the WP child theme is a copy.

@@ -4,8 +4,8 @@
  *
  * Body content is ported from the dev site (gerotechdev) so the page matches
  * the live support design exactly. The parent theme's stylesheet is loaded
- * scoped to `.legacy-support` (assets/css/legacy-support.css) so it cannot
- * leak into our new header/footer.
+ * scoped to `.legacy` (assets/css/legacy.css) so it cannot leak into our new
+ * header/footer.
  *
  * Header/footer are the child theme's (new design).
  *
@@ -17,7 +17,7 @@ get_header();
 $legacy_img = GEROTECH_CHILD_URI . '/assets/images/legacy';
 ?>
 
-<div class="legacy-support">
+<div class="legacy">
 
 	<section id="head_image" class="service hide_on_mobile" style="background-image: url(<?php echo esc_url( $legacy_img . '/h_service.jpg' ); ?>);">
 		<div class="row clearfix">
