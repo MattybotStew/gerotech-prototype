@@ -1,0 +1,103 @@
+<?php
+/**
+ * training page template.
+ *
+ * Ported verbatim from the static prototype. Markup is static for v1;
+ * strings and images become ACF fields in a later phase.
+ *
+ * @package GerotechChild
+ */
+
+get_header();
+?>
+
+<main id="main">
+    <section class="page-hero" aria-labelledby="training-headline">
+      <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop" alt="Haas training classroom" loading="eager" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
+      <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+      <div class="slide__content slide__content--left">
+        <p class="slide__eyebrow">Operator &amp; Programming Training</p>
+        <h1 class="slide__headline" id="training-headline">Haas <span class="accent">Training</span> at Gerotech</h1>
+        <p class="slide__body">Complimentary, instructor-led Haas operator and programming training offered at multiple Gerotech-supported locations — for as long as you own your Haas machines.</p>
+        <div class="page-hero__actions">
+          <a class="btn btn--primary btn--lg" href="#training-schedule">View Schedule</a>
+          <a class="btn btn--outline-white btn--lg" href="mailto:sales@gerotech.com?subject=Custom%20Training%20Request">Request Custom Training</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section mcs-grid-section training-schedule-section" id="training-schedule" aria-labelledby="training-courses">
+      <div class="container container--es">
+        <div class="section-header"><p class="eyebrow">Available Courses</p><h2 class="section-title" id="training-courses">Training <span class="accent--deep">Programs</span></h2><span class="headline-rule headline-rule--deep" aria-hidden="true"></span></div>
+        <div class="mcs-grid">
+          <article class="mcs-card">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=800&auto=format&fit=crop" alt="Mill Operator" loading="lazy" /><!-- Stand-in: Unsplash/Guick — awaiting client photo: Mill Operator -->
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Mill Operator</h3>
+              <p class="mcs-card__body">Learn machine setup, tool loading, program execution, and basic maintenance on Haas vertical machining centers.</p>
+              <div class="mcs-card__actions"><a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Training%20Registration">Register</a></div>
+            </div>
+          </article>
+          <article class="mcs-card">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=800&auto=format&fit=crop" alt="Lathe Operator" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Lathe Operator -->
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Lathe Operator</h3>
+              <p class="mcs-card__body">Hands-on training covering setup, tooling, program execution, and safety on Haas CNC lathes.</p>
+              <div class="mcs-card__actions"><a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Training%20Registration">Register</a></div>
+            </div>
+          </article>
+          <article class="mcs-card">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=800&auto=format&fit=crop" alt="Mill Programming" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Mill Programming -->
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Basic Mill Programming</h3>
+              <p class="mcs-card__body">G-code fundamentals, toolpath creation, and program optimization for Haas mills.</p>
+              <div class="mcs-card__actions"><a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Training%20Registration">Register</a></div>
+            </div>
+          </article>
+          <article class="mcs-card">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=800&auto=format&fit=crop" alt="Advanced Programming" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Advanced Programming -->
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Advanced Mill Programming</h3>
+              <p class="mcs-card__body">Macro programming, probing routines, and advanced toolpath strategies for complex parts.</p>
+              <div class="mcs-card__actions"><a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Training%20Registration">Register</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer testimonials (shared partial) -->
+    <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+
+    <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
+      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920&auto=format&fit=crop" alt="Training and classroom learning" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
+      <div class="cta-band__overlay" aria-hidden="true"></div>
+      <div class="cta-band__content">
+        <div class="cta-band__copy">
+          <div class="eyebrow-row">
+            <span class="eyebrow-row__rule" aria-hidden="true"></span>
+            <p class="eyebrow eyebrow--orange">Custom Training</p>
+          </div>
+          <h2 class="cta-band__headline">Need something specific for <span class="cta-band__accent">your shop</span>?</h2>
+          <span class="cta-band__rule" aria-hidden="true"></span>
+          <p class="cta-band__body">Complimentary and custom Haas training at Gerotech-supported locations across Michigan.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Custom%20Training%20Request">Request Custom Training</a>
+            <a class="btn btn--outline-white" href="<?php gerotech_page_link( 'training' ); ?>">View Training Schedule</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="email-signup" aria-label="Mailing list signup">
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Join Our <span class="accent">Mailing List</span></h2><p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate><label for="email-input-tr" class="sr-only">Email address</label><input class="email-signup__input" id="email-input-tr" type="email" name="email" placeholder="your@email.com" required autocomplete="email" /><button class="email-signup__submit" type="submit">Sign Up</button></form>
+      </div>
+    </section>
+  </main>
+
+<?php
+get_footer();

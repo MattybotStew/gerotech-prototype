@@ -1,0 +1,430 @@
+<?php
+/**
+ * engineered-solutions page template.
+ *
+ * Ported verbatim from the static prototype. Markup is static for v1;
+ * strings and images become ACF fields in a later phase.
+ *
+ * @package GerotechChild
+ */
+
+get_header();
+?>
+
+<main id="main">
+
+    <!-- ===[ FIGMA ORDER_ID#57: "Please update these hero slides based on the content document" (Project Management) ]=== -->
+    <!-- ============================================================
+         SECTION 3: ES Hero
+         ============================================================ -->
+    <section class="page-hero" aria-label="Engineered Solutions hero">
+      <img class="slide__bg slide__bg--right" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/es-hero.png" alt="Engineering-driven manufacturing on the shop floor" loading="eager" fetchpriority="high" decoding="async" /><!-- Client photo: Downloads/Engineering-Driven Manufacturing Solutions.png -->
+      <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+      <div class="slide__content slide__content--left">
+        <p class="slide__eyebrow">Engineering-Driven Manufacturing Solutions</p>
+        <h1 class="slide__headline">Your Manufacturing <span class="accent">Solutions</span> Partner</h1>
+        <p class="slide__body">
+          From machine modification and customization to full automation cells, Gerotech engineers
+          solutions that keep manufacturers running faster, safer, and smarter — backed by decades
+          of application expertise.
+        </p>
+        <div class="page-hero__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
+          <a class="btn btn--outline-white btn--lg" href="#why-headline">Explore Capabilities</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: Why Gerotech
+         ============================================================ -->
+    <section class="why-section" aria-labelledby="why-headline">
+      <div class="why-section__inner">
+        <div class="why-section__copy">
+          <h2 class="why-section__copy-headline" id="why-headline">
+            Why Manufacturers <span class="accent--deep">Trust Gerotech</span>
+          </h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
+          <p class="why-section__copy-body">
+            Every manufacturing operation is unique. That's why our engineers don't start with a standard solution—they start by understanding your process. We work alongside your team to solve manufacturing challenges and develop practical solutions built around your operation.
+          </p>
+          <a class="btn btn--primary" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get A Quote</a>
+        </div>
+
+        <div class="why-section__features">
+          <div class="why-feature">
+            <div class="why-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/><path d="M9 10h6"/></svg>
+            </div>
+            <div>
+              <h3 class="why-feature__title">Machine Custom Solutions</h3>
+              <p class="why-feature__body">
+                Column risers, auto doors, hydraulics, sheet metal, custom workholding, and specialty
+                builds — we modify and customize your equipment to meet new production demands.
+              </p>
+              <a class="why-feature__link" href="<?php gerotech_page_link( 'machine-custom-solutions' ); ?>">Explore Machine Custom Solutions →</a>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+            </div>
+            <div>
+              <h3 class="why-feature__title">Applications</h3>
+              <p class="why-feature__body">
+                Part programming, process troubleshooting, optimization, tooling recommendations,
+                demos, and training — we help you get the most from your existing equipment.
+              </p>
+              <a class="why-feature__link" href="<?php gerotech_page_link( 'application' ); ?>">Explore Applications →</a>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M9 10a3 3 0 1 0 6 0"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/><path d="M7 14h10l1 6H6l1-6z"/><path d="M10 14V9a2 2 0 0 1 4 0v5"/></svg>
+            </div>
+            <div>
+              <h3 class="why-feature__title">Automation controls solutions</h3>
+              <p class="why-feature__body">
+                Electrical controls, HMI design, layered systems, full automation cell design, EOAT,
+                and pre-engineered packages — complete integration from concept to production.
+              </p>
+              <a class="why-feature__link" href="<?php gerotech_page_link( 'automation-integration' ); ?>">Explore Automation Controls Solutions →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client 2026-08: remove ES service grid; emphasize FANUC ASI (Mike / Tristien) -->
+    <!-- ===[ FIGMA ORDER_ID#45: "We love this section. Is there any way to highlight this information in other areas. Such as the slider. Thoughts?" (tbridges) ]=== -->
+    <!-- ===[ FIGMA ORDER_ID#59: "Please add some breathing room between this section and the next" (Project Management) ]=== -->
+    <!-- ============================================================
+         SECTION 6: FANUC ASI Featured
+         ============================================================ -->
+    <section class="credential-band credential-band--featured" id="fanuc" aria-labelledby="fanuc-headline">
+      <div class="credential-band__inner credential-band__inner--featured">
+        <div class="credential-band__badge credential-band__badge--featured">
+          <img
+            class="credential-band__badge-img"
+            src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/fanuc-asi-seal.png"
+            alt="FANUC Authorized System Integrator"
+            width="196"
+            height="196"
+          />
+        </div>
+        <div class="credential-band__copy">
+          <p class="eyebrow eyebrow--orange">FANUC Authorized System Integrator</p>
+          <h2 class="credential-band__headline" id="fanuc-headline">
+            Factory-Trained Robotics Integration — Certified by FANUC
+          </h2>
+          <p class="credential-band__body">
+            Gerotech is a FANUC Authorized System Integrator (ASI) — one of a select group of
+            companies certified to design, build, and support complete FANUC robotic automation
+            systems. That means factory-trained engineers, direct FANUC technical support, and
+            proven cell methodology on every project.
+          </p>
+          <ul class="credential-band__benefits">
+            <li>Factory-trained FANUC robotics engineers on staff</li>
+            <li>Direct access to FANUC technical resources</li>
+            <li>Complete cell design, integration, and production support</li>
+          </ul>
+          <div class="credential-band__actions">
+            <a class="btn btn--primary btn--lg" href="tel:+17343797788">Talk to an Engineer</a>
+            <a class="btn btn--outline-white btn--lg" href="<?php gerotech_page_link( 'automation-integration' ); ?>">Explore Automation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 7: Technology Partners
+         ============================================================ -->
+    <section class="tech-partners-section" aria-labelledby="tech-partners-headline">
+      <div class="tech-partners-section__inner">
+        <div>
+          <p class="eyebrow">Our Technology Ecosystem</p>
+          <h2 class="tech-partners-section__copy-headline" id="tech-partners-headline">
+            The Right Technology for <span class="accent--deep">Every Application</span>
+          </h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
+          <p class="tech-partners-section__copy-body">
+            Beyond our FANUC ASI credential, we work with leading automation and controls
+            manufacturers to source the right components for every solution — engineering
+            judgment matched to your application, not brand allegiance.
+          </p>
+          <a class="btn btn--outline-dark" href="#why-headline">Explore Capabilities</a>
+        </div>
+
+        <div class="tech-logo-grid">
+          <div class="partner-wordmark">FANUC</div>
+          <div class="partner-wordmark">Haas</div>
+          <div class="partner-wordmark">Midaco</div>
+          <div class="partner-wordmark">OnRobot</div>
+          <div class="partner-wordmark">Renishaw</div>
+          <div class="partner-wordmark">Keyence</div>
+          <div class="partner-wordmark">Dynatect</div>
+          <div class="partner-wordmark">Royal Products</div>
+          <div class="partner-wordmark">5th Axis</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===[ FIGMA ORDER_ID#46: "We love this content. Is there another design for the number sections. Maybe put that content into boxes to match the theme of the rest of the layout? We're open to ideas." (tbridges) ]=== -->
+    <!-- ===[ FIGMA ORDER_ID#60: "Please update this section to display the numbered content in a different way." (Project Management) ]=== -->
+    <!-- ===[ FIGMA ORDER_ID#10: "As much as we love this phrase, we'll need to change it to 'Your Machine. Our Solution.'" (tbridges) ]=== -->
+    <!-- ===[ FIGMA ORDER_ID#9: "Since we can customize any machine, we'll need to remove the Haas information in this section." (tbridges) ]=== -->
+    <!-- ============================================================
+         SECTION 8: Capability Band
+         ============================================================ -->
+    <section class="capability-band" aria-labelledby="capability-headline">
+      <div class="capability-band__inner">
+        <div>
+          <p class="eyebrow eyebrow--white">Beyond a Single Brand</p>
+          <h2 class="capability-band__headline" id="capability-headline">
+            Your Machine.<br />Our Solution.
+          </h2>
+          <p class="capability-band__body">
+            Whatever sits on your floor, any make and any control, our engineers modify,
+            customize, and automate around it.
+          </p>
+          <div class="capability-band__actions">
+            <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
+            <a class="btn btn--outline-white btn--lg" href="#why-headline">Explore Capabilities</a>
+          </div>
+        </div>
+
+        <div class="capability-cards" aria-label="Key capabilities">
+          <article class="capability-card">
+            <span class="capability-card__num" aria-hidden="true">01</span>
+            <p class="capability-card__text">Any make, any control — we engineer to your existing equipment</p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-card__num" aria-hidden="true">02</span>
+            <p class="capability-card__text">In-house design, programming, and integration</p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-card__num" aria-hidden="true">03</span>
+            <p class="capability-card__text">From a single modification to a full automation cell</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 9: Common Questions
+         ============================================================ -->
+    <section class="trust-section" aria-labelledby="trust-headline">
+      <div class="trust-section__inner">
+        <div class="section-header">
+          <h2 class="section-title" id="trust-headline">Common <span class="accent--deep">Questions</span></h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
+        </div>
+        <div class="trust-accordion">
+
+          <details class="trust-item">
+            <summary class="trust-item__q">
+              Do you work on machines from brands other than Haas?
+              <span class="trust-item__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="trust-item__a"><p>Yes. Our engineering team modifies, retrofits, and automates equipment from any OEM and any control platform — not just the machines we sell.</p></div>
+          </details>
+
+          <details class="trust-item">
+            <summary class="trust-item__q">
+              Can Gerotech handle design through installation in-house?
+              <span class="trust-item__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="trust-item__a"><p>We provide concept development, electrical and mechanical design, controls programming, panel build, on-site commissioning, and production support — all under one roof in Michigan.</p></div>
+          </details>
+
+          <details class="trust-item">
+            <summary class="trust-item__q">
+              How quickly can your service team respond to downtime?
+              <span class="trust-item__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="trust-item__a"><p>Factory-trained technicians at three Michigan locations support same-day response for critical production issues. Call the Service line for immediate dispatch.</p></div>
+          </details>
+
+          <details class="trust-item">
+            <summary class="trust-item__q">
+              What does FANUC Authorized System Integrator mean for my project?
+              <span class="trust-item__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="trust-item__a"><p>It certifies that Gerotech meets FANUC's standards for robotic cell design, integration methodology, and ongoing support — with direct access to FANUC technical resources.</p></div>
+          </details>
+
+          <details class="trust-item">
+            <summary class="trust-item__q">
+              Do you offer training for operators and programmers?
+              <span class="trust-item__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="trust-item__a"><p>Yes. Complimentary Haas operator and programming courses run at Gerotech-supported locations, including Macomb Community College. Custom on-site training is also available.</p></div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===[ FIGMA ORDER_ID#47: "Can there be a spot for more than two testimonials?" (tbridges)
+               Reply: "Of course. We can create this as a slider to have as many testimonials as you need." (Project Management) ]=== -->
+    <!-- ===[ FIGMA ORDER_ID#61: "Please add three dots under the testimonials to denote this is a carousel" (Project Management) ]=== -->
+    <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+
+    <!-- ===[ FIGMA ORDER_ID#48: "Where would this lead to? Determining if we want this CTA." (tbridges)
+               Reply: "This would take the user to the News and Blogs page. If not needed, we can rethink what this section can be." (Project Management)
+               Reply: "Typically we recommend updating the site with new case studies, blog posts around products and trends based on what customers are searching." (Project Management)
+               Reply: "I am just wondering what type of news and what information we can frequently update to keep it fresh." (tbridges) ]=== -->
+    <!-- ============================================================
+         SECTION 12: News Feed — editorial split (matches homepage)
+         ============================================================ -->
+    <section class="news-section news-section--editorial section section--gray" aria-labelledby="news-headline">
+      <div class="container container--es">
+        <div class="section-header">
+          <p class="eyebrow">Stay Informed</p>
+          <h2 class="section-title" id="news-headline">Latest <span class="accent--deep">Projects &amp; News</span></h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
+        </div>
+
+        <div class="news-editorial">
+          <!-- Lead story — photo card, left gradient (matches hero + CTA treatment) -->
+          <article class="news-feature">
+            <img class="news-feature__bg" src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1400&auto=format&fit=crop" alt="FANUC robotic automation cell on a Michigan production floor" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
+            <span class="news-feature__overlay" aria-hidden="true"></span>
+            <div class="news-feature__content">
+              <div class="news-feature__meta">
+                <span class="news-tag">Project</span>
+                <span class="news-feature__date">June 2025</span>
+              </div>
+              <h3 class="news-feature__title">Automated Robotic Cell Delivered to a Tier-1 Automotive Supplier</h3>
+              <p class="news-feature__excerpt">
+                Gerotech engineers designed and integrated a complete FANUC robotic automation cell,
+                reducing cycle times by 38% for a major Michigan supplier.
+              </p>
+              <ul class="news-feature__stats">
+                <li class="news-feature__stat">
+                  <span class="news-feature__stat-value">38%</span>
+                  <span class="news-feature__stat-label">Cycle-time reduction</span>
+                </li>
+                <li class="news-feature__stat">
+                  <span class="news-feature__stat-value">FANUC</span>
+                  <span class="news-feature__stat-label">Integration partner</span>
+                </li>
+                <li class="news-feature__stat">
+                  <span class="news-feature__stat-value">Turnkey</span>
+                  <span class="news-feature__stat-label">Cell delivery</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <div class="news-list">
+            <article class="news-item">
+              <span class="news-item__index" aria-hidden="true">02</span>
+              <div class="news-item__body">
+                <div class="news-item__meta">
+                  <span class="news-tag news-tag--light">News</span>
+                  <span class="news-item__date">May 2025</span>
+                </div>
+                <h3 class="news-item__title">Gerotech Expands Grand Rapids Service Territory</h3>
+                <p class="news-item__excerpt">
+                  Our Grand Rapids office is now fully staffed with factory-trained service technicians
+                  serving manufacturers across West Michigan.
+                </p>
+              </div>
+              <div class="news-item__media">
+                <img class="news-item__thumb" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=500&auto=format&fit=crop" alt="Gerotech service technicians" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
+              </div>
+            </article>
+
+            <article class="news-item">
+              <span class="news-item__index" aria-hidden="true">03</span>
+              <div class="news-item__body">
+                <div class="news-item__meta">
+                  <span class="news-tag news-tag--light">Project</span>
+                  <span class="news-item__date">April 2025</span>
+                </div>
+                <h3 class="news-item__title">Hydraulic Workholding System Installed on Legacy Okuma</h3>
+                <p class="news-item__excerpt">
+                  A custom hydraulic workholding and auto-door system extended a legacy machining
+                  center's productive life by years.
+                </p>
+              </div>
+              <div class="news-item__media">
+                <img class="news-item__thumb" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop" alt="Legacy machining center retrofit" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
+              </div>
+            </article>
+
+            <article class="news-item">
+              <span class="news-item__index" aria-hidden="true">04</span>
+              <div class="news-item__body">
+                <div class="news-item__meta">
+                  <span class="news-tag news-tag--light">Training</span>
+                  <span class="news-item__date">March 2025</span>
+                </div>
+                <h3 class="news-item__title">Spring Haas Operator Sessions Open at Macomb</h3>
+                <p class="news-item__excerpt">
+                  Complimentary operator and programming courses return to Macomb Community College
+                  for Haas owners across Southeast Michigan.
+                </p>
+              </div>
+              <div class="news-item__media">
+                <img class="news-item__thumb" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop" alt="Haas operator training session" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
+              </div>
+            </article>
+          </div>
+        </div>
+        <!-- Links + Show More pending dedicated news page — client TBD -->
+      </div>
+    </section>
+
+    <!-- ===[ FIGMA ORDER_ID#49: "Remove 'Take Action Now'" (tbridges) - DONE ]=== -->
+    <!-- ============================================================
+         SECTION 13: CTA Band
+         ============================================================ -->
+    <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
+      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1920&auto=format&fit=crop" alt="Engineering blueprints and design" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
+      <div class="cta-band__overlay" aria-hidden="true"></div>
+      <div class="cta-band__content">
+        <div class="cta-band__copy">
+          <div class="eyebrow-row">
+            <span class="eyebrow-row__rule" aria-hidden="true"></span>
+            <p class="eyebrow eyebrow--orange">Engineered Solutions</p>
+          </div>
+          <h2 class="cta-band__headline">Engineering Solutions Built Around <span class="cta-band__accent">Your Operation</span></h2>
+          <span class="cta-band__rule" aria-hidden="true"></span>
+          <p class="cta-band__body">Whether you're automating a manual process, modifying existing equipment, integrating robotics, or developing a custom manufacturing solution, our engineering team is ready to help. Tell us about your application, and we'll work with you to develop a practical solution built around your operation.</p>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
+          </div>
+        </div>
+        <a class="cta-band__call" href="tel:+17343797788">
+          <span class="cta-band__call-label">Prefer to talk it through?</span>
+          <span class="cta-band__call-number">(734) 379-7788</span>
+          <span class="cta-band__call-note">Talk to a person, not a form.</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===[ FIGMA: "Update spacing" near y=7491 on frame 6861:989 — no specifics given; flag for visual inspection ]=== -->
+    <!-- ============================================================
+         SECTION 13.5: Email Signup
+         ============================================================ -->
+    <section class="email-signup" aria-label="Mailing list signup">
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Join Our <span class="accent">Mailing List</span></h2>
+          <p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate>
+        <label for="email-input-es" class="sr-only">Email address</label>
+        <input class="email-signup__input" id="email-input-es" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+        <button class="email-signup__submit" type="submit">Sign Up</button>
+      </form>
+      </div>
+    </section>
+
+  </main>
+
+<?php
+get_footer();

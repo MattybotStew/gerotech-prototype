@@ -1,0 +1,252 @@
+<?php
+/**
+ * machine-custom-solutions page template.
+ *
+ * Ported verbatim from the static prototype. Markup is static for v1;
+ * strings and images become ACF fields in a later phase.
+ *
+ * @package GerotechChild
+ */
+
+get_header();
+?>
+
+<main id="main">
+
+    <!-- ============================================================
+         SECTION 3: Page Hero (Detail page — Figma node 6227:289)
+         ============================================================ -->
+    <section class="page-hero" aria-labelledby="mcs-hero-headline">
+      <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=1920&auto=format&fit=crop" alt="CNC machine on shop floor" loading="eager" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
+      <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+      <div class="slide__content slide__content--left">
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a class="page-hero__crumb-link" href="<?php gerotech_page_link( 'home' ); ?>">Home</a>
+          <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
+          <a class="page-hero__crumb-link" href="<?php gerotech_page_link( 'engineered-solutions' ); ?>">Engineered Solutions</a>
+          <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
+          <span class="page-hero__crumb-current"><span class="mcs-name-split__lead">Machine</span> <span class="mcs-name-split__main">Custom Solutions</span></span>
+        </nav>
+        <!-- PLACEHOLDER NAME: "Machine" (lead) + "Custom Solutions" (primary). Nav/mega-menu still uses "Machine Customization" until client confirms; see cline-project-handoff.md §9. -->
+        <p class="slide__eyebrow">MACHINE CUSTOMIZATIONS</p>
+        <h1 class="slide__headline" id="mcs-hero-headline">
+          <span class="mcs-name-split mcs-name-split--hero">
+            <span class="mcs-name-split__lead">Machine</span>
+            <span class="mcs-name-split__main">Custom Solutions</span>
+          </span>
+        </h1>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 4: Services Grid (2-col, 8 cards — Figma node 6227:308)
+         ============================================================ -->
+    <section class="mcs-grid-section" id="mcs-grid" aria-labelledby="mcs-grid-headline">
+      <div class="container container--es">
+        <div class="section-header">
+          <p class="eyebrow">What We Offer</p>
+          <h2 class="section-title" id="mcs-grid-headline">
+            <span class="mcs-name-split mcs-name-split--title">
+              <span class="mcs-name-split__lead">Machine</span>
+              <span class="mcs-name-split__main">Custom Solutions</span>
+            </span>
+          </h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
+        </div>
+
+        <div class="mcs-grid">
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/column-riser.jpg" alt="Machine column riser installed between base and column" loading="lazy" />
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Machine Column Risers</h3>
+              <span class="mcs-card__cue">View Details →</span>
+            </div>
+            <template><p>A Mill column riser is a precision ground block installed between the machine base and the column along with custom sheet metal to accommodate the change in height. Column riser will increase the clearance height of the machine between the spindle and table. This can be beneficial when machining taller parts, adding 4th/5th rotary tables, that may limit access to part features or restrict tooling options. Additional advantage — avoid the need for larger machines that only require Z axis clearance.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" alt="Kidde machine-integrated fire suppression" loading="lazy" />
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Safety &amp; Environmental Modifications</h3>
+              <span class="mcs-card__cue">View Details →</span>
+            </div>
+            <template><p>For applications that require additional safety controls, fully machine integrated fire protection, door and window interlocks, light curtains (Presence-Sensing) are required to ensure adequate protection for the operator and machine. To improve air quality from mist, dust, fumes, the appropriate collection system can collect air contaminants during the machining process.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-stainless.jpg" alt="Custom stainless sheet metal guards on a machine tool" loading="lazy" decoding="async" />
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Sheet Metal Modifications</h3>
+              <span class="mcs-card__cue">View Details →</span>
+            </div>
+            <template><p>Sheet metal modifications become necessary for various reasons to expand working envelops, contain fluids, clearance to mention a few. Here are few sheet metal examples that may benefit your machining process.</p><ul><li><strong>X-Axis Bump Out:</strong> For longer parts that fit within the machining window of a smaller machine but due to total part length or workholding interference with side panels. The side panels can have extensions called bump outs.</li><li><strong>Tool Changer:</strong> When larger diameter tools or right-angle heads cannot fit through the tool changer modifications can be made to accommodate many situations.</li><li><strong>Tool Changer Door:</strong> To ensure coolant and chips cannot escape into the tool changer a custom shutter door solution can be integrated into the machine tool change sequence.</li><li><strong>Sealing Solutions:</strong> When utilizing high pressure coolant there may be a need for additional sealing to contain liquids. For problem leak areas that are a nuisance additional skirts and drip guarding can be an inexpensive fix.</li></ul><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/auto-door-haas.jpg" alt="Servak auto door on a Haas mill" loading="lazy" />
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Auto Doors</h3>
+              <span class="mcs-card__cue">View Details →</span>
+            </div>
+            <template><p><strong>Horizontal Door:</strong> We offer a custom Servax door drive solution that provide enhanced safety and reliability. Fully integrated with your machine tool. This solution is ideal for single or double door machines. The intelligent self-monitoring feature reliable, integrated safety functions. Position, speed and torque are constantly monitored. Automatic reacts to obstacles immediately changing directions. Light curtains and two-hand buttons are not required.</p><p><strong>Vertical Door:</strong> Vertical doors are a great option for machine tending robot cells. They allow for operator full access into the primary door without having to enter the robot cell. Door is fully integrated with machine and output provided to robot cell.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/hydraulic-rotary.jpg" alt="Hydraulic rotary and workholding integration" loading="lazy" />
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Hydraulic – Pneumatics</h3>
+              <span class="mcs-card__cue">View Details →</span>
+            </div>
+            <!-- FIGMA: "Need content for this card" — no copy provided (frame 6861:2644) -->
+            <template><p>Hydraulic and pneumatic circuit integration for workholding, clamping, actuators, and other production-enhancing machine functions.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/custom-fixtures.jpg" alt="Custom aluminum fixture plates with clamps" loading="lazy" />
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Custom Workholding</h3>
+              <span class="mcs-card__cue">View Details →</span>
+            </div>
+            <!-- FIGMA: "Need content for this card" — no copy provided (frame 6861:2652) -->
+            <template><p>Purpose-built fixtures designed for your specific part — improving repeatability, reducing setup time, and enabling automation-ready production.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=800&auto=format&fit=crop" alt="Process Engineering" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Process Engineering -->
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Process Engineering</h3>
+              <span class="mcs-card__cue">View Details →</span>
+            </div>
+            <!-- FIGMA: "Need content for this card" — no copy provided (frame 6861:2660) -->
+            <template><p>On-site process development and engineering analysis to optimize your machining workflow, reduce cycle time, and improve part quality.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?q=80&w=800&auto=format&fit=crop" alt="Specialty Machine" loading="lazy" /><!-- Stand-in: Unsplash/ZHENYU LUO — awaiting client photo: Specialty Machine -->
+            <div class="mcs-card__content">
+              <h3 class="mcs-card__title">Specialty Machine</h3>
+              <span class="mcs-card__cue">View Details →</span>
+            </div>
+            <!-- FIGMA: "Need content for this card" — no copy provided (frame 6861:2668) -->
+            <template><p>One-off machine builds and custom engineering for unique production requirements where off-the-shelf equipment will not do.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Installed Gallery (field photos — distinct from service cards)
+         ============================================================ -->
+    <section class="mcs-gallery-section" aria-labelledby="gallery-headline">
+      <div class="container container--es">
+        <div class="section-header">
+          <p class="eyebrow">On the Floor</p>
+          <h2 class="section-title" id="gallery-headline">Installed <span class="accent--deep">Gallery</span></h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
+          <p class="section-body section-body--spaced">Recent customization and retrofit work from Gerotech engineers.</p>
+        </div>
+
+        <div class="mcs-gallery-grid">
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/column-riser.jpg" alt="Machine column riser between base and column" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Column Riser</h3><p class="mcs-gallery-card__meta">Machine column risers</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" alt="Kidde machine-integrated fire suppression" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Fire Suppression</h3><p class="mcs-gallery-card__meta">Machine-integrated fire protection</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-stainless.jpg" alt="Custom stainless sheet metal guards and covers" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Sheet Metal Modification</h3><p class="mcs-gallery-card__meta">Stainless guards and covers</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-enclosure.jpg" alt="Painted sheet metal enclosure wrap on a machine column" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Sheet Metal Modification</h3><p class="mcs-gallery-card__meta">Painted enclosure fabrication</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-machine.jpg" alt="Custom sheet metal enclosure wrapping a machining center" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Sheet Metal Modification</h3><p class="mcs-gallery-card__meta">Full enclosure fabrication</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/auto-door-haas.jpg" alt="Servak auto door on a Haas mill" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Auto Door Integration</h3><p class="mcs-gallery-card__meta">Servak auto door · Haas mill</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-closed.jpg" alt="Vertical auto door closed on a mill" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Auto Door Integration</h3><p class="mcs-gallery-card__meta">Vertical door · closed</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-window.jpg" alt="Vertical auto door with window on a mill" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Auto Door Integration</h3><p class="mcs-gallery-card__meta">Vertical door · windowed</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-drive.jpg" alt="Vertical auto door drive assembly" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Auto Door Integration</h3><p class="mcs-gallery-card__meta">Vertical door · drive</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/hydraulic-rotary.jpg" alt="Hydraulic rotary and workholding integration" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Hydraulic / Pneumatic</h3><p class="mcs-gallery-card__meta">Rotary and workholding</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/custom-fixtures.jpg" alt="Row of custom aluminum fixture plates with clamps" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Custom Fixture Design</h3><p class="mcs-gallery-card__meta">Machined plates · left/right-hand</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/mist-torit.jpg" alt="Donaldson Torit mist collector on a mill" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Safety &amp; Environmental</h3><p class="mcs-gallery-card__meta">Donaldson Torit mist collector</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/mist-lina.jpg" alt="LINA3nine mist collector on a mill" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Safety &amp; Environmental</h3><p class="mcs-gallery-card__meta">LINA3nine mist collector</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer testimonials (shared partial) -->
+    <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+
+    <!-- ============================================================
+         SECTION 6: CTA Band (Detail-specific)
+         ============================================================ -->
+    <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
+      <img class="cta-band__bg" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-machine.jpg" alt="Custom sheet metal enclosure on a machining center" loading="lazy" />
+      <div class="cta-band__overlay" aria-hidden="true"></div>
+      <div class="cta-band__content">
+        <div class="cta-band__copy">
+          <div class="eyebrow-row">
+            <span class="eyebrow-row__rule" aria-hidden="true"></span>
+            <p class="eyebrow eyebrow--orange">Machine Custom Solutions</p>
+          </div>
+          <h2 class="cta-band__headline">Need a <span class="cta-band__accent">custom solution</span> for your machine?</h2>
+          <span class="cta-band__rule" aria-hidden="true"></span>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
+          </div>
+        </div>
+        <a class="cta-band__call" href="tel:+17343797788">
+          <span class="cta-band__call-label">Prefer to talk it through?</span>
+          <span class="cta-band__call-number">(734) 379-7788</span>
+          <span class="cta-band__call-note">Talk to a person, not a form.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="email-signup" aria-label="Mailing list signup">
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Join Our <span class="accent">Mailing List</span></h2>
+          <p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate>
+          <label for="email-input-mcs" class="sr-only">Email address</label>
+          <input class="email-signup__input" id="email-input-mcs" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <button class="email-signup__submit" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+<?php
+get_footer();

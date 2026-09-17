@@ -1,0 +1,19 @@
+/*
+Theme Name:   Gerotech Child
+Theme URI:    https://gerotech.com/
+Description:  CloudMellow build of the Gerotech site. Child theme of the existing
+              `gerotech` theme — front-end markup ported from the static prototype.
+              No page builder: section markup is copied verbatim and content is
+              wired to ACF fields.
+Author:       CloudMellow
+Author URI:   https://cloudmellow.com/
+Template:     gerotech
+Version:      1.0.0
+Text Domain:  gerotech-child
+*/
+
+/*
+  All presentation lives in assets/css/ (tokens → components → layout → elevated),
+  enqueued in that order from inc/enqueue.php. This file exists only to carry the
+  child-theme header; do not add styles here.
+*/

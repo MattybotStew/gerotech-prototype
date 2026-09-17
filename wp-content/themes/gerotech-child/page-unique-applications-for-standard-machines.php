@@ -1,0 +1,170 @@
+<?php
+/**
+ * application page template.
+ *
+ * Ported verbatim from the static prototype. Markup is static for v1;
+ * strings and images become ACF fields in a later phase.
+ *
+ * @package GerotechChild
+ */
+
+get_header();
+?>
+
+<main id="main">
+    <section class="page-hero" aria-labelledby="app-hero-headline">
+      <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop" alt="CNC machining application" loading="eager" decoding="async" /><!-- Stand-in: Unsplash — no Applications hero photo in comments -->
+      <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
+      <div class="slide__content slide__content--left">
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a class="page-hero__crumb-link" href="<?php gerotech_page_link( 'home' ); ?>">Home</a>
+          <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
+          <a class="page-hero__crumb-link" href="<?php gerotech_page_link( 'engineered-solutions' ); ?>">Engineered Solutions</a>
+          <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
+          <span class="page-hero__crumb-current">Applications</span>
+        </nav>
+        <p class="slide__eyebrow">APPLICATIONS</p>
+        <h1 class="slide__headline" id="app-hero-headline">Applications <span class="accent">Solutions</span></h1>
+      </div>
+    </section>
+
+
+    <section class="mcs-grid-section" id="app-grid" aria-labelledby="app-grid-headline">
+      <div class="container container--es">
+        <div class="section-header"><p class="eyebrow">What We Offer</p><h2 class="section-title" id="app-grid-headline"><span class="accent--deep">Application</span> Services</h2><span class="headline-rule headline-rule--deep" aria-hidden="true"></span></div>
+        <div class="mcs-grid">
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/app-gallery-umc750.jpg" alt="Haas UMC-750 5-axis machining" loading="lazy" />
+            <div class="mcs-card__content"><h3 class="mcs-card__title">Part Programming</h3><span class="mcs-card__cue">View Details →</span></div>
+            <template><p>Custom part programs and CNC code development to get the most from your equipment, optimized for your specific materials, operations, and machine control.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=800&auto=format&fit=crop" alt="Troubleshooting" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Troubleshooting -->
+            <div class="mcs-card__content"><h3 class="mcs-card__title">Process Troubleshooting</h3><span class="mcs-card__cue">View Details →</span></div>
+            <template><p>Hands-on diagnosis of machining process problems — tool life, surface finish, dimensional variation, and cycle inefficiencies resolved by experienced application engineers.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=800&auto=format&fit=crop" alt="Optimization" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Optimization -->
+            <div class="mcs-card__content"><h3 class="mcs-card__title">Process Optimization</h3><span class="mcs-card__cue">View Details →</span></div>
+            <template><p>Systematic analysis and improvement of existing processes to reduce cycle time, extend tool life, and increase overall throughput without new equipment investment.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=800&auto=format&fit=crop" alt="Tooling" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Tooling -->
+            <div class="mcs-card__content"><h3 class="mcs-card__title">Tooling Recommendation</h3><span class="mcs-card__cue">View Details →</span></div>
+            <template><p>Expert tooling selection matched to your material, machine, and application — ensuring the right tool is always in the spindle for optimal performance and tool life.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=800&auto=format&fit=crop" alt="Demo" loading="lazy" /><!-- Stand-in: Unsplash/Guick — awaiting client photo: Demo -->
+            <div class="mcs-card__content"><h3 class="mcs-card__title">Demo</h3><span class="mcs-card__cue">View Details →</span></div>
+            <template><p>Live demonstrations of application capabilities, software, and processes at your facility or at a Gerotech-supported location — see the solution before you commit.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=800&auto=format&fit=crop" alt="Training" loading="lazy" /><!-- Stand-in: Unsplash/Simon Kadula — awaiting client photo: Training -->
+            <div class="mcs-card__content"><h3 class="mcs-card__title">Training</h3><span class="mcs-card__cue">View Details →</span></div>
+            <template><p>Instructor-led operator and programming training tailored to your team's skill level and equipment — available at your facility or at a Gerotech-supported location.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" alt="Kidde machine-integrated fire suppression" loading="lazy" />
+            <div class="mcs-card__content"><h3 class="mcs-card__title">Fire Suppression</h3><span class="mcs-card__cue">View Details →</span></div>
+            <!-- FIGMA: Fire Suppression card requested; Kidde photo from comments; no Applications-specific body copy provided -->
+            <template><p>Content coming soon.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop" alt="RFID" loading="lazy" /><!-- Stand-in: Unsplash — no RFID photo in Downloads or Figma attachments -->
+            <div class="mcs-card__content"><h3 class="mcs-card__title">RFID</h3><span class="mcs-card__cue">View Details →</span></div>
+            <!-- FIGMA: RFID card requested; no photo or detail copy in comments -->
+            <template><p>Content coming soon.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Product Gallery
+         ============================================================ -->
+    <section class="mcs-gallery-section" aria-labelledby="app-gallery-headline">
+      <div class="container container--es">
+        <div class="section-header">
+          <h2 class="section-title" id="app-gallery-headline">Applications — Product <span class="accent--deep">Gallery</span></h2>
+          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
+        </div>
+        <div class="mcs-gallery-grid">
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/app-gallery-umc750.jpg" alt="Haas UMC-750 5-axis machining" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Part Programming</h3><p class="mcs-gallery-card__meta">UMC-750 · 5-axis machining</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=500&auto=format&fit=crop" alt="Process Troubleshooting" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Process Troubleshooting -->
+            <div class="mcs-gallery-card__label"><h3>Process Troubleshooting</h3></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=500&auto=format&fit=crop" alt="Process Optimization" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Process Optimization -->
+            <div class="mcs-gallery-card__label"><h3>Process Optimization</h3></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=500&auto=format&fit=crop" alt="Tooling Recommendation" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Tooling Recommendation -->
+            <div class="mcs-gallery-card__label"><h3>Tooling Recommendation</h3></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=500&auto=format&fit=crop" alt="Demo" loading="lazy" /><!-- Stand-in: Unsplash/Guick — awaiting client photo: Demo -->
+            <div class="mcs-gallery-card__label"><h3>Demo</h3></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=500&auto=format&fit=crop" alt="Training" loading="lazy" /><!-- Stand-in: Unsplash/Simon Kadula — awaiting client photo: Training -->
+            <div class="mcs-gallery-card__label"><h3>Training</h3></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" alt="Kidde machine-integrated fire suppression" loading="lazy" />
+            <div class="mcs-gallery-card__label"><h3>Fire Suppression</h3><p class="mcs-gallery-card__meta">Machine-integrated fire protection</p></div>
+          </article>
+          <article class="mcs-gallery-card">
+            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500&auto=format&fit=crop" alt="RFID" loading="lazy" /><!-- Stand-in: Unsplash — no RFID photo in Downloads or Figma attachments -->
+            <div class="mcs-gallery-card__label"><h3>RFID</h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer testimonials (shared partial) -->
+    <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+
+    <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
+      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop" alt="CNC machining and applications" loading="lazy" /><!-- Stand-in: Unsplash — no Applications CTA photo in comments -->
+      <div class="cta-band__overlay" aria-hidden="true"></div>
+      <div class="cta-band__content">
+        <div class="cta-band__copy">
+          <div class="eyebrow-row">
+            <span class="eyebrow-row__rule" aria-hidden="true"></span>
+            <p class="eyebrow eyebrow--orange">Applications</p>
+          </div>
+          <h2 class="cta-band__headline">Need <span class="cta-band__accent">application support</span> for your shop floor?</h2>
+          <span class="cta-band__rule" aria-hidden="true"></span>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
+          </div>
+        </div>
+        <a class="cta-band__call" href="tel:+17343797788">
+          <span class="cta-band__call-label">Prefer to talk it through?</span>
+          <span class="cta-band__call-number">(734) 379-7788</span>
+          <span class="cta-band__call-note">Talk to a person, not a form.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="email-signup" aria-label="Mailing list signup">
+      <div class="email-signup__inner">
+        <div class="email-signup__copy">
+          <h2 class="email-signup__title">Join Our <span class="accent">Mailing List</span></h2>
+          <p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
+        </div>
+        <form class="email-signup__form" action="#" method="post" novalidate>
+          <label for="email-input-app" class="sr-only">Email address</label>
+          <input class="email-signup__input" id="email-input-app" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          <button class="email-signup__submit" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+<?php
+get_footer();
