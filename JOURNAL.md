@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Contact page port from live (opencode)
+- **Request:** `https://gerotech.com/contact/` (live) should be the contact page. Live vs dev differ **only** in the email domain — live uses the real `@gerotech.com`, dev uses `@gerotechdev.wpenginepowered.com`. Ported from **live**.
+- **`page-contact.php` (replaced):** this **replaced the earlier custom design-system build** (`.contact-layout` / `.contact-form` / `.contact-group`) with the live/dev legacy design, wrapped in `.legacy` — "Contact" title, intro band, the Contact Form (**CF7 60**, swapped to shortcode), department details (Headquarters & Sales / Engineering & Automation / Service / Parts / Tooling / Grand Rapids Office), and Locations with Google Maps.
+- **Enqueue:** `legacy.css` + parent `fonts.css` now on **support, service, training, rotary-repair, planned-maintenance, about, contact**.
+- **Verified:** local `/contact/` desktop matches live. Maps key overridable via `gerotech_google_maps_key`.
+- **Note:** the now-unused `.contact-*` CSS remains in `components.css` (harmless).
+
 ## 2026-09-16 — Support nav dropdown (opencode)
 - **Request:** keep the nav hardcoded; make Support a dropdown of its subpages **excluding Training**.
 - **`header.php`:** Support is now `.site-nav__item.has-dropdown` (desktop, using the existing `.dropdown` / `.dropdown__link` pattern + `+` arrow) and a `.mobile-nav__group` `<details>` (mobile). Items: **Service Request Forms** (`/service/`), **Rotary Repair** (`/rotary-repair/`), **Planned Maintenance** (`/planned-maintenance/`). Training left as its own top-level link.

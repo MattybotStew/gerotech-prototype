@@ -5,16 +5,16 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (opencode — Support nav dropdown)
+**Last Updated:** 2026-09-16 (opencode — Contact page port from live)
 **Active Agent:** opencode
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `30eef1b` Port dev about page with hero, our people, and facilities.
-**Uncommitted:** Support nav dropdown (`header.php`, `inc/helpers.php`), `JOURNAL.md`
+**Last Commit:** `4108b99` Add Support nav dropdown with subpages, excluding Training.
+**Uncommitted:** Contact (`page-contact.php`, `inc/enqueue.php`), `JOURNAL.md`
+
+**Legacy (dev/live-body) pages:** `support`, `service`, `training`, `rotary-repair`, `planned-maintenance`, `about`, `contact` — body ported from dev/live + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter. (Contact ported from **live** because live carries the real `@gerotech.com` emails.)
+- **Template-name rule:** some pages have `_wp_page_template` pointing at a **parent** template (rotary-repair → `rotary-repair.php`, planned-maintenance → `preventive-maintenance.php`, service → `page-service.php`). Child templates override only a **same-named file** — match the parent's filename, not necessarily `page-{slug}.php`. Check with `wp post meta get <id> _wp_page_template`.
 
 **Header nav:** still **hardcoded** in `header.php` (desktop `.site-nav` + mobile `.mobile-nav` — edit both). Support is a dropdown (`.has-dropdown` / `.dropdown`) with Service Request Forms / Rotary Repair / Planned Maintenance (no Training). Editable WP menus remain a retainer item — deferred until the IA locks.
-
-**Legacy (dev-body) pages:** `support`, `service`, `training`, `rotary-repair`, `planned-maintenance`, `about` — dev body + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter.
-- **Template-name rule:** some pages have `_wp_page_template` pointing at a **parent** template (rotary-repair → `rotary-repair.php`, planned-maintenance → `preventive-maintenance.php`, service → `page-service.php`). Child templates override only a **same-named file** — match the parent's filename, not necessarily `page-{slug}.php`. Check with `wp post meta get <id> _wp_page_template`.
 
 ### Prototype → WP build sync (read before editing shared assets)
 The **prototype is the source of truth** for shared front-end assets until design lock; the WP child theme is a copy.
