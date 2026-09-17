@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Rotary Repair page port (opencode)
+- **Request:** `gerotechdev.wpenginepowered.com/rotary-repair/` (sub-page of Support) should match dev, with our header/footer.
+- **`rotary-repair.php` (new):** ported the dev body — hero "ROTARY REPAIR / Gerotech offers world class repair of your HAAS rotary table.", intro, the **Rotary Repair form** (CF7 **299**, swapped to shortcode — includes Product Identification, serial-number guide, cable-connector radios, alarms, PO upload), Engage CTA.
+- **Template naming gotcha:** local page 1484 has `_wp_page_template = rotary-repair.php` (the **parent** theme's page template). Child templates only override a same-named file, so the child file must be **`rotary-repair.php`** (not `page-rotary-repair.php`). Renamed accordingly.
+- **Cleanup:** fixed the dev template's malformed `<div class="service_tab" id="tf_rotary" class="clearfix>` (unclosed quote); stripped the `onClick="ga(...)"` analytics handlers (undefined `ga` would throw); dev-domain links → root-relative; hero image optimized 1.1 MB → 300 KB (`assets/images/legacy/rotary-hero.jpg`).
+- **Enqueue:** `legacy.css` + parent `fonts.css` now on **support + service + training + rotary-repair**.
+- **Note (pre-existing):** `/service/rotary-repair/` (page 194) is assigned `page-service.php`, so it renders the Service page content — inherited from the dev DB, unchanged by this work.
+
 ## 2026-09-16 — Training page port (opencode)
 - **Request:** `gerotechdev.wpenginepowered.com/training/` should be the training page (our header/footer + dev body).
 - **`page-training.php` (rewritten):** ported the dev body — hero "TRAINING / Sharpen your skills." (desktop + mobile), "View all upcoming training sessions" button, **Training Opportunities** (8 `.quad` course cards), **Upcoming Training Sessions**, **Custom Training** rich-text block, **Locations** (Flat Rock + Grand Rapids with **Google Maps**), Engage CTA. No CF7 forms on this page.

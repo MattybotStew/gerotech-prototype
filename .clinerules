@@ -5,13 +5,14 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-16 (opencode — Training page port; legacy pages now support/service/training)
+**Last Updated:** 2026-09-16 (opencode — Rotary Repair page port)
 **Active Agent:** opencode
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `65b600e` Port dev service page and generalize legacy CSS scope to .legacy.
-**Uncommitted:** Training page (`page-training.php`, `assets/images/legacy/h_training.jpg`, `bkg_training_mobile.jpg`, `inc/enqueue.php`), `JOURNAL.md`
+**Last Commit:** `259ec55` Port dev training page with hero, course cards, and locations maps.
+**Uncommitted:** Rotary Repair (`rotary-repair.php`, `assets/images/legacy/rotary-hero.jpg`, `inc/enqueue.php`), `JOURNAL.md`
 
-**Legacy (dev-body) pages:** `support`, `service`, `training` — dev body + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter.
+**Legacy (dev-body) pages:** `support`, `service`, `training`, `rotary-repair` — dev body + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter.
+- **Template-name rule:** some pages have `_wp_page_template` pointing at a **parent** template (e.g. rotary-repair → `rotary-repair.php`, service → `page-service.php`). Child templates override only a **same-named file**, so match the parent's filename, not necessarily `page-{slug}.php`.
 
 ### Prototype → WP build sync (read before editing shared assets)
 The **prototype is the source of truth** for shared front-end assets until design lock; the WP child theme is a copy.
