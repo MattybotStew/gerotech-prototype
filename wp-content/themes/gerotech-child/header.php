@@ -221,13 +221,10 @@
 					<li class="site-nav__item">
 						<a class="site-nav__link" href="<?php gerotech_page_link( 'about' ); ?>"><?php esc_html_e( 'About', 'gerotech-child' ); ?></a>
 					</li>
-					<li class="site-nav__item">
-						<a class="site-nav__link" href="<?php gerotech_page_link( 'contact' ); ?>"><?php esc_html_e( 'Contact', 'gerotech-child' ); ?></a>
-					</li>
 				</ul>
 			</nav>
 
-			<a class="btn-get-quote" href="<?php echo esc_url( gerotech_quote_mailto( 'Gerotech Quote Request' ) ); ?>"><?php esc_html_e( 'Get a Quote', 'gerotech-child' ); ?></a>
+			<a class="btn-get-quote" href="<?php gerotech_page_link( 'contact' ); ?>"><?php esc_html_e( 'Get a Quote', 'gerotech-child' ); ?></a>
 			<button class="header-search" aria-label="<?php esc_attr_e( 'Search', 'gerotech-child' ); ?>">
 				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
 					<path d="M8 13.5C11.0376 13.5 13.5 11.0376 13.5 8C13.5 4.96243 11.0376 2.5 8 2.5C4.96243 2.5 2.5 4.96243 2.5 8C2.5 11.0376 4.96243 13.5 8 13.5Z" stroke="currentColor" stroke-width="2"/>
@@ -287,8 +284,7 @@
 				</div>
 			</details>
 			<a class="mobile-nav__link" href="<?php gerotech_page_link( 'about' ); ?>"><?php esc_html_e( 'About', 'gerotech-child' ); ?></a>
-			<a class="mobile-nav__link" href="<?php gerotech_page_link( 'contact' ); ?>"><?php esc_html_e( 'Contact', 'gerotech-child' ); ?></a>
-			<a class="mobile-nav__link" href="<?php echo esc_url( gerotech_quote_mailto( 'Gerotech Quote Request' ) ); ?>"><?php esc_html_e( 'Get a Quote', 'gerotech-child' ); ?></a>
+			<a class="mobile-nav__link" href="<?php gerotech_page_link( 'contact' ); ?>"><?php esc_html_e( 'Get a Quote', 'gerotech-child' ); ?></a>
 		</nav>
 	</header>
 

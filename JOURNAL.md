@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Nav: drop Contact, point Get a Quote at /contact/ (opencode)
+- **`header.php`:** removed the **Contact** item from the desktop `.site-nav` and the mobile `.mobile-nav`. The **Get a Quote** button (desktop `.btn-get-quote` + mobile link) now links to **`/contact/`** via `gerotech_page_link( 'contact' )` instead of the `mailto:`. Desktop nav is now Machines · Engineered Solutions · Training · Support · About · Get a Quote.
+- Search modal quick links never had Contact — unchanged. `gerotech_quote_mailto()` still used by the ES mega-menu + mobile "Talk to an Engineer".
+- **Verified:** rendered nav + Get a Quote href on local `/support/`.
+
 ## 2026-09-16 — Contact page port from live (opencode)
 - **Request:** `https://gerotech.com/contact/` (live) should be the contact page. Live vs dev differ **only** in the email domain — live uses the real `@gerotech.com`, dev uses `@gerotechdev.wpenginepowered.com`. Ported from **live**.
 - **`page-contact.php` (replaced):** this **replaced the earlier custom design-system build** (`.contact-layout` / `.contact-form` / `.contact-group`) with the live/dev legacy design, wrapped in `.legacy` — "Contact" title, intro band, the Contact Form (**CF7 60**, swapped to shortcode), department details (Headquarters & Sales / Engineering & Automation / Service / Parts / Tooling / Grand Rapids Office), and Locations with Google Maps.
