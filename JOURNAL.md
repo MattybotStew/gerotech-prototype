@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Planned Maintenance page port (opencode)
+- **Request:** `gerotechdev.wpenginepowered.com/planned-maintenance/` (sub-page of Support) should match dev, with our header/footer.
+- **`preventive-maintenance.php` (new):** local page 1538 has `_wp_page_template = preventive-maintenance.php` (parent template), so the child override uses that filename. Ported the dev body — hero "PLANNED MAINTENANCE / We are here to help.", intro + **PM Flyer** PDF button, the **Planned Maintenance form** (CF7 **321**, swapped to shortcode — Contact Information, Product Identification, Maintenance Schedule Comments, Purchase Order), Engage CTA.
+- **Reused** `assets/images/legacy/h_service.jpg` + `bkg_service_mobile.jpg` (same hero as Support) — no new images.
+- **Fixed:** static `mailto:service@gerotechdev.wpenginepowered.com` → **`service@gerotech.com`** (the CF7 form 321 body still carries the dev address — DB, flagged). Stripped `onClick="ga(...)"`; dev links → root-relative. PM Flyer PDF resolves locally (`/wp-content/uploads/2021/07/…`).
+- **Enqueue:** `legacy.css` + parent `fonts.css` now on **support, service, training, rotary-repair, planned-maintenance**.
+
 ## 2026-09-16 — Rotary Repair page port (opencode)
 - **Request:** `gerotechdev.wpenginepowered.com/rotary-repair/` (sub-page of Support) should match dev, with our header/footer.
 - **`rotary-repair.php` (new):** ported the dev body — hero "ROTARY REPAIR / Gerotech offers world class repair of your HAAS rotary table.", intro, the **Rotary Repair form** (CF7 **299**, swapped to shortcode — includes Product Identification, serial-number guide, cable-connector radios, alarms, PO upload), Engage CTA.
