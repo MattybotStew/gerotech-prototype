@@ -208,8 +208,15 @@
 					<li class="site-nav__item">
 						<a class="site-nav__link" href="<?php gerotech_page_link( 'training' ); ?>"><?php esc_html_e( 'Training', 'gerotech-child' ); ?></a>
 					</li>
-					<li class="site-nav__item">
-						<a class="site-nav__link" href="<?php gerotech_page_link( 'support' ); ?>"><?php esc_html_e( 'Support', 'gerotech-child' ); ?></a>
+					<li class="site-nav__item has-dropdown">
+						<a class="site-nav__link" href="<?php gerotech_page_link( 'support' ); ?>" aria-haspopup="true">
+							<?php esc_html_e( 'Support', 'gerotech-child' ); ?> <span class="arrow" aria-hidden="true">+</span>
+						</a>
+						<div class="dropdown" role="menu" aria-label="<?php esc_attr_e( 'Support menu', 'gerotech-child' ); ?>">
+							<a class="dropdown__link" href="<?php gerotech_page_link( 'service' ); ?>" role="menuitem"><?php esc_html_e( 'Service Request Forms', 'gerotech-child' ); ?></a>
+							<a class="dropdown__link" href="<?php gerotech_page_link( 'rotary-repair' ); ?>" role="menuitem"><?php esc_html_e( 'Rotary Repair', 'gerotech-child' ); ?></a>
+							<a class="dropdown__link" href="<?php gerotech_page_link( 'planned-maintenance' ); ?>" role="menuitem"><?php esc_html_e( 'Planned Maintenance', 'gerotech-child' ); ?></a>
+						</div>
 					</li>
 					<li class="site-nav__item">
 						<a class="site-nav__link" href="<?php gerotech_page_link( 'about' ); ?>"><?php esc_html_e( 'About', 'gerotech-child' ); ?></a>
@@ -271,7 +278,14 @@
 				</div>
 			</details>
 			<a class="mobile-nav__link" href="<?php gerotech_page_link( 'training' ); ?>"><?php esc_html_e( 'Training', 'gerotech-child' ); ?></a>
-			<a class="mobile-nav__link" href="<?php gerotech_page_link( 'support' ); ?>"><?php esc_html_e( 'Support', 'gerotech-child' ); ?></a>
+			<details class="mobile-nav__group">
+				<summary class="mobile-nav__link mobile-nav__summary"><?php esc_html_e( 'Support', 'gerotech-child' ); ?> <span class="arrow" aria-hidden="true">+</span></summary>
+				<div class="mobile-nav__sublinks">
+					<a class="mobile-nav__sublink" href="<?php gerotech_page_link( 'service' ); ?>"><?php esc_html_e( 'Service Request Forms', 'gerotech-child' ); ?></a>
+					<a class="mobile-nav__sublink" href="<?php gerotech_page_link( 'rotary-repair' ); ?>"><?php esc_html_e( 'Rotary Repair', 'gerotech-child' ); ?></a>
+					<a class="mobile-nav__sublink" href="<?php gerotech_page_link( 'planned-maintenance' ); ?>"><?php esc_html_e( 'Planned Maintenance', 'gerotech-child' ); ?></a>
+				</div>
+			</details>
 			<a class="mobile-nav__link" href="<?php gerotech_page_link( 'about' ); ?>"><?php esc_html_e( 'About', 'gerotech-child' ); ?></a>
 			<a class="mobile-nav__link" href="<?php gerotech_page_link( 'contact' ); ?>"><?php esc_html_e( 'Contact', 'gerotech-child' ); ?></a>
 			<a class="mobile-nav__link" href="<?php echo esc_url( gerotech_quote_mailto( 'Gerotech Quote Request' ) ); ?>"><?php esc_html_e( 'Get a Quote', 'gerotech-child' ); ?></a>

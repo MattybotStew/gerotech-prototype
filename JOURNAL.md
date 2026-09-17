@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Support nav dropdown (opencode)
+- **Request:** keep the nav hardcoded; make Support a dropdown of its subpages **excluding Training**.
+- **`header.php`:** Support is now `.site-nav__item.has-dropdown` (desktop, using the existing `.dropdown` / `.dropdown__link` pattern + `+` arrow) and a `.mobile-nav__group` `<details>` (mobile). Items: **Service Request Forms** (`/service/`), **Rotary Repair** (`/rotary-repair/`), **Planned Maintenance** (`/planned-maintenance/`). Training left as its own top-level link.
+- **`inc/helpers.php`:** added `service`, `rotary-repair`, `planned-maintenance` to the slug→URL map.
+- **Verified:** dropdown renders under Support on `/support/`; links resolve locally; mobile group present.
+- Nav stays hardcoded (editable WP menus remain a retainer item, deferred until the IA locks).
+
 ## 2026-09-16 — About page port (opencode)
 - **Request:** `gerotechdev.wpenginepowered.com/about/` should match dev, with our header/footer.
 - **`page-about.php` (overwritten):** local page 14 has no `_wp_page_template` (slug hierarchy → `page-about.php`), so the existing prototype-based child template was replaced with the dev body — hero "ABOUT GEROTECH / Your source for advanced manufacturing solutions.", "Since 1987…" intro (orange accent span), **Our People** + image, **Our Facilities**, Engage CTA.
