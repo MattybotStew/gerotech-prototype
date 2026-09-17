@@ -1,21 +1,39 @@
 # Gerotech → WordPress Implementation Plan
 ## Static HTML theme + ACF fields (no page builder)
 
-**Status:** Approved direction (pending staging inspection)
+**Status:** In build — 9 pages live in local WP; **Phase 4 (ACF) next**
 **Created:** September 16, 2026
 **Owner:** CloudMellow (retainer build)
-**Source of truth:** tagged prototype `v1.0-prototype`
+**Source of truth:** `wp-content/themes/gerotech-child/` in this repo
 **Companion docs:** `handoff/gerotech-handoff-plan.docx` (PM-facing), this file (build-facing)
 
 ---
 
 ## 0. Picking this up cold
 
-**Read first:** `.clinerules` → `JOURNAL.md` → `handoff/gerotech-handoff-plan.docx` → this file.
+**Read first:** `.clinerules` → `JOURNAL.md` (newest first) → this file (§12, §12b, §13).
 
-**Where we are:** approach chosen (static HTML → WP theme → ACF). Not started. First action is Phase 1 (inspect staging theme).
+**Where we are (2026-09-16):**
+- Child theme `wp-content/themes/gerotech-child/` built and running in **LocalWP** (`gerotech.local`).
+- **Phases 1–3 done** for **9 pages**: homepage, 4 ES pages, Training, Support, About, Contact. All hardcoded markup, verified responsive.
+- **Phase 4 (ACF) is next** — none of the 9 templates read ACF yet, so the client cannot edit them.
+- **Push to dev: deferred.** Nothing has been pushed to `gerotechdev`.
 
-**Decisions still open:** see §11.
+**How to resume locally:**
+1. Open **LocalWP** → start the **gerotech** site (`~/Local Sites/gerotech/app/public`, `https://gerotech.local`).
+2. Theme source of truth is this repo — after editing, copy into the Local site:
+   ```bash
+   cp -R wp-content/themes/gerotech-child/. "$HOME/Local Sites/gerotech/app/public/wp-content/themes/gerotech-child/"
+   ```
+3. Lint with Local's PHP:
+   ```bash
+   "$HOME/Library/Application Support/Local/lightning-services/php-8.2.29+0/bin/darwin-arm64/bin/php" -l <file>
+   ```
+4. Local MySQL socket: `~/Library/Application Support/Local/run/koy2IPsI5/mysql/mysqld.sock` (root/root, db `local`).
+
+**Gotchas (see §12):** the legacy parent needs `js_to_footer` neutralised (already done in `inc/enqueue.php`); local `wp-config.php` carries non-shippable workarounds; the local cert was trusted manually.
+
+**Decisions:** §11 is resolved; §12b holds the page/slug mapping.
 
 ---
 
@@ -30,54 +48,52 @@
 
 ---
 
-## 2. Handoff artifacts to produce
+## 2. Handoff artifacts
 
-| Artifact | Purpose |
-|---|---|
-| Tagged prototype `v1.0-prototype` | Frozen visual + markup source |
-| `handoff/theme-map.md` | HTML file → PHP template; partial → template part |
-| `handoff/acf-spec.md` | Field groups: name, type, location, consuming template |
-| `handoff/component-inventory.md` | Section → BEM root → editable fields → JS dependency |
-| `handoff/asset-manifest.md` | Theme-bundled vs. Media Library; final vs. stand-in |
-| `handoff/js-spec.md` | Each script, selectors, init conditions, a11y/motion |
-| `handoff/qa-checklist.md` | Breakpoints, browsers, a11y, editor walkthrough |
+| Artifact | Purpose | Status |
+|---|---|---|
+| `wp-content/themes/gerotech-child/` | The actual build (source of truth) | ✅ 9 pages |
+| `handoff/theme-map.md` | HTML file → PHP template; partial → template part | ✅ (slugs superseded by §12b) |
+| `handoff/acf-spec.md` | Field groups: name, type, location, consuming template | ✅ draft — reconcile in Phase 4 |
+| `handoff/component-inventory.md` | Section → BEM root → editable fields → JS dependency | ✅ |
+| `handoff/asset-manifest.md` | Theme-bundled vs. Media Library; final vs. stand-in | ✅ |
+| `handoff/js-spec.md` | Each script, selectors, init conditions, a11y/motion | ✅ |
+| `handoff/qa-checklist.md` | Breakpoints, browsers, a11y, editor walkthrough | ✅ |
+| Tagged prototype `v1.0-prototype` | Frozen visual + markup source | ⬜ not tagged (repo uses the theme as source now) |
 
 ---
 
-## 3. Theme architecture
+## 3. Theme architecture (as built)
 
-Child theme of `gerotech` (fallback: new theme — pending inspection).
+Child theme of `gerotech`. Actual tree:
 
 ```
 wp-content/themes/gerotech-child/
-├── style.css                 # child theme header only
-├── functions.php             # enqueue, theme supports, includes
-├── header.php                # alert banner + site header + search modal
+├── style.css                 # child theme header only (no rules)
+├── functions.php             # bootstrap, theme supports, menus
+├── header.php                # skip link + alert banner + sticky header + mega-nav + mobile nav + search modal
 ├── footer.php                # footer + wp_footer()
+├── index.php                 # fallback loop
 ├── front-page.php            # homepage
 ├── page-engineered-solutions.php
-├── page-machine-custom-solutions.php
-├── page-automation-integration.php
-├── page-application.php
+├── page-modification-of-standard-machine-tools.php
+├── page-unique-applications-for-standard-machines.php
+├── page-automated-system.php
 ├── page-training.php
 ├── page-support.php
 ├── page-about.php
-├── page-careers.php
+├── page-contact.php
 ├── template-parts/
-│   ├── global/               # alert-banner, search-modal, mega-nav
-│   ├── sections/             # hero-peek, page-hero, stat-counter, haas-relationship,
-│   │                         # machine-lineup, testimonials, news-editorial, cta-band,
-│   │                         # email-signup, service-grid, card-grid, gallery, accordion
-│   └── cards/                # service-card, mcs-card, news-item, testimonial-card
+│   └── sections/testimonials.php
 ├── inc/
-│   ├── enqueue.php
-│   ├── acf-fields.php        # acf_add_local_field_group() — version-controlled
-│   ├── options.php           # acf_add_options_page() site settings
-│   └── cpt.php               # only if parent doesn't register them
-└── assets/                   # css/, js/, images/, videos/ copied in
+│   ├── helpers.php           # gerotech_page_url()/link(), quote mailto, asset version
+│   └── enqueue.php           # fonts, CSS order, conditional JS, dequeue parent
+└── assets/                   # css/ (4), js/ (7), images/ (22 + 2 gallery sets)
 ```
 
-**Template strategy:** use `page-{slug}.php` (auto-applies, no assignment). Fall back to named templates where a slug collides with an existing CPT (`/training/`, `/support/` already exist live).
+**Not yet created (Phase 4+):** `inc/acf-fields.php`, `inc/options.php`, `inc/cpt.php`, additional `template-parts/` (global/sections/cards). Sections currently live inline in the page templates.
+
+**Template strategy:** `page-{slug}.php` auto-applies by slug (no admin assignment). Slugs intentionally match the dev URLs (see §12b).
 
 ---
 
@@ -134,28 +150,30 @@ Section markup is unchanged; only strings/images become field calls.
 
 ## 8. Build sequence
 
-| Phase | Work | Days |
-|---|---|---|
-| 1 | Inspect staging theme; confirm child-vs-new; check CPT registration | 0.5 |
-| 2 | Theme skeleton: child theme, header/footer, enqueue, dequeue parent | 2 |
-| 3 | Convert 11 pages HTML→PHP (hardcoded markup) | 3 |
-| 4 | ACF Pro + options page + field groups (PHP registration) | 2 |
-| 5 | Wire fields into templates | 3 |
-| 6 | Forms + search wiring | 1 |
-| 7 | Asset migration + fonts domain | 1 |
-| 8 | Content entry + client editor walkthrough | 2 |
-| 9 | QA (responsive, a11y, cross-browser, WP Engine cache) | 2 |
-| | **Total** | **~16–17 days (~3 weeks)** |
+| Phase | Work | Days | Status |
+|---|---|---|---|
+| 1 | Inspect staging theme; confirm child-vs-new; check CPT registration | 0.5 | ✅ done (§12) |
+| 2 | Theme skeleton: child theme, header/footer, enqueue, dequeue parent | 2 | ✅ done |
+| 3 | Convert pages HTML→PHP (hardcoded markup) | 3 | ✅ done — 9 pages (§12b) |
+| 4 | ACF Pro + options page + field groups (PHP registration) | 2 | ⬜ **next** (§13) |
+| 5 | Wire fields into templates | 3 | ⬜ |
+| 6 | Forms + search wiring (CF7/WPForms, search) | 1 | ⬜ |
+| 7 | Asset migration + fonts domain | 1 | ⬜ |
+| 8 | Content entry + client editor walkthrough | 2 | ⬜ |
+| 9 | QA (responsive, a11y, cross-browser, WP Engine cache) | 2 | ⬜ |
+
+Remaining phases 4–9 ≈ 11 days. Pages beyond the 9 in scope (Careers, Machines, Service, News, remaining ES sub-pages) are additional. Push to dev is a separate, deferred step.
 
 ---
 
 ## 9. Risks
 
-- **Parent theme unknown** — inspect staging; new theme if unmaintainable.
-- **Slug collisions** — `/training/`, `/support/`, `/about/`, `/careers/` already live; reuse-vs-new URL is the SEO decision.
-- **ACF Pro license** (~$99/yr) required.
-- **Unsplash stand-ins** must be replaced before launch.
+- **Parent theme is legacy** — handled: child overrides templates and neutralises `js_to_footer` (§12). Don't edit the parent (rollback path).
+- **URL/slug strategy** — resolved (Mapping A, §12b): our templates reuse dev slugs. Watch for dev pages with duplicate slugs (`/application-support/`, `/rotary-repair/`).
+- **ACF Pro license** — active on dev; confirm it covers production.
+- **Unsplash stand-ins** must be replaced before launch (see `asset-manifest.md`).
 - **Nav not editable** at launch (documented).
+- **Push breaks unconverted pages** on dev (§14).
 - **WP Engine caching** — purge on content updates.
 
 ---
@@ -166,14 +184,100 @@ Retainer build: we do phases 1–7, then content entry + client walkthrough (8).
 
 ---
 
-## 11. Open decisions
+## 11. Decisions (resolved 2026-09-16)
 
-1. **Child theme vs. new theme** — needs staging access to inspect the parent `gerotech` theme.
-2. **Navigation** — hardcoded for launch, or register editable WP menus now (+1–2 days)?
-3. **URL strategy** — reuse existing top-level slugs or new URLs?
-4. **CPTs now or ACF-only v1** — plan assumes ACF-only for speed.
-5. **Accent-word editing** — confirm the `em`-mapping approach.
+1. **Child theme vs. new theme** — ✅ **child theme of `gerotech`**. Parent is legacy but the child overrides `header.php`/`footer.php`/`front-page.php` and neutralises the parent's footer-script hack (§12).
+2. **Navigation** — ✅ **hardcoded in `header.php`** for v1 (desktop + mobile). Now links Machines, Engineered Solutions, Training, Support, About, Contact. Editable WP menus = retainer item.
+3. **URL strategy** — ✅ **Mapping A**: our design takes over dev's existing URLs. Templates named after dev slugs; `gerotech_page_url()` is the single mapping seam (§12b).
+4. **CPTs now or ACF-only v1** — ✅ **ACF-only v1** (CPTs already exist on the parent for case-study/training-session/testimonial/people/career — reuse, don't re-register).
+5. **Accent-word editing** — ✅ WYSIWYG `em`/`i` → `.accent` / `.accent--deep` (implement in Phase 4/5).
 
 ---
 
-**Next action on pickup:** Phase 1 — obtain staging access, inspect `wp-content/themes/gerotech/`, confirm where CPTs register, and finalise child-vs-new theme.
+## 12. Phase 1 findings — staging inspection (2026-09-16)
+
+Parent theme pulled from `gerotechdev` via SFTP and inspected locally (LocalWP).
+
+**Parent `gerotech` (author Tim Bomers / phiregroup, v2.o):**
+- Legacy theme, ~73MB (bundled `fonts/`, `images/`, `videos/`), its own `page-*.php` templates (`page-home`, `page-about`, `page-machines`, `page-training`, `page-support`, `page-service`, `page-solutions`, `page-contact`, `page-industries`, `page-products`, `page-news`, `page-sitemap`, `page-calendar`).
+- **Does not use `wp_enqueue_style`** — hardcodes `style.css` + `fonts.css` as `<link>` in its own `header.php`. The child overrides `header.php`, so parent CSS never loads (intended).
+- **`js_to_footer()`** removes core `wp_enqueue_scripts`/`wp_print_head_scripts` from `wp_head` and re-adds them on `wp_footer` — would push the child's CSS to the footer (FOUC). **Child removes this action at priority 1.**
+- Enqueues jQuery-dependent `site-scripts`, `home_script` (front page), `ts_script` (training-session). **Child dequeues all three.**
+- Homepage header injects Smart Slider 3 shortcodes (`[smartslider3 slider=2]`, `slider=1`) — gone with the child `header.php`.
+- PHP notice at `functions.php:13` (`add_theme_support( $feature, $arguments )` with undefined vars) — only visible with `display_errors` on; left as-is, quieted locally.
+
+**CPTs already registered by the parent (do not re-register):** `case-study`, `training-session`, `testimonial`, `people`, `career`.
+
+**ACF already in use:** parent calls `acf_add_options_page()` — reuse the existing options page rather than adding a second.
+
+**Menus:** `menu-primary`, `menu-mobile`, `menu-footer`, `menu-service`.
+
+**Resolved:** child-theme approach works (parent is legacy but the child overrides `header.php`/`footer.php`/`front-page.php`, and neutralises the footer-script hack). Slug collisions confirmed for `/training/`, `/support/`, `/about/`, `/careers/`.
+
+**Local setup:** LocalWP site `gerotech` (nginx, PHP 8.2.29, MySQL 8.4, WP 7.1) at `~/Local Sites/gerotech/app/public/`; parent theme pulled via SFTP; child theme copied in and activated; homepage verified at `http://gerotech.local/` (desktop + mobile, no console errors).
+
+**Local-only `wp-config.php` workarounds (do not ship):**
+- `@ini_set('display_errors','0')` — hides the parent theme's `functions.php:13` notices.
+- `WP_HTTP_BLOCK_EXTERNAL` + `DISABLE_WP_CRON` — **required on this macOS build**: WP admin's outbound/loopback requests load Apple's `Network` framework, after which php-fpm aborts on its next fork (`crashed on child side of fork pre-exec`) → 502 on `/wp-admin/`. Blocking external HTTP prevents the framework from loading. Front end is unaffected.
+- Local admin login was reset to `matt` / `localpass123` for verification.
+
+---
+
+## 12b. Build scope — updated 2026-09-16
+
+**Scope is now 9 pages: homepage + ES section (4) + the nav pages Training/Support/About/Contact.**
+
+Dev (`gerotechdev.wpenginepowered.com`) has a different, deeper IA (30 pages) than the prototype. **Mapping A**: our design takes over dev's existing URLs, so templates are named after the dev slugs.
+
+| Our template | Dev slug / URL | Dev page ID |
+|---|---|---|
+| `front-page.php` | `/` (`/home/`) | 11 |
+| `page-engineered-solutions.php` | `/engineered-solutions/` | 28 |
+| `page-modification-of-standard-machine-tools.php` | `/modification-of-standard-machine-tools/` | 1250 |
+| `page-unique-applications-for-standard-machines.php` | `/unique-applications-for-standard-machines/` | 1265 |
+| `page-automated-system.php` | `/automated-system/` | 1239 |
+| `page-training.php` | `/training/` | 39 |
+| `page-support.php` | `/support/` | 1535 |
+| `page-about.php` | `/about/` | 14 |
+| `page-contact.php` | `/contact/` | 16 |
+
+`gerotech_page_url()` maps prototype slugs → dev URLs. All internal links + nav flow through it.
+
+**Contact** has no static prototype page — built from dev's real contact content (heading, departments, locations) in the project design system; new `.contact-*` component added to `components.css`. Form is static (CF7/WPForms later). Emails use `@gerotech.com` (dev showed masked `wpenginepowered.com` addresses — verify).
+
+**Local state (2026-09-16):** full pull of `gerotechdev` → local (`gerotech.local`, https) done. Child theme active; the 9 mapped pages had their parent `_wp_page_template` cleared so slug templates apply. All 9 verified 200 at 360–1920, no overflow, no console errors.
+
+**Push to dev: deferred** (user decision). When ready: custom push (child theme + activate) or full push once more pages are converted. Unconverted dev pages will break when the child theme is activated there.
+
+**Notes:** site-wide reCAPTCHA badge (plugin) shows bottom-right on all pages. Unconverted local pages render unfinished (parent templates + child CSS). Out of scope: Careers, Machines, Service, Contact-adjacent pages, News, and the remaining ES sub-pages.
+
+---
+
+## 13. Phase 4 — ACF (next up)
+
+**Goal:** make the 9 built pages client-editable. ACF Pro is already active; the parent registers field groups but they're tied to the **old** markup, so our sections need **new groups** (don't reuse the parent's blindly).
+
+**Progress (2026-09-16):**
+- ✅ `inc/acf-fields.php` created + required from `functions.php`; **Homepage group** (`group_home_content`, location `page_type == front_page`) registered and verified in the editor — tabs: Hero slides, Stats, Haas Relationship, Machine Lineup, CTA Band, Mailing List.
+- ✅ `front-page.php` wired to ACF with the current design as **defaults** (renders correctly even with empty fields — important for a theme-only push). No regression.
+- ✅ Helpers added: `gerotech_accent()` (em→accent span + line breaks), `gerotech_image_url()`, `gerotech_parse_tags()`.
+- ⬜ Remaining groups: ES hub, MCS, Applications, Automation, Training, Support, About, Contact.
+
+**Editor model:** plain-text textareas; wrap the accent phrase in `<em>…</em>`; line breaks become the design's forced breaks. Machine-lineup tags = one `Label | URL` per line (flat — repeaters can't nest). Panels are one flat repeater.
+
+**Steps for the remaining pages:**
+1. Add a field group per template in `inc/acf-fields.php` (location by `page_template` or page slug).
+2. Wire each `page-*.php` to read fields with the current markup as defaults (same pattern as `front-page.php`).
+3. Reuse the parent's existing options page for globals (alert-banner phones, header CTA, footer columns, shared testimonials).
+
+**First action on pickup:** register the **Engineered Solutions** group (largest remaining: page-hero, why-section, credential band, tech partners, capability cards, trust FAQ, news lead **Group** + news items, CTA, signup) and wire `page-engineered-solutions.php`.
+
+---
+
+## 14. Push to dev (deferred)
+
+Not started. When approved:
+- **Safer:** custom push of `wp-content/themes/gerotech-child/` only, then activate on dev via WP admin.
+- **Or:** full Local push (files + DB).
+- **Risk:** activating the child on dev breaks every page not yet converted (parent `page-*.php` markup + our CSS). Convert/cover more pages first, or accept a partial rollout window.
+- WP Engine creates a backup point before a push — verify before proceeding.

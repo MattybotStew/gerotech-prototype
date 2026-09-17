@@ -8,9 +8,18 @@ Read `.clinerules` at the start of every session. It contains current project st
 
 ## Project
 
-CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC machinery distributor, Haas Factory Outlet, est. 1987). This repo is a **static HTML/CSS/JS prototype** — NOT the production build. The final site will be WordPress.
+CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC machinery distributor, Haas Factory Outlet, est. 1987). The repo holds **two things**: the **static HTML/CSS/JS prototype** (design source of truth) and the **WordPress child theme build** under `wp-content/themes/gerotech-child/`. The final site is WordPress.
 
-**Branch:** `master` — presentation-ready, synced with `origin/master` (2026-07-14)
+**Branch:** `master` — synced with `origin/master`. Build phase: WordPress child theme + ACF, **no page builder**. Plan: `handoff/implementation-plan-wordpress-theme-acf.md`.
+
+## Prototype → WP build sync
+
+The prototype stays the **source of truth for shared assets** until design lock.
+
+- **CSS / JS / images:** edit in the prototype `assets/`, then run `./scripts/sync-theme-assets.sh` (one-way copy into the theme). `--check` reports drift; `--prune` removes orphaned theme images.
+- **Markup:** port prototype HTML changes by hand into the matching PHP template — map in `handoff/theme-map.md`.
+- **Not synced:** `include-partials.js` (replaced by PHP includes) and `gallery-module.js` (not promoted).
+- **At design lock:** tag the prototype, then the theme becomes the source and syncing stops.
 
 ## Stack
 
@@ -18,7 +27,7 @@ CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC mac
 - Zero frameworks, no build tools, no package manager
 - Fonts: **Barlow Condensed** (Google Fonts, 500/600/700) for headlines (`--font-display`) + **Navigo** (Adobe Fonts kit `lqh7ybe`, 400 + 700) for body/UI (`--font-sans`)
 - **CSS load order:** `tokens.css` → `components.css` → `layout.css` → **`elevated.css`**
-- **JS:** `include-partials.js`, `nav.js` (sticky, mobile, search modal, signup thanks), `slider.js`, `filter.js`, `animations.js`, `testimonials.js`, `machine-tabs.js`, `modal.js` (ES detail card modals + gallery lightbox)
+- **JS:** `include-partials.js`, `nav.js` (sticky, mobile, search modal, signup thanks), `slider.js`, `filter.js`, `animations.js`, `machine-tabs.js`, `modal.js` (ES detail card modals + gallery lightbox)
 
 ## Key conventions
 

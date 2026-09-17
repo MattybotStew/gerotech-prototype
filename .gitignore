@@ -1,5 +1,9 @@
 .aider*
 
+# OS / editor cruft
+.DS_Store
+.codewhale/
+
 # figma-pipeline generated artifacts
 figma-output.json
 src/figma/

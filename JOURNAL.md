@@ -2,6 +2,83 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — Prototype → WP asset sync script (opencode)
+- **Problem:** prototype keeps changing while the WP child theme is a copy — risk of silent drift. Measured drift: prototype **ahead** of theme by 158 lines in `components.css` (the `.contact-*` styles); all other CSS/JS identical; image sets identical (43 each); theme has **zero** unique asset content.
+- **New `scripts/sync-theme-assets.sh`** — one-way prototype `assets/` → `wp-content/themes/gerotech-child/assets/`. Modes: default copy, `--check` (drift report, exit 1), `--prune` (drop orphaned theme images). Syncs 4 CSS + 7 JS + mirrored images; deliberately skips `include-partials.js` and `gallery-module.js`.
+- **Ran sync** — fixed the `components.css` drift; `--check` now clean.
+- **Documented rule** in `.clinerules` + `AGENTS.md`: prototype = source for CSS/JS/images (sync script); markup ported by hand via `handoff/theme-map.md`; theme becomes source at design lock (tag prototype).
+- No prototype pages or PHP templates changed.
+
+## 2026-09-16 — Phase 4 ACF: homepage wired (opencode)
+- **New `inc/acf-fields.php`** (required from `functions.php`): Homepage group `group_home_content` (location `page_type == front_page`) with tabs Hero slides, Stats, Haas Relationship, Machine Lineup, CTA Band, Mailing List. Verified visible in the editor.
+- **`front-page.php` rewritten** to read ACF with the current design as **defaults** (renders correctly with empty fields — safe for a theme-only push). No visual regression; verified in admin + front end.
+- **New helpers** in `inc/helpers.php`: `gerotech_accent()` (em→accent span, line breaks), `gerotech_image_url()`, `gerotech_parse_tags()`.
+- **Editor model:** plain textareas; accent via `<em>…</em>`; tags = `Label | URL` per line (repeaters can't nest).
+- **Local note:** after the pull the admin users are dev's — set `CloudMellow` / `localpass123` locally to verify.
+- Next: ES hub group, then MCS/Applications/Automation, Training/Support/About/Contact.
+
+## 2026-09-16 — Training/Support/About converted + Contact built (opencode)
+- **Converted** (scripted, dev slugs): `page-training.php` (`/training/`), `page-support.php` (`/support/`), `page-about.php` (`/about/`). Cleared their parent `_wp_page_template` meta.
+- **Built `page-contact.php`** (`/contact/`) — no static prototype exists; used dev's real contact content (heading, departments, locations) in our design system. Added a `.contact-*` component to `components.css` (form + details/locations grid). Form is static (CF7/WPForms later); emails set to `@gerotech.com` (dev showed masked addresses).
+- **Verified:** all 9 pages (home, 4 ES, training, support, about, contact) 200 at 360/768/1024/1440/1920 — no overflow, no console errors, no PHP warnings. Contact page visually reviewed.
+- **Note:** site-wide reCAPTCHA badge (plugin) shows bottom-right on all pages. Plan §12b updated (scope now 9 pages).
+
+## 2026-09-16 — Nav: Training/Support/About/Contact linked; ACF status (opencode)
+- **Nav updated** (`header.php`, desktop + mobile): Training, Support, About now link to `/training/`, `/support/`, `/about/`; **Contact** added → `/contact/`. Added `contact` to `gerotech_page_url()` map. All 4 return 200.
+- **ACF status:** ACF Pro is **active** and the parent theme's field groups exist (Site Options, Home Options, Solutions Options, Contact Options, Page Options, Training/Service/Career Options…). **But our 5 child templates contain no ACF calls** (`get_field`/`have_rows`) — they're static, so admin edits do nothing on our pages yet. Client editing = **Phase 4**.
+- Note: the pulled nav pages render with the parent's old `page-*.php` markup + our CSS → visually unfinished (accepted trade-off).
+
+## 2026-09-16 — Full dev pull + ES templates mapped to dev slugs (opencode)
+- **Full pull** `gerotechdev` → local (`gerotech.local`, https) via Local: all 30 pages, plugins (ACF Pro, Megamenu, Smart Slider 3, CF7, WPForms, iThemes Security…), media. Child theme re-copied + activated.
+- **Mapping A** agreed: our design takes over dev's existing URLs. Templates renamed: `page-machine-custom-solutions.php` → `page-modification-of-standard-machine-tools.php`, `page-application.php` → `page-unique-applications-for-standard-machines.php`, `page-automation-integration.php` → `page-automated-system.php`. `gerotech_page_url()` map updated (prototype slug → dev URL).
+- **Blocker cleared:** the 5 mapped pages had `_wp_page_template` = `page-solutions.php`/`page-home.php` (parent), which overrode our slug templates. Deleted the meta so `page-{slug}.php` applies.
+- **Verified:** all 5 pages 200 at 360/768/1024/1440/1920, no overflow, no console errors, no PHP warnings; internal links resolve to dev URLs.
+- **Push to dev: deferred.** Unconverted pages render unfinished locally (accepted). Plan §12b updated.
+
+## 2026-09-16 — ES section pages built in WP (opencode)
+- **Scope confirmed:** homepage + Engineered Solutions section only (5 pages). Not the original 11.
+- **New templates** (scripted conversion from prototype `<main>`): `page-engineered-solutions.php`, `page-machine-custom-solutions.php`, `page-application.php`, `page-automation-integration.php`. All `php -l` clean.
+- **Conversion rules:** verbatim markup; `assets/` → `GEROTECH_CHILD_URI`; internal `.html` links → `gerotech_page_link()`; testimonials `data-include` → `get_template_part`; header/footer via `get_header()`/`get_footer()`.
+- **Local DB:** created the 4 WP pages (slugs match templates), flushed rewrites. Verified all 5 URLs 200 at 360/768/1024/1440/1920 — no overflow, no console errors, correct scripts (modal.js only on the 3 detail pages).
+- **Known follow-up:** nav/footer still link to out-of-scope pages (Training/Support/About/Careers) → will 404 until built or unlinked. Documented in plan §12b.
+
+## 2026-09-16 — Fix wp-admin 502 (php-fpm fork crash) (opencode)
+- **Symptom:** `gerotech.local/wp-admin/` → 502; nginx `upstream prematurely closed connection`; php-fpm crash reports in `~/Library/Logs/DiagnosticReports`.
+- **Cause:** on this macOS build, WP admin's outbound update/loopback requests load Apple's `Network` framework, after which php-fpm aborts on its next fork (`crashed on child side of fork pre-exec`, `performForkChildInitialize`).
+- **Fix (local-only, `wp-config.php`, not in repo):** `@ini_set('display_errors','0')` + `WP_HTTP_BLOCK_EXTERNAL` + `DISABLE_WP_CRON`. Authenticated wp-admin verified 200, no new crashes.
+- Local admin password reset to `matt` / `localpass123` for verification. Documented in `handoff/implementation-plan-wordpress-theme-acf.md` §12.
+
+## 2026-09-16 — LocalWP setup + Phase 1 inspection + homepage live (opencode)
+- **LocalWP** installed; site `gerotech` (nginx, PHP 8.2.29, MySQL 8.4, WP 7.1) at `~/Local Sites/gerotech/app/public/`. Parent theme pulled from `gerotechdev` via SFTP (the WP Engine portal "Pull" would have overwritten the dev environment — avoided). Child theme copied in and activated; homepage verified at `http://gerotech.local/` (desktop + mobile, zero console errors, matches prototype).
+- **Phase 1 findings (parent `gerotech`, Tim Bomers / phiregroup, v2.o):** legacy ~73MB theme with its own `page-*.php` templates. **No `wp_enqueue_style`** — hardcodes `style.css`/`fonts.css` in its `header.php` (overridden by child). **`js_to_footer()`** moves `wp_enqueue_scripts`/`wp_print_head_scripts` to the footer → child CSS would load in footer (FOUC); child now removes it at priority 1. Parent enqueues jQuery-dependent `site-scripts`/`home_script`/`ts_script` → child dequeues. CPTs already registered (`case-study`, `training-session`, `testimonial`, `people`, `career`) → don't re-register. ACF options page already exists → reuse. Menus: `menu-primary`, `menu-mobile`, `menu-footer`, `menu-service`.
+- **Fixed** `gerotech-child/inc/enqueue.php` for the above; parent PHP notice (`functions.php:13`) quieted locally via `display_errors=0` in the Local wp-config (not repo).
+- **Docs:** Phase 1 findings + local setup added to `handoff/implementation-plan-wordpress-theme-acf.md` §12; child-vs-new resolved (child works).
+- **Not in repo:** the 73MB parent theme (local only). Next: Phase 3 — remaining 9 pages.
+
+## 2026-09-16 — WP theme scaffold: header, footer, homepage (opencode)
+- **New theme** at `wp-content/themes/gerotech-child/` (child of `gerotech` — parent confirmed in Phase 1). Phase 2 + homepage of Phase 3 of the plan.
+- **Files:** `style.css` (child header only), `functions.php` (bootstrap + supports + menus), `inc/helpers.php` (`gerotech_page_url()` slug→URL seam, quote mailto, asset versioning), `inc/enqueue.php` (fonts + CSS in fixed order, conditional JS, dequeue parent handles), `header.php` (alert banner, mega-nav, mobile nav, search modal, `wp_head`), `footer.php` (footer + `wp_footer`), `front-page.php` (homepage ported from `index.html`), `template-parts/sections/testimonials.php`, `index.php` (fallback).
+- **Assets copied in:** `assets/css` (4), `assets/js` (7), `assets/images` (22 + 20 gallery). `include-partials.js` dropped (PHP includes replace it); `filter.js` copied but not enqueued.
+- **Assumptions/decisions:** nav + footer links hardcoded (plan §7); internal links routed through `gerotech_page_url()` so the open URL-strategy decision stays in one place; `Template: gerotech` + parent style handles filterable (`gerotech_parent_style_handles`); testimonial quotes still static (ACF later).
+- **Not verified:** no PHP runtime locally — structural lint only (balanced tags/braces, no leftover `data-include`/`.html` links). Run `php -l` on staging.
+- Prototype pages/partials untouched.
+
+## 2026-09-16 — Breakpoint check + top-level responsive type (opencode)
+- **Breakpoint audit:** programmatic overflow scan (Playwright + cached Chromium) across 320/360/390/414/768/834/1024/1280/1440/1920 on all 10 pages — **zero horizontal overflow**. Full-page screenshots (390/768/1024/1440) confirm layouts hold (scroll-reveal sections need reduced-motion to render in captures).
+- **Responsive type:** added `--fs-h4` + `--fs-stat` fluid tokens (with `--ls-h4`/`--lh-h4`) and converted the remaining fixed top-level sizes — card/feature titles (18–26px), stat numerals (48px), email signup title, news index/title, modal/lightbox titles, haas relationship title. Dropped the `.haas-relationship__title` 640px override.
+- Files: `assets/css/tokens.css`, `assets/css/components.css`. Icons/brand marks left fixed.
+
+## 2026-09-16 — WP handoff file cleanup + handoff artifacts (opencode)
+- **Housekeeping:** `.gitignore` covers `.DS_Store` + `.codewhale/`; removed `artifacts/` (QA scratch) and both tracked `.DS_Store` files.
+- **Deleted unused legacy assets:** 10 unreferenced images (`gerotech-logo.png`, `haas-logo.png`, `haas-logo.svg`, `haas-service-distributor-award-2025.png`, `haas-umc-1500duo-ss.png`, `haas-umc-400-white-bg.png`, `haas-umc-400.png`, `haas-vm-3.png`, `testimonial-collaboration.png`, `testimonial-shop-floor.png`) + `assets/js/testimonials.js`. Removed the dead script tag from `index-cta-lockup-preview.html` and the JS entry from `AGENTS.md`/`design-spec.md`.
+- **New handoff artifacts (plan §2):** `handoff/theme-map.md`, `handoff/acf-spec.md`, `handoff/component-inventory.md`, `handoff/asset-manifest.md`, `handoff/js-spec.md`, `handoff/qa-checklist.md`.
+- **Left in place (per scope):** exploratory pages (`hero-variations.html`, `showroom.html`, `index-cta-lockup-preview.html`, `gallery-module-preview.html`, `hero-showcase.css`) and no `v1.0-prototype` tag yet.
+- No live page markup/CSS changed except removing stale `artifacts/` comments.
+
+## 2026-09-16 — Agent sync (Cursor)
+- `.clinerules` Current Session State rewritten for Cline/Cursor/Claude: last commit `c06a6fb`, pickup notes, homepage/lineup/peek status, leftovers (Unsplash rotaries + automation tab photos, gallery module still preview-only).
+- `origin/master` is the source of truth. Ignore `.codewhale/`.
+
 ## 2026-09-16 — Haas Relationship eyebrow (Cursor)
 - “The Haas Relationship” label + rule use `#CF0A2C`.
 

@@ -175,8 +175,6 @@ Default panel photo: `assets/images/machine-milling-centers.png` (Figma export).
 | Intro + 3 category cards (Machines / ES / Support) | Hero slide 3 + Haas Relationship + machine browse |
 | Machine browse tabs (5 categories + model tags) | 4-card `.machine-cards` grid |
 
-Archived Excel 5-slide hero: `artifacts/homepage-hero-excel-5-slide.html`
-
 ### Homepage — open cleanup (pre-production)
 
 | Item | Status |
@@ -300,7 +298,6 @@ gerotech-prototype/
     │   ├── stat-counter.js     ← Homepage stat count-up
     │   ├── filter.js           ← ES grid filter tabs
     │   ├── animations.js       ← Scroll reveal
-    │   ├── testimonials.js     ← Legacy carousel (grid partial no longer uses it)
     │   ├── machine-tabs.js     ← Homepage machine lineup tabs
     │   └── modal.js            ← MCS / Automation card modals
     └── images/
