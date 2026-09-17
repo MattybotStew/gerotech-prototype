@@ -1,115 +1,93 @@
 <?php
 /**
- * support page template.
+ * Support page template.
  *
- * Ported verbatim from the static prototype. Markup is static for v1;
- * strings and images become ACF fields in a later phase.
+ * Body content is ported from the dev site (gerotechdev) so the page matches
+ * the live support design exactly. The parent theme's stylesheet is loaded
+ * scoped to `.legacy-support` (assets/css/legacy-support.css) so it cannot
+ * leak into our new header/footer.
+ *
+ * Header/footer are the child theme's (new design).
  *
  * @package GerotechChild
  */
 
 get_header();
+
+$legacy_img = GEROTECH_CHILD_URI . '/assets/images/legacy';
 ?>
 
-<main id="main">
-    <section class="page-hero" aria-label="Support hero">
-      <img class="slide__bg slide__bg--right" src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1920&auto=format&fit=crop" alt="Service technician at work" loading="eager" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
-      <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
-      <div class="slide__content slide__content--left">
-        <p class="slide__eyebrow">We're Here to Help</p>
-        <h1 class="slide__headline">Service &amp; <span class="accent">Support</span></h1>
-        <p class="slide__body">Factory-trained technicians, responsive service, and comprehensive support programs — keeping your machines running at peak performance.</p>
-        <div class="page-hero__actions">
-          <a class="btn btn--primary btn--lg" href="tel:+12484768787">Call Service: 248-476-8787</a>
-          <a class="btn btn--outline-white btn--lg" href="tel:+12484768787">Submit a Service Request</a>
-        </div>
-      </div>
-    </section>
+<div class="legacy-support">
 
-    <section class="section section--white">
-      <div class="container container--es">
-        <div class="section-header section-header--centered">
-          <p class="eyebrow">How Can We Help?</p>
-          <h2 class="section-title">Support <span class="accent--deep">Options</span></h2>
-          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
-        </div>
-        <div class="grid-2 grid--offset-top">
-          <article class="category-card">
-            <div class="category-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <h3 class="category-card__title">Service Request</h3>
-            <p class="category-card__body">Submit a service request for on-site or remote technical support from our factory-trained technicians.</p>
-            <a class="category-card__link" href="tel:+12484768787">Submit Request →</a>
-          </article>
-          <article class="category-card">
-            <div class="category-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3"/></svg>
-            </div>
-            <h3 class="category-card__title">Parts</h3>
-            <p class="category-card__body">Genuine OEM replacement parts for all major brands. Fast shipping from our Michigan warehouse.</p>
-            <a class="category-card__link" href="tel:+17343797788">Order Parts →</a>
-          </article>
-          <article class="category-card">
-            <div class="category-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg>
-            </div>
-            <h3 class="category-card__title">Training</h3>
-            <p class="category-card__body">Operator and maintenance training programs for your team — at our facility or yours.</p>
-            <a class="category-card__link" href="<?php gerotech_page_link( 'training' ); ?>">View Training →</a>
-          </article>
-          <article class="category-card" id="documentation">
-            <div class="category-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-            </div>
-            <h3 class="category-card__title">Documentation</h3>
-            <p class="category-card__body">Manuals, wiring diagrams, programming guides, and service bulletins for supported equipment.</p>
-            <a class="category-card__link" href="<?php gerotech_page_link( 'support' ); ?>">Access Docs →</a>
-          </article>
-        </div>
-      </div>
-    </section>
+	<section id="head_image" class="service hide_on_mobile" style="background-image: url(<?php echo esc_url( $legacy_img . '/h_service.jpg' ); ?>);">
+		<div class="row clearfix">
+			<div class="head_text">
+				<h1>SERVICE</h1>
+				<h2>We are here to help.</h2>
+			</div>
+		</div>
+	</section>
 
-    <!-- Customer testimonials (shared partial) -->
-    <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+	<section id="head_image_mobile" class="service hide_on_desktop" style="background-image: url(<?php echo esc_url( $legacy_img . '/bkg_service_mobile.jpg' ); ?>);">
+		<div class="row clearfix">
+			<div class="head_text">
+				<h1>SERVICE</h1>
+				<h2>We are here to help.</h2>
+			</div>
+		</div>
+	</section>
 
-    <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
-      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1920&auto=format&fit=crop" alt="Service technician at work" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
-      <div class="cta-band__overlay" aria-hidden="true"></div>
-      <div class="cta-band__content">
-        <div class="cta-band__copy">
-          <div class="eyebrow-row">
-            <span class="eyebrow-row__rule" aria-hidden="true"></span>
-            <p class="eyebrow eyebrow--orange">Need Help Now?</p>
-          </div>
-          <h2 class="cta-band__headline">Call our <span class="cta-band__accent">service team</span> directly</h2>
-          <span class="cta-band__rule" aria-hidden="true"></span>
-          <p class="cta-band__body">Factory-trained technicians for Haas machines — parts, service, and planned maintenance.</p>
-          <div class="cta-band__actions">
-            <a class="btn btn--primary btn--lg" href="tel:+12484768787">248-476-8787</a>
-            <a class="btn btn--outline-white" href="tel:+17343797788">Talk to Sales</a>
-          </div>
-        </div>
-      </div>
-    </section>
+	<section class="bkg_grey_shapes">
+		<div class="row_970 clearfix centered">
+			<h3>Gerotech has the best service technicians in the industry located right here in Michigan. We offer telephone support during business hours and 24/7 emergency service. From installation and training, to service and applications support&mdash;Gerotech is here to help.</h3>
+		</div>
+	</section>
 
-    <!-- ============================================================
-         Email Signup
-         ============================================================ -->
-    <section class="email-signup" aria-label="Mailing list signup">
-      <div class="email-signup__inner">
-        <div class="email-signup__copy">
-          <h2 class="email-signup__title">Join Our <span class="accent">Mailing List</span></h2>
-          <p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
-        </div>
-        <form class="email-signup__form" action="#" method="post" novalidate>
-          <label for="email-input-su" class="sr-only">Email address</label>
-          <input class="email-signup__input" id="email-input-su" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-          <button class="email-signup__submit" type="submit">Sign Up</button>
-        </form>
-      </div>
-    </section>
-  </main>
+	<section class="bkg_white service_content">
+		<div class="row clearfix">
+
+			<div class="centered pb30">
+				<h3>World Class Service and Support</h3>
+				<p>Gerotech has service technicians strategically located throughout Michigan, allowing us to respond quickly to our customers.</p>
+			</div>
+
+			<div class="clearfix">
+				<div class="fifth">
+					<h5 class="orange">Factory-trained Technicians</h5>
+					<p>Our service department is staffed with factory-trained and certified personnel. Every one of our technicians receives comprehensive training on a variety of topics, including new machine installation, electrical and mechanical repair, ball bar testing, and software upgrades.</p>
+				</div>
+				<div class="fifth">
+					<h5 class="orange">Telephone Support</h5>
+					<p>Gerotech always has telephone support personnel available during business hours to provide the information and assistance you need to maintain and service your equipment.</p>
+				</div>
+				<div class="fifth">
+					<h5 class="orange">After-Hours Service</h5>
+					<p>We are here to assist our customers 24/7. If you need after-hours support, call our service hotline at (248) 476-8787, then press 3 to leave a message for after-hours service. One of our factory-trained technicians will contact you within a half-hour.</p>
+				</div>
+				<div class="fifth">
+					<h5 class="orange">Immediate Parts Availability</h5>
+					<p>We stock replacement parts and maintenance items for every machine brand we represent. When it comes to replacement parts, we have you covered.</p>
+				</div>
+				<div class="fifth">
+					<h5 class="orange">Applications Support</h5>
+					<p>Gerotech has a fully staffed engineering and applications department and offers a wide variety of capabilities to our customers, including machine recommendations, time estimates, systems integration, project management, and focused onsite assistance with programming, tooling selection, process optimization, and/or runoff.</p>
+				</div>
+			</div>
+
+			<h3>Need Assistance?</h3>
+			<p>Contact us for help with whatever issue or question you may have.</p>
+
+		</div>
+	</section>
+
+	<section id="engage">
+		<div class="row clearfix">
+			<p><span>Put our engineers to work on your project</span></p>
+			<a href="<?php echo esc_url( gerotech_page_url( 'contact' ) ); ?>" class="btn_engage">Engage with us today</a>
+		</div>
+	</section>
+
+</div>
 
 <?php
 get_footer();

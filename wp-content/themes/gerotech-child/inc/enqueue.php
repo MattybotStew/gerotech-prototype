@@ -64,6 +64,20 @@ function gerotech_child_enqueue_assets() {
 	// Child style.css (theme header only — no rules).
 	wp_enqueue_style( 'gerotech-child', get_stylesheet_uri(), array( 'gerotech-elevated' ), GEROTECH_CHILD_VERSION );
 
+	// ── Support page — legacy (dev) body content ─────────────
+	// The support page body is ported from the dev site and styled by the
+	// parent theme's stylesheet, scoped to `.legacy-support` so it cannot leak
+	// into the new header/footer. Replica fonts come from the parent theme.
+	if ( is_page( 'support' ) ) {
+		wp_enqueue_style( 'gerotech-legacy-fonts', get_template_directory_uri() . '/fonts.css', array(), null );
+		wp_enqueue_style(
+			'gerotech-legacy-support',
+			GEROTECH_CHILD_URI . '/assets/css/legacy-support.css',
+			array( 'gerotech-child' ),
+			gerotech_asset_version( 'assets/css/legacy-support.css' )
+		);
+	}
+
 	// ── Dequeue parent theme scripts (not used by the child) ──
 	foreach ( array( 'site-scripts', 'home_script', 'ts_script' ) as $handle ) {
 		wp_dequeue_script( $handle );
