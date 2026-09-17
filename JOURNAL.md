@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-16 — About page port (opencode)
+- **Request:** `gerotechdev.wpenginepowered.com/about/` should match dev, with our header/footer.
+- **`page-about.php` (overwritten):** local page 14 has no `_wp_page_template` (slug hierarchy → `page-about.php`), so the existing prototype-based child template was replaced with the dev body — hero "ABOUT GEROTECH / Your source for advanced manufacturing solutions.", "Since 1987…" intro (orange accent span), **Our People** + image, **Our Facilities**, Engage CTA.
+- **Images bundled** into `assets/images/legacy/`: `h_about.jpg`, `bkg_about_mobile.jpg`, and the people image (`about-people.jpg`, copied from the parent theme's `images/about_people_2.jpg` so it no longer depends on the parent theme path).
+- **Enqueue:** `legacy.css` + parent `fonts.css` now on **support, service, training, rotary-repair, planned-maintenance, about**.
+- **Verified:** local `/about/` desktop matches dev.
+
 ## 2026-09-16 — Planned Maintenance page port (opencode)
 - **Request:** `gerotechdev.wpenginepowered.com/planned-maintenance/` (sub-page of Support) should match dev, with our header/footer.
 - **`preventive-maintenance.php` (new):** local page 1538 has `_wp_page_template = preventive-maintenance.php` (parent template), so the child override uses that filename. Ported the dev body — hero "PLANNED MAINTENANCE / We are here to help.", intro + **PM Flyer** PDF button, the **Planned Maintenance form** (CF7 **321**, swapped to shortcode — Contact Information, Product Identification, Maintenance Schedule Comments, Purchase Order), Engage CTA.

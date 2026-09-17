@@ -1,152 +1,104 @@
 <?php
 /**
- * about page template.
+ * About page template.
  *
- * Ported verbatim from the static prototype. Markup is static for v1;
- * strings and images become ACF fields in a later phase.
+ * Body content is ported from the dev site (gerotechdev) so the page matches
+ * the live about design exactly: hero, "Since 1987" intro, Our People,
+ * Our Facilities, and the Engage CTA.
+ *
+ * The parent theme's stylesheet is loaded scoped to `.legacy`
+ * (assets/css/legacy.css) so it cannot leak into our new header/footer.
+ * Header/footer are the child theme's (new design).
  *
  * @package GerotechChild
  */
 
 get_header();
+
+$legacy_img = GEROTECH_CHILD_URI . '/assets/images/legacy';
 ?>
 
-<main id="main">
+<div class="legacy">
 
-    <!-- Trust-integrated hero (showcase Option 04) -->
-    <section class="page-hero-trust" aria-label="About Gerotech">
-      <img class="page-hero-trust__bg" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop" alt="Engineer reviewing CNC equipment on the shop floor" loading="eager" fetchpriority="high" decoding="async" /><!-- Stand-in: Unsplash/ThisIsEngineering — awaiting client photo -->
-      <div class="page-hero-trust__overlay" aria-hidden="true"></div>
-      <div class="page-hero-trust__content">
-        <div class="page-hero-trust__copy">
-          <p class="slide__eyebrow">About Gerotech</p>
-          <h1 class="page-hero-trust__headline">Your source for advanced manufacturing <span class="accent">solutions</span></h1>
-          <p class="page-hero-trust__body">Since 1987, we have engineered and serviced CNC machines for a broad spectrum of manufacturers nationwide. We do it through people who listen, respond, build, deliver, and support as committed partners in order to transform your manufacturing challenges into competitive advantages.</p>
-          <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Engage with us today</a>
-        </div>
-        <div class="page-hero-trust__strip" aria-label="Gerotech at a glance">
-          <div class="page-hero-trust__stat">
-            <span class="page-hero-trust__value">Since 1987</span>
-            <span class="page-hero-trust__label">Michigan CNC distributor</span>
-          </div>
-          <div class="page-hero-trust__stat">
-            <span class="page-hero-trust__value">2 Locations</span>
-            <span class="page-hero-trust__label">Flat Rock · Grand Rapids</span>
-          </div>
-          <div class="page-hero-trust__stat">
-            <span class="page-hero-trust__value">30,000 sq ft</span>
-            <span class="page-hero-trust__label">Engineering facility</span>
-          </div>
-          <div class="page-hero-trust__stat">
-            <span class="page-hero-trust__value">FANUC ASI</span>
-            <span class="page-hero-trust__label">Authorized integrator</span>
-          </div>
-        </div>
-      </div>
+<section id="page_title"  style="display: none;">
+		<div class="row clearfix">
+			<h1>About</h1>
+		</div>
     </section>
 
-    <!-- Our People -->
-    <section class="section section--white">
-      <div class="container container--es">
-        <div class="grid-2 grid-2--split">
-          <div>
-            <p class="eyebrow">Our People</p>
-            <h2 class="section-title">Engineers who design the right <span class="accent--deep">CNC solution</span> for you</h2>
-            <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
-            <p class="section-body">No matter your situation, our team of advanced process engineers, tooling engineers, CAD/CAM specialists, machine tool designers, and service engineers work to design the right CNC solution for you.</p>
-            <a class="btn btn--outline-dark" href="<?php gerotech_page_link( 'engineered-solutions' ); ?>">Explore Engineered Solutions →</a>
-          </div>
-          <img class="about-photo" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="Engineering team working at CNC programming stations" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash — awaiting client photo -->
-        </div>
-      </div>
+    <section id="head_image" class="about_page hide_on_mobile" style="background-image: url(<?php echo esc_url( $legacy_img . '/h_about.jpg' ); ?>);">
+		<div class="row clearfix">
+
+			<div class="head_text">
+				<h1>ABOUT GEROTECH</h1>
+				<h2>Your source for advanced manufacturing solutions.</h2>
+			</div>
+		
+		</div>
+    </section>
+	
+    <section id="head_image_mobile" class="about_page hide_on_desktop" style="background-image: url(<?php echo esc_url( $legacy_img . '/bkg_about_mobile.jpg' ); ?>);">
+		<div class="row clearfix">
+
+			<div class="head_text">
+				<h1>ABOUT GEROTECH</h1>
+				<h2>Your source for advanced manufacturing solutions.</h2>
+			</div>
+		
+		</div>
     </section>
 
-    <!-- Our Facilities -->
-    <section class="section section--gray">
-      <div class="container container--es">
-        <div class="grid-2 grid-2--split">
-          <img class="about-photo" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=1200&auto=format&fit=crop" alt="CNC machines on the shop floor at Gerotech facility" loading="lazy" decoding="async" /><!-- Stand-in: Unsplash/Guick — awaiting client photo -->
-          <div>
-            <p class="eyebrow">Our Facilities</p>
-            <h2 class="section-title">Built to <span class="accent--deep">engineer, test, and support</span> your systems</h2>
-            <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
-            <p class="section-body">We opened our Flat Rock Engineering Facility in 1995. At 30,000 square feet, it is designed with all the resources, space, machine handling equipment, tooling, test equipment, and flexibility to efficiently build, setup, test, and runoff your engineered system prior to installation on your floor.</p>
-            <p class="section-body section-body--spaced">At our 6,000 square foot Grand Rapids Technical Showroom, we provide local facilities, resources, people, and services for customers in the West Michigan area.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+	<section id="main_content">
+		<div class="row_970 centered clearfix">
 
-    <!-- Locations -->
-    <section class="section section--white">
-      <div class="container container--es">
-        <div class="section-header section-header--centered">
-          <p class="eyebrow">Visit Us</p>
-          <h2 class="section-title">Two Michigan <span class="accent--deep">Locations</span></h2>
-          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
-        </div>
-        <div class="grid-2 grid--offset-top">
-          <article class="category-card">
-            <div class="category-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg>
-            </div>
-            <h3 class="category-card__title">Flat Rock — Headquarters &amp; Engineering</h3>
-            <p class="category-card__body">29220 Commerce Drive<br />Flat Rock, MI 48134</p>
-            <a class="category-card__link" href="tel:+17343797788">734-379-7788 →</a>
-          </article>
-          <article class="category-card">
-            <div class="category-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <h3 class="category-card__title">Grand Rapids — Technical Showroom</h3>
-            <p class="category-card__body">West Michigan showroom<br /><!-- Address pending client confirmation --></p>
-            <a class="category-card__link" href="tel:+16167351100">616-735-1100 →</a>
-          </article>
-        </div>
-      </div>
-    </section>
+			<h3>Since 1987, we have engineered and serviced CNC machines for a broad spectrum of manufacturers nationwide. We do it through people who listen, respond, build, deliver, and support as committed partners in order to <span class="orange">transform your manufacturing challenges into competitive advantages.</span></h3>
+		
+		</div>
+	</section>
+	
+	<section>
+		<div class="row_970 pt100 centered clearfix">
 
-    <!-- Customer testimonials (shared partial) -->
-    <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+			<h3>Our People</h3>
+			
+			<h5>No matter your situation, our team of advanced process engineers, tooling engineers, CAD/CAM specialists, machine tool designers, and service engineers work to design the right CNC solution for you.</h5>
 
-    <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
-      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=1920&auto=format&fit=crop" alt="Factory engineer inspecting industrial machinery" loading="lazy" /><!-- Stand-in: Unsplash — awaiting client photo -->
-      <div class="cta-band__overlay" aria-hidden="true"></div>
-      <div class="cta-band__content">
-        <div class="cta-band__copy">
-          <div class="eyebrow-row">
-            <span class="eyebrow-row__rule" aria-hidden="true"></span>
-            <p class="eyebrow eyebrow--orange">Let's Work Together</p>
-          </div>
-          <h2 class="cta-band__headline">Put our <span class="cta-band__accent">engineers</span> to work on your project</h2>
-          <span class="cta-band__rule" aria-hidden="true"></span>
-          <p class="cta-band__body">Michigan's CNC distributor since 1987 — machines, engineering, and support under one roof.</p>
-          <div class="cta-band__actions">
-            <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
-          </div>
-        </div>
-        <a class="cta-band__call" href="tel:+17343797788">
-          <span class="cta-band__call-label">Prefer to talk it through?</span>
-          <span class="cta-band__call-number">(734) 379-7788</span>
-          <span class="cta-band__call-note">Talk to a person, not a form.</span>
-        </a>
-      </div>
-    </section>
+		</div>
+	</section>
+	
+	<section>
+		<div class="row centered clearfix">
 
-    <section class="email-signup" aria-label="Mailing list signup">
-      <div class="email-signup__inner">
-        <div class="email-signup__copy">
-          <h2 class="email-signup__title">Join Our <span class="accent">Mailing List</span></h2>
-          <p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
-        </div>
-        <form class="email-signup__form" action="#" method="post" novalidate>
-          <label for="email-input-ab" class="sr-only">Email address</label>
-          <input class="email-signup__input" id="email-input-ab" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-          <button class="email-signup__submit" type="submit">Sign Up</button>
-        </form>
-      </div>
-    </section>
-  </main>
+			<img src="<?php echo esc_url( $legacy_img . '/about-people.jpg' ); ?>" alt="Our People" class="pt70 people_image" />
+		
+		</div>
+	</section>
+
+	
+
+	<section>
+		<div class="row_970 pt100 pb70 centered clearfix">
+			
+			<h3>Our Facilities</h3>
+			
+			<h5>We opened our Flat Rock Engineering Facility in 1995. At 30,000 square feet, it is designed with all the resources, space, machine handling equipment, tooling, test equipment, and flexibility to efficiently build, setup, test, and runoff your engineered system prior to installation on your floor. At our 6,000 square foot Grand Rapids Technical Showroom, we provide local facilities, resources, people, and services for customers in the West Michigan area.</h5>
+		
+		</div>
+	</section>
+
+
+		<section id="engage">
+	
+		<div class="row clearfix">
+		
+			<p><span>Put our engineers to work on your project</span></p>
+			
+			<a href="/contact/" class="btn_engage">Engage with us today</a>
+		
+		</div>
+
+	</section>
+</div><!-- /.legacy -->
 
 <?php
 get_footer();
