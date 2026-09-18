@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-18 (Bionic — removed hero eyebrow from 3 ES detail pages)
+**Last Updated:** 2026-09-18 (Bionic — orange “Controls Solutions” accent on Automation hero)
 **Active Agent:** Bionic
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** removed hero eyebrow from MCS / Application / Automation heroes
+**Last Commit:** orange “Controls Solutions” accent on Automation hero
 **Uncommitted:** none
 
 **Legacy (dev/live-body) pages:** `support`, `service`, `training`, `rotary-repair`, `planned-maintenance`, `about`, `contact` — body ported from dev/live + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter. (Contact ported from **live** because live carries the real `@gerotech.com` emails.)

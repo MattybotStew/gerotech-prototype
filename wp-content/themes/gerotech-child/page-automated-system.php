@@ -18,7 +18,7 @@ $uri = GEROTECH_CHILD_URI;
 
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_lead    = $pick( 'ai_hero_lead', 'Automation' );
-$hero_main    = $pick( 'ai_hero_main', 'and Controls Solutions' );
+$hero_main    = $pick( 'ai_hero_main', 'and <em>Controls Solutions</em>' );
 $hero_body    = $pick( 'ai_hero_body', 'From electrical controls and HMI design to full automation cells and pre-engineered packages, Gerotech delivers complete integration solutions — any make, any control, built around your production reality.' );
 $hero_image   = gerotech_image_url( $pick( 'ai_hero_image', 'assets/images/automation-hero.jpg' ) );
 
@@ -126,12 +126,12 @@ $signup_sub   = $pick( 'ai_signup_sub', 'Projects, machine updates, and service 
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
           <a class="page-hero__crumb-link" href="<?php gerotech_page_link( 'engineered-solutions' ); ?>">Engineered Solutions</a>
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
-          <span class="page-hero__crumb-current"><span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span> <span class="mcs-name-split__main"><?php echo esc_html( $hero_main ); ?></span></span>
+          <span class="page-hero__crumb-current"><span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span> <span class="mcs-name-split__main"><?php echo esc_html( strip_tags( $hero_main ) ); ?></span></span>
         </nav>
         <h1 class="slide__headline" id="ai-hero-headline">
           <span class="mcs-name-split mcs-name-split--hero">
             <span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span>
-            <span class="mcs-name-split__main"><?php echo esc_html( $hero_main ); ?></span>
+            <span class="mcs-name-split__main"><?php echo gerotech_accent( $hero_main, 'accent' ); ?></span>
           </span>
         </h1>
         <?php if ( $hero_body ) : ?>

@@ -2,6 +2,10 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Orange “Controls Solutions” accent on Automation hero (Bionic)
+- **Request:** make “Controls Solutions” orange in the Automation hero headline.
+- `page-automated-system.php`: `ai_hero_main` default → `and <em>Controls Solutions</em>`; headline main rendered via `gerotech_accent( $hero_main, 'accent' )`; breadcrumb uses `strip_tags()` so it stays plain text. Verified locally (headline shows `<span class="accent">Controls Solutions</span>`).
+
 ## 2026-09-18 — Removed hero eyebrow from 3 ES detail pages (Bionic)
 - **Request:** remove the hero eyebrow (`.slide__eyebrow`) from MCS, Application, and Automation pages.
 - Removed the `<p class="slide__eyebrow">` line + the now-unused `$hero_eyebrow` variable in `page-modification-of-standard-machine-tools.php`, `page-unique-applications-for-standard-machines.php`, `page-automated-system.php`. ES hub page left as-is (not requested). ACF `*_hero_eyebrow` fields left in place (harmless, reversible).
