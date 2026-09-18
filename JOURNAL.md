@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Removed hero eyebrow from 3 ES detail pages (Bionic)
+- **Request:** remove the hero eyebrow (`.slide__eyebrow`) from MCS, Application, and Automation pages.
+- Removed the `<p class="slide__eyebrow">` line + the now-unused `$hero_eyebrow` variable in `page-modification-of-standard-machine-tools.php`, `page-unique-applications-for-standard-machines.php`, `page-automated-system.php`. ES hub page left as-is (not requested). ACF `*_hero_eyebrow` fields left in place (harmless, reversible).
+- **Verified:** `php -l` clean; synced to Local; all 3 URLs 200 with `slide__eyebrow` count 0.
+
 ## 2026-09-18 — ACF wired onto the 4 Engineered Solutions pages (Bionic)
 - **Request:** get ACF editing working on the four “new” ES pages in Local, following the homepage ACF pattern (fields registered in PHP, templates read with defaults). Legacy pages deferred (user-approved).
 - **`inc/helpers.php`:** added `gerotech_field( $key, $default, $post_id )` (null-safe ACF read) and `gerotech_parse_media( $text )` (gallery-collection media list → `type|src|poster|alt|caption` items).

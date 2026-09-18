@@ -17,7 +17,6 @@ $pick = function ( $key, $default ) {
 $uri = GEROTECH_CHILD_URI;
 
 /* ── Hero ─────────────────────────────────────────────────── */
-$hero_eyebrow  = $pick( 'app_hero_eyebrow', 'APPLICATIONS' );
 $hero_headline = $pick( 'app_hero_headline', 'Applications <em>Solutions</em>' );
 $hero_image    = gerotech_image_url( $pick( 'app_hero_image', 'https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop' ) );
 
@@ -146,7 +145,6 @@ $signup_sub   = $pick( 'app_signup_sub', 'Projects, machine updates, and service
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
           <span class="page-hero__crumb-current">Applications</span>
         </nav>
-        <p class="slide__eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>
         <h1 class="slide__headline" id="app-hero-headline"><?php echo gerotech_accent( $hero_headline, 'accent' ); ?></h1>
       </div>
     </section>

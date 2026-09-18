@@ -17,7 +17,6 @@ $pick = function ( $key, $default ) {
 $uri = GEROTECH_CHILD_URI;
 
 /* ── Hero ─────────────────────────────────────────────────── */
-$hero_eyebrow = $pick( 'mcs_hero_eyebrow', 'MACHINE CUSTOMIZATIONS' );
 $hero_lead    = $pick( 'mcs_hero_lead', 'Machine' );
 $hero_main    = $pick( 'mcs_hero_main', 'Custom Solutions' );
 $hero_image   = gerotech_image_url( $pick( 'mcs_hero_image', 'https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=1920&auto=format&fit=crop' ) );
@@ -149,7 +148,6 @@ $signup_sub   = $pick( 'mcs_signup_sub', 'Projects, machine updates, and service
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
           <span class="page-hero__crumb-current"><span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span> <span class="mcs-name-split__main"><?php echo esc_html( $hero_main ); ?></span></span>
         </nav>
-        <p class="slide__eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>
         <h1 class="slide__headline" id="mcs-hero-headline">
           <span class="mcs-name-split mcs-name-split--hero">
             <span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span>

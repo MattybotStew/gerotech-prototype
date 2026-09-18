@@ -17,7 +17,6 @@ $pick = function ( $key, $default ) {
 $uri = GEROTECH_CHILD_URI;
 
 /* ── Hero ─────────────────────────────────────────────────── */
-$hero_eyebrow = $pick( 'ai_hero_eyebrow', 'AUTOMATION AND CONTROLS SOLUTIONS' );
 $hero_lead    = $pick( 'ai_hero_lead', 'Automation' );
 $hero_main    = $pick( 'ai_hero_main', 'and Controls Solutions' );
 $hero_body    = $pick( 'ai_hero_body', 'From electrical controls and HMI design to full automation cells and pre-engineered packages, Gerotech delivers complete integration solutions — any make, any control, built around your production reality.' );
@@ -129,7 +128,6 @@ $signup_sub   = $pick( 'ai_signup_sub', 'Projects, machine updates, and service 
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
           <span class="page-hero__crumb-current"><span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span> <span class="mcs-name-split__main"><?php echo esc_html( $hero_main ); ?></span></span>
         </nav>
-        <p class="slide__eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>
         <h1 class="slide__headline" id="ai-hero-headline">
           <span class="mcs-name-split mcs-name-split--hero">
             <span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span>
