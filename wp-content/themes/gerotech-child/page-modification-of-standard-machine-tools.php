@@ -147,59 +147,130 @@ get_header();
           <p class="section-body section-body--spaced">Recent customization and retrofit work from Gerotech engineers.</p>
         </div>
 
-        <div class="mcs-gallery-grid">
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/column-riser.jpg" alt="Machine column riser between base and column" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Column Riser</h3><p class="mcs-gallery-card__meta">Machine column risers</p></div>
+        <div class="gallery-collections" data-gallery>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/column-riser.jpg" alt="Machine column riser between base and column" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Column Riser</button></h3>
+              <p class="gallery-collection__meta">Machine column risers</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/column-riser.jpg" data-alt="Machine column riser between base and column" data-caption="Column riser · increased Z-axis clearance"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" alt="Kidde machine-integrated fire suppression" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Fire Suppression</h3><p class="mcs-gallery-card__meta">Machine-integrated fire protection</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" alt="Kidde machine-integrated fire suppression" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Fire Suppression</button></h3>
+              <p class="gallery-collection__meta">Machine-integrated fire protection</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" data-alt="Kidde machine-integrated fire suppression" data-caption="Kidde system · machine-integrated"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-stainless.jpg" alt="Custom stainless sheet metal guards and covers" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Sheet Metal Modification</h3><p class="mcs-gallery-card__meta">Stainless guards and covers</p></div>
+
+          <!-- 3 photos + 1 video -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-stainless.jpg" alt="Custom stainless sheet metal guards and covers" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Sheet Metal Modification</button></h3>
+              <p class="gallery-collection__meta">Guards · enclosures · fabrication</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-stainless.jpg" data-alt="Custom stainless sheet metal guards and covers" data-caption="Stainless guards and covers"></span>
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-enclosure.jpg" data-alt="Painted sheet metal enclosure wrap on a machine column" data-caption="Painted enclosure fabrication"></span>
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-machine.jpg" data-alt="Custom sheet metal enclosure wrapping a machining center" data-caption="Full enclosure fabrication"></span>
+              <!-- PLACEHOLDER VIDEO: generated sample clip — awaiting client footage -->
+              <span data-type="video" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/videos/placeholder-sheet-metal.mp4" data-poster="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-machine.jpg" data-alt="Sheet metal enclosure walkaround video" data-caption="Walkaround · full enclosure"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-enclosure.jpg" alt="Painted sheet metal enclosure wrap on a machine column" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Sheet Metal Modification</h3><p class="mcs-gallery-card__meta">Painted enclosure fabrication</p></div>
+
+          <!-- 4 photos + 1 video -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/auto-door-haas.jpg" alt="Servak auto door on a Haas mill" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Auto Door Integration</button></h3>
+              <p class="gallery-collection__meta">Servak · vertical doors</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/auto-door-haas.jpg" data-alt="Servak auto door on a Haas mill" data-caption="Servak auto door · Haas mill"></span>
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-closed.jpg" data-alt="Vertical auto door closed on a mill" data-caption="Vertical door · closed"></span>
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-window.jpg" data-alt="Vertical auto door with window on a mill" data-caption="Vertical door · windowed"></span>
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-drive.jpg" data-alt="Vertical auto door drive assembly" data-caption="Vertical door · drive"></span>
+              <!-- Client video: Vertical Auto Door Video (remuxed .mov → .mp4) -->
+              <span data-type="video" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/videos/auto-door.mp4" data-poster="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/auto-door-haas.jpg" data-alt="Auto door cycling video" data-caption="Auto door cycling · bench test"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/sheet-metal-machine.jpg" alt="Custom sheet metal enclosure wrapping a machining center" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Sheet Metal Modification</h3><p class="mcs-gallery-card__meta">Full enclosure fabrication</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/hydraulic-rotary.jpg" alt="Hydraulic rotary and workholding integration" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Hydraulic / Pneumatic</button></h3>
+              <p class="gallery-collection__meta">Rotary and workholding</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/hydraulic-rotary.jpg" data-alt="Hydraulic rotary and workholding integration" data-caption="Rotary and workholding integration"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/auto-door-haas.jpg" alt="Servak auto door on a Haas mill" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Auto Door Integration</h3><p class="mcs-gallery-card__meta">Servak auto door · Haas mill</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/custom-fixtures.jpg" alt="Row of custom aluminum fixture plates with clamps" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Custom Fixture Design</button></h3>
+              <p class="gallery-collection__meta">Machined plates · left/right-hand</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/custom-fixtures.jpg" data-alt="Row of custom aluminum fixture plates with clamps" data-caption="Machined fixture plates · left/right-hand"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-closed.jpg" alt="Vertical auto door closed on a mill" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Auto Door Integration</h3><p class="mcs-gallery-card__meta">Vertical door · closed</p></div>
+
+          <!-- 2 photos -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/mist-torit.jpg" alt="Donaldson Torit mist collector on a mill" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Safety &amp; Environmental</button></h3>
+              <p class="gallery-collection__meta">Mist collection · air quality</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/mist-torit.jpg" data-alt="Donaldson Torit mist collector on a mill" data-caption="Donaldson Torit mist collector"></span>
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/mist-lina.jpg" data-alt="LINA3nine mist collector on a mill" data-caption="LINA3nine mist collector"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-window.jpg" alt="Vertical auto door with window on a mill" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Auto Door Integration</h3><p class="mcs-gallery-card__meta">Vertical door · windowed</p></div>
-          </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/vertical-door-drive.jpg" alt="Vertical auto door drive assembly" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Auto Door Integration</h3><p class="mcs-gallery-card__meta">Vertical door · drive</p></div>
-          </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/hydraulic-rotary.jpg" alt="Hydraulic rotary and workholding integration" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Hydraulic / Pneumatic</h3><p class="mcs-gallery-card__meta">Rotary and workholding</p></div>
-          </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/custom-fixtures.jpg" alt="Row of custom aluminum fixture plates with clamps" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Custom Fixture Design</h3><p class="mcs-gallery-card__meta">Machined plates · left/right-hand</p></div>
-          </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/mist-torit.jpg" alt="Donaldson Torit mist collector on a mill" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Safety &amp; Environmental</h3><p class="mcs-gallery-card__meta">Donaldson Torit mist collector</p></div>
-          </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/mist-lina.jpg" alt="LINA3nine mist collector on a mill" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Safety &amp; Environmental</h3><p class="mcs-gallery-card__meta">LINA3nine mist collector</p></div>
-          </article>
+
         </div>
       </div>
     </section>

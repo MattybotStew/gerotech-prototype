@@ -88,39 +88,136 @@ get_header();
           <h2 class="section-title" id="app-gallery-headline">Applications — Product <span class="accent--deep">Gallery</span></h2>
           <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
         </div>
-        <div class="mcs-gallery-grid">
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/app-gallery-umc750.jpg" alt="Haas UMC-750 5-axis machining" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Part Programming</h3><p class="mcs-gallery-card__meta">UMC-750 · 5-axis machining</p></div>
+        <div class="gallery-collections" data-gallery>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/app-gallery-umc750.jpg" alt="Haas UMC-750 5-axis machining" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Part Programming</button></h3>
+              <p class="gallery-collection__meta">UMC-750 · 5-axis machining</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/app-gallery-umc750.jpg" data-alt="Haas UMC-750 5-axis machining" data-caption="UMC-750 · 5-axis machining"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=500&auto=format&fit=crop" alt="Process Troubleshooting" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Process Troubleshooting -->
-            <div class="mcs-gallery-card__label"><h3>Process Troubleshooting</h3></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=500&auto=format&fit=crop" alt="Process Troubleshooting" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Process Troubleshooting</button></h3>
+            </div>
+            <template class="gallery-collection__data">
+              <!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Process Troubleshooting -->
+              <span data-type="image" data-src="https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=1600&auto=format&fit=crop" data-alt="Process Troubleshooting" data-caption="Process Troubleshooting"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=500&auto=format&fit=crop" alt="Process Optimization" loading="lazy" /><!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Process Optimization -->
-            <div class="mcs-gallery-card__label"><h3>Process Optimization</h3></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=500&auto=format&fit=crop" alt="Process Optimization" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Process Optimization</button></h3>
+            </div>
+            <template class="gallery-collection__data">
+              <!-- Stand-in: Unsplash/Jelifer Maniago — awaiting client photo: Process Optimization -->
+              <span data-type="image" data-src="https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=1600&auto=format&fit=crop" data-alt="Process Optimization" data-caption="Process Optimization"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=500&auto=format&fit=crop" alt="Tooling Recommendation" loading="lazy" /><!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Tooling Recommendation -->
-            <div class="mcs-gallery-card__label"><h3>Tooling Recommendation</h3></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=500&auto=format&fit=crop" alt="Tooling Recommendation" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Tooling Recommendation</button></h3>
+            </div>
+            <template class="gallery-collection__data">
+              <!-- Stand-in: Unsplash/Sven Daniel — awaiting client photo: Tooling Recommendation -->
+              <span data-type="image" data-src="https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=1600&auto=format&fit=crop" data-alt="Tooling Recommendation" data-caption="Tooling Recommendation"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=500&auto=format&fit=crop" alt="Demo" loading="lazy" /><!-- Stand-in: Unsplash/Guick — awaiting client photo: Demo -->
-            <div class="mcs-gallery-card__label"><h3>Demo</h3></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=500&auto=format&fit=crop" alt="Demo" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Demo</button></h3>
+            </div>
+            <template class="gallery-collection__data">
+              <!-- Stand-in: Unsplash/Guick — awaiting client photo: Demo -->
+              <span data-type="image" data-src="https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=1600&auto=format&fit=crop" data-alt="Demo" data-caption="Demo"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=500&auto=format&fit=crop" alt="Training" loading="lazy" /><!-- Stand-in: Unsplash/Simon Kadula — awaiting client photo: Training -->
-            <div class="mcs-gallery-card__label"><h3>Training</h3></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=500&auto=format&fit=crop" alt="Training" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Training</button></h3>
+            </div>
+            <template class="gallery-collection__data">
+              <!-- Stand-in: Unsplash/Simon Kadula — awaiting client photo: Training -->
+              <span data-type="image" data-src="https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1600&auto=format&fit=crop" data-alt="Training" data-caption="Training"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" alt="Kidde machine-integrated fire suppression" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Fire Suppression</h3><p class="mcs-gallery-card__meta">Machine-integrated fire protection</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" alt="Kidde machine-integrated fire suppression" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Fire Suppression</button></h3>
+              <p class="gallery-collection__meta">Machine-integrated fire protection</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/mcs-gallery/fire-suppression.jpg" data-alt="Kidde machine-integrated fire suppression" data-caption="Kidde system · machine-integrated"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500&auto=format&fit=crop" alt="RFID" loading="lazy" /><!-- Stand-in: Unsplash — no RFID photo in Downloads or Figma attachments -->
-            <div class="mcs-gallery-card__label"><h3>RFID</h3></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=500&auto=format&fit=crop" alt="RFID" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">RFID</button></h3>
+            </div>
+            <template class="gallery-collection__data">
+              <!-- Stand-in: Unsplash — no RFID photo in Downloads or Figma attachments -->
+              <span data-type="image" data-src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop" data-alt="RFID" data-caption="RFID"></span>
+            </template>
           </article>
+
         </div>
       </div>
     </section>

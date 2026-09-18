@@ -162,35 +162,120 @@ get_header();
           <h2 class="section-title" id="ai-gallery-headline">Installed Automation <span class="accent--deep">Gallery</span></h2>
           <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
         </div>
-        <div class="mcs-gallery-grid">
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/01-haas-robot-cell.jpg" alt="FANUC robot cell tending a Haas mill, with Gerotech Automation enclosure" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Haas Mill Robot Cell</h3><p class="mcs-gallery-card__meta">FANUC tending · yellow guarding</p></div>
+        <div class="gallery-collections" data-gallery>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/01-haas-robot-cell.jpg" alt="FANUC robot cell tending a Haas mill, with Gerotech Automation enclosure" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Haas Mill Robot Cell</button></h3>
+              <p class="gallery-collection__meta">FANUC tending · yellow guarding</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/01-haas-robot-cell.jpg" data-alt="FANUC robot cell tending a Haas mill, with Gerotech Automation enclosure" data-caption="FANUC tending · yellow guarding"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/02-robot-line.jpg" alt="Controls cabinet and two FANUC robots on pedestals in the Gerotech shop" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Robot Line Integration</h3><p class="mcs-gallery-card__meta">Dual FANUC · controls cabinet</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/02-robot-line.jpg" alt="Controls cabinet and two FANUC robots on pedestals in the Gerotech shop" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Robot Line Integration</button></h3>
+              <p class="gallery-collection__meta">Dual FANUC · controls cabinet</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/02-robot-line.jpg" data-alt="Controls cabinet and two FANUC robots on pedestals in the Gerotech shop" data-caption="Dual FANUC · controls cabinet"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/03-guarded-robot-cell.jpg" alt="Guarded FANUC robot cell beside a mill with yellow safety fencing" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Guarded Robot Cell</h3><p class="mcs-gallery-card__meta">Safety fencing · machine tending</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/03-guarded-robot-cell.jpg" alt="Guarded FANUC robot cell beside a mill with yellow safety fencing" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Guarded Robot Cell</button></h3>
+              <p class="gallery-collection__meta">Safety fencing · machine tending</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/03-guarded-robot-cell.jpg" data-alt="Guarded FANUC robot cell beside a mill with yellow safety fencing" data-caption="Safety fencing · machine tending"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/04-vision-system.jpg" alt="Overhead Keyence vision camera with four-point lighting on an aluminum frame" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Vision System</h3><p class="mcs-gallery-card__meta">Keyence overhead inspection</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/04-vision-system.jpg" alt="Overhead Keyence vision camera with four-point lighting on an aluminum frame" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Vision System</button></h3>
+              <p class="gallery-collection__meta">Keyence overhead inspection</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/04-vision-system.jpg" data-alt="Overhead Keyence vision camera with four-point lighting on an aluminum frame" data-caption="Keyence overhead inspection"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/05-dual-gripper-eoat.jpg" alt="Custom dual-gripper end-of-arm tooling with yellow mounting flange" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Dual-Gripper EOAT</h3><p class="mcs-gallery-card__meta">Custom end-of-arm tooling</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/05-dual-gripper-eoat.jpg" alt="Custom dual-gripper end-of-arm tooling with yellow mounting flange" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Dual-Gripper EOAT</button></h3>
+              <p class="gallery-collection__meta">Custom end-of-arm tooling</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/05-dual-gripper-eoat.jpg" data-alt="Custom dual-gripper end-of-arm tooling with yellow mounting flange" data-caption="Custom end-of-arm tooling"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/06-vacuum-eoat.jpg" alt="Vacuum cup end-of-arm tooling on an aluminum extrusion beam" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Vacuum EOAT</h3><p class="mcs-gallery-card__meta">Suction-cup material handling</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/06-vacuum-eoat.jpg" alt="Vacuum cup end-of-arm tooling on an aluminum extrusion beam" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Vacuum EOAT</button></h3>
+              <p class="gallery-collection__meta">Suction-cup material handling</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/06-vacuum-eoat.jpg" data-alt="Vacuum cup end-of-arm tooling on an aluminum extrusion beam" data-caption="Suction-cup material handling"></span>
+            </template>
           </article>
-          <article class="mcs-gallery-card">
-            <img class="mcs-gallery-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/07-schunk-grippers.jpg" alt="Paired Schunk gripper fixtures on aluminum bases" loading="lazy" />
-            <div class="mcs-gallery-card__label"><h3>Gripper Fixtures</h3><p class="mcs-gallery-card__meta">Schunk · dual-station workholding</p></div>
+
+          <!-- 1 photo -->
+          <article class="gallery-collection">
+            <span class="gallery-collection__media">
+              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/07-schunk-grippers.jpg" alt="Paired Schunk gripper fixtures on aluminum bases" loading="lazy" />
+              <span class="gallery-collection__badge"></span>
+              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
+            </span>
+            <div class="gallery-collection__label">
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Gripper Fixtures</button></h3>
+              <p class="gallery-collection__meta">Schunk · dual-station workholding</p>
+            </div>
+            <template class="gallery-collection__data">
+              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/07-schunk-grippers.jpg" data-alt="Paired Schunk gripper fixtures on aluminum bases" data-caption="Schunk · dual-station workholding"></span>
+            </template>
           </article>
+
         </div>
       </div>
     </section>

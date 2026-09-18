@@ -11,13 +11,16 @@
 #   ./scripts/sync-theme-assets.sh --prune   # also delete theme images the prototype no longer has
 #
 # What syncs:
-#   assets/css/{tokens,components,layout,elevated}.css
-#   assets/js/{nav,slider,animations,stat-counter,machine-tabs,modal,filter}.js
+#   assets/css/{tokens,components,layout,elevated,gallery-module}.css
+#   assets/js/{nav,slider,animations,stat-counter,machine-tabs,modal,filter,gallery-module}.js
 #   assets/images/**  (mirrored; --prune removes orphans)
+#   assets/videos/**  (mirrored; --prune removes orphans)
+#
+# Theme-only assets (never synced, never pruned):
+#   assets/images/legacy/**  -> legacy dev/live page bodies (added directly to the theme)
 #
 # What does NOT sync (theme-only by design):
 #   assets/js/include-partials.js   -> replaced by native PHP includes
-#   assets/js/gallery-module.js     -> not promoted to live pages yet
 #
 # Markup is NOT handled here. Prototype HTML changes must be ported by hand into
 # the matching PHP template — see handoff/theme-map.md.
@@ -28,8 +31,8 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SRC="$REPO_ROOT/assets"
 DST="$REPO_ROOT/wp-content/themes/gerotech-child/assets"
 
-CSS_FILES=(tokens.css components.css layout.css elevated.css)
-JS_FILES=(nav.js slider.js animations.js stat-counter.js machine-tabs.js modal.js filter.js)
+CSS_FILES=(tokens.css components.css layout.css elevated.css gallery-module.css)
+JS_FILES=(nav.js slider.js animations.js stat-counter.js machine-tabs.js modal.js filter.js gallery-module.js)
 
 MODE="sync"
 PRUNE=0
@@ -96,18 +99,50 @@ while IFS= read -r rel; do
   fi
 done < <(cd "$SRC/images" && find . -type f | sed 's|^\./||')
 
+echo "Videos:"
+vid_changed=0
+vid_drift=0
+if [ -d "$SRC/videos" ]; then
+  while IFS= read -r rel; do
+    src="$SRC/videos/$rel"
+    dst="$DST/videos/$rel"
+    if [ -f "$dst" ] && cmp -s "$src" "$dst"; then continue; fi
+    if [ "$MODE" = "check" ]; then
+      echo "  DRIFT: videos/$rel"
+      vid_drift=$((vid_drift + 1))
+    else
+      mkdir -p "$(dirname "$dst")"
+      cp "$src" "$dst"
+      vid_changed=$((vid_changed + 1))
+    fi
+  done < <(cd "$SRC/videos" && find . -type f | sed 's|^\./||')
+fi
+
 if [ "$PRUNE" -eq 1 ] && [ "$MODE" = "sync" ]; then
   while IFS= read -r rel; do
+    # Theme-only legacy page images (added directly to the theme, never in the
+    # prototype) must not be pruned.
+    case "$rel" in
+      legacy/*) continue ;;
+    esac
     [ -f "$SRC/images/$rel" ] && continue
     rm -f "$DST/images/$rel"
     echo "  pruned: images/$rel"
     img_changed=$((img_changed + 1))
   done < <(cd "$DST/images" && find . -type f | sed 's|^\./||')
+  if [ -d "$DST/videos" ]; then
+    while IFS= read -r rel; do
+      [ -f "$SRC/videos/$rel" ] && continue
+      rm -f "$DST/videos/$rel"
+      echo "  pruned: videos/$rel"
+      vid_changed=$((vid_changed + 1))
+    done < <(cd "$DST/videos" && find . -type f | sed 's|^\./||')
+  fi
 fi
 
 echo
 if [ "$MODE" = "check" ]; then
-  total=$((drift + img_drift))
+  total=$((drift + img_drift + vid_drift))
   if [ "$total" -eq 0 ]; then
     echo "OK — theme assets match the prototype."
   else
@@ -115,5 +150,5 @@ if [ "$MODE" = "check" ]; then
     exit 1
   fi
 else
-  echo "Done — $((changed + img_changed)) file(s) updated."
+  echo "Done — $((changed + img_changed + vid_changed)) file(s) updated."
 fi

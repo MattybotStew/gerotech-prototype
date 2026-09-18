@@ -2,6 +2,16 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Gallery module promoted to ES detail pages (Bionic)
+- **Request:** promote the standalone gallery module (collections + video) and convert the three ES detail pages (MCS, Application, Automation) from the flat one-photo-per-card gallery to the new collections style. Keep the video placeholders (client will supply real footage later).
+- **Prototype HTML:** `machine-custom-solutions.html` (13 cards → 7 collections, incl. 2 placeholder videos), `application.html` (8 cards → 8 collections, no video), `automation-integration.html` (7 cards → 7 collections, no video). Each page now loads `gallery-module.css` + `gallery-module.js` (kept `modal.js` for the `.mcs-modal` detail cards). Unsplash `data-src` bumped `w=500` → `w=1600` for the viewer. Tag-balance verified (0 errors).
+- **Theme:** ported the same markup into `page-modification-of-standard-machine-tools.php`, `page-unique-applications-for-standard-machines.php`, `page-automated-system.php` (PHP URI prefix on `src`/`data-src`/`data-poster`). `inc/enqueue.php` now enqueues `gallery-module.css` site-wide and `gallery-module.js` on the modal pages.
+- **Sync script:** `scripts/sync-theme-assets.sh` now syncs `gallery-module.css`, `gallery-module.js`, and `assets/videos/**` (with `--prune` support). Ran it + `sync-theme-to-local.sh`.
+- **Bug fixed (pre-existing):** `inc/enqueue.php` `$modal_pages` used prototype slugs (`machine-custom-solutions`, etc.) but the pages have dev slugs since the dev pull — so `modal.js` (and the new gallery JS) silently stopped loading. Updated to the actual WP slugs (`modification-of-standard-machine-tools`, `automated-system`, `unique-applications-for-standard-machines`).
+- **Verified:** all 3 local URLs 200; `gallery-module.js` + `modal.js` + `data-gallery` present; video assets 200. `php -l` clean on all edited PHP.
+- **Follow-up:** gallery-module-preview.html still exists as the standalone preview (not in nav).
+- **Client video added (2026-09-18):** `Vertical Auto Door Video.mov` (Downloads) remuxed → `assets/videos/auto-door.mp4` (H.264/AAC, faststart) and wired into the Auto Door Integration collection (prototype + `page-modification-of-standard-machine-tools.php`). `placeholder-auto-door.mp4` removed. Sheet Metal video still `placeholder-sheet-metal.mp4`. **Also fixed `sync-theme-assets.sh --prune`** to skip theme-only `assets/images/legacy/**` (it had wrongly deleted 8 legacy page images; restored via git).
+
 ## 2026-09-16 — Nav: drop Contact, point Get a Quote at /contact/ (opencode)
 - **`header.php`:** removed the **Contact** item from the desktop `.site-nav` and the mobile `.mobile-nav`. The **Get a Quote** button (desktop `.btn-get-quote` + mobile link) now links to **`/contact/`** via `gerotech_page_link( 'contact' )` instead of the `mailto:`. Desktop nav is now Machines · Engineered Solutions · Training · Support · About · Get a Quote.
 - Search modal quick links never had Contact — unchanged. `gerotech_quote_mailto()` still used by the ES mega-menu + mobile "Talk to an Engineer".

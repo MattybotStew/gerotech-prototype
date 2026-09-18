@@ -49,10 +49,11 @@ function gerotech_child_enqueue_assets() {
 
 	// ── Theme CSS (fixed order) ──────────────────────────────
 	$css = array(
-		'gerotech-tokens'     => 'assets/css/tokens.css',
-		'gerotech-components' => 'assets/css/components.css',
-		'gerotech-layout'     => 'assets/css/layout.css',
-		'gerotech-elevated'   => 'assets/css/elevated.css',
+		'gerotech-tokens'         => 'assets/css/tokens.css',
+		'gerotech-components'     => 'assets/css/components.css',
+		'gerotech-layout'         => 'assets/css/layout.css',
+		'gerotech-elevated'       => 'assets/css/elevated.css',
+		'gerotech-gallery-module' => 'assets/css/gallery-module.css',
 	);
 
 	$deps = array( 'gerotech-navigo', 'gerotech-barlow' );
@@ -99,13 +100,15 @@ function gerotech_child_enqueue_assets() {
 		wp_enqueue_script( 'gerotech-machine-tabs', $js . 'machine-tabs.js', array(), gerotech_asset_version( 'assets/js/machine-tabs.js' ), true );
 	}
 
-	// Card modals + gallery lightbox — ES detail pages.
+	// Card modals + gallery collections viewer — ES detail pages.
+	// NOTE: these are the actual WP page slugs (dev slugs), not prototype slugs.
 	$modal_pages = (array) apply_filters(
 		'gerotech_modal_pages',
-		array( 'machine-custom-solutions', 'automation-integration', 'application' )
+		array( 'modification-of-standard-machine-tools', 'automated-system', 'unique-applications-for-standard-machines' )
 	);
 	if ( is_page( $modal_pages ) ) {
 		wp_enqueue_script( 'gerotech-modal', $js . 'modal.js', array(), gerotech_asset_version( 'assets/js/modal.js' ), true );
+		wp_enqueue_script( 'gerotech-gallery-module', $js . 'gallery-module.js', array(), gerotech_asset_version( 'assets/js/gallery-module.js' ), true );
 	}
 
 	// Legacy tab switcher — service page.
