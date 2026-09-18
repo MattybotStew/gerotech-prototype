@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Hero slide 2 headline → “Our Showroom Machines Are Ready To Ship” (Bionic)
+- **Request:** change the second hero slider headline to “Our Showroom Machines Are Ready To Ship”.
+- `index.html` (prototype) + `front-page.php` (ACF default): removed the “Are For Sale!” line; headline is now “Our Showroom Machines / Are `<em>Ready To Ship</em>`” with “Ready To Ship” kept as the orange accent.
+- **Verified:** `php -l` clean; synced to Local; homepage renders the new headline (no “Are For Sale”).
+
 ## 2026-09-18 — Testimonials wired to a global ACF repeater (Bionic)
 - **Request:** make the testimonials section editable (Option A from the text/images audit — only testimonials; leave icons/alt-text/aria-labels/breadcrumbs/email-form internals hardcoded).
 - **`inc/acf-fields.php`:** added an ACF **options page** (`acf_add_options_page`, menu slug `gerotech-site-content`, title “Site Content”) + field group `group_site_testimonials` located on that options page (`options_page == gerotech-site-content`). Fields: `testimonials_eyebrow` (text), `testimonials_title` (textarea, `<em>` accent), `testimonials` (repeater of `quote`/`name`/`sub`).

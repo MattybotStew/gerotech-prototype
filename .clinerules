@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-18 (Bionic — testimonials wired to a global ACF repeater)
+**Last Updated:** 2026-09-18 (Bionic — hero slide 2 headline “Our Showroom Machines Are Ready To Ship”)
 **Active Agent:** Bionic
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** testimonials → global ACF repeater (Site Content options page)
+**Last Commit:** hero slide 2 headline → “Our Showroom Machines Are Ready To Ship”
 **Uncommitted:** none
 
 **Legacy (dev/live-body) pages:** `support`, `service`, `training`, `rotary-repair`, `planned-maintenance`, `about`, `contact` — body ported from dev/live + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter. (Contact ported from **live** because live carries the real `@gerotech.com` emails.)
