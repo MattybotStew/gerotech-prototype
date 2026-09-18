@@ -55,3 +55,11 @@ npm run figma:sync
 | Codex | `.codex/config.toml` |
 | Gemini CLI | `.gemini/settings.json` |
 | Claude Code project | `.claude/settings.json` |
+
+## Gerotech file (quick nodes)
+
+File `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design).
+
+- **Homepage desktop (current handoff):** canvas `6573:406` → frame `7306:1063`
+- Haas intro: `7080:1405` · Haas features band: `7080:2240` (not on current home)
+- ES wireframe: `6217:425` · Homepage wireframe: `6218:10`

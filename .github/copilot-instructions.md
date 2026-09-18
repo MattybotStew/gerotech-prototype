@@ -23,7 +23,7 @@ Shared multi-agent repo (Cursor, Cline, Copilot, Claude, etc.). Stay aligned via
 ## Figma (remote MCP — always available)
 
 - Server: `https://mcp.figma.com/mcp` — works in any project, no Figma desktop app
-- File key `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design) · ES wireframe `6217:425` · Homepage wireframe `6218:10`
+- File key `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design) · Homepage handoff **`7306:1063`** (canvas `6573:406`) · ES wireframe `6217:425` · Homepage wireframe `6218:10`
 - Paste a frame/layer link with `node-id`, run `get_design_context` + `get_screenshot`, then implement in this repo's HTML/BEM/tokens — not React/Tailwind verbatim
 - If MCP returns a localhost image/SVG URL, use it directly; do not add icon packages or placeholders for those assets
 - See `FIGMA.md` for the full flow and auth steps

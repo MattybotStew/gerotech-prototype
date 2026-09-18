@@ -51,7 +51,7 @@ $slides = $pick(
 			'image'           => 'assets/images/hero-showroom.jpg',
 			'image_position'  => 'default',
 			'peek_eyebrow'    => 'New Arrivals',
-			'peek_title'      => 'Ready To Ship',
+			'peek_title'      => 'In-Stock & Ready',
 		),
 		array(
 			'eyebrow'         => 'Engineered Solutions',
@@ -63,7 +63,7 @@ $slides = $pick(
 			'image'           => 'assets/images/hero-automation-cell.jpg',
 			'image_position'  => 'right',
 			'peek_eyebrow'    => 'Engineered Solutions',
-			'peek_title'      => 'Your Shop Floor',
+			'peek_title'      => 'Automation for Michigan',
 		),
 	)
 );
@@ -173,7 +173,7 @@ $cta_headline = $pick( 'cta_headline', 'Put Gerotech to work on your project.' )
 $cta_body     = $pick( 'cta_body', "From Haas CNC machines to Engineered Solutions — tell us about your project and we'll connect you with the right expert." );
 $cta_btn_lbl  = $pick( 'cta_button_label', 'Engage with us today' );
 $cta_btn_url  = $pick( 'cta_button_url', gerotech_quote_mailto( 'Gerotech Expert Inquiry' ) );
-$cta_image    = gerotech_image_url( $pick( 'cta_image', '' ), 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1920&auto=format&fit=crop' );
+$cta_image    = gerotech_image_url( $pick( 'cta_image', '' ), 'assets/images/cta-home-figma.jpg' );
 
 /* ── Email signup ──────────────────────────────────────────── */
 $signup_title = $pick( 'signup_title', 'Join Our <em>Mailing List</em>' );
@@ -372,7 +372,7 @@ $signup_sub   = $pick( 'signup_sub', 'Projects, machine updates, and service new
 		 CTA Band
 		 ============================================================ -->
 	<section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="<?php esc_attr_e( 'Call to action', 'gerotech-child' ); ?>">
-		<img class="cta-band__bg" src="<?php echo esc_url( $cta_image ); ?>" alt="Manufacturing and engineering collaboration" loading="lazy" decoding="async" />
+		<img class="cta-band__bg" src="<?php echo esc_url( $cta_image ); ?>" alt="Orange industrial robot arms on a factory line" loading="lazy" decoding="async" />
 		<div class="cta-band__overlay" aria-hidden="true"></div>
 		<div class="cta-band__content">
 			<div class="cta-band__copy">

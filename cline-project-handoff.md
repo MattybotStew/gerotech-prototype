@@ -12,7 +12,7 @@ The HTML prototype on **`master`** is **presentation-ready**, not a wireframe.
 - **CSS:** `tokens.css` → `components.css` → `layout.css` → **`elevated.css`**
 - **All heroes + CTA photo bands:** left-aligned full-bleed photo (matches homepage hero)
 - **Interior hero classes:** all sub-pages use **`.page-hero`** — see `design-spec.md`
-- **Homepage (2026-08-17):** stat counter, Haas Relationship (watermark + inverted features band), machine lineup tabs, testimonial card grid, editorial news split, cinema-lockup CTA
+- **Homepage (2026-09-18 Figma `7306:1063`):** 500px peek hero; peeks 02 In-Stock & Ready / 03 Automation for Michigan; Haas intro + watermark + F1 lockup (**no** 4-col features band); cinema-lockup CTA with `assets/images/cta-home-figma.jpg`; no phone lockup. Slide 2 headline remains Ready To Ship. **Read `.clinerules` first** — this handoff’s August homepage note is historical.
 - **ES hub:** Full section stack including tech partners + capability cards; shared testimonial partial
 - **Design directions:** see **`AGENTS.md` → Design directions (2026-08-17)** for Haas/news/testimonial/accent patterns — do not drift
 - **Images:** Unsplash stand-ins (not dashed-border divs); verify URLs — some 404 over time (swap table in `design-spec.md`)

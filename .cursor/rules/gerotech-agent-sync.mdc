@@ -34,12 +34,12 @@ Also useful: `AGENTS.md`, `design-spec.md`, `docs/PROJECT_BRIEF.md`, `cline-proj
 ## Design directions (2026-08-17 — do not drift)
 
 - **Accent system:** `.accent` / `.accent--deep` in headlines; `.headline-rule` under section titles (48px orange bar)
-- **Haas Relationship:** watermark in `.haas-relationship__bg` (static, intro only); features band inverted white + dark text (`7080:2240`); numbered `01 ·`–`04 ·` columns
+- **Haas Relationship:** watermark in `.haas-relationship__bg` (static, intro only). Current homepage (`7306:1063`) has **no** 4-col features band — do not re-add. Features CSS (`7080:2240`) may remain unused on home.
 - **News (homepage):** `.news-editorial` split — photo lead `.news-feature` + numbered `.news-item` rows; keep `.news-card` on ES/showroom
 - **Testimonials:** `partials/testimonials-block.html` → `.testimonial-grid` + refreshed `.testimonial-card` (orange top rule, quote watermark, Barlow name); not carousel
 - **Display type:** Barlow Condensed for headlines/card titles/numerals; Navigo for body/UI
 - **Feature icon tiles:** 40×40 `--clr-gray-card` square (4px radius), 18px black/ink stroke icons — shared by `.haas-relationship__icon`, `.category-card__icon`, `.why-feature__icon`
-- **Figma nodes:** Haas intro `7080:1405`, features `7080:2240` — full detail in `AGENTS.md` → Design directions
+- **Figma nodes:** Homepage handoff **`7306:1063`** (canvas `6573:406`); Haas intro `7080:1405`; features `7080:2240` not on current home. Full detail in `AGENTS.md`.
 
 ## Local preview
 

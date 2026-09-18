@@ -2,6 +2,25 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — All agent docs synced to homepage Figma handoff (Cursor)
+- Pointed Cline/Cursor/Claude/Copilot at the same homepage facts: Figma home **`7306:1063`**, 500px peek hero, peek titles, `cta-home-figma.jpg`, Haas intro-only (no features band), proto nav hrefs, WP Support dropdown kept.
+- Files: `.clinerules`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/gerotech-agent-sync.mdc`, `design-spec.md`, `cline-project-handoff.md`, `.github/copilot-instructions.md`. Code still uncommitted.
+
+## 2026-09-18 — Homepage aligned to Figma handoff 7306:1063 (Cursor)
+- **Peeks:** 02 `In-Stock & Ready`, 03 `Automation for Michigan` (kept slide 2 headline “Ready To Ship”).
+- **Hero:** desktop peek carousel locked to **500px** (`components.css` + `elevated.css` override). Peek tiles **107px** tall.
+- **CTA:** Figma photo saved as `assets/images/cta-home-figma.jpg` (homepage only).
+- **Proto nav:** Training / Support / About now link. WP Support dropdown left as-is (live IA).
+- Synced theme + LocalWP. Hero measures 500px; peeks + CTA src verified on proto and `gerotech.local`.
+
+## 2026-09-18 — Homepage Figma vs proto vs LocalWP review (Cursor)
+- **Request:** compare homepage to Figma canvas `6573:406` (`home` frame `7306:1063`, Dev handoff).
+- **Match:** section order, alert bar phones, Get a Quote, Haas intro (watermark + F1 lockup, no 4-col features), stats 39+ / 14,000, lineup tabs + mill chips, 3 testimonials, CTA copy (no phone lockup), mailing list, footer.
+- **Copy drift vs Figma peeks:** 02 title is `Ready To Ship` (Figma: `In-Stock & Ready`); 03 title is `Your Shop Floor` (Figma: `Automation for Michigan`). Slide 2 full headline is the later client line, not shown as the active slide in this Figma frame.
+- **Layout:** Figma hero is 500px; live peek hero grows with padding/copy (~630–690px). CTA still Unsplash stand-in vs Figma robot-arm photo.
+- **Proto vs WP:** WP Support is `+` dropdown (Figma + proto Support is a plain item); WP Training/Support/About are linked; proto those three have no `href`. WP-only: reCAPTCHA badge + Localhost site-key overlay covering Haas F1 lockup.
+- No code changes.
+
 ## 2026-09-18 — Hero slide 2 headline → “Our Showroom Machines Are Ready To Ship” (Bionic)
 - **Request:** change the second hero slider headline to “Our Showroom Machines Are Ready To Ship”.
 - `index.html` (prototype) + `front-page.php` (ACF default): removed the “Are For Sale!” line; headline is now “Our Showroom Machines / Are `<em>Ready To Ship</em>`” with “Ready To Ship” kept as the orange accent.

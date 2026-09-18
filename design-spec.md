@@ -105,31 +105,30 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 
 ## Homepage Sections
 
-**Narrative flow:** Hero → proof (stats) → Haas outlet story → machine browse → social proof → news → convert.
+**Current Figma:** canvas `6573:406` → home **`7306:1063`**. **Narrative flow:** Hero → stats → Haas intro → machine browse → testimonials → CTA → mailing list. (Editorial news is **not** on this handoff frame.)
 
 | # | Section | Class / partial | Notes |
 |---|---------|-----------------|-------|
 | 1 | Alert banner | `.alert-banner` | Dark bar, 3 click-to-call numbers; collapses on scroll |
-| 2 | Sticky header | `partials/site-header.html` | Logo · Machines ↗ · Engineered Solutions · Support ▼ · About ▼ · Get a Quote · Search |
-| 3 | Peek hero | `.hero-slider--peek` | 3 slides — see **Hero slides** below. Figma slide 1: `7046:872` |
-| 4 | Stat counter | `.stat-counter` | 37+, 4,000+, 12, #1 — hairline dividers, count-up animation. Figma: `7045:552` |
-| 5 | Haas Relationship | `.haas-relationship` | Eyebrow + intro (watermark `7080:1405`) + inverted white features band (`7080:2240`, numbered `01 ·`–`04 ·`) + CTAs |
-| 6 | Machine lineup | `.machine-lineup` `#machine-browse` | Dark section — 5 tabs + split panel (Figma `7043:223`). Default tab: Vertical Mills |
-| 7 | Testimonials | `partials/testimonials-block.html` | `.testimonial-grid` — 3 refreshed `.testimonial-card`s (orange top rule, quote watermark); Homepage + ES |
-| 8 | News feed | `.news-section--editorial` | `.news-editorial` split — photo lead `.news-feature` + numbered `.news-item` rows 02–04; `.news-card` legacy on ES/showroom |
-| 9 | CTA band | `.cta-band--cinema-lockup` | Copy-left lockup + optional call card on full-bleed photo; mailto + tel CTAs |
-| 10 | Email signup | `.email-signup` | Prototype thanks state on submit (`nav.js`) |
-| 11 | Footer | `partials/site-footer.html` | 4-column, wired internal links |
+| 2 | Sticky header | `partials/site-header.html` | Logo · Machines + · Engineered Solutions + · Training · Support · About · Get a Quote · Search. WP Support is a service dropdown. |
+| 3 | Peek hero | `.hero-slider--peek` | **500px** tall desktop (`min-width: 901px`). 3 slides. Figma `7306:1155` / slide 1 photo `7046:872` |
+| 4 | Stat counter | `.stat-counter` | **39+** Years in Michigan, **14,000** Machines Placed |
+| 5 | Haas Relationship | `.haas-relationship` | Eyebrow + intro + watermark + F1 lockup. **No** 4-col features band on `7306:1063` |
+| 6 | Machine lineup | `.machine-lineup` `#machine-browse` | Dark section — 5 tabs + split panel. Default tab: Vertical Mills |
+| 7 | Testimonials | `partials/testimonials-block.html` | `.testimonial-grid` — Rudisill / Ford / Kingbury |
+| 8 | CTA band | `.cta-band--cinema-lockup` | Copy-left, **no phone lockup**. Photo `assets/images/cta-home-figma.jpg` |
+| 9 | Email signup | `.email-signup` | Prototype thanks state on submit (`nav.js`) |
+| 10 | Footer | `partials/site-footer.html` | 4-column, wired internal links |
 
 ### Hero slides (homepage)
 
-| Slide | Eyebrow | Headline | CTA | Image |
-|-------|---------|----------|-----|-------|
-| 1 | Gerotech | The Haas Outlet for Michigan. | Explore the Haas Line → `#machine-browse` | `assets/images/hero-slide-01.jpg` (Figma `7046:872`) |
-| 2 | New Arrivals | Michigan's Haas Factory Outlet — In-Stock & Ready | Browse Inventory → `#machine-browse` | Unsplash stand-in |
-| 3 | Engineered Solutions | Automation Built for Michigan Shop Floors | Explore Solutions → `engineered-solutions.html` | Unsplash stand-in |
+| Slide | Eyebrow | Headline | Peek title | CTA | Image |
+|-------|---------|----------|------------|-----|-------|
+| 1 | A Division of Gerotech | Haas Factory Outlet | (active — not in peek row) | Explore the Haas Line → `#machine-browse` | `assets/images/hero-slide-01.jpg` |
+| 2 | New Arrivals | Our Showroom Machines Are Ready To Ship | In-Stock & Ready | Browse Inventory → Haas showroom | `assets/images/hero-showroom.jpg` |
+| 3 | Engineered Solutions | Automation Built for Your Shop Floor | Automation for Michigan | Explore Solutions | `assets/images/hero-automation-cell.jpg` |
 
-Peek cards read `data-peek-eyebrow` / `data-peek-title` from each `.slide` (synced with on-slide copy as of 2026-08-07).
+Peek cards read `data-peek-eyebrow` / `data-peek-title` from each `.slide`. Peek titles match Figma `7306:1063`; slide 2 **headline** is the later client line.
 
 ### Haas Relationship capability grid (Figma `7080:2240` — inverted light band)
 

@@ -32,6 +32,11 @@ body {
 .hero-slider--peek {
   height: auto;
 }
+@media (min-width: 901px) {
+  .hero-slider--peek {
+    height: 500px;
+  }
+}
 
 .slide__overlay--left {
   background: linear-gradient(

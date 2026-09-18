@@ -6,7 +6,7 @@
 
 Static HTML/CSS/JS **presentation prototype** for **Gerotech, Inc.** — Michigan-based CNC machinery distributor & engineering solutions provider (serving manufacturers since 1987). Built for the **July 7, 2026** client presentation.
 
-**Current stage: Presentation-ready prototype (2026-08-17).** Barlow Condensed + Navigo typography, Unsplash photo stand-ins, functional interactions (hero slider, ES filter, modals, search modal, machine tabs). Homepage refreshed: Haas Relationship, editorial news, testimonial card grid. **Design directions:** `AGENTS.md` → Design directions (2026-08-17).
+**Current stage: WP child theme + ACF (2026-09-18).** Prototype remains asset source of truth until design lock. Homepage matches Figma home **`7306:1063`** (500px peek hero, Haas intro-only, `cta-home-figma.jpg`). **Always read `.clinerules` first.** Design system notes: `AGENTS.md`.
 
 **Live site:** https://gerotech.com/ (WordPress — reference only; prototype is ahead of live ES hub)
 

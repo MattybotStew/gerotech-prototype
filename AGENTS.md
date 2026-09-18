@@ -6,6 +6,15 @@ This file is read by Claude Code and any other LLM assistants working in this re
 
 Read `.clinerules` at the start of every session. It contains current project state, what was last worked on, open decisions, and things not to do. After any change, update `.clinerules` so all agents stay in sync.
 
+## Homepage (current — Figma `7306:1063`)
+
+Desktop home is Gerotech-Design canvas `6573:406` → frame **`7306:1063`**. Keep proto + WP homepage on this frame unless new Figma/client direction says otherwise.
+
+- Peek hero **500px** tall at `min-width: 901px` (set in both `components.css` and `elevated.css`). Peek 02 `In-Stock & Ready`, peek 03 `Automation for Michigan`. Slide 2 **headline** stays “Our Showroom Machines Are Ready To Ship”.
+- Haas Relationship: watermark + F1 lockup + intro **only** — no 4-column features band on this handoff.
+- Homepage CTA: `assets/images/cta-home-figma.jpg`, no phone lockup.
+- Proto Training / Support / About have page hrefs. WP Support remains a service dropdown.
+
 ## Project
 
 CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC machinery distributor, Haas Factory Outlet, est. 1987). The repo holds **two things**: the **static HTML/CSS/JS prototype** (design source of truth) and the **WordPress child theme build** under `wp-content/themes/gerotech-child/`. The final site is WordPress.
@@ -55,10 +64,11 @@ Homepage and shared components use an editorial, numbered-row system with invert
 - Eyebrows: uppercase Navigo, `--ls-meta` tracking; deep orange on light sections
 - **Applied site-wide:** the section-header accent/rule system (accent word + headline-rule under `section-title`) now runs on Homepage + all 8 interior pages (ES, MCS, Automation, Application, Training, Support, About, Careers). Keep new section titles on the pattern. `.headline-rule--deep` on light (white/gray) sections.
 
-### Haas Relationship (Figma `7080:1405` intro · `7080:2240` features)
-- Section: `.haas-relationship` — eyebrow row, intro copy, features band, CTAs
-- **Watermark:** `assets/images/haas-wordmark-watermark.svg` at ~5% opacity inside `.haas-relationship__bg`; visible copy in `.haas-relationship__content` with `isolation: isolate` + z-index so intro/brand sit **above** the watermark. Watermark is **static** (`position: absolute`) behind intro only — not the features band. Section uses `overflow-x: clip`. No parallax.
-- **Features band:** `.haas-relationship__features` — **inverted light treatment:** white bg, `--clr-ink` titles, `--clr-gray-body` copy, `--clr-gray-muted` labels. Icon tiles on `--clr-gray-card` with black SVGs (CSS filter). Vertical hairline dividers `rgba(0,0,0,0.08)`. Four columns numbered `01 ·`–`04 ·`.
+### Haas Relationship (Figma `7080:1405` intro · `7080:2240` features — CSS still in repo)
+- Section: `.haas-relationship` — eyebrow row, intro copy, optional features band
+- **Current homepage (`7306:1063`):** watermark + F1 lockup + intro only. **Do not put the 4-column features band back on home** unless Figma/client restores it.
+- **Watermark:** `assets/images/haas-wordmark-watermark.svg` at ~5% opacity inside `.haas-relationship__bg`; visible copy in `.haas-relationship__content` with `isolation: isolate` + z-index so intro/brand sit **above** the watermark. Watermark is **static** (`position: absolute`) behind intro only. Section uses `overflow-x: clip`. No parallax.
+- **Features band (CSS, not on current home):** `.haas-relationship__features` — inverted light treatment if a later page/frame needs it. Do not delete the CSS speculatively.
 
 ### Latest Projects & News (homepage + ES editorial)
 - Class: `.news-section--editorial` → `.news-editorial` grid (`1.08fr / 1fr`)
@@ -161,7 +171,8 @@ Figma is used via the **remote** MCP at `https://mcp.figma.com/mcp` — works in
 
 **Gerotech file keys (reference):**
 - File: `YgHwqyyFj57c1ZSbmfkL0c` (Gerotech-Design)
-- Haas Relationship intro: `7080:1405` · Haas features band: `7080:2240`
+- Homepage handoff (desktop home): canvas `6573:406` → frame **`7306:1063`**
+- Haas Relationship intro: `7080:1405` · Haas features band: `7080:2240` (not on current home frame)
 - ES wireframe node: `6217:425` · Homepage wireframe: `6218:10`
 
 **Note:** Local Dev Mode MCP (`http://127.0.0.1:3845/mcp`) only works with Figma **desktop** + Dev Mode MCP enabled. This machine uses **web Figma + remote MCP** instead — do not depend on `:3845`.
