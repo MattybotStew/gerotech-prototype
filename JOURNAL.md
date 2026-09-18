@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Hero slider 2 image replaced (Bionic)
+- **Request:** correct image for homepage hero slider 2 (the “New Arrivals / Showroom Machines” slide).
+- **`assets/images/hero-showroom.jpg`** (prototype + theme) replaced with the Figma export from node `7329-2900` — 2880×1594 (up from 1024×682), flattened alpha → JPEG (421 KB). Reference in `index.html` / `front-page.php` unchanged (same filename).
+- **Verified:** synced prototype → theme → Local; homepage 200; `hero-showroom.jpg` served at 421 KB.
+
 ## 2026-09-18 — ACF wired onto the 4 Engineered Solutions pages (Bionic)
 - **Request:** get ACF editing working on the four “new” ES pages in Local, following the homepage ACF pattern (fields registered in PHP, templates read with defaults). Legacy pages deferred (user-approved).
 - **`inc/helpers.php`:** added `gerotech_field( $key, $default, $post_id )` (null-safe ACF read) and `gerotech_parse_media( $text )` (gallery-collection media list → `type|src|poster|alt|caption` items).
