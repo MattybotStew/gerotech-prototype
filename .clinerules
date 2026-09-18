@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-18 (Bionic — gallery module promoted to ES detail pages)
+**Last Updated:** 2026-09-18 (Bionic — ACF wired onto the 4 ES pages)
 **Active Agent:** Bionic
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** `af9c95a` Remove Contact from nav and point Get a Quote at the contact page.
-**Uncommitted:** gallery module conversion — 3 prototype pages + 3 PHP templates + sync script + enqueue (see below)
+**Last Commit:** ACF wired onto the 4 Engineered Solutions pages (Phase 1)
+**Uncommitted:** none
 
 **Legacy (dev/live-body) pages:** `support`, `service`, `training`, `rotary-repair`, `planned-maintenance`, `about`, `contact` — body ported from dev/live + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter. (Contact ported from **live** because live carries the real `@gerotech.com` emails.)
 - **Template-name rule:** some pages have `_wp_page_template` pointing at a **parent** template (rotary-repair → `rotary-repair.php`, planned-maintenance → `preventive-maintenance.php`, service → `page-service.php`). Child templates override only a **same-named file** — match the parent's filename, not necessarily `page-{slug}.php`. Check with `wp post meta get <id> _wp_page_template`.
@@ -44,6 +44,14 @@ There are **two copies** of the child theme: the repo (`wp-content/themes/gerote
 - Homepage CTA: Tristien body line, **no phone lockup**, body **52ch** / copy max `--hero-copy-max`.
 - Testimonials: Ford + Kingbury quotes live in `partials/testimonials-block.html` (`?v=20260916`, `cache: 'no-store'`).
 - Do not invent lineup series beyond the six mill chips. Other lineup tabs came from Matt/Tristien paste, not guessed.
+
+### 2026-09-18 session (Bionic — ACF wired onto the 4 ES pages)
+- **`inc/helpers.php`:** added `gerotech_field()` (null-safe ACF read with default) and `gerotech_parse_media()` (gallery-collection media list → `type|src|poster|alt|caption` items).
+- **`inc/acf-fields.php`:** appended **4 field groups** (location `post_name == <slug>`, not `page_template`): `group_es_content` (`engineered-solutions`), `group_mcs_content` (`modification-of-standard-machine-tools`), `group_application_content` (`unique-applications-for-standard-machines`), `group_automation_content` (`automated-system`). Prefixes `es_*`, `mcs_*`, `app_*`, `ai_*`.
+- **Wired 4 templates** (`page-engineered-solutions.php`, `page-modification-of-standard-machine-tools.php`, `page-unique-applications-for-standard-machines.php`, `page-automated-system.php`) to read ACF with the current static content as defaults (render correctly with empty fields).
+- **Decisions:** MCS/Automation headlines use `lead` + `main` fields (`.mcs-name-split`); ES/Application use a single headline with `<em>` accent. Card modal detail is a `wysiwyg` field; the **“Talk to an Engineer” CTA is auto-appended** by the template. Gallery collections = repeater of `title`/`meta`/`media` (flat pipe-delimited textarea — no nested repeaters).
+- **Verified:** `php -l` clean on all 6 edited files; synced to Local; all 4 URLs 200 with correct defaults (accent spans, card counts, gallery collections, `<details open>` preserved through `wp_kses_post`).
+- **Deferred (user-approved):** legacy pages (Training, Support, Service, Rotary Repair, Planned Maintenance, About, Contact) — Phase 2.
 
 ### 2026-09-16 session (opencode — Phase 4 ACF: homepage wired)
 - **`inc/acf-fields.php`** added (required in `functions.php`): Homepage group `group_home_content` (`page_type == front_page`) — Hero slides / Stats / Haas Relationship / Machine Lineup / CTA Band / Mailing List. Verified in editor.

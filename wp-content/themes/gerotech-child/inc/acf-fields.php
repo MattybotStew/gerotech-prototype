@@ -175,3 +175,404 @@ acf_add_local_field_group(
 		),
 	)
 );
+
+/**
+ * Engineered Solutions hub.
+ */
+acf_add_local_field_group(
+	array(
+		'key'      => 'group_es_content',
+		'title'    => 'Engineered Solutions — Content',
+		'location' => array(
+			array(
+				array( 'param' => 'post_name', 'operator' => '==', 'value' => 'engineered-solutions' ),
+			),
+		),
+		'position' => 'normal',
+		'style'    => 'default',
+		'fields'   => array(
+
+			/* ── Hero ─────────────────────────────────────────── */
+			array( 'key' => 'field_es_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'es_hero_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_es_hero_headline', 'label' => 'Headline', 'name' => 'es_hero_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Wrap the accent phrase in &lt;em&gt;…&lt;/em&gt;.' ),
+			array( 'key' => 'field_es_hero_body', 'label' => 'Body', 'name' => 'es_hero_body', 'type' => 'textarea', 'rows' => 3 ),
+			array( 'key' => 'field_es_hero_cta1_label', 'label' => 'Primary button label', 'name' => 'es_hero_cta1_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_hero_cta1_url', 'label' => 'Primary button URL', 'name' => 'es_hero_cta1_url', 'type' => 'text' ),
+			array( 'key' => 'field_es_hero_cta2_label', 'label' => 'Secondary button label', 'name' => 'es_hero_cta2_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_hero_cta2_url', 'label' => 'Secondary button URL', 'name' => 'es_hero_cta2_url', 'type' => 'text' ),
+			array( 'key' => 'field_es_hero_image', 'label' => 'Background image', 'name' => 'es_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+
+			/* ── Why Gerotech ─────────────────────────────────── */
+			array( 'key' => 'field_es_why_tab', 'label' => 'Why Gerotech', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_why_headline', 'label' => 'Headline', 'name' => 'es_why_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_es_why_body', 'label' => 'Body', 'name' => 'es_why_body', 'type' => 'textarea', 'rows' => 3 ),
+			array( 'key' => 'field_es_why_cta_label', 'label' => 'Button label', 'name' => 'es_why_cta_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_why_cta_url', 'label' => 'Button URL', 'name' => 'es_why_cta_url', 'type' => 'text' ),
+			array(
+				'key'          => 'field_es_why_features',
+				'label'        => 'Features',
+				'name'         => 'es_why_features',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add feature',
+				'sub_fields'   => array(
+					array( 'key' => 'field_es_feature_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_es_feature_body', 'label' => 'Body', 'name' => 'body', 'type' => 'textarea', 'rows' => 3 ),
+					array( 'key' => 'field_es_feature_link_label', 'label' => 'Link label', 'name' => 'link_label', 'type' => 'text' ),
+					array( 'key' => 'field_es_feature_link_url', 'label' => 'Link URL', 'name' => 'link_url', 'type' => 'text' ),
+				),
+			),
+
+			/* ── FANUC ASI ────────────────────────────────────── */
+			array( 'key' => 'field_es_fanuc_tab', 'label' => 'FANUC ASI', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_fanuc_eyebrow', 'label' => 'Eyebrow', 'name' => 'es_fanuc_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_es_fanuc_headline', 'label' => 'Headline', 'name' => 'es_fanuc_headline', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_es_fanuc_body', 'label' => 'Body', 'name' => 'es_fanuc_body', 'type' => 'textarea', 'rows' => 4 ),
+			array( 'key' => 'field_es_fanuc_benefits', 'label' => 'Benefits (one per line)', 'name' => 'es_fanuc_benefits', 'type' => 'textarea', 'rows' => 4 ),
+			array( 'key' => 'field_es_fanuc_cta1_label', 'label' => 'Primary button label', 'name' => 'es_fanuc_cta1_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_fanuc_cta1_url', 'label' => 'Primary button URL', 'name' => 'es_fanuc_cta1_url', 'type' => 'text' ),
+			array( 'key' => 'field_es_fanuc_cta2_label', 'label' => 'Secondary button label', 'name' => 'es_fanuc_cta2_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_fanuc_cta2_url', 'label' => 'Secondary button URL', 'name' => 'es_fanuc_cta2_url', 'type' => 'text' ),
+			array( 'key' => 'field_es_fanuc_badge', 'label' => 'Badge image', 'name' => 'es_fanuc_badge', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+
+			/* ── Technology Partners ──────────────────────────── */
+			array( 'key' => 'field_es_partners_tab', 'label' => 'Technology Partners', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_partners_eyebrow', 'label' => 'Eyebrow', 'name' => 'es_partners_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_es_partners_headline', 'label' => 'Headline', 'name' => 'es_partners_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_es_partners_body', 'label' => 'Body', 'name' => 'es_partners_body', 'type' => 'textarea', 'rows' => 3 ),
+			array( 'key' => 'field_es_partners_cta_label', 'label' => 'Button label', 'name' => 'es_partners_cta_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_partners_cta_url', 'label' => 'Button URL', 'name' => 'es_partners_cta_url', 'type' => 'text' ),
+			array( 'key' => 'field_es_partners_wordmarks', 'label' => 'Partner wordmarks (one per line)', 'name' => 'es_partners_wordmarks', 'type' => 'textarea', 'rows' => 9 ),
+
+			/* ── Capability band ──────────────────────────────── */
+			array( 'key' => 'field_es_cap_tab', 'label' => 'Capability Band', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_cap_eyebrow', 'label' => 'Eyebrow', 'name' => 'es_cap_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_es_cap_headline', 'label' => 'Headline', 'name' => 'es_cap_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Line breaks become &lt;br&gt;.' ),
+			array( 'key' => 'field_es_cap_body', 'label' => 'Body', 'name' => 'es_cap_body', 'type' => 'textarea', 'rows' => 3 ),
+			array( 'key' => 'field_es_cap_cta1_label', 'label' => 'Primary button label', 'name' => 'es_cap_cta1_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_cap_cta1_url', 'label' => 'Primary button URL', 'name' => 'es_cap_cta1_url', 'type' => 'text' ),
+			array( 'key' => 'field_es_cap_cta2_label', 'label' => 'Secondary button label', 'name' => 'es_cap_cta2_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_cap_cta2_url', 'label' => 'Secondary button URL', 'name' => 'es_cap_cta2_url', 'type' => 'text' ),
+			array(
+				'key'          => 'field_es_cap_cards',
+				'label'        => 'Cards',
+				'name'         => 'es_cap_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'sub_fields'   => array(
+					array( 'key' => 'field_es_cap_card_text', 'label' => 'Text', 'name' => 'text', 'type' => 'textarea', 'rows' => 2 ),
+				),
+			),
+
+			/* ── FAQ ──────────────────────────────────────────── */
+			array( 'key' => 'field_es_faq_tab', 'label' => 'Common Questions', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_faq_headline', 'label' => 'Headline', 'name' => 'es_faq_headline', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array(
+				'key'          => 'field_es_faq_items',
+				'label'        => 'Questions',
+				'name'         => 'es_faq_items',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add question',
+				'sub_fields'   => array(
+					array( 'key' => 'field_es_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+					array( 'key' => 'field_es_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+				),
+			),
+
+			/* ── News ─────────────────────────────────────────── */
+			array( 'key' => 'field_es_news_tab', 'label' => 'News', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_news_eyebrow', 'label' => 'Eyebrow', 'name' => 'es_news_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_es_news_headline', 'label' => 'Headline', 'name' => 'es_news_headline', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_es_news_lead_tag', 'label' => 'Lead story tag', 'name' => 'es_news_lead_tag', 'type' => 'text' ),
+			array( 'key' => 'field_es_news_lead_date', 'label' => 'Lead story date', 'name' => 'es_news_lead_date', 'type' => 'text' ),
+			array( 'key' => 'field_es_news_lead_title', 'label' => 'Lead story title', 'name' => 'es_news_lead_title', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_es_news_lead_excerpt', 'label' => 'Lead story excerpt', 'name' => 'es_news_lead_excerpt', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_es_news_lead_image', 'label' => 'Lead story image', 'name' => 'es_news_lead_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+			array(
+				'key'          => 'field_es_news_lead_stats',
+				'label'        => 'Lead story stats',
+				'name'         => 'es_news_lead_stats',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add stat',
+				'sub_fields'   => array(
+					array( 'key' => 'field_es_news_stat_value', 'label' => 'Value', 'name' => 'value', 'type' => 'text' ),
+					array( 'key' => 'field_es_news_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+				),
+			),
+			array(
+				'key'          => 'field_es_news_items',
+				'label'        => 'Secondary stories',
+				'name'         => 'es_news_items',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add story',
+				'sub_fields'   => array(
+					array( 'key' => 'field_es_news_item_tag', 'label' => 'Tag', 'name' => 'tag', 'type' => 'text' ),
+					array( 'key' => 'field_es_news_item_date', 'label' => 'Date', 'name' => 'date', 'type' => 'text' ),
+					array( 'key' => 'field_es_news_item_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_es_news_item_excerpt', 'label' => 'Excerpt', 'name' => 'excerpt', 'type' => 'textarea', 'rows' => 2 ),
+					array( 'key' => 'field_es_news_item_image', 'label' => 'Thumbnail', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'thumbnail' ),
+				),
+			),
+
+			/* ── CTA band ─────────────────────────────────────── */
+			array( 'key' => 'field_es_cta_tab', 'label' => 'CTA Band', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_cta_eyebrow', 'label' => 'Eyebrow', 'name' => 'es_cta_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_es_cta_headline', 'label' => 'Headline', 'name' => 'es_cta_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_es_cta_body', 'label' => 'Body', 'name' => 'es_cta_body', 'type' => 'textarea', 'rows' => 3 ),
+			array( 'key' => 'field_es_cta_button_label', 'label' => 'Button label', 'name' => 'es_cta_button_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_cta_button_url', 'label' => 'Button URL', 'name' => 'es_cta_button_url', 'type' => 'text' ),
+			array( 'key' => 'field_es_cta_image', 'label' => 'Background image', 'name' => 'es_cta_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+			array( 'key' => 'field_es_cta_call_label', 'label' => 'Call card label', 'name' => 'es_cta_call_label', 'type' => 'text' ),
+			array( 'key' => 'field_es_cta_call_number', 'label' => 'Call card number', 'name' => 'es_cta_call_number', 'type' => 'text' ),
+			array( 'key' => 'field_es_cta_call_note', 'label' => 'Call card note', 'name' => 'es_cta_call_note', 'type' => 'text' ),
+
+			/* ── Email signup ─────────────────────────────────── */
+			array( 'key' => 'field_es_signup_tab', 'label' => 'Mailing List', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_es_signup_title', 'label' => 'Title', 'name' => 'es_signup_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_es_signup_sub', 'label' => 'Subtext', 'name' => 'es_signup_sub', 'type' => 'text' ),
+		),
+	)
+);
+
+/**
+ * Machine Custom Solutions.
+ */
+acf_add_local_field_group(
+	array(
+		'key'      => 'group_mcs_content',
+		'title'    => 'Machine Custom Solutions — Content',
+		'location' => array(
+			array(
+				array( 'param' => 'post_name', 'operator' => '==', 'value' => 'modification-of-standard-machine-tools' ),
+			),
+		),
+		'position' => 'normal',
+		'style'    => 'default',
+		'fields'   => array(
+
+			/* ── Hero ─────────────────────────────────────────── */
+			array( 'key' => 'field_mcs_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_mcs_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'mcs_hero_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_hero_lead', 'label' => 'Headline lead (gray)', 'name' => 'mcs_hero_lead', 'type' => 'text', 'instructions' => 'e.g. Machine' ),
+			array( 'key' => 'field_mcs_hero_main', 'label' => 'Headline main (primary)', 'name' => 'mcs_hero_main', 'type' => 'text', 'instructions' => 'e.g. Custom Solutions' ),
+			array( 'key' => 'field_mcs_hero_image', 'label' => 'Background image', 'name' => 'mcs_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+
+			/* ── Services grid ────────────────────────────────── */
+			array( 'key' => 'field_mcs_grid_tab', 'label' => 'Services Grid', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_mcs_grid_eyebrow', 'label' => 'Eyebrow', 'name' => 'mcs_grid_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_grid_lead', 'label' => 'Title lead (gray)', 'name' => 'mcs_grid_lead', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_grid_main', 'label' => 'Title main (primary)', 'name' => 'mcs_grid_main', 'type' => 'text' ),
+			array(
+				'key'          => 'field_mcs_cards',
+				'label'        => 'Service cards',
+				'name'         => 'mcs_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'sub_fields'   => array(
+					array( 'key' => 'field_mcs_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_mcs_card_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+					array( 'key' => 'field_mcs_card_detail', 'label' => 'Detail (modal)', 'name' => 'detail', 'type' => 'wysiwyg', 'tabs' => 'all', 'toolbar' => 'full', 'media_upload' => 0, 'instructions' => 'Rich content shown in the card modal. A “Talk to an Engineer” button is added automatically.' ),
+				),
+			),
+
+			/* ── Gallery ──────────────────────────────────────── */
+			array( 'key' => 'field_mcs_gallery_tab', 'label' => 'Installed Gallery', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_mcs_gallery_eyebrow', 'label' => 'Eyebrow', 'name' => 'mcs_gallery_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_gallery_title', 'label' => 'Title', 'name' => 'mcs_gallery_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_mcs_gallery_body', 'label' => 'Body', 'name' => 'mcs_gallery_body', 'type' => 'textarea', 'rows' => 2 ),
+			array(
+				'key'          => 'field_mcs_collections',
+				'label'        => 'Collections',
+				'name'         => 'mcs_collections',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add collection',
+				'sub_fields'   => array(
+					array( 'key' => 'field_mcs_coll_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_mcs_coll_meta', 'label' => 'Meta', 'name' => 'meta', 'type' => 'text' ),
+					array( 'key' => 'field_mcs_coll_media', 'label' => 'Media (one per line)', 'name' => 'media', 'type' => 'textarea', 'rows' => 6, 'instructions' => 'One per line: type | src | poster | alt | caption. type = image or video; poster only for video.' ),
+				),
+			),
+
+			/* ── CTA band ─────────────────────────────────────── */
+			array( 'key' => 'field_mcs_cta_tab', 'label' => 'CTA Band', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_mcs_cta_eyebrow', 'label' => 'Eyebrow', 'name' => 'mcs_cta_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_cta_headline', 'label' => 'Headline', 'name' => 'mcs_cta_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_mcs_cta_body', 'label' => 'Body', 'name' => 'mcs_cta_body', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_mcs_cta_button_label', 'label' => 'Button label', 'name' => 'mcs_cta_button_label', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_cta_button_url', 'label' => 'Button URL', 'name' => 'mcs_cta_button_url', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_cta_image', 'label' => 'Background image', 'name' => 'mcs_cta_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+			array( 'key' => 'field_mcs_cta_call_label', 'label' => 'Call card label', 'name' => 'mcs_cta_call_label', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_cta_call_number', 'label' => 'Call card number', 'name' => 'mcs_cta_call_number', 'type' => 'text' ),
+			array( 'key' => 'field_mcs_cta_call_note', 'label' => 'Call card note', 'name' => 'mcs_cta_call_note', 'type' => 'text' ),
+
+			/* ── Email signup ─────────────────────────────────── */
+			array( 'key' => 'field_mcs_signup_tab', 'label' => 'Mailing List', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_mcs_signup_title', 'label' => 'Title', 'name' => 'mcs_signup_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_mcs_signup_sub', 'label' => 'Subtext', 'name' => 'mcs_signup_sub', 'type' => 'text' ),
+		),
+	)
+);
+
+/**
+ * Applications.
+ */
+acf_add_local_field_group(
+	array(
+		'key'      => 'group_application_content',
+		'title'    => 'Applications — Content',
+		'location' => array(
+			array(
+				array( 'param' => 'post_name', 'operator' => '==', 'value' => 'unique-applications-for-standard-machines' ),
+			),
+		),
+		'position' => 'normal',
+		'style'    => 'default',
+		'fields'   => array(
+
+			/* ── Hero ─────────────────────────────────────────── */
+			array( 'key' => 'field_app_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_app_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'app_hero_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_app_hero_headline', 'label' => 'Headline', 'name' => 'app_hero_headline', 'type' => 'textarea', 'rows' => 1, 'instructions' => 'Wrap the accent phrase in &lt;em&gt;…&lt;/em&gt;.' ),
+			array( 'key' => 'field_app_hero_image', 'label' => 'Background image', 'name' => 'app_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+
+			/* ── Services grid ────────────────────────────────── */
+			array( 'key' => 'field_app_grid_tab', 'label' => 'Services Grid', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_app_grid_eyebrow', 'label' => 'Eyebrow', 'name' => 'app_grid_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_app_grid_title', 'label' => 'Title', 'name' => 'app_grid_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array(
+				'key'          => 'field_app_cards',
+				'label'        => 'Service cards',
+				'name'         => 'app_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'sub_fields'   => array(
+					array( 'key' => 'field_app_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_app_card_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+					array( 'key' => 'field_app_card_detail', 'label' => 'Detail (modal)', 'name' => 'detail', 'type' => 'wysiwyg', 'tabs' => 'all', 'toolbar' => 'full', 'media_upload' => 0 ),
+				),
+			),
+
+			/* ── Gallery ──────────────────────────────────────── */
+			array( 'key' => 'field_app_gallery_tab', 'label' => 'Product Gallery', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_app_gallery_title', 'label' => 'Title', 'name' => 'app_gallery_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array(
+				'key'          => 'field_app_collections',
+				'label'        => 'Collections',
+				'name'         => 'app_collections',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add collection',
+				'sub_fields'   => array(
+					array( 'key' => 'field_app_coll_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_app_coll_meta', 'label' => 'Meta', 'name' => 'meta', 'type' => 'text' ),
+					array( 'key' => 'field_app_coll_media', 'label' => 'Media (one per line)', 'name' => 'media', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'One per line: type | src | poster | alt | caption. type = image or video; poster only for video.' ),
+				),
+			),
+
+			/* ── CTA band ─────────────────────────────────────── */
+			array( 'key' => 'field_app_cta_tab', 'label' => 'CTA Band', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_app_cta_eyebrow', 'label' => 'Eyebrow', 'name' => 'app_cta_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_app_cta_headline', 'label' => 'Headline', 'name' => 'app_cta_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_app_cta_body', 'label' => 'Body', 'name' => 'app_cta_body', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_app_cta_button_label', 'label' => 'Button label', 'name' => 'app_cta_button_label', 'type' => 'text' ),
+			array( 'key' => 'field_app_cta_button_url', 'label' => 'Button URL', 'name' => 'app_cta_button_url', 'type' => 'text' ),
+			array( 'key' => 'field_app_cta_image', 'label' => 'Background image', 'name' => 'app_cta_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+			array( 'key' => 'field_app_cta_call_label', 'label' => 'Call card label', 'name' => 'app_cta_call_label', 'type' => 'text' ),
+			array( 'key' => 'field_app_cta_call_number', 'label' => 'Call card number', 'name' => 'app_cta_call_number', 'type' => 'text' ),
+			array( 'key' => 'field_app_cta_call_note', 'label' => 'Call card note', 'name' => 'app_cta_call_note', 'type' => 'text' ),
+
+			/* ── Email signup ─────────────────────────────────── */
+			array( 'key' => 'field_app_signup_tab', 'label' => 'Mailing List', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_app_signup_title', 'label' => 'Title', 'name' => 'app_signup_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_app_signup_sub', 'label' => 'Subtext', 'name' => 'app_signup_sub', 'type' => 'text' ),
+		),
+	)
+);
+
+/**
+ * Automation & Controls.
+ */
+acf_add_local_field_group(
+	array(
+		'key'      => 'group_automation_content',
+		'title'    => 'Automation & Controls — Content',
+		'location' => array(
+			array(
+				array( 'param' => 'post_name', 'operator' => '==', 'value' => 'automated-system' ),
+			),
+		),
+		'position' => 'normal',
+		'style'    => 'default',
+		'fields'   => array(
+
+			/* ── Hero ─────────────────────────────────────────── */
+			array( 'key' => 'field_ai_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_ai_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'ai_hero_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_ai_hero_lead', 'label' => 'Headline lead (gray)', 'name' => 'ai_hero_lead', 'type' => 'text' ),
+			array( 'key' => 'field_ai_hero_main', 'label' => 'Headline main (primary)', 'name' => 'ai_hero_main', 'type' => 'text' ),
+			array( 'key' => 'field_ai_hero_body', 'label' => 'Body', 'name' => 'ai_hero_body', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_ai_hero_image', 'label' => 'Background image', 'name' => 'ai_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+
+			/* ── Services grid ────────────────────────────────── */
+			array( 'key' => 'field_ai_grid_tab', 'label' => 'Services Grid', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_ai_grid_eyebrow', 'label' => 'Eyebrow', 'name' => 'ai_grid_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_ai_grid_title', 'label' => 'Title', 'name' => 'ai_grid_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array(
+				'key'          => 'field_ai_cards',
+				'label'        => 'Service cards',
+				'name'         => 'ai_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'sub_fields'   => array(
+					array( 'key' => 'field_ai_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_ai_card_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+					array( 'key' => 'field_ai_card_detail', 'label' => 'Detail (modal)', 'name' => 'detail', 'type' => 'wysiwyg', 'tabs' => 'all', 'toolbar' => 'full', 'media_upload' => 0 ),
+				),
+			),
+
+			/* ── Gallery ──────────────────────────────────────── */
+			array( 'key' => 'field_ai_gallery_tab', 'label' => 'Installed Gallery', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_ai_gallery_eyebrow', 'label' => 'Eyebrow', 'name' => 'ai_gallery_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_ai_gallery_title', 'label' => 'Title', 'name' => 'ai_gallery_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array(
+				'key'          => 'field_ai_collections',
+				'label'        => 'Collections',
+				'name'         => 'ai_collections',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add collection',
+				'sub_fields'   => array(
+					array( 'key' => 'field_ai_coll_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_ai_coll_meta', 'label' => 'Meta', 'name' => 'meta', 'type' => 'text' ),
+					array( 'key' => 'field_ai_coll_media', 'label' => 'Media (one per line)', 'name' => 'media', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'One per line: type | src | poster | alt | caption. type = image or video; poster only for video.' ),
+				),
+			),
+
+			/* ── CTA band ─────────────────────────────────────── */
+			array( 'key' => 'field_ai_cta_tab', 'label' => 'CTA Band', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_ai_cta_eyebrow', 'label' => 'Eyebrow', 'name' => 'ai_cta_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_ai_cta_headline', 'label' => 'Headline', 'name' => 'ai_cta_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_ai_cta_body', 'label' => 'Body', 'name' => 'ai_cta_body', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_ai_cta_button_label', 'label' => 'Button label', 'name' => 'ai_cta_button_label', 'type' => 'text' ),
+			array( 'key' => 'field_ai_cta_button_url', 'label' => 'Button URL', 'name' => 'ai_cta_button_url', 'type' => 'text' ),
+			array( 'key' => 'field_ai_cta_image', 'label' => 'Background image', 'name' => 'ai_cta_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+			array( 'key' => 'field_ai_cta_call_label', 'label' => 'Call card label', 'name' => 'ai_cta_call_label', 'type' => 'text' ),
+			array( 'key' => 'field_ai_cta_call_number', 'label' => 'Call card number', 'name' => 'ai_cta_call_number', 'type' => 'text' ),
+			array( 'key' => 'field_ai_cta_call_note', 'label' => 'Call card note', 'name' => 'ai_cta_call_note', 'type' => 'text' ),
+
+			/* ── Email signup ─────────────────────────────────── */
+			array( 'key' => 'field_ai_signup_tab', 'label' => 'Mailing List', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_ai_signup_title', 'label' => 'Title', 'name' => 'ai_signup_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_ai_signup_sub', 'label' => 'Subtext', 'name' => 'ai_signup_sub', 'type' => 'text' ),
+		),
+	)
+);

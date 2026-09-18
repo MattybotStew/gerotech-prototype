@@ -2,18 +2,124 @@
 /**
  * automation-integration page template.
  *
- * Ported verbatim from the static prototype. Markup is static for v1;
- * strings and images become ACF fields in a later phase.
+ * Content is driven by ACF (`inc/acf-fields.php`) with the current design as
+ * defaults, so the page renders correctly whether or not fields are populated.
  *
  * @package GerotechChild
  */
 
 get_header();
+
+$pick = function ( $key, $default ) {
+	return gerotech_field( $key, $default );
+};
+
+$uri = GEROTECH_CHILD_URI;
+
+/* ── Hero ─────────────────────────────────────────────────── */
+$hero_eyebrow = $pick( 'ai_hero_eyebrow', 'AUTOMATION AND CONTROLS SOLUTIONS' );
+$hero_lead    = $pick( 'ai_hero_lead', 'Automation' );
+$hero_main    = $pick( 'ai_hero_main', 'and Controls Solutions' );
+$hero_body    = $pick( 'ai_hero_body', 'From electrical controls and HMI design to full automation cells and pre-engineered packages, Gerotech delivers complete integration solutions — any make, any control, built around your production reality.' );
+$hero_image   = gerotech_image_url( $pick( 'ai_hero_image', 'assets/images/automation-hero.jpg' ) );
+
+/* ── Services grid ────────────────────────────────────────── */
+$grid_eyebrow = $pick( 'ai_grid_eyebrow', 'What We Offer' );
+$grid_title   = $pick( 'ai_grid_title', 'Automation and Controls <em>Solutions</em> Services' );
+$cards        = $pick(
+	'ai_cards',
+	array(
+		array(
+			'title'  => 'HMI Design',
+			'image'  => 'https://images.unsplash.com/photo-1643359905563-f747213c9703?q=80&w=800&auto=format&fit=crop',
+			'detail' => '<p>Every application is different, and the operator interface should reflect the needs of the people using it. Our HMI is fully configurable, providing a centralized location for the information and functions required for efficient day-to-day operation.</p><p>Our software library provides extensive I/O and Ethernet diagnostics directly on the HMI — giving operators and maintenance technicians clear visibility into machine status without a programming laptop. Where supported, device-specific diagnostics include fault codes, descriptions, and recommended corrective actions for faster troubleshooting and reduced downtime.</p>',
+		),
+		array(
+			'title'  => 'Layered Controls Solutions',
+			'image'  => 'https://images.unsplash.com/photo-1624841970647-87dce8628d72?q=80&w=800&auto=format&fit=crop',
+			'detail' => '<p>Our Layered Controls approach organizes automation into three integrated levels, each building on the last to deliver a complete, coordinated manufacturing system.</p><details open><summary>Layer 1 — Machine Tool</summary><p>The OEM CNC control remains responsible for the machine\'s core manufacturing functions, including axis motion, spindle control, tool changes, and machining cycles. For applications requiring additional functionality, we specialize in implementing targeted enhancements to the existing control system, extending the machine\'s capabilities while preserving the OEM control architecture.</p></details><details><summary>Layer 2 — Machine Tool Automation</summary><p>Our Machine Automation package extends the capabilities of the CNC machine with features that are specific to your manufacturing process.</p><p><strong>Typical extended capabilities include:</strong></p><ul><li>Automatic door control</li><li>Part presence verification</li><li>Machine status monitoring</li><li>Custom I/O integration</li><li>Safety interfaces</li><li>Pneumatic and hydraulic systems</li><li>Coolant and chip management</li><li>Operator interfaces</li><li>Process-specific automation</li></ul><p><strong>Machine Tool Control Packages:</strong> Rather than designing every system from the ground up, we offer a family of pre-engineered automation solutions that can be configured to match your application\'s requirements. From cost-effective machine automation packages to fully featured control systems, each solution is designed to provide the right balance of functionality, performance, and investment.</p><p>Every platform is built on proven software, standardized engineering practices, and years of real-world manufacturing experience, allowing us to deliver custom solutions with reduced engineering time, lower project risk, and faster implementation.</p><ul><li>Reduced engineering time</li><li>Faster project delivery</li><li>Lower project risk</li><li>Proven, reliable software</li><li>Consistent operator experience</li><li>Flexible architecture that adapts to a wide range of machine types and applications</li><li>Simplified future enhancements and support</li></ul></details><details><summary>Layer 3 — Automation Cells</summary><p>The Cell Controller coordinates the entire manufacturing system by managing communication between machines, robots, conveyors, vision systems, and peripheral equipment.</p><p><strong>Responsibilities include:</strong></p><ul><li>Robot coordination</li><li>Part routing</li><li>Cell sequencing</li><li>Production scheduling</li><li>Vision integration</li><li>Data collection</li><li>Fault recovery</li><li>System diagnostics</li></ul></details>',
+		),
+		array(
+			'title'  => 'Automation Cell Design',
+			'image'  => 'assets/images/automation-cell-design.jpg',
+			'detail' => '<p>The Cell Controller coordinates the entire manufacturing system by managing communication between machines, robots, conveyors, vision systems, and peripheral equipment.</p><p><strong>Responsibilities include:</strong></p><ul><li>Robot coordination</li><li>Part routing</li><li>Cell sequencing</li><li>Production scheduling</li><li>Vision integration</li><li>Data collection</li><li>Fault recovery</li><li>System diagnostics</li></ul>',
+		),
+		array(
+			'title'  => 'Robot EOAT – Ancillary Material Handling',
+			'image'  => 'assets/images/robot-eoat.jpg',
+			'detail' => '<p>Custom end-of-arm tooling and ancillary material handling solutions engineered to match your part geometry, cycle time requirements, and production environment.</p>',
+		),
+		array(
+			'title'  => 'Pre-Engineered Solutions',
+			'image'  => 'https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?q=80&w=800&auto=format&fit=crop',
+			'detail' => '<p>Rather than designing every system from the ground up, we offer a family of pre-engineered automation solutions that can be configured to match your application\'s requirements — from cost-effective machine automation packages to fully featured control systems.</p><p>Every platform is built on proven software, standardized engineering practices, and years of real-world manufacturing experience, delivering custom solutions with reduced engineering time, lower project risk, and faster implementation.</p><ul><li>Reduced engineering time &amp; faster project delivery</li><li>Lower project risk with proven, reliable software</li><li>Consistent operator experience across platforms</li><li>Flexible architecture — adapts to a wide range of machine types</li><li>Simplified future enhancements and support</li></ul><details><summary>Standardized Software Design Methodology</summary><p>Our automation solutions are developed using a standardized software design methodology that has been refined through years of real-world manufacturing applications. This proven approach provides a consistent programming structure, operator experience, and diagnostic philosophy across our automation platforms.</p><p>By developing from a common software foundation and adapting it to the selected control platform, we can deliver custom automation solutions more efficiently while maintaining proven functionality, consistent operation, and high-quality software.</p><p><strong>Key Benefits:</strong></p><ul><li>Proven software foundation</li><li>Standardized programming methodology</li><li>Consistent HMI navigation and operator experience</li><li>Common alarms, diagnostics, and fault recovery</li><li>Faster project development</li><li>Reduced project risk</li><li>Simplified troubleshooting and maintenance</li><li>Easier operator training</li><li>Flexible deployment across multiple control platforms</li><li>Scalable design for future expansion</li></ul></details>',
+		),
+	)
+);
+
+/* ── Gallery ──────────────────────────────────────────────── */
+$gallery_eyebrow = $pick( 'ai_gallery_eyebrow', 'Gallery' );
+$gallery_title   = $pick( 'ai_gallery_title', 'Installed Automation <em>Gallery</em>' );
+$collections     = $pick(
+	'ai_collections',
+	array(
+		array(
+			'title' => 'Haas Mill Robot Cell',
+			'meta'  => 'FANUC tending · yellow guarding',
+			'media' => "image | {$uri}/assets/images/automation-gallery/01-haas-robot-cell.jpg | | FANUC robot cell tending a Haas mill, with Gerotech Automation enclosure | FANUC tending · yellow guarding",
+		),
+		array(
+			'title' => 'Robot Line Integration',
+			'meta'  => 'Dual FANUC · controls cabinet',
+			'media' => "image | {$uri}/assets/images/automation-gallery/02-robot-line.jpg | | Controls cabinet and two FANUC robots on pedestals in the Gerotech shop | Dual FANUC · controls cabinet",
+		),
+		array(
+			'title' => 'Guarded Robot Cell',
+			'meta'  => 'Safety fencing · machine tending',
+			'media' => "image | {$uri}/assets/images/automation-gallery/03-guarded-robot-cell.jpg | | Guarded FANUC robot cell beside a mill with yellow safety fencing | Safety fencing · machine tending",
+		),
+		array(
+			'title' => 'Vision System',
+			'meta'  => 'Keyence overhead inspection',
+			'media' => "image | {$uri}/assets/images/automation-gallery/04-vision-system.jpg | | Overhead Keyence vision camera with four-point lighting on an aluminum frame | Keyence overhead inspection",
+		),
+		array(
+			'title' => 'Dual-Gripper EOAT',
+			'meta'  => 'Custom end-of-arm tooling',
+			'media' => "image | {$uri}/assets/images/automation-gallery/05-dual-gripper-eoat.jpg | | Custom dual-gripper end-of-arm tooling with yellow mounting flange | Custom end-of-arm tooling",
+		),
+		array(
+			'title' => 'Vacuum EOAT',
+			'meta'  => 'Suction-cup material handling',
+			'media' => "image | {$uri}/assets/images/automation-gallery/06-vacuum-eoat.jpg | | Vacuum cup end-of-arm tooling on an aluminum extrusion beam | Suction-cup material handling",
+		),
+		array(
+			'title' => 'Gripper Fixtures',
+			'meta'  => 'Schunk · dual-station workholding',
+			'media' => "image | {$uri}/assets/images/automation-gallery/07-schunk-grippers.jpg | | Paired Schunk gripper fixtures on aluminum bases | Schunk · dual-station workholding",
+		),
+	)
+);
+
+/* ── CTA band ─────────────────────────────────────────────── */
+$cta_eyebrow      = $pick( 'ai_cta_eyebrow', 'Automation &amp; Controls' );
+$cta_headline     = $pick( 'ai_cta_headline', 'Need a <em>custom solution</em> for your machine?' );
+$cta_body         = $pick( 'ai_cta_body', "Robot cells, workholding, and controls — designed, built, and installed by Gerotech's in-house engineering team." );
+$cta_button_label = $pick( 'ai_cta_button_label', 'Get a Quote' );
+$cta_button_url   = $pick( 'ai_cta_button_url', gerotech_quote_mailto() );
+$cta_image        = gerotech_image_url( $pick( 'ai_cta_image', 'https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop' ) );
+$cta_call_label   = $pick( 'ai_cta_call_label', 'Prefer to talk it through?' );
+$cta_call_number  = $pick( 'ai_cta_call_number', '(734) 379-7788' );
+$cta_call_note    = $pick( 'ai_cta_call_note', 'Talk to a person, not a form.' );
+
+/* ── Email signup ─────────────────────────────────────────── */
+$signup_title = $pick( 'ai_signup_title', 'Join Our <em>Mailing List</em>' );
+$signup_sub   = $pick( 'ai_signup_sub', 'Projects, machine updates, and service news — delivered to your inbox.' );
 ?>
 
 <main id="main">
     <section class="page-hero" aria-labelledby="ai-hero-headline">
-      <img class="slide__bg slide__bg--right" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-hero.jpg" alt="Robotic automation cell with machine guarding" loading="eager" decoding="async" /><!-- Client photo: yellow-guarded robot cell -->
+      <img class="slide__bg slide__bg--right" src="<?php echo esc_url( $hero_image ); ?>" alt="Robotic automation cell with machine guarding" loading="eager" decoding="async" />
       <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
       <div class="slide__content slide__content--left">
         <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -21,132 +127,35 @@ get_header();
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
           <a class="page-hero__crumb-link" href="<?php gerotech_page_link( 'engineered-solutions' ); ?>">Engineered Solutions</a>
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
-          <span class="page-hero__crumb-current"><span class="mcs-name-split__lead">Automation</span> <span class="mcs-name-split__main">and Controls Solutions</span></span>
+          <span class="page-hero__crumb-current"><span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span> <span class="mcs-name-split__main"><?php echo esc_html( $hero_main ); ?></span></span>
         </nav>
-        <p class="slide__eyebrow">AUTOMATION AND CONTROLS SOLUTIONS</p>
+        <p class="slide__eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>
         <h1 class="slide__headline" id="ai-hero-headline">
           <span class="mcs-name-split mcs-name-split--hero">
-            <span class="mcs-name-split__lead">Automation</span>
-            <span class="mcs-name-split__main">and Controls Solutions</span>
+            <span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span>
+            <span class="mcs-name-split__main"><?php echo esc_html( $hero_main ); ?></span>
           </span>
         </h1>
-        <p class="slide__body">From electrical controls and HMI design to full automation cells and pre-engineered packages, Gerotech delivers complete integration solutions — any make, any control, built around your production reality.</p>
+        <?php if ( $hero_body ) : ?>
+        <p class="slide__body"><?php echo esc_html( $hero_body ); ?></p>
+        <?php endif; ?>
       </div>
     </section>
 
 
     <section class="mcs-grid-section" id="ai-grid" aria-labelledby="ai-grid-headline">
       <div class="container container--es">
-        <div class="section-header"><p class="eyebrow">What We Offer</p><h2 class="section-title" id="ai-grid-headline">Automation and Controls <span class="accent--deep">Solutions</span> Services</h2><span class="headline-rule headline-rule--deep" aria-hidden="true"></span></div>
+        <div class="section-header"><p class="eyebrow"><?php echo esc_html( $grid_eyebrow ); ?></p><h2 class="section-title" id="ai-grid-headline"><?php echo gerotech_accent( $grid_title, 'accent--deep' ); ?></h2><span class="headline-rule headline-rule--deep" aria-hidden="true"></span></div>
         <div class="mcs-grid">
 
-          <!-- CARD 1: HMI Design (Electrical – Controls Solutions removed per content doc) -->
+          <?php foreach ( $cards as $card ) : ?>
+          <?php $card_image = gerotech_image_url( isset( $card['image'] ) ? $card['image'] : '' ); ?>
           <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
-            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1643359905563-f747213c9703?q=80&w=800&auto=format&fit=crop" alt="HMI Design" loading="lazy" /><!-- Stand-in: Unsplash/Natalia Dziubek — awaiting client photo: HMI Design -->
-            <div class="mcs-card__content"><h3 class="mcs-card__title">HMI Design</h3><span class="mcs-card__cue">View Details →</span></div>
-            <template><p>Every application is different, and the operator interface should reflect the needs of the people using it. Our HMI is fully configurable, providing a centralized location for the information and functions required for efficient day-to-day operation.</p><p>Our software library provides extensive I/O and Ethernet diagnostics directly on the HMI — giving operators and maintenance technicians clear visibility into machine status without a programming laptop. Where supported, device-specific diagnostics include fault codes, descriptions, and recommended corrective actions for faster troubleshooting and reduced downtime.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
+            <img class="mcs-card__image" src="<?php echo esc_url( $card_image ); ?>" alt="<?php echo esc_attr( $card['title'] ); ?>" loading="lazy" />
+            <div class="mcs-card__content"><h3 class="mcs-card__title"><?php echo esc_html( $card['title'] ); ?></h3><span class="mcs-card__cue">View Details →</span></div>
+            <template><?php echo wp_kses_post( $card['detail'] ); ?><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
           </article>
-
-          <!-- CARD 3: Layered Controls Solutions (Slides 10-14) -->
-          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
-            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1624841970647-87dce8628d72?q=80&w=800&auto=format&fit=crop" alt="Layered Controls" loading="lazy" /><!-- Stand-in: Unsplash/Mastars — awaiting client photo: Layered Controls -->
-            <div class="mcs-card__content"><h3 class="mcs-card__title">Layered Controls Solutions</h3><span class="mcs-card__cue">View Details →</span></div>
-            <template>
-              <p>Our Layered Controls approach organizes automation into three integrated levels, each building on the last to deliver a complete, coordinated manufacturing system.</p>
-
-              <details open>
-                <summary>Layer 1 — Machine Tool</summary>
-                <p>The OEM CNC control remains responsible for the machine's core manufacturing functions, including axis motion, spindle control, tool changes, and machining cycles. For applications requiring additional functionality, we specialize in implementing targeted enhancements to the existing control system, extending the machine's capabilities while preserving the OEM control architecture.</p>
-              </details>
-
-              <details>
-                <summary>Layer 2 — Machine Tool Automation</summary>
-                <p>Our Machine Automation package extends the capabilities of the CNC machine with features that are specific to your manufacturing process.</p>
-                <p><strong>Typical extended capabilities include:</strong></p>
-                <ul><li>Automatic door control</li><li>Part presence verification</li><li>Machine status monitoring</li><li>Custom I/O integration</li><li>Safety interfaces</li><li>Pneumatic and hydraulic systems</li><li>Coolant and chip management</li><li>Operator interfaces</li><li>Process-specific automation</li></ul>
-
-                <p><strong>Machine Tool Control Packages:</strong> Rather than designing every system from the ground up, we offer a family of pre-engineered automation solutions that can be configured to match your application's requirements. From cost-effective machine automation packages to fully featured control systems, each solution is designed to provide the right balance of functionality, performance, and investment.</p>
-                <p>Every platform is built on proven software, standardized engineering practices, and years of real-world manufacturing experience, allowing us to deliver custom solutions with reduced engineering time, lower project risk, and faster implementation.</p>
-                <ul><li>Reduced engineering time</li><li>Faster project delivery</li><li>Lower project risk</li><li>Proven, reliable software</li><li>Consistent operator experience</li><li>Flexible architecture that adapts to a wide range of machine types and applications</li><li>Simplified future enhancements and support</li></ul>
-              </details>
-
-              <details>
-                <summary>Layer 3 — Automation Cells</summary>
-                <p>The Cell Controller coordinates the entire manufacturing system by managing communication between machines, robots, conveyors, vision systems, and peripheral equipment.</p>
-                <p><strong>Responsibilities include:</strong></p>
-                <ul><li>Robot coordination</li><li>Part routing</li><li>Cell sequencing</li><li>Production scheduling</li><li>Vision integration</li><li>Data collection</li><li>Fault recovery</li><li>System diagnostics</li></ul>
-              </details>
-
-              <div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div>
-            </template>
-          </article>
-
-          <!-- CARD 4: Automation Cell Design -->
-          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
-            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-cell-design.jpg" alt="FANUC M-20iD/25 tending a Haas ST-10 in a guarded cell" loading="lazy" />
-            <div class="mcs-card__content"><h3 class="mcs-card__title">Automation Cell Design</h3><span class="mcs-card__cue">View Details →</span></div>
-            <template>
-              <p>The Cell Controller coordinates the entire manufacturing system by managing communication between machines, robots, conveyors, vision systems, and peripheral equipment.</p>
-              <p><strong>Responsibilities include:</strong></p>
-              <ul>
-                <li>Robot coordination</li>
-                <li>Part routing</li>
-                <li>Cell sequencing</li>
-                <li>Production scheduling</li>
-                <li>Vision integration</li>
-                <li>Data collection</li>
-                <li>Fault recovery</li>
-                <li>System diagnostics</li>
-              </ul>
-              <div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div>
-            </template>
-          </article>
-
-          <!-- CARD 5: Robot EOAT (no new content in presentation) -->
-          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
-            <img class="mcs-card__image" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/robot-eoat.jpg" alt="Custom dual-gripper end-of-arm tooling" loading="lazy" />
-            <div class="mcs-card__content"><h3 class="mcs-card__title">Robot EOAT – Ancillary Material Handling</h3><span class="mcs-card__cue">View Details →</span></div>
-            <!-- Client provides final copy -->
-            <template><p>Custom end-of-arm tooling and ancillary material handling solutions engineered to match your part geometry, cycle time requirements, and production environment.</p><div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div></template>
-          </article>
-
-          <!-- CARD 6: Pre-Engineered Solutions (Slide 13 + Slide 15) -->
-          <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
-            <img class="mcs-card__image" src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?q=80&w=800&auto=format&fit=crop" alt="Pre-Engineered" loading="lazy" /><!-- Stand-in: Unsplash/Homa Appliances — awaiting client photo: Pre-Engineered -->
-            <div class="mcs-card__content"><h3 class="mcs-card__title">Pre-Engineered Solutions</h3><span class="mcs-card__cue">View Details →</span></div>
-            <template>
-              <p>Rather than designing every system from the ground up, we offer a family of pre-engineered automation solutions that can be configured to match your application's requirements — from cost-effective machine automation packages to fully featured control systems.</p>
-              <p>Every platform is built on proven software, standardized engineering practices, and years of real-world manufacturing experience, delivering custom solutions with reduced engineering time, lower project risk, and faster implementation.</p>
-              <ul>
-                <li>Reduced engineering time & faster project delivery</li>
-                <li>Lower project risk with proven, reliable software</li>
-                <li>Consistent operator experience across platforms</li>
-                <li>Flexible architecture — adapts to a wide range of machine types</li>
-                <li>Simplified future enhancements and support</li>
-              </ul>
-
-              <details>
-                <summary>Standardized Software Design Methodology</summary>
-                <p>Our automation solutions are developed using a standardized software design methodology that has been refined through years of real-world manufacturing applications. This proven approach provides a consistent programming structure, operator experience, and diagnostic philosophy across our automation platforms.</p>
-                <p>By developing from a common software foundation and adapting it to the selected control platform, we can deliver custom automation solutions more efficiently while maintaining proven functionality, consistent operation, and high-quality software.</p>
-                <p><strong>Key Benefits:</strong></p>
-                <ul>
-                  <li>Proven software foundation</li>
-                  <li>Standardized programming methodology</li>
-                  <li>Consistent HMI navigation and operator experience</li>
-                  <li>Common alarms, diagnostics, and fault recovery</li>
-                  <li>Faster project development</li>
-                  <li>Reduced project risk</li>
-                  <li>Simplified troubleshooting and maintenance</li>
-                  <li>Easier operator training</li>
-                  <li>Flexible deployment across multiple control platforms</li>
-                  <li>Scalable design for future expansion</li>
-                </ul>
-              </details>
-
-              <div class="mcs-modal__actions"><a class="btn btn--outline-orange" href="tel:+17343797788">Talk to an Engineer</a></div>
-            </template>
-          </article>
+          <?php endforeach; ?>
 
         </div>
       </div>
@@ -158,123 +167,46 @@ get_header();
     <section class="mcs-gallery-section" aria-labelledby="ai-gallery-headline">
       <div class="container container--es">
         <div class="section-header">
-          <p class="eyebrow">Gallery</p>
-          <h2 class="section-title" id="ai-gallery-headline">Installed Automation <span class="accent--deep">Gallery</span></h2>
+          <p class="eyebrow"><?php echo esc_html( $gallery_eyebrow ); ?></p>
+          <h2 class="section-title" id="ai-gallery-headline"><?php echo gerotech_accent( $gallery_title, 'accent--deep' ); ?></h2>
           <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
         </div>
         <div class="gallery-collections" data-gallery>
 
-          <!-- 1 photo -->
+          <?php foreach ( $collections as $col ) : ?>
+          <?php
+          $media      = gerotech_parse_media( isset( $col['media'] ) ? $col['media'] : '' );
+          $first      = isset( $media[0] ) ? $media[0] : null;
+          $cover      = '';
+          $cover_alt  = '';
+          if ( $first ) {
+              $cover     = ( 'video' === $first['type'] && ! empty( $first['poster'] ) ) ? $first['poster'] : $first['src'];
+              $cover_alt = $first['alt'];
+          }
+          ?>
           <article class="gallery-collection">
             <span class="gallery-collection__media">
-              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/01-haas-robot-cell.jpg" alt="FANUC robot cell tending a Haas mill, with Gerotech Automation enclosure" loading="lazy" />
+              <img class="gallery-collection__cover" src="<?php echo esc_url( $cover ); ?>" alt="<?php echo esc_attr( $cover_alt ); ?>" loading="lazy" />
               <span class="gallery-collection__badge"></span>
               <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
             </span>
             <div class="gallery-collection__label">
-              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Haas Mill Robot Cell</button></h3>
-              <p class="gallery-collection__meta">FANUC tending · yellow guarding</p>
+              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog"><?php echo esc_html( $col['title'] ); ?></button></h3>
+              <?php if ( ! empty( $col['meta'] ) ) : ?>
+              <p class="gallery-collection__meta"><?php echo esc_html( $col['meta'] ); ?></p>
+              <?php endif; ?>
             </div>
             <template class="gallery-collection__data">
-              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/01-haas-robot-cell.jpg" data-alt="FANUC robot cell tending a Haas mill, with Gerotech Automation enclosure" data-caption="FANUC tending · yellow guarding"></span>
+              <?php foreach ( $media as $m ) : ?>
+                <?php if ( 'video' === $m['type'] ) : ?>
+              <span data-type="video" data-src="<?php echo esc_url( $m['src'] ); ?>" data-poster="<?php echo esc_url( $m['poster'] ); ?>" data-alt="<?php echo esc_attr( $m['alt'] ); ?>" data-caption="<?php echo esc_attr( $m['caption'] ); ?>"></span>
+                <?php else : ?>
+              <span data-type="image" data-src="<?php echo esc_url( $m['src'] ); ?>" data-alt="<?php echo esc_attr( $m['alt'] ); ?>" data-caption="<?php echo esc_attr( $m['caption'] ); ?>"></span>
+                <?php endif; ?>
+              <?php endforeach; ?>
             </template>
           </article>
-
-          <!-- 1 photo -->
-          <article class="gallery-collection">
-            <span class="gallery-collection__media">
-              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/02-robot-line.jpg" alt="Controls cabinet and two FANUC robots on pedestals in the Gerotech shop" loading="lazy" />
-              <span class="gallery-collection__badge"></span>
-              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
-            </span>
-            <div class="gallery-collection__label">
-              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Robot Line Integration</button></h3>
-              <p class="gallery-collection__meta">Dual FANUC · controls cabinet</p>
-            </div>
-            <template class="gallery-collection__data">
-              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/02-robot-line.jpg" data-alt="Controls cabinet and two FANUC robots on pedestals in the Gerotech shop" data-caption="Dual FANUC · controls cabinet"></span>
-            </template>
-          </article>
-
-          <!-- 1 photo -->
-          <article class="gallery-collection">
-            <span class="gallery-collection__media">
-              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/03-guarded-robot-cell.jpg" alt="Guarded FANUC robot cell beside a mill with yellow safety fencing" loading="lazy" />
-              <span class="gallery-collection__badge"></span>
-              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
-            </span>
-            <div class="gallery-collection__label">
-              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Guarded Robot Cell</button></h3>
-              <p class="gallery-collection__meta">Safety fencing · machine tending</p>
-            </div>
-            <template class="gallery-collection__data">
-              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/03-guarded-robot-cell.jpg" data-alt="Guarded FANUC robot cell beside a mill with yellow safety fencing" data-caption="Safety fencing · machine tending"></span>
-            </template>
-          </article>
-
-          <!-- 1 photo -->
-          <article class="gallery-collection">
-            <span class="gallery-collection__media">
-              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/04-vision-system.jpg" alt="Overhead Keyence vision camera with four-point lighting on an aluminum frame" loading="lazy" />
-              <span class="gallery-collection__badge"></span>
-              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
-            </span>
-            <div class="gallery-collection__label">
-              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Vision System</button></h3>
-              <p class="gallery-collection__meta">Keyence overhead inspection</p>
-            </div>
-            <template class="gallery-collection__data">
-              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/04-vision-system.jpg" data-alt="Overhead Keyence vision camera with four-point lighting on an aluminum frame" data-caption="Keyence overhead inspection"></span>
-            </template>
-          </article>
-
-          <!-- 1 photo -->
-          <article class="gallery-collection">
-            <span class="gallery-collection__media">
-              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/05-dual-gripper-eoat.jpg" alt="Custom dual-gripper end-of-arm tooling with yellow mounting flange" loading="lazy" />
-              <span class="gallery-collection__badge"></span>
-              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
-            </span>
-            <div class="gallery-collection__label">
-              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Dual-Gripper EOAT</button></h3>
-              <p class="gallery-collection__meta">Custom end-of-arm tooling</p>
-            </div>
-            <template class="gallery-collection__data">
-              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/05-dual-gripper-eoat.jpg" data-alt="Custom dual-gripper end-of-arm tooling with yellow mounting flange" data-caption="Custom end-of-arm tooling"></span>
-            </template>
-          </article>
-
-          <!-- 1 photo -->
-          <article class="gallery-collection">
-            <span class="gallery-collection__media">
-              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/06-vacuum-eoat.jpg" alt="Vacuum cup end-of-arm tooling on an aluminum extrusion beam" loading="lazy" />
-              <span class="gallery-collection__badge"></span>
-              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
-            </span>
-            <div class="gallery-collection__label">
-              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Vacuum EOAT</button></h3>
-              <p class="gallery-collection__meta">Suction-cup material handling</p>
-            </div>
-            <template class="gallery-collection__data">
-              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/06-vacuum-eoat.jpg" data-alt="Vacuum cup end-of-arm tooling on an aluminum extrusion beam" data-caption="Suction-cup material handling"></span>
-            </template>
-          </article>
-
-          <!-- 1 photo -->
-          <article class="gallery-collection">
-            <span class="gallery-collection__media">
-              <img class="gallery-collection__cover" src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/07-schunk-grippers.jpg" alt="Paired Schunk gripper fixtures on aluminum bases" loading="lazy" />
-              <span class="gallery-collection__badge"></span>
-              <span class="gallery-collection__play" aria-hidden="true"><svg viewBox="0 0 12 12" focusable="false"><path fill="currentColor" d="M2 1.2 10.4 6 2 10.8z"/></svg></span>
-            </span>
-            <div class="gallery-collection__label">
-              <h3><button type="button" class="gallery-collection__trigger" aria-haspopup="dialog">Gripper Fixtures</button></h3>
-              <p class="gallery-collection__meta">Schunk · dual-station workholding</p>
-            </div>
-            <template class="gallery-collection__data">
-              <span data-type="image" data-src="<?php echo esc_url( GEROTECH_CHILD_URI ); ?>/assets/images/automation-gallery/07-schunk-grippers.jpg" data-alt="Paired Schunk gripper fixtures on aluminum bases" data-caption="Schunk · dual-station workholding"></span>
-            </template>
-          </article>
+          <?php endforeach; ?>
 
         </div>
       </div>
@@ -284,25 +216,27 @@ get_header();
     <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
 
     <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
-      <img class="cta-band__bg" src="https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop" alt="Robotic automation cell" loading="lazy" /><!-- Stand-in: Unsplash — no Automation CTA photo in comments -->
+      <img class="cta-band__bg" src="<?php echo esc_url( $cta_image ); ?>" alt="Robotic automation cell" loading="lazy" />
       <div class="cta-band__overlay" aria-hidden="true"></div>
       <div class="cta-band__content">
         <div class="cta-band__copy">
           <div class="eyebrow-row">
             <span class="eyebrow-row__rule" aria-hidden="true"></span>
-            <p class="eyebrow eyebrow--orange">Automation &amp; Controls</p>
+            <p class="eyebrow eyebrow--orange"><?php echo esc_html( $cta_eyebrow ); ?></p>
           </div>
-          <h2 class="cta-band__headline">Need a <span class="cta-band__accent">custom solution</span> for your machine?</h2>
+          <h2 class="cta-band__headline"><?php echo gerotech_accent( $cta_headline, 'cta-band__accent' ); ?></h2>
           <span class="cta-band__rule" aria-hidden="true"></span>
-          <p class="cta-band__body">Robot cells, workholding, and controls — designed, built, and installed by Gerotech's in-house engineering team.</p>
+          <?php if ( $cta_body ) : ?>
+          <p class="cta-band__body"><?php echo esc_html( $cta_body ); ?></p>
+          <?php endif; ?>
           <div class="cta-band__actions">
-            <a class="btn btn--primary btn--lg" href="mailto:sales@gerotech.com?subject=Gerotech%20Quote%20Request">Get a Quote</a>
+            <a class="btn btn--primary btn--lg" href="<?php echo esc_url( $cta_button_url ); ?>"><?php echo esc_html( $cta_button_label ); ?></a>
           </div>
         </div>
         <a class="cta-band__call" href="tel:+17343797788">
-          <span class="cta-band__call-label">Prefer to talk it through?</span>
-          <span class="cta-band__call-number">(734) 379-7788</span>
-          <span class="cta-band__call-note">Talk to a person, not a form.</span>
+          <span class="cta-band__call-label"><?php echo esc_html( $cta_call_label ); ?></span>
+          <span class="cta-band__call-number"><?php echo esc_html( $cta_call_number ); ?></span>
+          <span class="cta-band__call-note"><?php echo esc_html( $cta_call_note ); ?></span>
         </a>
       </div>
     </section>
@@ -310,7 +244,7 @@ get_header();
     <section class="email-signup" aria-label="Mailing list signup">
       <div class="email-signup__inner">
         <div class="email-signup__copy">
-          <h2 class="email-signup__title">Join Our <span class="accent">Mailing List</span></h2><p class="email-signup__sub">Projects, machine updates, and service news — delivered to your inbox.</p>
+          <h2 class="email-signup__title"><?php echo gerotech_accent( $signup_title, 'accent' ); ?></h2><p class="email-signup__sub"><?php echo esc_html( $signup_sub ); ?></p>
         </div>
         <form class="email-signup__form" action="#" method="post" novalidate><label for="email-input-ai" class="sr-only">Email address</label><input class="email-signup__input" id="email-input-ai" type="email" name="email" placeholder="your@email.com" required autocomplete="email" /><button class="email-signup__submit" type="submit">Sign Up</button></form>
       </div>

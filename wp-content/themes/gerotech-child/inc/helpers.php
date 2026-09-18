@@ -134,6 +134,25 @@ function gerotech_accent( $text, $accent_class = 'accent', $breaks = true ) {
 }
 
 /**
+ * Read an ACF field with a default fallback (null-safe if ACF is inactive).
+ *
+ * @param string $key     Field name.
+ * @param mixed  $default Value returned when the field is empty/unset.
+ * @param mixed  $post_id Optional post ID (defaults to the current post).
+ * @return mixed
+ */
+function gerotech_field( $key, $default = null, $post_id = false ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return $default;
+	}
+	$v = get_field( $key, $post_id );
+	if ( null === $v || '' === $v || false === $v || ( is_array( $v ) && empty( $v ) ) ) {
+		return $default;
+	}
+	return $v;
+}
+
+/**
  * Resolve an ACF image field to an attachment ID (supports ID/array/URL returns).
  *
  * @param mixed  $value Field value.
@@ -177,6 +196,38 @@ function gerotech_parse_tags( $text ) {
 		$out[] = array(
 			'label' => $parts[0],
 			'url'   => isset( $parts[1] ) ? $parts[1] : '',
+		);
+	}
+	return $out;
+}
+
+/**
+ * Parse a gallery-collection media list (one item per line) into items.
+ *
+ * Line format: type | src | poster | alt | caption
+ *   - type:    'image' or 'video'
+ *   - src:     image URL / video URL
+ *   - poster:  poster image URL (video only; leave empty for images)
+ *   - alt:     alt text / aria-label
+ *   - caption: viewer caption
+ *
+ * @param string $text Raw field value.
+ * @return array[] Each: type/src/poster/alt/caption.
+ */
+function gerotech_parse_media( $text ) {
+	$out = array();
+	foreach ( preg_split( '/\r\n|\r|\n/', (string) $text ) as $line ) {
+		$line = trim( $line );
+		if ( '' === $line ) {
+			continue;
+		}
+		$p = array_map( 'trim', explode( '|', $line, 5 ) );
+		$out[] = array(
+			'type'    => isset( $p[0] ) ? $p[0] : 'image',
+			'src'     => isset( $p[1] ) ? $p[1] : '',
+			'poster'  => isset( $p[2] ) ? $p[2] : '',
+			'alt'     => isset( $p[3] ) ? $p[3] : '',
+			'caption' => isset( $p[4] ) ? $p[4] : '',
 		);
 	}
 	return $out;

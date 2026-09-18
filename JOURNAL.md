@@ -2,6 +2,16 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — ACF wired onto the 4 Engineered Solutions pages (Bionic)
+- **Request:** get ACF editing working on the four “new” ES pages in Local, following the homepage ACF pattern (fields registered in PHP, templates read with defaults). Legacy pages deferred (user-approved).
+- **`inc/helpers.php`:** added `gerotech_field( $key, $default, $post_id )` (null-safe ACF read) and `gerotech_parse_media( $text )` (gallery-collection media list → `type|src|poster|alt|caption` items).
+- **`inc/acf-fields.php`:** appended **4 field groups** located by `post_name == <slug>` (not `page_template`, since these pages use slug hierarchy): `group_es_content` (`engineered-solutions`), `group_mcs_content` (`modification-of-standard-machine-tools`), `group_application_content` (`unique-applications-for-standard-machines`), `group_automation_content` (`automated-system`). Prefixes `es_*` / `mcs_*` / `app_*` / `ai_*`.
+- **Wired 4 templates** to read ACF with the current static content as defaults: `page-engineered-solutions.php`, `page-modification-of-standard-machine-tools.php`, `page-unique-applications-for-standard-machines.php`, `page-automated-system.php`.
+- **Decisions:** MCS/Automation headlines use `lead` + `main` fields for `.mcs-name-split`; ES/Application use a single headline field with `<em>` accent (rendered via `gerotech_accent()`). Card modal detail is a `wysiwyg` field; the **“Talk to an Engineer” CTA is auto-appended** by the template (not stored). Gallery collections = repeater of `title`/`meta`/`media` (flat pipe-delimited textarea — no nested repeaters).
+- **Verified:** `php -l` clean on all 6 edited files; `sync-theme-to-local.sh`; all 4 URLs 200 with correct defaults (accent spans, card counts 8/5/8, gallery collections 7/8/7, `<details open>` preserved through `wp_kses_post`).
+- **Note:** admin field-group list could not be re-verified headlessly — the Local admin password (`localpass123`) no longer authenticates (“The password you entered…”). Registration uses the same proven `acf_add_local_field_group()` mechanism as the homepage group, so groups should appear once logged in.
+- **Deferred (user-approved):** legacy pages (Training, Support, Service, Rotary Repair, Planned Maintenance, About, Contact) — Phase 2.
+
 ## 2026-09-18 — Gallery module promoted to ES detail pages (Bionic)
 - **Request:** promote the standalone gallery module (collections + video) and convert the three ES detail pages (MCS, Application, Automation) from the flat one-photo-per-card gallery to the new collections style. Keep the video placeholders (client will supply real footage later).
 - **Prototype HTML:** `machine-custom-solutions.html` (13 cards → 7 collections, incl. 2 placeholder videos), `application.html` (8 cards → 8 collections, no video), `automation-integration.html` (7 cards → 7 collections, no video). Each page now loads `gallery-module.css` + `gallery-module.js` (kept `modal.js` for the `.mcs-modal` detail cards). Unsplash `data-src` bumped `w=500` → `w=1600` for the viewer. Tag-balance verified (0 errors).
