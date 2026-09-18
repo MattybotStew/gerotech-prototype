@@ -5,10 +5,10 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-18 (Bionic — orange “Controls Solutions” accent on Automation hero)
+**Last Updated:** 2026-09-18 (Bionic — testimonials wired to a global ACF repeater)
 **Active Agent:** Bionic
 **Branch:** `master` — synced with `origin/master`
-**Last Commit:** orange “Controls Solutions” accent on Automation hero
+**Last Commit:** testimonials → global ACF repeater (Site Content options page)
 **Uncommitted:** none
 
 **Legacy (dev/live-body) pages:** `support`, `service`, `training`, `rotary-repair`, `planned-maintenance`, `about`, `contact` — body ported from dev/live + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter. (Contact ported from **live** because live carries the real `@gerotech.com` emails.)
@@ -44,6 +44,12 @@ There are **two copies** of the child theme: the repo (`wp-content/themes/gerote
 - Homepage CTA: Tristien body line, **no phone lockup**, body **52ch** / copy max `--hero-copy-max`.
 - Testimonials: Ford + Kingbury quotes live in `partials/testimonials-block.html` (`?v=20260916`, `cache: 'no-store'`).
 - Do not invent lineup series beyond the six mill chips. Other lineup tabs came from Matt/Tristien paste, not guessed.
+
+### 2026-09-18 session (Bionic — testimonials → global ACF repeater)
+- **`inc/acf-fields.php`:** added an ACF **options page** (`acf_add_options_page`, slug `gerotech-site-content`, title “Site Content”) + `group_site_testimonials` (location `options_page == gerotech-site-content`): `testimonials_eyebrow` / `testimonials_title` / `testimonials` repeater (`quote`/`name`/`sub`).
+- **`template-parts/sections/testimonials.php`:** reads from `'option'` via `gerotech_field()` with v1 static quotes as defaults. Shared across homepage + 4 ES pages → edits once site-wide.
+- **Decision (user-approved, Option A):** only testimonials made editable; icons / alt-text / aria-labels / breadcrumbs / email-form internals stay hardcoded.
+- **Verified:** `php -l` clean; synced to Local; 5 URLs 200; fallback renders. Headless wp-admin re-verify still blocked (Local admin password).
 
 ### 2026-09-18 session (Bionic — ACF wired onto the 4 ES pages)
 - **`inc/helpers.php`:** added `gerotech_field()` (null-safe ACF read with default) and `gerotech_parse_media()` (gallery-collection media list → `type|src|poster|alt|caption` items).

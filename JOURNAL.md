@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Testimonials wired to a global ACF repeater (Bionic)
+- **Request:** make the testimonials section editable (Option A from the text/images audit — only testimonials; leave icons/alt-text/aria-labels/breadcrumbs/email-form internals hardcoded).
+- **`inc/acf-fields.php`:** added an ACF **options page** (`acf_add_options_page`, menu slug `gerotech-site-content`, title “Site Content”) + field group `group_site_testimonials` located on that options page (`options_page == gerotech-site-content`). Fields: `testimonials_eyebrow` (text), `testimonials_title` (textarea, `<em>` accent), `testimonials` (repeater of `quote`/`name`/`sub`).
+- **`template-parts/sections/testimonials.php`:** now reads the three fields from `'option'` via `gerotech_field()` with the v1 static quotes as defaults, so it renders unchanged until an editor saves the repeater. Section is shared across homepage + all 4 ES pages, so it edits once site-wide.
+- **Verified:** `php -l` clean on both files; `sync-theme-to-local.sh`; all 5 URLs 200; fallback quotes/eyebrow/title render on `engineered-solutions`. Options page + field group use the same proven `acf_add_local_field_group()` mechanism (headless wp-admin re-verify still blocked by the Local admin password).
+
 ## 2026-09-18 — Orange “Controls Solutions” accent on Automation hero (Bionic)
 - **Request:** make “Controls Solutions” orange in the Automation hero headline.
 - `page-automated-system.php`: `ai_hero_main` default → `and <em>Controls Solutions</em>`; headline main rendered via `gerotech_accent( $hero_main, 'accent' )`; breadcrumb uses `strip_tags()` so it stays plain text. Verified locally (headline shows `<span class="accent">Controls Solutions</span>`).

@@ -576,3 +576,59 @@ acf_add_local_field_group(
 		),
 	)
 );
+
+/**
+ * Global site content (options page).
+ *
+ * Holds site-wide content shared across many pages — currently testimonials.
+ * Requires ACF Pro (acf_add_options_page).
+ */
+if ( function_exists( 'acf_add_options_page' ) ) {
+	acf_add_options_page(
+		array(
+			'page_title' => 'Site Content',
+			'menu_title' => 'Site Content',
+			'menu_slug'  => 'gerotech-site-content',
+			'capability' => 'edit_posts',
+			'redirect'   => false,
+		)
+	);
+}
+
+/**
+ * Testimonials (global — shared across homepage + Engineered Solutions pages).
+ */
+acf_add_local_field_group(
+	array(
+		'key'      => 'group_site_testimonials',
+		'title'    => 'Site Content — Testimonials',
+		'location' => array(
+			array(
+				array(
+					'param'    => 'options_page',
+					'operator' => '==',
+					'value'    => 'gerotech-site-content',
+				),
+			),
+		),
+		'position' => 'normal',
+		'style'    => 'default',
+		'fields'   => array(
+			array( 'key' => 'field_testimonials_eyebrow', 'label' => 'Eyebrow', 'name' => 'testimonials_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_testimonials_title', 'label' => 'Title', 'name' => 'testimonials_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => 'Wrap the accent phrase in &lt;em&gt;…&lt;/em&gt;.' ),
+			array(
+				'key'          => 'field_testimonials',
+				'label'        => 'Testimonials',
+				'name'         => 'testimonials',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add testimonial',
+				'sub_fields'   => array(
+					array( 'key' => 'field_testimonial_quote', 'label' => 'Quote', 'name' => 'quote', 'type' => 'textarea', 'rows' => 4 ),
+					array( 'key' => 'field_testimonial_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+					array( 'key' => 'field_testimonial_sub', 'label' => 'Subtitle', 'name' => 'sub', 'type' => 'text' ),
+				),
+			),
+		),
+	)
+);
