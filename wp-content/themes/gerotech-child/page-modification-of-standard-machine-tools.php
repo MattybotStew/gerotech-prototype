@@ -91,7 +91,7 @@ $collections     = $pick(
 		array(
 			'title' => 'Sheet Metal Modification',
 			'meta'  => 'Guards · enclosures · fabrication',
-			'media' => "image | {$uri}/assets/images/mcs-gallery/sheet-metal-stainless.jpg | | Custom stainless sheet metal guards and covers | Stainless guards and covers\nimage | {$uri}/assets/images/mcs-gallery/sheet-metal-enclosure.jpg | | Painted sheet metal enclosure wrap on a machine column | Painted enclosure fabrication\nimage | {$uri}/assets/images/mcs-gallery/sheet-metal-machine.jpg | | Custom sheet metal enclosure wrapping a machining center | Full enclosure fabrication\nvideo | {$uri}/assets/videos/placeholder-sheet-metal.mp4 | {$uri}/assets/images/mcs-gallery/sheet-metal-machine.jpg | Sheet metal enclosure walkaround video | Walkaround · full enclosure",
+			'media' => "image | {$uri}/assets/images/mcs-gallery/sheet-metal-stainless.jpg | | Custom stainless sheet metal guards and covers | Stainless guards and covers\nimage | {$uri}/assets/images/mcs-gallery/sheet-metal-enclosure.jpg | | Painted sheet metal enclosure wrap on a machine column | Painted enclosure fabrication\nimage | {$uri}/assets/images/mcs-gallery/sheet-metal-machine.jpg | | Custom sheet metal enclosure wrapping a machining center | Full enclosure fabrication",
 		),
 		array(
 			'title' => 'Auto Door Integration',

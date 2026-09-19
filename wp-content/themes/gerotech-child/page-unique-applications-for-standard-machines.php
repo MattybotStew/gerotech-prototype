@@ -59,12 +59,12 @@ $cards        = $pick(
 		array(
 			'title'  => 'Fire Suppression',
 			'image'  => 'assets/images/mcs-gallery/fire-suppression.jpg',
-			'detail' => '<p>Content coming soon.</p>',
+			'detail' => '<p>Machine-integrated fire suppression that detects and knocks down a fire at the source — inside the enclosure, before it spreads. Gerotech specifies, installs, and services systems engineered for CNC machining environments to protect your machine, your people, and your uptime.</p>',
 		),
 		array(
 			'title'  => 'RFID',
 			'image'  => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
-			'detail' => '<p>Content coming soon.</p>',
+			'detail' => '<p>RFID tool and workholding identification that takes manual data entry out of the setup. Tools, fixtures, and offsets are read automatically and tied to the job — cutting setup time and eliminating costly data-entry errors.</p>',
 		),
 	)
 );

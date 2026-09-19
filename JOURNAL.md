@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — ES pages: remove remaining stubs (opencode)
+- **Goal:** make the 4 Engineered Solutions pages fully ready (leaving only header/mega-nav work).
+- **Applications:** replaced the two `Content coming soon.` modal bodies (Fire Suppression, RFID) with real copy in `page-unique-applications-for-standard-machines.php`.
+- **MCS:** removed the last placeholder video (`placeholder-sheet-metal.mp4`) from the Sheet Metal collection (proto `machine-custom-solutions.html` + `page-modification-of-standard-machine-tools.php`) and deleted the file from prototype + theme + Dev. The Auto Door collection keeps its real video.
+- Re-seeded ACF on Local + Dev so the DB reflects the new copy / removed video.
+- **Verified on Dev:** all 4 ES pages 200, no PHP warnings, **zero broken images**, no `Content coming soon` / placeholder-video references. Collections: MCS 7, Applications 8, Automation 7.
+- **Still external (cannot be code-completed):** stand-in photography (Unsplash/theme assets, now self-hosted), FANUC ASI seal usage rights, and ES news story links (no News page yet).
+
 ## 2026-09-18 — Seed ACF content into the DB (Local + Dev) (opencode)
 - **Request (option B):** pre-fill the ACF fields with the current content so editors see/edit real values, on Local **and** Dev.
 - **Method:** added a capture hook to `gerotech_field()` (`inc/helpers.php`) — when `$GLOBALS['gerotech_capture_defaults']` is an array, every read records its code default. A one-time seeder renders each page template with the hook on, then `update_field()`s the captured defaults onto the page. Avoids retyping defaults (single source of truth = the templates). `front-page.php` was switched from its bespoke `$acf_get` closure to `gerotech_field( $key, $default, $home_id )` so its defaults are captured too.
