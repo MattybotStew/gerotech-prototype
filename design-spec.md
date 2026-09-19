@@ -111,7 +111,7 @@ All interior pages use **`.page-hero`** — the same structure as the homepage h
 |---|---------|-----------------|-------|
 | 1 | Alert banner | `.alert-banner` | Dark bar, 3 click-to-call numbers; collapses on scroll |
 | 2 | Sticky header | `partials/site-header.html` | Logo · Machines + · Engineered Solutions + · Training · Support · About · Get a Quote · Search. WP Support is a service dropdown. |
-| 3 | Peek hero | `.hero-slider--peek` | **500px** tall desktop (`min-width: 901px`). 3 slides. Figma `7306:1155` / slide 1 photo `7046:872` |
+| 3 | Peek hero | `.hero-slider--peek` | **min-height 500px** desktop (`min-width: 901px`); grows with the active slide's content. 3 slides. Figma `7306:1155` / slide 1 photo `7046:872` |
 | 4 | Stat counter | `.stat-counter` | **39+** Years in Michigan, **14,000** Machines Placed |
 | 5 | Haas Relationship | `.haas-relationship` | Eyebrow + intro + watermark + F1 lockup. **No** 4-col features band on `7306:1063` |
 | 6 | Machine lineup | `.machine-lineup` `#machine-browse` | Dark section — 5 tabs + split panel. Default tab: Vertical Mills |

@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Peek hero grows with content (min-height 500px) (opencode)
+- **Request:** "hero slider doesn't change vertical height based on content — see prototype."
+- **Finding:** prototype and Dev were actually identical — both hard-locked to `height: 500px` on desktop (`components.css` + `elevated.css`), with `.slide.is-active { overflow: hidden }`, so longer copy would clip rather than expand. (The 2026-09-18 Figma-alignment session had changed the earlier `height: auto` to a hard 500px.)
+- **Fix (prototype assets, then synced):** desktop `.hero-slider--peek`, `.hero-slider__track`, `.slide.is-active` and `.slide__content--left` now use `height: auto; min-height: 500px` (removed `overflow: hidden` / `max-height: 500px`). Short slides stay 500px; longer content expands the hero. Set in **both** `components.css` and `elevated.css`.
+- **Verified via headless CDP** at 1440px: prototype and Dev both 500px normally, and both grow to **767px** when extra body copy is injected. Peek band stays pinned to the bottom.
+- Synced `sync-theme-assets.sh` + `sync-theme-to-local.sh`, deployed to Dev, flushed page + CDN cache.
+- Docs updated: `.clinerules`, `AGENTS.md` (CLAUDE.md symlink), `design-spec.md`, `cline-project-handoff.md`.
+
 ## 2026-09-18 — Dev DB fix: parent page templates were overriding the child (opencode)
 - **Symptom (reported via screenshot):** `/engineered-solutions/` on Dev rendered the **parent** theme's hero/body ("Collaborative, cutting-edge solutions." / "It starts with our approach."), not our template.
 - **Cause:** Dev's `wp_postmeta` still had `_wp_page_template` pointing at parent templates — the 4 ES pages (IDs 28, 1250, 1265, 1239) at `page-solutions.php` and support (1535) at `page-service-home.php`. A page's assigned template overrides our slug templates. The Local DB had these cleared (2026-09-16) but Dev's was never updated (theme-only pushes).

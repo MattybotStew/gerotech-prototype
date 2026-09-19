@@ -34,7 +34,8 @@ body {
 }
 @media (min-width: 901px) {
   .hero-slider--peek {
-    height: 500px;
+    height: auto;
+    min-height: 500px;
   }
 }
 
