@@ -75,3 +75,72 @@ function gerotech_legacy_redirects() {
 	}
 }
 add_action( 'template_redirect', 'gerotech_legacy_redirects' );
+
+/**
+ * Hide the parent theme's legacy ACF groups on pages we've rebuilt.
+ *
+ * The parent theme's DB field groups (Home Options, Page Options, ES/About/
+ * Training/Service Options, …) are tied to its old markup and are not read by
+ * our templates. They still appear in the editor's “Meta Boxes” panel and
+ * confuse editors. Remove them on the pages that now use our “— Content”
+ * groups, keeping the parent groups intact everywhere else (CPTs, unconverted
+ * pages).
+ */
+function gerotech_hide_legacy_field_groups( $groups ) {
+	if ( ! is_admin() ) {
+		return $groups;
+	}
+
+	$post_id = 0;
+	if ( isset( $_GET['post'] ) ) {
+		$post_id = (int) $_GET['post'];
+	} elseif ( isset( $_POST['post_ID'] ) ) {
+		$post_id = (int) $_POST['post_ID'];
+	} elseif ( isset( $GLOBALS['post'] ) && $GLOBALS['post'] instanceof WP_Post ) {
+		$post_id = (int) $GLOBALS['post']->ID;
+	}
+	if ( ! $post_id ) {
+		return $groups;
+	}
+
+	$our_slugs = array(
+		'home',
+		'engineered-solutions',
+		'modification-of-standard-machine-tools',
+		'unique-applications-for-standard-machines',
+		'automated-system',
+		'careers',
+		'training',
+		'support',
+		'service',
+		'rotary-repair',
+		'planned-maintenance',
+		'about',
+		'contact',
+	);
+
+	if ( ! in_array( get_post_field( 'post_name', $post_id ), $our_slugs, true ) ) {
+		return $groups;
+	}
+
+	$legacy_keys = array(
+		'group_59525c6a53d41', // Home Options.
+		'group_594d6a67f345d', // Engineered Solutions Options.
+		'group_594d512fa81a6', // About Options.
+		'group_5952a41d18bbd', // Training Options.
+		'group_5952be53d9277', // Service Options.
+		'group_60e854e038370', // Rotary Repair.
+		'group_60e85395352dd', // Planned Maintenance.
+		'group_5953c09413a0f', // Contact Options.
+		'group_599b1967dce3b', // Page Options.
+	);
+
+	foreach ( $groups as $i => $group ) {
+		if ( isset( $group['key'] ) && in_array( $group['key'], $legacy_keys, true ) ) {
+			unset( $groups[ $i ] );
+		}
+	}
+
+	return array_values( $groups );
+}
+add_filter( 'acf/load_field_groups', 'gerotech_hide_legacy_field_groups' );

@@ -18,6 +18,59 @@ if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 }
 
 /**
+ * Custom ACF location rule: Post Slug (`post_name`).
+ *
+ * ACF has no built-in slug location rule, so field groups located by
+ * `post_name == <slug>` never matched — they were registered but never appeared
+ * in the editor (the templates rendered only because of their code defaults).
+ * Register the rule so those groups show up.
+ */
+add_filter(
+	'acf/location/rule_types',
+	function ( $choices ) {
+		$choices['Post']['post_name'] = 'Post Slug';
+		return $choices;
+	}
+);
+add_filter(
+	'acf/location/rule_values/post_name',
+	function ( $choices ) {
+		$pages = get_posts(
+			array(
+				'post_type'   => 'page',
+				'numberposts' => -1,
+				'post_status' => 'publish',
+			)
+		);
+		foreach ( $pages as $page ) {
+			$choices[ $page->post_name ] = $page->post_name . ' (#' . $page->ID . ')';
+		}
+		return $choices;
+	}
+);
+add_filter(
+	'acf/location/rule_match/post_name',
+	function ( $match, $rule, $options ) {
+		$post_id = isset( $options['post_id'] ) ? $options['post_id'] : 0;
+		$post    = $post_id ? get_post( $post_id ) : null;
+		if ( ! $post ) {
+			return $match;
+		}
+		$value = (string) $rule['value'];
+		$name  = (string) $post->post_name;
+		if ( '==' === $rule['operator'] ) {
+			return $name === $value;
+		}
+		if ( '!=' === $rule['operator'] ) {
+			return $name !== $value;
+		}
+		return $match;
+	},
+	10,
+	3
+);
+
+/**
  * Homepage content.
  */
 acf_add_local_field_group(

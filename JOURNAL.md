@@ -2,6 +2,14 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — ACF groups never rendered (missing `post_name` location rule) — fixed (opencode)
+- **Symptom:** editors saw "nothing to edit" on Home / ES / legacy pages; the block editor's Meta Boxes panel showed only the parent theme's old groups (e.g. “Home Options”).
+- **Root cause:** our ACF groups for ES/MCS/Applications/Automation, all 7 legacy pages, and Careers are located by `post_name == <slug>`. **ACF has no built-in `post_name` location rule**, so those groups were registered but never matched a location — they never rendered and their values were never saveable. The templates kept rendering because they use code defaults, which hid the bug. (`group_home_content` worked only because it uses `page_type == front_page`.)
+- **Fix 1 — register the rule:** added `acf/location/rule_types`, `acf/location/rule_values/post_name`, `acf/location/rule_match/post_name` filters at the top of `inc/acf-fields.php`. Verified on Local + Dev: `acf_get_field_groups(['post_id'=>N])` now returns our group for all 13 pages (11, 28, 1250, 1265, 1239, 18, 39, 1535, 20, 1484, 1538, 14, 16).
+- **Fix 2 — clean editor:** `functions.php` `gerotech_hide_legacy_field_groups()` (`acf/load_field_groups`, admin only) removes the parent theme's DB groups (Home Options, Page Options, ES/About/Training/Service Options, Rotary/Planned, Contact) on those 13 pages, so the Meta Boxes panel shows only our “— Content” group. Verified by fetching the real `/wp-admin/post.php?post=…&action=edit` HTML with a temporary admin user (since deleted).
+- **Note:** in the block editor the fields are in the collapsible **“Meta Boxes”** panel at the bottom — not the main canvas.
+- Deployed to Dev, caches flushed. Temp admin users removed from Local + Dev.
+
 ## 2026-09-18 — Full proto ↔ Local ↔ Dev audit + fixes (opencode)
 - **File parity:** prototype `assets/` == repo theme == Local theme == Dev theme (checksum, zero drift).
 - **DB parity:** Local and Dev page lists + `_wp_page_template` metas are identical (30 published pages, same slugs/IDs).
