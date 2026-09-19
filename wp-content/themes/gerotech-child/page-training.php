@@ -157,7 +157,15 @@ $cta_url   = gerotech_field( 'training_cta_url', gerotech_page_url( 'contact' ) 
 
 				<?php foreach ( $locations as $i => $loc ) : ?>
 					<div class="<?php echo 0 === $i % 2 ? 'location_left' : 'location_right'; ?>">
-						<div id="location_<?php echo 0 === $i % 2 ? 'flat_rock' : 'grand_rapids'; ?>"></div>
+						<iframe
+							id="location_<?php echo 0 === $i % 2 ? 'flat_rock' : 'grand_rapids'; ?>"
+							class="location_map"
+							src="https://www.google.com/maps?q=<?php echo rawurlencode( $loc['address'] ); ?>&amp;output=embed"
+							style="border:0;display:block;"
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="<?php echo esc_attr( $loc['name'] . ' map' ); ?>"
+						></iframe>
 						<div class="location_head"><?php echo esc_html( $loc['name'] ); ?></div>
 						<div class="location_address"><?php echo esc_html( $loc['address'] ); ?></div>
 						<div class="location_phone_fax">P: <span class="orange"><?php echo esc_html( $loc['phone'] ); ?></span> &nbsp; F: <span class="orange"><?php echo esc_html( $loc['fax'] ); ?></span></div>
@@ -168,38 +176,6 @@ $cta_url   = gerotech_field( 'training_cta_url', gerotech_page_url( 'contact' ) 
 
 		</div>
 	</section>
-
-	<script>
-
-      function initMap() {
-
-        var flat_rock = {lat: 42.0933039, lng: -83.2480333};
-        var map = new google.maps.Map(document.getElementById('location_flat_rock'), {
-          zoom: 16,
-          center: flat_rock
-        });
-        var marker = new google.maps.Marker({
-          position: flat_rock,
-          map: map
-        });
-
-        var grand_rapids = {lat: 43.014185, lng: -85.7591209};
-        var map2 = new google.maps.Map(document.getElementById('location_grand_rapids'), {
-          zoom: 15,
-          center: grand_rapids
-        });
-        var marker = new google.maps.Marker({
-          position: grand_rapids,
-          map: map2
-        });
-
-      }
-
-    </script>
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=<?php echo esc_attr( apply_filters( 'gerotech_google_maps_key', 'AIzaSyCkwtPM8ZrwMbcJ0cSz2J-4IDbMLnUZU8Q' ) ); ?>&callback=initMap">
-    </script>
 
 
 

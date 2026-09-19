@@ -50,3 +50,28 @@ add_action( 'after_setup_theme', 'gerotech_child_setup' );
 /**
  * Excerpt / content helpers are intentionally absent — v1 templates are static.
  */
+
+/**
+ * Legacy / alias 301 redirects.
+ *
+ * The prototype ships `machine-modification.html` as a canonical redirect to
+ * Machine Custom Solutions. Recreate it as a real 301 (the dev DB has no such
+ * page, so it would otherwise 404).
+ */
+function gerotech_legacy_redirects() {
+	if ( ! is_404() ) {
+		return;
+	}
+
+	$path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+
+	$map = array(
+		'machine-modification' => '/modification-of-standard-machine-tools/',
+	);
+
+	if ( isset( $map[ $path ] ) ) {
+		wp_safe_redirect( home_url( $map[ $path ] ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'gerotech_legacy_redirects' );

@@ -2,6 +2,21 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Full proto ↔ Local ↔ Dev audit + fixes (opencode)
+- **File parity:** prototype `assets/` == repo theme == Local theme == Dev theme (checksum, zero drift).
+- **DB parity:** Local and Dev page lists + `_wp_page_template` metas are identical (30 published pages, same slugs/IDs).
+- **Rendered parity:** headless-Chrome audit (1440px) of 13 URLs on Local + Dev + prototype — **Local == Dev** for every page (section class sequences, image counts, broken images, console errors). Prototype == Local for Homepage, ES, MCS, Applications, Automation, Careers (sections + visible text identical).
+- **Fixed — Google Maps:** `DeletedApiProjectMapError` (dead dev API key) on `training` + `contact` → replaced with **keyless iframe embeds** from the ACF locations repeater. 0 console errors now.
+- **Fixed — hero eyebrow drift:** prototype MCS / Applications / Automation still had `<p class="slide__eyebrow">` that the WP templates had removed (client request). Removed from the prototype so the source of truth matches.
+- **Fixed — `machine-modification` 404:** added a 301 → `/modification-of-standard-machine-tools/` in `functions.php` (`gerotech_legacy_redirects()`), matching the prototype canonical redirect.
+- **Known intentional divergences (not changed):**
+  1. **Training / Support / About** WP pages use the **legacy dev body** (`training.html` / `support.html` / `about.html` in the prototype are the new design). This was a deliberate earlier client request ("our header/footer + dev body").
+  2. **WP Support nav is a dropdown** (Service Request Forms / Rotary Repair / Planned Maintenance); prototype Support is a plain item.
+  3. Page `<title>`s come from the SEO plugin ("… - Gerotech, Inc.") vs prototype placeholders ("… — Gerotech").
+  4. Unconverted Dev URLs (`machines`, `news-and-events`, leftover ES child slugs) still render parent templates — no prototype exists.
+- **Link check:** 67 internal links crawled on Dev — all 200 (no 404s).
+- All fixes synced to Local + deployed to Dev, caches flushed.
+
 ## 2026-09-18 — Peek hero grows with content (min-height 500px) (opencode)
 - **Request:** "hero slider doesn't change vertical height based on content — see prototype."
 - **Finding:** prototype and Dev were actually identical — both hard-locked to `height: 500px` on desktop (`components.css` + `elevated.css`), with `.slide.is-active { overflow: hidden }`, so longer copy would clip rather than expand. (The 2026-09-18 Figma-alignment session had changed the earlier `height: auto` to a hard 500px.)
