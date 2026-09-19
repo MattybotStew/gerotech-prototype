@@ -145,6 +145,11 @@ function gerotech_field( $key, $default = null, $post_id = false ) {
 	if ( ! function_exists( 'get_field' ) ) {
 		return $default;
 	}
+	// Optional capture hook (used by the one-time content seeder): records the
+	// code default for every read, regardless of any stored value.
+	if ( isset( $GLOBALS['gerotech_capture_defaults'] ) && is_array( $GLOBALS['gerotech_capture_defaults'] ) ) {
+		$GLOBALS['gerotech_capture_defaults'][ $key ] = $default;
+	}
 	$v = get_field( $key, $post_id );
 	if ( null === $v || '' === $v || false === $v || ( is_array( $v ) && empty( $v ) ) ) {
 		return $default;

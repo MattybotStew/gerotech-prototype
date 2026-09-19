@@ -2,6 +2,15 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Seed ACF content into the DB (Local + Dev) (opencode)
+- **Request (option B):** pre-fill the ACF fields with the current content so editors see/edit real values, on Local **and** Dev.
+- **Method:** added a capture hook to `gerotech_field()` (`inc/helpers.php`) — when `$GLOBALS['gerotech_capture_defaults']` is an array, every read records its code default. A one-time seeder renders each page template with the hook on, then `update_field()`s the captured defaults onto the page. Avoids retyping defaults (single source of truth = the templates). `front-page.php` was switched from its bespoke `$acf_get` closure to `gerotech_field( $key, $default, $home_id )` so its defaults are captured too.
+- **Images:** ACF image fields only accept attachment IDs, and seeding theme-relative strings zeroed them. The seeder now imports each image source into the **media library** (theme assets copied; Unsplash stand-ins fetched via `curl` — Local blocks `WP_HTTP_BLOCK_EXTERNAL`), de-duped by a `_gerotech_src` meta, and stores the attachment ID.
+- **Seeded:** 15/58/21/17/21/32/15/11/17/9/9/12/5 fields across Home, ES, MCS, Applications, Automation, Careers, Training, Support, Service, Rotary, Planned, About, Contact + 3 global testimonials.
+- **Verified:** Local + Dev `get_field()` return real values/attachment URLs; front-end image counts unchanged (home 13, ES 9, careers 5, MCS 19) with **zero broken images**.
+- **Consequence:** DB values now override code defaults — a template-default change won't show until the field is updated. Re-seed documented in `.clinerules`.
+- Committed + pushed. Temp diagnostic admin users removed from Local + Dev.
+
 ## 2026-09-18 — ACF groups never rendered (missing `post_name` location rule) — fixed (opencode)
 - **Symptom:** editors saw "nothing to edit" on Home / ES / legacy pages; the block editor's Meta Boxes panel showed only the parent theme's old groups (e.g. “Home Options”).
 - **Root cause:** our ACF groups for ES/MCS/Applications/Automation, all 7 legacy pages, and Careers are located by `post_name == <slug>`. **ACF has no built-in `post_name` location rule**, so those groups were registered but never matched a location — they never rendered and their values were never saveable. The templates kept rendering because they use code defaults, which hid the bug. (`group_home_content` worked only because it uses `page_type == front_page`.)

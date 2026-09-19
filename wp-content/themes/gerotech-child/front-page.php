@@ -12,17 +12,9 @@ get_header();
 
 $home_id = get_the_ID();
 
-/** Read an ACF field (null-safe if ACF is inactive). */
-$acf_get = function ( $key ) use ( $home_id ) {
-	return function_exists( 'get_field' ) ? get_field( $key, $home_id ) : null;
-};
-/** Read an ACF field, falling back to a default when empty. */
-$pick = function ( $key, $default ) use ( $acf_get ) {
-	$v = $acf_get( $key );
-	if ( null === $v || '' === $v || false === $v || ( is_array( $v ) && empty( $v ) ) ) {
-		return $default;
-	}
-	return $v;
+/** Read an ACF field (null-safe if ACF is inactive), falling back to a default. */
+$pick = function ( $key, $default ) use ( $home_id ) {
+	return gerotech_field( $key, $default, $home_id );
 };
 
 /* ── Hero slides ───────────────────────────────────────────── */
