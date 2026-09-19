@@ -10,7 +10,8 @@
 |---|---|---|
 | `gerotech-logo.svg` | Header logo | Final |
 | `gerotech-logo-white.svg` | Footer logo | Final |
-| `haas-f1-lockup.png` | Haas Relationship brand card | Final |
+| `haas-f1-team.jpg` | Haas Relationship brand card (WP Engine-safe JPEG) | Final |
+| `haas-f1-lockup.png` | Legacy PNG — **403 on WP Engine**; do not use | Deprecated |
 | `haas-wordmark-watermark.svg` | Haas Relationship watermark (~5% opacity) | Final |
 | `fanuc-asi-seal.png` | ES credential band (clipped circle) | ⚠️ FANUC usage rights unconfirmed |
 | `haas-winners-circle.png` | Haas Tooling lineup panel (white) | Final |

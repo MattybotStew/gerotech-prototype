@@ -81,7 +81,7 @@ $stats = $pick(
 $haas_eyebrow  = $pick( 'haas_eyebrow', 'The Haas Relationship' );
 $haas_headline = $pick( 'haas_headline', "Proud to Be Michigan's\n<em>Haas Factory Outlet</em>" );
 $haas_lede     = $pick( 'haas_lede', "Gerotech is proud to serve as Michigan's Haas Factory Outlet, bringing together Haas CNC technology with the local expertise, engineering, service, training, and support manufacturers need. Since 1987, we've worked alongside manufacturers to understand their challenges and deliver solutions that make sense for their operation—from CNC machinery and automation to engineered solutions and ongoing support." );
-$haas_logo     = gerotech_image_url( $pick( 'haas_brand_logo', '' ), 'assets/images/haas-f1-lockup.png' );
+$haas_logo     = gerotech_image_url( $pick( 'haas_brand_logo', '' ), 'assets/images/haas-f1-team.jpg' );
 
 /* ── Machine lineup ────────────────────────────────────────── */
 $lineup_eyebrow  = $pick( 'lineup_eyebrow', 'Haas Factory Outlet' );

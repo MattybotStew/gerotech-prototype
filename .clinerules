@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-18 (Cursor — homepage Figma 7306:1063; agent docs synced)
+**Last Updated:** 2026-09-18 (Cursor — Haas F1 lockup → `haas-f1-team.jpg` on Dev)
 **Active Agent:** Cursor
-**Branch:** `master` — synced with `origin/master`
-**Last Commit:** `66d3369` Hero slide 2 headline: 'Our Showroom Machines Are Ready To Ship'
-**Uncommitted:** homepage Figma alignment (peeks, 500px hero, `cta-home-figma.jpg`, proto nav hrefs) + this agent-docs pass — **not committed**
+**Branch:** `master`
+**Last Commit:** (pending this commit) Haas F1 team JPEG for WP Engine 403 workaround
+**Uncommitted:** none after this commit
 
 **Legacy (dev/live-body) pages:** `support`, `service`, `training`, `rotary-repair`, `planned-maintenance`, `about`, `contact` — body ported from dev/live + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter. (Contact ported from **live** because live carries the real `@gerotech.com` emails.)
 - **Template-name rule:** some pages have `_wp_page_template` pointing at a **parent** template (rotary-repair → `rotary-repair.php`, planned-maintenance → `preventive-maintenance.php`, service → `page-service.php`). Child templates override only a **same-named file** — match the parent's filename, not necessarily `page-{slug}.php`. Check with `wp post meta get <id> _wp_page_template`.
@@ -43,7 +43,7 @@ There are **two copies** of the child theme: the repo (`wp-content/themes/gerote
 - Peek heroes: desktop `.hero-slider--peek` is **height: 500px** at `min-width: 901px` (must set in **both** `components.css` and `elevated.css` — elevated used to force `height: auto`). Padding **100px** top/bottom; copy vertically centered. Peek tiles **107px**. Peek CTAs not full-width; desktop peek buttons **+15px** `margin-top`.
 - Peek labels: 02 **In-Stock & Ready**, 03 **Automation for Michigan**. Slide 2 **headline** stays “Our Showroom Machines Are Ready To Ship” (client line).
 - Homepage CTA: Tristien body, **no phone lockup**, photo **`assets/images/cta-home-figma.jpg`** (Figma `7306:1327`). Body **52ch** / copy max `--hero-copy-max`.
-- Haas on homepage: watermark + F1 lockup + intro only. **No 4-column features band** in the current handoff. Do not re-add without client/Figma direction. CSS for `.haas-relationship__features` may still exist — do not resurrect it on the home template.
+- Haas on homepage: watermark + F1 lockup + intro only. Brand card is `assets/images/haas-f1-team.jpg` (not `haas-f1-lockup.png` — that PNG 403s on WP Engine). No 4-column features band. Do not re-add without client/Figma direction.
 - Interior `.page-hero` / `.page-hero-trust` share the 500px min-height + 100px padding.
 - Proto header: Training / Support / About link to `training.html` / `support.html` / `about.html`. **WP Support stays a dropdown** (Service Request / Rotary Repair / Planned Maintenance).
 - Testimonials: Ford + Kingbury quotes live in `partials/testimonials-block.html` (`?v=20260916`, `cache: 'no-store'`); WP reads global ACF options with those as defaults.

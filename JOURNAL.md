@@ -2,6 +2,11 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Haas F1 lockup JPEG for WP Engine Dev (Cursor)
+- Dev 403’d `haas-f1-lockup.png` (file was `chmod 600`; Cloudflare HTML 403). Other theme images 200.
+- Added `assets/images/haas-f1-team.jpg` (644) and pointed proto `index.html` + `front-page.php` default at it. Pushed that JPEG + `front-page.php` to `gerotechdev`; lockup now renders.
+- reCAPTCHA “Invalid domain for site key” remains on Dev — add `gerotechdev.wpenginepowered.com` to the Google key; not a theme bug.
+
 ## 2026-09-18 — All agent docs synced to homepage Figma handoff (Cursor)
 - Pointed Cline/Cursor/Claude/Copilot at the same homepage facts: Figma home **`7306:1063`**, 500px peek hero, peek titles, `cta-home-figma.jpg`, Haas intro-only (no features band), proto nav hrefs, WP Support dropdown kept.
 - Files: `.clinerules`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/gerotech-agent-sync.mdc`, `design-spec.md`, `cline-project-handoff.md`, `.github/copilot-instructions.md`. Code still uncommitted.
