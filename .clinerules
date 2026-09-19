@@ -13,6 +13,8 @@
 
 **Dev theme verified (2026-09-18):** checksum rsync of `wp-content/themes/gerotech-child/` repo → `gerotechdev` = **zero content drift**. Direct SSH deploy works (key `~/Library/Application Support/Local/ssh/wpe-connect`, user `gerotechdev@gerotechdev.ssh.wpengine.net`, path `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`). WP-CLI + `wp page-cache flush` / `wp cdn-cache flush` available over the same SSH.
 
+**Dev DB `_wp_page_template` fix (2026-09-18):** Dev's DB still had stale parent templates overriding our child templates — the 4 ES pages (`28 engineered-solutions`, `1250 modification-of-standard-machine-tools`, `1265 unique-applications-for-standard-machines`, `1239 automated-system`) pointed at `page-solutions.php`, and `1535 support` at `page-service-home.php`, so they rendered the **parent** markup. Cleared those metas (plus `11 home`, `14 about`, `16 contact`, `39 training`) and set `18 careers` to `default`, mirroring the Local DB. If Dev is ever re-pulled/reset, re-apply. `service` (`page-service.php`), `rotary-repair` (`rotary-repair.php`), `planned-maintenance` (`preventive-maintenance.php`) intentionally keep metas whose filenames match our child templates.
+
 ### Next session — pickup here
 
 **Live Dev:** https://gerotechdev.wpenginepowered.com/ — **Gerotech Child** is the active theme. Homepage matches Figma `7306:1063`. Haas F1 card uses `assets/images/haas-f1-team.jpg` (200). Stage holds a copy of Dev for rollback.

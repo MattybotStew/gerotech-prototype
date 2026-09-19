@@ -2,6 +2,13 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Dev DB fix: parent page templates were overriding the child (opencode)
+- **Symptom (reported via screenshot):** `/engineered-solutions/` on Dev rendered the **parent** theme's hero/body ("Collaborative, cutting-edge solutions." / "It starts with our approach."), not our template.
+- **Cause:** Dev's `wp_postmeta` still had `_wp_page_template` pointing at parent templates — the 4 ES pages (IDs 28, 1250, 1265, 1239) at `page-solutions.php` and support (1535) at `page-service-home.php`. A page's assigned template overrides our slug templates. The Local DB had these cleared (2026-09-16) but Dev's was never updated (theme-only pushes).
+- **Fix:** `wp eval-file` on Dev → `delete_post_meta` for IDs 11, 14, 16, 28, 39, 1239, 1250, 1265, 1535; `update_post_meta(18, '_wp_page_template', 'default')`. Mirrors Local. Flushed page + CDN cache.
+- **Verified on Dev:** `/engineered-solutions/` now shows "Your Manufacturing …" (our template), `why-section` present, parent copy gone; MCS/Applications/Automation render our design + gallery collections; `/support/` renders our `.legacy` body. All 200, no PHP warnings.
+- **Note:** `service`, `rotary-repair`, `planned-maintenance` intentionally keep metas whose filenames match our child templates. Re-apply this fix if Dev is re-pulled/reset.
+
 ## 2026-09-18 — Phase 2 ACF on legacy pages + Careers page live on Dev (opencode)
 - **Request:** "do it all" — finish the WP Engine move: reCAPTCHA domain, Phase 2 ACF, unconverted Dev URLs, git push.
 - **Phase 2 ACF (done):** new `inc/acf-legacy-fields.php` (required from `functions.php`) registers 7 groups by `post_name`: `group_training_content`, `group_support_content`, `group_service_content`, `group_rotary_content`, `group_planned_content`, `group_about_content`, `group_contact_content`. Wired the matching templates (`page-training.php`, `page-support.php`, `page-service.php`, `rotary-repair.php`, `preventive-maintenance.php`, `page-about.php`, `page-contact.php`) to read ACF with the current markup as **defaults** (zero visual regression). Editable: heroes, intros, repeaters (service columns, training courses, contact departments/locations, training locations), CTA. **Hardcoded:** CF7 shortcodes, Google Maps JS, the PM inspection checklists, tab chrome.
