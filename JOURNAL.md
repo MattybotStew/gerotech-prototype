@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Pickup notes for next agent (Cursor)
+- **Git:** `master` @ `ba259ca` = `origin/master`. Clean tree.
+- **Dev:** child theme active at https://gerotechdev.wpenginepowered.com/ . Theme-only push (no DB). Rollback = Stage copy of Dev. Never Production.
+- **Homepage:** Figma `7306:1063`. F1 image `haas-f1-team.jpg`. Do not use `haas-f1-lockup.png` on WP Engine.
+- **Next work:** (1) reCAPTCHA Dev domain on Google key, (2) Phase 2 ACF on legacy pages, (3) unconverted Dev URLs still parent+child-CSS. Pickup block is at the top of `.clinerules`.
+
 ## 2026-09-18 — Haas F1 lockup JPEG for WP Engine Dev (Cursor)
 - Dev 403’d `haas-f1-lockup.png` (file was `chmod 600`; Cloudflare HTML 403). Other theme images 200.
 - Added `assets/images/haas-f1-team.jpg` (644) and pointed proto `index.html` + `front-page.php` default at it. Pushed that JPEG + `front-page.php` to `gerotechdev`; lockup now renders.

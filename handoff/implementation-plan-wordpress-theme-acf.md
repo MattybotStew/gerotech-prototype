@@ -1,7 +1,7 @@
 # Gerotech → WordPress Implementation Plan
 ## Static HTML theme + ACF fields (no page builder)
 
-**Status:** In build — 9 pages live in local WP; **Phase 4 (ACF) next**
+**Status:** Child theme **live on gerotechdev** (2026-09-18). Homepage + 4 ES pages ACF-wired. Legacy pages ACF = Phase 2.
 **Created:** September 16, 2026
 **Owner:** CloudMellow (retainer build)
 **Source of truth:** `wp-content/themes/gerotech-child/` in this repo
@@ -11,13 +11,13 @@
 
 ## 0. Picking this up cold
 
-**Read first:** `.clinerules` → `JOURNAL.md` (newest first) → this file (§12, §12b, §13).
+**Read first:** `.clinerules` (**Next session — pickup here**) → `JOURNAL.md` (newest first) → this file (§12b, §13, §14).
 
 **Where we are (2026-09-16):**
 - Child theme `wp-content/themes/gerotech-child/` built and running in **LocalWP** (`gerotech.local`).
-- **Phases 1–3 done** for **9 pages**: homepage, 4 ES pages, Training, Support, About, Contact. All hardcoded markup, verified responsive.
-- **Phase 4 (ACF) is next** — none of the 9 templates read ACF yet, so the client cannot edit them.
-- **Push to dev: deferred.** Nothing has been pushed to `gerotechdev`.
+- **Phases 1–3 done** for **9 pages**: homepage, 4 ES pages, Training, Support, About, Contact.
+- **ACF:** homepage + 4 ES pages + global testimonials options page. Legacy Training/Support/About/Contact ACF = Phase 2.
+- **Push to Dev: done 2026-09-18** (child theme files only). See §14.
 
 **How to resume locally:**
 1. Open **LocalWP** → start the **gerotech** site (`~/Local Sites/gerotech/app/public`, `https://gerotech.local`).
@@ -247,7 +247,7 @@ Dev (`gerotechdev.wpenginepowered.com`) has a different, deeper IA (30 pages) th
 
 **Local state (2026-09-16):** full pull of `gerotechdev` → local (`gerotech.local`, https) done. Child theme active; the 9 mapped pages had their parent `_wp_page_template` cleared so slug templates apply. All 9 verified 200 at 360–1920, no overflow, no console errors.
 
-**Push to dev: deferred** (user decision). When ready: custom push (child theme + activate) or full push once more pages are converted. Unconverted dev pages will break when the child theme is activated there.
+**Push to Dev (2026-09-18):** child theme live on `gerotechdev` (files only). Unconverted URLs still unfinished. See §14.
 
 **Notes:** site-wide reCAPTCHA badge (plugin) shows bottom-right on all pages. Unconverted local pages render unfinished (parent templates + child CSS). Out of scope: Careers, Machines, Service, Contact-adjacent pages, News, and the remaining ES sub-pages.
 
@@ -270,14 +270,19 @@ Dev (`gerotechdev.wpenginepowered.com`) has a different, deeper IA (30 pages) th
 2. Wire each `page-*.php` to read fields with the current markup as defaults (same pattern as `front-page.php`).
 3. Reuse the parent's existing options page for globals (alert-banner phones, header CTA, footer columns, shared testimonials).
 
-**First action on pickup:** register the **Engineered Solutions** group (largest remaining: page-hero, why-section, credential band, tech partners, capability cards, trust FAQ, news lead **Group** + news items, CTA, signup) and wire `page-engineered-solutions.php`.
+**First action on pickup:** `.clinerules` **Next session** block. Then either reCAPTCHA Dev domain, or Phase 2 ACF on legacy pages — do not re-register ES ACF (already wired).
 
 ---
 
-## 14. Push to dev (deferred)
+## 14. Push to Dev (first drop done 2026-09-18)
 
-Not started. When approved:
-- **Safer:** custom push of `wp-content/themes/gerotech-child/` only, then activate on dev via WP admin.
-- **Or:** full Local push (files + DB).
-- **Risk:** activating the child on dev breaks every page not yet converted (parent `page-*.php` markup + our CSS). Convert/cover more pages first, or accept a partial rollout window.
-- WP Engine creates a backup point before a push — verify before proceeding.
+**Done:** Local → `gerotechdev`, **theme files only** (`gerotech-child`), no database. Child **activated**. Homepage verified. Haas F1 uses `haas-f1-team.jpg` (the `.png` 403s). Stage is the Dev rollback.
+
+**Repeat this way:**
+- Environment: Development (`gerotechdev`) — never Production
+- Files: Select → `wp-content/themes/gerotech-child/` only
+- Uncheck Database, `wp-admin`, `wp-includes`, `uploads`
+- If Local hides the theme (chmod-only change): switch filter from “only newer files” to all files
+- Purge WP Engine cache; hard-refresh
+
+**Still true:** unconverted Dev URLs look unfinished. Do not full-push Local DB (would overwrite Dev users/content and ship local `wp-config` workarounds).

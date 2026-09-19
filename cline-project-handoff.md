@@ -17,7 +17,9 @@ The HTML prototype on **`master`** is **presentation-ready**, not a wireframe.
 - **Design directions:** see **`AGENTS.md` → Design directions (2026-08-17)** for Haas/news/testimonial/accent patterns — do not drift
 - **Images:** Unsplash stand-ins (not dashed-border divs); verify URLs — some 404 over time (swap table in `design-spec.md`)
 - **UX:** Search modal, email signup thanks, sticky header, wired mailto/tel CTAs
-- **Read first:** `.clinerules` + `JOURNAL.md` + `docs/PROJECT_BRIEF.md` for current state
+- **Read first:** `.clinerules` (section **Next session — pickup here**) + `JOURNAL.md` + `docs/PROJECT_BRIEF.md`
+
+**WP Engine Dev (2026-09-18):** child theme is live on https://gerotechdev.wpenginepowered.com/ . Theme-only pushes. Stage = Dev rollback. F1 JPEG `haas-f1-team.jpg`. reCAPTCHA Dev domain still invalid.
 
 Historical wireframe/timeline context below is still useful for client decisions and live-site audit.
 

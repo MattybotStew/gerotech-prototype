@@ -15,6 +15,13 @@ Desktop home is Gerotech-Design canvas `6573:406` → frame **`7306:1063`**. Kee
 - Homepage CTA: `assets/images/cta-home-figma.jpg`, no phone lockup.
 - Proto Training / Support / About have page hrefs. WP Support remains a service dropdown.
 
+## WP Engine Dev (as of 2026-09-18)
+
+- URL: https://gerotechdev.wpenginepowered.com/ — Gerotech Child **active**.
+- Push from Local: **Dev only**, files **Select** → `wp-content/themes/gerotech-child/` only, **Database off**. Never `wp-admin` / `wp-includes` / `uploads`. Never Production.
+- After a Pull from WPE, re-run `./scripts/sync-theme-to-local.sh`.
+- reCAPTCHA site key does not include the Dev hostname yet (red “Invalid domain for site key” chip).
+
 ## Project
 
 CloudMellow (Matt's agency) is rebuilding the Gerotech website (Michigan CNC machinery distributor, Haas Factory Outlet, est. 1987). The repo holds **two things**: the **static HTML/CSS/JS prototype** (design source of truth) and the **WordPress child theme build** under `wp-content/themes/gerotech-child/`. The final site is WordPress.

@@ -6,7 +6,7 @@
 
 Static HTML/CSS/JS **presentation prototype** for **Gerotech, Inc.** — Michigan-based CNC machinery distributor & engineering solutions provider (serving manufacturers since 1987). Built for the **July 7, 2026** client presentation.
 
-**Current stage: WP child theme + ACF (2026-09-18).** Prototype remains asset source of truth until design lock. Homepage matches Figma home **`7306:1063`** (500px peek hero, Haas intro-only, `cta-home-figma.jpg`). **Always read `.clinerules` first.** Design system notes: `AGENTS.md`.
+**Current stage: WP child theme live on Dev (2026-09-18).** `gerotechdev.wpenginepowered.com` runs **Gerotech Child**. Git `master` @ `ba259ca`. Homepage Figma **`7306:1063`**. F1 card `haas-f1-team.jpg`. **Always read `.clinerules` → Next session — pickup here.**
 
 **Live site:** https://gerotech.com/ (WordPress — reference only; prototype is ahead of live ES hub)
 

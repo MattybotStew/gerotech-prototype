@@ -4,7 +4,7 @@ Shared multi-agent repo (Cursor, Cline, Copilot, Claude, etc.). Stay aligned via
 
 ## Read at session start (in order)
 
-1. `.clinerules` — live session state, blockers, recent decisions, what not to do
+1. `.clinerules` — **Next session — pickup here** first, then blockers / what not to do
 2. `AGENTS.md` — stack + conventions (canonical LLM instructions)
 3. `FIGMA.md` — Figma remote MCP config, file links, design-to-code flow
 4. `JOURNAL.md` — newest entry first (cross-agent change log)
@@ -19,6 +19,7 @@ Shared multi-agent repo (Cursor, Cline, Copilot, Claude, etc.). Stay aligned via
 - Unsplash images are stand-ins — verify URLs (some 404 over time), comment each `<img>`
 - Never guess open client decisions — use placeholder + HTML comment
 - Never use a real FANUC logo (usage rights unconfirmed)
+- WP Engine: push **Dev only**, child theme files only, **no database**. Never Production. F1 image = `haas-f1-team.jpg`.
 
 ## Figma (remote MCP — always available)
 
