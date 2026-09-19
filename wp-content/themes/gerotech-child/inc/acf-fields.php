@@ -632,3 +632,108 @@ acf_add_local_field_group(
 		),
 	)
 );
+
+/**
+ * Careers.
+ */
+acf_add_local_field_group(
+	array(
+		'key'      => 'group_careers_content',
+		'title'    => 'Careers — Content',
+		'location' => array(
+			array(
+				array( 'param' => 'post_name', 'operator' => '==', 'value' => 'careers' ),
+			),
+		),
+		'position' => 'normal',
+		'style'    => 'default',
+		'fields'   => array(
+
+			/* ── Hero ─────────────────────────────────────────── */
+			array( 'key' => 'field_careers_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_careers_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'careers_hero_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_careers_hero_headline', 'label' => 'Headline', 'name' => 'careers_hero_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Wrap the accent phrase in &lt;em&gt;…&lt;/em&gt;.' ),
+			array( 'key' => 'field_careers_hero_body', 'label' => 'Body', 'name' => 'careers_hero_body', 'type' => 'textarea', 'rows' => 3 ),
+			array( 'key' => 'field_careers_hero_cta_label', 'label' => 'Button label', 'name' => 'careers_hero_cta_label', 'type' => 'text' ),
+			array( 'key' => 'field_careers_hero_cta_url', 'label' => 'Button URL', 'name' => 'careers_hero_cta_url', 'type' => 'text' ),
+			array( 'key' => 'field_careers_hero_image', 'label' => 'Background image', 'name' => 'careers_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+			array(
+				'key'          => 'field_careers_hero_stats',
+				'label'        => 'Hero facts',
+				'name'         => 'careers_hero_stats',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add fact',
+				'sub_fields'   => array(
+					array( 'key' => 'field_careers_stat_value', 'label' => 'Value', 'name' => 'value', 'type' => 'text' ),
+					array( 'key' => 'field_careers_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+				),
+			),
+
+			/* ── Culture ──────────────────────────────────────── */
+			array( 'key' => 'field_careers_culture_tab', 'label' => 'Culture', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_careers_culture_eyebrow', 'label' => 'Eyebrow', 'name' => 'careers_culture_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_careers_culture_headline', 'label' => 'Headline', 'name' => 'careers_culture_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_careers_culture_body', 'label' => 'Body', 'name' => 'careers_culture_body', 'type' => 'textarea', 'rows' => 3 ),
+			array( 'key' => 'field_careers_culture_body2', 'label' => 'Body (second paragraph)', 'name' => 'careers_culture_body2', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_careers_culture_cta_label', 'label' => 'Button label', 'name' => 'careers_culture_cta_label', 'type' => 'text' ),
+			array( 'key' => 'field_careers_culture_cta_url', 'label' => 'Button URL', 'name' => 'careers_culture_cta_url', 'type' => 'text' ),
+			array( 'key' => 'field_careers_culture_image', 'label' => 'Image', 'name' => 'careers_culture_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+
+			/* ── Open positions ───────────────────────────────── */
+			array( 'key' => 'field_careers_positions_tab', 'label' => 'Open Positions', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_careers_positions_eyebrow', 'label' => 'Eyebrow', 'name' => 'careers_positions_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_careers_positions_title', 'label' => 'Title', 'name' => 'careers_positions_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array(
+				'key'          => 'field_careers_positions',
+				'label'        => 'Positions',
+				'name'         => 'careers_positions',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add position',
+				'sub_fields'   => array(
+					array( 'key' => 'field_careers_pos_title', 'label' => 'Job title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_careers_pos_url', 'label' => 'Application URL', 'name' => 'url', 'type' => 'text', 'instructions' => 'mailto: or ATS URL.' ),
+					array( 'key' => 'field_careers_pos_location', 'label' => 'Location', 'name' => 'location', 'type' => 'text' ),
+					array( 'key' => 'field_careers_pos_dept', 'label' => 'Department', 'name' => 'department', 'type' => 'text' ),
+					array( 'key' => 'field_careers_pos_date', 'label' => 'Post date', 'name' => 'date', 'type' => 'text' ),
+				),
+			),
+
+			/* ── Benefits ─────────────────────────────────────── */
+			array( 'key' => 'field_careers_benefits_tab', 'label' => 'Benefits', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_careers_benefits_eyebrow', 'label' => 'Eyebrow', 'name' => 'careers_benefits_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_careers_benefits_title', 'label' => 'Title', 'name' => 'careers_benefits_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_careers_benefits_body', 'label' => 'Body', 'name' => 'careers_benefits_body', 'type' => 'textarea', 'rows' => 3 ),
+			array(
+				'key'          => 'field_careers_benefits',
+				'label'        => 'Benefit cards',
+				'name'         => 'careers_benefits',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'sub_fields'   => array(
+					array( 'key' => 'field_careers_benefit_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+					array( 'key' => 'field_careers_benefit_body', 'label' => 'Body', 'name' => 'body', 'type' => 'textarea', 'rows' => 2 ),
+				),
+			),
+			array( 'key' => 'field_careers_benefits_note', 'label' => 'Note', 'name' => 'careers_benefits_note', 'type' => 'textarea', 'rows' => 2 ),
+
+			/* ── CTA band ─────────────────────────────────────── */
+			array( 'key' => 'field_careers_cta_tab', 'label' => 'CTA Band', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_careers_cta_eyebrow', 'label' => 'Eyebrow', 'name' => 'careers_cta_eyebrow', 'type' => 'text' ),
+			array( 'key' => 'field_careers_cta_headline', 'label' => 'Headline', 'name' => 'careers_cta_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_careers_cta_body', 'label' => 'Body', 'name' => 'careers_cta_body', 'type' => 'textarea', 'rows' => 2 ),
+			array( 'key' => 'field_careers_cta_primary_label', 'label' => 'Primary button label', 'name' => 'careers_cta_primary_label', 'type' => 'text' ),
+			array( 'key' => 'field_careers_cta_primary_url', 'label' => 'Primary button URL', 'name' => 'careers_cta_primary_url', 'type' => 'text' ),
+			array( 'key' => 'field_careers_cta_secondary_label', 'label' => 'Secondary button label', 'name' => 'careers_cta_secondary_label', 'type' => 'text' ),
+			array( 'key' => 'field_careers_cta_secondary_url', 'label' => 'Secondary button URL', 'name' => 'careers_cta_secondary_url', 'type' => 'text' ),
+			array( 'key' => 'field_careers_cta_image', 'label' => 'Background image', 'name' => 'careers_cta_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+
+			/* ── Mailing list ─────────────────────────────────── */
+			array( 'key' => 'field_careers_signup_tab', 'label' => 'Mailing List', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_careers_signup_title', 'label' => 'Title', 'name' => 'careers_signup_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			array( 'key' => 'field_careers_signup_sub', 'label' => 'Subtext', 'name' => 'careers_signup_sub', 'type' => 'text' ),
+		),
+	)
+);

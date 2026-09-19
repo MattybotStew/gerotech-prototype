@@ -17,10 +17,11 @@ Desktop home is Gerotech-Design canvas `6573:406` → frame **`7306:1063`**. Kee
 
 ## WP Engine Dev (as of 2026-09-18)
 
-- URL: https://gerotechdev.wpenginepowered.com/ — Gerotech Child **active**.
+- URL: https://gerotechdev.wpenginepowered.com/ — Gerotech Child **active**. Homepage, 4 ES pages, 7 legacy pages (ACF-wired), and Careers are live.
 - Push from Local: **Dev only**, files **Select** → `wp-content/themes/gerotech-child/` only, **Database off**. Never `wp-admin` / `wp-includes` / `uploads`. Never Production.
+- **Direct deploy (no GUI):** `rsync -avz -e "ssh -i \"$HOME/Library/Application Support/Local/ssh/wpe-connect\"" wp-content/themes/gerotech-child/ gerotechdev@gerotechdev.ssh.wpengine.net:/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`, then `wp page-cache flush` + `wp cdn-cache flush` (path `/nas/content/live/gerotechdev`). See `handoff/implementation-plan-wordpress-theme-acf.md` §14.
 - After a Pull from WPE, re-run `./scripts/sync-theme-to-local.sh`.
-- reCAPTCHA site key does not include the Dev hostname yet (red “Invalid domain for site key” chip).
+- reCAPTCHA site key `6LcOOuoaAAAAADRxx65d0pb_BvgWG9d9e5aqE9k6` does not include the Dev hostname yet (red “Invalid domain for site key” chip) — needs Google reCAPTCHA admin access.
 
 ## Project
 
@@ -113,7 +114,7 @@ Homepage and shared components use an editorial, numbered-row system with invert
 | Homepage wireframe | `6218:10` |
 | ES wireframe | `6217:425` |
 
-## Pages (11 HTML)
+## Pages (12 HTML)
 
 | Page | File |
 |------|------|
@@ -125,6 +126,7 @@ Homepage and shared components use an editorial, numbered-row system with invert
 | Training | `training.html` |
 | Support | `support.html` |
 | About | `about.html` |
+| Careers | `careers.html` |
 | Machine Modification | `machine-modification.html` (redirect → MCS) |
 | Showroom | `showroom.html` (exploratory) |
 | Hero variations | `hero-variations.html` (exploratory) |

@@ -257,11 +257,14 @@ Dev (`gerotechdev.wpenginepowered.com`) has a different, deeper IA (30 pages) th
 
 **Goal:** make the 9 built pages client-editable. ACF Pro is already active; the parent registers field groups but they're tied to the **old** markup, so our sections need **new groups** (don't reuse the parent's blindly).
 
-**Progress (2026-09-16):**
+**Progress (2026-09-18):**
 - ✅ `inc/acf-fields.php` created + required from `functions.php`; **Homepage group** (`group_home_content`, location `page_type == front_page`) registered and verified in the editor — tabs: Hero slides, Stats, Haas Relationship, Machine Lineup, CTA Band, Mailing List.
 - ✅ `front-page.php` wired to ACF with the current design as **defaults** (renders correctly even with empty fields — important for a theme-only push). No regression.
-- ✅ Helpers added: `gerotech_accent()` (em→accent span + line breaks), `gerotech_image_url()`, `gerotech_parse_tags()`.
-- ⬜ Remaining groups: ES hub, MCS, Applications, Automation, Training, Support, About, Contact.
+- ✅ ES hub + MCS + Applications + Automation groups wired (2026-09-18).
+- ✅ Testimonials global repeater (options page `gerotech-site-content`).
+- ✅ **Phase 2 — legacy pages wired:** `inc/acf-legacy-fields.php` (7 groups by `post_name`) + all 7 templates read ACF with the current markup as defaults. Forms/maps/inspection checklists stay hardcoded.
+- ✅ **Careers** built from `careers.html` + `group_careers_content`.
+- ⬜ Remaining: editable WP menus, per-page email-form internals (deferred), any new pages.
 
 **Editor model:** plain-text textareas; wrap the accent phrase in `<em>…</em>`; line breaks become the design's forced breaks. Machine-lineup tags = one `Label | URL` per line (flat — repeaters can't nest). Panels are one flat repeater.
 
@@ -284,5 +287,18 @@ Dev (`gerotechdev.wpenginepowered.com`) has a different, deeper IA (30 pages) th
 - Uncheck Database, `wp-admin`, `wp-includes`, `uploads`
 - If Local hides the theme (chmod-only change): switch filter from “only newer files” to all files
 - Purge WP Engine cache; hard-refresh
+
+**Direct deploy (discovered 2026-09-18, no Local GUI needed):**
+```bash
+KEY="$HOME/Library/Application Support/Local/ssh/wpe-connect"
+SSH_CMD="ssh -i '$KEY' -o BatchMode=yes"
+rsync -avz -e "$SSH_CMD" \
+  wp-content/themes/gerotech-child/ \
+  gerotechdev@gerotechdev.ssh.wpengine.net:/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/
+# then, over SSH:
+wp page-cache flush --path=/nas/content/live/gerotechdev
+wp cdn-cache flush  --path=/nas/content/live/gerotechdev
+```
+Verify with a checksum dry-run (`rsync -avnc --itemize-changes`) — expect zero drift.
 
 **Still true:** unconverted Dev URLs look unfinished. Do not full-push Local DB (would overwrite Dev users/content and ship local `wp-config` workarounds).

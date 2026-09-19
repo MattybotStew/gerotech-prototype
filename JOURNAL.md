@@ -2,6 +2,15 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Phase 2 ACF on legacy pages + Careers page live on Dev (opencode)
+- **Request:** "do it all" — finish the WP Engine move: reCAPTCHA domain, Phase 2 ACF, unconverted Dev URLs, git push.
+- **Phase 2 ACF (done):** new `inc/acf-legacy-fields.php` (required from `functions.php`) registers 7 groups by `post_name`: `group_training_content`, `group_support_content`, `group_service_content`, `group_rotary_content`, `group_planned_content`, `group_about_content`, `group_contact_content`. Wired the matching templates (`page-training.php`, `page-support.php`, `page-service.php`, `rotary-repair.php`, `preventive-maintenance.php`, `page-about.php`, `page-contact.php`) to read ACF with the current markup as **defaults** (zero visual regression). Editable: heroes, intros, repeaters (service columns, training courses, contact departments/locations, training locations), CTA. **Hardcoded:** CF7 shortcodes, Google Maps JS, the PM inspection checklists, tab chrome.
+- **Careers (done):** the prototype `careers.html` had no WP template. Built `page-careers.php` (new design system, `page-hero-trust` + `careers-table` + benefits cards + CTA + mailing list) and added `group_careers_content` to `inc/acf-fields.php`. Live at `/careers/`.
+- **Deploy:** direct `rsync` over the Local WPE key (`~/Library/Application Support/Local/ssh/wpe-connect`, `gerotechdev@gerotechdev.ssh.wpengine.net`, `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`), then `wp page-cache flush` + `wp cdn-cache flush`. Verified all 8 pages 200 and PHP-warning-free on Dev; `acf_get_field_groups()` confirms all 11 of our groups registered.
+- **reCAPTCHA (blocked):** CF7 site key `6LcOOuoaAAAAADRxx65d0pb_BvgWG9d9e5aqE9k6` (in the `wpcf7` option) does not allow `gerotechdev.wpenginepowered.com`. Only the Google reCAPTCHA account owner can add the domain — no credential/API here. Documented for the client.
+- **Unconverted Dev URLs (deferred, needs direction):** `machines`, `news-and-events`, and the leftover ES child slugs have no prototype; building them would be guessing. Left as-is (parent templates + our header/footer) and documented in `.clinerules`.
+- **Git:** committed + pushed to `origin/master`.
+
 ## 2026-09-18 — Dev theme verified in sync; F1 PNG 403 fixed (opencode)
 - **Request:** "finish moving to WP Engine" (scope: push latest child theme to Dev).
 - **Finding:** the theme was **already fully deployed**. A checksum rsync (`rsync -avnc`) of `wp-content/themes/gerotech-child/` → `gerotechdev` showed **zero content drift** across all 104 files. Dev runs `gerotech-child` active; `/`, `/engineered-solutions/`, `/support/`, `/contact/` all 200.

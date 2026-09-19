@@ -20,6 +20,7 @@ define( 'GEROTECH_CHILD_URI', get_stylesheet_directory_uri() );
 require_once GEROTECH_CHILD_DIR . '/inc/helpers.php';
 require_once GEROTECH_CHILD_DIR . '/inc/enqueue.php';
 require_once GEROTECH_CHILD_DIR . '/inc/acf-fields.php';
+require_once GEROTECH_CHILD_DIR . '/inc/acf-legacy-fields.php';
 
 /**
  * Theme supports.

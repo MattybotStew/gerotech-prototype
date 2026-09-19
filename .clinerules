@@ -5,30 +5,31 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-18 (opencode — Dev theme verified in sync + F1 PNG 403 fixed)
+**Last Updated:** 2026-09-18 (opencode — Phase 2 ACF + Careers page live on Dev)
 **Active Agent:** opencode
-**Branch:** `master` — **ahead 1** of `origin/master` (`4e5ed7f` not pushed)
-**Last Commit:** `4e5ed7f` Document Dev go-live and next-session pickup for all agents
-**Uncommitted:** `.clinerules` + `JOURNAL.md` (session notes) — commit if you want origin to match local HEAD
+**Branch:** `master` — synced with `origin/master`
+**Last Commit:** see `git log -1` (Phase 2 ACF + Careers)
+**Uncommitted:** none expected after this session's commit
 
-**Dev theme verified (2026-09-18):** checksum rsync of `wp-content/themes/gerotech-child/` repo → `gerotechdev` = **zero content drift**. Direct SSH deploy works (key `~/Library/Application Support/Local/ssh/wpe-connect`, user `gerotechdev@gerotechdev.ssh.wpengine.net`, path `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`). Only fix needed was the F1 PNG perms (below).
+**Dev theme verified (2026-09-18):** checksum rsync of `wp-content/themes/gerotech-child/` repo → `gerotechdev` = **zero content drift**. Direct SSH deploy works (key `~/Library/Application Support/Local/ssh/wpe-connect`, user `gerotechdev@gerotechdev.ssh.wpengine.net`, path `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`). WP-CLI + `wp page-cache flush` / `wp cdn-cache flush` available over the same SSH.
 
 ### Next session — pickup here
 
 **Live Dev:** https://gerotechdev.wpenginepowered.com/ — **Gerotech Child** is the active theme. Homepage matches Figma `7306:1063`. Haas F1 card uses `assets/images/haas-f1-team.jpg` (200). Stage holds a copy of Dev for rollback.
 
-**Do not** push Local → Production. **Do not** push the Local database. Theme-only: `wp-content/themes/gerotech-child/` (Select files). Uncheck `wp-admin`, `wp-includes`, `uploads`. Use **all files** not “only newer” if a chmod/content fix doesn’t show. After push: activate child if needed, purge WP Engine cache, hard-refresh.
+**Do not** push Local → Production. **Do not** push the Local database. Theme-only: `wp-content/themes/gerotech-child/` (Select files). Uncheck `wp-admin`, `wp-includes`, `uploads`. After push: purge WP Engine cache, hard-refresh. (Direct rsync deploy also works — see above.)
 
-**Open leftovers (not blockers for Dev homepage):**
-1. reCAPTCHA “Invalid domain for site key” on Dev — add `gerotechdev.wpenginepowered.com` to Google reCAPTCHA admin for key `6LcOOuoa…` (CF7 Integration). Ignore for visual QA.
-2. Phase 2 ACF: legacy Training / Support / Service / Rotary Repair / Planned Maintenance / About / Contact (user-deferred).
-3. Unconverted Dev URLs still look unfinished (parent templates + child CSS): Careers, Machines, News, leftover ES slugs, etc.
-4. ~~`haas-f1-lockup.png` 403 on WP Engine~~ — **fixed 2026-09-18**: was `chmod 600` on Dev; set to `644`, now serves 200. Still prefer `haas-f1-team.jpg` (current homepage image).
-5. Local admin password may not match `localpass123` after a WPE Pull.
+**Open leftovers (not blockers):**
+1. reCAPTCHA “Invalid domain for site key” on Dev — **needs Google admin** (no API/credential here). Add `gerotechdev.wpenginepowered.com` to the Google reCAPTCHA admin allowed-domains for the CF7 site key `6LcOOuoaAAAAADRxx65d0pb_BvgWG9d9e5aqE9k6` (stored in the `wpcf7` option `recaptcha`). Ignore for visual QA.
+2. **Unconverted Dev URLs need design/content direction** (no prototype): `machines`, `news-and-events`, and the leftover ES child slugs (`custom-workholding-and-tooling`, `engineering-process-optimization`, `hydraulic-pneumatic-clamping-systems`, `5-axis-cnc-grinders`, `integration-partners`, `custom-training-program`, `application-support`, `scheduled-training`, `parts-order`, `submit-a-request`, `preventive-maintenance-plan`, …). Do **not** invent these — they render with parent templates + our header/footer until scoped.
+3. Local admin password may not match `localpass123` after a WPE Pull.
+4. Adobe Fonts kit `lqh7ybe` is domain-locked — add production domain before launch.
 
 **Verify pickup:** `git pull` · `./scripts/sync-theme-assets.sh --check` · `./scripts/sync-theme-to-local.sh --check` · open Dev homepage + Haas F1 card.
 
 **Legacy (dev/live-body) pages:** `support`, `service`, `training`, `rotary-repair`, `planned-maintenance`, `about`, `contact` — body ported from dev/live + our header/footer, parent CSS scoped to `.legacy` (`assets/css/legacy.css`), Replica fonts from parent `fonts.css`. Enqueue list in `inc/enqueue.php`. Google Maps key overridable via `gerotech_google_maps_key` filter. (Contact ported from **live** because live carries the real `@gerotech.com` emails.)
+- **ACF (Phase 2, 2026-09-18):** all 7 legacy pages are now ACF-driven via `inc/acf-legacy-fields.php` (registered by `post_name`) with the current markup as defaults — hero, intros, repeaters (service columns, courses, departments, locations), CTA. Forms (CF7 shortcodes), Google Maps JS, and the PM inspection checklists stay hardcoded.
+- **Careers (2026-09-18):** `page-careers.php` built from the `careers.html` prototype (new design system, `page-hero-trust`); ACF group `group_careers_content` in `inc/acf-fields.php`. Live at `/careers/`.
 - **Template-name rule:** some pages have `_wp_page_template` pointing at a **parent** template (rotary-repair → `rotary-repair.php`, planned-maintenance → `preventive-maintenance.php`, service → `page-service.php`). Child templates override only a **same-named file** — match the parent's filename, not necessarily `page-{slug}.php`. Check with `wp post meta get <id> _wp_page_template`.
 
 **Header nav:** still **hardcoded** in `header.php` (desktop `.site-nav` + mobile `.mobile-nav` — edit both). Support is a dropdown (`.has-dropdown` / `.dropdown`) with Service Request Forms / Rotary Repair / Planned Maintenance (no Training). Editable WP menus remain a retainer item — deferred until the IA locks.
