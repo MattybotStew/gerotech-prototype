@@ -5,11 +5,13 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-18 evening (Cursor — Dev child theme live; git `ba259ca` on origin)
-**Active Agent:** Cursor
-**Branch:** `master` — synced with `origin/master`
-**Last Commit:** `ba259ca` Record Haas F1 JPEG commit in shared session state
-**Uncommitted:** none
+**Last Updated:** 2026-09-18 (opencode — Dev theme verified in sync + F1 PNG 403 fixed)
+**Active Agent:** opencode
+**Branch:** `master` — **ahead 1** of `origin/master` (`4e5ed7f` not pushed)
+**Last Commit:** `4e5ed7f` Document Dev go-live and next-session pickup for all agents
+**Uncommitted:** `.clinerules` + `JOURNAL.md` (session notes) — commit if you want origin to match local HEAD
+
+**Dev theme verified (2026-09-18):** checksum rsync of `wp-content/themes/gerotech-child/` repo → `gerotechdev` = **zero content drift**. Direct SSH deploy works (key `~/Library/Application Support/Local/ssh/wpe-connect`, user `gerotechdev@gerotechdev.ssh.wpengine.net`, path `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`). Only fix needed was the F1 PNG perms (below).
 
 ### Next session — pickup here
 
@@ -21,7 +23,7 @@
 1. reCAPTCHA “Invalid domain for site key” on Dev — add `gerotechdev.wpenginepowered.com` to Google reCAPTCHA admin for key `6LcOOuoa…` (CF7 Integration). Ignore for visual QA.
 2. Phase 2 ACF: legacy Training / Support / Service / Rotary Repair / Planned Maintenance / About / Contact (user-deferred).
 3. Unconverted Dev URLs still look unfinished (parent templates + child CSS): Careers, Machines, News, leftover ES slugs, etc.
-4. `haas-f1-lockup.png` still 403 on WP Engine — never reference it; use `haas-f1-team.jpg`.
+4. ~~`haas-f1-lockup.png` 403 on WP Engine~~ — **fixed 2026-09-18**: was `chmod 600` on Dev; set to `644`, now serves 200. Still prefer `haas-f1-team.jpg` (current homepage image).
 5. Local admin password may not match `localpass123` after a WPE Pull.
 
 **Verify pickup:** `git pull` · `./scripts/sync-theme-assets.sh --check` · `./scripts/sync-theme-to-local.sh --check` · open Dev homepage + Haas F1 card.

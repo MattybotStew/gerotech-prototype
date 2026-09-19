@@ -2,8 +2,15 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-18 — Dev theme verified in sync; F1 PNG 403 fixed (opencode)
+- **Request:** "finish moving to WP Engine" (scope: push latest child theme to Dev).
+- **Finding:** the theme was **already fully deployed**. A checksum rsync (`rsync -avnc`) of `wp-content/themes/gerotech-child/` → `gerotechdev` showed **zero content drift** across all 104 files. Dev runs `gerotech-child` active; `/`, `/engineered-solutions/`, `/support/`, `/contact/` all 200.
+- **Only drift:** `assets/images/haas-f1-lockup.png` was `chmod 600` on Dev (the known 403) vs `644` in the repo. Fixed to `644` → now serves **200**.
+- **Direct deploy path discovered:** SSH key `~/Library/Application Support/Local/ssh/wpe-connect`, user `gerotechdev@gerotechdev.ssh.wpengine.net`, theme at `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`. Enables `rsync`/`wp` (WP-CLI at `/usr/local/bin/wp`) without the Local GUI push.
+- **Left open (unchanged):** reCAPTCHA Dev domain, Phase 2 ACF on legacy pages, unconverted Dev URLs. Repo is still 1 commit ahead of `origin/master` (`4e5ed7f`).
+
 ## 2026-09-18 — Pickup notes for next agent (Cursor)
-- **Git:** `master` @ `ba259ca` = `origin/master`. Clean tree.
+- **Git:** local `master` @ `4e5ed7f` (pickup docs). Origin still `ba259ca` until `git push origin master`. `.clinerules` session pointer may be 1 line ahead of that commit.
 - **Dev:** child theme active at https://gerotechdev.wpenginepowered.com/ . Theme-only push (no DB). Rollback = Stage copy of Dev. Never Production.
 - **Homepage:** Figma `7306:1063`. F1 image `haas-f1-team.jpg`. Do not use `haas-f1-lockup.png` on WP Engine.
 - **Next work:** (1) reCAPTCHA Dev domain on Google key, (2) Phase 2 ACF on legacy pages, (3) unconverted Dev URLs still parent+child-CSS. Pickup block is at the top of `.clinerules`.
