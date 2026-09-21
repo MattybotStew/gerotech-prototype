@@ -5,7 +5,7 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-21 17:30 (DSH — hero image consolidation, page-weight pass, peek-accent back-port, hero accent + CTA + Haas Relationship colour ACF)
+**Last Updated:** 2026-09-21 17:50 (DSH — merged/pushed to origin; Local synced + verified, ready for a Dev push)
 **Active Agent:** DSH (DeepSeek Harness)
 **Branch:** `master`
 **Last Commit:** `f7db760` Add ES pages ready-for-review handoff doc
@@ -39,6 +39,50 @@
 **Live Dev:** https://gerotechdev.wpenginepowered.com/ — **Gerotech Child** is the active theme. Homepage matches Figma `7306:1063`. Haas F1 card uses `assets/images/haas-f1-team.jpg` (200). Stage holds a copy of Dev for rollback.
 
 **Do not** push Local → Production. **Do not** push the Local database. Theme-only: `wp-content/themes/gerotech-child/` (Select files). Uncheck `wp-admin`, `wp-includes`, `uploads`. After push: purge WP Engine cache, hard-refresh. (Direct rsync deploy also works — see above.)
+
+### Ready to push to Dev — 2026-09-21 (DSH)
+
+**Git:** `master` @ `995a72a` **pushed to `origin/master`** (4 commits: hero imagery consolidation, peek-accent back-port, hero accent colour, hero CTA colour, Haas Relationship colours). Working tree clean.
+
+**Local:** repo theme → Local synced and **verified identical**; `https://gerotech.local/` 200; 13 URLs 200 with 0 broken images and 0 PHP warnings. No stale `wpe-connect`/rsync/ssh processes and no open sockets to WP Engine (the earlier hangs are cleared).
+
+**Local DB (not in git):** homepage hero slides seeded — accent `haas`/`orange`/`orange`, CTA `haas`/`orange`/`orange`; `haas_eyebrow_color=haas`, `haas_accent_color=haas`. Media: hero = attachment **3467** (`hero-slide-1@2x.jpg`), ES hero = **3468** (`es-hero.jpg`); **3466** and **3429** are orphaned.
+
+**Push settings (unchanged):** destination **gerotechdev only** — never Production. Files → **Select** → check **only** `wp-content/themes/gerotech-child/`. Database → **off**. Then purge WP Engine page + CDN cache and hard-refresh.
+
+**What the theme-only push WILL change on Dev** (verified against live Dev: all of this is currently missing there):
+1. Hero **Haas red is currently broken on Dev** — the live CSS still has the compound `.accent.accent--haas` while the template emits the bare class, so "Haas" renders white. The push fixes it.
+2. New rules arrive: `.accent--white`, `.accent--haas` (standalone), `.eyebrow-row--*`, `.hero-slider__peek-accent--*`, `--clr-haas-red-dark`.
+3. `data-peek-accent-color` + the peek accent word (slide 1 shows a red **Haas** once slide 2/3 is active).
+4. The new **Accent colour / Button colour** selects and the **Haas Relationship** colour selects appear in the editor (they are registered in code).
+5. Slide 2–3 hero `alt` stops being empty (falls back to the eyebrow).
+
+**What it will NOT change — the hero photo.** Dev's homepage hero still points at `uploads/2026/09/hero-slide-01.jpg` via its ACF image field, and a files-only push does not carry DB values, so the old image stays. Also note the editor on Dev will initially show the ACF *field defaults* rather than the design values, because the choices were never saved there. Fix both after the push:
+
+```bash
+# Once WPE SSH responds again (it was hanging on 2026-09-21):
+KEY="$HOME/Library/Application Support/Local/ssh/wpe-connect"
+HOST="gerotechdev@gerotechdev.ssh.wpengine.net"
+NAS="/nas/content/live/gerotechdev"
+
+# 1. carry the theme (or just use the Local GUI push)
+rsync -avz -e "ssh -i \"$KEY\"" wp-content/themes/gerotech-child/ "$HOST:$NAS/wp-content/themes/gerotech-child/"
+
+# 2. seed the colour choices so the editor matches the front end
+ssh -i "$KEY" "$HOST" "cd $NAS && wp eval-file wp-content/themes/gerotech-child/../../../../scripts/seed-home-hero-colors.php"
+
+# 3. new hero art -> Dev media, then point slide 1 at it (see below)
+wp media import assets/images/hero-slide-1@2x.jpg --post_id=11 --porcelain   # run from the repo root on Dev
+wp eval 'update_field("home_hero_slides", ...)'                              # or edit the slide in wp-admin
+
+wp page-cache flush && wp cdn-cache flush
+```
+
+Simplest for the hero art on Dev: after the push, open **wp-admin → Home → Meta Boxes → Hero slides → slide 1 → Image**, upload/select the new `hero-slide-1@2x.jpg`, and save. That also persists every colour choice at once, which resolves the editor/front-end mismatch above.
+
+**`scripts/seed-home-hero-colors.php`** (repo, committed) is idempotent and safe on any environment: stored choice wins → retired `accent_class` meta → original treatment. Verified by simulating a theme-only deploy on Local.
+
+**Still unmerged:** `origin/claude/file-reading-19koen` holds 1 commit from 2026-07-06 that master has since overtaken by 153 commits — stale, do not merge. `origin/design-audit-revision` is already contained in master.
 
 **Open leftovers (not blockers):**
 1. reCAPTCHA “Invalid domain for site key” on Dev — **needs Google admin** (no API/credential here). Add `gerotechdev.wpenginepowered.com` to the Google reCAPTCHA admin allowed-domains for the CF7 site key `6LcOOuoaAAAAADRxx65d0pb_BvgWG9d9e5aqE9k6` (stored in the `wpcf7` option `recaptcha`). Ignore for visual QA.

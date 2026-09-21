@@ -2,6 +2,18 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-21 — Pushed to origin; Local prepared for the Dev push (DSH)
+
+**Git.** Working tree was already clean (4 commits). Nothing to merge: `origin/design-audit-revision` is fully contained in master, and the only unmerged branch — `origin/claude/file-reading-19koen` — is a single 2026-07-06 commit that master has since overtaken by **153 commits**. Left alone deliberately; merging it would reintroduce superseded design decisions. `master` was a clean fast-forward and is now **pushed**: `f7db760..995a72a`, 0 ahead / 0 behind.
+
+**Local prepared.** Repo theme → Local re-synced and verified identical (94 files, 18 MB). `gerotech.local` healthy: 13 URLs 200, 0 broken images, 0 PHP warnings. Checked for the hung-process problem from earlier today — **no** `wpe-connect`/rsync/ssh processes and no open sockets to WP Engine, so Local Connect is clear to use.
+
+**Added `scripts/seed-home-hero-colors.php`** (committed, previously these lived only in `/tmp`). A theme-only push carries ACF field *definitions* but not their *values*, so after such a deploy the editor shows field defaults while the front end renders via template fallbacks — they disagree. The script is idempotent and environment-agnostic: stored choice → retired `accent_class` meta → original treatment (slide 1 Haas red, rest orange). Verified by simulating a theme-only deploy on Local (deleted all five colour metas, restored the legacy `accent_class` keys, ran it — correct values, and a second run changed nothing).
+
+**Checked live Dev to state the delta precisely** (HTTP only, no SSH). Dev is running the pre-change theme: its CSS lacks `.accent--white`, `--clr-haas-red-dark`, `.eyebrow-row--*` and `.hero-slider__peek-accent--*`, its HTML has no `data-peek-accent-color`, and **Haas red is currently broken there** (white) because the live CSS still uses the compound `.accent.accent--haas` selector. The push fixes that and adds the new colour controls.
+
+**One gap flagged:** a files-only push will **not** update Dev's homepage hero photo — Dev's ACF image field points at `uploads/2026/09/hero-slide-01.jpg` and DB values do not travel with a theme push. Nor will the new colour *choices* be stored there, so Dev's editor will show field defaults until someone saves the slides. Both resolve by opening **wp-admin → Home → Meta Boxes → Hero slides → slide 1** and re-selecting the image, which persists every colour choice at once — or by running the seed script over SSH once the WPE gateway responds. Full commands are in `.clinerules` → "Ready to push to Dev".
+
 ## 2026-09-21 — Haas Relationship headline + eyebrow colours are client-editable (DSH)
 
 **Request.** Same colour treatment as the hero slides, for the Haas Relationship section's eyebrow ("The Haas Relationship") and its headline ("Proud to Be Michigan's / Haas Factory Outlet").
