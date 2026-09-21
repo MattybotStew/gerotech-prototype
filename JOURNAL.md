@@ -2,6 +2,23 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-21 — Rolled client-editable hero colours out to interior pages (opencode)
+
+Continuation of the DSH "Review project state and improve" thread: the offer to give interior page heroes the same accent/button colour choices as the homepage carousel, accepted and pushed.
+
+**Scope correction vs. the DSH claim of "eight pages".** Only **5** pages use the new-design hero, and only 4 have an accent word in it:
+
+- **Accent colour** (White / Haas Red / Brand Orange, **blank = design Brand Orange**, no ACF default — same footgun-safe pattern as the homepage): ES (`es_hero_accent_color`), Applications (`app_hero_accent_color`), Automation (`ai_hero_accent_color`), Careers (`careers_hero_accent_color`). Templates now `$pick( '<prefix>_hero_accent_color', 'orange' )` → `gerotech_accent_class()`.
+- **Button colour** (Brand Orange / Haas Red / White outline, blank = design): only where the hero has a CTA — ES primary (`es_hero_cta_color`) and Careers (`careers_hero_cta_color`). ES's grey secondary button stays fixed `btn--outline-white`.
+- **Intentionally skipped:** **MCS** hero uses `mcs-name-split` with plain lead/main (no accent word) and no hero CTA — nothing to colour. **Training / Support / About** are legacy markup (`id="head_image"` / `.legacy`), no `.page-hero` accent spans at all.
+- No DB migration needed: blank field → template renders the design (identical HTML to before). No seed-script change.
+
+**Verified on Local.** Blank defaults render byte-identical to the previous hardcoded output: `.accent` + `btn--primary` on all four/five pages, Automation's `.mcs-name-split__main` retains `.accent`. End-to-end override test: stored `haas` on ES rendered `accent accent--haas` + `btn btn--primary btn--haas` (interior `accent--deep` section titles unaffected), then reverted clean to `.accent` / `btn--primary`. `php -l` clean on all 5 files; 13 URLs 200; both drift checks clean; repo→Local synced.
+
+Also this session (earlier commit `94332cd`, pushed): completed the "blank select" footgun removal the DSH chat had left uncommitted, fixed the accent fallback that had drifted to `white` (would have re-broken slide 1 on a fresh DB), and **restored Local's DB after the footgun actually fired** — all six hero colour metas had been persisted `white`, rendering slide 1 accent + CTA white; re-seeded `haas`/`orange`/`orange` + `haas`/`haas` and re-verified.
+
+**Still hardcoded:** interior section eyebrows and section-header accents; legacy Training/Support/About heroes. DSH's homepage colour fields + seed script unchanged.
+
 ## 2026-09-21 — Completed the "blank select" footgun removal; Local restored after the footgun actually fired (opencode)
 
 **Context.** The DSH session ("Review project state and improve") offered — but the saved chat does not show executing — the footgun removal: make the hero **Accent colour / Button colour** ACF selects blank-by-default so a careless editor save can't persist ACF's injected default over the design. Found it **half-implemented in the working tree** (`front-page.php` + `inc/acf-fields.php`, uncommitted).

@@ -18,6 +18,7 @@ $uri = GEROTECH_CHILD_URI;
 
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_headline = $pick( 'app_hero_headline', 'Applications <em>Solutions</em>' );
+$hero_accent   = $pick( 'app_hero_accent_color', 'orange' ); // Blank (no stored choice) keeps the design colour.
 $hero_image    = gerotech_image_url( $pick( 'app_hero_image', 'https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop' ) );
 
 /* ── Services grid ────────────────────────────────────────── */
@@ -145,7 +146,7 @@ $signup_sub   = $pick( 'app_signup_sub', 'Projects, machine updates, and service
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
           <span class="page-hero__crumb-current">Applications</span>
         </nav>
-        <h1 class="slide__headline" id="app-hero-headline"><?php echo gerotech_accent( $hero_headline, 'accent' ); ?></h1>
+        <h1 class="slide__headline" id="app-hero-headline"><?php echo gerotech_accent( $hero_headline, gerotech_accent_class( $hero_accent ) ); ?></h1>
       </div>
     </section>
 

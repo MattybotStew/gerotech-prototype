@@ -19,6 +19,7 @@ $uri = GEROTECH_CHILD_URI;
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_lead    = $pick( 'ai_hero_lead', 'Automation' );
 $hero_main    = $pick( 'ai_hero_main', 'and <em>Controls Solutions</em>' );
+$hero_accent  = $pick( 'ai_hero_accent_color', 'orange' ); // Blank (no stored choice) keeps the design colour.
 $hero_body    = $pick( 'ai_hero_body', 'From electrical controls and HMI design to full automation cells and pre-engineered packages, Gerotech delivers complete integration solutions — any make, any control, built around your production reality.' );
 $hero_image   = gerotech_image_url( $pick( 'ai_hero_image', 'assets/images/automation-hero.jpg' ) );
 
@@ -131,7 +132,7 @@ $signup_sub   = $pick( 'ai_signup_sub', 'Projects, machine updates, and service 
         <h1 class="slide__headline" id="ai-hero-headline">
           <span class="mcs-name-split mcs-name-split--hero">
             <span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span>
-            <span class="mcs-name-split__main"><?php echo gerotech_accent( $hero_main, 'accent' ); ?></span>
+            <span class="mcs-name-split__main"><?php echo gerotech_accent( $hero_main, gerotech_accent_class( $hero_accent ) ); ?></span>
           </span>
         </h1>
         <?php if ( $hero_body ) : ?>

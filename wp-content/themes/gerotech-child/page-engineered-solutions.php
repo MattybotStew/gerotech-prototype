@@ -17,6 +17,8 @@ $pick = function ( $key, $default ) {
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_eyebrow    = $pick( 'es_hero_eyebrow', 'Engineering-Driven Manufacturing Solutions' );
 $hero_headline   = $pick( 'es_hero_headline', 'Your Manufacturing <em>Solutions</em> Partner' );
+$hero_accent     = $pick( 'es_hero_accent_color', 'orange' ); // Blank (no stored choice) keeps the design colour.
+$hero_cta_color  = $pick( 'es_hero_cta_color', 'orange' );    // Controls the primary hero button only.
 $hero_body       = $pick( 'es_hero_body', "From machine modification and customization to full automation cells, Gerotech engineers solutions that keep manufacturers running faster, safer, and smarter — backed by decades of application expertise." );
 $hero_cta1_label = $pick( 'es_hero_cta1_label', 'Get a Quote' );
 $hero_cta1_url   = $pick( 'es_hero_cta1_url', gerotech_quote_mailto() );
@@ -194,13 +196,13 @@ $signup_sub   = $pick( 'es_signup_sub', 'Projects, machine updates, and service 
       <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
       <div class="slide__content slide__content--left">
         <p class="slide__eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>
-        <h1 class="slide__headline"><?php echo gerotech_accent( $hero_headline, 'accent' ); ?></h1>
+        <h1 class="slide__headline"><?php echo gerotech_accent( $hero_headline, gerotech_accent_class( $hero_accent ) ); ?></h1>
         <?php if ( $hero_body ) : ?>
         <p class="slide__body"><?php echo esc_html( $hero_body ); ?></p>
         <?php endif; ?>
         <div class="page-hero__actions">
           <?php if ( $hero_cta1_label ) : ?>
-          <a class="btn btn--primary btn--lg" href="<?php echo esc_url( $hero_cta1_url ); ?>"><?php echo esc_html( $hero_cta1_label ); ?></a>
+          <a class="btn btn--lg <?php echo esc_attr( gerotech_btn_class( $hero_cta_color ) ); ?>" href="<?php echo esc_url( $hero_cta1_url ); ?>"><?php echo esc_html( $hero_cta1_label ); ?></a>
           <?php endif; ?>
           <?php if ( $hero_cta2_label ) : ?>
           <a class="btn btn--outline-white btn--lg" href="<?php echo esc_url( $hero_cta2_url ); ?>"><?php echo esc_html( $hero_cta2_label ); ?></a>

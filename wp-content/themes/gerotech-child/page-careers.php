@@ -18,6 +18,8 @@ $pick = function ( $key, $default ) {
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_eyebrow = $pick( 'careers_hero_eyebrow', 'Careers' );
 $hero_headline = $pick( 'careers_hero_headline', "We're changing the face of <em>manufacturing</em>. Join us." );
+$hero_accent   = $pick( 'careers_hero_accent_color', 'orange' ); // Blank (no stored choice) keeps the design colour.
+$hero_cta_color = $pick( 'careers_hero_cta_color', 'orange' );   // Hero button colour.
 $hero_body = $pick( 'careers_hero_body', "We're not just a workplace; we're a family of dynamic individuals committed to pushing the boundaries of excellence. We pride ourselves in our family-like culture where every member of our team is committed to providing customers with the best machines, solutions, and support in the industry." );
 $hero_cta_label = $pick( 'careers_hero_cta_label', 'View open positions' );
 $hero_cta_url = $pick( 'careers_hero_cta_url', '#open-positions' );
@@ -95,9 +97,9 @@ $signup_sub = $pick( 'careers_signup_sub', 'Projects, machine updates, and servi
 		<div class="page-hero-trust__content">
 			<div class="page-hero-trust__copy">
 				<p class="slide__eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>
-				<h1 class="page-hero-trust__headline"><?php echo gerotech_accent( $hero_headline, 'accent' ); ?></h1>
+				<h1 class="page-hero-trust__headline"><?php echo gerotech_accent( $hero_headline, gerotech_accent_class( $hero_accent ) ); ?></h1>
 				<p class="page-hero-trust__body"><?php echo wp_kses_post( $hero_body ); ?></p>
-				<a class="btn btn--primary btn--lg" href="<?php echo esc_url( $hero_cta_url ); ?>"><?php echo esc_html( $hero_cta_label ); ?></a>
+				<a class="btn btn--lg <?php echo esc_attr( gerotech_btn_class( $hero_cta_color ) ); ?>" href="<?php echo esc_url( $hero_cta_url ); ?>"><?php echo esc_html( $hero_cta_label ); ?></a>
 			</div>
 			<div class="page-hero-trust__strip" aria-label="Working at Gerotech">
 				<?php foreach ( $hero_stats as $stat ) : ?>

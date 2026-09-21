@@ -308,11 +308,47 @@ acf_add_local_field_group(
 			array( 'key' => 'field_es_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_es_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'es_hero_eyebrow', 'type' => 'text' ),
 			array( 'key' => 'field_es_hero_headline', 'label' => 'Headline', 'name' => 'es_hero_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Wrap the accent phrase in &lt;em&gt;…&lt;/em&gt;.' ),
+			array(
+				'key'           => 'field_es_hero_accent_color',
+				'label'         => 'Accent colour',
+				'name'          => 'es_hero_accent_color',
+				'type'          => 'select',
+				'choices'       => array(
+					'white'  => 'White (no highlight)',
+					'haas'   => 'Haas Red',
+					'orange' => 'Brand Orange',
+				),
+				// No default_value, same reasoning as the homepage hero: ACF injects a
+				// default on read and a plain save would persist it. Blank keeps the design
+				// colour via the template — see the page template.
+				'default_value' => '',
+				'allow_null'    => 1,
+				'placeholder'   => 'Design default (Brand Orange)',
+				'instructions'  => 'Colour of the <em>accent</em> word in the hero headline. Leave unset to keep the design colour; picking a colour overrides it for this page.',
+			),
 			array( 'key' => 'field_es_hero_body', 'label' => 'Body', 'name' => 'es_hero_body', 'type' => 'textarea', 'rows' => 3 ),
 			array( 'key' => 'field_es_hero_cta1_label', 'label' => 'Primary button label', 'name' => 'es_hero_cta1_label', 'type' => 'text' ),
 			array( 'key' => 'field_es_hero_cta1_url', 'label' => 'Primary button URL', 'name' => 'es_hero_cta1_url', 'type' => 'text' ),
 			array( 'key' => 'field_es_hero_cta2_label', 'label' => 'Secondary button label', 'name' => 'es_hero_cta2_label', 'type' => 'text' ),
 			array( 'key' => 'field_es_hero_cta2_url', 'label' => 'Secondary button URL', 'name' => 'es_hero_cta2_url', 'type' => 'text' ),
+			array(
+				'key'           => 'field_es_hero_cta_color',
+				'label'         => 'Primary button colour',
+				'name'          => 'es_hero_cta_color',
+				'type'          => 'select',
+				'choices'       => array(
+					'orange' => 'Brand Orange',
+					'haas'   => 'Haas Red',
+					'white'  => 'White outline',
+				),
+				// No default_value (see Accent colour). Blank keeps the design colour
+				// (Brand Orange) via the template. The white-outline label stays the
+				// secondary button's fixed style regardless of this choice.
+				'default_value' => '',
+				'allow_null'    => 1,
+				'placeholder'   => 'Design default (Brand Orange)',
+				'instructions'  => 'Colour of the primary hero button. Leave unset to keep the design colour; picking a colour overrides it for this page.',
+			),
 			array( 'key' => 'field_es_hero_image', 'label' => 'Background image', 'name' => 'es_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
 
 			/* ── Why Gerotech ─────────────────────────────────── */
@@ -552,6 +588,21 @@ acf_add_local_field_group(
 			array( 'key' => 'field_app_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_app_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'app_hero_eyebrow', 'type' => 'text' ),
 			array( 'key' => 'field_app_hero_headline', 'label' => 'Headline', 'name' => 'app_hero_headline', 'type' => 'textarea', 'rows' => 1, 'instructions' => 'Wrap the accent phrase in &lt;em&gt;…&lt;/em&gt;.' ),
+			array(
+				'key'           => 'field_app_hero_accent_color',
+				'label'         => 'Accent colour',
+				'name'          => 'app_hero_accent_color',
+				'type'          => 'select',
+				'choices'       => array(
+					'white'  => 'White (no highlight)',
+					'haas'   => 'Haas Red',
+					'orange' => 'Brand Orange',
+				),
+				'default_value' => '',
+				'allow_null'    => 1,
+				'placeholder'   => 'Design default (Brand Orange)',
+				'instructions'  => 'Colour of the <em>accent</em> word in the hero headline. Leave unset to keep the design colour; picking a colour overrides it for this page.',
+			),
 			array( 'key' => 'field_app_hero_image', 'label' => 'Background image', 'name' => 'app_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
 
 			/* ── Services grid ────────────────────────────────── */
@@ -630,6 +681,21 @@ acf_add_local_field_group(
 			array( 'key' => 'field_ai_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'ai_hero_eyebrow', 'type' => 'text' ),
 			array( 'key' => 'field_ai_hero_lead', 'label' => 'Headline lead (gray)', 'name' => 'ai_hero_lead', 'type' => 'text' ),
 			array( 'key' => 'field_ai_hero_main', 'label' => 'Headline main (primary)', 'name' => 'ai_hero_main', 'type' => 'text' ),
+			array(
+				'key'           => 'field_ai_hero_accent_color',
+				'label'         => 'Accent colour',
+				'name'          => 'ai_hero_accent_color',
+				'type'          => 'select',
+				'choices'       => array(
+					'white'  => 'White (no highlight)',
+					'haas'   => 'Haas Red',
+					'orange' => 'Brand Orange',
+				),
+				'default_value' => '',
+				'allow_null'    => 1,
+				'placeholder'   => 'Design default (Brand Orange)',
+				'instructions'  => 'Colour of the <em>accent</em> word in the hero headline. Leave unset to keep the design colour; picking a colour overrides it for this page.',
+			),
 			array( 'key' => 'field_ai_hero_body', 'label' => 'Body', 'name' => 'ai_hero_body', 'type' => 'textarea', 'rows' => 2 ),
 			array( 'key' => 'field_ai_hero_image', 'label' => 'Background image', 'name' => 'ai_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
 
@@ -765,9 +831,39 @@ acf_add_local_field_group(
 			array( 'key' => 'field_careers_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_careers_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'careers_hero_eyebrow', 'type' => 'text' ),
 			array( 'key' => 'field_careers_hero_headline', 'label' => 'Headline', 'name' => 'careers_hero_headline', 'type' => 'textarea', 'rows' => 2, 'instructions' => 'Wrap the accent phrase in &lt;em&gt;…&lt;/em&gt;.' ),
+			array(
+				'key'           => 'field_careers_hero_accent_color',
+				'label'         => 'Accent colour',
+				'name'          => 'careers_hero_accent_color',
+				'type'          => 'select',
+				'choices'       => array(
+					'white'  => 'White (no highlight)',
+					'haas'   => 'Haas Red',
+					'orange' => 'Brand Orange',
+				),
+				'default_value' => '',
+				'allow_null'    => 1,
+				'placeholder'   => 'Design default (Brand Orange)',
+				'instructions'  => 'Colour of the <em>accent</em> word in the hero headline. Leave unset to keep the design colour; picking a colour overrides it for this page.',
+			),
 			array( 'key' => 'field_careers_hero_body', 'label' => 'Body', 'name' => 'careers_hero_body', 'type' => 'textarea', 'rows' => 3 ),
 			array( 'key' => 'field_careers_hero_cta_label', 'label' => 'Button label', 'name' => 'careers_hero_cta_label', 'type' => 'text' ),
 			array( 'key' => 'field_careers_hero_cta_url', 'label' => 'Button URL', 'name' => 'careers_hero_cta_url', 'type' => 'text' ),
+			array(
+				'key'           => 'field_careers_hero_cta_color',
+				'label'         => 'Button colour',
+				'name'          => 'careers_hero_cta_color',
+				'type'          => 'select',
+				'choices'       => array(
+					'orange' => 'Brand Orange',
+					'haas'   => 'Haas Red',
+					'white'  => 'White outline',
+				),
+				'default_value' => '',
+				'allow_null'    => 1,
+				'placeholder'   => 'Design default (Brand Orange)',
+				'instructions'  => 'Colour of the hero button. Leave unset to keep the design colour; picking a colour overrides it for this page.',
+			),
 			array( 'key' => 'field_careers_hero_image', 'label' => 'Background image', 'name' => 'careers_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
 			array(
 				'key'          => 'field_careers_hero_stats',
