@@ -401,12 +401,16 @@
 .eyebrow-row .eyebrow {
   margin: 0;
 }
-.haas-relationship .eyebrow-row .eyebrow {
-  color: #CF0A2C;
-}
-.haas-relationship .eyebrow-row__rule {
-  background: #CF0A2C;
-}
+
+/* Eyebrow colour — the text and its short rule share one custom property so the
+   pair never drifts. Modifiers are scoped to the Haas Relationship for now;
+   the unmodified default keeps the design's Haas red. */
+.haas-relationship .eyebrow-row { --eyebrow-accent: var(--clr-haas-red); }
+.haas-relationship .eyebrow-row--white { --eyebrow-accent: var(--clr-white); }
+.haas-relationship .eyebrow-row--haas { --eyebrow-accent: var(--clr-haas-red); }
+.haas-relationship .eyebrow-row--orange { --eyebrow-accent: var(--clr-orange); }
+.haas-relationship .eyebrow-row .eyebrow { color: var(--eyebrow-accent); }
+.haas-relationship .eyebrow-row .eyebrow-row__rule { background: var(--eyebrow-accent); }
 
 /* ── Hero Slider (Figma — 560px, glassmorphism arrows, dot nav) ── */
 .hero-slider {
@@ -1591,10 +1595,7 @@
 .accent { color: var(--clr-orange); }
 .accent--deep { color: var(--clr-orange-deep); }
 .accent--white { color: var(--clr-white); }
-.accent--haas,
-.haas-relationship__headline .accent--haas {
-  color: var(--clr-haas-red);
-}
+.accent--haas { color: var(--clr-haas-red); }
 .headline-rule {
   display: block;
   width: 56px;

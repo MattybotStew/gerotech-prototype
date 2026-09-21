@@ -2,6 +2,31 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-21 — Haas Relationship headline + eyebrow colours are client-editable (DSH)
+
+**Request.** Same colour treatment as the hero slides, for the Haas Relationship section's eyebrow ("The Haas Relationship") and its headline ("Proud to Be Michigan's / Haas Factory Outlet").
+
+**Done.** Two new selects in the **Haas Relationship** ACF tab, both **White / Haas Red / Brand Orange**, both defaulting to **Haas Red** to match the Figma:
+
+- **`haas_eyebrow_color`** — colours the eyebrow text **and** its 24px rule together, via one shared custom property (`.haas-relationship .eyebrow-row { --eyebrow-accent: … }` plus `--white`/`--haas`/`--orange` modifiers) so the text and rule can never drift apart. The **unmodified default is Haas red**, so markup with no modifier still renders as designed.
+- **`haas_accent_color`** — colours the `<em>` accent words through the existing `gerotech_accent_class()`.
+
+Both fields replace hardcoded `#CF0A2C` in `.haas-relationship .eyebrow-row .eyebrow` / `.eyebrow-row__rule` with `--clr-haas-red`, and the now-redundant `.haas-relationship__headline .accent--haas` override was dropped (`.accent--haas` stands alone since the earlier fix). The prototype's Haas markup was updated for parity (`eyebrow-row--haas`, `accent accent--haas`).
+
+**Verified end-to-end on Local** — set the fields through every combination and read back the served HTML:
+
+| Values | Eyebrow row class | Headline accent class |
+|---|---|---|
+| `haas` / `haas` (default) | `eyebrow-row--haas` | `accent accent--haas` |
+| **meta deleted** (un-migrated) | `eyebrow-row--haas` | `accent accent--haas` |
+| `orange` / `orange` | `eyebrow-row--orange` | `accent` |
+| `white` / `white` | `eyebrow-row--white` | `accent accent--white` |
+| `orange` / `haas` (mixed) | `eyebrow-row--orange` | `accent accent--haas` |
+
+The deleted-meta row matters: it proves an un-migrated database still renders Haas red, because `gerotech_field()` already falls back to the code default on an empty value. Computed styles in headless Chrome confirm text and rule match in every case (`rgb(255,255,255)` / `rgb(207,10,44)` / `rgb(243,138,44)`), including the no-modifier default of Haas red.
+
+**Scope note.** The eyebrow modifiers are deliberately scoped to `.haas-relationship` — interior page eyebrows (`.eyebrow` elsewhere) are untouched. The Haas section is homepage-only. All 13 Local URLs still 200 with 0 broken images and 0 PHP warnings; `php -l`, CSS brace balance, JS syntax, prototype tag/reference scan and both drift checks clean.
+
 ## 2026-09-21 — Hero accent colour is now client-editable in ACF (DSH)
 
 **Request.** Every hero slide should offer the client a colour choice for its accent word: **White (default) / Haas Red / Brand Orange** — Haas is brand red, the other slides brand orange.

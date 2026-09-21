@@ -76,7 +76,9 @@ $stats = $pick(
 
 /* ── Haas relationship ─────────────────────────────────────── */
 $haas_eyebrow  = $pick( 'haas_eyebrow', 'The Haas Relationship' );
+$haas_eyebrow_color = gerotech_accent_choice( $pick( 'haas_eyebrow_color', 'haas' ) );
 $haas_headline = $pick( 'haas_headline', "Proud to Be Michigan's\n<em>Haas Factory Outlet</em>" );
+$haas_accent_color = $pick( 'haas_accent_color', 'haas' );
 $haas_lede     = $pick( 'haas_lede', "Gerotech is proud to serve as Michigan's Haas Factory Outlet, bringing together Haas CNC technology with the local expertise, engineering, service, training, and support manufacturers need. Since 1987, we've worked alongside manufacturers to understand their challenges and deliver solutions that make sense for their operation—from CNC machinery and automation to engineered solutions and ongoing support." );
 $haas_logo     = gerotech_image_url( $pick( 'haas_brand_logo', '' ), 'assets/images/haas-f1-team.jpg' );
 
@@ -290,13 +292,13 @@ $signup_sub   = $pick( 'signup_sub', 'Projects, machine updates, and service new
 			</div>
 			<div class="haas-relationship__content">
 				<div class="container">
-					<div class="eyebrow-row">
+					<div class="eyebrow-row eyebrow-row--<?php echo esc_attr( $haas_eyebrow_color ); ?>">
 						<span class="eyebrow-row__rule" aria-hidden="true"></span>
 						<p class="eyebrow"><?php echo esc_html( $haas_eyebrow ); ?></p>
 					</div>
 					<div class="haas-relationship__intro">
 						<div class="haas-relationship__copy-col">
-							<h2 id="haas-rel-headline" class="haas-relationship__headline"><?php echo gerotech_accent( $haas_headline, 'accent--haas' ); ?></h2>
+							<h2 id="haas-rel-headline" class="haas-relationship__headline"><?php echo gerotech_accent( $haas_headline, gerotech_accent_class( $haas_accent_color ) ); ?></h2>
 							<p class="haas-relationship__lede"><?php echo esc_html( $haas_lede ); ?></p>
 						</div>
 						<div class="haas-relationship__brand">

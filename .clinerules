@@ -5,7 +5,7 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-21 17:00 (DSH — hero image consolidation, page-weight pass, peek-accent back-port, hero accent + CTA colour ACF)
+**Last Updated:** 2026-09-21 17:30 (DSH — hero image consolidation, page-weight pass, peek-accent back-port, hero accent + CTA + Haas Relationship colour ACF)
 **Active Agent:** DSH (DeepSeek Harness)
 **Branch:** `master`
 **Last Commit:** `f7db760` Add ES pages ready-for-review handoff doc
@@ -17,6 +17,8 @@
 **Slide alt fix (2026-09-21, DSH):** `title_alt` is now checked with `! empty()`, so slides 2–3 fall back to their eyebrow instead of rendering `alt=""` (ACF repeats every sub-field, so an untouched alt is an empty string).
 
 **Hero accent colour — client-editable (2026-09-21, DSH):** each hero slide has an **Accent colour** select in ACF → **White (default) / Haas Red / Brand Orange**. It colours the `<em>` accent word in the slide headline *and* the matching word on that slide's peek card (`data-peek-accent-color` → `.hero-slider__peek-accent--{white|haas|orange}`, whitelisted in `slider.js`). Field is `accent_color` on the `home_hero_slides` repeater → `field_home_hero_accent_color`; `gerotech_accent_choice()` normalises any value (including the retired raw classes `accent`, `accent--haas`, `accent--deep`) and `gerotech_accent_class()` maps it to classes. Current: slide 1 `haas`, slides 2–3 `orange`.
+
+**Haas Relationship colours — client-editable (2026-09-21, DSH):** two more selects in the **Haas Relationship** tab, same White / Haas Red / Brand Orange palette, both defaulting to **Haas Red** (matches Figma): **`haas_eyebrow_color`** (colours the eyebrow text *and* its short rule together) and **`haas_accent_color`** (colours the `<em>` accent words in the "Proud to Be Michigan's / Haas Factory Outlet" headline). The eyebrow uses one shared custom property — `.haas-relationship .eyebrow-row { --eyebrow-accent: … }` with `--white` / `--haas` / `--orange` modifiers — so the text and rule can never drift, and **the unmodified default is Haas red**, so older markup still renders correctly. Seeded `haas`/`haas` on Local. Scoped to `.haas-relationship`; interior page eyebrows are untouched. The old `.haas-relationship__headline .accent--haas` override was removed (redundant now that `.accent--haas` stands alone).
 
 **Hero CTA button colour — client-editable (2026-09-21, DSH):** each slide also has a **Button colour** select — **Brand Orange (default) / Haas Red / White outline** — independent of the accent colour. Field `cta_color` → `field_home_hero_cta_color`, mapped by `gerotech_btn_class()` (`btn--primary` / `btn--primary btn--haas` / `btn--outline-white`). Current: slide 1 `haas` (red), slides 2–3 `orange`. `--clr-haas-red` + new `--clr-haas-red-dark` tokens replace the hardcoded `#CF0A2C` / `#b00926` in `.btn--primary.btn--haas`.
 

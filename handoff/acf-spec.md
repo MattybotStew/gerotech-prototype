@@ -33,7 +33,9 @@ Location: `acf_add_options_page()`. Consumed by `header.php` / `footer.php` / sh
 | `hero_slides` | Repeater | `eyebrow`, `headline` (WYSIWYG — accent via `em`), **`accent_color`**, `body`, `cta_label`, `cta_url`, `image`, `image_position`, `title_alt`, `peek_eyebrow`, `peek_accent`, `peek_title` |
 | `hero_stats` | Repeater | `value`, `label` — currently 39+ / 14,000+ |
 | `haas_eyebrow` | Text | "The Haas Relationship" |
+| `haas_eyebrow_color` | Select | `white` / `haas` (default) / `orange` — colours the eyebrow text **and** its short rule together |
 | `haas_headline` | WYSIWYG | Accent word via `em` |
+| `haas_accent_color` | Select | `white` / `haas` (default) / `orange` — colour of the `em` accent words |
 | `haas_lede` | Textarea | |
 | `haas_brand_logo` | Image | F1 lockup (theme-bundled default) |
 | `haas_features` | Repeater | `index`, `icon` (image), `label`, `title`, `body` — numbered `01 ·`–`04 ·` |
@@ -103,6 +105,20 @@ Per-slide select controlling that slide's call-to-action button, **independent o
 | `white` | White outline | `btn btn--outline-white` |
 
 Mapped by `gerotech_btn_class()` (`inc/helpers.php`). Current: slide 1 `haas`, slides 2–3 `orange`.
+
+### Haas Relationship colours (`haas_eyebrow_color` / `haas_accent_color`)
+
+Same White / Haas Red / Brand Orange palette as the hero slides, defaulting to **Haas Red** to match the Figma. The eyebrow fields drive a shared custom property so text and rule can never drift:
+
+```css
+.haas-relationship .eyebrow-row            { --eyebrow-accent: var(--clr-haas-red); }
+.haas-relationship .eyebrow-row--white     { --eyebrow-accent: var(--clr-white); }
+.haas-relationship .eyebrow-row--orange    { --eyebrow-accent: var(--clr-orange); }
+.haas-relationship .eyebrow-row .eyebrow,
+.haas-relationship .eyebrow-row .eyebrow-row__rule { color/background: var(--eyebrow-accent); }
+```
+
+The unmodified default is Haas red, so markup without a modifier (older prototypes, un-migrated rows) still renders as designed. `haas_accent_color` reuses `gerotech_accent_class()`. **Interior page eyebrows are untouched** — the modifiers are scoped to `.haas-relationship` for now.
 
 ### Un-migrated databases (important)
 
