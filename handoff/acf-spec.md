@@ -91,8 +91,29 @@ Per-slide select controlling the colour of the `<em>` accent word **and** its ma
 Mapped by `gerotech_accent_class()` (`inc/helpers.php`), which also tolerates the retired raw-class values (`accent`, `accent--haas`, `accent--deep`) so an un-migrated database (e.g. Dev) still renders correctly. Current: slide 1 `haas`, slides 2–3 `orange`; new slides default to `white`.
 
 > **Note:** the `.accent--haas` CSS rule previously read `.accent.accent--haas` (compound), so the bare `accent--haas` class the theme emitted never matched and Haas red silently rendered white on WordPress. The modifiers now stand alone and follow `.accent` in source order.
->
-> The CTA button colour is **not** driven by this field — slide 1 keeps `.btn--haas`, the rest `.btn--primary`.
+
+### Hero slide button colour (`hero_slides` → `cta_color`)
+
+Per-slide select controlling that slide's call-to-action button, **independent of the accent colour**:
+
+| Value | Label | Classes emitted |
+|---|---|---|
+| `orange` | Brand Orange (default) | `btn btn--primary` |
+| `haas` | Haas Red | `btn btn--primary btn--haas` |
+| `white` | White outline | `btn btn--outline-white` |
+
+Mapped by `gerotech_btn_class()` (`inc/helpers.php`). Current: slide 1 `haas`, slides 2–3 `orange`.
+
+### Un-migrated databases (important)
+
+ACF **injects a field's `default_value` on read** when a repeater row has no stored value. So a database that predates a newly-added field does not return an empty string — it returns the default. That would silently change the design on deploy (slide 1's Haas-red accent and button would both have turned white/orange).
+
+`front-page.php` therefore checks `metadata_exists( 'post', $home_id, 'home_hero_slides_<i>_<field>' )` and, when the row has never been saved with the new field, falls back in order:
+
+1. the retired `accent_class` meta — read **raw** via `get_post_meta()`, because that field is no longer registered and so is absent from the ACF row array;
+2. the original positional treatment — slide 1 Haas red, all others brand orange.
+
+Verified by simulating an un-migrated row set on Local: output is byte-identical to the migrated state. Migrations (`/tmp/gerotech-accent-migrate.php`, `/tmp/gerotech-cta-migrate.php`) remain the way to write explicit values, and are idempotent.
 
 ---
 

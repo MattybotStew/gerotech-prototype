@@ -318,14 +318,14 @@
 }
 
 .btn--primary.btn--haas {
-  background: #CF0A2C;
-  color: #ffffff;
-  border-color: #CF0A2C;
+  background: var(--clr-haas-red);
+  color: var(--clr-white);
+  border-color: var(--clr-haas-red);
 }
 .btn--primary.btn--haas:hover {
-  background: #b00926;
-  border-color: #b00926;
-  color: #ffffff;
+  background: var(--clr-haas-red-dark);
+  border-color: var(--clr-haas-red-dark);
+  color: var(--clr-white);
 }
 
 .btn--outline-white {

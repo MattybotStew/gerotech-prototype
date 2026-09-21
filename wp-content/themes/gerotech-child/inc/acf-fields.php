@@ -130,6 +130,19 @@ acf_add_local_field_group(
 					array( 'key' => 'field_home_hero_body', 'label' => 'Body', 'name' => 'body', 'type' => 'textarea', 'rows' => 2 ),
 					array( 'key' => 'field_home_hero_cta_label', 'label' => 'Button label', 'name' => 'cta_label', 'type' => 'text' ),
 					array( 'key' => 'field_home_hero_cta_url', 'label' => 'Button URL', 'name' => 'cta_url', 'type' => 'text' ),
+					array(
+						'key'           => 'field_home_hero_cta_color',
+						'label'         => 'Button colour',
+						'name'          => 'cta_color',
+						'type'          => 'select',
+						'choices'       => array(
+							'orange' => 'Brand Orange (default)',
+							'haas'   => 'Haas Red',
+							'white'  => 'White outline',
+						),
+						'default_value' => 'orange',
+						'instructions'  => 'Colour of this slide’s call-to-action button. Independent of the headline accent colour.',
+					),
 					array( 'key' => 'field_home_hero_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
 					array( 'key' => 'field_home_hero_title_alt', 'label' => 'Image alt', 'name' => 'title_alt', 'type' => 'text' ),
 					array(

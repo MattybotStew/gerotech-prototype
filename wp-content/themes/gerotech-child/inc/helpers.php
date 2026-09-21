@@ -92,33 +92,67 @@ function gerotech_asset_version( $rel ) {
 }
 
 /**
- * Map a hero slide's "Accent colour" choice to headline accent classes.
+ * Normalise a hero slide's "Accent colour" value to a semantic choice.
  *
- * Choices are stored as semantic values (`white` | `haas` | `orange`). Raw CSS
- * class values written by the earlier `accent_class` field still resolve, so a
- * database that has not been migrated keeps rendering correctly.
+ * Accepts the current values (`white` | `haas` | `orange`) and the raw CSS class
+ * names written by the earlier `accent_class` field, so a database that has not
+ * been migrated keeps rendering as designed. Anything unrecognised → white.
+ *
+ * @param string $choice Stored value, e.g. 'haas' or 'accent--haas'.
+ * @return string One of 'white', 'haas', 'orange'.
+ */
+function gerotech_accent_choice( $choice ) {
+	$choice = trim( (string) $choice );
+
+	$legacy = array(
+		'accent'        => 'orange',
+		'accent--haas'  => 'haas',
+		'accent--deep'  => 'orange',
+		'accent--white' => 'white',
+	);
+	if ( isset( $legacy[ $choice ] ) ) {
+		return $legacy[ $choice ];
+	}
+
+	return in_array( $choice, array( 'white', 'haas', 'orange' ), true ) ? $choice : 'white';
+}
+
+/**
+ * Map a hero slide's "Accent colour" choice to headline accent classes.
  *
  * @param string $choice Stored choice, e.g. 'haas'.
  * @return string Space-separated CSS classes for gerotech_accent().
  */
 function gerotech_accent_class( $choice ) {
-	$choice = trim( (string) $choice );
-
 	$map = array(
 		'white'  => 'accent accent--white',
 		'haas'   => 'accent accent--haas',
 		'orange' => 'accent',
 	);
-	if ( isset( $map[ $choice ] ) ) {
-		return $map[ $choice ];
-	}
 
-	// Legacy tolerance: an un-migrated DB may still hold a raw class name.
-	if ( '' !== $choice && preg_match( '/^[A-Za-z0-9_-]+$/', $choice ) ) {
-		return 'accent' === $choice ? 'accent' : 'accent ' . $choice;
-	}
+	return $map[ gerotech_accent_choice( $choice ) ];
+}
 
-	return $map['white'];
+/**
+ * Map a hero slide's "Button colour" choice to CTA classes.
+ *
+ * Choices are stored as semantic values (`orange` | `haas` | `white`) and are
+ * independent of the headline accent colour. The base `btn` class is added by
+ * the template.
+ *
+ * @param string $choice Stored choice, e.g. 'haas'.
+ * @return string Space-separated CSS classes, without the base `btn`.
+ */
+function gerotech_btn_class( $choice ) {
+	$map = array(
+		'orange' => 'btn--primary',
+		'haas'   => 'btn--primary btn--haas',
+		'white'  => 'btn--outline-white',
+	);
+
+	$choice = trim( (string) $choice );
+
+	return isset( $map[ $choice ] ) ? $map[ $choice ] : $map['orange'];
 }
 
 /**

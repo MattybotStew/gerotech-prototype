@@ -10,7 +10,7 @@ Shared session log for all AI agents. Newest entries at the top.
 
 **What changed.**
 - `inc/acf-fields.php`: replaced the `accent_class` select (Orange / Haas red / Deep orange) with **`accent_color`** → `White (default)` / `Haas Red` / `Brand Orange`, default `white`, with editor instructions.
-- `inc/helpers.php`: new **`gerotech_accent_class()`** maps the choice to classes (`white` → `accent accent--white`, `haas` → `accent accent--haas`, `orange` → `accent`) and still tolerates the retired raw-class values, so an un-migrated DB (Dev) keeps rendering correctly even before the field is re-saved.
+- `inc/helpers.php`: new **`gerotech_accent_choice()`** (normalises any stored value — including the retired raw classes `accent`, `accent--haas`, `accent--deep` — to `white`/`haas`/`orange`) and **`gerotech_accent_class()`** (choice → CSS classes).
 - `front-page.php`: hero defaults are now `accent_color` (slide 1 `haas`, slides 2–3 `orange`), and each slide emits `data-peek-accent-color`.
 - `assets/js/slider.js` + `components.css`: the peek-card accent word now follows the same choice (`--white` / `--haas` / `--orange` modifiers, whitelisted in JS) instead of being hardcoded Haas red — otherwise the peek would disagree with the headline the moment the client changed the colour.
 - CSS cleanup: removed the hardcoded `#CF0A2C` in favour of the existing `--clr-haas-red` token (per the "no brand colours outside tokens.css" rule).
@@ -19,7 +19,21 @@ Shared session log for all AI agents. Newest entries at the top.
 
 **Verified.** Rendered HTML now emits `class="accent accent--haas"` for slide 1 and `accent` for 2–3, with `data-peek-accent-color="haas|orange|orange"`. A headless-Chrome computed-style check confirms the exact values: `.accent` → `rgb(243,138,44)`, `.accent--haas` (with **or without** the `accent` class) → `rgb(207,10,44)`, `.accent--white` → `rgb(255,255,255)`, plus both peek modifiers. A DOM dump after the slider advances shows the peek rendering `01 | [[Haas]] Factory Outlet` with `hero-slider__peek-accent--haas`. `php -l` clean; theme↔Local drift check OK.
 
-**Open question logged for Matt.** The hero CTA button colour is *not* driven by this field (slide 1 keeps `.btn--haas`, others `.btn--primary`), and interior `.page-hero` sections still hardcode `accent` in their templates — this field covers the homepage carousel slides only. Say the word to extend it.
+**Correction to my earlier reasoning (found by testing, not assumed).** I originally claimed the legacy tolerance alone kept an un-migrated DB (Dev) rendering correctly. That was **wrong**: ACF **injects a field's `default_value` on read** when a repeater row has no stored value, so an un-migrated row returns `white` (accent) / `orange` (button) — never the legacy value, and never empty. Deploying that would have silently turned slide 1's Haas-red accent *and* button white/orange on Dev. Fixed by guarding both fields in `front-page.php` with `metadata_exists( 'post', $home_id, "home_hero_slides_{$i}_<field>" )` and falling back to (1) the retired `accent_class` meta read **raw** via `get_post_meta()` — it is unregistered, so it is absent from the ACF row array, which is exactly why my first attempt at this guard did nothing — then (2) the original positional treatment.
+
+**Proof, not assertion.** I simulated an un-migrated row set on Local (restored the legacy `accent_class` meta, deleted `accent_color`/`cta_color`) and re-fetched the homepage: output was **byte-identical** to the migrated state — slide 1 `accent accent--haas` + `btn btn--primary btn--haas`, slides 2–3 `accent` + `btn btn--primary`. The migrations are idempotent and Local is back in its migrated state.
+
+## 2026-09-21 — Hero CTA button colour is now client-editable too (DSH)
+
+**Request.** Follow-up to the accent field: give the client the ability to change a hero slide's CTA to red.
+
+**Done.** New per-slide **Button colour** select — **Brand Orange (default) / Haas Red / White outline** — deliberately **independent** of the accent colour, so an orange accent with a red button is possible. Field `cta_color` (`field_home_hero_cta_color`) on `home_hero_slides`, mapped by **`gerotech_btn_class()`**: `btn--primary` / `btn--primary btn--haas` / `btn--outline-white`. Seeded to preserve the existing design (slide 1 Haas red, slides 2–3 brand orange). The old logic hardcoded this from slide position (`$is_first ? 'btn--haas' : ''`), so it is now data-driven.
+
+**Cleanup.** `.btn--primary.btn--haas` had a hardcoded `#CF0A2C` / `#b00926`; now `var(--clr-haas-red)` with a new `--clr-haas-red-dark` hover token, per the "no brand colours outside tokens.css" rule.
+
+**Verified.** Computed styles in headless Chrome: `btn--primary` → orange bg `rgb(243,138,44)` on ink; `btn--primary btn--haas` → `rgb(207,10,44)` on white; `btn--outline-white` → transparent on white. Local: 13 URLs 200, 0 broken images, 0 PHP warnings; `php -l`, CSS brace balance, JS syntax and both drift checks clean.
+
+**Still open.** Interior `.page-hero` sections (ES, MCS, Applications, Automation, Training, Support, About, Careers) still hardcode `accent` in their templates and have no button-colour field — these two ACF fields cover the homepage carousel slides only.
 
 ## 2026-09-21 — Review + hero/page-weight consolidation; stranded Local work rescued (DSH)
 
