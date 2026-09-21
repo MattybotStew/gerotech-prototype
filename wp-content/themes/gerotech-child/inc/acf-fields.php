@@ -120,12 +120,18 @@ acf_add_local_field_group(
 						'name'          => 'accent_color',
 						'type'          => 'select',
 						'choices'       => array(
-							'white'  => 'White (default)',
+							'white'  => 'White (no highlight)',
 							'haas'   => 'Haas Red',
 							'orange' => 'Brand Orange',
 						),
-						'default_value' => 'white',
-						'instructions'  => 'Colour of the <em>accent</em> word in this slide’s headline and peek card. “White” leaves the word uncoloured.',
+						// Deliberately NO default_value. ACF injects a default on read, and
+						// saving the page would then persist it over a slide whose design
+						// colour differs (slide 1 is Haas Red, the rest Brand Orange). Left
+						// unset, the template resolves the colour itself — see front-page.php.
+						'default_value' => '',
+						'allow_null'    => 1,
+						'placeholder'   => 'Design default (slide 1 red, rest orange)',
+						'instructions'  => 'Colour of the <em>accent</em> word in this slide’s headline and peek card. “White” leaves the word uncoloured. Leave unset to keep the design colour; picking a colour overrides it for this slide.',
 					),
 					array( 'key' => 'field_home_hero_body', 'label' => 'Body', 'name' => 'body', 'type' => 'textarea', 'rows' => 2 ),
 					array( 'key' => 'field_home_hero_cta_label', 'label' => 'Button label', 'name' => 'cta_label', 'type' => 'text' ),
@@ -136,12 +142,16 @@ acf_add_local_field_group(
 						'name'          => 'cta_color',
 						'type'          => 'select',
 						'choices'       => array(
-							'orange' => 'Brand Orange (default)',
+							'orange' => 'Brand Orange',
 							'haas'   => 'Haas Red',
 							'white'  => 'White outline',
 						),
-						'default_value' => 'orange',
-						'instructions'  => 'Colour of this slide’s call-to-action button. Independent of the headline accent colour.',
+						// No default_value for the same reason as Accent colour: slide 1 uses
+						// Haas Red, so a persisted default would silently change it.
+						'default_value' => '',
+						'allow_null'    => 1,
+						'placeholder'   => 'Design default (slide 1 red, rest orange)',
+						'instructions'  => 'Colour of this slide’s call-to-action button. Independent of the headline accent colour. Leave unset to keep the design colour; picking a colour overrides it for this slide.',
 					),
 					array( 'key' => 'field_home_hero_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
 					array( 'key' => 'field_home_hero_title_alt', 'label' => 'Image alt', 'name' => 'title_alt', 'type' => 'text' ),

@@ -2,6 +2,21 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-21 — Completed the "blank select" footgun removal; Local restored after the footgun actually fired (opencode)
+
+**Context.** The DSH session ("Review project state and improve") offered — but the saved chat does not show executing — the footgun removal: make the hero **Accent colour / Button colour** ACF selects blank-by-default so a careless editor save can't persist ACF's injected default over the design. Found it **half-implemented in the working tree** (`front-page.php` + `inc/acf-fields.php`, uncommitted).
+
+**Two defects found and fixed.**
+
+1. **The accent fallback ended at `white`**, not the design colour. `front-page.php:210` fell back to `'white'`; the committed code and the seed script fall back to *slide 1 Haas red, rest orange* — and the ACF instructions promised "Leave unset to keep the design colour." On a fresh DB (Dev) that would render slide 1's accent white again. Changed the final fallback to `$is_first ? 'haas' : 'orange'` to match the seed script and the instruction text.
+2. **The footgun had ALREADY fired on Local.** All six metas were literally stored `white` (`home_hero_slides_{0..2}_{accent_color,cta_color}`) — someone opened Home in the editor while the fields showed the old defaults and clicked Update, persisting `white` over the design. Verified live: slide 1 rendered `accent--white` and its CTA `btn--outline-white` instead of Haas red. Restored the design values through a wp-load bootstrap (slide 1 `haas`/`haas`, slides 2–3 `orange`/`orange`, `haas_eyebrow_color`/`haas_accent_color` = `haas`) and re-verified the served HTML: slide 1 `accent accent--haas` + `btn btn--primary btn--haas`, slides 2–3 orange, peek colours `haas`/`orange`/`orange`.
+
+**Also corrected** the ACF placeholder labels ("White (default)" / "Brand Orange (default)" would have misled — blank means *design default*, not white/orange). Now: accent choices `White (no highlight) / Haas Red / Brand Orange`, button `Brand Orange / Haas Red / White outline`, placeholder "Design default (slide 1 red, rest orange)" on both, instructions "Leave unset to keep the design colour".
+
+**Verified:** `php -l` clean on both files; repo → Local theme synced (`--check` identical); prototype → theme asset drift clean; all 13 Local URLs 200 (0 broken images, 0 PHP warnings, `preventive-maintenance/` 301→`/service/preventive-maintenance-plan/` is the intended redirect).
+
+**Not committed** (working tree): the two theme edits + this journal/.clinerules update — user to confirm commit + push. Dev still needs the theme push (DSH's four commits are on `origin/master` but the theme has not been deployed to gerotechdev).
+
 ## 2026-09-21 — Pushed to origin; Local prepared for the Dev push (DSH)
 
 **Git.** Working tree was already clean (4 commits). Nothing to merge: `origin/design-audit-revision` is fully contained in master, and the only unmerged branch — `origin/claude/file-reading-19koen` — is a single 2026-07-06 commit that master has since overtaken by **153 commits**. Left alone deliberately; merging it would reintroduce superseded design decisions. `master` was a clean fast-forward and is now **pushed**: `f7db760..995a72a`, 0 ahead / 0 behind.

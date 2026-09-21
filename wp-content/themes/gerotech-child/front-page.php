@@ -198,26 +198,27 @@ $signup_sub   = $pick( 'signup_sub', 'Projects, machine updates, and service new
 				$img      = gerotech_image_url( $img_val, '' );
 				$img_set  = gerotech_image_srcset( $img_val, '' );
 				// Accent colour: White (default) | Haas Red | Brand Orange.
-				// ACF injects the field default on read, so a row whose value was never saved must
-				// fall back explicitly: first to the retired `accent_class` meta (read raw — that
-				// field is no longer registered, so it is absent from $s), then to the original
-				// treatment. Without this, an un-migrated database (Dev) would silently lose the red.
-				$accent_raw = isset( $s['accent_color'] ) ? $s['accent_color'] : '';
-				if ( ! metadata_exists( 'post', $home_id, "home_hero_slides_{$i}_accent_color" ) ) {
-					$legacy_accent = (string) get_post_meta( $home_id, "home_hero_slides_{$i}_accent_class", true );
-					$accent_raw    = '' !== $legacy_accent ? $legacy_accent : ( $is_first ? 'haas' : 'orange' );
+				// Neither colour field carries an ACF default_value on purpose: ACF injects a
+				// default on read, and saving the page would then persist it over a slide whose
+				// design colour differs (slide 1 is Haas Red, the rest Brand Orange). So an empty
+				// value means "no explicit choice" — fall back to the retired `accent_class` meta
+				// (read raw: that field is unregistered, so it is absent from $s), then to the
+				// original design treatment (slide 1 Haas red, everything else brand orange).
+				$accent_raw = isset( $s['accent_color'] ) ? trim( (string) $s['accent_color'] ) : '';
+				if ( '' === $accent_raw ) {
+					$accent_raw = (string) get_post_meta( $home_id, "home_hero_slides_{$i}_accent_class", true );
 				}
+				$accent_raw = ( '' !== $accent_raw ) ? $accent_raw : ( $is_first ? 'haas' : 'orange' );
 				$accent     = gerotech_accent_class( $accent_raw );
 				$accent_key = gerotech_accent_choice( $accent_raw );
 
-				// Button colour is independent of the accent. Rows saved before the field existed
-				// keep the original treatment: slide 1 Haas red, the rest brand orange.
-				if ( metadata_exists( 'post', $home_id, "home_hero_slides_{$i}_cta_color" ) && isset( $s['cta_color'] ) ) {
-					$cta_choice = $s['cta_color'];
-				} else {
+				// Button colour is independent of the accent. Empty keeps the original
+				// treatment: slide 1 Haas red, everything else brand orange.
+				$cta_choice = isset( $s['cta_color'] ) ? trim( (string) $s['cta_color'] ) : '';
+				if ( '' === $cta_choice ) {
 					$cta_choice = $is_first ? 'haas' : 'orange';
 				}
-				$cta_btn  = 'btn ' . gerotech_btn_class( $cta_choice );
+				$cta_btn = 'btn ' . gerotech_btn_class( $cta_choice );
 				// ACF repeats every sub-field, so an untouched alt is an empty string — fall back to the eyebrow.
 				$img_alt  = ! empty( $s['title_alt'] ) ? $s['title_alt'] : ( ! empty( $s['eyebrow'] ) ? $s['eyebrow'] : '' );
 				?>
