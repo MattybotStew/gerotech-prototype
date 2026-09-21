@@ -21,7 +21,7 @@
 
 | File | Used on |
 |---|---|
-| `es-hero.png` (2.8MB — compress before upload) | ES page-hero |
+| `es-hero.jpg` (500KB — was a 2.8MB PNG, converted 2026-09-21) | ES page-hero |
 | `automation-hero.jpg` | Automation page-hero |
 | `automation-cell-design.jpg` | Automation service card |
 | `robot-eoat.jpg` | Automation service card |
@@ -62,7 +62,7 @@ Every remote `<img>` carries an HTML comment (`<!-- Stand-in: Unsplash — await
 
 ## 6. Post-migration tasks
 
-1. Compress large PNGs (`es-hero.png` 2.8MB; `machine-milling-centers.png` 1.2MB) → WebP/JPEG.
+1. ~~Compress large PNGs (`es-hero.png` 2.8MB)~~ **Done 2026-09-21** — `es-hero.png` → `es-hero.jpg` (500KB), and the homepage hero went from a 7.2MB raw JPEG to `hero-slide-1.jpg` (619KB) + `hero-slide-1@2x.jpg` (1.0MB) behind `srcset`. Still open: `machine-milling-centers.png` (1.2MB, preview page only) → WebP/JPEG.
 2. Replace all Unsplash URLs with Media Library attachments.
 3. Confirm FANUC ASI seal usage rights before go-live.
 4. Keep brand assets in the theme (not the Media Library) so updates don't touch content.

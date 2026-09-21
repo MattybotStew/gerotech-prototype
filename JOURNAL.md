@@ -2,6 +2,73 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-21 — Review + hero/page-weight consolidation; stranded Local work rescued (DSH)
+
+**Review findings.** The working tree, the repo theme, and the running Local site had drifted into three different answers for the same hero photo:
+
+- Prototype `index.html` loaded `newHeroSlide.jpg` — a **7.25 MB / 4096 px** JPEG as the LCP image with `fetchpriority="high"`. `index.html` alone weighed **8.51 MB**.
+- Repo `front-page.php` defaulted to `hero-campus-vans.jpg` (**1024 px** — visibly upscaled full-bleed, which is why Ken Burns had been disabled), while the Local ACF DB value overrode it anyway.
+- Local held a second, never-pushed variant set: `hero-slide-1.jpg` (3 MB) + `hero-slide-1@2x.jpg` (1.3 MB, **referenced by nothing** — no `srcset` existed anywhere).
+- The Local-only peek-accent work (`slider.js` + `.hero-slider__peek-accent` CSS + `front-page.php` `peek_accent`) was **inert**: no `peek_accent` ACF sub-field existed, so Local rendered `data-peek-accent=""` and the value could never be saved from the editor.
+- `es-hero.png` was a **2.77 MB PNG** of a photo used as the ES page hero (already flagged in `handoff/asset-manifest.md` §6 and `qa-checklist.md`).
+- `gallery-module-preview.html` pointed at two deleted placeholder videos.
+
+**Decisions (Matt).** Adopt `hero-slide-1.jpg` + `@2x` with a real `srcset`; back-port both stranded Local changes and add the missing ACF field.
+
+**Done — imagery.** Re-encoded from the 4096 px original into a responsive pair: `hero-slide-1.jpg` (1920×1279, 619 KB) + `hero-slide-1@2x.jpg` (2560×1706, ~1.0 MB), wired with `srcset` + `sizes="100vw"` in both the prototype and the theme. ES hero PNG → `es-hero.jpg` (500 KB, native 1671 px; no alpha, so the conversion is safe). Deleted `newHeroSlide.jpg`, `hero-campus-vans.jpg`, `es-hero.png`. `sync-theme-assets.sh --prune` removed the theme copies (correctly skipping the theme-only `legacy/*` images).
+
+**Done — new helper.** `gerotech_image_srcset( $value, $fallback_rel )` in `inc/helpers.php`: returns WordPress attachment sizes when the ACF field holds an attachment, otherwise pairs a theme asset with its `@2x` sibling via `getimagesize()`. Returns a **raw** value — the template applies `esc_attr()`. Wired into `front-page.php` (hero slides) and `page-engineered-solutions.php`.
+
+**Done — peek accent back-port.** Ported Local's `slider.js` / `components.css` into the prototype (source of truth) so the repo is no longer behind its own downstream copy; added `data-peek-accent="Haas"` to `index.html`; added the `peek_accent` ACF sub-field to `group_home_content`; emitted `data-peek-accent` in `front-page.php`. Ken Burns stays off (`.slide.is-active .slide__bg { animation: none }`), now recorded in both proto and theme.
+
+**Done — a11y + broken refs.** `title_alt` now uses `! empty()` instead of `isset()`, so slides 2–3 fall back to their eyebrow rather than rendering `alt=""` (ACF repeats every sub-field, so an untouched alt is an empty string — this was silently blanking the alt on Local). Repointed the gallery preview's auto-door video at the real `assets/videos/auto-door.mp4` and dropped its sheet-metal placeholder video, matching the MCS decision.
+
+**Local DB.** Imported the new art and re-pointed ACF: homepage hero row 1 → attachment **3467**, ES hero → **3468**, `peek_accent` = `Haas`, full alt text. Attachments **3466** (`hero-campus-vans.jpg`) and **3429** (`es-hero.png`) are now orphaned (files remain in `uploads/` — safe to delete later). No Local theme drift after `sync-theme-to-local.sh`.
+
+**Verified.** Prototype: all 13 pages 200, **zero broken assets**; `index.html` **8.51 MB → 1.86 MB**, ES **3.05 MB → 0.54 MB** (sum of local `src` assets). Local: all 13 URLs 200, **zero PHP warnings**, **zero broken images**, both heroes serving WP-native `srcset`, and a headless-Chrome DOM dump confirmed the peek renders as `01 | [[Haas]] Factory Outlet` with the accent span once slide 2 is active. `php -l` clean on all theme files; `sync-theme-assets.sh --check` and `sync-theme-to-local.sh --check` both report no drift.
+
+**Not done / notes.** Dev is still stale (WPE SSH gateway was hanging — not retried, per the standing instruction). Nothing committed yet. `@keyframes hero-ken-burns` is now dead CSS (kept deliberately so the animation can be re-enabled). `machine-milling-centers.png` (1.2 MB) is still uncompressed but appears only on the exploratory preview page.
+
+**Sandbox note for future agents.** The DSH file sandbox is workspace-write, so `wp media import` and `sync-theme-to-local.sh` need wider access — they write under `~/Local Sites/…`. WP-CLI lives at `/Applications/Local.app/Contents/Resources/extraResources/bin/wp-cli/wp-cli.phar`, run with Local's PHP (`.../php-8.2.29+0/bin/darwin-arm64/bin/php`) plus `-c ~/Library/Application Support/Local/run/VjZ_PwL-d/conf/php/php.ini`; `wp db` subcommands additionally need the MySQL client (`.../mysql-8.4.0+2/bin/darwin-arm64/bin`) on `PATH`.
+
+## 2026-09-21 — Local Connect hung again (Cursor)
+- After the 11:22 kill, Local Connect respawned two more `--dry-run` rsync pairs (11:22 + 11:23) to `local+rsync+gerotechdev@gerotechdev.ssh.wpengine.net` (`/sites/gerotechdev/`). Parent was Local.app PID 31871 (left running). Four ssh still `ESTABLISHED` to `34.168.124.108:22`.
+- **Killed (SIGKILL):** rsync 32566, 32568, 32630, 32632 + ssh 32567, 32569, 32631, 32633. First TERM pass failed because zsh did not split the PID list.
+- After kill: **no** gerotechdev/wpe-connect processes, **no** sockets to WPE `:22`. `https://gerotech.local/` still **200**. No extra rsync started. Production not touched.
+- **No Connect lock file.** Chromium `~/Library/Application Support/Local/{Session Storage,Local Storage/leveldb}/LOCK` are Electron, not Connect. Connect state: `connect-events-VjZ_PwL-d.json` (old pull event).
+- **Matt:** close the Connect dialog; optionally quit/reopen Local; wait several minutes; then Dev-only theme push (DB off) or use the WP Engine portal later. Do not loop retries.
+
+## 2026-09-21 — “Can’t connect to files in Local” (Cursor)
+- **Not a missing Local site.** `~/Local Sites/gerotech/app/public` is readable; child theme present; nginx/php-fpm/mysql (`VjZ_PwL-d`) running; `https://gerotech.local/` returns **HTTP/2 200**. `wpe-connect` key is `600`. Cursor can read the theme.
+- **Actual issue:** Local Connect file dry-run to **gerotechdev** hung (same WPE SSH exec hang). Two overlapping rsync `--dry-run` pairs (11:19 + 11:21) via `local+rsync+gerotechdev@gerotechdev.ssh.wpengine.net`.
+- **Fixed:** killed only those gerotechdev ssh/rsync PIDs. Local.app still running; site still 200.
+- **Next for Matt:** close the Connect/push dialog, retry **Dev-only** theme push with **Database off**. If it hangs again, WPE gateway is still dead — do not retry in a loop; do not Production.
+
+## 2026-09-21 — Dev deploy retry (Cursor) — SSH hung, nothing landed
+- **Attempted:** theme-only rsync of `wp-content/themes/gerotech-child/` to `gerotechdev` (key `wpe-connect`, IdentitiesOnly + ConnectTimeout 20). Then WP-CLI: `page_on_front`, lineup ACF URLs, hero media `hero-campus-vans.jpg`, CTA lockup, cache flush. Never Production / never Local DB.
+- **Result:** rsync produced **no file list** (~3 min hang). Killed zombies. Retry of `echo` + `wp option get siteurl` also hung with TCP ESTABLISHED and no stdout. Stopped after one retry.
+- **Live Dev still stale** (`https://gerotechdev.wpenginepowered.com/` 200): hero slide 1 is `uploads/2026/09/hero-slide-01.jpg` (not campus vans); Toolroom Lathe still `toolroom-lathes.html`; View All Lathes still `/lathes`; Winner’s Circle still `haastooling.com/WINNERS_CIRCLE` (no `/p/`); CTA has cinema-lockup class but **no** `.cta-band__call` phone card (phone only in header/footer `tel:+17343797788`).
+- Production not touched. Retry when WPE SSH exec works.
+
+## 2026-09-21 — Homepage Figma items applied (Cursor)
+- **Slide 1 bg:** `assets/images/hero-campus-vans.jpg` (Gerotech/Haas vans + F1 Team sign) in proto `index.html` + `front-page.php`. Imported to Local media (attachment 3466) and set on homepage ACF `home_hero_slides` row 1. Alt: “Gerotech and Haas F1 Team vans at Gerotech headquarters”.
+- **Stats band:** `.stat-counter__grid--2` centered (`max-width: 720px; margin-inline: auto`; items text-align center).
+- **Mill UMC-750 crop:** `.machine-panel__photo--umc img { object-position: center 18%; }` so the top of the lineup photo is no longer clipped.
+- **CTA phone lockup restored** on homepage (user reversed no-lockup): Prefer to talk it through? / (734) 379-7788 / Talk to a person, not a form. `tel:+17343797788`. ACF `cta_call_*` fields populated on Local page 11. Mailing list kept.
+- Synced `./scripts/sync-theme-assets.sh` then `./scripts/sync-theme-to-local.sh`. Verified proto `:8080` + `https://gerotech.local/` (hero vans, centered stats, mill crop, CTA call card + mailing list).
+- **Dev blocked:** WPE SSH authenticates and accepts `exec`, then hangs (no rsync, no ACF, no cache flush). Do not push Production. Retry deploy when SSH responds.
+
+## 2026-09-21 — Homepage Figma comments (Cursor)
+- Pulled 283 file comments. Current handoff `7306:1063` has **zero** pins. Unresolved homepage threads are on `7196:2420` (22), `7306:520` (6), slide `7329:2900` (3), plus deleted lineup frames `7283:*`.
+- **Already in proto/handoff:** Haas-red hero, mill chip links, Haas Automation tab, Ford/Kingbury quotes, proud-to-serve lede, CTA copy, UMC-750 mill photo, no phone lockup.
+- **Done this session:** aligned leftover Haas URLs to Tristien's comment links (lathe toolroom/dual-spindle/view-all, automation models/pallets/bar feeders/cobots/view-all, Winner's Circle `.../p/WINNERS_CIRCLE-1Y`) in `index.html` + `front-page.php` defaults.
+- **Blocked:** comment attachments aren't in the Figma comments API — still need the client files for mill/turning/rotary/automation/hero swaps. **Don't guess:** mailing-list removal (#203) and CTA phone box (#241) conflict with `7306:1063`.
+- WP ACF DB still wins over `front-page.php` defaults until those URL fields are edited or re-seeded. Not deployed.
+
+## 2026-09-21 — Sync lineup URLs to Local (Cursor)
+- Ran `./scripts/sync-theme-to-local.sh`.
+- Updated homepage ACF `lineup_panels` on Local (page 11) so turning/automation/tooling URLs match proto. Verified on `https://gerotech.local/`. Dev not pushed.
+
 ## 2026-09-18 — ES pages: remove remaining stubs (opencode)
 - **Goal:** make the 4 Engineered Solutions pages fully ready (leaving only header/mega-nav work).
 - **Applications:** replaced the two `Content coming soon.` modal bodies (Fire Suppression, RFID) with real copy in `page-unique-applications-for-standard-machines.php`.

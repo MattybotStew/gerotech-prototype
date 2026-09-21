@@ -126,6 +126,7 @@ acf_add_local_field_group(
 					array( 'key' => 'field_home_hero_cta_label', 'label' => 'Button label', 'name' => 'cta_label', 'type' => 'text' ),
 					array( 'key' => 'field_home_hero_cta_url', 'label' => 'Button URL', 'name' => 'cta_url', 'type' => 'text' ),
 					array( 'key' => 'field_home_hero_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+					array( 'key' => 'field_home_hero_title_alt', 'label' => 'Image alt', 'name' => 'title_alt', 'type' => 'text' ),
 					array(
 						'key'     => 'field_home_hero_image_position',
 						'label'   => 'Image crop bias',
@@ -135,6 +136,7 @@ acf_add_local_field_group(
 						'default_value' => 'default',
 					),
 					array( 'key' => 'field_home_hero_peek_eyebrow', 'label' => 'Peek eyebrow', 'name' => 'peek_eyebrow', 'type' => 'text' ),
+					array( 'key' => 'field_home_hero_peek_accent', 'label' => 'Peek accent word', 'name' => 'peek_accent', 'type' => 'text', 'instructions' => 'A word already inside the peek eyebrow to tint brand red (e.g. “Haas”). Leave empty for none.' ),
 					array( 'key' => 'field_home_hero_peek_title', 'label' => 'Peek title', 'name' => 'peek_title', 'type' => 'text' ),
 				),
 			),
@@ -219,6 +221,9 @@ acf_add_local_field_group(
 			array( 'key' => 'field_home_cta_body', 'label' => 'Body', 'name' => 'cta_body', 'type' => 'textarea', 'rows' => 2 ),
 			array( 'key' => 'field_home_cta_button_label', 'label' => 'Button label', 'name' => 'cta_button_label', 'type' => 'text' ),
 			array( 'key' => 'field_home_cta_button_url', 'label' => 'Button URL', 'name' => 'cta_button_url', 'type' => 'text' ),
+			array( 'key' => 'field_home_cta_call_label', 'label' => 'Call card label', 'name' => 'cta_call_label', 'type' => 'text' ),
+			array( 'key' => 'field_home_cta_call_number', 'label' => 'Call card number', 'name' => 'cta_call_number', 'type' => 'text' ),
+			array( 'key' => 'field_home_cta_call_note', 'label' => 'Call card note', 'name' => 'cta_call_note', 'type' => 'text' ),
 			array( 'key' => 'field_home_cta_image', 'label' => 'Background image', 'name' => 'cta_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
 
 			/* ── Email signup ──────────────────────────────────── */

@@ -28,9 +28,11 @@ $slides = $pick(
 			'body'            => '',
 			'cta_label'       => 'Explore the Haas Line',
 			'cta_url'         => '#machine-browse',
-			'image'           => 'assets/images/hero-slide-01.jpg',
+			'image'           => 'assets/images/hero-slide-1.jpg',
 			'image_position'  => 'right',
+			'title_alt'       => 'Gerotech and Haas F1 Team vans at Gerotech headquarters',
 			'peek_eyebrow'    => 'Haas Factory Outlet',
+			'peek_accent'     => 'Haas', /* intra-card accent word → brand red eyebrow (matches headline accent) */
 			'peek_title'      => 'A Division of Gerotech',
 		),
 		array(
@@ -103,9 +105,9 @@ $panels          = $pick(
 			'title'       => 'CNC Lathes',
 			'description' => '',
 			'tags_label'  => 'Featured series',
-			'tags'        => "ST Series | https://www.haascnc.com/machines/lathes/st.html#gsc.tab=0\nToolroom Lathe | https://www.haascnc.com/machines/lathes/toolroom-lathes.html\nDual Spindle | https://www.haascnc.com/machines/lathes/ds-series.html\nBox Way Series | https://www.haascnc.com/machines/lathes/box-way-series.html#gsc.tab=0\nChucker Lathe | https://www.haascnc.com/machines/lathes/chucker-lathe.html#gsc.tab=0",
+			'tags'        => "ST Series | https://www.haascnc.com/machines/lathes/st.html#gsc.tab=0\nToolroom Lathe | https://www.haascnc.com/machines/lathes/toolroom-lathe.html#gsc.tab=0\nDual Spindle | https://www.haascnc.com/machines/lathes/dual-spindle.html#gsc.tab=0\nBox Way Series | https://www.haascnc.com/machines/lathes/box-way-series.html#gsc.tab=0\nChucker Lathe | https://www.haascnc.com/machines/lathes/chucker-lathe.html#gsc.tab=0",
 			'cta_label'   => 'View All Lathes →',
-			'cta_url'     => 'https://www.haascnc.com/lathes',
+			'cta_url'     => 'https://www.haascnc.com/machines/lathes.html#gsc.tab=0',
 			'cta2_label'  => '',
 			'cta2_url'    => '',
 			'photo_style' => 'default',
@@ -133,9 +135,9 @@ $panels          = $pick(
 			'title'       => 'Haas Automation',
 			'description' => 'Explore Haas automation solutions, including robotic systems, pallet changers, bar feeders, and other options designed to maximize machine productivity.',
 			'tags_label'  => 'Featured products',
-			'tags'        => "Automation Models | https://www.haascnc.com/machines/haas-automation-systems.html\nPallet Changers | https://www.haascnc.com/machines/haas-automation-systems/pallet-pool.html\nBar Feeders | https://www.haascnc.com/machines/automation-systems/automation-models.html#barfeeder&gsc.tab=0\nCobots | https://www.haascnc.com/machines/automation-systems/automation-models.html#robot&gsc.tab=0",
+			'tags'        => "Automation Models | https://www.haascnc.com/machines/automation-systems/automation-models.html#gsc.tab=0\nPallet Changers | https://www.haascnc.com/machines/automation-systems/automation-models.html#pp\nBar Feeders | https://www.haascnc.com/machines/automation-systems/automation-models.html#barfeeder\nCobots | https://www.haascnc.com/machines/automation-systems/automation-models.html#robot",
 			'cta_label'   => 'View Automation →',
-			'cta_url'     => 'https://www.haascnc.com/machines/haas-automation-systems.html',
+			'cta_url'     => 'https://www.haascnc.com/machines/automation-systems.html#gsc.tab=0',
 			'cta2_label'  => '',
 			'cta2_url'    => '',
 			'photo_style' => 'default',
@@ -152,7 +154,7 @@ $panels          = $pick(
 			'cta_label'   => 'Haas Tooling',
 			'cta_url'     => 'https://www.haastooling.com',
 			'cta2_label'  => "Winner's Circle",
-			'cta2_url'    => 'https://www.haastooling.com/WINNERS_CIRCLE',
+			'cta2_url'    => 'https://www.haastooling.com/p/WINNERS_CIRCLE-1Y',
 			'photo_style' => 'logo',
 			'photo'       => 'assets/images/haas-winners-circle.png',
 		),
@@ -166,6 +168,9 @@ $cta_body     = $pick( 'cta_body', "From Haas CNC machines to Engineered Solutio
 $cta_btn_lbl  = $pick( 'cta_button_label', 'Engage with us today' );
 $cta_btn_url  = $pick( 'cta_button_url', gerotech_quote_mailto( 'Gerotech Expert Inquiry' ) );
 $cta_image    = gerotech_image_url( $pick( 'cta_image', '' ), 'assets/images/cta-home-figma.jpg' );
+$cta_call_label  = $pick( 'cta_call_label', 'Prefer to talk it through?' );
+$cta_call_number = $pick( 'cta_call_number', '(734) 379-7788' );
+$cta_call_note   = $pick( 'cta_call_note', 'Talk to a person, not a form.' );
 
 /* ── Email signup ──────────────────────────────────────────── */
 $signup_title = $pick( 'signup_title', 'Join Our <em>Mailing List</em>' );
@@ -184,18 +189,23 @@ $signup_sub   = $pick( 'signup_sub', 'Projects, machine updates, and service new
 				<?php
 				$is_first = ( 0 === $i );
 				$pos      = isset( $s['image_position'] ) ? $s['image_position'] : 'default';
-				$img      = gerotech_image_url( isset( $s['image'] ) ? $s['image'] : '', '' );
+				$img_val  = isset( $s['image'] ) ? $s['image'] : '';
+				$img      = gerotech_image_url( $img_val, '' );
+				$img_set  = gerotech_image_srcset( $img_val, '' );
 				$accent   = isset( $s['accent_class'] ) && $s['accent_class'] ? $s['accent_class'] : 'accent';
+				// ACF repeats every sub-field, so an untouched alt is an empty string — fall back to the eyebrow.
+				$img_alt  = ! empty( $s['title_alt'] ) ? $s['title_alt'] : ( ! empty( $s['eyebrow'] ) ? $s['eyebrow'] : '' );
 				?>
 				<div
 					class="slide<?php echo $is_first ? ' is-active' : ''; ?>"
 					role="tabpanel"
 					aria-label="<?php echo esc_attr( sprintf( 'Slide %d of %d', $i + 1, $total ) ); ?>"
 					data-peek-eyebrow="<?php echo esc_attr( isset( $s['peek_eyebrow'] ) ? $s['peek_eyebrow'] : '' ); ?>"
+					data-peek-accent="<?php echo esc_attr( isset( $s['peek_accent'] ) ? $s['peek_accent'] : '' ); ?>"
 					data-peek-title="<?php echo esc_attr( isset( $s['peek_title'] ) ? $s['peek_title'] : '' ); ?>"
 				>
 					<?php if ( $img ) : ?>
-						<img class="slide__bg<?php echo 'right' === $pos ? ' slide__bg--right' : ''; ?>" src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( isset( $s['title_alt'] ) ? $s['title_alt'] : ( isset( $s['eyebrow'] ) ? $s['eyebrow'] : '' ) ); ?>" <?php echo $is_first ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'; ?> decoding="async" />
+						<img class="slide__bg<?php echo 'right' === $pos ? ' slide__bg--right' : ''; ?>" src="<?php echo esc_url( $img ); ?>"<?php echo $img_set ? ' srcset="' . esc_attr( $img_set ) . '" sizes="100vw"' : ''; ?> alt="<?php echo esc_attr( $img_alt ); ?>" <?php echo $is_first ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'; ?> decoding="async" />
 					<?php endif; ?>
 					<div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
 					<div class="slide__content slide__content--left">
@@ -303,9 +313,15 @@ $signup_sub   = $pick( 'signup_sub', 'Projects, machine updates, and service new
 					$photo_style = isset( $p['photo_style'] ) ? $p['photo_style'] : 'default';
 					$photo       = gerotech_image_url( isset( $p['photo'] ) ? $p['photo'] : '', '' );
 					$tags        = gerotech_parse_tags( isset( $p['tags'] ) ? $p['tags'] : '' );
+					$photo_mod   = '';
+					if ( 'logo' === $photo_style ) {
+						$photo_mod = ' machine-panel__photo--logo';
+					} elseif ( $is_first ) {
+						$photo_mod = ' machine-panel__photo--umc';
+					}
 					?>
 					<article class="machine-panel machine-panel--lineup<?php echo $is_first ? ' is-active' : ''; ?>" id="machine-panel-<?php echo (int) $i; ?>" role="tabpanel" aria-labelledby="machine-tab-<?php echo (int) $i; ?>"<?php echo $is_first ? '' : ' hidden'; ?>>
-						<div class="machine-panel__photo<?php echo 'logo' === $photo_style ? ' machine-panel__photo--logo' : ''; ?>">
+						<div class="machine-panel__photo<?php echo $photo_mod; ?>">
 							<?php if ( $photo ) : ?>
 								<img src="<?php echo esc_url( $photo ); ?>" alt="<?php echo esc_attr( $p['title'] ); ?>" loading="lazy" decoding="async" />
 							<?php endif; ?>
@@ -379,6 +395,11 @@ $signup_sub   = $pick( 'signup_sub', 'Projects, machine updates, and service new
 					<a class="btn btn--primary btn--lg" href="<?php echo esc_url( $cta_btn_url ); ?>"><?php echo esc_html( $cta_btn_lbl ); ?></a>
 				</div>
 			</div>
+			<a class="cta-band__call" href="tel:+17343797788">
+				<span class="cta-band__call-label"><?php echo esc_html( $cta_call_label ); ?></span>
+				<span class="cta-band__call-number"><?php echo esc_html( $cta_call_number ); ?></span>
+				<span class="cta-band__call-note"><?php echo esc_html( $cta_call_note ); ?></span>
+			</a>
 		</div>
 	</section>
 

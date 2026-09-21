@@ -5,13 +5,22 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-18 (opencode — Phase 2 ACF + Careers page live on Dev)
-**Active Agent:** opencode
-**Branch:** `master` — synced with `origin/master`
-**Last Commit:** see `git log -1` (Phase 2 ACF + Careers)
-**Uncommitted:** none expected after this session's commit
+**Last Updated:** 2026-09-21 16:00 (DSH — hero image consolidation, page-weight pass, peek-accent back-port)
+**Active Agent:** DSH (DeepSeek Harness)
+**Branch:** `master`
+**Last Commit:** `f7db760` Add ES pages ready-for-review handoff doc
+**Uncommitted:** this session's hero/perf + peek-accent work in proto **and** theme (not yet committed). Local ACF updated (attachments 3467/3468 — DB, not in git), repo theme synced to Local, Local verified: 13 URLs 200, zero PHP warnings, zero broken images. **Dev still stale** — WPE SSH gateway was hanging; do not push Production.
 
-**Dev theme verified (2026-09-18):** checksum rsync of `wp-content/themes/gerotech-child/` repo → `gerotechdev` = **zero content drift**. Direct SSH deploy works (key `~/Library/Application Support/Local/ssh/wpe-connect`, user `gerotechdev@gerotechdev.ssh.wpengine.net`, path `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`). WP-CLI + `wp page-cache flush` / `wp cdn-cache flush` available over the same SSH.
+**Hero image (2026-09-21, DSH) — `hero-campus-vans.jpg` is retired.** Slide 1 is now **`assets/images/hero-slide-1.jpg`** (1920×1279, 619 KB) with **`hero-slide-1@2x.jpg`** (2560×1706, ~1.0 MB) offered through `srcset` + `sizes="100vw"`. It replaces `hero-campus-vans.jpg` (1024 px → blurry when full-bleed, which is why Ken Burns upscaling looked bad) and `newHeroSlide.jpg` (the 7.2 MB / 4096 px raw drop, only ever referenced by the prototype). New helper **`gerotech_image_srcset()`** (`inc/helpers.php`) builds the theme-asset `@2x` pair, or defers to `wp_get_attachment_image_srcset()` when the field holds an attachment. Same treatment for the ES hero: **`es-hero.png` (2.8 MB) → `es-hero.jpg` (500 KB)**. Local media: homepage hero = attachment **3467**, ES hero = **3468**; `hero-campus-vans.jpg` (3466) and `es-hero.png` (3429) are now **orphaned attachments** (upload files still on disk — safe to delete whenever).
+
+**Peek accent (2026-09-21, DSH):** the feature that only existed in the Local theme is now back-ported to the prototype (source of truth): `slider.js` reads `data-peek-accent` and wraps the word in `.hero-slider__peek-accent` (brand red), `components.css` carries the rule, `index.html` has `data-peek-accent="Haas"` on slide 1, `front-page.php` emits it, and the **missing ACF sub-field `peek_accent`** now exists (`group_home_content` → Hero slides). Without that field the value could never be saved — Local rendered `data-peek-accent=""` until it was added. Note the active slide's peek is intentionally not rendered (`renderPeeks()` skips `this.current`), so slide 1's red **Haas** only shows while slide 2/3 is active. **Ken Burns is off** (`.slide.is-active .slide__bg { animation: none }`) in proto + theme.
+**Slide alt fix (2026-09-21, DSH):** `title_alt` is now checked with `! empty()`, so slides 2–3 fall back to their eyebrow instead of rendering `alt=""` (ACF repeats every sub-field, so an untouched alt is an empty string).
+
+**Homepage Figma comments (2026-09-21):** Unresolved pins live on older frames `7196:2420` / deleted `7283:*` / `7306:520` — **not** on handoff `7306:1063` (zero comments). Applied: slide-1 van/F1-sign photo (now `hero-slide-1.jpg`, see above); stats band centered (`.stat-counter__grid--2`); mill UMC-750 `object-position: center 18%`; CTA phone lockup restored. **Do not remove mailing list** (#203). Remaining: other attached photos (149, 165, 166, 179, 191, 237, 242) — Figma REST does not return attachments.
+
+**Dev SSH (2026-09-21, retried 11:07 ET):** TCP `:22` open (`gerotechdev.ssh.wpengine.net` → `34.168.124.108`). Session reaches `ESTABLISHED` then hangs with **zero stdout** (rsync `--server` and a 1-line `echo`/`wp option get siteurl` both stall; `ServerAliveInterval=5` did not recover). Killed zombies after ~3 min rsync + one short-command retry. **Theme rsync did not land. ACF updates / media import / cache flush did not run.** `_tmp-update-lineup.php` not present in repo. Do not loop SSH. Do not push Production. Retry later when the gateway returns a shell.
+
+**Dev theme verified (2026-09-18):** checksum rsync of `wp-content/themes/gerotech-child/` repo → `gerotechdev` = **zero content drift**. Direct SSH deploy works when the gateway is responsive (key `~/Library/Application Support/Local/ssh/wpe-connect`, user `gerotechdev@gerotechdev.ssh.wpengine.net`, path `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`). WP-CLI + `wp page-cache flush` / `wp cdn-cache flush` available over the same SSH.
 
 **Dev DB `_wp_page_template` fix (2026-09-18):** Dev's DB still had stale parent templates overriding our child templates — the 4 ES pages (`28 engineered-solutions`, `1250 modification-of-standard-machine-tools`, `1265 unique-applications-for-standard-machines`, `1239 automated-system`) pointed at `page-solutions.php`, and `1535 support` at `page-service-home.php`, so they rendered the **parent** markup. Cleared those metas (plus `11 home`, `14 about`, `16 contact`, `39 training`) and set `18 careers` to `default`, mirroring the Local DB. If Dev is ever re-pulled/reset, re-apply. `service` (`page-service.php`), `rotary-repair` (`rotary-repair.php`), `planned-maintenance` (`preventive-maintenance.php`) intentionally keep metas whose filenames match our child templates.
 
@@ -50,7 +59,9 @@ The **prototype is the source of truth** for shared front-end assets until desig
 | Markup (sections) | Prototype `*.html` | Port by hand into the matching PHP template — map in `handoff/theme-map.md` |
 | WP-only pages (e.g. Contact) | Theme | Their CSS still lives in the prototype `components.css`, so the copy stays pure |
 
-- After editing prototype CSS/JS/images: run `./scripts/sync-theme-assets.sh`. Use `--check` to see drift, `--prune` to drop orphaned theme images.
+- After editing prototype CSS/JS/images: run `./scripts/sync-theme-assets.sh`. Use `--check` to see drift, `--prune` to drop orphaned theme images (it skips the theme-only `legacy/*` images).
+- **Responsive imagery:** full-bleed heroes pass `srcset` + `sizes="100vw"`. Use `gerotech_image_srcset( $acf_value, $fallback_rel )` (`inc/helpers.php`) — it returns a **raw** value (escape with `esc_attr()`), prefers WordPress attachment sizes, and otherwise pairs the theme asset with its `@2x` sibling.
+- **Large image guard:** heroes must not ship multi-MB files. `es-hero.png` (2.8 MB) and the 7.2 MB `newHeroSlide.jpg` were both replaced on 2026-09-21 — keep new hero art as JPEG/WebP at web resolution, not raw exports. `handoff/asset-manifest.md` + `handoff/qa-checklist.md` track this.
 - `include-partials.js` and `gallery-module.js` are deliberately **not** synced (PHP includes replace the former; the latter isn't promoted).
 - **At design lock:** tag the prototype, then the theme becomes source and syncing stops.
 
@@ -67,7 +78,8 @@ There are **two copies** of the child theme: the repo (`wp-content/themes/gerote
 - **Homepage Figma source:** canvas `6573:406` → home frame **`7306:1063`** (file `YgHwqyyFj57c1ZSbmfkL0c`). Align proto + WP homepage to this frame.
 - Peek heroes: desktop `.hero-slider--peek` is **`height: auto; min-height: 500px`** at `min-width: 901px` (set in **both** `components.css` and `elevated.css` — elevated used to force `height: auto`). The hero **grows with the active slide's content** instead of clipping at a hard 500px (changed 2026-09-18 — previously fixed `height: 500px; overflow: hidden`). Short slides stay 500px; longer copy expands the hero (verified 500 → 767px with extra body copy). Padding **100px** top/bottom; copy vertically centered. Peek tiles **107px**. Peek CTAs not full-width; desktop peek buttons **+15px** `margin-top`.
 - Peek labels: 02 **In-Stock & Ready**, 03 **Automation for Michigan**. Slide 2 **headline** stays “Our Showroom Machines Are Ready To Ship” (client line).
-- Homepage CTA: Tristien body, **no phone lockup**, photo **`assets/images/cta-home-figma.jpg`** (Figma `7306:1327`). Body **52ch** / copy max `--hero-copy-max`.
+- Homepage CTA: Tristien body, photo **`assets/images/cta-home-figma.jpg`** (Figma `7306:1327`). **Phone lockup is back** (user reversed #241 / `7306:1063` no-lockup): `.cta-band--cinema-lockup` + `.cta-band__call` — Prefer to talk it through? / (734) 379-7788 / Talk to a person, not a form. `tel:+17343797788`. Keep the mailing list. Body **52ch** / copy max `--hero-copy-max`.
+- Homepage hero slide 1: `assets/images/hero-slide-1.jpg` + `hero-slide-1@2x.jpg` (Gerotech/Haas vans + F1 Team sign) via `srcset` + `sizes="100vw"`; `gerotech_image_srcset()` builds the pair. `hero-campus-vans.jpg` / `newHeroSlide.jpg` are retired — do not re-add. Stats band `.stat-counter__grid--2` centered (max-width 720px). Mill lineup photo `.machine-panel__photo--umc img { object-position: center 18%; }`.
 - Haas on homepage: watermark + F1 lockup + intro only. Brand card is `assets/images/haas-f1-team.jpg` (not `haas-f1-lockup.png` — that PNG 403s on WP Engine). No 4-column features band. Do not re-add without client/Figma direction.
 - Interior `.page-hero` / `.page-hero-trust` share the 500px min-height + 100px padding.
 - Proto header: Training / Support / About link to `training.html` / `support.html` / `about.html`. **WP Support stays a dropdown** (Service Request / Rotary Repair / Planned Maintenance).

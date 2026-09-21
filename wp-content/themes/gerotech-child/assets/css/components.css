@@ -759,6 +759,11 @@
   color: rgba(255, 255, 255, 0.55);
   margin-bottom: 4px;
 }
+.hero-slider__peek-accent {
+  font-style: normal; /* match headline accent — same brand red, no italic em */
+  color: var(--clr-haas-red);
+  letter-spacing: inherit;
+}
 .hero-slider__peek-title {
   display: block;
   font-family: var(--font-display);
@@ -3877,7 +3882,7 @@ img.mcs-gallery-card__image {
   }
 }
 .slide.is-active .slide__bg {
-  animation: hero-ken-burns 12s ease-out forwards;
+  animation: none; /* Ken Burns grow removed — static hero bg (also avoids upscale blur on slide-1) */
 }
 @media (prefers-reduced-motion: reduce) {
   .slide.is-active .slide__bg {
@@ -3995,6 +4000,15 @@ img.mcs-gallery-card__image {
 }
 .stat-counter__grid--2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 720px;
+  margin-inline: auto;
+}
+.stat-counter__grid--2 .stat-counter__item {
+  align-items: center;
+  text-align: center;
+}
+.stat-counter__grid--2 .stat-counter__item:first-child {
+  padding-left: var(--sp-32);
 }
 .stat-counter__item {
   display: flex;
@@ -4478,6 +4492,9 @@ img.mcs-gallery-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.machine-panel--lineup .machine-panel__photo--umc img {
+  object-position: center 18%;
 }
 .machine-panel--lineup .machine-panel__photo--logo {
   background: #ffffff;

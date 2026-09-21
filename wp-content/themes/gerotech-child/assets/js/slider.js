@@ -125,7 +125,18 @@
 
         const eyebrow = document.createElement('span');
         eyebrow.className = 'hero-slider__peek-eyebrow';
-        eyebrow.textContent = slide.dataset.peekEyebrow || '';
+        const eyebrowText = slide.dataset.peekEyebrow || '';
+        const accentWord = slide.dataset.peekAccent || '';
+        if (accentWord && eyebrowText.includes(accentWord)) {
+          const before = document.createTextNode(eyebrowText.slice(0, eyebrowText.indexOf(accentWord)));
+          const acc = document.createElement('em');
+          acc.className = 'hero-slider__peek-accent';
+          acc.textContent = accentWord;
+          const after = document.createTextNode(eyebrowText.slice(eyebrowText.indexOf(accentWord) + accentWord.length));
+          eyebrow.append(before, acc, after);
+        } else {
+          eyebrow.textContent = eyebrowText;
+        }
 
         const title = document.createElement('span');
         title.className = 'hero-slider__peek-title';

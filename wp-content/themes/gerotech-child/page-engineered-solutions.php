@@ -22,7 +22,9 @@ $hero_cta1_label = $pick( 'es_hero_cta1_label', 'Get a Quote' );
 $hero_cta1_url   = $pick( 'es_hero_cta1_url', gerotech_quote_mailto() );
 $hero_cta2_label = $pick( 'es_hero_cta2_label', 'Explore Capabilities' );
 $hero_cta2_url   = $pick( 'es_hero_cta2_url', '#why-headline' );
-$hero_image      = gerotech_image_url( $pick( 'es_hero_image', 'assets/images/es-hero.png' ) );
+$es_hero_value   = $pick( 'es_hero_image', 'assets/images/es-hero.jpg' );
+$hero_image      = gerotech_image_url( $es_hero_value, 'assets/images/es-hero.jpg' );
+$hero_srcset     = gerotech_image_srcset( $es_hero_value, 'assets/images/es-hero.jpg' );
 
 /* ── Why Gerotech ─────────────────────────────────────────── */
 $why_headline  = $pick( 'es_why_headline', 'Why Manufacturers <em>Trust Gerotech</em>' );
@@ -188,7 +190,7 @@ $signup_sub   = $pick( 'es_signup_sub', 'Projects, machine updates, and service 
          SECTION 3: ES Hero
          ============================================================ -->
     <section class="page-hero" aria-label="Engineered Solutions hero">
-      <img class="slide__bg slide__bg--right" src="<?php echo esc_url( $hero_image ); ?>" alt="Engineering-driven manufacturing on the shop floor" loading="eager" fetchpriority="high" decoding="async" />
+      <img class="slide__bg slide__bg--right" src="<?php echo esc_url( $hero_image ); ?>"<?php echo $hero_srcset ? ' srcset="' . esc_attr( $hero_srcset ) . '" sizes="100vw"' : ''; ?> alt="Engineering-driven manufacturing on the shop floor" loading="eager" fetchpriority="high" decoding="async" />
       <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
       <div class="slide__content slide__content--left">
         <p class="slide__eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>

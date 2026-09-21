@@ -77,5 +77,5 @@ Test every page at: **360, 390, 768, 1024, 1440, 1920**.
 - [ ] All Unsplash stand-ins replaced with client photography
 - [ ] FANUC ASI seal usage rights confirmed
 - [ ] Social + legal footer URLs wired (currently `#` / placeholders)
-- [ ] Large PNGs compressed (`es-hero.png`, `machine-milling-centers.png`)
+- [x] Large PNGs compressed — `es-hero.png` → `es-hero.jpg` (2.8MB → 500KB) and homepage hero → `hero-slide-1.jpg` + `@2x` with `srcset` (7.2MB → 619KB/1.0MB), 2026-09-21. Remaining: `machine-milling-centers.png` (1.2MB, preview page only)
 - [ ] News "Show More" destination confirmed (or link removed)

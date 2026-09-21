@@ -185,6 +185,65 @@ function gerotech_image_url( $value, $fallback_rel = '' ) {
 
 
 /**
+ * Build a `srcset` for an ACF image field or a theme-relative asset.
+ *
+ * ACF values resolve through WordPress, so its registered sizes are offered. A
+ * theme asset falls back to a hand-built responsive pair when the `@2x` sibling
+ * exists (e.g. `assets/images/hero-slide-1.jpg` + `hero-slide-1@2x.jpg`).
+ *
+ * Pair with `sizes="100vw"` for full-bleed imagery.
+ *
+ * @param mixed  $value        ACF image value (ID/array/URL) or theme-relative path.
+ * @param string $fallback_rel Theme-relative fallback path, as passed to gerotech_image_url().
+ * @return string Raw srcset value — escape with esc_attr() at output. Empty when unavailable.
+ */
+function gerotech_image_srcset( $value, $fallback_rel = '' ) {
+	$id = 0;
+	if ( is_array( $value ) && ! empty( $value['ID'] ) ) {
+		$id = (int) $value['ID'];
+	} elseif ( is_numeric( $value ) ) {
+		$id = (int) $value;
+	}
+	if ( $id ) {
+		$set = wp_get_attachment_image_srcset( $id, 'full' );
+		if ( $set ) {
+			return $set;
+		}
+	}
+
+	// Only theme-relative paths have a predictable `@2x` sibling.
+	$rel = '';
+	if ( is_string( $value ) && '' !== $value && 0 !== strpos( $value, 'http' ) && 0 !== strpos( $value, '/' ) ) {
+		$rel = $value;
+	} elseif ( '' !== $fallback_rel ) {
+		$rel = $fallback_rel;
+	}
+	if ( '' === $rel ) {
+		return '';
+	}
+
+	$x2 = preg_replace( '/\.(jpe?g|png)$/i', '@2x.$1', $rel );
+	if ( ! $x2 || $x2 === $rel ) {
+		return '';
+	}
+
+	$candidates = array();
+	foreach ( array( $rel, $x2 ) as $candidate ) {
+		$abs = GEROTECH_CHILD_DIR . '/' . ltrim( $candidate, '/' );
+		if ( ! file_exists( $abs ) ) {
+			return '';
+		}
+		$info = @getimagesize( $abs ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+		if ( ! $info ) {
+			return '';
+		}
+		$candidates[] = GEROTECH_CHILD_URI . '/' . ltrim( $candidate, '/' ) . ' ' . (int) $info[0] . 'w';
+	}
+
+	return implode( ', ', $candidates );
+}
+
+/**
  * Parse a "Label | URL" per-line textarea into tag chips.
  *
  * @param string $text Raw field value.
