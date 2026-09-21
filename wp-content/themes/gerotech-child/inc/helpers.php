@@ -92,13 +92,45 @@ function gerotech_asset_version( $rel ) {
 }
 
 /**
+ * Map a hero slide's "Accent colour" choice to headline accent classes.
+ *
+ * Choices are stored as semantic values (`white` | `haas` | `orange`). Raw CSS
+ * class values written by the earlier `accent_class` field still resolve, so a
+ * database that has not been migrated keeps rendering correctly.
+ *
+ * @param string $choice Stored choice, e.g. 'haas'.
+ * @return string Space-separated CSS classes for gerotech_accent().
+ */
+function gerotech_accent_class( $choice ) {
+	$choice = trim( (string) $choice );
+
+	$map = array(
+		'white'  => 'accent accent--white',
+		'haas'   => 'accent accent--haas',
+		'orange' => 'accent',
+	);
+	if ( isset( $map[ $choice ] ) ) {
+		return $map[ $choice ];
+	}
+
+	// Legacy tolerance: an un-migrated DB may still hold a raw class name.
+	if ( '' !== $choice && preg_match( '/^[A-Za-z0-9_-]+$/', $choice ) ) {
+		return 'accent' === $choice ? 'accent' : 'accent ' . $choice;
+	}
+
+	return $map['white'];
+}
+
+/**
  * Render a client-authored headline/lede with accent + line-break support.
  *
  * Editors write plain text; wrap the accent phrase in <em>…</em> and use line
  * breaks for the design's forced breaks. <em>/<i> become an accent span.
  *
  * @param string $text         Raw field value.
- * @param string $accent_class Accent class: 'accent', 'accent--deep', 'accent--haas'.
+ * @param string $accent_class Accent classes: 'accent' (brand orange), 'accent--haas' (Haas red),
+ *                             'accent--white' (no colour), or 'accent--deep' (light surfaces).
+ *                             Pass gerotech_accent_class() output for hero slides.
  * @param bool   $breaks       Convert newlines to <br> (headlines) vs. paragraphs (body).
  * @return string Safe HTML.
  */

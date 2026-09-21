@@ -5,7 +5,7 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-21 16:00 (DSH — hero image consolidation, page-weight pass, peek-accent back-port)
+**Last Updated:** 2026-09-21 16:30 (DSH — hero image consolidation, page-weight pass, peek-accent back-port, hero accent-colour ACF)
 **Active Agent:** DSH (DeepSeek Harness)
 **Branch:** `master`
 **Last Commit:** `f7db760` Add ES pages ready-for-review handoff doc
@@ -15,6 +15,10 @@
 
 **Peek accent (2026-09-21, DSH):** the feature that only existed in the Local theme is now back-ported to the prototype (source of truth): `slider.js` reads `data-peek-accent` and wraps the word in `.hero-slider__peek-accent` (brand red), `components.css` carries the rule, `index.html` has `data-peek-accent="Haas"` on slide 1, `front-page.php` emits it, and the **missing ACF sub-field `peek_accent`** now exists (`group_home_content` → Hero slides). Without that field the value could never be saved — Local rendered `data-peek-accent=""` until it was added. Note the active slide's peek is intentionally not rendered (`renderPeeks()` skips `this.current`), so slide 1's red **Haas** only shows while slide 2/3 is active. **Ken Burns is off** (`.slide.is-active .slide__bg { animation: none }`) in proto + theme.
 **Slide alt fix (2026-09-21, DSH):** `title_alt` is now checked with `! empty()`, so slides 2–3 fall back to their eyebrow instead of rendering `alt=""` (ACF repeats every sub-field, so an untouched alt is an empty string).
+
+**Hero accent colour — client-editable (2026-09-21, DSH):** each hero slide has an **Accent colour** select in ACF → **White (default) / Haas Red / Brand Orange**. It colours the `<em>` accent word in the slide headline *and* the matching word on that slide's peek card (`data-peek-accent-color` → `.hero-slider__peek-accent--{white|haas|orange}`, whitelisted in `slider.js`). Field is `accent_color` on the `home_hero_slides` repeater → `field_home_hero_accent_color`; `gerotech_accent_class()` (`inc/helpers.php`) maps the choice to classes and **also accepts the retired raw-class values** (`accent`, `accent--haas`, `accent--deep`) so an un-migrated DB (Dev) still renders. Current: slide 1 `haas`, slides 2–3 `orange`. Legacy key `home_hero_slides_<i>_accent_class` is migrated + deleted on Local (`/tmp/gerotech-accent-migrate.php` — re-run on Dev after its next deploy).
+- **Bug fixed with it:** the CSS rule was `.accent.accent--haas` (compound) while the theme emitted only `accent--haas`, so **Haas red never applied on WordPress** — it silently rendered white. Modifiers now stand alone and are declared after `.accent`; verified by computed style (orange `rgb(243,138,44)`, Haas `rgb(207,10,44)`, white `rgb(255,255,255)`).
+- **Not driven by this field (open question):** the hero CTA button — slide 1 keeps `.btn--haas`, the rest keep `.btn--primary`. Interior page heroes (`.page-hero`) still hardcode `accent` in their templates; this field covers the homepage carousel slides only.
 
 **Homepage Figma comments (2026-09-21):** Unresolved pins live on older frames `7196:2420` / deleted `7283:*` / `7306:520` — **not** on handoff `7306:1063` (zero comments). Applied: slide-1 van/F1-sign photo (now `hero-slide-1.jpg`, see above); stats band centered (`.stat-counter__grid--2`); mill UMC-750 `object-position: center 18%`; CTA phone lockup restored. **Do not remove mailing list** (#203). Remaining: other attached photos (149, 165, 166, 179, 191, 237, 242) — Figma REST does not return attachments.
 

@@ -2,6 +2,25 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-21 — Hero accent colour is now client-editable in ACF (DSH)
+
+**Request.** Every hero slide should offer the client a colour choice for its accent word: **White (default) / Haas Red / Brand Orange** — Haas is brand red, the other slides brand orange.
+
+**Found a real bug while wiring it.** The CSS rule was `.accent.accent--haas` (a *compound* selector requiring both classes), but the WordPress template emitted only `class="accent--haas"` from the old `accent_class` field. So **Haas red never actually applied on the site** — "Haas" in the homepage hero rendered white. The prototype looked correct only because its hand-written markup carried `class="accent accent--haas"`. The accent modifiers now stand alone and are declared after `.accent`, so one class is enough either way.
+
+**What changed.**
+- `inc/acf-fields.php`: replaced the `accent_class` select (Orange / Haas red / Deep orange) with **`accent_color`** → `White (default)` / `Haas Red` / `Brand Orange`, default `white`, with editor instructions.
+- `inc/helpers.php`: new **`gerotech_accent_class()`** maps the choice to classes (`white` → `accent accent--white`, `haas` → `accent accent--haas`, `orange` → `accent`) and still tolerates the retired raw-class values, so an un-migrated DB (Dev) keeps rendering correctly even before the field is re-saved.
+- `front-page.php`: hero defaults are now `accent_color` (slide 1 `haas`, slides 2–3 `orange`), and each slide emits `data-peek-accent-color`.
+- `assets/js/slider.js` + `components.css`: the peek-card accent word now follows the same choice (`--white` / `--haas` / `--orange` modifiers, whitelisted in JS) instead of being hardcoded Haas red — otherwise the peek would disagree with the headline the moment the client changed the colour.
+- CSS cleanup: removed the hardcoded `#CF0A2C` in favour of the existing `--clr-haas-red` token (per the "no brand colours outside tokens.css" rule).
+
+**Migration.** `/tmp/gerotech-accent-migrate.php` reads the raw `home_hero_slides_<i>_accent_class` meta, maps it, writes `accent_color`, and deletes the stale key. Run on Local: slide 0 `accent--haas` → `haas`, slides 1–2 `accent` → `orange`; legacy keys removed.
+
+**Verified.** Rendered HTML now emits `class="accent accent--haas"` for slide 1 and `accent` for 2–3, with `data-peek-accent-color="haas|orange|orange"`. A headless-Chrome computed-style check confirms the exact values: `.accent` → `rgb(243,138,44)`, `.accent--haas` (with **or without** the `accent` class) → `rgb(207,10,44)`, `.accent--white` → `rgb(255,255,255)`, plus both peek modifiers. A DOM dump after the slider advances shows the peek rendering `01 | [[Haas]] Factory Outlet` with `hero-slider__peek-accent--haas`. `php -l` clean; theme↔Local drift check OK.
+
+**Open question logged for Matt.** The hero CTA button colour is *not* driven by this field (slide 1 keeps `.btn--haas`, others `.btn--primary`), and interior `.page-hero` sections still hardcode `accent` in their templates — this field covers the homepage carousel slides only. Say the word to extend it.
+
 ## 2026-09-21 — Review + hero/page-weight consolidation; stranded Local work rescued (DSH)
 
 **Review findings.** The working tree, the repo theme, and the running Local site had drifted into three different answers for the same hero photo:

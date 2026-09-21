@@ -30,7 +30,7 @@ Location: `acf_add_options_page()`. Consumed by `header.php` / `footer.php` / sh
 
 | Field | Type | Notes |
 |---|---|---|
-| `hero_slides` | Repeater | `eyebrow`, `headline` (WYSIWYG — accent via `em`), `body`, `cta_label`, `cta_url`, `image`, `badge_label` |
+| `hero_slides` | Repeater | `eyebrow`, `headline` (WYSIWYG — accent via `em`), **`accent_color`**, `body`, `cta_label`, `cta_url`, `image`, `image_position`, `title_alt`, `peek_eyebrow`, `peek_accent`, `peek_title` |
 | `hero_stats` | Repeater | `value`, `label` — currently 39+ / 14,000+ |
 | `haas_eyebrow` | Text | "The Haas Relationship" |
 | `haas_headline` | WYSIWYG | Accent word via `em` |
@@ -77,6 +77,22 @@ Location: `acf_add_options_page()`. Consumed by `header.php` / `footer.php` / sh
 ## 4. Accent-word rule
 
 Headlines that mix ink and orange use a WYSIWYG field. The editor italicises the word (`em`); the theme maps `em`/`i` → `.accent` (dark surfaces) or `.accent--deep` (light surfaces). Confirmed approach — see plan §11 open decision 5.
+
+### Hero slide accent colour (`hero_slides` → `accent_color`)
+
+Per-slide select controlling the colour of the `<em>` accent word **and** its matching peek-card word:
+
+| Value | Label | Classes emitted | Colour |
+|---|---|---|---|
+| `white` | White (default) | `accent accent--white` | `--clr-white` — no colour highlight |
+| `haas` | Haas Red | `accent accent--haas` | `--clr-haas-red` (#CF0A2C) |
+| `orange` | Brand Orange | `accent` | `--clr-orange` (#F38A2C) |
+
+Mapped by `gerotech_accent_class()` (`inc/helpers.php`), which also tolerates the retired raw-class values (`accent`, `accent--haas`, `accent--deep`) so an un-migrated database (e.g. Dev) still renders correctly. Current: slide 1 `haas`, slides 2–3 `orange`; new slides default to `white`.
+
+> **Note:** the `.accent--haas` CSS rule previously read `.accent.accent--haas` (compound), so the bare `accent--haas` class the theme emitted never matched and Haas red silently rendered white on WordPress. The modifiers now stand alone and follow `.accent` in source order.
+>
+> The CTA button colour is **not** driven by this field — slide 1 keeps `.btn--haas`, the rest `.btn--primary`.
 
 ---
 

@@ -760,10 +760,13 @@
   margin-bottom: 4px;
 }
 .hero-slider__peek-accent {
-  font-style: normal; /* match headline accent — same brand red, no italic em */
-  color: var(--clr-haas-red);
+  font-style: normal; /* match the headline accent — never italic em */
+  color: var(--clr-white);
   letter-spacing: inherit;
 }
+/* Peek accent follows the slide's "Accent colour" choice (data-peek-accent-color). */
+.hero-slider__peek-accent--orange { color: var(--clr-orange); }
+.hero-slider__peek-accent--haas { color: var(--clr-haas-red); }
 .hero-slider__peek-title {
   display: block;
   font-family: var(--font-display);
@@ -1580,12 +1583,17 @@
   }
 }
 
-/* Accent system — orange accent word in headlines (.accent = dark surfaces, .accent--deep = light surfaces) */
+/* Accent system — accent word in headlines (.accent = dark surfaces, .accent--deep = light surfaces).
+   The hero-slide "Accent colour" ACF field emits one of: .accent (brand orange),
+   .accent--haas (Haas red), .accent--white (no colour highlight). The modifiers are
+   declared AFTER .accent and stand alone, so a single class is enough — the old
+   `.accent.accent--haas` compound selector never matched the bare class the field emits. */
 .accent { color: var(--clr-orange); }
 .accent--deep { color: var(--clr-orange-deep); }
-.accent.accent--haas,
+.accent--white { color: var(--clr-white); }
+.accent--haas,
 .haas-relationship__headline .accent--haas {
-  color: #CF0A2C;
+  color: var(--clr-haas-red);
 }
 .headline-rule {
   display: block;

@@ -2,6 +2,9 @@
   /** Circumference of progress circle (r=21): 2π × 21 */
   const PROGRESS_CIRC = 2 * Math.PI * 21;
 
+  /** Allowed values of a slide's ACF "Accent colour" choice (maps to .accent--<value>). */
+  const ACCENT_COLORS = ['white', 'haas', 'orange'];
+
   class HeroSlider {
     constructor(el) {
       this.el = el;
@@ -130,7 +133,10 @@
         if (accentWord && eyebrowText.includes(accentWord)) {
           const before = document.createTextNode(eyebrowText.slice(0, eyebrowText.indexOf(accentWord)));
           const acc = document.createElement('em');
-          acc.className = 'hero-slider__peek-accent';
+          // Colour follows the slide's ACF "Accent colour" choice (whitelisted).
+          const accentColor = slide.dataset.peekAccentColor || '';
+          const colorMod = ACCENT_COLORS.includes(accentColor) ? ' hero-slider__peek-accent--' + accentColor : '';
+          acc.className = 'hero-slider__peek-accent' + colorMod;
           acc.textContent = accentWord;
           const after = document.createTextNode(eyebrowText.slice(eyebrowText.indexOf(accentWord) + accentWord.length));
           eyebrow.append(before, acc, after);

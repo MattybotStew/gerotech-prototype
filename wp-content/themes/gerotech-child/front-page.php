@@ -24,7 +24,7 @@ $slides = $pick(
 		array(
 			'eyebrow'         => 'A Division of Gerotech',
 			'headline'        => '<em>Haas</em> Factory Outlet',
-			'accent_class'    => 'accent--haas',
+			'accent_color'    => 'haas',
 			'body'            => '',
 			'cta_label'       => 'Explore the Haas Line',
 			'cta_url'         => '#machine-browse',
@@ -38,7 +38,7 @@ $slides = $pick(
 		array(
 			'eyebrow'         => 'New Arrivals',
 			'headline'        => "Our Showroom Machines\nAre <em>Ready To Ship</em>",
-			'accent_class'    => 'accent',
+			'accent_color'    => 'orange',
 			'body'            => 'Showroom Machines Are Backed By Our 1-Year Warranty. Confidence Comes Standard.',
 			'cta_label'       => 'Browse Inventory',
 			'cta_url'         => 'https://www.haascnc.com/HFO/HFO-Gerotech/Showroom-Inventory.html#gsc.tab=0',
@@ -50,7 +50,7 @@ $slides = $pick(
 		array(
 			'eyebrow'         => 'Engineered Solutions',
 			'headline'        => "<em>Automation</em> Built\nfor Your\nShop Floor",
-			'accent_class'    => 'accent',
+			'accent_color'    => 'orange',
 			'body'            => '',
 			'cta_label'       => 'Explore Solutions',
 			'cta_url'         => gerotech_page_url( 'engineered-solutions' ),
@@ -192,7 +192,10 @@ $signup_sub   = $pick( 'signup_sub', 'Projects, machine updates, and service new
 				$img_val  = isset( $s['image'] ) ? $s['image'] : '';
 				$img      = gerotech_image_url( $img_val, '' );
 				$img_set  = gerotech_image_srcset( $img_val, '' );
-				$accent   = isset( $s['accent_class'] ) && $s['accent_class'] ? $s['accent_class'] : 'accent';
+				// Accent colour: White (default) | Haas Red | Brand Orange — see gerotech_accent_class().
+				$accent_raw = isset( $s['accent_color'] ) ? $s['accent_color'] : ( isset( $s['accent_class'] ) ? $s['accent_class'] : '' );
+				$accent     = gerotech_accent_class( $accent_raw );
+				$accent_key = in_array( $accent_raw, array( 'white', 'haas', 'orange' ), true ) ? $accent_raw : '';
 				// ACF repeats every sub-field, so an untouched alt is an empty string — fall back to the eyebrow.
 				$img_alt  = ! empty( $s['title_alt'] ) ? $s['title_alt'] : ( ! empty( $s['eyebrow'] ) ? $s['eyebrow'] : '' );
 				?>
@@ -202,6 +205,7 @@ $signup_sub   = $pick( 'signup_sub', 'Projects, machine updates, and service new
 					aria-label="<?php echo esc_attr( sprintf( 'Slide %d of %d', $i + 1, $total ) ); ?>"
 					data-peek-eyebrow="<?php echo esc_attr( isset( $s['peek_eyebrow'] ) ? $s['peek_eyebrow'] : '' ); ?>"
 					data-peek-accent="<?php echo esc_attr( isset( $s['peek_accent'] ) ? $s['peek_accent'] : '' ); ?>"
+					data-peek-accent-color="<?php echo esc_attr( $accent_key ); ?>"
 					data-peek-title="<?php echo esc_attr( isset( $s['peek_title'] ) ? $s['peek_title'] : '' ); ?>"
 				>
 					<?php if ( $img ) : ?>
