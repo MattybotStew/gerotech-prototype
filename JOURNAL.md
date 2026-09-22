@@ -2,6 +2,21 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — ES bottom CTA gets the client's FANUC rail-robot photo (Claude)
+
+Client supplied a photo of a FANUC robot on an overhead rail system (`RAILSYS001`, "RAILCAPACITY 15" visible) to use as the Engineered Solutions bottom CTA band background — the last Unsplash stand-in on that page.
+
+- **Assets:** `assets/images/cta-engineered-solutions.jpg` (1920×1085, 484KB) + `cta-engineered-solutions@2x.jpg` (2560×1447, 740KB), converted from the client's 2722×1539 WebP via `sips` (q82/q78). Sizes sit alongside `cta-home-figma.jpg` and the hero pair.
+- **Prototype:** `engineered-solutions.html` SECTION 13 now uses the local file with `srcset` (1920w/2560w) + `sizes="100vw"`, mirroring the homepage hero pattern.
+- **Theme:** `page-engineered-solutions.php` default changed from the Unsplash URL to `assets/images/cta-engineered-solutions.jpg`, and it now emits `srcset` via `gerotech_image_srcset()` like the ES hero does.
+- **Alt text fixed:** the old alt ("Engineering blueprints and design") described the retired stand-in, not this photo. Now "FANUC robot on an overhead rail system in a Michigan manufacturing facility".
+- **Not just a code default — Local's DB had a stored `es_cta_image`** (attachment 3435, the OLD stand-in), which would have silently won over the new default. Imported the new file as attachment **3470** and pointed `es_cta_image` at it, so it appears in the media library where the client can swap it.
+- **Verified:** Local serves the new attachment with a full WP-generated `srcset`; rendered the band standalone at 1440 / 768 / 500 and confirmed the crop (`object-position: center 35%`) keeps the rail and arm reading behind the copy with the gradient keeping text legible. **No horizontal overflow** — measured `scrollWidth == clientWidth` on every CTA element.
+
+**Harness gotcha for future visual checks:** headless Chrome silently enforces a **500px minimum window width**, so `--window-size=390` renders at 500 and the screenshot is cropped — it *looks* like text overflowing the viewport. Verify narrow layouts by measuring (`scrollWidth` vs `clientWidth` via an injected `<pre>` read with `--dump-dom`) rather than trusting a 390px screenshot.
+
+**Doc corrections found while doing this:** three files claimed the parked news markup was "preserved verbatim inside the comment" in `engineered-solutions.html`. It was not — the markup was moved to `partials/news-block.html` and ES keeps only a commented-out `data-include`. Fixed in `.clinerules`, `JOURNAL.md` and `handoff/acf-spec.md`. Also refreshed the stale Unsplash stand-in counts in `handoff/asset-manifest.md` (ES is now 0; `application.html` was listed as 14, actually 17).
+
 ## 2026-09-22 — News park committed, pushed, and deployed to Dev (Claude)
 
 Closing out the Cline park work below (see that entry for the full rationale).
@@ -22,7 +37,7 @@ Client MSG: "Sadly, we just don't know if we can support the Latest Projects & N
 **Scope:** the editorial news split (`.news-section--editorial`) lives on exactly **two** pages — Homepage and Engineered Solutions. Homepage news was already removed in an earlier Figma-alignment pass (`7306:1063` has no news band), so **ES was the only page still rendering it**. Nothing else carries it (verified: grep across all 12 HTML + all theme PHP).
 
 **What was done — parked, not deleted (both layers):**
-- **Prototype:** `engineered-solutions.html` SECTION 12 (the `.news-section--editorial` block) wrapped in an HTML comment + a `PARKED` marker; the markup is preserved verbatim inside the comment so it can be pasted straight back.
+- **Prototype:** `engineered-solutions.html` SECTION 12 reduced to a pointer comment + `PARKED` marker. **Correction (2026-09-22):** the original note here claimed the markup was "preserved verbatim inside the comment" — it was not. The markup was **moved** into `partials/news-block.html` and ES keeps a commented-out one-line `data-include`; uncomment it to bring the section back.
 - **Theme:** the news markup moved **out of** `page-engineered-solutions.php` into a new **`template-parts/sections/news.php`** (an extract, not a rewrite — same output), rendered behind a new ACF toggle **`es_show_news`** (`true_false`, **default 0 / off**, `field_es_show_news`, on `group_es_content` → News tab). So the client can flip it back on **from wp-admin with no dev involvement**; flipping it on re-renders today's markup.
 - **Prototype partial:** new `partials/news-block.html` holds the same markup as a client-facing reference (mirrors how `testimonials-block.html` works), header comment says PARKED.
 
@@ -32,7 +47,7 @@ Client MSG: "Sadly, we just don't know if we can support the Latest Projects & N
 
 **Files:** `engineered-solutions.html` (parked comment), `partials/news-block.html` (new), `page-engineered-solutions.php` (markup → partial + toggle), `inc/acf-fields.php` (toggle field), `template-parts/sections/news.php` (new). **Committed `1cf731f`** and pushed to `origin/master`.
 
-**To re-enable:** client flips "Show Latest Projects & News" in ES → News tab (admin), or dev flips the default to 1 / removes the gate. Prototype: paste the parked comment block back out of the HTML comment.
+**To re-enable:** client flips "Show the Latest Projects & News section" in ES → News tab (admin). Prototype: uncomment the `<div data-include="partials/news-block.html?v=20260922"></div>` line left in ES SECTION 12.
 
 ---
 

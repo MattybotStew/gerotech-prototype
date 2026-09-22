@@ -89,7 +89,7 @@ The markup was extracted out of `page-engineered-solutions.php` into `template-p
 
 - **Client re-enables it:** ES → **News** tab → "Show the Latest Projects & News section" → **Show** → Update. No dev work.
 - **Adding it to another page:** add `get_template_part( 'template-parts/sections/news' );` to that template and copy the `field_es_show_news` entry into that page's ACF group.
-- **Prototype equivalent:** `engineered-solutions.html` SECTION 12 is wrapped in a `PARKED` comment with the markup preserved verbatim; `partials/news-block.html` keeps it as a reusable component.
+- **Prototype equivalent:** `engineered-solutions.html` SECTION 12 is now just a pointer comment — the markup itself was **moved** into `partials/news-block.html` (not duplicated), and ES keeps a commented-out one-line `data-include` to bring it back. Re-enable = uncomment that line.
 - **Gotcha:** while the toggle is off this template never runs, so a content-seeder's capture hook will not see these fields. Both Local and Dev are already seeded; if a re-seed is ever needed, switch the toggle on for one render first.
 - **Verified on Dev:** toggle off → 0 news markers, on → 2, off again → 0; meta then deleted so Dev sits at the default-off state. Local behaves identically.
 

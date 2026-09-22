@@ -22,6 +22,7 @@
 | File | Used on |
 |---|---|
 | `es-hero.jpg` (500KB — was a 2.8MB PNG, converted 2026-09-21) | ES page-hero |
+| `cta-engineered-solutions.jpg` + `@2x` (484KB / 740KB — client FANUC rail-robot photo, 2026-09-22) | ES bottom CTA band |
 | `automation-hero.jpg` | Automation page-hero |
 | `automation-cell-design.jpg` | Automation service card |
 | `robot-eoat.jpg` | Automation service card |
@@ -39,15 +40,17 @@
 
 | Page | Count |
 |---|---|
-| `index.html` | 3 |
-| `engineered-solutions.html` | 5 |
+| `index.html` | 2 |
+| `engineered-solutions.html` | **0 ✅** |
 | `machine-custom-solutions.html` | 3 |
 | `automation-integration.html` | 4 |
-| `application.html` | 14 |
+| `application.html` | 17 |
 | `training.html` | 6 |
 | `support.html` | 2 |
 | `about.html` | 4 |
 | `careers.html` | 3 |
+
+**`engineered-solutions.html` is now free of remote stand-ins** (2026-09-22 — the last one, the bottom CTA band photo, was replaced with the client's FANUC rail-robot photo). Note the parked news markup that moved to `partials/news-block.html` still carries 4 Unsplash URLs — they are commented out of ES, so they do not count here but will need replacing if the section is re-enabled.
 
 Every remote `<img>` carries an HTML comment (`<!-- Stand-in: Unsplash — awaiting client photo -->`). Search for `images.unsplash.com` to find them all. Unsplash URLs can 404 over time — verify before migration.
 

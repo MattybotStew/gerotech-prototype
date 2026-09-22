@@ -4,12 +4,12 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — Latest Projects & News PARKED behind a client ACF toggle; committed `1cf731f`, pushed to origin, deployed to Dev and verified)
+**Last Updated:** 2026-09-22 (Claude — ES bottom CTA band now uses the client's FANUC rail-robot photo; last Unsplash stand-in on ES retired)
 **Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** `1cf731f` "Park Latest Projects & News behind a client-toggleable ACF switch" — pushed; `origin/master` 0 ahead / 0 behind.
-**Uncommitted:** none.
-**Deployed:** news park live on **Local + Dev** (committed + pushed). Dev verified: `/engineered-solutions/` 200 with 0 news markers; toggle `es_show_news` registered (`true_false`, default `0`); **22 live pages 200 / 0 PHP warnings / 0 broken images**; Dev `components.css` md5-identical to Local (`e63813af6965fbde86ff3f33d8842bd4`). Client toggle **live-tested on Dev** (off→on→off = 0→2→0 markers), then `post meta delete` so Dev sits at the pristine default-off state.
+**Last Commit:** `1cf731f` + `95311e3` (news park, then docs) — pushed; `origin/master` 0 ahead / 0 behind.
+**Uncommitted:** ES CTA image swap (`engineered-solutions.html`, `page-engineered-solutions.php`, new `assets/images/cta-engineered-solutions.jpg` + `@2x`) plus the doc corrections listed below.
+**Deployed:** news park live on **Local + Dev**. ES CTA photo live on **Local** (attachment 3470); **Dev still needs the media import + `es_cta_image` update** — pushing the theme alone will NOT change Dev's CTA, because Dev stores its own `es_cta_image` attachment id.
 **Known non-blocker:** parent theme `gerotech/functions.php:13` ("Undefined variable $arguments") warns under WP-CLI only — **not** visible on any web page (confirmed on cache-busted URLs). Parent theme is not in this repo.
 
 ### Homepage hero colour selects — no ACF defaults (2026-09-22, commit `94332cd`)
@@ -19,7 +19,7 @@
 
 Client: "we just don't know if we can support the Latest Projects & News right now… disable on all pages BUT keep it as a component that can be easily added back by the client."
 - **Theme:** ES news markup extracted to **`template-parts/sections/news.php`**, rendered only when ACF toggle **`es_show_news`** (`field_es_show_news`, `true_false`, **default 0**) is on — the client can re-enable it from wp-admin (ES → News tab) with no dev work. Content seeded into ACF on 2026-09-18 was **left in the DB** (stored rows win; they reappear when toggled on).
-- **Prototype:** `engineered-solutions.html` SECTION 12 wrapped in a `PARKED` HTML comment (markup preserved verbatim inside); `partials/news-block.html` is the kept component reference.
+- **Prototype:** `engineered-solutions.html` SECTION 12 is now only a pointer comment — the markup was **moved** (not duplicated) into `partials/news-block.html`, with a commented-out one-line `data-include` left in ES. Re-enable = uncomment it. (Earlier notes said the markup was "preserved verbatim inside the comment" — that was wrong; it was removed and relocated.)
 - **Only ES had it** — Homepage news was already removed in the Figma-alignment pass. Re-enable: flip the toggle (WP) or unwrap the parked comment (prototype).
 
 

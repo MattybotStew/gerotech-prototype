@@ -155,7 +155,9 @@ $cta_headline    = $pick( 'es_cta_headline', 'Engineering Solutions Built Around
 $cta_body        = $pick( 'es_cta_body', "Whether you're automating a manual process, modifying existing equipment, integrating robotics, or developing a custom manufacturing solution, our engineering team is ready to help. Tell us about your application, and we'll work with you to develop a practical solution built around your operation." );
 $cta_button_label = $pick( 'es_cta_button_label', 'Talk to an Engineer' );
 $cta_button_url   = $pick( 'es_cta_button_url', gerotech_quote_mailto() );
-$cta_image        = gerotech_image_url( $pick( 'es_cta_image', 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1920&auto=format&fit=crop' ) );
+$cta_image_value  = $pick( 'es_cta_image', 'assets/images/cta-engineered-solutions.jpg' );
+$cta_image        = gerotech_image_url( $cta_image_value, 'assets/images/cta-engineered-solutions.jpg' );
+$cta_image_srcset = gerotech_image_srcset( $cta_image_value, 'assets/images/cta-engineered-solutions.jpg' );
 $cta_call_label   = $pick( 'es_cta_call_label', 'Prefer to talk it through?' );
 $cta_call_number  = $pick( 'es_cta_call_number', '(734) 379-7788' );
 $cta_call_note    = $pick( 'es_cta_call_note', 'Talk to a person, not a form.' );
@@ -414,7 +416,7 @@ $signup_sub   = $pick( 'es_signup_sub', 'Projects, machine updates, and service 
          SECTION 13: CTA Band
          ============================================================ -->
     <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
-      <img class="cta-band__bg" src="<?php echo esc_url( $cta_image ); ?>" alt="Engineering blueprints and design" loading="lazy" />
+      <img class="cta-band__bg" src="<?php echo esc_url( $cta_image ); ?>"<?php echo $cta_image_srcset ? ' srcset="' . esc_attr( $cta_image_srcset ) . '" sizes="100vw"' : ''; ?> alt="FANUC robot on an overhead rail system in a Michigan manufacturing facility" loading="lazy" decoding="async" />
       <div class="cta-band__overlay" aria-hidden="true"></div>
       <div class="cta-band__content">
         <div class="cta-band__copy">
