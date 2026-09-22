@@ -18,6 +18,20 @@ Client: the Machine Custom Solutions hero h1 should show "Solutions" in brand or
 
 That breadcrumb check is not ceremony — it is precisely the bug that surfaced when accent support was first added to this hero (the breadcrumb was escaping the headline and printing `Custom &lt;em&gt;Solutions&lt;/em&gt;`). Worth re-checking on every accent-word change.
 
+**Follow-up — the Automation page had the accent backwards.** Client asked for "the same" on `automation-integration.html`. It turned out the **prototype** was the one missing it: WordPress already had `ai_hero_main = 'and <em>Controls Solutions</em>'` and rendered `<span class="accent">Controls Solutions</span>` orange on both Local and Dev. So this was **prototype-only drift** — no theme change, no deploy.
+
+Worth noting the direction: the rule of thumb is "prototype is source of truth", but for hero accent words the **WP build was ahead** of the prototype. An audit of all five prototype heroes against their WP defaults found Automation as the only mismatch:
+
+| Page | Accent word | Prototype | WP |
+|---|---|---|---|
+| ES | Solutions | ✅ | ✅ |
+| MCS | Solutions | ✅ | ✅ |
+| **Automation** | **Controls Solutions** | ❌ → **fixed** | ✅ already |
+| Applications | Solutions | ✅ | ✅ |
+| Careers | manufacturing | ✅ | ✅ |
+
+Verified after the fix: prototype computed colour `rgb(243, 138, 44)`, breadcrumb still plain "Automation and Controls Solutions", and Dev's WP hero unchanged and correct.
+
 ## 2026-09-22 — Remaining hardcoded copy made ACF-editable; MCS hero matches the homepage (Claude)
 
 Client: *"i need everything that should be editable using ACF and the hero h1 needs the same functionality as the homepage."* Committed `e3a3745`, deployed and seeded on Local **and** Dev.
