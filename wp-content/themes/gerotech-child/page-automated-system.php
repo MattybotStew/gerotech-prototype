@@ -51,7 +51,7 @@ $cards        = $pick(
 		),
 		array(
 			'title'  => 'Pre-Engineered Solutions',
-			'image'  => 'https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?q=80&w=800&auto=format&fit=crop',
+			'image'  => 'assets/images/pre-engineered-solutions.jpg',
 			'detail' => '<p>Rather than designing every system from the ground up, we offer a family of pre-engineered automation solutions that can be configured to match your application\'s requirements — from cost-effective machine automation packages to fully featured control systems.</p><p>Every platform is built on proven software, standardized engineering practices, and years of real-world manufacturing experience, delivering custom solutions with reduced engineering time, lower project risk, and faster implementation.</p><ul><li>Reduced engineering time &amp; faster project delivery</li><li>Lower project risk with proven, reliable software</li><li>Consistent operator experience across platforms</li><li>Flexible architecture — adapts to a wide range of machine types</li><li>Simplified future enhancements and support</li></ul><details><summary>Standardized Software Design Methodology</summary><p>Our automation solutions are developed using a standardized software design methodology that has been refined through years of real-world manufacturing applications. This proven approach provides a consistent programming structure, operator experience, and diagnostic philosophy across our automation platforms.</p><p>By developing from a common software foundation and adapting it to the selected control platform, we can deliver custom automation solutions more efficiently while maintaining proven functionality, consistent operation, and high-quality software.</p><p><strong>Key Benefits:</strong></p><ul><li>Proven software foundation</li><li>Standardized programming methodology</li><li>Consistent HMI navigation and operator experience</li><li>Common alarms, diagnostics, and fault recovery</li><li>Faster project development</li><li>Reduced project risk</li><li>Simplified troubleshooting and maintenance</li><li>Easier operator training</li><li>Flexible deployment across multiple control platforms</li><li>Scalable design for future expansion</li></ul></details>',
 		),
 	)
@@ -63,6 +63,22 @@ $gallery_title   = $pick( 'ai_gallery_title', 'Installed Automation <em>Gallery<
 $collections     = $pick(
 	'ai_collections',
 	array(
+		array(
+			'title' => 'HMI Design',
+			'meta'  => 'Operator screens · cell overview · diagnostics',
+			'media' => implode( "\n", array(
+				"image | {$uri}/assets/images/automation-gallery/hmi-operator-1.jpg | | Gerotech operator screen showing part complete and fixture presence | Operator screen · part complete",
+				"image | {$uri}/assets/images/automation-gallery/hmi-operator-2.jpg | | Gerotech operator screen, closer view of part complete | Operator screen · part complete",
+				"image | {$uri}/assets/images/automation-gallery/hmi-operator-3.jpg | | Gerotech operator screen with the full button bar | Operator screen · full controls",
+				"image | {$uri}/assets/images/automation-gallery/hmi-cell-overview.jpg | | Gerotech cell overview screen with mill and robot status | Cell overview",
+				"image | {$uri}/assets/images/automation-gallery/hmi-diagnostics.jpg | | Gerotech diagnostics screen showing safety inputs and a door-open fault | Diagnostics · safety inputs",
+			) ),
+		),
+		array(
+			'title' => 'Layered Controls Solutions',
+			'meta'  => 'Machine tool · controls · automation cells',
+			'media' => "image | {$uri}/assets/images/automation-gallery/layered-controls-diagram.jpg | | Layered controls diagram: machine tool, machine tool controls, and automation cells | Layer 01 machine tool · Layer 02 controls · Layer 03 cells",
+		),
 		array(
 			'title' => 'Haas Mill Robot Cell',
 			'meta'  => 'FANUC tending · yellow guarding',

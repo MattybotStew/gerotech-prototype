@@ -2,6 +2,28 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Automation gallery: HMI Design + Layered Controls (Cursor)
+
+Figma `7196:4079` gallery comment (the five HMI screens). Hero and the two service-card pins were already done.
+
+- Added **HMI Design** (5 screens) and **Layered Controls Solutions** (diagram) at the front of the Installed Automation gallery. The seven installed-project photos stay.
+- Prototype `automation-integration.html`, theme default in `page-automated-system.php`, images in `assets/images/automation-gallery/`.
+- **Local:** stored `ai_collections` on page 1239 was 7 rows and would have hidden the template default. Prepended the two collections (now 9). Theme synced to Local.
+- **Dev:** theme rsync + `field_ai_collections` prepended on page 1239 (now 9 rows). Caches flushed. Live HTML includes `hmi-operator-1` and `layered-controls-diagram`. Temp eval script removed from the theme.
+
+## 2026-09-22 — Automation Figma `7196:4079` image pass (Cursor)
+
+Closed the last open stand-in on **Automation & Controls** (`7196:4079`): **Pre-Engineered Solutions** card.
+
+- Pulled client art from the Figma IMAGE fill on node `7196:4324` → `assets/images/pre-engineered-solutions.jpg` (1120×550).
+- Prototype [`automation-integration.html`](automation-integration.html) + theme default in [`page-automated-system.php`](wp-content/themes/gerotech-child/page-automated-system.php); Figma node IDs noted in HTML comments on hero + all five service cards.
+- Gallery copy unchanged — eyebrow **Gallery**, title **Installed Automation Gallery** (comment `#20` on older frame; not Figma wireframe “Project Gallery / Projects”). Seven installed-project collections kept.
+- **Local:** `set-card-image` imported attachment `#3481` for Pre-Engineered; other four cards + hero already on correct uploads.
+- **Dev:** theme rsync (template + JPEG); `set-card-image` via SSH heredoc (WP-CLI splits spaced titles unless quoted in a heredoc) → attachment `#3479`; caches flushed.
+- Verified: Local + Dev `/automated-system/` serve `pre-engineered-solutions`; no Unsplash on the page.
+
+**Loose end:** helper scripts were rsync’d to `gerotech-child/scripts/` on Dev for the one-off eval — safe to delete from Dev on the next theme-only push if you want the theme dir strictly PHP/assets.
+
 ## 2026-09-22 — "Solutions" now orange in the MCS hero (Claude)
 
 Client: the Machine Custom Solutions hero h1 should show "Solutions" in brand orange. Committed `0752f4c`, live on Local + Dev.

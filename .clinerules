@@ -4,12 +4,12 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — "Solutions" is now orange in the MCS hero; uses the accent field added earlier the same day)
-**Active Agent:** Claude
+**Last Updated:** 2026-09-22 (Cursor — Automation gallery: HMI Design + Layered Controls collections; seven project photos kept)
+**Active Agent:** Cursor
 **Branch:** `master`
-**Last Commit:** `0752f4c` (MCS hero accent) — pushed; `origin/master` 0 ahead / 0 behind.
-**Uncommitted:** docs only.
-**Deployed:** MCS hero shows "Machine Custom" white + "Solutions" brand orange on Local + Dev (`mcs_hero_main` = `Custom <em>Solutions</em>`, accent colour left blank so it resolves to orange). MCS page imagery, the ACF editability pass and the rotary field-group location fix are all live on both. Audit: Local 279/291, Dev 278/291 applied — every remaining blank is an intentional one listed above.
+**Last Commit:** Automation gallery — HMI Design (5 screens) and Layered Controls Solutions, plus the Pre-Engineered card photo. Not pushed yet.
+**Uncommitted:** none.
+**Deployed:** Gallery change is on the **prototype, Local, and Dev**. Page 1239 `ai_collections` is 9 rows on both (HMI Design, Layered Controls Solutions, then the original 7). Dev theme rsync + cache flush done 2026-09-22.
 
 ### ACF coverage — what is editable now (2026-09-22)
 Every template reads through ACF. Newly added this pass:

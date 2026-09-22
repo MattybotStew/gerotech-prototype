@@ -34,16 +34,17 @@
 | `app-training.jpg` (1600×745, 271KB — **real client photo**, 2026-09-22) | Applications **Training** card + its gallery collection. Client shot of a Gerotech instructor walking a customer through a Haas control. |
 | `app-hero.jpg` (1920×1280, 416KB — bundled stand-in, 2026-09-22) | Applications **page header AND CTA band** — the client asked for the same picture in both |
 | `mcs-gallery/custom-fixtures.jpg` (1350×1800 — fixture plates on the floor) | MCS **gallery collection** "Custom Fixture Design" (cover + lightbox) — no longer the service card |
-| `automation-hero.jpg` | Automation page-hero |
-| `automation-cell-design.jpg` | Automation service card |
-| `robot-eoat.jpg` | Automation service card |
+| `automation-hero.jpg` | Automation page-hero (Figma `7196:4264`) |
+| `automation-cell-design.jpg` | Automation **Automation Cell Design** card (Figma `7196:4308`) |
+| `robot-eoat.jpg` | Automation **Robot EOAT** card (Figma `7196:4316`) |
+| `pre-engineered-solutions.jpg` (1120×550, 595KB — client photo from Figma fill / node `7196:4324`, 2026-09-22) | Automation **Pre-Engineered Solutions** card |
 | `app-gallery-umc750.jpg` | Applications card + gallery |
 | `haas-umc-750.jpg` | Homepage lineup — machining centers |
 | `haas-st-25y.jpg` | Homepage lineup — turning |
 | `haas-umc-1000ss.png`, `machine-milling-centers.png` | ES/machine imagery |
 | `hero-slide-01.jpg`, `hero-showroom.jpg`, `hero-automation-cell.jpg`, `hero-training-showroom.jpg` | Homepage hero slides / training |
 | `mcs-gallery/*.jpg` (13) | MCS gallery + service cards |
-| `automation-gallery/*.jpg` (7) | Automation gallery |
+| `automation-gallery/*.jpg` (13) | Automation gallery — 7 installed-project photos plus HMI Design (5 screens) and Layered Controls Solutions (diagram) |
 
 > Verify each against client-provided originals; some bundled files are downloaded stand-ins, not final client art.
 
