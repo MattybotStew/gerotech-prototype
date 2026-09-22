@@ -144,6 +144,7 @@ Fixed: template default → `assets/images/mcs-hero.jpg`, `srcset` via `gerotech
 Client supplied a photo of a FANUC robot on an overhead rail system (`RAILSYS001`, "RAILCAPACITY 15" visible) to use as the Engineered Solutions bottom CTA band background — the last Unsplash stand-in on that page.
 
 - **Assets:** `assets/images/cta-engineered-solutions.jpg` (1920×1085, 484KB) + `cta-engineered-solutions@2x.jpg` (2560×1447, 740KB), converted from the client's 2722×1539 WebP via `sips` (q82/q78). Sizes sit alongside `cta-home-figma.jpg` and the hero pair.
+  - **Renamed 2026-09-22 to `cta-rail-robot.jpg` / `@2x`** when the Automation & Controls CTA band was given the same photo — the old name described one of its two consumers.
 - **Prototype:** `engineered-solutions.html` SECTION 13 now uses the local file with `srcset` (1920w/2560w) + `sizes="100vw"`, mirroring the homepage hero pattern.
 - **Theme:** `page-engineered-solutions.php` default changed from the Unsplash URL to `assets/images/cta-engineered-solutions.jpg`, and it now emits `srcset` via `gerotech_image_srcset()` like the ES hero does.
 - **Alt text fixed:** the old alt ("Engineering blueprints and design") described the retired stand-in, not this photo. Now "FANUC robot on an overhead rail system in a Michigan manufacturing facility".
