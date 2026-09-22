@@ -26,7 +26,8 @@
 | `mcs-hero.jpg` + `@2x` (444KB / 660KB — client 5-axis machining-center interior, 2026-09-22) | Machine Custom Solutions page-hero — in WP this hero is rendered by **`page-modification-of-standard-machine-tools.php`** (ACF `mcs_hero_image`), i.e. `/modification-of-standard-machine-tools/` on Dev, which displays the "Machine Custom Solutions" headline |
 | `mcs-gallery/specialty-machine.jpg` (1920×670, 245KB — client Haas ST-45 + bar feeder, from Figma node `7196:3348`, 2026-09-22) | MCS "Specialty Machine" service card |
 | `mcs-gallery/custom-workholding.jpg` (1012×1800, 420KB — client fixture holding a welded subframe, from Figma node `7196:3332`, 2026-09-22) | MCS "Custom Workholding" service card |
-| `app-troubleshooting.jpg`, `app-optimization.jpg`, `app-tooling.jpg`, `app-demo.jpg` (1600px — bundled stand-ins, 2026-09-22) | Applications gallery collections (cover + lightbox) AND the matching service cards |
+| `app-troubleshooting.jpg`, `app-tooling.jpg`, `app-demo.jpg` (1600px — bundled stand-ins, 2026-09-22) | Applications gallery collections (cover + lightbox) AND the matching service cards |
+| `app-optimization.jpg` (1600×745, 194KB — **client graphic**, 2026-09-22) | Applications **Process Optimization** card + gallery. Branded cycle diagram: cycle-time reduction / part quality / tooling performance. |
 | `app-training.jpg` (1600×745, 271KB — **real client photo**, 2026-09-22) | Applications **Training** card + its gallery collection. Client shot of a Gerotech instructor walking a customer through a Haas control. |
 | `app-hero.jpg` (1920×1280, 416KB) · `app-cta.jpg` (1920×1204, 532KB) — bundled stand-ins, 2026-09-22 | Applications hero + CTA band |
 | `mcs-gallery/custom-fixtures.jpg` (1350×1800 — fixture plates on the floor) | MCS **gallery collection** "Custom Fixture Design" (cover + lightbox) — no longer the service card |
