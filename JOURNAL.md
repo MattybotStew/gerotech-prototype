@@ -2,6 +2,28 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Latest Projects & News PARKED, client-toggleable (Cline)
+
+Client MSG: "Sadly, we just don't know if we can support the Latest Projects & News right now. Can we remove this for now? — Can we disable on all pages BUT keep it as a component that can be easily added back by the client."
+
+**Scope:** the editorial news split (`.news-section--editorial`) lives on exactly **two** pages — Homepage and Engineered Solutions. Homepage news was already removed in an earlier Figma-alignment pass (`7306:1063` has no news band), so **ES was the only page still rendering it**. Nothing else carries it (verified: grep across all 12 HTML + all theme PHP).
+
+**What was done — parked, not deleted (both layers):**
+- **Prototype:** `engineered-solutions.html` SECTION 12 (the `.news-section--editorial` block) wrapped in an HTML comment + a `PARKED` marker; the markup is preserved verbatim inside the comment so it can be pasted straight back.
+- **Theme:** the news markup moved **out of** `page-engineered-solutions.php` into a new **`template-parts/sections/news.php`** (an extract, not a rewrite — same output), rendered behind a new ACF toggle **`es_show_news`** (`true_false`, **default 0 / off**, `field_es_show_news`, on `group_es_content` → News tab). So the client can flip it back on **from wp-admin with no dev involvement**; flipping it on re-renders today's markup.
+- **Prototype partial:** new `partials/news-block.html` holds the same markup as a client-facing reference (mirrors how `testimonials-block.html` works), header comment says PARKED.
+
+**Gotcha honoured (recurring theme):** the ES news content was materialised into ACF by the 2026-09-18 seeding, so stored rows exist even though nothing renders them — they are left **untouched** in the DB (harmless while the toggle is off, and reappear instantly if the client re-enables). **Stored rows beat code defaults** — flipping the toggle is a genuine re-enable of the client's data, not a rebuild.
+
+**Verified on Local:** synced (`sync-theme-to-local.sh`), `/engineered-solutions/` HTTP 200, **0 news markers** in served HTML, no PHP errors/notices, page otherwise unchanged. Toggle logic unit-checked (`es_show_news` on → partial included; off → nothing). ACF field confirmed registered (`name=es_show_news`, `type=true_false`, `default=0`, parent `group_es_content`).
+
+**Files:** `engineered-solutions.html` (parked comment), `partials/news-block.html` (new), `page-engineered-solutions.php` (markup → partial + toggle), `inc/acf-fields.php` (toggle field), `template-parts/sections/news.php` (new). **Not yet committed** (also riding: the opencode partner-logo repeater change in the same two theme files — verified intact).
+
+**To re-enable:** client flips "Show Latest Projects & News" in ES → News tab (admin), or dev flips the default to 1 / removes the gate. Prototype: paste the parked comment block back out of the HTML comment.
+
+---
+
+
 ## 2026-09-22 — Applications: Fire Suppression + RFID removed from the WordPress BUILD (Cline)
 
 Client MSG (Tristien Bridges, Sep 21): "on the prototype (but not figma) there are two sections that should not be showing: fire suppression and RFID … make sure those under APPLICATIONS will not go to development."

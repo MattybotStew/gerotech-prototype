@@ -446,6 +446,17 @@ acf_add_local_field_group(
 
 			/* ── News ─────────────────────────────────────────── */
 			array( 'key' => 'field_es_news_tab', 'label' => 'News', 'type' => 'tab', 'placement' => 'top' ),
+			array(
+				'key'           => 'field_es_show_news',
+				'label'         => 'Show the Latest Projects & News section',
+				'name'          => 'es_show_news',
+				'type'          => 'true_false',
+				'ui'            => 1,
+				'ui_on_text'    => 'Show',
+				'ui_off_text'   => 'Hidden',
+				'default_value' => 0,
+				'instructions'  => 'Off by default at the client\'s request (Sep 2026) — they cannot commit to supporting this section yet. Nothing has been deleted: all of the content below is still here. Set to "Show" to bring the section back on this page.',
+			),
 			array( 'key' => 'field_es_news_eyebrow', 'label' => 'Eyebrow', 'name' => 'es_news_eyebrow', 'type' => 'text' ),
 			array( 'key' => 'field_es_news_headline', 'label' => 'Headline', 'name' => 'es_news_headline', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
 			array( 'key' => 'field_es_news_lead_tag', 'label' => 'Lead story tag', 'name' => 'es_news_lead_tag', 'type' => 'text' ),

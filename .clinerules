@@ -4,6 +4,21 @@
 ---
 
 ## Current Session State
+**Last Updated:** 2026-09-22 (Cline — Latest Projects & News PARKED behind a client ACF toggle; only ES rendered it — homepage news was already gone under Figma `7306:1063`)
+**Active Agent:** Cline
+**Branch:** `master`
+**Last Commit:** working — repeater + news-park changes not yet committed.
+**Uncommitted:** `page-engineered-solutions.php` + `inc/acf-fields.php` (partner logo ACF repeater **and** news toggle/partial), `engineered-solutions.html`, new `template-parts/sections/news.php` + `partials/news-block.html`.
+**Deployed:** news park live on Local (verified: `/engineered-solutions/` 200, 0 news markers, toggle field registered). **Not yet pushed to Dev.** Partner repeater live on Dev + Local (fallback path — 12 mapped logos).
+
+### Latest Projects & News — PARKED, client-toggleable (2026-09-22)
+
+Client: "we just don't know if we can support the Latest Projects & News right now… disable on all pages BUT keep it as a component that can be easily added back by the client."
+- **Theme:** ES news markup extracted to **`template-parts/sections/news.php`**, rendered only when ACF toggle **`es_show_news`** (`field_es_show_news`, `true_false`, **default 0**) is on — the client can re-enable it from wp-admin (ES → News tab) with no dev work. Content seeded into ACF on 2026-09-18 was **left in the DB** (stored rows win; they reappear when toggled on).
+- **Prototype:** `engineered-solutions.html` SECTION 12 wrapped in a `PARKED` HTML comment (markup preserved verbatim inside); `partials/news-block.html` is the kept component reference.
+- **Only ES had it** — Homepage news was already removed in the Figma-alignment pass. Re-enable: flip the toggle (WP) or unwrap the parked comment (prototype).
+
+
 
 **Last Updated:** 2026-09-22 (opencode — partner logos are now a true ACF repeater; client can upload/swap/reorder in admin)
 **Active Agent:** opencode

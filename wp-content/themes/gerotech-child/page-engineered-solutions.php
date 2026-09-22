@@ -142,48 +142,12 @@ $faq_items    = $pick(
 	)
 );
 
-/* ── News ─────────────────────────────────────────────────── */
-$news_eyebrow    = $pick( 'es_news_eyebrow', 'Stay Informed' );
-$news_headline   = $pick( 'es_news_headline', 'Latest <em>Projects &amp; News</em>' );
-$news_lead_tag   = $pick( 'es_news_lead_tag', 'Project' );
-$news_lead_date  = $pick( 'es_news_lead_date', 'June 2025' );
-$news_lead_title = $pick( 'es_news_lead_title', 'Automated Robotic Cell Delivered to a Tier-1 Automotive Supplier' );
-$news_lead_excerpt = $pick( 'es_news_lead_excerpt', 'Gerotech engineers designed and integrated a complete FANUC robotic automation cell, reducing cycle times by 38% for a major Michigan supplier.' );
-$news_lead_image   = gerotech_image_url( $pick( 'es_news_lead_image', 'https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1400&auto=format&fit=crop' ) );
-$news_lead_stats   = $pick(
-	'es_news_lead_stats',
-	array(
-		array( 'value' => '38%', 'label' => 'Cycle-time reduction' ),
-		array( 'value' => 'FANUC', 'label' => 'Integration partner' ),
-		array( 'value' => 'Turnkey', 'label' => 'Cell delivery' ),
-	)
-);
-$news_items = $pick(
-	'es_news_items',
-	array(
-		array(
-			'tag'     => 'News',
-			'date'    => 'May 2025',
-			'title'   => 'Gerotech Expands Grand Rapids Service Territory',
-			'excerpt' => 'Our Grand Rapids office is now fully staffed with factory-trained service technicians serving manufacturers across West Michigan.',
-			'image'   => 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=500&auto=format&fit=crop',
-		),
-		array(
-			'tag'     => 'Project',
-			'date'    => 'April 2025',
-			'title'   => 'Hydraulic Workholding System Installed on Legacy Okuma',
-			'excerpt' => "A custom hydraulic workholding and auto-door system extended a legacy machining center's productive life by years.",
-			'image'   => 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop',
-		),
-		array(
-			'tag'     => 'Training',
-			'date'    => 'March 2025',
-			'title'   => 'Spring Haas Operator Sessions Open at Macomb',
-			'excerpt' => 'Complimentary operator and programming courses return to Macomb Community College for Haas owners across Southeast Michigan.',
-			'image'   => 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=500&auto=format&fit=crop',
-		),
-	)
-);
+/* ── News ───────────────────────────────────
+   Parked at the client's request (Sep 2026): they cannot commit to supporting
+   Latest Projects & News yet. Field reads + markup now live in the reusable
+   component template-parts/sections/news.php (off by default, gated by the ACF
+   toggle es_show_news). Nothing was deleted — the client flips it back on from
+   the page editor. */
 
 /* ── CTA band ─────────────────────────────────────────────── */
 $cta_eyebrow     = $pick( 'es_cta_eyebrow', 'Engineered Solutions' );
@@ -427,65 +391,23 @@ $signup_sub   = $pick( 'es_signup_sub', 'Projects, machine updates, and service 
                Reply: "This would take the user to the News and Blogs page. If not needed, we can rethink what this section can be." (Project Management)
                Reply: "Typically we recommend updating the site with new case studies, blog posts around products and trends based on what customers are searching." (Project Management)
                Reply: "I am just wondering what type of news and what information we can frequently update to keep it fresh." (tbridges) ]=== -->
-    <!-- ============================================================
-         SECTION 12: News Feed — editorial split (matches homepage)
-         ============================================================ -->
-    <section class="news-section news-section--editorial section section--gray" aria-labelledby="news-headline">
-      <div class="container container--es">
-        <div class="section-header">
-          <p class="eyebrow"><?php echo esc_html( $news_eyebrow ); ?></p>
-          <h2 class="section-title" id="news-headline"><?php echo gerotech_accent( $news_headline, 'accent--deep' ); ?></h2>
-          <span class="headline-rule headline-rule--deep" aria-hidden="true"></span>
-        </div>
-
-        <div class="news-editorial">
-          <!-- Lead story — photo card, left gradient (matches hero + CTA treatment) -->
-          <article class="news-feature">
-            <img class="news-feature__bg" src="<?php echo esc_url( $news_lead_image ); ?>" alt="FANUC robotic automation cell on a Michigan production floor" loading="lazy" decoding="async" />
-            <span class="news-feature__overlay" aria-hidden="true"></span>
-            <div class="news-feature__content">
-              <div class="news-feature__meta">
-                <span class="news-tag"><?php echo esc_html( $news_lead_tag ); ?></span>
-                <span class="news-feature__date"><?php echo esc_html( $news_lead_date ); ?></span>
-              </div>
-              <h3 class="news-feature__title"><?php echo esc_html( $news_lead_title ); ?></h3>
-              <p class="news-feature__excerpt"><?php echo esc_html( $news_lead_excerpt ); ?></p>
-              <?php if ( $news_lead_stats ) : ?>
-              <ul class="news-feature__stats">
-                <?php foreach ( $news_lead_stats as $st ) : ?>
-                <li class="news-feature__stat">
-                  <span class="news-feature__stat-value"><?php echo esc_html( $st['value'] ); ?></span>
-                  <span class="news-feature__stat-label"><?php echo esc_html( $st['label'] ); ?></span>
-                </li>
-                <?php endforeach; ?>
-              </ul>
-              <?php endif; ?>
-            </div>
-          </article>
-
-          <div class="news-list">
-            <?php foreach ( $news_items as $i => $n ) : ?>
-            <?php $thumb = gerotech_image_url( isset( $n['image'] ) ? $n['image'] : '' ); ?>
-            <article class="news-item">
-              <span class="news-item__index" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i + 2 ) ); ?></span>
-              <div class="news-item__body">
-                <div class="news-item__meta">
-                  <span class="news-tag news-tag--light"><?php echo esc_html( $n['tag'] ); ?></span>
-                  <span class="news-item__date"><?php echo esc_html( $n['date'] ); ?></span>
-                </div>
-                <h3 class="news-item__title"><?php echo esc_html( $n['title'] ); ?></h3>
-                <p class="news-item__excerpt"><?php echo esc_html( $n['excerpt'] ); ?></p>
-              </div>
-              <div class="news-item__media">
-                <img class="news-item__thumb" src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo esc_attr( $n['title'] ); ?>" loading="lazy" decoding="async" />
-              </div>
-            </article>
-            <?php endforeach; ?>
-          </div>
-        </div>
-        <!-- Links + Show More pending dedicated news page — client TBD -->
-      </div>
-    </section>
+    <?php
+    /*
+     * SECTION 12: Latest Projects & News — PARKED (client-toggleable).
+     *
+     * Removed from every page at the client's request (Sep 2026): they cannot commit to
+     * supporting the section yet. Nothing was deleted — it is now the reusable component
+     * template-parts/sections/news.php, gated by the ACF toggle `es_show_news`
+     * ("Show the Latest Projects & News section"), which is OFF by default. The client
+     * turns it back on from the page editor (News tab → Show); the es_news_* content
+     * fields are all still intact in that tab. Full re-enable notes are in the
+     * component's docblock.
+     *
+     * Deliberately a PHP comment rather than an HTML one so this internal note is not
+     * served to visitors.
+     */
+    get_template_part( 'template-parts/sections/news' );
+    ?>
 
     <!-- ===[ FIGMA ORDER_ID#49: "Remove 'Take Action Now'" (tbridges) - DONE ]=== -->
     <!-- ============================================================
