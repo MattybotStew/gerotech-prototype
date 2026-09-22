@@ -26,6 +26,8 @@
 | `mcs-hero.jpg` + `@2x` (444KB / 660KB — client 5-axis machining-center interior, 2026-09-22) | Machine Custom Solutions page-hero — in WP this hero is rendered by **`page-modification-of-standard-machine-tools.php`** (ACF `mcs_hero_image`), i.e. `/modification-of-standard-machine-tools/` on Dev, which displays the "Machine Custom Solutions" headline |
 | `mcs-gallery/specialty-machine.jpg` (1920×670, 245KB — client Haas ST-45 + bar feeder, from Figma node `7196:3348`, 2026-09-22) | MCS "Specialty Machine" service card |
 | `mcs-gallery/custom-workholding.jpg` (1012×1800, 420KB — client fixture holding a welded subframe, from Figma node `7196:3332`, 2026-09-22) | MCS "Custom Workholding" service card |
+| `app-troubleshooting.jpg`, `app-optimization.jpg`, `app-tooling.jpg`, `app-demo.jpg`, `app-training.jpg` (1600px, 200–392KB — bundled stand-ins, 2026-09-22) | Applications gallery collections (cover + lightbox) AND the matching service cards |
+| `app-hero.jpg` (1920×1280, 416KB) · `app-cta.jpg` (1920×1204, 532KB) — bundled stand-ins, 2026-09-22 | Applications hero + CTA band |
 | `mcs-gallery/custom-fixtures.jpg` (1350×1800 — fixture plates on the floor) | MCS **gallery collection** "Custom Fixture Design" (cover + lightbox) — no longer the service card |
 | `automation-hero.jpg` | Automation page-hero |
 | `automation-cell-design.jpg` | Automation service card |
@@ -42,21 +44,29 @@
 
 ## 3. Unsplash stand-ins — remote URLs (MUST be replaced before launch)
 
+**The WordPress build is now at ZERO.** Every page on Dev renders entirely from local assets or the media library (verified site-wide 2026-09-22, after the Applications gallery migration). The remaining stand-ins below are **prototype-only** — the prototype is the design source and its placeholders are still swapped by hand, so the two can drift.
+
 | Page | Count |
 |---|---|
 | `index.html` | 2 |
 | `engineered-solutions.html` | **0 ✅** |
 | `machine-custom-solutions.html` | 1 |
 | `automation-integration.html` | 4 |
-| `application.html` | 17 |
+| `application.html` | **0 ✅** |
 | `training.html` | 6 |
 | `support.html` | 2 |
 | `about.html` | 4 |
 | `careers.html` | 3 |
+| `showroom.html` *(exploratory)* | 11 |
+| `index-cta-lockup-preview.html` *(preview)* | 9 |
+| `hero-variations.html` *(exploratory)* | 3 |
+| **Total** | **45** |
 
-**`engineered-solutions.html` is now free of remote stand-ins** (2026-09-22 — the last one, the bottom CTA band photo, was replaced with the client's FANUC rail-robot photo). Note the parked news markup that moved to `partials/news-block.html` still carries 4 Unsplash URLs — they are commented out of ES, so they do not count here but will need replacing if the section is re-enabled.
+`engineered-solutions.html` and `application.html` are now fully local. Applications was the last page on the **live** site depending on someone else's servers — its five gallery collections (cover + lightbox) were on Unsplash while its cards were already local media attachments, so the fix was the gallery, not the cards. Bundled as `app-{troubleshooting,optimization,tooling,demo,training}.jpg` plus `app-hero.jpg` / `app-cta.jpg`; the stored rows were rewritten by `scripts/localize-applications-gallery.php`.
 
-**`machine-custom-solutions.html` has one left:** `photo-1666634157070` on the **Process Engineering** service card (also still the fallback in the `mcs_cards` default array in `page-modification-of-standard-machine-tools.php`). Every other MCS card is real client art. Worth asking the client for a Process Engineering photo — it is the last remote asset on an otherwise fully local page.
+**`machine-custom-solutions.html` has one left:** `photo-1666634157070` on the **Process Engineering** service card (also still the fallback in the `mcs_cards` default array in `page-modification-of-standard-machine-tools.php`). Every other MCS card is real client art. Worth asking the client for a Process Engineering photo.
+
+**`index.html` has 2** — worth a look, since the homepage is the most visible page in the build.
 
 Every remote `<img>` carries an HTML comment (`<!-- Stand-in: Unsplash — awaiting client photo -->`). Search for `images.unsplash.com` to find them all. Unsplash URLs can 404 over time — verify before migration.
 

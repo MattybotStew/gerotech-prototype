@@ -19,7 +19,7 @@ $uri = GEROTECH_CHILD_URI;
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_headline = $pick( 'app_hero_headline', 'Applications <em>Solutions</em>' );
 $hero_accent   = $pick( 'app_hero_accent_color', 'orange' ); // Blank (no stored choice) keeps the design colour.
-$hero_image    = gerotech_image_url( $pick( 'app_hero_image', 'https://images.unsplash.com/photo-1666634157070-6fd830fb5672?q=80&w=1920&auto=format&fit=crop' ) );
+$hero_image    = gerotech_image_url( $pick( 'app_hero_image', 'assets/images/app-hero.jpg' ) );
 
 /* ── Services grid ────────────────────────────────────────── */
 $grid_eyebrow = $pick( 'app_grid_eyebrow', 'What We Offer' );
@@ -34,27 +34,27 @@ $cards        = $pick(
 		),
 		array(
 			'title'  => 'Process Troubleshooting',
-			'image'  => 'https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=800&auto=format&fit=crop',
+			'image'  => 'assets/images/app-troubleshooting.jpg',
 			'detail' => '<p>Hands-on diagnosis of machining process problems — tool life, surface finish, dimensional variation, and cycle inefficiencies resolved by experienced application engineers.</p>',
 		),
 		array(
 			'title'  => 'Process Optimization',
-			'image'  => 'https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=800&auto=format&fit=crop',
+			'image'  => 'assets/images/app-optimization.jpg',
 			'detail' => '<p>Systematic analysis and improvement of existing processes to reduce cycle time, extend tool life, and increase overall throughput without new equipment investment.</p>',
 		),
 		array(
 			'title'  => 'Tooling Recommendation',
-			'image'  => 'https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=800&auto=format&fit=crop',
+			'image'  => 'assets/images/app-tooling.jpg',
 			'detail' => '<p>Expert tooling selection matched to your material, machine, and application — ensuring the right tool is always in the spindle for optimal performance and tool life.</p>',
 		),
 		array(
 			'title'  => 'Demo',
-			'image'  => 'https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=800&auto=format&fit=crop',
+			'image'  => 'assets/images/app-demo.jpg',
 			'detail' => '<p>Live demonstrations of application capabilities, software, and processes at your facility or at a Gerotech-supported location — see the solution before you commit.</p>',
 		),
 		array(
 			'title'  => 'Training',
-			'image'  => 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=800&auto=format&fit=crop',
+			'image'  => 'assets/images/app-training.jpg',
 			'detail' => '<p>Instructor-led operator and programming training tailored to your team\'s skill level and equipment — available at your facility or at a Gerotech-supported location.</p>',
 		),
 	)
@@ -73,27 +73,27 @@ $collections   = $pick(
 		array(
 			'title' => 'Process Troubleshooting',
 			'meta'  => '',
-			'media' => 'image | https://images.unsplash.com/photo-1713371398485-7bde1bde9def?q=80&w=1600&auto=format&fit=crop | | Process Troubleshooting | Process Troubleshooting',
+			'media' => 'image | {$uri}/assets/images/app-troubleshooting.jpg',
 		),
 		array(
 			'title' => 'Process Optimization',
 			'meta'  => '',
-			'media' => 'image | https://images.unsplash.com/photo-1713371398484-cc4e4f6a262a?q=80&w=1600&auto=format&fit=crop | | Process Optimization | Process Optimization',
+			'media' => 'image | {$uri}/assets/images/app-optimization.jpg',
 		),
 		array(
 			'title' => 'Tooling Recommendation',
 			'meta'  => '',
-			'media' => 'image | https://images.unsplash.com/photo-1666618090858-fbcee636bd3e?q=80&w=1600&auto=format&fit=crop | | Tooling Recommendation | Tooling Recommendation',
+			'media' => 'image | {$uri}/assets/images/app-tooling.jpg',
 		),
 		array(
 			'title' => 'Demo',
 			'meta'  => '',
-			'media' => 'image | https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=1600&auto=format&fit=crop | | Demo | Demo',
+			'media' => 'image | {$uri}/assets/images/app-demo.jpg',
 		),
 		array(
 			'title' => 'Training',
 			'meta'  => '',
-			'media' => 'image | https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1600&auto=format&fit=crop | | Training | Training',
+			'media' => 'image | {$uri}/assets/images/app-training.jpg',
 		),
 	)
 );
@@ -104,7 +104,7 @@ $cta_headline     = $pick( 'app_cta_headline', 'Need <em>application support</em
 $cta_body         = $pick( 'app_cta_body', '' );
 $cta_button_label = $pick( 'app_cta_button_label', 'Talk to an Engineer' );
 $cta_button_url   = $pick( 'app_cta_button_url', gerotech_quote_mailto() );
-$cta_image        = gerotech_image_url( $pick( 'app_cta_image', 'https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop' ) );
+$cta_image        = gerotech_image_url( $pick( 'app_cta_image', 'assets/images/app-cta.jpg' ) );
 $cta_call_label   = $pick( 'app_cta_call_label', 'Prefer to talk it through?' );
 $cta_call_number  = $pick( 'app_cta_call_number', '(734) 379-7788' );
 $cta_call_note    = $pick( 'app_cta_call_note', 'Talk to a person, not a form.' );
