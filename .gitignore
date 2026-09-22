@@ -14,3 +14,4 @@ src/figma/
 
 # dependencies
 node_modules/
+.tmp/

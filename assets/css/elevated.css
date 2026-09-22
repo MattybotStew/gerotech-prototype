@@ -646,7 +646,7 @@ body {
 
 /* ── Tech partners grid polish ────────────────────────────── */
 .tech-logo-grid .partner-wordmark {
-  min-height: 72px;
+  height: 88px;
 }
 
 /* ── Training schedule anchor ─────────────────────────────── */

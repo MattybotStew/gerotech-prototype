@@ -911,8 +911,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 64px;
-  padding: var(--sp-16) var(--sp-12);
+  height: 88px;
+  padding: var(--sp-8);
   background: var(--clr-white);
   border: 1px solid var(--clr-gray-border);
   font-family: var(--font-display);
@@ -922,7 +922,6 @@
   text-transform: uppercase;
   color: var(--clr-gray-muted);
   transition:
-    color var(--ease),
     border-color var(--ease),
     box-shadow var(--ease),
     transform var(--ease);
@@ -935,18 +934,11 @@
 }
 .partner-wordmark__img {
   display: block;
-  max-width: 100%;
-  max-height: 44px;
+  max-width: 72%;
+  max-height: 64px;
   width: auto;
   height: auto;
   object-fit: contain;
-}
-.partner-wordmark--dark {
-  background: #333333;
-  border-color: #444444;
-}
-.partner-wordmark--dark:hover {
-  border-color: rgba(243, 138, 44, 0.6);
 }
 
 /* ── Testimonial Split (Figma — light gray bg, shadow card) ── */

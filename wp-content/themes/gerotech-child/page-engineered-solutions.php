@@ -96,7 +96,6 @@ $partners_logo_files = array(
 	'royal products' => 'royalproducts',
 	'5th axis' => '5thaxis',
 );
-$partners_logo_dark = array( 'mfp', 'royalproducts', '5thaxis', 'schunk', 'servax', 'vecteck' );
 
 /* ── Capability band ──────────────────────────────────────── */
 $cap_eyebrow    = $pick( 'es_cap_eyebrow', 'Beyond a Single Brand' );
@@ -326,13 +325,10 @@ $signup_sub   = $pick( 'es_signup_sub', 'Projects, machine updates, and service 
 
         <div class="tech-logo-grid">
           <?php foreach ( $partners_wordmarks as $w ) : ?>
-            <?php
-            $slug = isset( $partners_logo_files[ strtolower( $w ) ] ) ? $partners_logo_files[ strtolower( $w ) ] : '';
-            if ( $slug ) :
-              $dark = in_array( $slug, $partners_logo_dark, true ) ? ' partner-wordmark--dark' : '';
-            ?>
-            <div class="partner-wordmark<?php echo esc_attr( $dark ); ?>">
-              <img class="partner-wordmark__img" src="<?php echo esc_url( gerotech_image_url( 'assets/images/tech-partners/' . $slug . '.png', false ) ); ?>" alt="<?php echo esc_attr( $w ); ?>" loading="lazy" />
+            <?php $slug = isset( $partners_logo_files[ strtolower( $w ) ] ) ? $partners_logo_files[ strtolower( $w ) ] : ''; ?>
+            <?php if ( $slug ) : ?>
+            <div class="partner-wordmark">
+              <img class="partner-wordmark__img" src="<?php echo esc_url( gerotech_image_url( 'assets/images/tech-partners/' . $slug . '.jpg', false ) ); ?>" alt="<?php echo esc_attr( $w ); ?>" loading="lazy" />
             </div>
             <?php else : ?>
             <div class="partner-wordmark"><?php echo esc_html( $w ); ?></div>

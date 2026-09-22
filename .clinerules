@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-22 (opencode — committed + pushed the consolidated session work; working tree clean; Dev == `master`)
+**Last Updated:** 2026-09-22 (opencode — tech-partner logos rebaked onto uniform #333 tiles; JavaScript-free CSS pass)
 **Active Agent:** opencode
 **Branch:** `master`
-**Last Commit:** `614d038` Remove Apps Fire Suppression/RFID; rename CTA to Talk to an Engineer; add partner logos; vendor design-stack tooling (pushed — in sync with `origin/master` and with Dev)
-**Uncommitted:** none — working tree clean.
+**Last Commit:** `7bcd1a8` Update .clinerules session state post-commit (pushed — in sync with `origin/master`)
+**Uncommitted:** partner-logo tiles use the **original JPEGs** (regenerated PNGs looked pixelated) on **all-white uniform 88px cards** — `--dark`/#333 variant removed from markup, CSS, and the ES template PHP (`page-engineered-solutions.php` also corrected `.png` → `.jpg`); theme assets synced — awaiting commit.
 
 ### 2026-09-22 session (Cline — Applications: Fire Suppression + RFID removed from the BUILD, not just the prototype)
 
