@@ -19,7 +19,9 @@ $uri = GEROTECH_CHILD_URI;
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_lead    = $pick( 'mcs_hero_lead', 'Machine' );
 $hero_main    = $pick( 'mcs_hero_main', 'Custom Solutions' );
-$hero_image   = gerotech_image_url( $pick( 'mcs_hero_image', 'https://images.unsplash.com/photo-1727292485858-588c7652ad69?q=80&w=1920&auto=format&fit=crop' ) );
+$hero_image_value = $pick( 'mcs_hero_image', 'assets/images/mcs-hero.jpg' );
+$hero_image       = gerotech_image_url( $hero_image_value, 'assets/images/mcs-hero.jpg' );
+$hero_srcset      = gerotech_image_srcset( $hero_image_value, 'assets/images/mcs-hero.jpg' );
 
 /* ── Services grid ────────────────────────────────────────── */
 $grid_eyebrow = $pick( 'mcs_grid_eyebrow', 'What We Offer' );
@@ -138,7 +140,7 @@ $signup_sub   = $pick( 'mcs_signup_sub', 'Projects, machine updates, and service
          SECTION 3: Page Hero (Detail page — Figma node 6227:289)
          ============================================================ -->
     <section class="page-hero" aria-labelledby="mcs-hero-headline">
-      <img class="slide__bg slide__bg--right" src="<?php echo esc_url( $hero_image ); ?>" alt="CNC machine on shop floor" loading="eager" decoding="async" />
+      <img class="slide__bg slide__bg--right" src="<?php echo esc_url( $hero_image ); ?>"<?php echo $hero_srcset ? ' srcset="' . esc_attr( $hero_srcset ) . '" sizes="100vw"' : ''; ?> alt="Interior of a 5-axis machining center with a custom trunnion fixture holding a large workpiece" loading="eager" fetchpriority="high" decoding="async" />
       <div class="slide__overlay slide__overlay--left" aria-hidden="true"></div>
       <div class="slide__content slide__content--left">
         <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">

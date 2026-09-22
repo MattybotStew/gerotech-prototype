@@ -23,7 +23,7 @@
 |---|---|
 | `es-hero.jpg` (500KB — was a 2.8MB PNG, converted 2026-09-21) | ES page-hero |
 | `cta-engineered-solutions.jpg` + `@2x` (484KB / 740KB — client FANUC rail-robot photo, 2026-09-22) | ES bottom CTA band |
-| `mcs-hero.jpg` + `@2x` (444KB / 660KB — client 5-axis machining-center interior, 2026-09-22) | Machine Custom Solutions page-hero — **prototype only**, no WP template exists yet |
+| `mcs-hero.jpg` + `@2x` (444KB / 660KB — client 5-axis machining-center interior, 2026-09-22) | Machine Custom Solutions page-hero — in WP this hero is rendered by **`page-modification-of-standard-machine-tools.php`** (ACF `mcs_hero_image`), i.e. `/modification-of-standard-machine-tools/` on Dev, which displays the "Machine Custom Solutions" headline |
 | `automation-hero.jpg` | Automation page-hero |
 | `automation-cell-design.jpg` | Automation service card |
 | `robot-eoat.jpg` | Automation service card |

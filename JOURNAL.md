@@ -8,9 +8,15 @@ Client supplied a photo of a 5-axis machining center interior (trunnion rotary f
 
 - **Assets:** `assets/images/mcs-hero.jpg` (1920×1280, 444KB) + `mcs-hero@2x.jpg` (2560×1706, 660KB), converted from the client's 2508×1672 WebP via `sips` (q82/q78).
 - **Prototype:** `machine-custom-solutions.html` page-hero now uses the local file with `srcset` (1920w/2560w) + `sizes="100vw"`; `fetchpriority="high"` added to match the ES hero. Alt corrected from "CNC machine on shop floor" to describe the actual subject.
-- **Theme:** assets synced into `gerotech-child/assets/images/` so the image ships with the next push — but note **there is no `page-machine-custom-solutions.php` template**, so nothing in WordPress consumes it yet (this is also why `gerotechdev.wpenginepowered.com/machine-custom-solutions/` 404s — the WP page does not exist; on Dev this content is split across `modification-of-standard-machine-tools`, `custom-workholding-and-tooling`, `engineering-process-optimization`).
+- **Theme:** assets synced into `gerotech-child/assets/images/` so the image ships with the next push. **Correction below** — I first wrote here that nothing in WordPress consumes it; that was wrong.
 - **Verified:** rendered the hero standalone at 1440 / 1920 / 500. Section is a clean 500px (`min-height`) at every width, the `srcset` picks the viewport-appropriate candidate, and `scrollWidth == clientWidth` at all three (no overflow).
 - **Naming watch:** the page heading and breadcrumb say **"Machine Custom Solutions"**, the client and the nav/mega-menu say **"Machine Customization(s)"**. This is the known unresolved naming decision — I did not rename anything.
+
+**Follow-up (same day) — the WP side was NOT prototype-only; I had this wrong.** I originally claimed "there is no `page-machine-custom-solutions.php` template, so nothing in WordPress consumes it". That was incorrect, and it mattered: the MCS hero **is** rendered in WordPress by **`page-modification-of-standard-machine-tools.php`**, whose `mcs_hero_image` default was the *same* Unsplash stand-in I had just replaced in the prototype. On Dev that hero appears at `/modification-of-standard-machine-tools/` under the "Machine Custom Solutions" headline — so the client would have seen the old stand-in on the live page while the prototype showed the new photo.
+
+Fixed: template default → `assets/images/mcs-hero.jpg`, `srcset` via `gerotech_image_srcset()`, `fetchpriority="high"`, and the corrected alt. Because both environments store their own `mcs_hero_image` attachment id, the code default alone was not enough — imported and re-pointed the field on both: **Local page 1250 → attachment 3471, Dev page 1250 → 3470**. Verified live on Dev (new photo, full srcset, correct alt, old stand-in `gerotech-ca7ef98563` no longer referenced).
+
+**Lesson:** "no template with that name" ≠ "not in WordPress". The MCS naming is split across the prototype page name, the WP slug and the shared `mcs_*` ACF prefix — grep the **ACF field name and the hero markup**, not the template filename.
 
 ## 2026-09-22 — ES bottom CTA gets the client's FANUC rail-robot photo (Claude)
 
