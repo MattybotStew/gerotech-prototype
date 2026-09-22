@@ -57,7 +57,12 @@ Every remote `<img>` carries an HTML comment (`<!-- Stand-in: Unsplash — await
 
 ## 4. Videos
 
-`assets/videos/placeholder-*.mp4` — ffmpeg placeholders used only by the **gallery-module preview** (not a shipping page). Do not migrate; await client footage.
+| File | Used on | Status |
+|---|---|---|
+| `auto-door.mp4` (4.4MB) | **Client footage.** MCS Auto Doors card thumbnail (muted inline loop), MCS gallery "Auto Door Integration" collection, and `gallery-module-preview.html` | Shipping |
+| `placeholder-*.mp4` | ffmpeg placeholders used only by the **gallery-module preview** (not a shipping page) | Do not migrate; await client footage |
+
+`auto-door.mp4` was remuxed from the client's `.mov`. It is the first video used as an **inline card thumbnail** — see the `video` sub-field on the `mcs_cards` ACF repeater. At 4.4MB it is the heaviest asset on the MCS page and is worth compressing if the client supplies more card clips.
 
 ## 5. Fonts
 

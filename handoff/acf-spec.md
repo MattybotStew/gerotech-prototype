@@ -77,6 +77,15 @@ Location: `acf_add_options_page()`. Consumed by `header.php` / `footer.php` / sh
 
 **News editorial (ES):** same shape as homepage `news_lead` + `news_items` — **but PARKED** (see below).
 
+**Service cards (`mcs_cards`, MCS / `page-modification-of-standard-machine-tools.php`):** repeater of `title`, `image`, `video` (optional), `detail` (WYSIWYG, rendered into the card's modal).
+
+| Field | Type | Notes |
+|---|---|---|
+| `video` | File (`mp4,webm,mov`, returns array) | **Optional.** When set, the card renders a `<video>` instead of the `<img>`: `autoplay muted loop playsinline`, with `image` reused as the `poster` so there is no blank frame and reduced-motion users keep the still. The element is `aria-hidden` — the card heading and modal carry the meaning. One card uses it today (Auto Doors). Registers as `field_mcs_card_video`. **Asset weight:** an inline looped clip downloads with the page (the current one is 4.4MB), so keep card clips small. |
+| `image` | Image (returns array) | Also the video poster when `video` is set. |
+
+> **Gotcha — this repeater overrides the PHP default array.** `$cards = $pick( 'mcs_cards', <default array> )`. Local and Dev have *stored* rows, so adding `'video' => …` to the template's default array alone changes nothing: the stored rows win and have no `video` key. Seeding the row (`mcs_cards_<i>_video` + `_mcs_cards_<i>_video` = `field_mcs_card_video`) is what makes it appear. A fresh install with no stored rows gets the default automatically.
+
 ### Latest Projects & News — parked behind `es_show_news` (ES only)
 
 Client (Sep 2026): *"we just don't know if we can support the Latest Projects & News right now… disable on all pages BUT keep it as a component that can be easily added back by the client."*

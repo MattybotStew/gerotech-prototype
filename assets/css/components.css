@@ -2841,11 +2841,14 @@
   border-bottom: 1px solid var(--clr-gray-border);
   min-height: 275px;
 }
-img.mcs-card__image {
+img.mcs-card__image,
+video.mcs-card__image {
   display: block;
   width: 100%;
   height: 275px;
   object-fit: cover;
+  /* Video thumbs (Auto Doors) fill the same box as the photos they replace */
+  background: var(--clr-dark-bg);
 }
 .mcs-card__content {
   padding: var(--sp-24);
@@ -3538,11 +3541,13 @@ img.mcs-gallery-card__image {
 }
 .mcat-card__img,
 img.mcs-card__image,
+video.mcs-card__image,
 img.mcs-gallery-card__image {
   transition: transform 0.35s ease;
 }
 .mcat-card:hover .mcat-card__img,
 .mcs-card:hover img.mcs-card__image,
+.mcs-card:hover video.mcs-card__image,
 .mcs-gallery-card:hover img.mcs-gallery-card__image {
   transform: scale(1.04);
 }

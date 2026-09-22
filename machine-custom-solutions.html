@@ -99,7 +99,12 @@
           </article>
 
           <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
-            <img class="mcs-card__image" src="assets/images/mcs-gallery/auto-door-haas.jpg" alt="Servak auto door on a Haas mill" loading="lazy" />
+            <!-- Client video: Vertical Auto Door Video — the thumbnail IS the video.
+                 Muted + looping + playsinline so it reads as a moving thumbnail; the poster
+                 is the still photo it replaced, so there is no blank frame while it loads
+                 and reduced-motion users keep a sensible image. Decorative: the card's
+                 heading and its modal carry the meaning, so it is hidden from AT. -->
+            <video class="mcs-card__image" data-card-video src="assets/videos/auto-door.mp4" poster="assets/images/mcs-gallery/auto-door-haas.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
             <div class="mcs-card__content">
               <h3 class="mcs-card__title">Auto Doors</h3>
               <span class="mcs-card__cue">View Details →</span>

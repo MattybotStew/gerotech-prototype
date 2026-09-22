@@ -4,12 +4,15 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — "Machine Custom Solutions" naming settled; it turned out the only conflict was a false comment)
+**Last Updated:** 2026-09-22 (Claude — Auto Doors card thumbnail is now the client's video; first inline card video in the project)
 **Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** `a125af6` (MCS hero in WordPress) — pushed; `origin/master` 0 ahead / 0 behind.
-**Uncommitted:** naming-doc cleanup (`machine-custom-solutions.html` comment, `cline-project-handoff.md`, `docs/PROJECT_BRIEF.md`).
-**Deployed:** news park live on **Local + Dev**. ES CTA photo live on **Local + Dev** (Local 3470, Dev 3469). MCS hero live on **Local + Dev** — WP renders it via `page-modification-of-standard-machine-tools.php` (ACF `mcs_hero_image`), visible at `/modification-of-standard-machine-tools/` with the "Machine Custom Solutions" headline (page 1250; Local attachment 3471, Dev 3470). In both cases the theme push alone does not change what renders — both environments store their own attachment id, so the media import + meta update is the step that matters. Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+**Last Commit:** `2b99f0c` (MCS naming settled) — pushed; `origin/master` 0 ahead / 0 behind.
+**Uncommitted:** Auto Doors video card (prototype + theme template + `components.css` + `animations.js` + new ACF `field_mcs_card_video`).
+**Deployed:** news park live on **Local + Dev**. ES CTA photo live on **Local + Dev** (Local 3470, Dev 3469). MCS hero live on **Local + Dev** (page 1250; Local 3471, Dev 3470). Auto Doors card video live on **Local + Dev** (page 1250 row 3; Local attachment 3472, Dev 3471). Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+
+### MCS service cards — `mcs_cards` repeater
+The card grid is an ACF repeater (`title`, `image`, `video` (optional), `detail`). **The stored rows override the template's default array** — `$cards = $pick( 'mcs_cards', <default> )` — so adding a key to the PHP default changes nothing on Local/Dev until the row is seeded. `video` makes a card a muted inline looping thumbnail (`autoplay muted loop playsinline`, `image` as poster, `aria-hidden`); `animations.js` pauses it under `prefers-reduced-motion`. Only Auto Doors uses it so far; `auto-door.mp4` is 4.4MB and downloads with the page.
 
 ### Naming — SETTLED (2026-09-22)
 **"Machine Custom Solutions"** is the canonical client-facing name (was open decision #3 in `cline-project-handoff.md`). Write it exactly that way. Do not reintroduce "Machine Customization" or "Machine Customizations".

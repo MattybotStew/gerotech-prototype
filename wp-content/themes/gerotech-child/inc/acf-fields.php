@@ -550,6 +550,16 @@ acf_add_local_field_group(
 				'sub_fields'   => array(
 					array( 'key' => 'field_mcs_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
 					array( 'key' => 'field_mcs_card_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
+					array(
+						'key'           => 'field_mcs_card_video',
+						'label'         => 'Video (optional)',
+						'name'          => 'video',
+						'type'          => 'file',
+						'return_format' => 'array',
+						'library'       => 'all',
+						'mime_types'    => 'mp4,webm,mov',
+						'instructions'  => 'Upload a short, silent clip to turn this card into a moving thumbnail. It plays muted, looping and inline, and the Image above is used as its poster frame. Leave empty to show the still image only. Keep clips small — they download with the page.',
+					),
 					array( 'key' => 'field_mcs_card_detail', 'label' => 'Detail (modal)', 'name' => 'detail', 'type' => 'wysiwyg', 'tabs' => 'all', 'toolbar' => 'full', 'media_upload' => 0, 'instructions' => 'Rich content shown in the card modal. A “Talk to an Engineer” button is added automatically.' ),
 				),
 			),

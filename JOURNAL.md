@@ -2,6 +2,22 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Auto Doors card thumbnail is now the client's video (Claude)
+
+Client: the Auto Doors card on `/modification-of-standard-machine-tools/` should show the video, not the still photo. `auto-door.mp4` was already in the repo (used by the gallery collection); this makes it the **first inline card video** in the project.
+
+**Done:**
+- **Prototype:** `machine-custom-solutions.html` — the card's `<img class="mcs-card__image">` became `<video class="mcs-card__image" data-card-video … autoplay muted loop playsinline preload="metadata" aria-hidden="true">` with `poster` set to the photo it replaced (no blank frame while loading; reduced-motion users keep a sensible still).
+- **CSS:** the rules targeted `img.mcs-card__image` only, so the video would not have been sized. Extended both the box rule and the hover-zoom selector list to `video.mcs-card__image`.
+- **JS:** `animations.js` now pauses `video[data-card-video]` and strips `autoplay` under `prefers-reduced-motion`. Placed **before** that file's reduced-motion early-return deliberately — anything after it never runs for those users.
+- **ACF:** new optional `video` sub-field on the `mcs_cards` repeater (`field_mcs_card_video`, type file, mp4/webm/mov) so the client can set/replace a card clip from wp-admin. The PHP default array carries `'video' => 'assets/videos/auto-door.mp4'` for a fresh install.
+
+**The trap that made the first attempt look like it failed:** I added the video to the template's default array and Local still rendered 8 images and 0 videos. `$cards = $pick( 'mcs_cards', <default> )` — Local and Dev have **stored** repeater rows, which win over the default, and those rows have no `video` key. So the fix needed a DB step, not just code: registered the sub-field, imported the mp4 as an attachment, and set `mcs_cards_3_video` + `_mcs_cards_3_video` on both. Same class of mistake as the hero defaults — **a code default only applies where nothing is stored.**
+
+**Verified on Local + Dev:** 1 `<video>` + 7 `<img>` cards, video serves `200 video/mp4` (4,381,347 bytes), poster serves `200 image/jpeg`, new CSS/JS live, and the card renders the FANUC M-10iD/12 frame in the same 275px box as its neighbours.
+
+**Watch item:** `auto-door.mp4` is 4.4MB and now downloads with the MCS page as an autoplaying loop. Worth compressing/trimming if more card clips arrive — there is no ffmpeg on this machine to do it here.
+
 ## 2026-09-22 — Machine Custom Solutions naming settled (Claude)
 
 Open decision #3 in `cline-project-handoff.md` ("Machine Customization" vs "Machine Custom Solutions") is **resolved in favour of "Machine Custom Solutions"** (CloudMellow direction). The legacy URL is deliberately unchanged.

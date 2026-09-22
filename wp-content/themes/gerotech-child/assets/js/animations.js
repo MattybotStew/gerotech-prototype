@@ -1,4 +1,15 @@
 (function () {
+  // Inline looping card videos (e.g. the Auto Doors thumbnail on MCS) must not
+  // autoplay for users who asked for reduced motion — they keep the poster frame.
+  // Deliberately placed before the reduced-motion early-return below.
+  const cardVideos = document.querySelectorAll('video[data-card-video]');
+  if (cardVideos.length && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cardVideos.forEach(function (video) {
+      video.removeAttribute('autoplay');
+      video.pause();
+    });
+  }
+
   // Fade-in-up on scroll for sections and cards
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

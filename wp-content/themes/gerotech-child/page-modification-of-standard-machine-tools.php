@@ -48,6 +48,10 @@ $cards        = $pick(
 		array(
 			'title'  => 'Auto Doors',
 			'image'  => 'assets/images/mcs-gallery/auto-door-haas.jpg',
+			// Optional: when set, the card renders a muted looping video instead of the
+			// photo. `image` is still used as the video poster (no blank frame on load,
+			// and reduced-motion users keep the still).
+			'video'  => 'assets/videos/auto-door.mp4',
 			'detail' => '<p><strong>Horizontal Door:</strong> We offer a custom Servax door drive solution that provide enhanced safety and reliability. Fully integrated with your machine tool. This solution is ideal for single or double door machines. The intelligent self-monitoring feature reliable, integrated safety functions. Position, speed and torque are constantly monitored. Automatic reacts to obstacles immediately changing directions. Light curtains and two-hand buttons are not required.</p><p><strong>Vertical Door:</strong> Vertical doors are a great option for machine tending robot cells. They allow for operator full access into the primary door without having to enter the robot cell. Door is fully integrated with machine and output provided to robot cell.</p>',
 		),
 		array(
@@ -178,9 +182,18 @@ $signup_sub   = $pick( 'mcs_signup_sub', 'Projects, machine updates, and service
 
         <div class="mcs-grid">
           <?php foreach ( $cards as $card ) : ?>
-          <?php $card_image = gerotech_image_url( isset( $card['image'] ) ? $card['image'] : '' ); ?>
+          <?php
+			$card_image = gerotech_image_url( isset( $card['image'] ) ? $card['image'] : '' );
+			// gerotech_image_url() just resolves a theme-relative path or URL, so it works
+			// for the video asset too (it is not image-specific despite the name).
+			$card_video = empty( $card['video'] ) ? '' : gerotech_image_url( $card['video'] );
+			?>
           <article class="mcs-card" role="button" tabindex="0" aria-haspopup="dialog">
+            <?php if ( $card_video ) : ?>
+            <video class="mcs-card__image" data-card-video src="<?php echo esc_url( $card_video ); ?>" poster="<?php echo esc_url( $card_image ); ?>" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+            <?php else : ?>
             <img class="mcs-card__image" src="<?php echo esc_url( $card_image ); ?>" alt="<?php echo esc_attr( $card['title'] ); ?>" loading="lazy" />
+            <?php endif; ?>
             <div class="mcs-card__content">
               <h3 class="mcs-card__title"><?php echo esc_html( $card['title'] ); ?></h3>
               <span class="mcs-card__cue">View Details →</span>
