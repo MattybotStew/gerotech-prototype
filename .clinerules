@@ -5,12 +5,19 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-22 (opencode — partner logos shipped to Dev + Local; ACF wordmark list synced to 12 on both)
+**Last Updated:** 2026-09-22 (opencode — partner logos are now a true ACF repeater; client can upload/swap/reorder in admin)
 **Active Agent:** opencode
 **Branch:** `master`
-**Last Commit:** `743e657` Use original partner logo JPEGs on uniform white tiles; drop dark #333 variant (pushed — in sync with `origin/master`)
-**Uncommitted:** none — working tree clean.
-**Deployed:** theme live on Dev + Local; `es_partners_wordmarks` stored list updated to the 12 brand names on **both** Dev and Local (stored rows win over template defaults — first deploy only showed 7 logos until the field was updated).
+**Last Commit:** working — repeater change not yet committed.
+**Uncommitted:** `page-engineered-solutions.php` + `inc/acf-fields.php` (partner logo ACF repeater).
+**Deployed:** repeater change live on Dev + Local (fallback path — 12 mapped logos — renders; repeater currently empty on both). Repeater branch smoke-tested on Local with a seeded FANUC media-lib upload (tile + alt correct), then wiped.
+
+### Partner logos = client-editable (ACF repeater)
+
+- Field `es_partners_logos` (repeater: `image` ACF-image, `brand` alt/text, `url` optional link) registers on the **Engineering Driven Solutions** → Technology Partners tab, alongside the legacy `es_partners_wordmarks` textarea (kept as fallback).
+- `page-engineered-solutions.php` renders: **repeater rows** when non-empty (each row = `.partner-wordmark` tile; optional `<a>` when link set; alt falls back to attachment alt, then 'Partner logo'); otherwise the **mapped wordmark list** (`$partners_logo_files`, drives `assets/images/tech-partners/*.jpg`).
+- Client workflow: empty repeater = current 12-brand default. Adding rows overrides the defaults entirely — no dev needed to add/swap/remove/relink logos.
+- Gotcha (recurring theme): **stored ACF rows win over template defaults** — same lesson as the wordmark list; if a client adds rows then deletes them, ensure the field is emptied (not left with stale empty rows).
 
 ### 2026-09-22 session (Cline — Applications: Fire Suppression + RFID removed from the BUILD, not just the prototype)
 

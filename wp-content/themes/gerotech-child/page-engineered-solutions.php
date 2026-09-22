@@ -324,16 +324,35 @@ $signup_sub   = $pick( 'es_signup_sub', 'Projects, machine updates, and service 
         </div>
 
         <div class="tech-logo-grid">
-          <?php foreach ( $partners_wordmarks as $w ) : ?>
-            <?php $slug = isset( $partners_logo_files[ strtolower( $w ) ] ) ? $partners_logo_files[ strtolower( $w ) ] : ''; ?>
-            <?php if ( $slug ) : ?>
-            <div class="partner-wordmark">
-              <img class="partner-wordmark__img" src="<?php echo esc_url( gerotech_image_url( 'assets/images/tech-partners/' . $slug . '.jpg', false ) ); ?>" alt="<?php echo esc_attr( $w ); ?>" loading="lazy" />
-            </div>
-            <?php else : ?>
-            <div class="partner-wordmark"><?php echo esc_html( $w ); ?></div>
-            <?php endif; ?>
-          <?php endforeach; ?>
+          <?php if ( have_rows( 'es_partners_logos' ) ) : ?>
+            <?php while ( have_rows( 'es_partners_logos' ) ) : the_row(); ?>
+              <?php $row_image = get_sub_field( 'image' ); ?>
+              <?php if ( $row_image ) : ?>
+                <?php
+                $row_url    = get_sub_field( 'url' );
+                $row_brand  = get_sub_field( 'brand' );
+                $row_alt    = $row_brand ? $row_brand : ( is_array( $row_image ) && $row_image['alt'] ? $row_image['alt'] : 'Partner logo' );
+                $row_src    = gerotech_image_url( $row_image );
+                ?>
+              <div class="partner-wordmark">
+                <?php if ( $row_url ) : ?><a href="<?php echo esc_url( $row_url ); ?>"><?php endif; ?>
+                <img class="partner-wordmark__img" src="<?php echo esc_url( $row_src ); ?>" alt="<?php echo esc_attr( $row_alt ); ?>" loading="lazy" />
+                <?php if ( $row_url ) : ?></a><?php endif; ?>
+              </div>
+              <?php endif; ?>
+            <?php endwhile; ?>
+          <?php else : ?>
+            <?php foreach ( $partners_wordmarks as $w ) : ?>
+              <?php $slug = isset( $partners_logo_files[ strtolower( $w ) ] ) ? $partners_logo_files[ strtolower( $w ) ] : ''; ?>
+              <?php if ( $slug ) : ?>
+              <div class="partner-wordmark">
+                <img class="partner-wordmark__img" src="<?php echo esc_url( gerotech_image_url( 'assets/images/tech-partners/' . $slug . '.jpg', false ) ); ?>" alt="<?php echo esc_attr( $w ); ?>" loading="lazy" />
+              </div>
+              <?php else : ?>
+              <div class="partner-wordmark"><?php echo esc_html( $w ); ?></div>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          <?php endif; ?>
         </div>
       </div>
     </section>

@@ -391,7 +391,21 @@ acf_add_local_field_group(
 			array( 'key' => 'field_es_partners_body', 'label' => 'Body', 'name' => 'es_partners_body', 'type' => 'textarea', 'rows' => 3 ),
 			array( 'key' => 'field_es_partners_cta_label', 'label' => 'Button label', 'name' => 'es_partners_cta_label', 'type' => 'text' ),
 			array( 'key' => 'field_es_partners_cta_url', 'label' => 'Button URL', 'name' => 'es_partners_cta_url', 'type' => 'text' ),
-			array( 'key' => 'field_es_partners_wordmarks', 'label' => 'Partner wordmarks (one per line)', 'name' => 'es_partners_wordmarks', 'type' => 'textarea', 'rows' => 9 ),
+			array(
+				'key'          => 'field_es_partners_logos',
+				'label'        => 'Logos (overrides the wordmark list below)',
+				'name'         => 'es_partners_logos',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add logo',
+				'instructions' => 'Upload each partner logo from the WordPress Media Library and add an optional link. Reorder rows to control display order. Leave empty to use the default wordmark list below.',
+				'sub_fields'   => array(
+					array( 'key' => 'field_es_partners_logo_image', 'label' => 'Logo image', 'name' => 'image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'thumbnail' ),
+					array( 'key' => 'field_es_partners_logo_brand', 'label' => 'Name / alt text', 'name' => 'brand', 'type' => 'text', 'instructions' => 'Used as the image alt text and shown only if no image is uploaded.' ),
+					array( 'key' => 'field_es_partners_logo_url', 'label' => 'Link (optional)', 'name' => 'url', 'type' => 'text' ),
+				),
+			),
+			array( 'key' => 'field_es_partners_wordmarks', 'label' => 'Default wordmarks (one per line)', 'name' => 'es_partners_wordmarks', 'type' => 'textarea', 'rows' => 9, 'instructions' => 'Used only when the Logos repeater above is empty.' ),
 
 			/* ── Capability band ──────────────────────────────── */
 			array( 'key' => 'field_es_cap_tab', 'label' => 'Capability Band', 'type' => 'tab', 'placement' => 'top' ),
