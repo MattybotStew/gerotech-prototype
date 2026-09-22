@@ -107,7 +107,11 @@ $cta_headline     = $pick( 'ai_cta_headline', 'Need a <em>custom solution</em> f
 $cta_body         = $pick( 'ai_cta_body', "Robot cells, workholding, and controls — designed, built, and installed by Gerotech's in-house engineering team." );
 $cta_button_label = $pick( 'ai_cta_button_label', 'Talk to an Engineer' );
 $cta_button_url   = $pick( 'ai_cta_button_url', gerotech_quote_mailto() );
-$cta_image        = gerotech_image_url( $pick( 'ai_cta_image', 'https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop' ) );
+// Client (2026-09-22): use the FANUC rail-robot photo for this CTA band too — the
+// same asset as the Engineered Solutions CTA, so it is deliberately shared.
+$cta_image_value  = $pick( 'ai_cta_image', 'assets/images/cta-rail-robot.jpg' );
+$cta_image        = gerotech_image_url( $cta_image_value, 'assets/images/cta-rail-robot.jpg' );
+$cta_image_srcset = gerotech_image_srcset( $cta_image_value, 'assets/images/cta-rail-robot.jpg' );
 $cta_call_label   = $pick( 'ai_cta_call_label', 'Prefer to talk it through?' );
 $cta_call_number  = $pick( 'ai_cta_call_number', '(734) 379-7788' );
 $cta_call_note    = $pick( 'ai_cta_call_note', 'Talk to a person, not a form.' );
@@ -220,7 +224,7 @@ $signup_submit     = gerotech_field( 'signup_submit_label', 'Sign Up', 'option' 
     <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
 
     <section class="cta-band cta-band--cinema cta-band--cinema-lockup" aria-label="Call to action">
-      <img class="cta-band__bg" src="<?php echo esc_url( $cta_image ); ?>" alt="Robotic automation cell" loading="lazy" />
+      <img class="cta-band__bg" src="<?php echo esc_url( $cta_image ); ?>"<?php echo $cta_image_srcset ? ' srcset="' . esc_attr( $cta_image_srcset ) . '" sizes="100vw"' : ''; ?> alt="FANUC robot on an overhead rail system in a Michigan manufacturing facility" loading="lazy" decoding="async" />
       <div class="cta-band__overlay" aria-hidden="true"></div>
       <div class="cta-band__content">
         <div class="cta-band__copy">

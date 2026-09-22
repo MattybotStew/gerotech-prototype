@@ -59,6 +59,9 @@ Registering a field only makes the **front end** render its template default; th
 ### Applications gallery collections
 `app_collections` holds a `media` textarea, one pipe-delimited item per line (`type | src | poster | alt | caption`). The per-collection `meta` is a **static label describing the whole set** — the "N photos" badge is computed separately by `gallery-module.js`. Adding images needs the stored rows updated (a stored value beats the template default): `wp eval-file scripts/add-app-gallery-items.php "<collection title>" ["meta=..."] "src|alt|caption" ...` (positional args, idempotent by filename).
 
+### Page-level images (hero, CTA band)
+Same trap as cards: the live image is usually a media-library **attachment**, so changing `assets/images/<file>` only changes the default. Use `wp eval-file scripts/set-page-image.php "<page slug>" "<image field>" "assets/images/<file>.jpg"` (positional args, idempotent). **Run it only for the field you actually mean to change** — the ES and Automation CTA bands share one photo, and pointing the script at both re-imported a lower-resolution copy over the ES band's 2560px upload, which had to be reverted.
+
 ### Card images — two halves
 On the rebuilt pages the **cards** store media-library attachments (in a repeater such as `ai_cards` / `app_cards`) while **galleries** use theme-relative paths. Replacing `assets/images/<file>` updates the gallery/default but leaves the card on its old upload, so a DB step is always needed: `wp eval-file scripts/set-card-image.php "<page slug>" "<repeater field>" "<card title>" "assets/images/<file>.jpg"` (positional args — WP-CLI rejects custom `--flags` on `eval-file`). Idempotent.
 
