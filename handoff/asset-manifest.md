@@ -24,6 +24,7 @@
 | `es-hero.jpg` (500KB — was a 2.8MB PNG, converted 2026-09-21) | ES page-hero |
 | `cta-engineered-solutions.jpg` + `@2x` (484KB / 740KB — client FANUC rail-robot photo, 2026-09-22) | ES bottom CTA band |
 | `mcs-hero.jpg` + `@2x` (444KB / 660KB — client 5-axis machining-center interior, 2026-09-22) | Machine Custom Solutions page-hero — in WP this hero is rendered by **`page-modification-of-standard-machine-tools.php`** (ACF `mcs_hero_image`), i.e. `/modification-of-standard-machine-tools/` on Dev, which displays the "Machine Custom Solutions" headline |
+| `mcs-gallery/specialty-machine.jpg` (1920×670, 245KB — client Haas ST-45 + bar feeder, from Figma node `7196:3348`, 2026-09-22) | MCS "Specialty Machine" service card |
 | `automation-hero.jpg` | Automation page-hero |
 | `automation-cell-design.jpg` | Automation service card |
 | `robot-eoat.jpg` | Automation service card |
@@ -43,7 +44,7 @@
 |---|---|
 | `index.html` | 2 |
 | `engineered-solutions.html` | **0 ✅** |
-| `machine-custom-solutions.html` | 2 |
+| `machine-custom-solutions.html` | 1 |
 | `automation-integration.html` | 4 |
 | `application.html` | 17 |
 | `training.html` | 6 |
@@ -52,6 +53,8 @@
 | `careers.html` | 3 |
 
 **`engineered-solutions.html` is now free of remote stand-ins** (2026-09-22 — the last one, the bottom CTA band photo, was replaced with the client's FANUC rail-robot photo). Note the parked news markup that moved to `partials/news-block.html` still carries 4 Unsplash URLs — they are commented out of ES, so they do not count here but will need replacing if the section is re-enabled.
+
+**`machine-custom-solutions.html` has one left:** `photo-1666634157070` on the **Process Engineering** service card (also still the fallback in the `mcs_cards` default array in `page-modification-of-standard-machine-tools.php`). Every other MCS card is real client art. Worth asking the client for a Process Engineering photo — it is the last remote asset on an otherwise fully local page.
 
 Every remote `<img>` carries an HTML comment (`<!-- Stand-in: Unsplash — awaiting client photo -->`). Search for `images.unsplash.com` to find them all. Unsplash URLs can 404 over time — verify before migration.
 

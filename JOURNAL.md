@@ -2,6 +2,21 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Specialty Machine card gets the client's Haas ST-45 photo (Claude)
+
+Client pointed at Figma node `7196:3348` ("Button dialog") and said "replace thumbnail with this image". That node is the **Specialty Machine** service card, so the card's Unsplash stand-in (`photo-1655393001768`) is retired.
+
+**Getting the image:** no Figma MCP is wired into this session, but `~/.figma_token` exists, so I used the REST API — `/v1/files/:key/nodes?ids=7196:3348` to identify the frame, then read the IMAGE fill's `imageRef` and pulled the original from `/v1/files/:key/images`. Useful fallback when the MCP is unavailable.
+
+- **Asset:** `assets/images/mcs-gallery/specialty-machine.jpg` (1920×670, 245KB) converted from the client's 2123×741 PNG via `sips` q82. No alpha, so no black-edge problem converting to JPEG.
+- **Prototype:** card image → local file, alt corrected from the bare "Specialty Machine" to describe the photo (Haas ST-45 with bar feeder). The stale `Stand-in: Unsplash/ZHENYU LUO — awaiting client photo` comment is gone — Figma's frame still carries that name, but the artwork is real client photography.
+- **Theme:** same swap in the `mcs_cards` default array.
+- **Seeded on both**, because the stored repeater rows win: Local attachment **3473**, Dev **3472** (`mcs_cards_7_image`).
+
+**Verified on Local + Dev:** card renders the ST-45, image serves 200 `image/jpeg` (244,811 bytes), and the MCS page now has **0 Unsplash references**.
+
+**Still open — one stand-in left on this page:** the **Process Engineering** card (index 6) still uses `photo-1666634157070` in both the prototype and the theme default. Every other MCS card is real client art, so this is the last remote asset on an otherwise fully local page. Worth asking the client for a photo.
+
 ## 2026-09-22 — Auto Doors card thumbnail is now the client's video (Claude)
 
 Client: the Auto Doors card on `/modification-of-standard-machine-tools/` should show the video, not the still photo. `auto-door.mp4` was already in the repo (used by the gallery collection); this makes it the **first inline card video** in the project.

@@ -71,7 +71,7 @@ $cards        = $pick(
 		),
 		array(
 			'title'  => 'Specialty Machine',
-			'image'  => 'https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?q=80&w=800&auto=format&fit=crop',
+			'image'  => 'assets/images/mcs-gallery/specialty-machine.jpg',
 			'detail' => '<p>One-off machine builds and custom engineering for unique production requirements where off-the-shelf equipment will not do.</p>',
 		),
 	)

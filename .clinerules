@@ -4,12 +4,15 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — Auto Doors card thumbnail is now the client's video; first inline card video in the project)
+**Last Updated:** 2026-09-22 (Claude — Specialty Machine card now uses the client's Haas ST-45 photo from Figma; MCS page is now stand-in free)
 **Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** `2b99f0c` (MCS naming settled) — pushed; `origin/master` 0 ahead / 0 behind.
-**Uncommitted:** Auto Doors video card (prototype + theme template + `components.css` + `animations.js` + new ACF `field_mcs_card_video`).
-**Deployed:** news park live on **Local + Dev**. ES CTA photo live on **Local + Dev** (Local 3470, Dev 3469). MCS hero live on **Local + Dev** (page 1250; Local 3471, Dev 3470). Auto Doors card video live on **Local + Dev** (page 1250 row 3; Local attachment 3472, Dev 3471). Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+**Last Commit:** `3283226` (Auto Doors video card) — pushed; `origin/master` 0 ahead / 0 behind.
+**Uncommitted:** Specialty Machine image (`mcs-gallery/specialty-machine.jpg`, prototype + theme default) and doc updates.
+**Deployed:** news park live on **Local + Dev**. ES CTA photo live (Local 3470, Dev 3469). MCS hero live (page 1250; Local 3471, Dev 3470). Auto Doors card video live (page 1250 row 3; Local 3472, Dev 3471). Specialty Machine card image live (page 1250 row 7; Local 3473, Dev 3472). Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+
+### Figma access from this session
+No Figma MCP is available here, but `~/.figma_token` exists — use the REST API directly: `/v1/files/:key/nodes?ids=<a:b>` to identify a node, read an IMAGE fill's `imageRef`, then `/v1/files/:key/images` to resolve the original. `/v1/images/:key?ids=…&format=png&scale=2` renders any node to a PNG for visual checking. File key `YgHwqyyFj57c1ZSbmfkL0c`.
 
 ### MCS service cards — `mcs_cards` repeater
 The card grid is an ACF repeater (`title`, `image`, `video` (optional), `detail`). **The stored rows override the template's default array** — `$cards = $pick( 'mcs_cards', <default> )` — so adding a key to the PHP default changes nothing on Local/Dev until the row is seeded. `video` makes a card a muted inline looping thumbnail (`autoplay muted loop playsinline`, `image` as poster, `aria-hidden`); `animations.js` pauses it under `prefers-reduced-motion`. Only Auto Doors uses it so far; `auto-door.mp4` is 4.4MB and downloads with the page.
