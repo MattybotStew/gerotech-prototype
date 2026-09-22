@@ -56,6 +56,9 @@ Registering a field only makes the **front end** render its template default; th
 
 **The 2017-era Service sub-pages are LIVE:** `submit-a-request`, `parts-order`, `rotary-repair`, `preventive-maintenance-plan`, `application-support` all still resolve under `/service/…` and run `page-service.php`. Do not delete them without asking the client.
 
+### Applications gallery collections
+`app_collections` holds a `media` textarea, one pipe-delimited item per line (`type | src | poster | alt | caption`). The per-collection `meta` is a **static label describing the whole set** — the "N photos" badge is computed separately by `gallery-module.js`. Adding images needs the stored rows updated (a stored value beats the template default): `wp eval-file scripts/add-app-gallery-items.php "<collection title>" ["meta=..."] "src|alt|caption" ...` (positional args, idempotent by filename).
+
 ### Applications card images — two halves
 On the Applications page the **cards** store media-library attachments while the **gallery** uses theme-relative paths. Replacing `assets/images/app-*.jpg` updates the gallery automatically but leaves the card on the old upload, so a DB step is always needed too: `wp eval-file scripts/set-app-card-image.php "<card title>" assets/images/<file>.jpg` (positional args — WP-CLI rejects custom `--flags` on `eval-file`). Idempotent.
 

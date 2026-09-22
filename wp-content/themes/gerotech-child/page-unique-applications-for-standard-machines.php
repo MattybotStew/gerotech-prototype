@@ -67,8 +67,13 @@ $collections   = $pick(
 	array(
 		array(
 			'title' => 'Part Programming',
-			'meta'  => 'UMC-750 · 5-axis machining',
-			'media' => "image | {$uri}/assets/images/app-gallery-umc750.jpg | | Haas UMC-750 5-axis machining | UMC-750 · 5-axis machining",
+			'meta'  => 'Milling · turning · high-pressure coolant',
+			// One media item per line. The collection `meta` is a static label describing
+			// the whole set — the photo/video count is a separate badge the JS computes.
+			'media' => "image | {$uri}/assets/images/app-gallery-umc750.jpg | | Haas UMC-750 5-axis machining | UMC-750 · 5-axis machining\n"
+				. "image | {$uri}/assets/images/app-gallery-milling-coolant.jpg | | Milling operation under high-pressure coolant | Milling · high-pressure coolant\n"
+				. "image | {$uri}/assets/images/app-gallery-turning-large.jpg | | Large-diameter turning operation | Turning · large-diameter work\n"
+				. "image | {$uri}/assets/images/app-gallery-turning-drill.jpg | | Turning setup with a drilling operation | Turning · drilling",
 		),
 		array(
 			'title' => 'Process Troubleshooting',
