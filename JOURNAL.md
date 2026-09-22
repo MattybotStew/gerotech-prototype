@@ -2,6 +2,12 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Commit + Dev deploy of the Automation gallery trim (Cline)
+
+- Committed and pushed the previously-uncommitted Cursor gallery trim **plus** the unpushed `f8ef395` (HMI screens + layered controls) — `master` is now `f7292fa`, level with `origin/master`.
+- Theme rsynced to Dev with `--delete` (also removed a stale `gerotech-child/scripts/` dir on Dev); page + CDN caches flushed. All 5 key URLs 200; `/automated-system/` renders the 5 service-card collections (HMI Design, Layered Controls, Automation Cell Design, Robot EOAT, Pre-Engineered) with the 7 old collections gone. No DB change was needed — Dev's stored `ai_collections` rows were already correct from the earlier Cursor session.
+
+
 ## 2026-09-22 — Homepage + ES pages ACF editability verification (Cline)
 
 User asked to confirm the homepage and all ES pages are fully editable/customizable with ACF per the plan (`handoff/acf-spec.md`, `implementation-plan-wordpress-theme-acf.md` §13).
