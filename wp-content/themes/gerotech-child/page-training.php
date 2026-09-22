@@ -22,6 +22,9 @@
 
 get_header();
 
+// Page title was hardcoded here.
+$page_title = gerotech_field( 'training_page_title', 'Training' );
+
 $legacy_img = GEROTECH_CHILD_URI . '/assets/images/legacy';
 
 $hero_title    = gerotech_field( 'training_hero_title', 'TRAINING' );
@@ -74,7 +77,7 @@ $cta_url   = gerotech_field( 'training_cta_url', gerotech_page_url( 'contact' ) 
 
 <section id="page_title" style="display: none;">
 		<div class="row clearfix">
-			<h1>Training</h1>
+			<h1><?php echo esc_html( $page_title ); ?></h1>
 		</div>
     </section>
 

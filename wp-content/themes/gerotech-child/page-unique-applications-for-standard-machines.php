@@ -112,6 +112,11 @@ $cta_call_note    = $pick( 'app_cta_call_note', 'Talk to a person, not a form.' 
 /* ── Email signup ─────────────────────────────────────────── */
 $signup_title = $pick( 'app_signup_title', 'Join Our <em>Mailing List</em>' );
 $signup_sub   = $pick( 'app_signup_sub', 'Projects, machine updates, and service news — delivered to your inbox.' );
+
+// Shared mailing-list form strings — global fields (Site Content → Forms).
+$signup_email_label = gerotech_field( 'signup_email_label', 'Email address', 'option' );
+$signup_email_ph    = gerotech_field( 'signup_email_placeholder', 'your@email.com', 'option' );
+$signup_submit     = gerotech_field( 'signup_submit_label', 'Sign Up', 'option' );
 ?>
 
 <main id="main">
@@ -233,9 +238,9 @@ $signup_sub   = $pick( 'app_signup_sub', 'Projects, machine updates, and service
           <p class="email-signup__sub"><?php echo esc_html( $signup_sub ); ?></p>
         </div>
         <form class="email-signup__form" action="#" method="post" novalidate>
-          <label for="email-input-app" class="sr-only">Email address</label>
-          <input class="email-signup__input" id="email-input-app" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-          <button class="email-signup__submit" type="submit">Sign Up</button>
+          <label for="email-input-app" class="sr-only"><?php echo esc_html( $signup_email_label ); ?></label>
+          <input class="email-signup__input" id="email-input-app" type="email" name="email" placeholder="<?php echo esc_attr( $signup_email_ph ); ?>" required autocomplete="email" />
+          <button class="email-signup__submit" type="submit"><?php echo esc_html( $signup_submit ); ?></button>
         </form>
       </div>
     </section>

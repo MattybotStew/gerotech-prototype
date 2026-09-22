@@ -362,3 +362,41 @@ function gerotech_parse_media( $text ) {
 	}
 	return $out;
 }
+
+/**
+ * Split checklist groups into the legacy two-column markup.
+ *
+ * Used by the Service page's Planned Maintenance checklist, which ships as an ACF
+ * repeater but renders into the legacy `.t_left` / `.t_right` float columns.
+ *
+ * @param array  $groups Repeater rows.
+ * @param string $col    'left' or 'right'.
+ * @return array Rows belonging to that column.
+ */
+function gerotech_service_column( $groups, $col ) {
+	$out = array();
+	foreach ( (array) $groups as $group ) {
+		$group_col = isset( $group['column'] ) ? $group['column'] : 'left';
+		if ( $col === $group_col ) {
+			$out[] = $group;
+		}
+	}
+	return $out;
+}
+
+/**
+ * Render one checklist column: a bold heading followed by its lines.
+ *
+ * @param array $groups Rows for this column.
+ */
+function gerotech_service_render_groups( $groups ) {
+	foreach ( (array) $groups as $group ) {
+		$heading = isset( $group['heading'] ) ? $group['heading'] : '';
+		$items   = isset( $group['items'] ) ? $group['items'] : '';
+		echo '<p>';
+		if ( '' !== trim( (string) $heading ) ) {
+			echo '<b>' . esc_html( $heading ) . '</b><br />';
+		}
+		echo nl2br( esc_html( $items ) ) . "</p>\n";
+	}
+}

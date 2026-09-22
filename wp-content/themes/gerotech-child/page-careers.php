@@ -46,6 +46,10 @@ $culture_image = gerotech_image_url( $pick( 'careers_culture_image', 'https://im
 /* ── Open positions ───────────────────────────────────────── */
 $positions_eyebrow = $pick( 'careers_positions_eyebrow', 'Opportunities' );
 $positions_title = $pick( 'careers_positions_title', 'Open <em>Positions</em>' );
+$col_job        = $pick( 'careers_col_job', 'Job Title' );
+$col_location   = $pick( 'careers_col_location', 'Location' );
+$col_department = $pick( 'careers_col_department', 'Department' );
+$col_date       = $pick( 'careers_col_date', 'Post Date' );
 $positions = $pick(
 	'careers_positions',
 	array(
@@ -86,6 +90,11 @@ $cta_image = gerotech_image_url( $pick( 'careers_cta_image', 'https://images.uns
 /* ── Mailing list ─────────────────────────────────────────── */
 $signup_title = $pick( 'careers_signup_title', 'Join Our <em>Mailing List</em>' );
 $signup_sub = $pick( 'careers_signup_sub', 'Projects, machine updates, and service news — delivered to your inbox.' );
+
+// Shared mailing-list form strings — global fields (Site Content → Forms).
+$signup_email_label = gerotech_field( 'signup_email_label', 'Email address', 'option' );
+$signup_email_ph    = gerotech_field( 'signup_email_placeholder', 'your@email.com', 'option' );
+$signup_submit     = gerotech_field( 'signup_submit_label', 'Sign Up', 'option' );
 ?>
 
 <main id="main">
@@ -141,10 +150,10 @@ $signup_sub = $pick( 'careers_signup_sub', 'Projects, machine updates, and servi
 				<table class="careers-table">
 					<thead>
 						<tr>
-							<th scope="col">Job Title</th>
-							<th scope="col">Location</th>
-							<th scope="col">Department</th>
-							<th scope="col">Post Date</th>
+							<th scope="col"><?php echo esc_html( $col_job ); ?></th>
+							<th scope="col"><?php echo esc_html( $col_location ); ?></th>
+							<th scope="col"><?php echo esc_html( $col_department ); ?></th>
+							<th scope="col"><?php echo esc_html( $col_date ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -216,9 +225,9 @@ $signup_sub = $pick( 'careers_signup_sub', 'Projects, machine updates, and servi
 				<p class="email-signup__sub"><?php echo esc_html( $signup_sub ); ?></p>
 			</div>
 			<form class="email-signup__form" action="#" method="post" novalidate>
-				<label for="email-input-cr" class="sr-only">Email address</label>
-				<input class="email-signup__input" id="email-input-cr" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-				<button class="email-signup__submit" type="submit">Sign Up</button>
+				<label for="email-input-cr" class="sr-only"><?php echo esc_html( $signup_email_label ); ?></label>
+				<input class="email-signup__input" id="email-input-cr" type="email" name="email" placeholder="<?php echo esc_attr( $signup_email_ph ); ?>" required autocomplete="email" />
+				<button class="email-signup__submit" type="submit"><?php echo esc_html( $signup_submit ); ?></button>
 			</form>
 		</div>
 	</section>

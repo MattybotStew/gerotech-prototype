@@ -530,9 +530,30 @@ acf_add_local_field_group(
 
 			/* ── Hero ─────────────────────────────────────────── */
 			array( 'key' => 'field_mcs_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
-			array( 'key' => 'field_mcs_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'mcs_hero_eyebrow', 'type' => 'text' ),
+			// NOTE: a 'Eyebrow' text field used to sit here (field_mcs_hero_eyebrow). It was
+			// registered but no template ever rendered it, so filling it in silently did
+			// nothing. Removed 2026-09-22. If the design ever gains a hero eyebrow for this
+			// page, copy the ES hero eyebrow markup + field rather than re-adding a dead field.
 			array( 'key' => 'field_mcs_hero_lead', 'label' => 'Headline lead (gray)', 'name' => 'mcs_hero_lead', 'type' => 'text', 'instructions' => 'e.g. Machine' ),
-			array( 'key' => 'field_mcs_hero_main', 'label' => 'Headline main (primary)', 'name' => 'mcs_hero_main', 'type' => 'text', 'instructions' => 'e.g. Custom Solutions' ),
+			array( 'key' => 'field_mcs_hero_main', 'label' => 'Headline main (primary)', 'name' => 'mcs_hero_main', 'type' => 'text', 'instructions' => 'e.g. Custom Solutions. Wrap words in &lt;em&gt;…&lt;/em&gt; to colour them with the accent colour below.' ),
+			array(
+				'key'           => 'field_mcs_hero_accent_color',
+				'label'         => 'Accent colour',
+				'name'          => 'mcs_hero_accent_color',
+				'type'          => 'select',
+				'choices'       => array(
+					'white'  => 'White (no highlight)',
+					'haas'   => 'Haas Red',
+					'orange' => 'Brand Orange',
+				),
+				// No default_value, same reasoning as the homepage hero: ACF injects a
+				// default on read and a plain save would persist it. Blank keeps the design
+				// colour via the template — see the page template.
+				'default_value' => '',
+				'allow_null'    => 1,
+				'placeholder'   => 'Design default (Brand Orange)',
+				'instructions'  => 'Colour of any &lt;em&gt; accent words in the headline lead and main above. Leave unset to keep the design colour; picking a colour overrides it for this page.',
+			),
 			array( 'key' => 'field_mcs_hero_image', 'label' => 'Background image', 'name' => 'mcs_hero_image', 'type' => 'image', 'return_format' => 'array', 'preview_size' => 'medium' ),
 
 			/* ── Services grid ────────────────────────────────── */
@@ -621,7 +642,10 @@ acf_add_local_field_group(
 
 			/* ── Hero ─────────────────────────────────────────── */
 			array( 'key' => 'field_app_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
-			array( 'key' => 'field_app_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'app_hero_eyebrow', 'type' => 'text' ),
+			// NOTE: a 'Eyebrow' text field used to sit here (field_app_hero_eyebrow). It was
+			// registered but no template ever rendered it, so filling it in silently did
+			// nothing. Removed 2026-09-22. If the design ever gains a hero eyebrow for this
+			// page, copy the ES hero eyebrow markup + field rather than re-adding a dead field.
 			array( 'key' => 'field_app_hero_headline', 'label' => 'Headline', 'name' => 'app_hero_headline', 'type' => 'textarea', 'rows' => 1, 'instructions' => 'Wrap the accent phrase in &lt;em&gt;…&lt;/em&gt;.' ),
 			array(
 				'key'           => 'field_app_hero_accent_color',
@@ -713,7 +737,10 @@ acf_add_local_field_group(
 
 			/* ── Hero ─────────────────────────────────────────── */
 			array( 'key' => 'field_ai_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
-			array( 'key' => 'field_ai_hero_eyebrow', 'label' => 'Eyebrow', 'name' => 'ai_hero_eyebrow', 'type' => 'text' ),
+			// NOTE: a 'Eyebrow' text field used to sit here (field_ai_hero_eyebrow). It was
+			// registered but no template ever rendered it, so filling it in silently did
+			// nothing. Removed 2026-09-22. If the design ever gains a hero eyebrow for this
+			// page, copy the ES hero eyebrow markup + field rather than re-adding a dead field.
 			array( 'key' => 'field_ai_hero_lead', 'label' => 'Headline lead (gray)', 'name' => 'ai_hero_lead', 'type' => 'text' ),
 			array( 'key' => 'field_ai_hero_main', 'label' => 'Headline main (primary)', 'name' => 'ai_hero_main', 'type' => 'text' ),
 			array(
@@ -927,6 +954,11 @@ acf_add_local_field_group(
 			array( 'key' => 'field_careers_positions_tab', 'label' => 'Open Positions', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_careers_positions_eyebrow', 'label' => 'Eyebrow', 'name' => 'careers_positions_eyebrow', 'type' => 'text' ),
 			array( 'key' => 'field_careers_positions_title', 'label' => 'Title', 'name' => 'careers_positions_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
+			// Table column headers — these were hardcoded in page-careers.php.
+			array( 'key' => 'field_careers_col_job', 'label' => 'Column — job title', 'name' => 'careers_col_job', 'type' => 'text', 'instructions' => 'Default: “Job Title”.' ),
+			array( 'key' => 'field_careers_col_location', 'label' => 'Column — location', 'name' => 'careers_col_location', 'type' => 'text', 'instructions' => 'Default: “Location”.' ),
+			array( 'key' => 'field_careers_col_department', 'label' => 'Column — department', 'name' => 'careers_col_department', 'type' => 'text', 'instructions' => 'Default: “Department”.' ),
+			array( 'key' => 'field_careers_col_date', 'label' => 'Column — post date', 'name' => 'careers_col_date', 'type' => 'text', 'instructions' => 'Default: “Post Date”.' ),
 			array(
 				'key'          => 'field_careers_positions',
 				'label'        => 'Positions',
@@ -977,6 +1009,38 @@ acf_add_local_field_group(
 			array( 'key' => 'field_careers_signup_tab', 'label' => 'Mailing List', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_careers_signup_title', 'label' => 'Title', 'name' => 'careers_signup_title', 'type' => 'textarea', 'rows' => 1, 'instructions' => '&lt;em&gt; accent supported.' ),
 			array( 'key' => 'field_careers_signup_sub', 'label' => 'Subtext', 'name' => 'careers_signup_sub', 'type' => 'text' ),
+		),
+	)
+);
+
+/**
+ * Site Content — Forms.
+ *
+ * The mailing-list signup form is repeated in six templates (homepage, ES, MCS,
+ * Applications, Automation, Careers). Its label / placeholder / button text were
+ * hardcoded in each one, so they are global fields on the same options page.
+ * Defaults live in the templates, NOT in `default_value` — ACF injects a default
+ * on read and a plain save would then persist it (see the hero accent colour note).
+ */
+acf_add_local_field_group(
+	array(
+		'key'      => 'group_site_forms',
+		'title'    => 'Site Content — Forms',
+		'location' => array(
+			array(
+				array(
+					'param'    => 'options_page',
+					'operator' => '==',
+					'value'    => 'gerotech-site-content',
+				),
+			),
+		),
+		'position' => 'normal',
+		'style'    => 'default',
+		'fields'   => array(
+			array( 'key' => 'field_signup_email_label', 'label' => 'Signup — email field label', 'name' => 'signup_email_label', 'type' => 'text', 'instructions' => 'Visually hidden; read by screen readers. Default: “Email address”.' ),
+			array( 'key' => 'field_signup_email_placeholder', 'label' => 'Signup — email placeholder', 'name' => 'signup_email_placeholder', 'type' => 'text', 'instructions' => 'Default: “your@email.com”.' ),
+			array( 'key' => 'field_signup_submit_label', 'label' => 'Signup — button label', 'name' => 'signup_submit_label', 'type' => 'text', 'instructions' => 'Default: “Sign Up”.' ),
 		),
 	)
 );

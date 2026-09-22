@@ -22,6 +22,10 @@
 
 get_header();
 
+// Page title was hardcoded here.
+$page_title = gerotech_field( 'contact_page_title', 'Contact' );
+$contact_form_title = gerotech_field( 'contact_form_title', 'Contact Form' );
+
 $intro_title = gerotech_field( 'contact_intro_title', 'Let’s make manufacturing better. Together.' );
 $intro_body  = gerotech_field( 'contact_intro_body', 'For service and parts, including emergency service, please call (734) 379-7788 or complete a <a href="/service/">service request form</a>. To learn how we can help improve your business with engineered solutions, please share your contact information below.' );
 
@@ -51,7 +55,7 @@ $locations       = gerotech_field(
 
 <section id="page_title">
 		<div class="row clearfix">
-			<h1>Contact</h1>
+			<h1><?php echo esc_html( $page_title ); ?></h1>
 		</div>
     </section>
 
@@ -71,7 +75,7 @@ $locations       = gerotech_field(
 
 			<div class="contact_left">
 
-				<h5>Contact Form</h5>
+				<h5><?php echo esc_html( $contact_form_title ); ?></h5>
 
 
 <?php echo do_shortcode( '[contact-form-7 id="60"]' ); ?>

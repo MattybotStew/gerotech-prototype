@@ -35,6 +35,8 @@ acf_add_local_field_group(
 		'position' => 'normal',
 		'style'    => 'default',
 		'fields'   => array(
+			// Page title + headings that used to be hardcoded in the template.
+			array( 'key' => 'field_training_page_title', 'label' => 'Page title', 'name' => 'training_page_title', 'type' => 'text', 'instructions' => 'Default: “Training”.' ),
 			array( 'key' => 'field_training_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_training_hero_title', 'label' => 'Hero title', 'name' => 'training_hero_title', 'type' => 'text' ),
 			array( 'key' => 'field_training_hero_subtitle', 'label' => 'Hero subtitle', 'name' => 'training_hero_subtitle', 'type' => 'text' ),
@@ -170,6 +172,15 @@ acf_add_local_field_group(
 			array( 'key' => 'field_service_assist_body', 'label' => 'Assistance body', 'name' => 'service_assist_body', 'type' => 'textarea', 'rows' => 2 ),
 
 			array( 'key' => 'field_service_tabs_tab', 'label' => 'Form Tabs', 'type' => 'tab', 'placement' => 'top' ),
+			// Tab strip labels. Kept as six explicit fields rather than a repeater: each one is
+			// bound to a fixed tab id (tf_service, tf_general, …), so reordering a repeater
+			// would silently break the tab wiring.
+			array( 'key' => 'field_service_tab_label_service', 'label' => 'Tab 1 — Service Request', 'name' => 'service_tab_label_service', 'type' => 'text' ),
+			array( 'key' => 'field_service_tab_label_general', 'label' => 'Tab 2 — General Inquiry', 'name' => 'service_tab_label_general', 'type' => 'text' ),
+			array( 'key' => 'field_service_tab_label_parts', 'label' => 'Tab 3 — Parts Order', 'name' => 'service_tab_label_parts', 'type' => 'text' ),
+			array( 'key' => 'field_service_tab_label_rotary', 'label' => 'Tab 4 — Rotary Repair', 'name' => 'service_tab_label_rotary', 'type' => 'text' ),
+			array( 'key' => 'field_service_tab_label_plan', 'label' => 'Tab 5 — Preventive Maintenance', 'name' => 'service_tab_label_plan', 'type' => 'text' ),
+			array( 'key' => 'field_service_tab_label_support', 'label' => 'Tab 6 — Application Support', 'name' => 'service_tab_label_support', 'type' => 'text' ),
 			array( 'key' => 'field_service_tab_service', 'label' => 'Service Request intro', 'name' => 'service_tab_service_intro', 'type' => 'textarea', 'rows' => 2 ),
 			array( 'key' => 'field_service_tab_general', 'label' => 'General Inquiry intro', 'name' => 'service_tab_general_intro', 'type' => 'textarea', 'rows' => 2 ),
 			array( 'key' => 'field_service_tab_parts', 'label' => 'Parts Order intro', 'name' => 'service_tab_parts_intro', 'type' => 'textarea', 'rows' => 2 ),
@@ -179,6 +190,84 @@ acf_add_local_field_group(
 			array( 'key' => 'field_service_tab_plan_intro', 'label' => 'Planned Maintenance intro', 'name' => 'service_tab_plan_intro', 'type' => 'textarea', 'rows' => 4 ),
 			array( 'key' => 'field_service_tab_support_title', 'label' => 'Application Support heading', 'name' => 'service_tab_support_title', 'type' => 'text' ),
 			array( 'key' => 'field_service_tab_support_intro', 'label' => 'Application Support intro', 'name' => 'service_tab_support_intro', 'type' => 'textarea', 'rows' => 3 ),
+
+			/* ── Planned Maintenance checklist ───────────────────────────────
+			   This checklist used to be hardcoded HTML (12 groups, ~60 lines) that the
+			   client could not touch. It is now two repeaters. `items` is one entry per
+			   line — a textarea rather than a nested repeater because the legacy
+			   two-column layout is driven by .t_left/.t_right, and ACF nested repeaters
+			   are not available here. */
+			array( 'key' => 'field_service_plan_tab', 'label' => 'Planned Maintenance', 'type' => 'tab', 'placement' => 'top' ),
+			array( 'key' => 'field_service_plan_inspect_title', 'label' => 'Checklist heading', 'name' => 'service_plan_inspect_title', 'type' => 'text' ),
+			array( 'key' => 'field_service_plan_inspect_intro', 'label' => 'Checklist intro', 'name' => 'service_plan_inspect_intro', 'type' => 'textarea', 'rows' => 3, 'instructions' => 'Basic HTML is allowed (e.g. &lt;b&gt;).' ),
+			array(
+				'key'          => 'field_service_plan_inspect_groups',
+				'label'        => 'Inspection items',
+				'name'         => 'service_plan_inspect_groups',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add inspection group',
+				'instructions' => 'Each group is a bold heading with its checklist lines beneath it.',
+				'sub_fields'   => array(
+					array( 'key' => 'field_service_plan_inspect_heading', 'label' => 'Group heading', 'name' => 'heading', 'type' => 'text' ),
+					array( 'key' => 'field_service_plan_inspect_items', 'label' => 'Checklist lines', 'name' => 'items', 'type' => 'textarea', 'rows' => 6, 'instructions' => 'One item per line.' ),
+					array(
+						'key'           => 'field_service_plan_inspect_column',
+						'label'         => 'Column',
+						'name'          => 'column',
+						'type'          => 'select',
+						'choices'       => array( 'left' => 'Left', 'right' => 'Right' ),
+						'default_value' => 'left',
+						'allow_null'    => 0,
+					),
+				),
+			),
+			array( 'key' => 'field_service_plan_inspect_footnote', 'label' => 'Checklist footnote', 'name' => 'service_plan_inspect_footnote', 'type' => 'text', 'instructions' => 'Shown in small type under the left column, e.g. “* if applicable”. Leave empty to hide.' ),
+			array( 'key' => 'field_service_plan_optional_title', 'label' => 'Optional services heading', 'name' => 'service_plan_optional_title', 'type' => 'text' ),
+			array(
+				'key'          => 'field_service_plan_optional_groups',
+				'label'        => 'Optional special services',
+				'name'         => 'service_plan_optional_groups',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add optional service',
+				'sub_fields'   => array(
+					array( 'key' => 'field_service_plan_optional_heading', 'label' => 'Group heading', 'name' => 'heading', 'type' => 'text' ),
+					array( 'key' => 'field_service_plan_optional_items', 'label' => 'Body lines', 'name' => 'items', 'type' => 'textarea', 'rows' => 4, 'instructions' => 'One item per line.' ),
+					array(
+						'key'           => 'field_service_plan_optional_column',
+						'label'         => 'Column',
+						'name'          => 'column',
+						'type'          => 'select',
+						'choices'       => array( 'left' => 'Left', 'right' => 'Right' ),
+						'default_value' => 'left',
+						'allow_null'    => 0,
+					),
+				),
+			),
+			array( 'key' => 'field_service_plan_cta_title', 'label' => 'Request heading', 'name' => 'service_plan_cta_title', 'type' => 'text' ),
+			array( 'key' => 'field_service_plan_cta_body', 'label' => 'Request body', 'name' => 'service_plan_cta_body', 'type' => 'text' ),
+
+			/* ── Application Support note + office locations ──────────────────
+			   The locations list mirrors the Contact page's, which was already ACF-driven;
+			   on this template it was hardcoded. */
+			array( 'key' => 'field_service_support_note', 'label' => 'Application Support note', 'name' => 'service_support_note', 'type' => 'text' ),
+			array( 'key' => 'field_service_locations_title', 'label' => 'Locations heading', 'name' => 'service_locations_title', 'type' => 'text' ),
+			array(
+				'key'          => 'field_service_locations',
+				'label'        => 'Office locations',
+				'name'         => 'service_locations',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add location',
+				'sub_fields'   => array(
+					array( 'key' => 'field_service_loc_anchor', 'label' => 'Anchor ID', 'name' => 'anchor', 'type' => 'text', 'instructions' => 'Lowercase, underscores. The legacy stylesheet targets #location_grand_rapids and #location_flat_rock, so change these only with care.' ),
+					array( 'key' => 'field_service_loc_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+					array( 'key' => 'field_service_loc_address', 'label' => 'Address', 'name' => 'address', 'type' => 'text' ),
+					array( 'key' => 'field_service_loc_phone', 'label' => 'Phone', 'name' => 'phone', 'type' => 'text' ),
+					array( 'key' => 'field_service_loc_fax', 'label' => 'Fax', 'name' => 'fax', 'type' => 'text' ),
+				),
+			),
 
 			array( 'key' => 'field_service_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_service_cta_text', 'label' => 'CTA text', 'name' => 'service_cta_text', 'type' => 'text' ),
@@ -263,6 +352,8 @@ acf_add_local_field_group(
 		'position' => 'normal',
 		'style'    => 'default',
 		'fields'   => array(
+			// Page title + headings that used to be hardcoded in the template.
+			array( 'key' => 'field_about_page_title', 'label' => 'Page title', 'name' => 'about_page_title', 'type' => 'text', 'instructions' => 'Default: “About”.' ),
 			array( 'key' => 'field_about_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_about_hero_title', 'label' => 'Hero title', 'name' => 'about_hero_title', 'type' => 'text' ),
 			array( 'key' => 'field_about_hero_subtitle', 'label' => 'Hero subtitle', 'name' => 'about_hero_subtitle', 'type' => 'text' ),
@@ -301,6 +392,9 @@ acf_add_local_field_group(
 		'position' => 'normal',
 		'style'    => 'default',
 		'fields'   => array(
+			// Page title + headings that used to be hardcoded in the template.
+			array( 'key' => 'field_contact_page_title', 'label' => 'Page title', 'name' => 'contact_page_title', 'type' => 'text', 'instructions' => 'Default: “Contact”.' ),
+			array( 'key' => 'field_contact_form_title', 'label' => 'Form heading', 'name' => 'contact_form_title', 'type' => 'text', 'instructions' => 'Default: “Contact Form”.' ),
 			array( 'key' => 'field_contact_intro_tab', 'label' => 'Intro', 'type' => 'tab', 'placement' => 'top' ),
 			array( 'key' => 'field_contact_intro_title', 'label' => 'Intro heading', 'name' => 'contact_intro_title', 'type' => 'text' ),
 			array( 'key' => 'field_contact_intro_body', 'label' => 'Intro body', 'name' => 'contact_intro_body', 'type' => 'textarea', 'rows' => 3, 'instructions' => 'HTML allowed (e.g. links).' ),

@@ -19,6 +19,10 @@ $uri = GEROTECH_CHILD_URI;
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_lead    = $pick( 'mcs_hero_lead', 'Machine' );
 $hero_main    = $pick( 'mcs_hero_main', 'Custom Solutions' );
+// Same accent behaviour as the homepage hero: blank choice keeps the design colour
+// (Brand Orange on interior pages) and <em> words in the lead/main pick up that colour.
+$hero_accent  = $pick( 'mcs_hero_accent_color', 'orange' );
+$hero_accent_class = gerotech_accent_class( $hero_accent );
 $hero_image_value = $pick( 'mcs_hero_image', 'assets/images/mcs-hero.jpg' );
 $hero_image       = gerotech_image_url( $hero_image_value, 'assets/images/mcs-hero.jpg' );
 $hero_srcset      = gerotech_image_srcset( $hero_image_value, 'assets/images/mcs-hero.jpg' );
@@ -136,6 +140,11 @@ $cta_call_note    = $pick( 'mcs_cta_call_note', 'Talk to a person, not a form.' 
 /* ── Email signup ─────────────────────────────────────────── */
 $signup_title = $pick( 'mcs_signup_title', 'Join Our <em>Mailing List</em>' );
 $signup_sub   = $pick( 'mcs_signup_sub', 'Projects, machine updates, and service news — delivered to your inbox.' );
+
+// Shared mailing-list form strings — global fields (Site Content → Forms).
+$signup_email_label = gerotech_field( 'signup_email_label', 'Email address', 'option' );
+$signup_email_ph    = gerotech_field( 'signup_email_placeholder', 'your@email.com', 'option' );
+$signup_submit     = gerotech_field( 'signup_submit_label', 'Sign Up', 'option' );
 ?>
 
 <main id="main">
@@ -152,12 +161,12 @@ $signup_sub   = $pick( 'mcs_signup_sub', 'Projects, machine updates, and service
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
           <a class="page-hero__crumb-link" href="<?php gerotech_page_link( 'engineered-solutions' ); ?>">Engineered Solutions</a>
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
-          <span class="page-hero__crumb-current"><span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span> <span class="mcs-name-split__main"><?php echo esc_html( $hero_main ); ?></span></span>
+          <span class="page-hero__crumb-current"><span class="mcs-name-split__lead"><?php echo esc_html( strip_tags( $hero_lead ) ); ?></span> <span class="mcs-name-split__main"><?php echo esc_html( strip_tags( $hero_main ) ); ?></span></span>
         </nav>
         <h1 class="slide__headline" id="mcs-hero-headline">
           <span class="mcs-name-split mcs-name-split--hero">
-            <span class="mcs-name-split__lead"><?php echo esc_html( $hero_lead ); ?></span>
-            <span class="mcs-name-split__main"><?php echo esc_html( $hero_main ); ?></span>
+            <span class="mcs-name-split__lead"><?php echo gerotech_accent( $hero_lead, $hero_accent_class ); ?></span>
+            <span class="mcs-name-split__main"><?php echo gerotech_accent( $hero_main, $hero_accent_class ); ?></span>
           </span>
         </h1>
       </div>
@@ -299,9 +308,9 @@ $signup_sub   = $pick( 'mcs_signup_sub', 'Projects, machine updates, and service
           <p class="email-signup__sub"><?php echo esc_html( $signup_sub ); ?></p>
         </div>
         <form class="email-signup__form" action="#" method="post" novalidate>
-          <label for="email-input-mcs" class="sr-only">Email address</label>
-          <input class="email-signup__input" id="email-input-mcs" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-          <button class="email-signup__submit" type="submit">Sign Up</button>
+          <label for="email-input-mcs" class="sr-only"><?php echo esc_html( $signup_email_label ); ?></label>
+          <input class="email-signup__input" id="email-input-mcs" type="email" name="email" placeholder="<?php echo esc_attr( $signup_email_ph ); ?>" required autocomplete="email" />
+          <button class="email-signup__submit" type="submit"><?php echo esc_html( $signup_submit ); ?></button>
         </form>
       </div>
     </section>
