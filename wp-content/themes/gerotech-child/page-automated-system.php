@@ -80,39 +80,19 @@ $collections     = $pick(
 			'media' => "image | {$uri}/assets/images/automation-gallery/layered-controls-diagram.jpg | | Layered controls diagram: machine tool, machine tool controls, and automation cells | Layer 01 machine tool · Layer 02 controls · Layer 03 cells",
 		),
 		array(
-			'title' => 'Haas Mill Robot Cell',
-			'meta'  => 'FANUC tending · yellow guarding',
-			'media' => "image | {$uri}/assets/images/automation-gallery/01-haas-robot-cell.jpg | | FANUC robot cell tending a Haas mill, with Gerotech Automation enclosure | FANUC tending · yellow guarding",
+			'title' => 'Automation Cell Design',
+			'meta'  => 'FANUC M-20iD/25 · Haas ST-10',
+			'media' => "image | {$uri}/assets/images/automation-cell-design.jpg | | FANUC M-20iD/25 tending a Haas ST-10 in a guarded cell | FANUC M-20iD/25 · Haas ST-10",
 		),
 		array(
-			'title' => 'Robot Line Integration',
-			'meta'  => 'Dual FANUC · controls cabinet',
-			'media' => "image | {$uri}/assets/images/automation-gallery/02-robot-line.jpg | | Controls cabinet and two FANUC robots on pedestals in the Gerotech shop | Dual FANUC · controls cabinet",
-		),
-		array(
-			'title' => 'Guarded Robot Cell',
-			'meta'  => 'Safety fencing · machine tending',
-			'media' => "image | {$uri}/assets/images/automation-gallery/03-guarded-robot-cell.jpg | | Guarded FANUC robot cell beside a mill with yellow safety fencing | Safety fencing · machine tending",
-		),
-		array(
-			'title' => 'Vision System',
-			'meta'  => 'Keyence overhead inspection',
-			'media' => "image | {$uri}/assets/images/automation-gallery/04-vision-system.jpg | | Overhead Keyence vision camera with four-point lighting on an aluminum frame | Keyence overhead inspection",
-		),
-		array(
-			'title' => 'Dual-Gripper EOAT',
+			'title' => 'Robot EOAT – Ancillary Material Handling',
 			'meta'  => 'Custom end-of-arm tooling',
-			'media' => "image | {$uri}/assets/images/automation-gallery/05-dual-gripper-eoat.jpg | | Custom dual-gripper end-of-arm tooling with yellow mounting flange | Custom end-of-arm tooling",
+			'media' => "image | {$uri}/assets/images/robot-eoat.jpg | | Custom dual-gripper end-of-arm tooling | Custom end-of-arm tooling",
 		),
 		array(
-			'title' => 'Vacuum EOAT',
-			'meta'  => 'Suction-cup material handling',
-			'media' => "image | {$uri}/assets/images/automation-gallery/06-vacuum-eoat.jpg | | Vacuum cup end-of-arm tooling on an aluminum extrusion beam | Suction-cup material handling",
-		),
-		array(
-			'title' => 'Gripper Fixtures',
-			'meta'  => 'Schunk · dual-station workholding',
-			'media' => "image | {$uri}/assets/images/automation-gallery/07-schunk-grippers.jpg | | Paired Schunk gripper fixtures on aluminum bases | Schunk · dual-station workholding",
+			'title' => 'Pre-Engineered Solutions',
+			'meta'  => 'Control enclosure · integrated tooling',
+			'media' => "image | {$uri}/assets/images/pre-engineered-solutions.jpg | | Pre-engineered automation control enclosure and integrated machine tooling | Control enclosure · integrated tooling",
 		),
 	)
 );

@@ -2,6 +2,23 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Homepage + ES pages ACF editability verification (Cline)
+
+User asked to confirm the homepage and all ES pages are fully editable/customizable with ACF per the plan (`handoff/acf-spec.md`, `implementation-plan-wordpress-theme-acf.md` §13).
+
+- **Code side: already complete.** `front-page.php` + `page-engineered-solutions.php` + the 3 ES detail templates all read every section (hero, cards, galleries, CTA, signup) through `gerotech_field()` with the current design as template defaults; field groups live in `inc/acf-fields.php` / `inc/acf-legacy-fields.php`. No gaps found vs. the ACF spec — no code changes needed.
+- **Applied side: verified on Local.** Ran `scripts/audit-acf-applied.php`: **279/291 top-level fields applied across 32 targets**. The 12 blanks are all correct-by-design (accent/CTA colour selects, `es_partners_logos`, `haas_brand_logo`, `cta_image`, `mcs_cta_body`, `app_cta_body`).
+- Theme re-synced to Local (`sync-theme-to-local.sh`); homepage + 4 ES pages all HTTP 200.
+- **CLI gotcha recorded:** a script that only `require`s wp-load never fires plugin `init`, so ACF is absent. Wrap: `require wp-load; require <script>;`. The audit's `$args` warning under plain CLI is harmless.
+- No commit — verification pass only (.clinerules + JOURNAL updated).
+
+
+## 2026-09-22 — Automation gallery matches the five service cards (Cursor)
+
+Client: the gallery categories are the service cards only. Removed collections with no card (Haas Mill Robot Cell, Robot Line Integration, Guarded Robot Cell, Vision System, Dual-Gripper EOAT, Vacuum EOAT, Gripper Fixtures).
+
+Gallery is now, in card order: **HMI Design**, **Layered Controls Solutions**, **Automation Cell Design**, **Robot EOAT – Ancillary Material Handling**, **Pre-Engineered Solutions**. The last three use the same photo as their card. Stored `ai_collections` on page 1239 updated on Local and Dev (5 rows). Caches flushed.
+
 ## 2026-09-22 — Automation gallery: HMI Design + Layered Controls (Cursor)
 
 Figma `7196:4079` gallery comment (the five HMI screens). Hero and the two service-card pins were already done.

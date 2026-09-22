@@ -44,7 +44,7 @@
 | `haas-umc-1000ss.png`, `machine-milling-centers.png` | ES/machine imagery |
 | `hero-slide-01.jpg`, `hero-showroom.jpg`, `hero-automation-cell.jpg`, `hero-training-showroom.jpg` | Homepage hero slides / training |
 | `mcs-gallery/*.jpg` (13) | MCS gallery + service cards |
-| `automation-gallery/*.jpg` (13) | Automation gallery — 7 installed-project photos plus HMI Design (5 screens) and Layered Controls Solutions (diagram) |
+| `automation-gallery/*.jpg` | Automation gallery photos. Live collections match the five service cards only: HMI Design, Layered Controls Solutions, Automation Cell Design, Robot EOAT, Pre-Engineered Solutions. The older installed-project JPEGs remain on disk. |
 
 > Verify each against client-provided originals; some bundled files are downloaded stand-ins, not final client art.
 

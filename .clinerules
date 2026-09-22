@@ -2,14 +2,21 @@
 # Read this before touching any file. Update after every change.
 
 ---
+## Current Session State
+**Last Updated:** 2026-09-22 (Cline — ACF editability verification pass on Homepage + ES pages)
+**Active Agent:** Cline
+**Branch:** `master`
+**Verification:** Homepage + all 4 ES pages confirmed fully ACF-wired end-to-end on Local: templates read every section through `gerotech_field()` with code defaults; `scripts/audit-acf-applied.php` reports **279/291 top-level fields applied**. The 12 unapplied fields are all *correct by design* (see the "Blanks that are correct" list): accent/CTA colour selects (blank = design colour), `es_partners_logos` (wordmark fallback is the design), `haas_brand_logo`/`cta_image` (theme-bundled), `mcs_cta_body`/`app_cta_body` (deliberately empty). No code changes needed; theme re-synced to Local (`sync-theme-to-local.sh`); all 5 URLs HTTP 200. Nothing to commit for this pass.
+**Note (CLI recipe):** Local `wp eval-file` bootstrap needs `do_action('init')` — running a script that only `require`s wp-load skips plugin `init`, so ACF/`get_field` are absent. A wrapper `require wp-load; require <script>;` works (scripts must live outside repo `scripts/` is fine — absolute path). Audit script's `$args` warning under plain CLI is harmless.
+
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Cursor — Automation gallery: HMI Design + Layered Controls collections; seven project photos kept)
+**Last Updated:** 2026-09-22 (Cursor — Automation gallery is the five service cards only)
 **Active Agent:** Cursor
 **Branch:** `master`
 **Last Commit:** Automation gallery — HMI Design (5 screens) and Layered Controls Solutions, plus the Pre-Engineered card photo. Not pushed yet.
-**Uncommitted:** none.
-**Deployed:** Gallery change is on the **prototype, Local, and Dev**. Page 1239 `ai_collections` is 9 rows on both (HMI Design, Layered Controls Solutions, then the original 7). Dev theme rsync + cache flush done 2026-09-22.
+**Uncommitted:** Gallery trimmed to the five service cards (prototype, theme, journal). Not committed.
+**Deployed:** Page 1239 `ai_collections` is **5 rows** on Local and Dev: HMI Design, Layered Controls Solutions, Automation Cell Design, Robot EOAT – Ancillary Material Handling, Pre-Engineered Solutions. The seven installed-project collections are gone from the page.
 
 ### ACF coverage — what is editable now (2026-09-22)
 Every template reads through ACF. Newly added this pass:
