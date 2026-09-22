@@ -33,7 +33,17 @@
           <span class="page-hero__crumb-sep" aria-hidden="true">/</span>
           <span class="page-hero__crumb-current"><span class="mcs-name-split__lead">Machine</span> <span class="mcs-name-split__main">Custom Solutions</span></span>
         </nav>
-        <!-- PLACEHOLDER NAME: "Machine" (lead) + "Custom Solutions" (primary). Nav/mega-menu still uses "Machine Customization" until client confirms; see cline-project-handoff.md §9. -->
+        <!-- NAME — SETTLED (CloudMellow, 2026-09-22): canonical client-facing name is
+             "Machine Custom Solutions" ("Machine" = gray lead, "Custom Solutions" = primary).
+             It was open decision #3 in cline-project-handoff.md; that is now resolved.
+             Use this name everywhere — nav, mega-menu, headings, breadcrumbs, search.
+             The earlier version of this comment claimed the nav used "Machine Customization";
+             that was never true and is no longer the fallback anywhere in the repo.
+             NOTE: the WordPress page slug is still the legacy /modification-of-standard-machine-tools/.
+             That is deliberate — links resolve through one mapping in inc/helpers.php
+             (`machine-custom-solutions` => that path), and a 301 sends /machine-modification there.
+             Do not "fix" the slug without a redirect plan; the display name and the URL are
+             allowed to differ. -->
         <h1 class="slide__headline" id="mcs-hero-headline">
           <span class="mcs-name-split mcs-name-split--hero">
             <span class="mcs-name-split__lead">Machine</span>

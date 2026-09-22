@@ -141,7 +141,7 @@ Per-page hero photos are set via `<img class="slide__bg">` in each HTML file.
 |------|--------|
 | FANUC official logo | Placeholder badge only — legal TBD |
 | Mega-menu machine URLs (~40) | `#` pending Haas catalog structure |
-| Nav label "Machine Customization" vs page "Custom Solutions" | IA decision open |
+| Nav label "Machine Customization" vs page "Custom Solutions" | **Resolved 2026-09-22: "Machine Custom Solutions"** everywhere; legacy URL `/modification-of-standard-machine-tools/` retained |
 | News/blog URL | Footer → about.html temporarily |
 | Privacy / Terms URLs | Placeholder → about.html |
 | Social icons | Hidden until URLs confirmed |

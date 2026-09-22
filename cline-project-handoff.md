@@ -239,7 +239,7 @@ Full section-by-section copy and exact component markup guidance is in `design-s
 |---|---|---|
 | 1 | Wireframe sign-off (Rochelle/CEO) | Structural changes could still come in |
 | 2 | Hybrid vs. pure-tab URL structure for ES pages | Determines if you build 9 HTML files or 1 |
-| 3 | "Machine Customization" vs. "Machine Custom Solutions" naming | Affects all headers/nav text — pick ONE and use it consistently, flag as placeholder |
+| 3 | ~~"Machine Customization" vs. "Machine Custom Solutions" naming~~ | **RESOLVED 2026-09-22 (CloudMellow): "Machine Custom Solutions".** Already applied consistently across nav, mega-menu, mobile nav, search, headings, breadcrumbs and ACF labels. The legacy live slug `/modification-of-standard-machine-tools/` is deliberately retained and mapped in `inc/helpers.php`. Note the client's own message said "Machine Customizations" — worth a final nod, but no code change is pending. |
 | 4 | Training: own nav item vs. under Support dropdown | Current wireframe has it under Support; client said (Figma comment) they want it standalone |
 | 5 | FANUC badge usage rights | Build the section with a placeholder badge, don't use a real FANUC logo file until confirmed |
 | 6 | Final service count for Machine Customization category | Only Remote Tool Offset confirmed; rest are TBD |
@@ -292,7 +292,7 @@ gerotech-prototype/
 - Don't add real partner/vendor logo files without confirming licensing/approval status per vendor
 - Don't use a real FANUC badge graphic until usage rights are confirmed
 - Don't silently drop the Showroom Machines / Rotary Products / Winner's Circle content — flag it, don't just omit it
-- Don't finalize "Machine Customization" vs "Machine Custom Solutions" — pick a placeholder and flag it as unconfirmed in a comment
+- ~~Don't finalize "Machine Customization" vs "Machine Custom Solutions"~~ — **settled 2026-09-22: "Machine Custom Solutions".** Write it exactly that way (two words, plural "Solutions") in every label, heading and nav item. Don't reintroduce "Machine Customization" or "Machine Customizations".
 
 ---
 

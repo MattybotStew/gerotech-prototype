@@ -4,12 +4,19 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — MCS hero photo now live on Dev too; the WP side is `page-modification-of-standard-machine-tools.php`, not a prototype-only change)
+**Last Updated:** 2026-09-22 (Claude — "Machine Custom Solutions" naming settled; it turned out the only conflict was a false comment)
 **Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** `6160c2c` (MCS hero assets) — pushed; `origin/master` 0 ahead / 0 behind.
-**Uncommitted:** MCS hero wiring in `page-modification-of-standard-machine-tools.php` (+ docs).
+**Last Commit:** `a125af6` (MCS hero in WordPress) — pushed; `origin/master` 0 ahead / 0 behind.
+**Uncommitted:** naming-doc cleanup (`machine-custom-solutions.html` comment, `cline-project-handoff.md`, `docs/PROJECT_BRIEF.md`).
 **Deployed:** news park live on **Local + Dev**. ES CTA photo live on **Local + Dev** (Local 3470, Dev 3469). MCS hero live on **Local + Dev** — WP renders it via `page-modification-of-standard-machine-tools.php` (ACF `mcs_hero_image`), visible at `/modification-of-standard-machine-tools/` with the "Machine Custom Solutions" headline (page 1250; Local attachment 3471, Dev 3470). In both cases the theme push alone does not change what renders — both environments store their own attachment id, so the media import + meta update is the step that matters. Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+
+### Naming — SETTLED (2026-09-22)
+**"Machine Custom Solutions"** is the canonical client-facing name (was open decision #3 in `cline-project-handoff.md`). Write it exactly that way. Do not reintroduce "Machine Customization" or "Machine Customizations".
+
+- The "nav says Machine Customization" conflict was **never real** — it existed only as a false claim inside a placeholder comment, now deleted. All nav/menu/heading/search/ACF surfaces already agreed.
+- The live slug stays **`/modification-of-standard-machine-tools/`** on purpose. Links resolve via one map in `inc/helpers.php` (`'machine-custom-solutions' => '/modification-of-standard-machine-tools/'`); `functions.php` 301s `/machine-modification` there. **Display name and URL are allowed to differ — do not "fix" the slug without a redirect plan.**
+- The only residual: the client's own wording was "Machine Customizations" (plural). Shipped name differs; a rename would be display-text-only if they insist.
 **Known non-blocker:** parent theme `gerotech/functions.php:13` ("Undefined variable $arguments") warns under WP-CLI only — **not** visible on any web page (confirmed on cache-busted URLs). Parent theme is not in this repo.
 
 ### Homepage hero colour selects — no ACF defaults (2026-09-22, commit `94332cd`)

@@ -2,6 +2,24 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Machine Custom Solutions naming settled (Claude)
+
+Open decision #3 in `cline-project-handoff.md` ("Machine Customization" vs "Machine Custom Solutions") is **resolved in favour of "Machine Custom Solutions"** (CloudMellow direction). The legacy URL is deliberately unchanged.
+
+**The headline finding: the naming was already consistent, and the "conflict" was a lie in a comment.** "Machine Customization" appeared in **exactly one place** in the entire repo — the placeholder comment in `machine-custom-solutions.html` — and that comment claimed *"Nav/mega-menu still uses 'Machine Customization' until client confirms"*. That was never true. Every user-facing surface (nav, mega-menu, mobile nav, search modal, hero headings, breadcrumbs, ACF labels) already said "Machine Custom Solutions". So this was a **documentation bug that invented a decision**, not a real inconsistency. Worth remembering: a stale comment confidently describing the codebase is worse than no comment.
+
+**Slug deliberately left alone.** The live path is still `/modification-of-standard-machine-tools/` while the page is titled "Machine Custom Solutions". That is now an explicit, documented choice rather than an oversight: links resolve through the single map in `inc/helpers.php` (`'machine-custom-solutions' => '/modification-of-standard-machine-tools/'`), and `functions.php` 301s `/machine-modification` there. The display name and the URL are allowed to differ; renaming would change a live Dev path for no user-visible gain and needs a redirect plan first.
+
+**Changed:**
+- `machine-custom-solutions.html` — replaced the false placeholder comment with the settled name, plus a note on the deliberate slug/name split and an instruction not to "fix" the slug without a redirect plan.
+- `cline-project-handoff.md` — open decision #3 marked resolved; the "don't finalize" rule rewritten into a positive "write it exactly this way" rule.
+- `docs/PROJECT_BRIEF.md` — the "IA decision open" row now reads resolved.
+- `.clinerules` — session state.
+
+**Deliberately NOT changed:** the dated historical plan at `docs/superpowers/plans/2026-06-29-gerotech-website.md` still contains "Machine Customization" (it is a point-in-time record of the old wireframe taxonomy — rewriting it would falsify history), and `cline-project-handoff.md:77` keeps its "Machine Customization/Custom Solutions" wording because it is describing the *old live IA*, not our build.
+
+**One item still worth a client nod:** the client's own message said **"Machine Customizations"** (plural). We ship "Machine Custom Solutions". No code change is pending, but if they feel strongly the rename is mechanical — display text only, the slug is unaffected either way.
+
 ## 2026-09-22 — Machine Custom Solutions hero gets the client's machining-center photo (Claude)
 
 Client supplied a photo of a 5-axis machining center interior (trunnion rotary fixture holding a large workpiece) for the **Machine Custom Solutions** hero background — the stand-in `photo-1727292485858` is retired.
@@ -10,7 +28,7 @@ Client supplied a photo of a 5-axis machining center interior (trunnion rotary f
 - **Prototype:** `machine-custom-solutions.html` page-hero now uses the local file with `srcset` (1920w/2560w) + `sizes="100vw"`; `fetchpriority="high"` added to match the ES hero. Alt corrected from "CNC machine on shop floor" to describe the actual subject.
 - **Theme:** assets synced into `gerotech-child/assets/images/` so the image ships with the next push. **Correction below** — I first wrote here that nothing in WordPress consumes it; that was wrong.
 - **Verified:** rendered the hero standalone at 1440 / 1920 / 500. Section is a clean 500px (`min-height`) at every width, the `srcset` picks the viewport-appropriate candidate, and `scrollWidth == clientWidth` at all three (no overflow).
-- **Naming watch:** the page heading and breadcrumb say **"Machine Custom Solutions"**, the client and the nav/mega-menu say **"Machine Customization(s)"**. This is the known unresolved naming decision — I did not rename anything.
+- **Naming:** ~~the client and the nav/mega-menu say "Machine Customization(s)"~~ — **that was wrong.** "Machine Customization" appeared in exactly one place in the whole repo: the stale placeholder comment in `machine-custom-solutions.html`, which falsely claimed the nav used it. The nav, mega-menu, mobile nav, search, headings and ACF labels all already said **"Machine Custom Solutions"**. Settled as canonical 2026-09-22; see the naming entry above.
 
 **Follow-up (same day) — the WP side was NOT prototype-only; I had this wrong.** I originally claimed "there is no `page-machine-custom-solutions.php` template, so nothing in WordPress consumes it". That was incorrect, and it mattered: the MCS hero **is** rendered in WordPress by **`page-modification-of-standard-machine-tools.php`**, whose `mcs_hero_image` default was the *same* Unsplash stand-in I had just replaced in the prototype. On Dev that hero appears at `/modification-of-standard-machine-tools/` under the "Machine Custom Solutions" headline — so the client would have seen the old stand-in on the live page while the prototype showed the new photo.
 
