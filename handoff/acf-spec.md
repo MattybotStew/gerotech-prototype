@@ -30,7 +30,9 @@ Location: `acf_add_options_page()`. Consumed by `header.php` / `footer.php` / sh
 
 | Field | Type | Notes |
 |---|---|---|
-| `hero_slides` | Repeater | `eyebrow`, `headline` (WYSIWYG — accent via `em`), **`accent_color`**, `body`, `cta_label`, `cta_url`, `image`, `image_position`, `title_alt`, `peek_eyebrow`, `peek_accent`, `peek_title` |
+| `hero_slides` | Repeater | `eyebrow`, `headline` (WYSIWYG — accent via `em`), **`accent_color`**, `body`, `cta_label`, `cta_url`, **`cta_color`**, `image`, `image_position`, `title_alt`, `peek_eyebrow`, `peek_accent`, `peek_title` |
+
+> There is **no** separate peek-colour field. The peek card's accent word inherits the slide's `accent_color` — `front-page.php` emits it as `data-peek-accent-color="<choice>"`, and `slider.js` whitelists it (`ACCENT_COLORS`) before applying `hero-slider__peek-accent--<colour>`. So the headline accent and its peek-card counterpart can never drift apart.
 | `hero_stats` | Repeater | `value`, `label` — currently 39+ / 14,000+ |
 | `haas_eyebrow` | Text | "The Haas Relationship" |
 | `haas_eyebrow_color` | Select | `white` / `haas` (default) / `orange` — colours the eyebrow text **and** its short rule together |
@@ -63,6 +65,7 @@ Location: `acf_add_options_page()`. Consumed by `header.php` / `footer.php` / sh
 | `hero_image` | Image | |
 | `hero_breadcrumb` | Repeater | MCS / Automation / Applications only: `label`, `url` (last item = current, no link) |
 | `hero_trust_stats` | Repeater | About / Careers only: `value`, `label` |
+| `hero_accent_color` / `hero_cta_color` | Select | Per page, prefixed (`es_`, `app_`, `ai_`, `careers_`). Same White / Haas Red / Brand Orange palette as the homepage hero. Ship **blank** with **no `default_value`** — blank keeps the design colour (Brand Orange). See "Un-migrated databases" below. |
 | `sections` | Flexible/Repeater | Section headers + card grids per page (see below) |
 | `cta_*` | same as homepage | |
 | `signup_title` | WYSIWYG | "Join Our <em>Mailing List</em>" |
@@ -72,7 +75,23 @@ Location: `acf_add_options_page()`. Consumed by `header.php` / `footer.php` / sh
 
 **Gallery repeater (MCS, Automation, Applications):** `image`, `alt`, `caption`, `category`.
 
-**News editorial (ES):** same shape as homepage `news_lead` + `news_items`.
+**News editorial (ES):** same shape as homepage `news_lead` + `news_items` — **but PARKED** (see below).
+
+### Latest Projects & News — parked behind `es_show_news` (ES only)
+
+Client (Sep 2026): *"we just don't know if we can support the Latest Projects & News right now… disable on all pages BUT keep it as a component that can be easily added back by the client."*
+
+| Field | Type | Notes |
+|---|---|---|
+| `es_show_news` | True/False | **`default_value` 0 (Hidden).** Renders `template-parts/sections/news.php` on Engineered Solutions only. |
+
+The markup was extracted out of `page-engineered-solutions.php` into `template-parts/sections/news.php`, which returns early unless `es_show_news` is on. **Nothing was deleted** — every `es_news_*` field is still registered and still holds its seeded content, so flipping the toggle re-renders the real section with the client's own data. Only ES ever rendered it (homepage news was already removed in the Figma-alignment pass).
+
+- **Client re-enables it:** ES → **News** tab → "Show the Latest Projects & News section" → **Show** → Update. No dev work.
+- **Adding it to another page:** add `get_template_part( 'template-parts/sections/news' );` to that template and copy the `field_es_show_news` entry into that page's ACF group.
+- **Prototype equivalent:** `engineered-solutions.html` SECTION 12 is wrapped in a `PARKED` comment with the markup preserved verbatim; `partials/news-block.html` keeps it as a reusable component.
+- **Gotcha:** while the toggle is off this template never runs, so a content-seeder's capture hook will not see these fields. Both Local and Dev are already seeded; if a re-seed is ever needed, switch the toggle on for one render first.
+- **Verified on Dev:** toggle off → 0 news markers, on → 2, off again → 0; meta then deleted so Dev sits at the default-off state. Local behaves identically.
 
 ---
 
@@ -86,11 +105,11 @@ Per-slide select controlling the colour of the `<em>` accent word **and** its ma
 
 | Value | Label | Classes emitted | Colour |
 |---|---|---|---|
-| `white` | White (default) | `accent accent--white` | `--clr-white` — no colour highlight |
+| `white` | White (no highlight) | `accent accent--white` | `--clr-white` — no colour highlight |
 | `haas` | Haas Red | `accent accent--haas` | `--clr-haas-red` (#CF0A2C) |
 | `orange` | Brand Orange | `accent` | `--clr-orange` (#F38A2C) |
 
-Mapped by `gerotech_accent_class()` (`inc/helpers.php`), which also tolerates the retired raw-class values (`accent`, `accent--haas`, `accent--deep`) so an un-migrated database (e.g. Dev) still renders correctly. Current: slide 1 `haas`, slides 2–3 `orange`; new slides default to `white`.
+Mapped by `gerotech_accent_class()` (`inc/helpers.php`), which also tolerates the retired raw-class values (`accent`, `accent--haas`, `accent--deep`) so an un-migrated database (e.g. Dev) still renders correctly. Current: slide 1 `haas`, slides 2–3 `orange`. The select ships **blank** — blank means "no choice made" and resolves to the positional design default (slide 1 Haas red, later slides Brand Orange), **not** to White. This field has **no `default_value`**; see "Un-migrated databases" below for why that matters.
 
 > **Note:** the `.accent--haas` CSS rule previously read `.accent.accent--haas` (compound), so the bare `accent--haas` class the theme emitted never matched and Haas red silently rendered white on WordPress. The modifiers now stand alone and follow `.accent` in source order.
 
@@ -100,11 +119,11 @@ Per-slide select controlling that slide's call-to-action button, **independent o
 
 | Value | Label | Classes emitted |
 |---|---|---|
-| `orange` | Brand Orange (default) | `btn btn--primary` |
+| `orange` | Brand Orange | `btn btn--primary` |
 | `haas` | Haas Red | `btn btn--primary btn--haas` |
 | `white` | White outline | `btn btn--outline-white` |
 
-Mapped by `gerotech_btn_class()` (`inc/helpers.php`). Current: slide 1 `haas`, slides 2–3 `orange`.
+Mapped by `gerotech_btn_class()` (`inc/helpers.php`). Current: slide 1 `haas`, slides 2–3 `orange`. Ships **blank** with no `default_value`; blank resolves positionally (slide 1 Haas Red, later slides Brand Orange).
 
 ### Haas Relationship colours (`haas_eyebrow_color` / `haas_accent_color`)
 
@@ -124,12 +143,14 @@ The unmodified default is Haas red, so markup without a modifier (older prototyp
 
 ACF **injects a field's `default_value` on read** when a repeater row has no stored value. So a database that predates a newly-added field does not return an empty string — it returns the default. That would silently change the design on deploy (slide 1's Haas-red accent and button would both have turned white/orange).
 
-`front-page.php` therefore checks `metadata_exists( 'post', $home_id, 'home_hero_slides_<i>_<field>' )` and, when the row has never been saved with the new field, falls back in order:
+The fix is to **give these fields no `default_value` at all** (`'default_value' => ''` + `'allow_null' => 1` + a `placeholder` naming the design default). A blank/absent value then genuinely means "the client has not chosen", so `front-page.php` can fall back in order:
 
 1. the retired `accent_class` meta — read **raw** via `get_post_meta()`, because that field is no longer registered and so is absent from the ACF row array;
 2. the original positional treatment — slide 1 Haas red, all others brand orange.
 
-Verified by simulating an un-migrated row set on Local: output is byte-identical to the migrated state. Migrations (`/tmp/gerotech-accent-migrate.php`, `/tmp/gerotech-cta-migrate.php`) remain the way to write explicit values, and are idempotent.
+An earlier revision tried to solve this with `metadata_exists( 'post', $home_id, 'home_hero_slides_<i>_<field>' )` guards while leaving `default_value` in place. **That does not work** — ACF's injected default makes the value non-empty on read, so the guard never fires and the design silently regresses. The guards were removed; the empty default is the actual fix. Every interior `*_hero_accent_color` / `*_hero_cta_color` field follows the same pattern.
+
+Verified across four states on Local: explicit values, un-migrated rows (legacy `accent_class` only), a **naive wp-admin save that leaves the select blank**, and an explicit White choice. All four render as designed. Re-seed with `scripts/seed-home-hero-colors.php` (idempotent, environment-agnostic) — note it lives in the repo's `scripts/` directory, which a theme-only push does **not** deliver, so it must be copied to the server before `wp eval-file`.
 
 ---
 

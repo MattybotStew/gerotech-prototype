@@ -2,6 +2,19 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — News park committed, pushed, and deployed to Dev (Claude)
+
+Closing out the Cline park work below (see that entry for the full rationale).
+
+- **Committed** `1cf731f` "Park Latest Projects & News behind a client-toggleable ACF switch" — pushed to `origin/master` (0 ahead / 0 behind). Tree clean.
+- **Deployed to Dev** by direct rsync (no GUI): delta was only 4 paths (`page-engineered-solutions.php`, `inc/acf-fields.php`, `template-parts/sections/`, `template-parts/sections/news.php`) because Dev was already current from the earlier GUI push. Then `wp page-cache flush` + `wp cdn-cache flush`.
+- **Client switch live-tested on Dev, not just inferred:** `es_show_news` off → 0 news markers, on → 2 markers, back off → 0, then `post meta delete` so Dev sits at the default-off state. Dev also confirms the toggle is registered (`true_false`, `default=0`).
+- **Full Dev audit:** 22 live pages all HTTP 200, **0 PHP warnings/notices** in served HTML (checked on cache-busted URLs so the page cache could not mask them), **0 broken images**. Dev `components.css` is **md5-identical** to Local (`e63813af6965fbde86ff3f33d8842bd4`), so the earlier locally-verified computed colours hold on Dev.
+- **Non-blocker found:** the parent theme `gerotech/functions.php:13` emits "Undefined variable $arguments" under WP-CLI. It does **not** reach any web page. Parent theme is not in this repo, so it is out of scope to fix here.
+- **Local hero colours were accidentally clobbered during testing** and restored: a scenario test wrote literal `white` into `home_hero_slides_{0,1,2}_accent_color`; the seed script cannot distinguish an intentional White from a leftover one, so it re-seeded white on top. Deleted the colour + legacy `accent_class` metas and re-ran `scripts/seed-home-hero-colors.php` → slide 1 `haas`, slides 2–3 `orange`, Haas eyebrow/headline `haas`, confirmed in served HTML.
+
+**Unexplained 404s are expected, not broken:** `/machine-custom-solutions/`, `/automation-integration/`, `/applications/`, `/showroom/`, `/hero-variations/` do not exist on Dev — Dev carries the legacy slug set (`/unique-applications-for-standard-machines/`, `/automated-system/`, etc.). `/news/` 301s to `/news-and-events/`.
+
 ## 2026-09-22 — Latest Projects & News PARKED, client-toggleable (Cline)
 
 Client MSG: "Sadly, we just don't know if we can support the Latest Projects & News right now. Can we remove this for now? — Can we disable on all pages BUT keep it as a component that can be easily added back by the client."
@@ -17,7 +30,7 @@ Client MSG: "Sadly, we just don't know if we can support the Latest Projects & N
 
 **Verified on Local:** synced (`sync-theme-to-local.sh`), `/engineered-solutions/` HTTP 200, **0 news markers** in served HTML, no PHP errors/notices, page otherwise unchanged. Toggle logic unit-checked (`es_show_news` on → partial included; off → nothing). ACF field confirmed registered (`name=es_show_news`, `type=true_false`, `default=0`, parent `group_es_content`).
 
-**Files:** `engineered-solutions.html` (parked comment), `partials/news-block.html` (new), `page-engineered-solutions.php` (markup → partial + toggle), `inc/acf-fields.php` (toggle field), `template-parts/sections/news.php` (new). **Not yet committed** (also riding: the opencode partner-logo repeater change in the same two theme files — verified intact).
+**Files:** `engineered-solutions.html` (parked comment), `partials/news-block.html` (new), `page-engineered-solutions.php` (markup → partial + toggle), `inc/acf-fields.php` (toggle field), `template-parts/sections/news.php` (new). **Committed `1cf731f`** and pushed to `origin/master`.
 
 **To re-enable:** client flips "Show Latest Projects & News" in ES → News tab (admin), or dev flips the default to 1 / removes the gate. Prototype: paste the parked comment block back out of the HTML comment.
 

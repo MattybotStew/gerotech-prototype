@@ -4,12 +4,16 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Cline — Latest Projects & News PARKED behind a client ACF toggle; only ES rendered it — homepage news was already gone under Figma `7306:1063`)
-**Active Agent:** Cline
+**Last Updated:** 2026-09-22 (Claude — Latest Projects & News PARKED behind a client ACF toggle; committed `1cf731f`, pushed to origin, deployed to Dev and verified)
+**Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** working — repeater + news-park changes not yet committed.
-**Uncommitted:** `page-engineered-solutions.php` + `inc/acf-fields.php` (partner logo ACF repeater **and** news toggle/partial), `engineered-solutions.html`, new `template-parts/sections/news.php` + `partials/news-block.html`.
-**Deployed:** news park live on Local (verified: `/engineered-solutions/` 200, 0 news markers, toggle field registered). **Not yet pushed to Dev.** Partner repeater live on Dev + Local (fallback path — 12 mapped logos).
+**Last Commit:** `1cf731f` "Park Latest Projects & News behind a client-toggleable ACF switch" — pushed; `origin/master` 0 ahead / 0 behind.
+**Uncommitted:** none.
+**Deployed:** news park live on **Local + Dev** (committed + pushed). Dev verified: `/engineered-solutions/` 200 with 0 news markers; toggle `es_show_news` registered (`true_false`, default `0`); **22 live pages 200 / 0 PHP warnings / 0 broken images**; Dev `components.css` md5-identical to Local (`e63813af6965fbde86ff3f33d8842bd4`). Client toggle **live-tested on Dev** (off→on→off = 0→2→0 markers), then `post meta delete` so Dev sits at the pristine default-off state.
+**Known non-blocker:** parent theme `gerotech/functions.php:13` ("Undefined variable $arguments") warns under WP-CLI only — **not** visible on any web page (confirmed on cache-busted URLs). Parent theme is not in this repo.
+
+### Homepage hero colour selects — no ACF defaults (2026-09-22, commit `94332cd`)
+`accent_color` / `cta_color` deliberately have **no `default_value`** (`''` + `allow_null` + `placeholder`). ACF **injects a field's `default_value` on read** when a repeater row has no stored value, so a default would silently override the positional design colours (slide 1 Haas red, rest Brand Orange) on any database that predates the field — and a naive wp-admin "Update" would then persist that wrong value. Blank now means "no explicit choice" and falls through to the retired `accent_class` meta, then to the design default. Same blank-default pattern is used by every interior `*_hero_accent_color` / `*_hero_cta_color` field. Re-seed with `scripts/seed-home-hero-colors.php` (idempotent; `wp eval-file`, needs to be copied to the server since `scripts/` is not part of a theme-only push).
 
 ### Latest Projects & News — PARKED, client-toggleable (2026-09-22)
 
