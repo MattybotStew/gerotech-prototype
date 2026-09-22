@@ -284,8 +284,13 @@ acf_add_local_field_group(
 	array(
 		'key'      => 'group_rotary_content',
 		'title'    => 'Rotary Repair — Content',
+		// Located by TEMPLATE, not by slug. Two published pages share the slug
+		// `rotary-repair`: #1484 at /rotary-repair/ (rotary-repair.php) and #194 at
+		// /service/rotary-repair/ (page-service.php). A `post_name` rule attached this
+		// group to both, so editors saw nine Rotary fields on a page that never
+		// renders them.
 		'location' => array(
-			array( array( 'param' => 'post_name', 'operator' => '==', 'value' => 'rotary-repair' ) ),
+			array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'rotary-repair.php' ) ),
 		),
 		'position' => 'normal',
 		'style'    => 'default',

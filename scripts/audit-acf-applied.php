@@ -59,24 +59,32 @@ function gerotech_audit_targets() {
 		)
 	);
 
-	$seen = array();
+	// Detect genuine collisions by FULL path. Using the bare slug here is wrong for
+	// hierarchical pages: `service/rotary-repair` (#194) and `rotary-repair` (#1484)
+	// are two DIFFERENT pages, both reachable. Comparing slugs made #194 look like an
+	// unreachable duplicate of #1484, which would have had us trash a live URL.
+	$by_path = array();
 	foreach ( $pages as $page ) {
-		$slug = $page->post_name;
+		$uri = get_page_uri( $page->ID );
+		if ( '' === $uri ) {
+			$uri = $page->post_name;
+		}
+		$by_path[ $uri ][] = (int) $page->ID;
+	}
 
-		// Some environments carry orphaned duplicate pages sharing a slug (e.g.
-		// rotary-repair #194 and #1484). Only ONE of them is actually reachable:
-		// whichever get_page_by_path() resolves to. Reporting the unreachable twin
-		// produces phantom "not applied" rows, so skip it and surface it separately.
-		$served = get_page_by_path( $slug );
-		$served_id = $served ? (int) $served->ID : 0;
+	foreach ( $pages as $page ) {
+		$uri = get_page_uri( $page->ID );
+		if ( '' === $uri ) {
+			$uri = $page->post_name;
+		}
 
-		if ( $served_id && $served_id !== (int) $page->ID ) {
-			$dupes[ $slug ][] = (int) $page->ID;
+		if ( count( $by_path[ $uri ] ) > 1 ) {
+			// A real collision: two published pages claiming the same full path.
+			$dupes[ $uri ] = $by_path[ $uri ];
 			continue;
 		}
 
-		$targets[ $slug . ' (#' . $page->ID . ')' ] = $page->ID;
-		$seen[ $slug ] = true;
+		$targets[ $uri . ' (#' . $page->ID . ')' ] = $page->ID;
 	}
 
 	$targets['OPTIONS: Site Content'] = 'option';
@@ -158,13 +166,12 @@ foreach ( $all_targets as $label => $post_id ) {
 }
 
 if ( $dupes ) {
-	echo "DUPLICATE SLUGS — unreachable pages excluded from the counts above:\n";
-	foreach ( $dupes as $slug => $ids ) {
-		$served = get_page_by_path( $slug );
-		printf( "  %-24s orphaned: #%s   served: #%d\n", $slug, implode( ', #', $ids ), $served ? $served->ID : 0 );
+	echo "DUPLICATE PATHS — two published pages claiming the same full URL:\n";
+	foreach ( $dupes as $uri => $ids ) {
+		printf( "  %-34s #%s\n", $uri, implode( ', #', $ids ) );
 	}
-	echo "\n  These are stale duplicates that nothing links to. Worth deleting, but they are\n";
-	echo "  NOT missing content — do not seed them.\n\n";
+	echo "\n  These are excluded from the counts above. One of each pair is unreachable;\n";
+	echo "  resolve before seeding, or you will edit the page nobody sees.\n\n";
 }
 
 if ( ! $gaps ) {
