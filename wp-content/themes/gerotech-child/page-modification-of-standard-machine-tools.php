@@ -18,7 +18,7 @@ $uri = GEROTECH_CHILD_URI;
 
 /* ── Hero ─────────────────────────────────────────────────── */
 $hero_lead    = $pick( 'mcs_hero_lead', 'Machine' );
-$hero_main    = $pick( 'mcs_hero_main', 'Custom Solutions' );
+$hero_main    = $pick( 'mcs_hero_main', 'Custom <em>Solutions</em>' );
 // Same accent behaviour as the homepage hero: blank choice keeps the design colour
 // (Brand Orange on interior pages) and <em> words in the lead/main pick up that colour.
 $hero_accent  = $pick( 'mcs_hero_accent_color', 'orange' );

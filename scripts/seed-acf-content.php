@@ -70,6 +70,16 @@ if ( $home_id ) {
 	echo "\n";
 }
 
+/* ── Machine Custom Solutions hero ────────────────────────────── */
+$mcs_id = gerotech_seed_page( 'modification-of-standard-machine-tools' );
+if ( $mcs_id ) {
+	echo "Machine Custom Solutions (ID {$mcs_id}):\n";
+	gerotech_seed_once( 'field_mcs_hero_lead', 'Machine', $mcs_id, 'hero lead' );
+	// The <em> is what colours "Solutions" orange (blank accent colour = Brand Orange).
+	gerotech_seed_once( 'field_mcs_hero_main', 'Custom <em>Solutions</em>', $mcs_id, 'hero main (accent on Solutions)' );
+	echo "\n";
+}
+
 /* ── Service page ─────────────────────────────────────────────── */
 $service_id = gerotech_seed_page( 'service' );
 if ( $service_id ) {
