@@ -20,7 +20,7 @@ $hero_headline   = $pick( 'es_hero_headline', 'Your Manufacturing <em>Solutions<
 $hero_accent     = $pick( 'es_hero_accent_color', 'orange' ); // Blank (no stored choice) keeps the design colour.
 $hero_cta_color  = $pick( 'es_hero_cta_color', 'orange' );    // Controls the primary hero button only.
 $hero_body       = $pick( 'es_hero_body', "From machine modification and customization to full automation cells, Gerotech engineers solutions that keep manufacturers running faster, safer, and smarter — backed by decades of application expertise." );
-$hero_cta1_label = $pick( 'es_hero_cta1_label', 'Get a Quote' );
+$hero_cta1_label = $pick( 'es_hero_cta1_label', 'Talk to an Engineer' );
 $hero_cta1_url   = $pick( 'es_hero_cta1_url', gerotech_quote_mailto() );
 $hero_cta2_label = $pick( 'es_hero_cta2_label', 'Explore Capabilities' );
 $hero_cta2_url   = $pick( 'es_hero_cta2_url', '#why-headline' );
@@ -31,7 +31,7 @@ $hero_srcset     = gerotech_image_srcset( $es_hero_value, 'assets/images/es-hero
 /* ── Why Gerotech ─────────────────────────────────────────── */
 $why_headline  = $pick( 'es_why_headline', 'Why Manufacturers <em>Trust Gerotech</em>' );
 $why_body      = $pick( 'es_why_body', "Every manufacturing operation is unique. That's why our engineers don't start with a standard solution—they start by understanding your process. We work alongside your team to solve manufacturing challenges and develop practical solutions built around your operation." );
-$why_cta_label = $pick( 'es_why_cta_label', 'Get A Quote' );
+$why_cta_label = $pick( 'es_why_cta_label', 'Talk to an Engineer' );
 $why_cta_url   = $pick( 'es_why_cta_url', gerotech_quote_mailto() );
 $why_features  = $pick(
 	'es_why_features',
@@ -79,13 +79,30 @@ $partners_headline  = $pick( 'es_partners_headline', 'The Right Technology for <
 $partners_body      = $pick( 'es_partners_body', "Beyond our FANUC ASI credential, we work with leading automation and controls manufacturers to source the right components for every solution — engineering judgment matched to your application, not brand allegiance." );
 $partners_cta_label = $pick( 'es_partners_cta_label', 'Explore Capabilities' );
 $partners_cta_url   = $pick( 'es_partners_cta_url', '#why-headline' );
-$partners_wordmarks = array_values( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', (string) $pick( 'es_partners_wordmarks', "FANUC\nHaas\nMidaco\nOnRobot\nRenishaw\nKeyence\nDynatect\nRoyal Products\n5th Axis" ) ) ) ) );
+$partners_wordmarks = array_values( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', (string) $pick( 'es_partners_wordmarks', "FANUC\nMidaco\nOnRobot\nRenishaw\nKeyence\nRollon\nSCHUNK\nServax\nVecteck\nMFP\nRoyal Products\n5th Axis" ) ) ) ) );
+
+/* Logo files keyed by wordmark (lowercased) for the tech partners grid. */
+$partners_logo_files = array(
+	'fanuc' => 'fanuc',
+	'midaco' => 'midaco',
+	'onrobot' => 'onrobot',
+	'renishaw' => 'renishaw',
+	'keyence' => 'keyence',
+	'rollon' => 'rollon',
+	'schunk' => 'schunk',
+	'servax' => 'servax',
+	'vecteck' => 'vecteck',
+	'mfp' => 'mfp',
+	'royal products' => 'royalproducts',
+	'5th axis' => '5thaxis',
+);
+$partners_logo_dark = array( 'mfp', 'royalproducts', '5thaxis', 'schunk', 'servax', 'vecteck' );
 
 /* ── Capability band ──────────────────────────────────────── */
 $cap_eyebrow    = $pick( 'es_cap_eyebrow', 'Beyond a Single Brand' );
 $cap_headline   = $pick( 'es_cap_headline', "Your Machine.\nOur Solution." );
 $cap_body       = $pick( 'es_cap_body', 'Whatever sits on your floor, any make and any control, our engineers modify, customize, and automate around it.' );
-$cap_cta1_label = $pick( 'es_cap_cta1_label', 'Get a Quote' );
+$cap_cta1_label = $pick( 'es_cap_cta1_label', 'Talk to an Engineer' );
 $cap_cta1_url   = $pick( 'es_cap_cta1_url', gerotech_quote_mailto() );
 $cap_cta2_label = $pick( 'es_cap_cta2_label', 'Explore Capabilities' );
 $cap_cta2_url   = $pick( 'es_cap_cta2_url', '#why-headline' );
@@ -173,7 +190,7 @@ $news_items = $pick(
 $cta_eyebrow     = $pick( 'es_cta_eyebrow', 'Engineered Solutions' );
 $cta_headline    = $pick( 'es_cta_headline', 'Engineering Solutions Built Around <em>Your Operation</em>' );
 $cta_body        = $pick( 'es_cta_body', "Whether you're automating a manual process, modifying existing equipment, integrating robotics, or developing a custom manufacturing solution, our engineering team is ready to help. Tell us about your application, and we'll work with you to develop a practical solution built around your operation." );
-$cta_button_label = $pick( 'es_cta_button_label', 'Get a Quote' );
+$cta_button_label = $pick( 'es_cta_button_label', 'Talk to an Engineer' );
 $cta_button_url   = $pick( 'es_cta_button_url', gerotech_quote_mailto() );
 $cta_image        = gerotech_image_url( $pick( 'es_cta_image', 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1920&auto=format&fit=crop' ) );
 $cta_call_label   = $pick( 'es_cta_call_label', 'Prefer to talk it through?' );
@@ -309,7 +326,17 @@ $signup_sub   = $pick( 'es_signup_sub', 'Projects, machine updates, and service 
 
         <div class="tech-logo-grid">
           <?php foreach ( $partners_wordmarks as $w ) : ?>
-          <div class="partner-wordmark"><?php echo esc_html( $w ); ?></div>
+            <?php
+            $slug = isset( $partners_logo_files[ strtolower( $w ) ] ) ? $partners_logo_files[ strtolower( $w ) ] : '';
+            if ( $slug ) :
+              $dark = in_array( $slug, $partners_logo_dark, true ) ? ' partner-wordmark--dark' : '';
+            ?>
+            <div class="partner-wordmark<?php echo esc_attr( $dark ); ?>">
+              <img class="partner-wordmark__img" src="<?php echo esc_url( gerotech_image_url( 'assets/images/tech-partners/' . $slug . '.png', false ) ); ?>" alt="<?php echo esc_attr( $w ); ?>" loading="lazy" />
+            </div>
+            <?php else : ?>
+            <div class="partner-wordmark"><?php echo esc_html( $w ); ?></div>
+            <?php endif; ?>
           <?php endforeach; ?>
         </div>
       </div>

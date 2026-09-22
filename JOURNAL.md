@@ -2,6 +2,54 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Applications: Fire Suppression + RFID removed from the WordPress BUILD (Cline)
+
+Client MSG (Tristien Bridges, Sep 21): "on the prototype (but not figma) there are two sections that should not be showing: fire suppression and RFID … make sure those under APPLICATIONS will not go to development."
+
+**The prototype was already clean; the build was not.** `application.html` had been cleaned earlier the same day (Kimi Work), but the WordPress side still shipped both sections twice over:
+
+- `wp-content/themes/gerotech-child/page-unique-applications-for-standard-machines.php` carried them as **template defaults** (`app_cards` rows 7–8, `app_collections` rows 7–8).
+- Worse, the 2026-09-18 seeding had materialised **8 cards + 8 collections into ACF on both Local and Dev**, so the live pages rendered "Fire Suppression" and "RFID" regardless of the template — confirmed by fetching both URLs before the fix: **6 `fire-suppression` + 6 `rfid` occurrences each, HTTP 200**. **Stored ACF rows beat code defaults**, so a template-only fix would have changed nothing on the environment the client is reviewing.
+
+**Fix (two layers):**
+1. Removed the two cards + two gallery collections from the template defaults, so a fresh environment (production build, clean install) is correct with no DB work.
+2. New idempotent **`scripts/remove-apps-fire-suppression-rfid.php`** deletes any row whose title is Fire Suppression / RFID from `app_cards` and `app_collections` on the Applications page, then prints the remaining rows. Ran it on **Local** (8 → 6 in both repeaters) and on **Dev** (8 → 6); re-running reports "already clean (6 rows)" — safe on any environment.
+
+**Verified (after `page-cache` + `cdn-cache` flush on Dev):** prototype, Local **and** Dev all render **6 cards + 6 gallery collections, 0 fire-suppression, 0 rfid**, HTTP 200, no PHP errors. Dev theme `rsync --checksum` dry-run is **zero drift**.
+
+**MCS left alone on purpose** — the client scoped this to APPLICATIONS. `machine-custom-solutions.html` and `page-modification-of-standard-machine-tools.php` keep their own Fire Suppression collection (still 4 hits on Dev, as intended).
+
+**Tooling notes:**
+- This machine has **no `wp` CLI**, so Local DB work used Local's bundled PHP plus a `wp-load.php` bootstrap and the site's generated `php.ini` (already carries `mysqli.default_socket`) — recipe now in `.clinerules`. Dev uses the documented `wp eval-file -` over SSH stdin.
+- A theme `rsync` pushes the **whole working tree**, so it also carried a **concurrent agent's uncommitted** `Get a Quote` → `Talk to an Engineer` copy change (`header.php`, ES/Apps/MCS/Automation templates) to Dev. It renders correctly and matches the prototype, but **Dev is currently ahead of `master`** until that change is committed.
+- Vendored the design-revision stack into the repo as `scripts/design-stack.sh` (repo-aware: Web Lens/`webLens.defaultUrl` corrected to this project's static **:8080** server via a workspace-scoped `.vscode/settings.json` override, added a `serve` command, dropped upstream's broken `$0 usage` self-exec, and `check` now exits non-zero when something is wrong).
+
+
+## 2026-09-22 — Removed Fire Suppression + RFID sections from Applications prototype (Kimi Work)
+
+Client (Tristien Bridges, Message Board 9/21): the **Fire Suppression** and **RFID** sections exist on the prototype Applications page only — not in Figma — and must **not** go to development. Removed from `application.html`:
+- the two `.mcs-card` articles (cards grid) — lines ~70–81
+- the two matching `.gallery-collection` articles (Product Gallery) — lines ~193–223
+
+HTML tag-balance validated clean; no remaining references in `application.html`. Note: the **MCS page** (`machine-custom-solutions.html`) still has its own Fire Suppression gallery collection (different context, client only flagged Applications) — left untouched. `assets/images/mcs-gallery/fire-suppression.jpg` still referenced by MCS, kept.
+
+## 2026-09-21 — Pushed theme + hero art + seeds to WP Engine Dev over SSH (opencode)
+
+Live Dev (`gerotechdev.wpenginepowered.com`) is now current. The gateway responded this time (the earlier 11:07 ET hang did not repeat).
+
+**What landed:**
+- **Theme:** `rsync --delete` of `wp-content/themes/gerotech-child/` (7 changed files), then a checksum dry-run confirmed **zero drift**.
+- **Colours seeded** via `wp eval-file -` (stdin): slide 1 `haas`/`haas`, slides 2–3 `orange`/`orange`, `haas_eyebrow_color=haas`, `haas_accent_color=haas`. Interior hero fields left blank on Dev = design Brand Orange (correct-by-default, no DB work).
+- **Homepage hero art:** sideloaded the pushed `hero-slide-1@2x.jpg` → attachment **3467** (matched Local's ID by luck of sequential insert), repointed slide 1's ACF image field, full 2560w + 5 intermedate sizes srcset rendering.
+- **ES hero:** swapped `es-hero.png` (2.8 MB) → `es-hero.jpg` (500 KB) → attachment **3468**, repointed `es_hero_image`; old PNG (3429) now orphaned on Dev like Local.
+- **Caches:** `wp page-cache flush` + `wp cdn-cache flush` + object cache flush.
+
+**Verified over HTTP** (after flush): homepage slide 1 renders `accent accent--haas` + `btn btn--primary btn--haas`, new hero + ES art serving; 14 URLs all 200 (ES `engineered-solutions`, MCS `modification-of-standard-machine-tools`, Apps `unique-applications-for-standard-machines`, Automation `automated-system`, Training, Support, About, Careers, home); 0 broken images on the 5 new-design pages (uploads + theme-asset URLs).
+
+**Gotchas learned (now in `.clinerules` recipe):** WPE's `scp`/sftp is disabled ("subsystem request failed"), but **rsync over ssh works**. The `~/` home is **ephemeral per-container** — a file written by one ssh connection is gone on the next (load-balanced containers), so `wp eval-file wp-content/themes/...` and absolute `~/` paths both fail; pipe scripts via `wp eval-file -` stdin instead. `wp` prints harmless parent-theme `$feature` notices at CLI (source: gerotech `functions.php`, not child). New uploads land in `uploads/2017/06/` (attachment post dates) — URLs valid, not a problem.
+
+**Not done (unchanged):** no Production push, no DB push. Local still the seed of truth. Editorial/dev-copy decisions still client-TBD.
+
 ## 2026-09-21 — Rolled client-editable hero colours out to interior pages (opencode)
 
 Continuation of the DSH "Review project state and improve" thread: the offer to give interior page heroes the same accent/button colour choices as the homepage carousel, accepted and pushed.

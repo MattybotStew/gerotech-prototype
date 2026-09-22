@@ -4,6 +4,9 @@
 .DS_Store
 .codewhale/
 
+# Web Lens element context + screenshots (webLens.contextDirectory)
+.tmp/
+
 # figma-pipeline generated artifacts
 figma-output.json
 src/figma/

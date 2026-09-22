@@ -933,6 +933,21 @@
   box-shadow: var(--shadow-card);
   transform: translateY(-2px);
 }
+.partner-wordmark__img {
+  display: block;
+  max-width: 100%;
+  max-height: 44px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.partner-wordmark--dark {
+  background: #333333;
+  border-color: #444444;
+}
+.partner-wordmark--dark:hover {
+  border-color: rgba(243, 138, 44, 0.6);
+}
 
 /* ── Testimonial Split (Figma — light gray bg, shadow card) ── */
 .testimonial-split {

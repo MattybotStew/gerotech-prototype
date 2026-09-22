@@ -2,5 +2,11 @@
   "files.associations": {
     ".clinerules": "markdown"
   },
-  "liveServer.settings.port": 8080
+  "liveServer.settings.port": 8080,
+
+  // --- Web Lens (click-to-highlight design revisions) ---
+  // Workspace override: this prototype is static on :8080 (Task "Serve Gerotech (8080)"),
+  // not a Vite/Next app on :3000 — the user-level default stays 3000 for other projects.
+  "webLens.defaultUrl": "http://localhost:8080",
+  "webLens.contextDirectory": ".tmp"
 }

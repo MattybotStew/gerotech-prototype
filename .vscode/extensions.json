@@ -1,5 +1,8 @@
 {
   "recommendations": [
-    "saoudrizwan.claude-dev"
+    "saoudrizwan.claude-dev",
+    "sst-dev.opencode",
+    "collectiveai-team.web-lens",
+    "continue.continue"
   ]
 }

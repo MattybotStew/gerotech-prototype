@@ -5,11 +5,24 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-21 (opencode — footgun removal committed + pushed; interior hero colours rolled out)
-**Active Agent:** opencode
+**Last Updated:** 2026-09-22 (Cline — Fire Suppression + RFID removed from the WP **build** too: template defaults + Local/Dev ACF rows; Dev theme re-verified zero drift. See JOURNAL.md)
+**Active Agent:** Cline + opencode — **concurrent**: another agent is editing prototype HTML + theme copy in the working tree right now
 **Branch:** `master`
-**Last Commit:** `94332cd` Make hero colour selects blank by default; restore Local after careless save (pushed — in sync with `origin/master`; one more commit coming for the interior hero colours)
-**Uncommitted:** interior hero colour fields + template wiring (`acf-fields.php`, `page-engineered-solutions.php`, `page-unique-applications-for-standard-machines.php`, `page-automated-system.php`, `page-careers.php`) + this `.clinerules`/`JOURNAL.md` — awaiting commit.
+**Last Commit:** `1962f89` Add client-editable hero accent and button colours to interior pages (pushed — in sync with `origin/master`)
+**Uncommitted:** prototype Applications removal (`application.html`) · `scripts/remove-apps-fire-suppression-rfid.php` · `scripts/design-stack.sh` · `.vscode/*`, `.gitignore` · this `.clinerules`/`JOURNAL.md` — **plus another agent's in-flight `Get a Quote` → `Talk to an Engineer` copy change** across prototype HTML + theme (`header.php`, ES/Apps/MCS/Automation templates). That copy change is **not committed but is already live on Dev** (carried there by this session's theme rsync) — commit it or Dev ≠ `master`.
+
+### 2026-09-22 session (Cline — Applications: Fire Suppression + RFID removed from the BUILD, not just the prototype)
+
+Client MSG (Tristien Bridges, Sep 21): those two prototype-only Applications sections must **not go to development**.
+
+- **Prototype** was already clean (`application.html`, Kimi Work) — re-verified: 6 cards / 6 collections, 0 hits, HTTP 200.
+- **The WP build was NOT.** `page-unique-applications-for-standard-machines.php` still shipped both as template *defaults*, **and** the 2026-09-18 seeding had materialised **8 cards + 8 collections into ACF on Local and Dev**, so both environments rendered them (6 `fire-suppression` + 6 `rfid` hits, HTTP 200). Fixing the template alone would NOT have fixed the live page — **stored rows win over code defaults**.
+- **Fixed:** removed the 2 cards + 2 collections from the template defaults, and added idempotent **`scripts/remove-apps-fire-suppression-rfid.php`** which deletes those rows by title. Ran on Local (8 → 6 in both repeaters) and on Dev (8 → 6); a second run is a **no-op** ("already clean"), proving idempotency.
+- **Verified after cache flushes:** prototype, Local and Dev all render **6 cards + 6 gallery collections, 0 fire-suppression, 0 rfid**, HTTP 200, no PHP errors. Dev theme `rsync --checksum` dry-run = **zero drift**.
+- **MCS deliberately untouched** — the client scoped this to APPLICATIONS; `machine-custom-solutions.html` and its template keep their own Fire Suppression collection.
+- **No `wp` CLI on this machine — Local DB work recipe:** Local's bundled PHP + a `wp-load.php` bootstrap, no wp-cli needed:
+  `~/Library/Application Support/Local/lightning-services/php-8.2.29+0/bin/darwin-arm64/bin/php -c "$(ls -d ~/Library/Application\ Support/Local/run/*/conf/php/php.ini | head -1)" /tmp/run-local.php scripts/<script>.php` (that php.ini already sets `mysqli.default_socket`). Dev is unchanged: `wp eval-file -` over SSH stdin.
+- ⚠️ **Dev is ahead of git:** the other agent's uncommitted copy change rode along with this session's `rsync` (a theme push sends the whole working tree). It renders correctly (header 10× new label; home / ES / MCS / Automation all 200), but it must be committed or Dev ≠ `master`.
 
 **Hero image (2026-09-21, DSH) — `hero-campus-vans.jpg` is retired.** Slide 1 is now **`assets/images/hero-slide-1.jpg`** (1920×1279, 619 KB) with **`hero-slide-1@2x.jpg`** (2560×1706, ~1.0 MB) offered through `srcset` + `sizes="100vw"`. It replaces `hero-campus-vans.jpg` (1024 px → blurry when full-bleed, which is why Ken Burns upscaling looked bad) and `newHeroSlide.jpg` (the 7.2 MB / 4096 px raw drop, only ever referenced by the prototype). New helper **`gerotech_image_srcset()`** (`inc/helpers.php`) builds the theme-asset `@2x` pair, or defers to `wp_get_attachment_image_srcset()` when the field holds an attachment. Same treatment for the ES hero: **`es-hero.png` (2.8 MB) → `es-hero.jpg` (500 KB)**. Local media: homepage hero = attachment **3467**, ES hero = **3468**; `hero-campus-vans.jpg` (3466) and `es-hero.png` (3429) are now **orphaned attachments** (upload files still on disk — safe to delete whenever).
 
@@ -29,7 +42,7 @@
 
 **Homepage Figma comments (2026-09-21):** Unresolved pins live on older frames `7196:2420` / deleted `7283:*` / `7306:520` — **not** on handoff `7306:1063` (zero comments). Applied: slide-1 van/F1-sign photo (now `hero-slide-1.jpg`, see above); stats band centered (`.stat-counter__grid--2`); mill UMC-750 `object-position: center 18%`; CTA phone lockup restored. **Do not remove mailing list** (#203). Remaining: other attached photos (149, 165, 166, 179, 191, 237, 242) — Figma REST does not return attachments.
 
-**Dev SSH (2026-09-21, retried 11:07 ET):** TCP `:22` open (`gerotechdev.ssh.wpengine.net` → `34.168.124.108`). Session reaches `ESTABLISHED` then hangs with **zero stdout** (rsync `--server` and a 1-line `echo`/`wp option get siteurl` both stall; `ServerAliveInterval=5` did not recover). Killed zombies after ~3 min rsync + one short-command retry. **Theme rsync did not land. ACF updates / media import / cache flush did not run.** `_tmp-update-lineup.php` not present in repo. Do not loop SSH. Do not push Production. Retry later when the gateway returns a shell.
+**Dev deploy (2026-09-21, opencode — DONE):** pushed theme + seed + hero art; caches flushed. See the **Pushed to Dev** section below for the working recipe and gotchas. The earlier 11:07 ET hang did not repeat — gateway returned a shell this time.
 
 **Dev theme verified (2026-09-18):** checksum rsync of `wp-content/themes/gerotech-child/` repo → `gerotechdev` = **zero content drift**. Direct SSH deploy works when the gateway is responsive (key `~/Library/Application Support/Local/ssh/wpe-connect`, user `gerotechdev@gerotechdev.ssh.wpengine.net`, path `/nas/content/live/gerotechdev/wp-content/themes/gerotech-child/`). WP-CLI + `wp page-cache flush` / `wp cdn-cache flush` available over the same SSH.
 
@@ -41,45 +54,28 @@
 
 **Do not** push Local → Production. **Do not** push the Local database. Theme-only: `wp-content/themes/gerotech-child/` (Select files). Uncheck `wp-admin`, `wp-includes`, `uploads`. After push: purge WP Engine cache, hard-refresh. (Direct rsync deploy also works — see above.)
 
-### Ready to push to Dev — 2026-09-21 (DSH)
+### Pushed to Dev — 2026-09-21 (opencode) ✅
 
-**Git:** `master` @ `995a72a` **pushed to `origin/master`** (4 commits: hero imagery consolidation, peek-accent back-port, hero accent colour, hero CTA colour, Haas Relationship colours). Working tree clean.
+**Live Dev now current:** theme in sync (checksum dry-run clean), homepage hero = `hero-slide-1@2x.jpg` attachment **3467** with full srcset (slide 1 repointed in DB), ES hero = **3468** `es-hero.jpg` (500 KB); old ES `es-hero.png` (3429) orphaned on Dev like Local. Colours seeded: slide 1 `haas`/`haas`, slides 2–3 `orange`/`orange`, `haas_eyebrow_color=haas`, `haas_accent_color=haas`; interior hero fields left blank (design orange). Caches flushed (`page-cache`, `cdn-cache`, object `cache`). Verified over HTTP: all 14 URLs 200, 0 broken images (uploads + theme assets), slide 1 renders `accent accent--haas` + `btn btn--primary btn--haas`, new hero/ES art live.
 
-**Local:** repo theme → Local synced and **verified identical**; `https://gerotech.local/` 200; 13 URLs 200 with 0 broken images and 0 PHP warnings. No stale `wpe-connect`/rsync/ssh processes and no open sockets to WP Engine (the earlier hangs are cleared).
-
-**Local DB (not in git):** homepage hero slides seeded — accent `haas`/`orange`/`orange`, CTA `haas`/`orange`/`orange`; `haas_eyebrow_color=haas`, `haas_accent_color=haas`. Media: hero = attachment **3467** (`hero-slide-1@2x.jpg`), ES hero = **3468** (`es-hero.jpg`); **3466** and **3429** are orphaned.
-
-**Push settings (unchanged):** destination **gerotechdev only** — never Production. Files → **Select** → check **only** `wp-content/themes/gerotech-child/`. Database → **off**. Then purge WP Engine page + CDN cache and hard-refresh.
-
-**What the theme-only push WILL change on Dev** (verified against live Dev: all of this is currently missing there):
-1. Hero **Haas red is currently broken on Dev** — the live CSS still has the compound `.accent.accent--haas` while the template emits the bare class, so "Haas" renders white. The push fixes it.
-2. New rules arrive: `.accent--white`, `.accent--haas` (standalone), `.eyebrow-row--*`, `.hero-slider__peek-accent--*`, `--clr-haas-red-dark`.
-3. `data-peek-accent-color` + the peek accent word (slide 1 shows a red **Haas** once slide 2/3 is active).
-4. The new **Accent colour / Button colour** selects and the **Haas Relationship** colour selects appear in the editor (they are registered in code).
-5. Slide 2–3 hero `alt` stops being empty (falls back to the eyebrow).
-
-**What it will NOT change — the hero photo.** Dev's homepage hero still points at `uploads/2026/09/hero-slide-01.jpg` via its ACF image field, and a files-only push does not carry DB values, so the old image stays. Also note the editor on Dev will initially show the ACF *field defaults* rather than the design values, because the choices were never saved there. Fix both after the push:
-
+**Working direct-deploy recipe (gateway was responsive this session):**
 ```bash
-# Once WPE SSH responds again (it was hanging on 2026-09-21):
 KEY="$HOME/Library/Application Support/Local/ssh/wpe-connect"
 HOST="gerotechdev@gerotechdev.ssh.wpengine.net"
 NAS="/nas/content/live/gerotechdev"
 
-# 1. carry the theme (or just use the Local GUI push)
-rsync -avz -e "ssh -i \"$KEY\"" wp-content/themes/gerotech-child/ "$HOST:$NAS/wp-content/themes/gerotech-child/"
+# 1. theme (rsync over ssh works; scp/sftp does NOT — "subsystem request failed")
+rsync -avz --delete -e "ssh -i \"$KEY\" -o BatchMode=yes -o ServerAliveInterval=10" wp-content/themes/gerotech-child/ "$HOST:$NAS/wp-content/themes/gerotech-child/"
 
-# 2. seed the colour choices so the editor matches the front end
-ssh -i "$KEY" "$HOST" "cd $NAS && wp eval-file wp-content/themes/gerotech-child/../../../../scripts/seed-home-hero-colors.php"
+# 2. seed colours: WPE's ~/home is EPHEMERAL per-container (a file written via
+#    one ssh dies on the next), so don't scp scripts — pipe stdin:
+ssh -i "$KEY" "$HOST" "cd $NAS && wp eval-file -" < /path/to/seed.php
 
-# 3. new hero art -> Dev media, then point slide 1 at it (see below)
-wp media import assets/images/hero-slide-1@2x.jpg --post_id=11 --porcelain   # run from the repo root on Dev
-wp eval 'update_field("home_hero_slides", ...)'                              # or edit the slide in wp-admin
-
-wp page-cache flush && wp cdn-cache flush
+# 3. hero art: media_handle_sideload the pushed theme asset, set the field
+#    (see dev-hero-import.php style — also works for ES). Then:
+ssh -i "$KEY" "$HOST" "cd $NAS && wp page-cache flush && wp cdn-cache flush"
 ```
-
-Simplest for the hero art on Dev: after the push, open **wp-admin → Home → Meta Boxes → Hero slides → slide 1 → Image**, upload/select the new `hero-slide-1@2x.jpg`, and save. That also persists every colour choice at once, which resolves the editor/front-end mismatch above.
+Gotchas: `wp eval-file -` reads PHP from stdin (boots WP, so theme helpers like `gerotech_image_srcset()` exist). `~` for a *short-command* ssh also resolves `/home/wpe-user` (ephemeral) — always use stdin or `$NAS` paths. `wp` emits harmless parent-theme `$feature` notices at CLI — ignore (source: gerotech `functions.php`, not child). Page slugs (AS of 09-18): ES `engineered-solutions`, MCS `modification-of-standard-machine-tools`, Apps `unique-applications-for-standard-machines`, Automation `automated-system` (not the goose-chase slugs `machine-custom-solutions` / `automation-integration` → 404).
 
 **`scripts/seed-home-hero-colors.php`** (repo, committed) is idempotent and safe on any environment: stored choice wins → retired `accent_class` meta → original treatment. Verified by simulating a theme-only deploy on Local.
 

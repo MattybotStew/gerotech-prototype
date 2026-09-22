@@ -105,7 +105,7 @@ $collections     = $pick(
 $cta_eyebrow      = $pick( 'ai_cta_eyebrow', 'Automation &amp; Controls' );
 $cta_headline     = $pick( 'ai_cta_headline', 'Need a <em>custom solution</em> for your machine?' );
 $cta_body         = $pick( 'ai_cta_body', "Robot cells, workholding, and controls — designed, built, and installed by Gerotech's in-house engineering team." );
-$cta_button_label = $pick( 'ai_cta_button_label', 'Get a Quote' );
+$cta_button_label = $pick( 'ai_cta_button_label', 'Talk to an Engineer' );
 $cta_button_url   = $pick( 'ai_cta_button_url', gerotech_quote_mailto() );
 $cta_image        = gerotech_image_url( $pick( 'ai_cta_image', 'https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop' ) );
 $cta_call_label   = $pick( 'ai_cta_call_label', 'Prefer to talk it through?' );

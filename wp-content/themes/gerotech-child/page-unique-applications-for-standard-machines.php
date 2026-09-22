@@ -57,16 +57,6 @@ $cards        = $pick(
 			'image'  => 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=800&auto=format&fit=crop',
 			'detail' => '<p>Instructor-led operator and programming training tailored to your team\'s skill level and equipment — available at your facility or at a Gerotech-supported location.</p>',
 		),
-		array(
-			'title'  => 'Fire Suppression',
-			'image'  => 'assets/images/mcs-gallery/fire-suppression.jpg',
-			'detail' => '<p>Machine-integrated fire suppression that detects and knocks down a fire at the source — inside the enclosure, before it spreads. Gerotech specifies, installs, and services systems engineered for CNC machining environments to protect your machine, your people, and your uptime.</p>',
-		),
-		array(
-			'title'  => 'RFID',
-			'image'  => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
-			'detail' => '<p>RFID tool and workholding identification that takes manual data entry out of the setup. Tools, fixtures, and offsets are read automatically and tied to the job — cutting setup time and eliminating costly data-entry errors.</p>',
-		),
 	)
 );
 
@@ -105,16 +95,6 @@ $collections   = $pick(
 			'meta'  => '',
 			'media' => 'image | https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1600&auto=format&fit=crop | | Training | Training',
 		),
-		array(
-			'title' => 'Fire Suppression',
-			'meta'  => 'Machine-integrated fire protection',
-			'media' => "image | {$uri}/assets/images/mcs-gallery/fire-suppression.jpg | | Kidde machine-integrated fire suppression | Kidde system · machine-integrated",
-		),
-		array(
-			'title' => 'RFID',
-			'meta'  => '',
-			'media' => 'image | https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop | | RFID | RFID',
-		),
 	)
 );
 
@@ -122,7 +102,7 @@ $collections   = $pick(
 $cta_eyebrow      = $pick( 'app_cta_eyebrow', 'Applications' );
 $cta_headline     = $pick( 'app_cta_headline', 'Need <em>application support</em> for your shop floor?' );
 $cta_body         = $pick( 'app_cta_body', '' );
-$cta_button_label = $pick( 'app_cta_button_label', 'Get a Quote' );
+$cta_button_label = $pick( 'app_cta_button_label', 'Talk to an Engineer' );
 $cta_button_url   = $pick( 'app_cta_button_url', gerotech_quote_mailto() );
 $cta_image        = gerotech_image_url( $pick( 'app_cta_image', 'https://images.unsplash.com/photo-1716191299980-a6e8827ba10b?q=80&w=1920&auto=format&fit=crop' ) );
 $cta_call_label   = $pick( 'app_cta_call_label', 'Prefer to talk it through?' );
