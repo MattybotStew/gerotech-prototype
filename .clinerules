@@ -5,11 +5,12 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-22 (opencode — tech-partner logos rebaked onto uniform #333 tiles; JavaScript-free CSS pass)
+**Last Updated:** 2026-09-22 (opencode — partner logos shipped to Dev + Local; ACF wordmark list synced to 12 on both)
 **Active Agent:** opencode
 **Branch:** `master`
-**Last Commit:** `7bcd1a8` Update .clinerules session state post-commit (pushed — in sync with `origin/master`)
-**Uncommitted:** partner-logo tiles use the **original JPEGs** (regenerated PNGs looked pixelated) on **all-white uniform 88px cards** — `--dark`/#333 variant removed from markup, CSS, and the ES template PHP (`page-engineered-solutions.php` also corrected `.png` → `.jpg`); theme assets synced — awaiting commit.
+**Last Commit:** `743e657` Use original partner logo JPEGs on uniform white tiles; drop dark #333 variant (pushed — in sync with `origin/master`)
+**Uncommitted:** none — working tree clean.
+**Deployed:** theme live on Dev + Local; `es_partners_wordmarks` stored list updated to the 12 brand names on **both** Dev and Local (stored rows win over template defaults — first deploy only showed 7 logos until the field was updated).
 
 ### 2026-09-22 session (Cline — Applications: Fire Suppression + RFID removed from the BUILD, not just the prototype)
 
