@@ -2,6 +2,36 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Remaining hardcoded copy made ACF-editable; MCS hero matches the homepage (Claude)
+
+Client: *"i need everything that should be editable using ACF and the hero h1 needs the same functionality as the homepage."* Committed `e3a3745`, deployed and seeded on Local **and** Dev.
+
+**Audit first.** Every template already read its content through ACF (`$pick()` on the rebuilt pages, `gerotech_field()` on the legacy ones — my first scan only grepped `$pick` and wrongly concluded the 7 legacy pages had **zero** fields; they use `gerotech_field` with definitions in `inc/acf-legacy-fields.php`). So the job was finding genuinely hardcoded strings, via a scanner that tracks PHP state and ignores text inside PHP blocks and `<template>`s.
+
+**MCS hero H1 — the only hero lacking homepage functionality.** ES, Applications, Automation and Careers already had `<em>` accent words + a colour select; MCS did not.
+- Added `mcs_hero_accent_color` (White / Haas Red / Brand Orange), **blank by default** like every other interior hero, and `<em>` now works in both the lead and main.
+- **Found and fixed a bug this exposed:** the breadcrumb echoed `esc_html( $hero_main )`, so an `<em>` in the headline printed the literal tags `Custom &lt;em&gt;Solutions&lt;/em&gt;` in the breadcrumb. Now `strip_tags()` first — which is what `page-automated-system.php` already did. MCS was simply missing it.
+
+**Service page — by far the biggest gap (87 hardcoded strings).**
+- The 6 tab labels are now **individual fields, not a repeater**: each is bound to a fixed tab id (`tf_service`, `tf_general`, …), so a repeater would let someone reorder them and silently break the tab wiring.
+- The planned-maintenance checklist (12 groups, ~60 lines) is now **two repeaters** with `heading` / `items` (one line per entry) / `column` (left or right), plus the footnote, the optional-services block and the request heading+body. A textarea per group rather than a nested repeater because the legacy layout is driven by `.t_left`/`.t_right`.
+- The hidden `#locations` section and the Application Support note are field-driven too — Contact's equivalent was already ACF, so the two pages disagreed.
+- The column-splitting helpers went into `inc/helpers.php`, not the template, to avoid a redeclare fatal if the template is ever included twice.
+
+**Also:** careers table headers, contact page title + form heading, training/about page titles, and the mailing-list form strings (**duplicated across six templates**) which are now global `Site Content — Forms` fields.
+
+**Removed three dead fields.** `mcs_hero_eyebrow`, `app_hero_eyebrow` and `ai_hero_eyebrow` were registered but rendered by nothing — filling them in silently did nothing. All three were empty in the DB, so nothing was lost. Notes left in their place rather than a silent deletion.
+
+**Verification — every refactor was diffed against the original markup from git:**
+- Service checklist and locations render **byte-identically**, including the curly apostrophe in "axis’" and the `#location_grand_rapids` / `#location_flat_rock` anchors.
+- **A regression I caught mid-way:** my first version derived those anchors with `sanitize_title()`, producing `location_grand-rapids-mi` — the legacy stylesheet targets `#location_grand_rapids`, so the responsive rules would have silently stopped applying. Fixed with an explicit, editable `anchor` field defaulting to the original values.
+- 19/19 new fields register; **13 Local + 13 Dev pages 200 with 0 PHP warnings**; Dev's copy of the theme is in sync with the repo.
+- `scripts/seed-acf-content.php` seeds the copy so editors don't see empty fields; **idempotent** (28 skips / 0 writes on re-run) and it deliberately never touches the accent-colour selects.
+
+**Method note:** Dev's SSH gateway supports neither `scp` (sftp subsystem disabled) nor stdin forwarding, and **each SSH session appears to get its own `/tmp`** — a file written in one session was gone in the next. The working pattern is to base64 the payload and write+run it **in a single SSH command**.
+
+**Excluded on purpose** (per the agreed scope): breadcrumbs, "View Details →", "LEARN MORE", and the "P:" / "F:" phone-fax prefixes.
+
 ## 2026-09-22 — Custom Workholding card gets the client's fixture photo (Claude)
 
 Client pointed at Figma node `7196:3332` ("Button dialog") → the **Custom Workholding** service card. Swapped its photo.

@@ -148,6 +148,45 @@ Same White / Haas Red / Brand Orange palette as the hero slides, defaulting to *
 
 The unmodified default is Haas red, so markup without a modifier (older prototypes, un-migrated rows) still renders as designed. `haas_accent_color` reuses `gerotech_accent_class()`. **Interior page eyebrows are untouched** — the modifiers are scoped to `.haas-relationship` for now.
 
+### Interior hero accent colours (2026-09-22)
+
+Every interior hero now supports `<em>` accent words coloured by a per-page select: `es_hero_accent_color`, `app_hero_accent_color`, `ai_hero_accent_color`, `careers_hero_accent_color`, and — added last — **`mcs_hero_accent_color`**. All ship **blank** with no `default_value`; blank means "keep the design colour" (Brand Orange). MCS also accepts `<em>` in both its lead and main fields.
+
+> **Breadcrumbs must strip the tags.** Any template whose breadcrumb echoes an accent-capable headline has to `strip_tags()` it first or the literal `<em>` prints as visible text. `page-automated-system.php` does this; `page-modification-of-standard-machine-tools.php` originally did not and showed `Custom &lt;em&gt;Solutions&lt;/em&gt;`.
+
+### Service page checklist + locations (2026-09-22)
+
+`page-service.php` previously hardcoded 87 strings. Now field-driven:
+
+| Field | Type | Notes |
+|---|---|---|
+| `service_tab_label_{service,general,parts,rotary,plan,support}` | Text ×6 | Tab strip labels. **Individual fields on purpose** — each is bound to a fixed tab id (`tf_service`, …), so a repeater would let someone reorder them and break the wiring. |
+| `service_plan_inspect_groups` | Repeater | `heading`, `items` (one per line), `column` (left/right). 10 groups. |
+| `service_plan_optional_groups` | Repeater | Same shape. 6 groups. |
+| `service_plan_inspect_title` / `_intro` / `_footnote` | Text | Heading, intro (HTML allowed), and the "* if applicable" note. |
+| `service_plan_optional_title`, `service_plan_cta_title`, `service_plan_cta_body` | Text | |
+| `service_support_note` | Text | Application Support tab note. |
+| `service_locations` | Repeater | `anchor`, `name`, `address`, `phone`, `fax`. |
+
+> **`items` is a textarea, not a nested repeater** because the legacy two-column layout is driven by `.t_left` / `.t_right` floats and the column is a per-group choice. Nested repeaters are not available here anyway.
+>
+> **`anchor` is load-bearing.** `assets/css/legacy.css` targets `#location_grand_rapids` and `#location_flat_rock`. The anchor is an explicit field precisely so it is *not* derived from the location name — deriving it with `sanitize_title()` produces `location_grand-rapids-mi` and silently stops those rules matching.
+
+### Global forms — Site Content → Forms (2026-09-22)
+
+The mailing-list form was duplicated across six templates with hardcoded strings:
+
+| Field | Default |
+|---|---|
+| `signup_email_label` | Email address (visually hidden, read by screen readers) |
+| `signup_email_placeholder` | your@email.com |
+| `signup_submit_label` | Sign Up |
+
+Read with `gerotech_field( 'signup_submit_label', 'Sign Up', 'option' )` — the third argument selects the options page.
+
+### Other additions (2026-09-22)
+`careers_col_job` / `_location` / `_department` / `_date` (careers table headers), `contact_page_title` + `contact_form_title`, `training_page_title`, `about_page_title`.
+
 ### Un-migrated databases (important)
 
 ACF **injects a field's `default_value` on read** when a repeater row has no stored value. So a database that predates a newly-added field does not return an empty string — it returns the default. That would silently change the design on deploy (slide 1's Haas-red accent and button would both have turned white/orange).

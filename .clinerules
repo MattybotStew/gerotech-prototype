@@ -4,12 +4,28 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — Custom Workholding card photo updated from Figma; card now differs from the gallery collection that shares the old file)
+**Last Updated:** 2026-09-22 (Claude — remaining hardcoded copy is now ACF-editable; MCS hero H1 matches the homepage)
 **Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** `232b46e` (Specialty Machine image) — pushed; `origin/master` 0 ahead / 0 behind.
-**Uncommitted:** Custom Workholding image (`mcs-gallery/custom-workholding.jpg`, prototype + theme default) and doc updates.
-**Deployed:** MCS page 1250 — news park, ES CTA photo (L 3470/D 3469), MCS hero (L 3471/D 3470), Auto Doors card video (L 3472/D 3471), Specialty Machine card (L 3473/D 3472), Custom Workholding card (L 3474/D 3473). Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+**Last Commit:** `e3a3745` (ACF editability pass) — pushed; `origin/master` 0 ahead / 0 behind.
+**Uncommitted:** docs only.
+**Deployed:** all MCS-page image work plus this ACF pass are live on **Local + Dev**, both seeded. Post-deploy audit: **13 Local + 13 Dev pages 200 / 0 PHP warnings**, Dev theme in sync with the repo.
+
+### ACF coverage — what is editable now (2026-09-22)
+Every template reads through ACF. Newly added this pass:
+- **MCS hero H1** — `mcs_hero_accent_color` (White/Haas Red/Brand Orange, **blank by default**) + `<em>` accent words in `mcs_hero_lead` / `mcs_hero_main`. This was the last hero without homepage functionality.
+- **Service page** — 6 tab labels as *individual* fields (bound to fixed tab ids — never convert to a repeater), the planned-maintenance checklist as two repeaters (`heading` / `items` one-per-line / `column`), the optional-services block, the request heading+body, the Application Support note, and the office locations.
+- **Careers** table headers, **Contact** page title + form heading, **Training**/**About** page titles.
+- **Global** `Site Content → Forms` — mailing-list label, placeholder and button (previously duplicated across six templates).
+
+Seeded by `scripts/seed-acf-content.php` (idempotent; never touches accent selects).
+
+### Two things to know before editing these areas
+- **Breadcrumbs must `strip_tags()` headline fields.** The MCS hero printed literal `<em>` tags in its breadcrumb because the headline is now accent-capable but the breadcrumb escaped it. `page-automated-system.php` had it right; copy that pattern.
+- **The `#location_grand_rapids` / `#location_flat_rock` anchors are load-bearing** — `assets/css/legacy.css` targets them. They are now an explicit `anchor` field, *not* derived from the location name. Deriving them breaks the responsive rules silently.
+
+### Removed dead fields
+`mcs_hero_eyebrow`, `app_hero_eyebrow`, `ai_hero_eyebrow` were registered but rendered by nothing (all empty in the DB). Removed with notes. If a design ever gains a hero eyebrow on those pages, copy the ES hero field + markup rather than re-adding a dead field.
 
 ### MCS card artwork — source of truth
 Cards take their photo from the **stored `mcs_cards` ACF rows**, not the template default array, so every image change needs a media import + `mcs_cards_<i>_image` update on Local *and* Dev. Current row order: 0 Column Risers, 1 Safety & Environmental, 2 Sheet Metal, 3 Auto Doors (video, row also has a `video` sub-field), 4 Hydraulic–Pneumatics, 5 Custom Workholding, 6 Process Engineering, 7 Specialty Machine.
