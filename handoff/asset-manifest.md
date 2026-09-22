@@ -30,7 +30,7 @@
 | `app-gallery-milling-coolant.jpg`, `app-gallery-turning-large.jpg`, `app-gallery-turning-drill.jpg` (1600px, 220–272KB — **client photos**, 2026-09-22) | Applications **Part Programming** gallery collection (in-machine milling and turning shots) |
 | `app-optimization.jpg` (1600×745, 194KB — **client graphic**, 2026-09-22) | Applications **Process Optimization** card + gallery. Branded cycle diagram: cycle-time reduction / part quality / tooling performance. |
 | `app-training.jpg` (1600×745, 271KB — **real client photo**, 2026-09-22) | Applications **Training** card + its gallery collection. Client shot of a Gerotech instructor walking a customer through a Haas control. |
-| `app-hero.jpg` (1920×1280, 416KB) · `app-cta.jpg` (1920×1204, 532KB) — bundled stand-ins, 2026-09-22 | Applications hero + CTA band |
+| `app-hero.jpg` (1920×1280, 416KB — bundled stand-in, 2026-09-22) | Applications **page header AND CTA band** — the client asked for the same picture in both |
 | `mcs-gallery/custom-fixtures.jpg` (1350×1800 — fixture plates on the floor) | MCS **gallery collection** "Custom Fixture Design" (cover + lightbox) — no longer the service card |
 | `automation-hero.jpg` | Automation page-hero |
 | `automation-cell-design.jpg` | Automation service card |
@@ -65,7 +65,7 @@
 | `hero-variations.html` *(exploratory)* | 3 |
 | **Total** | **45** |
 
-`engineered-solutions.html` and `application.html` are now fully local. Applications was the last page on the **live** site depending on someone else's servers — its five gallery collections (cover + lightbox) were on Unsplash while its cards were already local media attachments, so the fix was the gallery, not the cards. Bundled as `app-{troubleshooting,optimization,tooling,demo,training}.jpg` plus `app-hero.jpg` / `app-cta.jpg`; the stored rows were rewritten by `scripts/localize-applications-gallery.php`.
+`engineered-solutions.html` and `application.html` are now fully local. Applications was the last page on the **live** site depending on someone else's servers — its five gallery collections (cover + lightbox) were on Unsplash while its cards were already local media attachments, so the fix was the gallery, not the cards. Bundled as `app-{troubleshooting,optimization,tooling,demo,training}.jpg` plus `app-hero.jpg`; the stored rows were rewritten by `scripts/localize-applications-gallery.php`.
 
 **Why `app-training.jpg` is landscape when the other gallery assets are portrait:** the client supplied a portrait shot whose subjects (faces, pointing hand, control panel) sit in the **upper** third. These cards are landscape (~2.15), and `object-fit: cover` crops the middle 35% — which cut both faces off. The asset is therefore pre-cropped to 2.146, framed on the subjects, rather than left portrait. Check the crop on any portrait photo going into these cards: `sips -c <h> <w>` reproduces it.
 

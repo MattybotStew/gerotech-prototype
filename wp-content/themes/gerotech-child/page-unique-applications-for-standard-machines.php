@@ -111,7 +111,9 @@ $cta_headline     = $pick( 'app_cta_headline', 'Need <em>application support</em
 $cta_body         = $pick( 'app_cta_body', '' );
 $cta_button_label = $pick( 'app_cta_button_label', 'Talk to an Engineer' );
 $cta_button_url   = $pick( 'app_cta_button_url', gerotech_quote_mailto() );
-$cta_image        = gerotech_image_url( $pick( 'app_cta_image', 'assets/images/app-cta.jpg' ) );
+// Client (2026-09-22): "use the same picture that we have for the page header,
+// the same for this footer" — so the CTA band intentionally shares app-hero.jpg.
+$cta_image        = gerotech_image_url( $pick( 'app_cta_image', 'assets/images/app-hero.jpg' ) );
 $cta_call_label   = $pick( 'app_cta_call_label', 'Prefer to talk it through?' );
 $cta_call_number  = $pick( 'app_cta_call_number', '(734) 379-7788' );
 $cta_call_note    = $pick( 'app_cta_call_note', 'Talk to a person, not a form.' );
