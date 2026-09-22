@@ -100,14 +100,23 @@ foreach ( $items as $item ) {
 	$full = ( 0 === strpos( $src, 'assets/' ) ) ? GEROTECH_CHILD_URI . '/' . $src : $src;
 
 	$dupe = false;
-	foreach ( $lines as $l ) {
+	foreach ( $lines as $idx => $l ) {
 		if ( false !== strpos( $l, basename( $full ) ) ) {
 			$dupe = true;
+			// An existing item keeps its position but picks up any corrected
+			// alt/caption, so this also doubles as a metadata fixer.
+			$new_line = 'image | ' . $full . ' | | ' . $alt . ' | ' . $cap;
+			if ( $l !== $new_line ) {
+				$lines[ $idx ] = $new_line;
+				printf( "  fix    %s (alt/caption updated)\n", basename( $full ) );
+				$added++;
+			} else {
+				printf( "  skip   %s (already in '%s')\n", basename( $full ), $title );
+			}
 			break;
 		}
 	}
 	if ( $dupe ) {
-		printf( "  skip   %s (already in '%s')\n", basename( $full ), $title );
 		continue;
 	}
 

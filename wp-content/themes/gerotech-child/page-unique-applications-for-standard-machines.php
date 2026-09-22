@@ -98,7 +98,9 @@ $collections   = $pick(
 		array(
 			'title' => 'Training',
 			'meta'  => '',
-			'media' => 'image | {$uri}/assets/images/app-training.jpg',
+			'media' => "image | {$uri}/assets/images/app-training.jpg | | Gerotech instructor walking a customer through a Haas control | Training session · Haas control walkthrough\n"
+				. "image | {$uri}/assets/images/app-gallery-training-control.jpg | | Operator programming at a Haas control | Programming at the control\n"
+				. "image | {$uri}/assets/images/app-gallery-training-group.jpg | | Training session around a Haas VF-3 machining centre | Group session · Haas VF-3",
 		),
 	)
 );
