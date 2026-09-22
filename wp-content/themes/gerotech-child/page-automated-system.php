@@ -31,7 +31,7 @@ $cards        = $pick(
 	array(
 		array(
 			'title'  => 'HMI Design',
-			'image'  => 'https://images.unsplash.com/photo-1643359905563-f747213c9703?q=80&w=800&auto=format&fit=crop',
+			'image'  => 'assets/images/hmi-design.jpg',
 			'detail' => '<p>Every application is different, and the operator interface should reflect the needs of the people using it. Our HMI is fully configurable, providing a centralized location for the information and functions required for efficient day-to-day operation.</p><p>Our software library provides extensive I/O and Ethernet diagnostics directly on the HMI — giving operators and maintenance technicians clear visibility into machine status without a programming laptop. Where supported, device-specific diagnostics include fault codes, descriptions, and recommended corrective actions for faster troubleshooting and reduced downtime.</p>',
 		),
 		array(
