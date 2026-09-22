@@ -60,6 +60,16 @@ function gerotech_seed_page( $slug ) {
 
 echo "Seeding newly ACF-editable content…\n\n";
 
+/* ── Homepage CTA call card ───────────────────────────────────── */
+$home_id = (int) get_option( 'page_on_front' );
+if ( $home_id ) {
+	echo "Homepage (ID {$home_id}):\n";
+	gerotech_seed_once( 'field_home_cta_call_label', 'Prefer to talk it through?', $home_id, 'CTA call label' );
+	gerotech_seed_once( 'field_home_cta_call_number', '(734) 379-7788', $home_id, 'CTA call number' );
+	gerotech_seed_once( 'field_home_cta_call_note', 'Talk to a person, not a form.', $home_id, 'CTA call note' );
+	echo "\n";
+}
+
 /* ── Service page ─────────────────────────────────────────────── */
 $service_id = gerotech_seed_page( 'service' );
 if ( $service_id ) {
@@ -147,6 +157,28 @@ if ( $careers_id ) {
 	gerotech_seed_once( 'field_careers_col_location', 'Location', $careers_id, 'column — location' );
 	gerotech_seed_once( 'field_careers_col_department', 'Department', $careers_id, 'column — department' );
 	gerotech_seed_once( 'field_careers_col_date', 'Post Date', $careers_id, 'column — post date' );
+	echo "\n";
+}
+
+/* ── Rotary Repair ────────────────────────────────────────────── */
+$rotary_id = gerotech_seed_page( 'rotary-repair' );
+if ( $rotary_id ) {
+	echo "Rotary Repair (ID {$rotary_id}):\n";
+	gerotech_seed_once( 'field_rotary_hero_title', 'ROTARY REPAIR', $rotary_id, 'hero title' );
+	gerotech_seed_once( 'field_rotary_hero_subtitle', 'Gerotech offers world class repair of your HAAS rotary table.', $rotary_id, 'hero subtitle' );
+	gerotech_seed_once( 'field_rotary_hero_subtitle_mobile', 'We are here to help.', $rotary_id, 'hero subtitle (mobile)' );
+	gerotech_seed_once(
+		'field_rotary_intro',
+		'Gerotech provides Haas certified rotary and indexer repair capabilities.  With more than 15 years of experience, our experts will provide comprehensive and quality service for all of your rotary maintenance needs.  Fill out the form below to contact the repair experts at Gerotech.',
+		$rotary_id,
+		'intro'
+	);
+	gerotech_seed_once( 'field_rotary_form_title', 'Request for Return Authorization', $rotary_id, 'form heading' );
+	gerotech_seed_once( 'field_rotary_form_body', 'Please complete as much information as possible. You will be contacted with a repair authorization number that must be attached to the indexer/rotary unit before it is shipped for repair.', $rotary_id, 'form intro' );
+	gerotech_seed_once( 'field_rotary_cta_text', 'Put our engineers to work on your project', $rotary_id, 'CTA text' );
+	gerotech_seed_once( 'field_rotary_cta_label', 'Engage with us today', $rotary_id, 'CTA button label' );
+	// The template default is computed, not a literal, so match it exactly.
+	gerotech_seed_once( 'field_rotary_cta_url', gerotech_page_url( 'contact' ), $rotary_id, 'CTA button URL' );
 	echo "\n";
 }
 

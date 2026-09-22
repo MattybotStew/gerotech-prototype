@@ -35,6 +35,19 @@ Cards take their photo from the **stored `mcs_cards` ACF rows**, not the templat
 ### Portrait artwork in landscape cards
 The MCS cards are 275px tall and landscape (~2.15), so `object-fit: cover` shows only a **~26% centred vertical band** of a portrait source. Preview the crop before assuming it works — `sips -c <h> <w>` reproduces it exactly (e.g. `sips -c 472 1012` for a 1012-wide asset).
 
+### STANDING RULE — ACF fields must be APPLIED, not just defined
+Registering a field only makes the **front end** render its template default; the **editor** still shows an empty control. Nothing looks broken, which is why this gets missed. After any ACF add/rename/change:
+
+1. Field definition **+ template default** (defaults live in the template, never `default_value`).
+2. Add it to `scripts/seed-acf-content.php` — using the **field key**, not the name.
+3. `./scripts/sync-theme-to-local.sh` → seed → audit.
+4. Deploy the theme to Dev **and run the seeder there** — a theme push does NOT apply fields.
+5. Confirm with `scripts/audit-acf-applied.php`.
+
+**Blanks that are correct — never "fix" these:** all `*_hero_accent_color` / `*_hero_cta_color` (blank = keep the design colour), `es_show_news` (blank = hidden), `es_partners_logos` (wordmark fallback is the design), `haas_brand_logo` / `cta_image` (theme-bundled), `mcs_cta_body` / `app_cta_body` (deliberately empty).
+
+**Two traps the audit already caught:** (a) environments have duplicate published pages sharing a slug (`rotary-repair` #194 vs #1484) — only the one `get_page_by_path()` resolves to is reachable, don't seed the orphan; (b) `update_field()` with a field **name** instead of a **key** silently writes junk meta and the field still reads blank — if a seed says "set" but the audit disagrees, check the key.
+
 ### Figma access from this session
 No Figma MCP is available here, but `~/.figma_token` exists — use the REST API directly: `/v1/files/:key/nodes?ids=<a:b>` to identify a node, read an IMAGE fill's `imageRef`, then `/v1/files/:key/images` to resolve the original. `/v1/images/:key?ids=…&format=png&scale=2` renders any node to a PNG for visual checking. File key `YgHwqyyFj57c1ZSbmfkL0c`.
 

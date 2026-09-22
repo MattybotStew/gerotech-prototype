@@ -40,6 +40,52 @@ The prototype stays the **source of truth for shared assets** until design lock.
 
 **Repo theme → Local site:** the running LocalWP site has its own copy of the child theme. After editing the theme, run `./scripts/sync-theme-to-local.sh` (or `--check`) so changes appear at `gerotech.local`. A WP Engine "Pull" can overwrite the Local theme dir — re-run the sync afterward.
 
+## ACF fields must be APPLIED, not just defined (standing rule)
+
+Adding or changing an ACF field in `inc/acf-*.php` is **only half the job**. Registering a
+field makes the front end render its template default — which means the site looks correct
+while the editor shows an **empty control**. That is the failure mode to avoid, and it is
+easy to miss because nothing looks broken.
+
+**Whenever you add, rename or change an ACF field:**
+
+1. Add the field definition **and** the template default. Defaults live in the *template*,
+   never in `default_value` — ACF injects `default_value` on read, so a plain save persists
+   it (see `.clinerules` for the full reasoning).
+2. Add the field to `scripts/seed-acf-content.php` if it should hold content, using the
+   **field key**, not the field name.
+3. Sync, seed, then audit — in that order.
+4. Deploy the theme to Dev and run the seeder there too. **A theme push does not apply
+   fields** — Dev and Local each store their own values.
+5. Confirm with `scripts/audit-acf-applied.php` before calling it done.
+
+```bash
+# Local
+./scripts/sync-theme-to-local.sh
+wp eval-file scripts/seed-acf-content.php     # idempotent; only fills blanks
+wp eval-file scripts/audit-acf-applied.php    # what is still unapplied, and why
+```
+
+**Some blanks are correct** — do not "fix" these:
+
+- **`*_hero_accent_color` / `*_hero_cta_color` selects** — blank means "keep the design
+  colour". Seeding one freezes the design.
+- **`es_show_news`** — blank/false = section hidden, which is the intended state.
+- **`es_partners_logos`** — the wordmark fallback *is* the design.
+- **`haas_brand_logo`, `cta_image`** — theme-bundled image defaults.
+- **`mcs_cta_body`, `app_cta_body`** — the template default is deliberately empty.
+
+The audit prints these categories; read its output rather than only the counts.
+
+**Gotchas the audit has already caught:**
+
+- Duplicate published pages sharing a slug (e.g. `rotary-repair` #194 and #1484). Only the
+  one `get_page_by_path()` resolves to is reachable — the audit skips the orphaned twin
+  rather than reporting phantom gaps.
+- Passing a field **name** where `update_field()` expects a **key** silently writes junk
+  meta (e.g. `field_cta_call_label`) that nothing reads, and the audit still reports the
+  field as blank. **If a seed reports success but the audit disagrees, check the key.**
+
 ## Stack
 
 - Pure HTML5 / CSS3 (custom properties) / vanilla JS (ES6)
