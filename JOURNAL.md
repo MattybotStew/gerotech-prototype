@@ -2,6 +2,22 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — "Solutions" now orange in the MCS hero (Claude)
+
+Client: the Machine Custom Solutions hero h1 should show "Solutions" in brand orange. Committed `0752f4c`, live on Local + Dev.
+
+**This needed no new field** — it's the accent functionality added earlier the same day. Only the default and the stored value changed:
+- Template default: `mcs_hero_main` → `'Custom <em>Solutions</em>'`.
+- Prototype: `<span class="accent">Solutions</span>` inside `.mcs-name-split__main`, matching the convention the ES hero already uses.
+
+**The stored value had to be updated on both environments** — a stored `mcs_hero_main` beats the code default, so the template change alone would have shown nothing. Both now hold `Custom <em>Solutions</em>`.
+
+**`mcs_hero_accent_color` was deliberately left BLANK.** Blank resolves to the template default `orange`; seeding it would freeze the design colour, which is the trap the standing rule warns about. Confirmed stored as `''` on both.
+
+**Verified:** h1 emits `<span class="accent">Solutions</span>`; computed colour **rgb(243, 138, 44)** on prototype, Local and Dev; the breadcrumb still reads plain "Machine Custom Solutions"; no literal `<em>` leaks; 0 PHP warnings; Dev in sync with the repo.
+
+That breadcrumb check is not ceremony — it is precisely the bug that surfaced when accent support was first added to this hero (the breadcrumb was escaping the headline and printing `Custom &lt;em&gt;Solutions&lt;/em&gt;`). Worth re-checking on every accent-word change.
+
 ## 2026-09-22 — Remaining hardcoded copy made ACF-editable; MCS hero matches the homepage (Claude)
 
 Client: *"i need everything that should be editable using ACF and the hero h1 needs the same functionality as the homepage."* Committed `e3a3745`, deployed and seeded on Local **and** Dev.

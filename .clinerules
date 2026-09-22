@@ -4,12 +4,12 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — remaining hardcoded copy is now ACF-editable; MCS hero H1 matches the homepage)
+**Last Updated:** 2026-09-22 (Claude — "Solutions" is now orange in the MCS hero; uses the accent field added earlier the same day)
 **Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** `e3a3745` (ACF editability pass) — pushed; `origin/master` 0 ahead / 0 behind.
+**Last Commit:** `0752f4c` (MCS hero accent) — pushed; `origin/master` 0 ahead / 0 behind.
 **Uncommitted:** docs only.
-**Deployed:** all MCS-page image work plus this ACF pass are live on **Local + Dev**, both seeded. Post-deploy audit: **13 Local + 13 Dev pages 200 / 0 PHP warnings**, Dev theme in sync with the repo.
+**Deployed:** MCS hero shows "Machine Custom" white + "Solutions" brand orange on Local + Dev (`mcs_hero_main` = `Custom <em>Solutions</em>`, accent colour left blank so it resolves to orange). MCS page imagery, the ACF editability pass and the rotary field-group location fix are all live on both. Audit: Local 279/291, Dev 278/291 applied — every remaining blank is an intentional one listed above.
 
 ### ACF coverage — what is editable now (2026-09-22)
 Every template reads through ACF. Newly added this pass:
