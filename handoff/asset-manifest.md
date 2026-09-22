@@ -28,6 +28,7 @@
 | `mcs-gallery/custom-workholding.jpg` (1012×1800, 420KB — client fixture holding a welded subframe, from Figma node `7196:3332`, 2026-09-22) | MCS "Custom Workholding" service card |
 | `app-troubleshooting.jpg`, `app-tooling.jpg`, `app-demo.jpg` (1600px — bundled stand-ins, 2026-09-22) | Applications gallery collections (cover + lightbox) AND the matching service cards |
 | `hmi-design.jpg` (1600×746, 398KB — **client photo**, 2026-09-22) | Automation **HMI Design** card — Gerotech operator HMI screen |
+| `layered-controls.jpg` (1600×800, 172KB — **client graphic**, 2026-09-22) | Automation **Layered Controls Solutions** card — the 3-layer architecture diagram |
 | `app-gallery-milling-coolant.jpg`, `app-gallery-turning-large.jpg`, `app-gallery-turning-drill.jpg` (1600px, 220–272KB — **client photos**, 2026-09-22) | Applications **Part Programming** gallery collection (in-machine milling and turning shots) |
 | `app-optimization.jpg` (1600×745, 194KB — **client graphic**, 2026-09-22) | Applications **Process Optimization** card + gallery. Branded cycle diagram: cycle-time reduction / part quality / tooling performance. |
 | `app-training.jpg` (1600×745, 271KB — **real client photo**, 2026-09-22) | Applications **Training** card + its gallery collection. Client shot of a Gerotech instructor walking a customer through a Haas control. |
