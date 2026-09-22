@@ -2,6 +2,18 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Custom Workholding card gets the client's fixture photo (Claude)
+
+Client pointed at Figma node `7196:3332` ("Button dialog") → the **Custom Workholding** service card. Swapped its photo.
+
+- **Asset:** `assets/images/mcs-gallery/custom-workholding.jpg` — **new file**, not an overwrite. The old `custom-fixtures.jpg` is still used by the MCS **gallery collection** "Custom Fixture Design" (cover + lightbox), so replacing the file in place would have silently changed that too, and its alt text ("Row of custom aluminum fixture plates") would have become wrong. 1012×1800, 420KB, from the client's 2250×4000 PNG via `sips` q82.
+- **Prototype + theme default:** card image → the new file, alt corrected to describe the photo.
+- **Seeded on both:** Local attachment **3474**, Dev **3473** (`mcs_cards_5_image`), because the stored repeater rows win.
+
+**Crop check that mattered:** the source is portrait (aspect 0.563) and the card box is landscape (~2.15), so `object-fit: cover` shows only a **26% vertical band, centred (37%–63%)**. That looked risky for a portrait shot, so I simulated the exact crop with `sips -c 472 1012` before committing to it, and it frames the fixture and subframe perfectly — matching Figma's own 560×275 crop (also a ~27% centred band). No `object-position` override needed. Worth repeating for any portrait artwork going into these landscape cards.
+
+**Verified on Local + Dev:** card renders the new photo, image serves 200 `image/jpeg` (419,901 bytes), the gallery still references `custom-fixtures.jpg` (2 refs), page has 0 Unsplash refs, grid is 1 video + 7 images.
+
 ## 2026-09-22 — Specialty Machine card gets the client's Haas ST-45 photo (Claude)
 
 Client pointed at Figma node `7196:3348` ("Button dialog") and said "replace thumbnail with this image". That node is the **Specialty Machine** service card, so the card's Unsplash stand-in (`photo-1655393001768`) is retired.

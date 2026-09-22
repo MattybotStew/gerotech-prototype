@@ -4,12 +4,20 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — Specialty Machine card now uses the client's Haas ST-45 photo from Figma; MCS page is now stand-in free)
+**Last Updated:** 2026-09-22 (Claude — Custom Workholding card photo updated from Figma; card now differs from the gallery collection that shares the old file)
 **Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** `3283226` (Auto Doors video card) — pushed; `origin/master` 0 ahead / 0 behind.
-**Uncommitted:** Specialty Machine image (`mcs-gallery/specialty-machine.jpg`, prototype + theme default) and doc updates.
-**Deployed:** news park live on **Local + Dev**. ES CTA photo live (Local 3470, Dev 3469). MCS hero live (page 1250; Local 3471, Dev 3470). Auto Doors card video live (page 1250 row 3; Local 3472, Dev 3471). Specialty Machine card image live (page 1250 row 7; Local 3473, Dev 3472). Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+**Last Commit:** `232b46e` (Specialty Machine image) — pushed; `origin/master` 0 ahead / 0 behind.
+**Uncommitted:** Custom Workholding image (`mcs-gallery/custom-workholding.jpg`, prototype + theme default) and doc updates.
+**Deployed:** MCS page 1250 — news park, ES CTA photo (L 3470/D 3469), MCS hero (L 3471/D 3470), Auto Doors card video (L 3472/D 3471), Specialty Machine card (L 3473/D 3472), Custom Workholding card (L 3474/D 3473). Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+
+### MCS card artwork — source of truth
+Cards take their photo from the **stored `mcs_cards` ACF rows**, not the template default array, so every image change needs a media import + `mcs_cards_<i>_image` update on Local *and* Dev. Current row order: 0 Column Risers, 1 Safety & Environmental, 2 Sheet Metal, 3 Auto Doors (video, row also has a `video` sub-field), 4 Hydraulic–Pneumatics, 5 Custom Workholding, 6 Process Engineering, 7 Specialty Machine.
+
+**`custom-fixtures.jpg` and `custom-workholding.jpg` are deliberately different photos** — the former is now only the gallery collection "Custom Fixture Design" cover/lightbox, the latter is the service card. Don't collapse them.
+
+### Portrait artwork in landscape cards
+The MCS cards are 275px tall and landscape (~2.15), so `object-fit: cover` shows only a **~26% centred vertical band** of a portrait source. Preview the crop before assuming it works — `sips -c <h> <w>` reproduces it exactly (e.g. `sips -c 472 1012` for a 1012-wide asset).
 
 ### Figma access from this session
 No Figma MCP is available here, but `~/.figma_token` exists — use the REST API directly: `/v1/files/:key/nodes?ids=<a:b>` to identify a node, read an IMAGE fill's `imageRef`, then `/v1/files/:key/images` to resolve the original. `/v1/images/:key?ids=…&format=png&scale=2` renders any node to a PNG for visual checking. File key `YgHwqyyFj57c1ZSbmfkL0c`.

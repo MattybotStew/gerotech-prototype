@@ -61,7 +61,7 @@ $cards        = $pick(
 		),
 		array(
 			'title'  => 'Custom Workholding',
-			'image'  => 'assets/images/mcs-gallery/custom-fixtures.jpg',
+			'image'  => 'assets/images/mcs-gallery/custom-workholding.jpg',
 			'detail' => '<p>Purpose-built fixtures designed for your specific part — improving repeatability, reducing setup time, and enabling automation-ready production.</p>',
 		),
 		array(
