@@ -5,11 +5,11 @@
 
 ## Current Session State
 
-**Last Updated:** 2026-09-22 (Cline — Fire Suppression + RFID removed from the WP **build** too: template defaults + Local/Dev ACF rows; Dev theme re-verified zero drift. See JOURNAL.md)
-**Active Agent:** Cline + opencode — **concurrent**: another agent is editing prototype HTML + theme copy in the working tree right now
+**Last Updated:** 2026-09-22 (opencode — committed + pushed the consolidated session work; working tree clean; Dev == `master`)
+**Active Agent:** opencode
 **Branch:** `master`
-**Last Commit:** `1962f89` Add client-editable hero accent and button colours to interior pages (pushed — in sync with `origin/master`)
-**Uncommitted:** prototype Applications removal (`application.html`) · `scripts/remove-apps-fire-suppression-rfid.php` · `scripts/design-stack.sh` · `.vscode/*`, `.gitignore` · this `.clinerules`/`JOURNAL.md` — **plus another agent's in-flight `Get a Quote` → `Talk to an Engineer` copy change** across prototype HTML + theme (`header.php`, ES/Apps/MCS/Automation templates). That copy change is **not committed but is already live on Dev** (carried there by this session's theme rsync) — commit it or Dev ≠ `master`.
+**Last Commit:** `614d038` Remove Apps Fire Suppression/RFID; rename CTA to Talk to an Engineer; add partner logos; vendor design-stack tooling (pushed — in sync with `origin/master` and with Dev)
+**Uncommitted:** none — working tree clean.
 
 ### 2026-09-22 session (Cline — Applications: Fire Suppression + RFID removed from the BUILD, not just the prototype)
 
