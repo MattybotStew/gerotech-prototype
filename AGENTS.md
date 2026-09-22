@@ -79,12 +79,23 @@ The audit prints these categories; read its output rather than only the counts.
 
 **Gotchas the audit has already caught:**
 
-- Duplicate published pages sharing a slug (e.g. `rotary-repair` #194 and #1484). Only the
-  one `get_page_by_path()` resolves to is reachable — the audit skips the orphaned twin
-  rather than reporting phantom gaps.
+- **Never compare bare slugs on a hierarchical site.** `rotary-repair` (#1484, at
+  `/rotary-repair/`) and `service/rotary-repair` (#194, at `/service/rotary-repair/`)
+  are **two different pages, both live and both 200**. Comparing slugs made #194 look
+  like an unreachable duplicate of #1484 and nearly got a live URL trashed. Compare
+  full paths with `get_page_uri()`.
+- **Locate field groups by `page_template`, not `post_name`, when a slug is not
+  unique.** `group_rotary_content` matched `post_name == 'rotary-repair'` and so
+  appeared on `/service/rotary-repair/` — a page running `page-service.php` that never
+  reads those nine fields. Editors saw controls that did nothing.
 - Passing a field **name** where `update_field()` expects a **key** silently writes junk
   meta (e.g. `field_cta_call_label`) that nothing reads, and the audit still reports the
   field as blank. **If a seed reports success but the audit disagrees, check the key.**
+
+**The 2017-era Service sub-pages are LIVE, not leftovers.** `submit-a-request`,
+`parts-order`, `rotary-repair`, `preventive-maintenance-plan` and `application-support`
+all still exist as children of Service (#20) and resolve under `/service/…`. They run
+`page-service.php`. Do not delete them without checking with the client.
 
 ## Stack
 

@@ -46,7 +46,13 @@ Registering a field only makes the **front end** render its template default; th
 
 **Blanks that are correct — never "fix" these:** all `*_hero_accent_color` / `*_hero_cta_color` (blank = keep the design colour), `es_show_news` (blank = hidden), `es_partners_logos` (wordmark fallback is the design), `haas_brand_logo` / `cta_image` (theme-bundled), `mcs_cta_body` / `app_cta_body` (deliberately empty).
 
-**Two traps the audit already caught:** (a) environments have duplicate published pages sharing a slug (`rotary-repair` #194 vs #1484) — only the one `get_page_by_path()` resolves to is reachable, don't seed the orphan; (b) `update_field()` with a field **name** instead of a **key** silently writes junk meta and the field still reads blank — if a seed says "set" but the audit disagrees, check the key.
+**Three traps the audit already caught:**
+
+1. **Never compare bare slugs — the site is hierarchical.** `rotary-repair` (#1484 → `/rotary-repair/`) and `service/rotary-repair` (#194 → `/service/rotary-repair/`) are **two different pages, both live, both 200**. Comparing slugs made #194 look like an unreachable duplicate and nearly got a live URL trashed. Compare full paths with `get_page_uri()`. **Nothing was deleted.**
+2. **Locate field groups by `page_template`, not `post_name`, when a slug is not unique.** `group_rotary_content` used `post_name == 'rotary-repair'` and so appeared on `/service/rotary-repair/` — a page running `page-service.php` that never reads those nine fields. Editors saw controls that did nothing.
+3. `update_field()` with a field **name** instead of a **key** silently writes junk meta (`field_cta_call_label`) that nothing reads, while still reporting success — if a seed says "set" but the audit disagrees, check the key.
+
+**The 2017-era Service sub-pages are LIVE:** `submit-a-request`, `parts-order`, `rotary-repair`, `preventive-maintenance-plan`, `application-support` all still resolve under `/service/…` and run `page-service.php`. Do not delete them without asking the client.
 
 ### Figma access from this session
 No Figma MCP is available here, but `~/.figma_token` exists — use the REST API directly: `/v1/files/:key/nodes?ids=<a:b>` to identify a node, read an IMAGE fill's `imageRef`, then `/v1/files/:key/images` to resolve the original. `/v1/images/:key?ids=…&format=png&scale=2` renders any node to a PNG for visual checking. File key `YgHwqyyFj57c1ZSbmfkL0c`.
