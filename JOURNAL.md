@@ -2,6 +2,16 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Machine Custom Solutions hero gets the client's machining-center photo (Claude)
+
+Client supplied a photo of a 5-axis machining center interior (trunnion rotary fixture holding a large workpiece) for the **Machine Custom Solutions** hero background — the stand-in `photo-1727292485858` is retired.
+
+- **Assets:** `assets/images/mcs-hero.jpg` (1920×1280, 444KB) + `mcs-hero@2x.jpg` (2560×1706, 660KB), converted from the client's 2508×1672 WebP via `sips` (q82/q78).
+- **Prototype:** `machine-custom-solutions.html` page-hero now uses the local file with `srcset` (1920w/2560w) + `sizes="100vw"`; `fetchpriority="high"` added to match the ES hero. Alt corrected from "CNC machine on shop floor" to describe the actual subject.
+- **Theme:** assets synced into `gerotech-child/assets/images/` so the image ships with the next push — but note **there is no `page-machine-custom-solutions.php` template**, so nothing in WordPress consumes it yet (this is also why `gerotechdev.wpenginepowered.com/machine-custom-solutions/` 404s — the WP page does not exist; on Dev this content is split across `modification-of-standard-machine-tools`, `custom-workholding-and-tooling`, `engineering-process-optimization`).
+- **Verified:** rendered the hero standalone at 1440 / 1920 / 500. Section is a clean 500px (`min-height`) at every width, the `srcset` picks the viewport-appropriate candidate, and `scrollWidth == clientWidth` at all three (no overflow).
+- **Naming watch:** the page heading and breadcrumb say **"Machine Custom Solutions"**, the client and the nav/mega-menu say **"Machine Customization(s)"**. This is the known unresolved naming decision — I did not rename anything.
+
 ## 2026-09-22 — ES bottom CTA gets the client's FANUC rail-robot photo (Claude)
 
 Client supplied a photo of a FANUC robot on an overhead rail system (`RAILSYS001`, "RAILCAPACITY 15" visible) to use as the Engineered Solutions bottom CTA band background — the last Unsplash stand-in on that page.

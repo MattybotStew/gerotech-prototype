@@ -23,6 +23,7 @@
 |---|---|
 | `es-hero.jpg` (500KB — was a 2.8MB PNG, converted 2026-09-21) | ES page-hero |
 | `cta-engineered-solutions.jpg` + `@2x` (484KB / 740KB — client FANUC rail-robot photo, 2026-09-22) | ES bottom CTA band |
+| `mcs-hero.jpg` + `@2x` (444KB / 660KB — client 5-axis machining-center interior, 2026-09-22) | Machine Custom Solutions page-hero — **prototype only**, no WP template exists yet |
 | `automation-hero.jpg` | Automation page-hero |
 | `automation-cell-design.jpg` | Automation service card |
 | `robot-eoat.jpg` | Automation service card |
@@ -42,7 +43,7 @@
 |---|---|
 | `index.html` | 2 |
 | `engineered-solutions.html` | **0 ✅** |
-| `machine-custom-solutions.html` | 3 |
+| `machine-custom-solutions.html` | 2 |
 | `automation-integration.html` | 4 |
 | `application.html` | 17 |
 | `training.html` | 6 |

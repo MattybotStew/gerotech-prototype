@@ -4,12 +4,12 @@
 ---
 
 ## Current Session State
-**Last Updated:** 2026-09-22 (Claude — ES bottom CTA band now uses the client's FANUC rail-robot photo; last Unsplash stand-in on ES retired)
+**Last Updated:** 2026-09-22 (Claude — ES bottom CTA + Machine Custom Solutions hero now use client photos; both were the last Unsplash stand-ins in those slots)
 **Active Agent:** Claude
 **Branch:** `master`
-**Last Commit:** `1cf731f` + `95311e3` (news park, then docs) — pushed; `origin/master` 0 ahead / 0 behind.
-**Uncommitted:** ES CTA image swap (`engineered-solutions.html`, `page-engineered-solutions.php`, new `assets/images/cta-engineered-solutions.jpg` + `@2x`) plus the doc corrections listed below.
-**Deployed:** news park live on **Local + Dev**. ES CTA photo live on **Local + Dev** (Local attachment 3470, Dev 3469) — the theme push alone does not change it, because both environments store their own `es_cta_image` id; the media import + meta update is the step that matters. Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
+**Last Commit:** `1a93b17` + `6345138` (ES CTA photo, session state) — pushed; `origin/master` 0 ahead / 0 behind.
+**Uncommitted:** MCS hero image (`machine-custom-solutions.html`, new `assets/images/mcs-hero.jpg` + `@2x`) and its doc updates.
+**Deployed:** news park live on **Local + Dev**. ES CTA photo live on **Local + Dev** (Local attachment 3470, Dev 3469) — the theme push alone does not change it, because both environments store their own `es_cta_image` id; the media import + meta update is the step that matters. MCS hero is **prototype only** — there is no `page-machine-custom-solutions.php` template and no WP page, so the synced asset is unused in WordPress for now. Post-deploy Dev audit: **22 pages 200 / 0 PHP warnings**.
 **Known non-blocker:** parent theme `gerotech/functions.php:13` ("Undefined variable $arguments") warns under WP-CLI only — **not** visible on any web page (confirmed on cache-busted URLs). Parent theme is not in this repo.
 
 ### Homepage hero colour selects — no ACF defaults (2026-09-22, commit `94332cd`)
