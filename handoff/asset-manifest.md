@@ -26,7 +26,8 @@
 | `mcs-hero.jpg` + `@2x` (444KB / 660KB — client 5-axis machining-center interior, 2026-09-22) | Machine Custom Solutions page-hero — in WP this hero is rendered by **`page-modification-of-standard-machine-tools.php`** (ACF `mcs_hero_image`), i.e. `/modification-of-standard-machine-tools/` on Dev, which displays the "Machine Custom Solutions" headline |
 | `mcs-gallery/specialty-machine.jpg` (1920×670, 245KB — client Haas ST-45 + bar feeder, from Figma node `7196:3348`, 2026-09-22) | MCS "Specialty Machine" service card |
 | `mcs-gallery/custom-workholding.jpg` (1012×1800, 420KB — client fixture holding a welded subframe, from Figma node `7196:3332`, 2026-09-22) | MCS "Custom Workholding" service card |
-| `app-troubleshooting.jpg`, `app-optimization.jpg`, `app-tooling.jpg`, `app-demo.jpg`, `app-training.jpg` (1600px, 200–392KB — bundled stand-ins, 2026-09-22) | Applications gallery collections (cover + lightbox) AND the matching service cards |
+| `app-troubleshooting.jpg`, `app-optimization.jpg`, `app-tooling.jpg`, `app-demo.jpg` (1600px — bundled stand-ins, 2026-09-22) | Applications gallery collections (cover + lightbox) AND the matching service cards |
+| `app-training.jpg` (1600×745, 271KB — **real client photo**, 2026-09-22) | Applications **Training** card + its gallery collection. Client shot of a Gerotech instructor walking a customer through a Haas control. |
 | `app-hero.jpg` (1920×1280, 416KB) · `app-cta.jpg` (1920×1204, 532KB) — bundled stand-ins, 2026-09-22 | Applications hero + CTA band |
 | `mcs-gallery/custom-fixtures.jpg` (1350×1800 — fixture plates on the floor) | MCS **gallery collection** "Custom Fixture Design" (cover + lightbox) — no longer the service card |
 | `automation-hero.jpg` | Automation page-hero |
@@ -63,6 +64,8 @@
 | **Total** | **45** |
 
 `engineered-solutions.html` and `application.html` are now fully local. Applications was the last page on the **live** site depending on someone else's servers — its five gallery collections (cover + lightbox) were on Unsplash while its cards were already local media attachments, so the fix was the gallery, not the cards. Bundled as `app-{troubleshooting,optimization,tooling,demo,training}.jpg` plus `app-hero.jpg` / `app-cta.jpg`; the stored rows were rewritten by `scripts/localize-applications-gallery.php`.
+
+**Why `app-training.jpg` is landscape when the other gallery assets are portrait:** the client supplied a portrait shot whose subjects (faces, pointing hand, control panel) sit in the **upper** third. These cards are landscape (~2.15), and `object-fit: cover` crops the middle 35% — which cut both faces off. The asset is therefore pre-cropped to 2.146, framed on the subjects, rather than left portrait. Check the crop on any portrait photo going into these cards: `sips -c <h> <w>` reproduces it.
 
 **`machine-custom-solutions.html` has one left:** `photo-1666634157070` on the **Process Engineering** service card (also still the fallback in the `mcs_cards` default array in `page-modification-of-standard-machine-tools.php`). Every other MCS card is real client art. Worth asking the client for a Process Engineering photo.
 
