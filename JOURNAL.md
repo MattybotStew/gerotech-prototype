@@ -2,6 +2,17 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-22 — Orphaned hero attachments deleted on Local + Dev (Cline)
+
+Removed the two retired hero uploads left over from the 2026-09-21 hero-art swap:
+
+- **Local:** `hero-campus-vans.jpg` (attachment **3466**) and `es-hero.png` (**3429**) — both DB rows and upload files deleted.
+- **Dev:** `hero-campus-vans.jpg` was already absent (never imported there); `es-hero.png` (**3429**) deleted. Caches flushed.
+- **Verified orphaned before deleting:** a reference scan (postmeta-by-ID, posts content, non-attachment postmeta, options) found the only "references" were the attachments' **own** meta — `_wp_attached_file`, `_wp_attachment_metadata`, and the `_gerotech_src` import marker. Self-meta must be excluded from the scan or the deletion script flags everything as referenced.
+- **Verified after:** active heroes still serve (`hero-slide-1.jpg` + `@2x`, `es-hero.jpg` + WP-generated sizes on Dev); 0 page-HTML references to the deleted filenames; home + ES + Automation all 200 on both environments.
+- Reusable script kept at `/tmp/delete-orphaned-media.php` (dry-run by default, `GEROTECH_DELETE=1` or `--delete` to act) — not added to the repo's `scripts/` since it's a one-off cleanup, not part of the build flow.
+
+
 ## 2026-09-22 — Commit + Dev deploy of the Automation gallery trim (Cline)
 
 - Committed and pushed the previously-uncommitted Cursor gallery trim **plus** the unpushed `f8ef395` (HMI screens + layered controls) — `master` is now `f7292fa`, level with `origin/master`.
