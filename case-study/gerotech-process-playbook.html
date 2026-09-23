@@ -124,6 +124,7 @@
 
     .slide--dark .lede { color: #D9D9E0; }
     .body-text { font-size: clamp(14px, 1vw, 16px); line-height: 1.6; color: var(--clr-gray-body); }
+    .slide--dark .body-text { color: #CFCFD8; }
     strong { color: var(--clr-ink); font-weight: 700; }
     .slide--dark strong { color: var(--clr-white); }
 
@@ -348,6 +349,9 @@
       font-family: var(--font-display); font-weight: 600;
       font-size: clamp(19px, 1.5vw, 25px); margin: 0 0 12px; color: var(--clr-ink);
     }
+
+    /* headings sit on the dark close slide too */
+    .slide--dark .split__head { color: var(--clr-white); }
 
     /* ── Deck chrome ───────────────────────────────────────── */
 
