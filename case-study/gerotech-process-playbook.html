@@ -366,7 +366,6 @@
     }
 
     body.sheet-mode .brand { opacity: 0; }
-    .slide--dark .brand { color: rgba(255,255,255,.55); }
 
     .counter {
       font-family: var(--font-display); font-weight: 600; font-size: 14px;
@@ -374,8 +373,6 @@
     }
 
     .counter__now { color: var(--clr-ink); font-weight: 700; }
-    .slide--dark .counter { color: rgba(255,255,255,.55); }
-    .slide--dark .counter__now { color: #fff; }
 
     .nav { display: flex; gap: 9px; pointer-events: auto; }
 
@@ -390,7 +387,15 @@
     .nav button:hover { background: var(--clr-ink); color: #fff; border-color: var(--clr-ink); }
     .nav button:focus-visible { outline: 2px solid var(--clr-orange); outline-offset: 2px; }
     .hint { font-size: 11.5px; color: var(--clr-gray-muted); }
-    .slide--dark .hint { color: rgba(255,255,255,.5); }
+
+    /* The chrome sits outside the slides, so dark-slide legibility is driven by a
+       body class rather than a .slide--dark descendant selector. */
+    body.dark-mode .brand { color: rgba(255,255,255,.55); }
+    body.dark-mode .counter { color: rgba(255,255,255,.55); }
+    body.dark-mode .counter__now { color: #fff; }
+    body.dark-mode .hint { color: rgba(255,255,255,.5); }
+    body.dark-mode .nav button { color: #fff; border-color: rgba(255,255,255,.3); }
+    body.dark-mode .nav button:hover { background: #fff; color: var(--clr-ink); border-color: #fff; }
 
     .progress { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--clr-orange); width: 0; z-index: 20; transition: width .25s ease; }
 
@@ -860,6 +865,8 @@
 
     // Figure slides carry their own header, so quiet the deck brand.
     document.body.classList.toggle('sheet-mode', slides[index].classList.contains('slide--sheet'));
+    // Keep the chrome legible over dark slides (the chrome lives outside the slides).
+    document.body.classList.toggle('dark-mode', slides[index].classList.contains('slide--dark'));
 
     counterNow.textContent = pad(index + 1);
     progress.style.width = ((index + 1) / total * 100) + '%';
