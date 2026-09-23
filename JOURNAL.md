@@ -2,6 +2,29 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-23 — Playbook restructured as the 8-phase process (DSH)
+
+Matt redefined the story: the deck now follows the **engagement lifecycle** — kickoff/discovery → sitemap → wireframes → **design built in code, not Figma** → iterate between code and the design file → review → convert to WordPress (native editor + ACF, no builder) → hand off a designed front end to dev for complex functionality.
+
+- **`case-study/gerotech-process-playbook.html`** — now **20 slides**, 16 images. Eight-phase spine plus two cross-cutting slides (style guide, shared brief), a **licence-payoff slide**, checklist, roadblocks, outcomes, ask.
+- **New visuals (all real):**
+  - **Wireframe** — node `6147:2346` (`gerotech-engineered-solutions-tabbed-wireframe`), genuine grey image slots + placeholder copy. ⚠️ **`6217:425` is named "wireframe" but renders as a full-colour design** — do not use it as a wireframe.
+  - **Iteration loop** — working draft beside the Figma file (`7306:1063`).
+  - **Discovery** — the live-site audit findings and what each one changed.
+  - **Sitemap** — IA diagram from the real nav structure.
+- **Repointed the existing one-pagers** from "Step N ·" to phase-neutral eyebrows so they don't clash with phase numbering.
+- **Licence claim — deliberate wording (Matt-approved):** *no page-builder licence, no commercial theme licence; one plugin licence (ACF Pro) replaces both.* Explicitly **not** "zero licences" and **not** "no themes" — the build is a child theme of the client's existing bespoke parent, and ACF Pro is licensed. The speaker notes carry the exact wording plus the parent-theme answer.
+- **Correction to the build description:** the PM handoff plan *recommended* Gutenberg + ACF Blocks; what actually shipped is **ACF fields rendered by PHP templates** on a child theme (the plan's own §1 heading). The deck says "WordPress's native editor plus structured fields" accordingly.
+- **Bug fixed:** the sheet generator wrote doubled CSS braces into a non-f-string BASE, silently dropping `.note`/`.shot` rules. Corrected and both sheets regenerated.
+- **Verified:** 20 slides / 20 notes, tag balance clean, 16 image refs all resolve, no orphans; renders confirmed for the phase map, phase 4, phase 8 and the payoff slides.
+
+### GitHub Pages — the deck is public
+
+- Pages was already enabled on this repo (serving `master` root), so the deck publishes automatically:
+  **https://mattybotstew.github.io/gerotech-prototype/case-study/gerotech-process-playbook.html**
+- ⚠️ **Pages serves the whole repo**, not just the deck — `/JOURNAL.md`, `/AGENTS.md`, `/docs/PROJECT_BRIEF.md`, `/cline-project-handoff.md` and the theme PHP all return 200 (`.clinerules` 404s, dotfiles excluded). The GitHub repo was already public, so this is not new exposure, but the Pages URLs are easier to find. Fix if it matters: private repo + a separate public repo holding only `case-study/`.
+- **Fixed a capture artifact that had gone public:** the client-controls screenshot's admin bar read "Howdy, gerotech-shotbot" (the temp capture account). The admin bar is now clipped out of the figure.
+
 ## 2026-09-23 — Process playbook rebuilt as a visual how-to (DSH)
 
 Leadership-facing deliverable, entirely outside the prototype/theme build — **no site files touched**.

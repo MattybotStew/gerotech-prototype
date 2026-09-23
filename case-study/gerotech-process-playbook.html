@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to Run a Prototype-First Build — CloudMellow Process Playbook</title>
-  <meta name="description" content="A nine-step how-to for design-to-build projects, taught from the Gerotech website redesign." />
+  <title>From Kickoff Call to Dev-Ready Build — CloudMellow Process Playbook</title>
+  <meta name="description" content="The CloudMellow process: discovery, sitemap, wireframes, design built in code, iteration with the design file, then conversion to WordPress with the native editor and ACF." />
 
   <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
-       CLOUDMELLOW PROCESS PLAYBOOK — how-to edition
+       CLOUDMELLOW PROCESS PLAYBOOK — phase model
        Built on the project's own design system (tokens + type).
        ============================================================ */
 
@@ -72,17 +72,11 @@
     .slide--dark { background: var(--clr-dark-bg); color: var(--clr-white); }
     .slide--card { background: var(--clr-gray-card); }
 
-    /* figure slides carry their own header */
     .slide--sheet { padding: clamp(30px, 3.6vh, 48px) var(--gutter) clamp(52px, 6.6vh, 76px); }
-    .slide--sheet .sheetimg {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .slide--sheet .sheetimg { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
     .slide--sheet .sheetimg img {
-      max-width: 100%; max-height: 100%;
-      width: auto; height: auto;
-      display: block;
-      box-shadow: 0 10px 40px rgba(0,0,0,.10);
+      max-width: 100%; max-height: 100%; width: auto; height: auto;
+      display: block; box-shadow: 0 10px 40px rgba(0,0,0,.10);
     }
 
     .slide__inner { width: 100%; max-width: var(--max); margin: 0 auto; }
@@ -92,9 +86,7 @@
     .eyebrow {
       margin: 0 0 14px;
       font-size: clamp(11px, 0.8vw, 12.5px);
-      font-weight: 700;
-      letter-spacing: var(--ls-caps);
-      text-transform: uppercase;
+      font-weight: 700; letter-spacing: var(--ls-caps); text-transform: uppercase;
       color: var(--clr-orange-deep);
     }
 
@@ -103,23 +95,17 @@
     .headline-rule { width: 48px; height: 4px; background: var(--clr-orange); margin: 0 0 20px; }
 
     h1.slide__title, h2.slide__title {
-      font-family: var(--font-display);
-      font-weight: 600;
+      font-family: var(--font-display); font-weight: 600;
       font-size: clamp(34px, 3.7vw, 58px);
-      line-height: 1.03;
-      letter-spacing: -0.012em;
-      margin: 0 0 16px;
-      max-width: 26ch;
+      line-height: 1.03; letter-spacing: -0.012em;
+      margin: 0 0 16px; max-width: 26ch;
     }
 
     .slide__title .accent { color: var(--clr-orange); }
 
     .lede {
-      font-size: clamp(15px, 1.15vw, 18px);
-      line-height: 1.55;
-      color: var(--clr-gray-body);
-      max-width: 74ch;
-      margin: 0 0 16px;
+      font-size: clamp(15px, 1.15vw, 18px); line-height: 1.55;
+      color: var(--clr-gray-body); max-width: 74ch; margin: 0 0 16px;
     }
 
     .slide--dark .lede { color: #D9D9E0; }
@@ -133,19 +119,11 @@
     .bullets { list-style: none; margin: 0; padding: 0; }
 
     .bullets li {
-      position: relative;
-      padding: 0 0 0 26px;
-      margin: 0 0 12px;
-      font-size: clamp(14px, 1.02vw, 16px);
-      line-height: 1.5;
-      color: var(--clr-gray-body);
+      position: relative; padding: 0 0 0 26px; margin: 0 0 12px;
+      font-size: clamp(14px, 1.02vw, 16px); line-height: 1.5; color: var(--clr-gray-body);
     }
 
-    .bullets li::before {
-      content: ""; position: absolute; left: 0; top: 0.6em;
-      width: 13px; height: 3px; background: var(--clr-orange);
-    }
-
+    .bullets li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 13px; height: 3px; background: var(--clr-orange); }
     .bullets li strong { color: var(--clr-ink); }
     .slide--dark .bullets li { color: #CFCFD8; }
     .slide--dark .bullets li strong { color: var(--clr-white); }
@@ -153,85 +131,46 @@
     /* ── Step layout: figure + guide ───────────────────────── */
 
     .stepgrid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr);
-      gap: clamp(26px, 3.2vw, 48px);
-      align-items: start;
+      display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr);
+      gap: clamp(26px, 3.2vw, 48px); align-items: start;
     }
 
     .shot { background: #fff; border: 1px solid var(--clr-gray-border); overflow: hidden; }
     .shot img { display: block; width: 100%; height: auto; }
     .shot figcaption {
       font-size: 11.5px; color: var(--clr-gray-muted);
-      padding: 8px 12px; border-top: 1px solid var(--clr-gray-border);
-      letter-spacing: 0.02em;
+      padding: 8px 12px; border-top: 1px solid var(--clr-gray-border); letter-spacing: 0.02em;
     }
 
-    .guide h3 {
-      font-size: 11px; font-weight: 700; letter-spacing: var(--ls-caps);
-      text-transform: uppercase; color: var(--clr-orange-deep);
-      margin: 0 0 14px;
-    }
+    .guide h3 { font-size: 11px; font-weight: 700; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--clr-orange-deep); margin: 0 0 14px; }
 
-    .proof {
-      margin-top: 20px;
-      padding: 14px 16px;
-      background: var(--clr-orange-tint);
-      border-left: 4px solid var(--clr-orange);
-    }
-
-    .proof span {
-      display: block; font-size: 10px; font-weight: 700;
-      letter-spacing: var(--ls-caps); text-transform: uppercase;
-      color: var(--clr-orange-deep); margin-bottom: 6px;
-    }
-
+    .proof { margin-top: 20px; padding: 14px 16px; background: var(--clr-orange-tint); border-left: 4px solid var(--clr-orange); }
+    .proof span { display: block; font-size: 10px; font-weight: 700; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--clr-orange-deep); margin-bottom: 6px; }
     .proof p { margin: 0; font-size: clamp(13px, 0.95vw, 15px); line-height: 1.5; color: var(--clr-ink); }
 
     /* ── Thumb strip ───────────────────────────────────────── */
 
     .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
     .thumbs .shot figcaption { font-size: 10.5px; padding: 6px 9px; }
-
-    /* 2×2 page thumbnails used in place of one large figure */
-    .thumbgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .thumbgrid .shot figcaption { font-size: 10.5px; padding: 6px 9px; }
-
-    /* uniform strip: crops every shot to the same band so mixed aspect ratios line up */
     .thumbs--uniform .shot img { height: 168px; object-fit: cover; object-position: top center; }
 
-    /* ── Step map ──────────────────────────────────────────── */
+    /* ── Phase map ─────────────────────────────────────────── */
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--clr-gray-border);
-      border: 1px solid var(--clr-gray-border);
-      margin-top: clamp(18px, 2.6vh, 30px);
+    .phases {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--clr-gray-border); border: 1px solid var(--clr-gray-border);
+      margin-top: clamp(16px, 2.4vh, 26px);
     }
 
-    .step { background: var(--clr-white); padding: clamp(14px, 1.8vh, 20px) 18px; }
-
-    .step__num {
-      font-family: var(--font-display); font-weight: 700; font-size: 15px;
-      color: var(--clr-orange-deep); letter-spacing: var(--ls-meta);
-      display: block; margin-bottom: 6px;
-    }
-
-    .step__name {
-      font-family: var(--font-display); font-weight: 600;
-      font-size: clamp(17px, 1.3vw, 21px); line-height: 1.15;
-      display: block; margin-bottom: 6px; color: var(--clr-ink);
-    }
-
-    .step__why { font-size: clamp(12px, 0.86vw, 13.5px); line-height: 1.45; color: var(--clr-gray-body); }
+    .phase { background: var(--clr-white); padding: clamp(13px, 1.7vh, 18px) 16px; }
+    .phase__num { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--clr-orange-deep); letter-spacing: var(--ls-meta); display: block; margin-bottom: 6px; }
+    .phase__name { font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 1.25vw, 20px); line-height: 1.15; display: block; margin-bottom: 6px; color: var(--clr-ink); }
+    .phase__why { font-size: clamp(11.5px, 0.82vw, 13px); line-height: 1.45; color: var(--clr-gray-body); }
 
     /* ── Checklist ─────────────────────────────────────────── */
 
     .checklist {
       list-style: none; margin: clamp(14px, 2.2vh, 24px) 0 0; padding: 0;
-      /* fill down column one, then column two — so the order reads naturally */
       display: grid; grid-auto-flow: column;
       grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(5, auto);
       gap: 0 40px;
@@ -243,60 +182,36 @@
       font-size: clamp(13.5px, 1vw, 15.5px); line-height: 1.45; color: var(--clr-ink);
     }
 
-    .checklist li::before {
-      content: ""; position: absolute; left: 0; top: 11px;
-      width: 20px; height: 20px;
-      border: 2px solid var(--clr-orange); background: #fff;
-    }
+    .checklist li::before { content: ""; position: absolute; left: 0; top: 11px; width: 20px; height: 20px; border: 2px solid var(--clr-orange); background: #fff; }
 
     /* ── Data table ────────────────────────────────────────── */
 
     .table-wrap { margin-top: clamp(14px, 2.2vh, 24px); }
-
     table.data { width: 100%; border-collapse: collapse; font-size: clamp(12px, 0.92vw, 14px); line-height: 1.42; }
-
     table.data th {
       text-align: left; font-size: clamp(10px, 0.7vw, 11px); font-weight: 700;
       letter-spacing: var(--ls-meta); text-transform: uppercase; color: var(--clr-gray-body);
       padding: 0 14px 9px 0; border-bottom: 2px solid var(--clr-ink); vertical-align: bottom;
     }
-
-    table.data td {
-      padding: 11px 14px 11px 0; border-bottom: 1px solid var(--clr-gray-border);
-      vertical-align: top; color: var(--clr-gray-body);
-    }
-
+    table.data td { padding: 11px 14px 11px 0; border-bottom: 1px solid var(--clr-gray-border); vertical-align: top; color: var(--clr-gray-body); }
     table.data td:first-child { color: var(--clr-ink); font-weight: 700; }
     .fix { color: var(--clr-ink); }
     .fix__pri { display: inline-block; min-width: 18px; font-weight: 700; color: var(--clr-orange-deep); }
-
     .status {
       display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: var(--ls-meta);
       text-transform: uppercase; padding: 4px 8px; white-space: nowrap;
       background: var(--clr-orange-tint); color: var(--clr-orange-deep);
     }
 
-    /* ── Comparison (step 6) ───────────────────────────────── */
+    /* ── Licence payoff ────────────────────────────────────── */
 
-    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: clamp(16px, 2.4vh, 26px); }
-
-    .route { background: var(--clr-white); border: 1px solid var(--clr-gray-border); padding: 22px 24px; }
-    .route--rejected { background: var(--clr-gray-card); }
-    .route--chosen { border-left: 4px solid var(--clr-orange); }
-
-    .route__tag {
-      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: var(--ls-meta);
-      text-transform: uppercase; padding: 4px 9px; margin-bottom: 12px;
-      background: var(--clr-ink); color: #fff;
-    }
-
-    .route--chosen .route__tag { background: var(--clr-orange); }
-
-    .route h4 { font-family: var(--font-display); font-weight: 600; font-size: clamp(20px, 1.6vw, 26px); margin: 0 0 10px; }
-    .route .cost { font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 3vw, 44px); line-height: 1; margin-bottom: 10px; }
-    .route--rejected .cost { color: var(--clr-gray-muted); }
-    .route--chosen .cost { color: var(--clr-orange-deep); }
-    .route p { font-size: clamp(13px, 0.95vw, 15px); line-height: 1.5; color: var(--clr-gray-body); margin: 0; }
+    .licences { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: clamp(16px, 2.4vh, 26px); }
+    .lic { background: var(--clr-white); border: 1px solid var(--clr-gray-border); padding: 20px 22px; }
+    .lic--kept { border-left: 4px solid var(--clr-orange); }
+    .lic__tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: var(--ls-meta); text-transform: uppercase; padding: 4px 9px; margin-bottom: 12px; background: var(--clr-ink); color: #fff; }
+    .lic--kept .lic__tag { background: var(--clr-orange); }
+    .lic h4 { font-family: var(--font-display); font-weight: 600; font-size: clamp(18px, 1.45vw, 23px); margin: 0 0 8px; color: var(--clr-ink); }
+    .lic p { font-size: clamp(12.5px, 0.92vw, 14.5px); line-height: 1.5; color: var(--clr-gray-body); margin: 0; }
 
     /* ── Callout ───────────────────────────────────────────── */
 
@@ -304,15 +219,10 @@
       display: flex; gap: 16px; align-items: flex-start;
       margin-top: clamp(16px, 2.4vh, 28px);
       padding: clamp(14px, 1.8vh, 20px) clamp(18px, 1.8vw, 26px);
-      background: var(--clr-orange-tint); border-left: 4px solid var(--clr-orange);
-      max-width: 88ch;
+      background: var(--clr-orange-tint); border-left: 4px solid var(--clr-orange); max-width: 92ch;
     }
 
-    .callout__label {
-      flex: none; font-size: 10.5px; font-weight: 700; letter-spacing: var(--ls-caps);
-      text-transform: uppercase; color: var(--clr-orange-deep); padding-top: 3px; white-space: nowrap;
-    }
-
+    .callout__label { flex: none; font-size: 10.5px; font-weight: 700; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--clr-orange-deep); padding-top: 3px; white-space: nowrap; }
     .callout__text { margin: 0; font-size: clamp(14px, 1.05vw, 17px); line-height: 1.45; color: var(--clr-ink); }
     .slide--dark .callout { background: rgba(243,138,44,.14); }
     .slide--dark .callout__text { color: #fff; }
@@ -329,28 +239,13 @@
 
     .stat { background: var(--clr-white); padding: clamp(16px, 2.1vh, 24px) 18px; }
     .slide--card .stat { background: var(--clr-gray-card); }
-
-    .stat__value {
-      font-family: var(--font-display); font-weight: 700;
-      font-size: clamp(26px, 2.6vw, 40px); line-height: 1;
-      letter-spacing: -0.01em; color: var(--clr-ink); display: block; margin-bottom: 7px;
-    }
-
-    .stat__label {
-      font-size: clamp(10px, 0.76vw, 12px); font-weight: 700; letter-spacing: var(--ls-meta);
-      text-transform: uppercase; color: var(--clr-gray-body); line-height: 1.4; display: block;
-    }
+    .stat__value { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 2.6vw, 40px); line-height: 1; letter-spacing: -0.01em; color: var(--clr-ink); display: block; margin-bottom: 7px; }
+    .stat__label { font-size: clamp(10px, 0.76vw, 12px); font-weight: 700; letter-spacing: var(--ls-meta); text-transform: uppercase; color: var(--clr-gray-body); line-height: 1.4; display: block; }
 
     /* ── Two-column split ──────────────────────────────────── */
 
     .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(24px, 3.4vw, 56px); }
-
-    .split__head {
-      font-family: var(--font-display); font-weight: 600;
-      font-size: clamp(19px, 1.5vw, 25px); margin: 0 0 12px; color: var(--clr-ink);
-    }
-
-    /* headings sit on the dark close slide too */
+    .split__head { font-family: var(--font-display); font-weight: 600; font-size: clamp(19px, 1.5vw, 25px); margin: 0 0 12px; color: var(--clr-ink); }
     .slide--dark .split__head { color: var(--clr-white); }
 
     /* ── Deck chrome ───────────────────────────────────────── */
@@ -367,23 +262,16 @@
 
     body.sheet-mode .brand { opacity: 0; }
 
-    .counter {
-      font-family: var(--font-display); font-weight: 600; font-size: 14px;
-      letter-spacing: var(--ls-meta); color: var(--clr-gray-muted); font-variant-numeric: tabular-nums;
-    }
-
+    .counter { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: var(--ls-meta); color: var(--clr-gray-muted); font-variant-numeric: tabular-nums; }
     .counter__now { color: var(--clr-ink); font-weight: 700; }
 
     .nav { display: flex; gap: 9px; pointer-events: auto; }
-
     .nav button {
       font-family: var(--font-sans); font-size: 12px; font-weight: 700;
       letter-spacing: 0.05em; text-transform: uppercase;
       color: var(--clr-ink); background: transparent;
-      border: 1px solid var(--clr-gray-border); padding: 8px 16px;
-      cursor: pointer; transition: 0.2s ease;
+      border: 1px solid var(--clr-gray-border); padding: 8px 16px; cursor: pointer; transition: 0.2s ease;
     }
-
     .nav button:hover { background: var(--clr-ink); color: #fff; border-color: var(--clr-ink); }
     .nav button:focus-visible { outline: 2px solid var(--clr-orange); outline-offset: 2px; }
     .hint { font-size: 11.5px; color: var(--clr-gray-muted); }
@@ -422,18 +310,16 @@
       html, body { overflow: visible; height: auto; }
       .chrome, .progress, .notes { display: none !important; }
       .deck { position: static; height: auto; }
-      .slide {
-        display: flex !important; position: relative; inset: auto;
-        width: 100%; height: 100vh; page-break-after: always; break-after: page;
-      }
+      .slide { display: flex !important; position: relative; inset: auto; width: 100%; height: 100vh; page-break-after: always; break-after: page; }
       .slide:last-child { page-break-after: auto; }
     }
 
     /* ── Small screens ─────────────────────────────────────── */
 
     @media (max-width: 900px) {
-      .stepgrid, .compare, .checklist, .split { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; }
+      .stepgrid, .split, .licences { grid-template-columns: 1fr; }
+      .phases { grid-template-columns: 1fr 1fr; }
+      .checklist { grid-auto-flow: row; grid-template-columns: 1fr; grid-template-rows: none; }
       .slide { justify-content: flex-start; padding-top: clamp(64px, 11vh, 88px); overflow-y: auto; }
       .hint { display: none; }
       .thumbs { grid-template-columns: 1fr 1fr; }
@@ -450,253 +336,291 @@
   <section class="slide slide--dark is-active" data-title="Title">
     <div class="slide__inner">
       <p class="eyebrow">Internal process playbook</p>
-      <h1 class="slide__title">How to run a <span class="accent">prototype-first</span> build</h1>
-      <p class="lede">Nine steps, taken from a real project — Gerotech's website redesign. Each step shows what to do, what it looks like, and how you know it worked.</p>
+      <h1 class="slide__title">From kickoff call to a <span class="accent">dev-ready</span> build</h1>
+      <p class="lede">We take a website from discovery to a fully designed, fully editable front end — designing in code rather than static files, then converting that prototype into WordPress without a page builder or a commercial theme.</p>
       <div style="margin-top:28px;font-size:clamp(12px,.9vw,14px);letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);line-height:2">
-        Draft early &nbsp;·&nbsp; Decide once &nbsp;·&nbsp; One channel &nbsp;·&nbsp; Write it down &nbsp;·&nbsp; Carry it across &nbsp;·&nbsp; Cost it &nbsp;·&nbsp; Build &nbsp;·&nbsp; Hand over &nbsp;·&nbsp; Verify
+        Discovery &nbsp;·&nbsp; Sitemap &nbsp;·&nbsp; Wireframes &nbsp;·&nbsp; Design in code &nbsp;·&nbsp; Iterate &nbsp;·&nbsp; Review &nbsp;·&nbsp; Convert &nbsp;·&nbsp; Hand off
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Open (45s).</strong> This is a how-to, not a project recap. Gerotech is the worked example; the nine steps are the method.</p>
-      <p>Set the ask early: by the end we want agreement to run the next project this way.</p>
+      <p><strong>Open (45s).</strong> This is a process deck. Gerotech is the worked example; the eight phases are the method.</p>
+      <p>Land the shape early: we design in code, the design file stays in step, and the result converts straight to WordPress with no builder licence.</p>
     </div>
   </section>
 
-  <!-- ══════════ 02 · METHOD AT A GLANCE ══════════ -->
-  <section class="slide" data-title="The method at a glance">
+  <!-- ══════════ 02 · PROCESS AT A GLANCE ══════════ -->
+  <section class="slide" data-title="The process at a glance">
     <div class="slide__inner">
-      <p class="eyebrow">The method at a glance</p>
+      <p class="eyebrow">The process at a glance</p>
       <div class="headline-rule"></div>
-      <h2 class="slide__title">Nine steps, in order.</h2>
-      <div class="steps">
-        <div class="step"><span class="step__num">01</span><span class="step__name">Start the working draft</span><span class="step__why">Build the pages that carry the decision — before approval lands.</span></div>
-        <div class="step"><span class="step__num">02</span><span class="step__name">Lock the style guide</span><span class="step__why">Decide colours, type and spacing once.</span></div>
-        <div class="step"><span class="step__num">03</span><span class="step__name">Run one feedback channel</span><span class="step__why">Tie every note to a spot and an owner.</span></div>
-        <div class="step"><span class="step__num">04</span><span class="step__name">Write the shared brief</span><span class="step__why">Instructions, status, diary — three documents.</span></div>
-        <div class="step"><span class="step__num">05</span><span class="step__name">Carry the design across</span><span class="step__why">The approved draft becomes the specification.</span></div>
-        <div class="step"><span class="step__num">06</span><span class="step__name">Cost the build path</span><span class="step__why">Compare routes in days and risk before committing.</span></div>
-        <div class="step"><span class="step__num">07</span><span class="step__name">Build from the draft</span><span class="step__why">Translate the approved pages — don't reinvent them.</span></div>
-        <div class="step"><span class="step__num">08</span><span class="step__name">Hand over the controls</span><span class="step__why">Plain-language editing the client owns.</span></div>
-        <div class="step"><span class="step__num">09</span><span class="step__name">Verify automatically</span><span class="step__why">A fix isn't done until a check proves it.</span></div>
+      <h2 class="slide__title">Eight phases, in order.</h2>
+      <div class="phases">
+        <div class="phase"><span class="phase__num">01</span><span class="phase__name">Kickoff &amp; discovery</span><span class="phase__why">Understand the business, audit what exists, agree what success looks like.</span></div>
+        <div class="phase"><span class="phase__num">02</span><span class="phase__name">Sitemap</span><span class="phase__why">Agree the structure and navigation before anything is designed.</span></div>
+        <div class="phase"><span class="phase__num">03</span><span class="phase__name">Wireframes</span><span class="phase__why">Settle content, hierarchy and section order.</span></div>
+        <div class="phase"><span class="phase__num">04</span><span class="phase__name">Design — in code</span><span class="phase__why">Build the design as a working front end, not a static file.</span></div>
+        <div class="phase"><span class="phase__num">05</span><span class="phase__name">Iterate</span><span class="phase__why">Move changes between code and the design file, both ways.</span></div>
+        <div class="phase"><span class="phase__num">06</span><span class="phase__name">Review &amp; approve</span><span class="phase__why">One feedback channel, tied to the exact spot.</span></div>
+        <div class="phase"><span class="phase__num">07</span><span class="phase__name">Convert to WordPress</span><span class="phase__why">Native editor plus structured fields. No page builder.</span></div>
+        <div class="phase"><span class="phase__num">08</span><span class="phase__name">Hand off to dev</span><span class="phase__why">A designed, working front end ready for complex functionality.</span></div>
       </div>
       <div class="callout">
         <span class="callout__label">Use it when</span>
-        <p class="callout__text">A sign-off gate is blocking progress, the deadline is fixed, and the design is complex enough to be worth testing. Skip it when scope is still moving or the audience needs strategy, not an artefact.</p>
+        <p class="callout__text">The design is bespoke enough that a page builder would fight it, the client needs to edit their own content, and the project will grow after launch.</p>
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Walk the nine steps</strong> — one line each, no detail yet. This is the map; the rest of the deck is the detail.</p>
-      <p>The "use it when / skip it when" line is what makes this a decision rule rather than a boast. Say it out loud.</p>
+      <p><strong>Walk the eight phases</strong> — one line each. This is the map; the rest of the deck is the detail.</p>
+      <p>Phases 1–3 are the ones teams skip when they're in a hurry. Skipping them is what makes phases 4–6 expensive.</p>
     </div>
   </section>
 
-  <!-- ══════════ 03 · STEP 1 ══════════ -->
-  <section class="slide" data-title="Step 1 — Start the working draft">
+  <!-- ══════════ 03 · PHASE 1 (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="Phase 1 — Kickoff and discovery">
+    <div class="sheetimg"><img src="images/discovery.png" alt="Discovery findings on the live site alongside what each finding changed." /></div>
+    <div class="notes" data-notes>
+      <p><strong>Phase 1.</strong> We audited the live site before designing anything, so the redesign was grounded in facts.</p>
+      <p>The finding that shaped everything: the client could not edit their own page content. That became a hard requirement for the build.</p>
+      <p>Note the last point on the right — inventory content that wasn't in the new structure was flagged for a client decision rather than silently dropped.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 04 · PHASE 2 (sheet) ══════════ -->
+  <section class="slide slide--sheet" data-title="Phase 2 — Sitemap">
+    <div class="sheetimg"><img src="images/sitemap.png" alt="The agreed site structure showing top-level navigation and its children." /></div>
+    <div class="notes" data-notes>
+      <p><strong>Phase 2.</strong> The structure is agreed before any design work, when changing it is free.</p>
+      <p>One decision here gets reused everywhere — navigation, mega-menu, mobile menu, breadcrumbs, search. That's why the same heading sits in the same place on all twelve pages.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 05 · PHASE 3 (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="Phase 3 — Wireframes">
+    <div class="sheetimg"><img src="images/wireframes.png" alt="A real wireframe from the design file, showing page structure without colour or photography." /></div>
+    <div class="notes" data-notes>
+      <p><strong>Phase 3.</strong> Structure before style. Copy and section order get settled while changes are still cheap.</p>
+      <p>The wireframe carries forward: every section in it becomes a section in the built page, in the same order.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 06 · PHASE 4 ══════════ -->
+  <section class="slide" data-title="Phase 4 — Design built in code">
     <div class="slide__inner">
-      <p class="eyebrow">Step 1 of 9</p>
+      <p class="eyebrow">Phase 4 of 8 · the headline idea</p>
       <div class="headline-rule"></div>
-      <h2 class="slide__title">Start the working draft.</h2>
+      <h2 class="slide__title">Design happens in code, not in a static file.</h2>
       <div class="stepgrid">
         <figure class="shot">
-          <img src="images/proto-home.jpg" alt="The hand-built homepage draft, showing the alert bar, navigation, hero and stats band." />
-          <figcaption>The working draft — a real, clickable page, nine days in.</figcaption>
+          <img src="images/proto-home.jpg" alt="The homepage built as working code, showing navigation, hero and stats band." />
+          <figcaption>The design, running in a browser — nine days from kickoff.</figcaption>
         </figure>
         <div class="guide">
-          <h3>How to do it</h3>
+          <h3>How it works</h3>
           <ul class="bullets">
-            <li>Build the <strong>two or three pages that carry the decision</strong> first — not the whole site.</li>
-            <li>Build by hand, with <strong>no website software in the way</strong>, so changes take minutes.</li>
-            <li>Use <strong>honest placeholders</strong> wherever content isn't confirmed. Never guess, and never fake.</li>
-            <li>Keep it clickable: real navigation, real behaviour, real mobile layout.</li>
+            <li>We build the design as a <strong>working front end</strong> — real layout, real type, real breakpoints.</li>
+            <li>The client reviews <strong>a page they can scroll and click</strong>, not an image.</li>
+            <li>Feedback becomes <strong>a change we make in minutes</strong>, not a redraw and a re-export.</li>
+            <li>Nothing is thrown away — <strong>this becomes the build</strong>.</li>
           </ul>
           <div class="proof">
-            <span>How you know it worked</span>
-            <p>The client reviews a <strong>page</strong> instead of a picture — and the conversation moves to specifics.</p>
+            <span>Why it matters</span>
+            <p>The design starts behaving like the finished thing on day one, so the conversation moves from taste to specifics.</p>
           </div>
         </div>
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Step 1 in one line:</strong> when the gate is closed, build the thing behind it.</p>
-      <p>Nine days from first line to client-ready. The placeholder habit matters — placeholders make outstanding decisions visible instead of hiding them in assumptions.</p>
+      <p><strong>This is the differentiator.</strong> Say it plainly: the design is not a picture of a website, it is the website.</p>
+      <p>Every objection you'd normally hear later — "that spacing looks different on my screen", "how does it behave on mobile" — is answered live.</p>
     </div>
   </section>
 
-  <!-- ══════════ 04 · STEP 1 CONTINUED ══════════ -->
-  <section class="slide slide--card" data-title="Step 1 continued — go wide">
+  <!-- ══════════ 07 · PHASE 4 CONTINUED ══════════ -->
+  <section class="slide slide--card" data-title="Phase 4 continued — every page">
     <div class="slide__inner">
-      <p class="eyebrow">Step 1 · continued</p>
+      <p class="eyebrow">Phase 4 · continued</p>
       <div class="headline-rule"></div>
-      <h2 class="slide__title">Then go wide — cover the real pages.</h2>
+      <h2 class="slide__title">Every page, not just the homepage.</h2>
       <div class="thumbs thumbs--uniform">
-        <figure class="shot"><img src="images/proto-es.jpg" alt="Hub page in the working draft." /><figcaption>Hub page</figcaption></figure>
-        <figure class="shot"><img src="images/proto-mcs.jpg" alt="Solutions page in the working draft." /><figcaption>Solutions</figcaption></figure>
-        <figure class="shot"><img src="images/proto-automation.jpg" alt="Automation page in the working draft." /><figcaption>Automation</figcaption></figure>
-        <figure class="shot"><img src="images/proto-mobile.jpg" alt="The draft on a phone screen." /><figcaption>Mobile</figcaption></figure>
+        <figure class="shot"><img src="images/proto-es.jpg" alt="Hub page built in code." /><figcaption>Hub page</figcaption></figure>
+        <figure class="shot"><img src="images/proto-mcs.jpg" alt="Solutions page built in code." /><figcaption>Solutions</figcaption></figure>
+        <figure class="shot"><img src="images/proto-automation.jpg" alt="Automation page built in code." /><figcaption>Automation</figcaption></figure>
+        <figure class="shot"><img src="images/proto-mobile.jpg" alt="The design on a phone screen." /><figcaption>Mobile</figcaption></figure>
       </div>
       <div class="split" style="margin-top:22px">
         <div class="guide">
-          <h3>How to do it</h3>
+          <h3>How it works</h3>
           <ul class="bullets">
-            <li>Once direction is approved, build <strong>every page in the same system</strong>.</li>
-            <li>New pages should be <strong>variations, not new decisions</strong> — that's what keeps page 12 cheap.</li>
-            <li>Test small screens as you go. Retrofitting mobile at the end always costs more.</li>
-            <li>Use the real imagery as soon as the client sends it. Stand-ins are for the gaps.</li>
+            <li>New pages are <strong>variations on the same system</strong>, not new decisions — so page twelve costs a fraction of page two.</li>
+            <li>Responsive is built as we go. Retrofitting mobile at the end always costs more.</li>
+            <li>Real imagery goes in as soon as the client sends it; placeholders mark the gaps.</li>
           </ul>
         </div>
         <div class="proof" style="margin-top:0">
-          <span>How you know it worked</span>
-          <p>Twelve pages, one system — and no page looks like a one-off.</p>
+          <span>The result</span>
+          <p>Twelve designed pages, one system — and no page looks like a one-off.</p>
         </div>
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Why "go wide" matters commercially:</strong> a shared style guide is what makes the tenth page as fast to build as the second — and what keeps the design consistent as more people touch it.</p>
+      <p><strong>The commercial point:</strong> a shared style guide is what makes the tenth page as fast as the second.</p>
     </div>
   </section>
 
-  <!-- ══════════ 05 · STEP 2 (sheet) ══════════ -->
-  <section class="slide slide--sheet slide--card" data-title="Step 2 — Lock the style guide">
-    <div class="sheetimg"><img src="images/style-guide.png" alt="The style guide: brand colours with hex values, type samples and spacing steps." /></div>
+  <!-- ══════════ 08 · PHASE 5 (sheet) ══════════ -->
+  <section class="slide slide--sheet" data-title="Phase 5 — The iteration loop">
+    <div class="sheetimg"><img src="images/iteration-loop.png" alt="The working draft in code beside the Figma design file, with changes flowing both ways." /></div>
     <div class="notes" data-notes>
-      <p><strong>Step 2:</strong> decide the rules once, then every page is a variation.</p>
-      <p>Avoid systems vocabulary out loud. Say: "we decided the rules once." Point at the colour swatches — this is the file that stops page 12 drifting from page 2.</p>
+      <p><strong>Phase 5.</strong> The design file doesn't get abandoned — it stays in step with the code, and changes flow both directions.</p>
+      <p>In practice this is driven from the editor: an AI assistant working against the shared brief makes the change in code, and the design file is updated to match what was approved.</p>
+      <p>Why keep both: the client and their stakeholders are comfortable reviewing in the design file, while the code is the thing that actually ships.</p>
     </div>
   </section>
 
-  <!-- ══════════ 06 · STEP 3 (sheet) ══════════ -->
-  <section class="slide slide--sheet" data-title="Step 3 — One feedback channel">
-    <div class="sheetimg"><img src="images/feedback-channel.png" alt="A design frame with numbered client comment pins, and the real comments listed alongside." /></div>
+  <!-- ══════════ 09 · PHASE 6 (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="Phase 6 — Review and approve">
+    <div class="sheetimg"><img src="images/feedback-channel.png" alt="A design frame with numbered client comment pins and the real comments listed alongside." /></div>
     <div class="notes" data-notes>
-      <p><strong>Step 3:</strong> client notes attach to the exact spot in the design, and each becomes a tracked item with an owner.</p>
-      <p>These are real comments from the design file. The point: a long review cycle never turns into an argument about what was agreed.</p>
+      <p><strong>Phase 6.</strong> One feedback channel: notes attach to the exact spot in the design, and each becomes a tracked item with an owner.</p>
+      <p>Real comments from the Gerotech design file. The benefit: a long review cycle never turns into an argument about what was agreed.</p>
     </div>
   </section>
 
-  <!-- ══════════ 07 · STEP 4 (sheet) ══════════ -->
-  <section class="slide slide--sheet slide--card" data-title="Step 4 — Write the shared brief">
+  <!-- ══════════ 10 · THE STYLE GUIDE (sheet) ══════════ -->
+  <section class="slide slide--sheet" data-title="The style guide">
+    <div class="sheetimg"><img src="images/style-guide.png" alt="The style guide: brand colours, type samples and spacing steps." /></div>
+    <div class="notes" data-notes>
+      <p><strong>Runs across every phase.</strong> Decide the rules once — colour, type, spacing — then every page is a variation.</p>
+      <p>Avoid systems vocabulary out loud. Say "we decided the rules once". This is the file that stops page twelve drifting from page two.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 11 · THE SHARED BRIEF (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="The shared brief">
     <div class="sheetimg"><img src="images/shared-brief.png" alt="Three documents: instructions, current status and project diary." /></div>
     <div class="notes" data-notes>
-      <p><strong>Step 4:</strong> three ordinary documents — not software. Instructions (how we work), current status (what's true now), project diary (what happened and why).</p>
-      <p>They're what let any session — a person or an assistant — start informed instead of guessing. Continuity is a process choice, not a technology feature.</p>
+      <p><strong>Runs across every phase.</strong> Three ordinary documents — not software. Instructions (how we work), current status (what's true now), project diary (what happened and why).</p>
+      <p>This is what lets several people and several AI assistants work on one project without losing state. Continuity is a process choice, not a technology feature.</p>
     </div>
   </section>
 
-  <!-- ══════════ 08 · STEP 5 (sheet) ══════════ -->
-  <section class="slide slide--sheet" data-title="Step 5 — Carry the design across">
-    <div class="sheetimg"><img src="images/design-to-build.png" alt="The approved prototype page beside the same page built in WordPress." /></div>
+  <!-- ══════════ 12 · PHASE 7 (sheet) ══════════ -->
+  <section class="slide slide--sheet" data-title="Phase 7 — Convert to WordPress">
+    <div class="sheetimg"><img src="images/design-to-build.png" alt="The approved prototype page beside the same page running in WordPress." /></div>
     <div class="notes" data-notes>
-      <p><strong>Step 5 — the most important step.</strong> The page the client approved is the page that got built.</p>
-      <p>Say the line: "when the draft is the specification, approval and build can't drift apart." Pause here.</p>
+      <p><strong>Phase 7 — the payoff.</strong> Because the design was already working code, conversion is translation rather than reconstruction. The page the client approved is the page that ships.</p>
+      <p>Technically: WordPress's native editor plus structured fields, on a child theme. No page builder in the middle.</p>
     </div>
   </section>
 
-  <!-- ══════════ 09 · STEP 6 ══════════ -->
-  <section class="slide" data-title="Step 6 — Cost the build path">
-    <div class="slide__inner">
-      <p class="eyebrow">Step 6 of 9</p>
-      <div class="headline-rule"></div>
-      <h2 class="slide__title">Cost the build path before you commit.</h2>
-      <div class="compare">
-        <div class="route route--rejected">
-          <span class="route__tag">Route A · rejected</span>
-          <h4>Rebuild every section in a page builder</h4>
-          <div class="cost">46–70 days</div>
-          <p>Every custom section rebuilt as a builder element, with ongoing lock-in and a permanent fight with its grid.</p>
-        </div>
-        <div class="route route--chosen">
-          <span class="route__tag">Route B · chosen</span>
-          <h4>A custom layer on the existing site</h4>
-          <div class="cost">6 days</div>
-          <p>The design system stays the source of truth, the client owns plain-language editing controls, and the parent site is untouched — so rollback is instant.</p>
-        </div>
-      </div>
-      <div class="callout">
-        <span class="callout__label">Rule</span>
-        <p class="callout__text">Put both routes on one page, in days and risk, before anyone starts building. Write the decision down.</p>
-      </div>
-    </div>
+  <!-- ══════════ 13 · THE EDITING EXPERIENCE (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="The client's editing experience">
+    <div class="sheetimg"><img src="images/client-controls.png" alt="The client's WordPress admin showing plain-language content controls." /></div>
     <div class="notes" data-notes>
-      <p><strong>This slide protects the team.</strong> It shows the expensive option was genuinely costed and rejected on evidence, not preference.</p>
-      <p>Keep the tooling detail out of it. Leadership needs the reasoning and the number, not the technology.</p>
+      <p><strong>What the client gets.</strong> They edit their own content without calling us. Two habits make it usable: labels in plain language, and the safe default stated inside the field.</p>
+      <p>291 content controls across the site. If a decision is still owed, the field is left empty rather than guessed.</p>
     </div>
   </section>
 
-  <!-- ══════════ 10 · STEP 7 ══════════ -->
-  <section class="slide slide--card" data-title="Step 7 — Build from the draft">
+  <!-- ══════════ 14 · PHASE 8 · HANDOFF ══════════ -->
+  <section class="slide" data-title="Phase 8 — Hand off to dev">
     <div class="slide__inner">
-      <p class="eyebrow">Step 7 of 9</p>
+      <p class="eyebrow">Phase 8 of 8</p>
       <div class="headline-rule"></div>
-      <h2 class="slide__title">Build from the draft.</h2>
+      <h2 class="slide__title">What development receives.</h2>
       <div class="stepgrid">
         <figure class="shot">
-          <img src="images/wp-home.jpg" alt="The homepage built in WordPress, matching the approved prototype." />
-          <figcaption>The built homepage — translated from the approved draft.</figcaption>
+          <img src="images/wp-home.jpg" alt="The finished homepage running in WordPress." />
+          <figcaption>A designed, working front end — not a folder of mockups.</figcaption>
         </figure>
         <div class="guide">
-          <h3>How to do it</h3>
+          <h3>Already done</h3>
           <ul class="bullets">
-            <li>Work from the <strong>approved draft</strong>, not from a static picture or a memory of a meeting.</li>
-            <li>Reuse the <strong>same style guide</strong> — the build should be translation, not redesign.</li>
-            <li>Publish to a <strong>test site</strong> first, and compare it against the draft page by page.</li>
-            <li>Change only what the client asked to change. Everything else is already approved.</li>
+            <li><strong>Every page designed and built</strong>, responsive, and verified against the approved draft.</li>
+            <li><strong>The whole design system</strong> — colour, type, spacing and components — in version control.</li>
+            <li><strong>Editing controls</strong> the client already owns, so content work isn't blocked on dev.</li>
           </ul>
           <div class="proof">
-            <span>How you know it worked</span>
-            <p>Speed comes from preparation. <strong>14 pages live and verified</strong>, with no redesign in the build phase.</p>
+            <span>What dev adds</span>
+            <p>The <strong>complex functionality</strong> clients actually need — integrations, dynamic data, quoting flows, CRM and ERP connections — on top of a front end that already works.</p>
           </div>
         </div>
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Step 7:</strong> the build is translation, not invention. Six days start to finish, because the design was already a working reference.</p>
-      <p>If someone asks how you know the built page matched, open step 5 (the side-by-side) — it's the same argument.</p>
+      <p><strong>Phase 8.</strong> Dev doesn't start from a static mockup and a blank template. They start from working pages and add the hard parts.</p>
+      <p>This is the sentence to land: <em>we pass to dev a fully designed front end that is ready for the more complex functionality our clients need.</em></p>
     </div>
   </section>
 
-  <!-- ══════════ 11 · STEP 8 (sheet) ══════════ -->
-  <section class="slide slide--sheet" data-title="Step 8 — Hand over the controls">
-    <div class="sheetimg"><img src="images/client-controls.png" alt="The client's WordPress admin showing plain-language content controls." /></div>
+  <!-- ══════════ 15 · THE PAYOFF ══════════ -->
+  <section class="slide" data-title="What the client doesn't pay for">
+    <div class="slide__inner">
+      <p class="eyebrow">The payoff</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">What the client doesn't pay for.</h2>
+      <div class="licences">
+        <div class="lic">
+          <span class="lic__tag">Not needed</span>
+          <h4>Page-builder licence</h4>
+          <p>A builder would fight a bespoke design system, add lock-in, and cost more to maintain. We don't use one.</p>
+        </div>
+        <div class="lic">
+          <span class="lic__tag">Not needed</span>
+          <h4>Commercial theme licence</h4>
+          <p>No purchased theme, and no annual renewal for one. The front end is ours, and it's in version control.</p>
+        </div>
+        <div class="lic lic--kept">
+          <span class="lic__tag">One licence</span>
+          <h4>Advanced Custom Fields</h4>
+          <p>A single plugin licence replaces both — and it's what gives the client structured, plain-language editing.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <span class="callout__label">And they still get</span>
+        <p class="callout__text">A fully editable front end they can update themselves, on a site that stays maintainable for years.</p>
+      </div>
+    </div>
     <div class="notes" data-notes>
-      <p><strong>Step 8:</strong> the client edits their own content without calling us.</p>
-      <p>Two habits make it usable: labels written in plain language, and the safe default stated inside the field. If a decision is still owed, leave the field empty rather than guessing.</p>
+      <p><strong>Be precise here — it's the claim most likely to be challenged.</strong> We are not saying "zero licences". We are saying: no page-builder licence, no commercial theme licence, and one plugin licence covers both jobs.</p>
+      <p>If asked about the parent theme: the build is a child theme of the client's existing bespoke theme, so there is no purchased theme and no renewal. A block theme would remove that dependency entirely — that's the next step, not something we've shipped.</p>
     </div>
   </section>
 
-  <!-- ══════════ 12 · STEP 9 (sheet) ══════════ -->
-  <section class="slide slide--sheet slide--card" data-title="Step 9 — Verify automatically">
+  <!-- ══════════ 16 · QUALITY (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="Verified, not assumed">
     <div class="sheetimg"><img src="images/verification.png" alt="Real audit output listing unset editing controls, with the result 279 of 291." /></div>
     <div class="notes" data-notes>
-      <p><strong>Step 9 — the rule that prevents the worst failure:</strong> a control can render the design correctly while being empty in the admin. Nothing looks broken.</p>
-      <p>This is real output from the project's audit script: 279 of 291 controls applied. The remaining 12 are correct — a blank colour choice means "keep the design colour".</p>
+      <p><strong>The rule that prevents the worst failure:</strong> a control can render the design perfectly while being empty in the admin. Nothing looks broken — which is why it gets missed.</p>
+      <p>This is real output from the audit script: 279 of 291 controls applied. The remaining 12 are correct by design — a blank colour choice means "keep the design colour".</p>
     </div>
   </section>
 
-  <!-- ══════════ 13 · CHECKLIST ══════════ -->
+  <!-- ══════════ 17 · CHECKLIST ══════════ -->
   <section class="slide" data-title="The checklist">
     <div class="slide__inner">
       <p class="eyebrow">One page to keep</p>
       <div class="headline-rule"></div>
       <h2 class="slide__title">The checklist.</h2>
       <ol class="checklist">
-        <li>Build the 2–3 pages that carry the decision, before approval lands.</li>
-        <li>Decide colours, type and spacing once — then reuse them.</li>
-        <li>Tie every client note to a spot in the design and an owner.</li>
-        <li>Write the brief down: instructions, status, diary.</li>
-        <li>Treat the approved draft as the specification.</li>
-        <li>Cost both build routes in days and risk before committing.</li>
-        <li>Build by translation; compare each page to the draft.</li>
-        <li>Write editing labels in plain language, with the default stated.</li>
-        <li>Automate the check — never verify by eye.</li>
+        <li>Audit what exists before designing anything.</li>
+        <li>Agree the sitemap while changing it is free.</li>
+        <li>Settle structure and content in wireframes.</li>
+        <li>Design in code, so the design behaves like the site.</li>
+        <li>Keep the design file and the code in step.</li>
+        <li>One feedback channel, tied to a spot and an owner.</li>
+        <li>Convert to the native editor plus structured fields — no builder.</li>
+        <li>Leave the client editing controls they actually understand.</li>
+        <li>Hand dev a working front end, not a mockup.</li>
       </ol>
     </div>
     <div class="notes" data-notes>
-      <p><strong>This is the slide to keep.</strong> Everything before it is justification; everything after is next steps.</p>
+      <p><strong>The slide to keep.</strong> Everything before it is justification; everything after is next steps.</p>
       <p>Read the nine items aloud, slowly.</p>
     </div>
   </section>
 
-  <!-- ══════════ 14 · WATCH OUT FOR ══════════ -->
+  <!-- ══════════ 18 · WATCH OUT FOR ══════════ -->
   <section class="slide" data-title="Watch out for these">
     <div class="slide__inner">
       <p class="eyebrow">Watch out for these · prioritised by impact</p>
@@ -755,45 +679,34 @@
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Priority key:</strong> 1 = could have blocked the client from editing, or damaged the approved design. 3 = friction. Every row leads with the fix and shows the status.</p>
-      <p>The two "silent" roadblocks are the most valuable lesson — they looked fine on screen. That's why step 9 exists.</p>
+      <p><strong>Priority key:</strong> 1 = could have blocked the client from editing, or damaged the approved design. 3 = friction. Every row leads with the fix.</p>
+      <p>The two "silent" roadblocks are the most instructive — they looked fine on screen. That's why the automated check exists.</p>
     </div>
   </section>
 
-  <!-- ══════════ 15 · WHAT IT PRODUCED ══════════ -->
+  <!-- ══════════ 19 · WHAT IT PRODUCED ══════════ -->
   <section class="slide slide--card" data-title="What it produced">
     <div class="slide__inner">
       <p class="eyebrow">What it produced</p>
       <div class="headline-rule"></div>
-      <h2 class="slide__title">Evidence the method works.</h2>
+      <h2 class="slide__title">The method, measured.</h2>
       <div class="stat-row">
-        <div class="stat"><span class="stat__value">9 days</span><span class="stat__label">To a presentable draft</span></div>
-        <div class="stat"><span class="stat__value">12</span><span class="stat__label">Pages designed</span></div>
+        <div class="stat"><span class="stat__value">9 days</span><span class="stat__label">Kickoff to a presentable draft</span></div>
+        <div class="stat"><span class="stat__value">12</span><span class="stat__label">Pages designed in code</span></div>
         <div class="stat"><span class="stat__value">291</span><span class="stat__label">Controls the client owns</span></div>
-        <div class="stat"><span class="stat__value">14</span><span class="stat__label">Pages live and verified</span></div>
+        <div class="stat"><span class="stat__value">6 days</span><span class="stat__label">To convert and verify the build</span></div>
       </div>
       <div class="callout">
-        <span class="callout__label">Reusable</span>
-        <p class="callout__text">The style guide, the shared brief, the checklist and the automated check — all of it carries to the next project.</p>
-      </div>
-      <div class="split" style="margin-top:24px">
-        <div>
-          <h3 class="split__head">What made it fast</h3>
-          <p class="body-text">Preparation, not shortcuts. The design was already a working reference, so the build was translation rather than invention.</p>
-        </div>
-        <div>
-          <h3 class="split__head">What made it safe</h3>
-          <p class="body-text">One source of truth at every stage, plus checks that ran themselves instead of relying on someone noticing.</p>
-        </div>
+        <span class="callout__label">Carries forward</span>
+        <p class="callout__text">The process, the checklist, the style guide and the automated check — all reusable on the next engagement.</p>
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Frame every number as a consequence of the method</strong>, not a separate achievement.</p>
-      <p>If asked about the 291: those are the content controls the client can edit without calling us.</p>
+      <p>Frame each number as a consequence of the process, not a trophy. If asked about 291: those are controls the client can edit without calling us.</p>
     </div>
   </section>
 
-  <!-- ══════════ 16 · NEXT STEPS ══════════ -->
+  <!-- ══════════ 20 · NEXT STEPS ══════════ -->
   <section class="slide slide--dark" data-title="Next steps">
     <div class="slide__inner">
       <p class="eyebrow">Next steps</p>
@@ -801,8 +714,8 @@
       <h2 class="slide__title">Two things to agree today.</h2>
       <div class="split">
         <div>
-          <h3 class="split__head">Adopt the method</h3>
-          <p class="body-text">Run the nine steps as the default on the next design-to-build project — including the shared brief.</p>
+          <h3 class="split__head">Adopt the process</h3>
+          <p class="body-text">Run all eight phases as the default on the next design-to-build project — including the sitemap and wireframe gates most teams skip.</p>
         </div>
         <div>
           <h3 class="split__head">Fund the verification step</h3>
@@ -815,7 +728,7 @@
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Close on an ask, not a summary.</strong> Two decisions: adopt the method, and fund verification.</p>
+      <p><strong>Close on an ask, not a summary.</strong> Two decisions: adopt the process, and fund verification.</p>
       <p>Keep the "still open" line brief — enough to show nothing is hidden, without turning the close into a risk review.</p>
     </div>
   </section>
@@ -824,7 +737,7 @@
 
 <div class="chrome chrome--top">
   <span class="brand">CloudMellow · Process Playbook</span>
-  <span class="counter"><span class="counter__now" id="counterNow">01</span> / <span id="counterTotal">16</span></span>
+  <span class="counter"><span class="counter__now" id="counterNow">01</span> / <span id="counterTotal">20</span></span>
 </div>
 
 <div class="chrome chrome--bottom">

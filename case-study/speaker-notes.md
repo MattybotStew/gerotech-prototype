@@ -1,9 +1,9 @@
-# Speaker notes — How to Run a Prototype-First Build
+# Speaker notes — From Kickoff Call to Dev-Ready Build
 
 **Companion to:** `case-study/gerotech-process-playbook.html`
 **Audience:** CloudMellow leadership
-**Format:** nine-step how-to, taught from the Gerotech website redesign
-**Runtime:** ~18 minutes at roughly a minute per slide, plus questions
+**Format:** eight-phase process, taught from the Gerotech website redesign
+**Runtime:** ~20 minutes at roughly a minute per slide, plus questions
 
 ---
 
@@ -12,127 +12,149 @@
 - Open `case-study/gerotech-process-playbook.html` in a browser. No server needed — the screenshots sit in `case-study/images/`.
 - **← / →** (or click Prev/Next, or swipe) to navigate. **N** toggles speaker notes. **P** prints — use "Save as PDF" for a handout; each slide lands on its own landscape page.
 - Deep-link any slide with `#slide-7` in the address bar.
-- Every screenshot in the deck is real: the prototype, the live WordPress site, the client's admin, the design file's actual comments, and genuine audit output.
+- Every visual is real: the wireframe and design file from Figma, the working prototype, the live WordPress site, the client's own admin, and genuine audit output.
 
 ## The one thing to land
 
-> The prototype wasn't a deliverable. It was **schedule insurance that became the specification**.
+> We design **in code**, keep the **design file in step**, and convert the result to WordPress with **no page builder and no commercial theme** — so dev inherits a working front end instead of a mockup.
 
-Say that in the first two minutes and again at step 5 (slide 8). Everything else supports it.
+Say that in the first two minutes and again at phases 4, 7 and 8.
+
+## The three sentences that carry the deck
+
+1. **"The design isn't a picture of a website — it is the website."** (Phase 4)
+2. **"No page-builder licence, no commercial theme licence — one plugin licence replaces both."** (The payoff)
+3. **"We hand dev a designed front end that's ready for the complex functionality our clients need."** (Phase 8)
 
 ## Tone rules
 
-- Talk in **outcomes and decisions**, not technology. The deck deliberately avoids tool vocabulary.
-- Every step ends with **"how you know it worked"** — use that line out loud. It's what turns a story into a method.
-- Don't oversell. Slide 2 states plainly when *not* to use the method; that's what makes it credible.
+- Talk in outcomes and decisions, never technology. The deck deliberately avoids tool vocabulary.
+- Never say "zero licences". The precise claim is in slide 15 — use it exactly.
+- Phases 1–3 are the ones teams skip. When you get there, say why skipping them makes phases 4–6 expensive.
 
 ---
 
 ## Slide-by-slide
 
 ### 01 · Title
-Open by naming the format: this is a **how-to in nine steps**, and Gerotech is the worked example. Point at the nine-word strip along the bottom — that's the whole method.
-*Ask we're building toward:* agreement to run the next project this way.
+Name the format: a **process in eight phases**, with Gerotech as the worked example. Point at the eight-word strip along the bottom — that's the whole thing.
 
-### 02 · The method at a glance
-Walk the nine steps at one line each. Do **not** go into detail — this is the map.
-Then read the "use it when" line deliberately, including the *skip it when* half. It's the decision rule, and it's what stops this sounding like a boast.
+### 02 · The process at a glance
+Walk the eight phases, one line each. Do not go into detail — this is the map. Then read the "use it when" line: bespoke design, client needs to edit, project will grow.
 
-### 03 · Step 1 — Start the working draft
-The core move: **when the gate is closed, build the thing behind it.**
-Nine days from first line to client-ready. Be explicit that placeholders are a *feature* — they make outstanding decisions visible instead of burying them in assumptions.
-*Proof line:* the client reviews a page, not a picture.
+### 03 · Phase 1 — Kickoff & discovery *(figure slide)*
+We audited the live site before designing anything, so the redesign was grounded in facts.
+**The finding that shaped everything:** the client could not edit their own page content. That became a hard requirement for the build. Note also that inventory content missing from the new structure was **flagged for a client decision** rather than silently dropped.
 
-### 04 · Step 1 continued — Go wide
-The commercial point: this is why page 12 is cheap. New pages are **variations, not new decisions**.
-The strip of thumbnails is breadth; the mobile shot is there because responsive isn't a later phase.
+### 04 · Phase 2 — Sitemap *(figure slide)*
+The structure is agreed before any design work, when changing it is free.
+One decision here gets reused everywhere — navigation, mega-menu, mobile menu, breadcrumbs, search. That's why the same heading sits in the same place on all twelve pages.
 
-### 05 · Step 2 — Lock the style guide *(figure slide)*
-**Decide the rules once.** Point at the colour swatches — that file is why the design survived three months of changes and twelve pages.
-Avoid systems vocabulary out loud. Say "we decided the rules once."
+### 05 · Phase 3 — Wireframes *(figure slide)*
+Structure before style. This is a **real wireframe** from the design file — grey boxes where photography goes, placeholder copy, declared image ratios.
+The point: nobody debates structure during visual design, because that argument already happened here.
 
-### 06 · Step 3 — One feedback channel *(figure slide)*
-The pins are **real client comments** from the design file, and the quotes beside them are verbatim. Each one became a task with an owner and got closed.
-The benefit to state plainly: a long review cycle never turns into an argument about what was agreed.
+### 06 · Phase 4 — Design built in code *(the headline idea)*
+**Slow down.** This is the differentiator, and everything else follows from it.
+The design is built as a working front end — real layout, real type, real breakpoints. The client reviews a page they can scroll and click. Feedback becomes a change in minutes, not a redraw and a re-export. And **nothing is thrown away** — this becomes the build.
 
-### 07 · Step 4 — Write the shared brief *(figure slide)*
-Demystify immediately: **three ordinary documents**, not software.
+### 07 · Phase 4 continued — every page
+The commercial point: new pages are **variations, not new decisions**. A shared style guide is what makes the tenth page as fast as the second.
+Responsive is built as we go, not retrofitted at the end.
+
+### 08 · Phase 5 — The iteration loop *(figure slide)*
+The design file doesn't get abandoned — it stays in step with the code, and changes flow both directions.
+In practice this is driven from the editor: an AI assistant working against the shared brief makes the change in code, and the design file is updated to match what was approved.
+**Why keep both:** the client and their stakeholders are comfortable reviewing in the design file; the code is what actually ships.
+
+### 09 · Phase 6 — Review & approve *(figure slide)*
+One feedback channel. Notes attach to the exact spot in the design, and each becomes a tracked item with an owner.
+These are real comments from the Gerotech design file. The benefit: a long review cycle never turns into an argument about what was agreed.
+
+### 10 · The style guide *(figure slide)*
+**Runs across every phase.** Decide the rules once — colour, type, spacing — then every page is a variation.
+Avoid systems vocabulary out loud. Say: "we decided the rules once."
+
+### 11 · The shared brief *(figure slide)*
+**Runs across every phase.** Three ordinary documents, not software:
 - Instructions — how we work
 - Current status — what's true right now
 - Project diary — what happened and why
-Then the line that matters: continuity is a **process choice**, not a technology feature. It's also what let multiple AI assistants work on one project without losing state.
+This is what lets several people *and several AI assistants* work on one project without losing state.
 
-### 08 · Step 5 — Carry the design across *(figure slide — the key slide)*
-**Slow down.** Left is the approved draft; right is the same page built in WordPress. They are near-identical, and that is the whole argument.
-Say it: *"When the draft is the specification, approval and build can't drift apart."*
-If you only get one slide to land, make it this one.
+### 12 · Phase 7 — Convert to WordPress *(figure slide)*
+**The payoff slide for the build.** Because the design was already working code, conversion is **translation rather than reconstruction**. The page the client approved is the page that ships.
+Technically: WordPress's native editor plus structured fields, on a child theme. No page builder in the middle.
 
-### 09 · Step 6 — Cost the build path
-This slide protects the team. Route A was genuinely costed at **46–70 developer days** and rejected on evidence, not preference. Route B was six days.
-Keep the tooling out of the discussion — leadership needs the reasoning and the number.
+### 13 · The client's editing experience *(figure slide)*
+They edit their own content without calling us. Two habits make it usable: labels in plain language, and the safe default stated inside the field.
+291 content controls across the site. If a decision is still owed, the field is left empty rather than guessed.
 
-### 10 · Step 7 — Build from the draft
-Six days, because the design was already a working reference: the build was **translation, not invention**.
-The two thumbnails at the bottom are the comparison. If someone asks how you know the build matched, point there.
+### 14 · Phase 8 — Hand off to dev
+Dev doesn't start from a static mockup and a blank template — they start from working pages and add the hard parts.
+**Land this sentence:** *we pass to dev a fully designed front end that is ready for the more complex functionality our clients need.*
+Already done: every page built and responsive, the whole design system in version control, editing controls the client owns. What dev adds: integrations, dynamic data, quoting flows, CRM and ERP connections.
 
-### 11 · Step 8 — Hand over the controls *(figure slide)*
-The client edits their own content without calling us. Two habits make it usable:
-1. Labels written in plain language ("Join our mailing list" — not a field name).
-2. The safe default stated inside the field.
-And the discipline: if a decision is still owed, **leave the field empty rather than guessing**.
+### 15 · The payoff — what the client doesn't pay for
+**Be precise here. This is the claim most likely to be challenged.**
+- **Not needed:** page-builder licence — a builder would fight a bespoke design system, add lock-in, and cost more to maintain.
+- **Not needed:** commercial theme licence — no purchased theme and no annual renewal.
+- **One licence:** Advanced Custom Fields — a single plugin licence replaces both, and it's what gives the client structured, plain-language editing.
 
-### 12 · Step 9 — Verify automatically *(figure slide)*
-This is the rule that prevents the worst failure. **A control can render the design perfectly while being empty in the admin.** Nothing looks broken — which is exactly why it gets missed.
-The terminal shows genuine output: 279 of 291 controls applied. The other 12 are correct by design — a blank colour choice means "keep the design colour".
+If asked about the parent theme: the build is a **child theme of the client's existing bespoke theme**, so there's no purchased theme and no renewal. A block theme would remove that dependency entirely — that's the next step, not something we've shipped. **Do not overclaim.**
 
-### 13 · The checklist
+### 16 · Verified, not assumed *(figure slide)*
+The rule that prevents the worst failure: a control can render the design perfectly while being empty in the admin. Nothing looks broken, which is why it gets missed.
+Real output: 279 of 291 controls applied. The other 12 are correct by design — a blank colour choice means "keep the design colour".
+
+### 17 · The checklist
 **The slide to keep.** Everything before it is justification; everything after is next steps.
-Read the nine items aloud, slowly. This is what someone should be able to pick up cold.
+Read the nine items aloud, slowly.
 
-### 14 · Watch out for these
-Priority key: **1** could have blocked the client from editing or damaged the approved design; **3** was friction. Every row leads with the fix and shows a status.
-The two "silent" roadblocks are the most instructive — they looked fine on screen. That pair is the reason step 9 exists.
+### 18 · Watch out for these
+Priority key: **1** could have blocked the client from editing or damaged the approved design; **3** was friction. Every row leads with the fix.
+The two "silent" roadblocks are the most instructive — they looked fine on screen. That pair is why the automated check exists.
 
-### 15 · What it produced
-Frame every number as a **consequence of the method**, not a separate achievement:
-- 9 days to a presentable draft
-- 12 pages designed
-- 291 controls the client owns (so they don't call us)
-- 14 pages live and verified
-The two closing columns — "what made it fast" and "what made it safe" — are the summary. Preparation and checks.
+### 19 · What it produced
+Frame every number as a consequence of the process, not a trophy:
+- 9 days from kickoff to a presentable draft
+- 12 pages designed in code
+- 291 controls the client owns
+- 6 days to convert and verify the build
 
-### 16 · Next steps — close on an ask
+### 20 · Next steps — close on an ask
 Two decisions:
-1. **Adopt the method** — the nine steps as the default on the next design-to-build project.
+1. **Adopt the process** — all eight phases as the default, including the sitemap and wireframe gates most teams skip.
 2. **Fund the verification step** — so a control can never ship empty behind a site that looks correct.
-Keep the "still open" line brief: enough to show nothing is hidden, without turning the close into a risk review.
 
 ---
 
 ## Likely questions
 
-**"Couldn't the client see the editing controls were broken?"**
-No — that's what made it dangerous. The site rendered correctly; only the editing controls were empty. That's why we verify automatically rather than by eye.
+**"Isn't designing in code slower than designing in Figma?"**
+No — it's faster to *finish*. Changes take minutes instead of a redraw and re-export, and there is no translation step later where detail gets lost. Nine days from kickoff to a client-ready draft.
 
-**"Did using AI mean less oversight?"**
-The opposite. People set direction and approved every change. The work was faster because the brief was written down, not because review was lighter.
+**"Do we still need Figma?"**
+Yes, and we keep it in step. The design file is what stakeholders are comfortable reviewing, and it's the record of what was approved. It just isn't the thing we build from.
 
-**"What did the prototype cost us?"**
-Nine days to the first draft. It paid for itself twice: it unblocked the design phase while approval was pending, and it removed the ambiguity from the build.
+**"Why not use a page builder? The client could edit anything then."**
+We costed it: 46–70 developer days, plus lock-in, and it can't reproduce a bespoke design system from stock components. The editor-plus-fields approach gives the client structured editing *without* the builder.
 
-**"Would this work on a smaller project?"**
-Yes — the three shared-brief documents scale down to a paragraph each. The test is simple: if more than one session will touch the work, write the brief down.
+**"So there are no licences at all?"**
+Precisely: no page-builder licence, no commercial theme licence. One plugin licence (ACF Pro) replaces both and powers the editing experience.
 
-**"What if the client changes their mind after approval?"**
-That's what the style guide is for. Rules decided once mean a change is a variation, not a rebuild — and the comparison against the draft shows exactly what moved.
+**"What if the client wants to change the design after launch?"**
+That's what the style guide is for — a change is a variation, not a rebuild. And because the design system is in version control, it doesn't depend on us remembering.
 
-**"Why not just use a page builder?"**
-We costed it: 46–70 developer days, plus lock-in. The design system couldn't be reproduced from stock builder components anyway, so the design would have been compromised to fit the tool.
+**"How does dev pick this up without a handover meeting?"**
+The shared brief. Instructions, current status and a project diary live with the project, so a new team starts informed rather than guessing.
 
 ---
 
 ## Words to avoid out loud
 
-Repository, commit, deploy, sync, tokens, CSS, ACF, field, environment, staging, checksum, component library, pipeline, prototype framework.
+Repository, commit, deploy, sync, tokens, CSS, ACF, field, environment, staging, checksum, component library, pipeline, block theme, child theme.
 
-Say instead: the project files, saved, published, kept in step, shared style guide, styling, editing controls, control, the test site, file-by-file comparison, building blocks, the working draft.
+Say instead: the project files, saved, published, kept in step, shared style guide, styling, editing controls, control, the test site, file-by-file comparison, building blocks, the working draft, the design file.
+
+When you *must* be technical — slide 15 and the parent-theme question — use the exact wording on the slide and stop there.
