@@ -2,6 +2,22 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-23 — CORRECTION 2: wireframes are code too, comments map via Cursor (DSH)
+
+Two more corrections from Matt, both folded in:
+
+1. **Wireframes are also built in code and presented in Figma** — not drawn in Figma. Reinforces the real thesis: **everything is made in code; Figma is always the presentation layer.**
+2. **Code wireframes make content updates a ~5-minute job instead of hours** — text and section order live in one place rather than repeated across dozens of drawn frames.
+3. **Figma comments are mapped to the code using Cursor** — that's the mechanism that closes the loop: client comments in Figma → Cursor maps them to code → change made → build re-imported into Figma as artboards.
+
+**Changes:**
+- `wireframes.png` regenerated: **"Wireframed in code, presented in Figma"**, with the five-minute-edit callout.
+- `feedback-channel.png` regenerated: **"Comments in Figma, applied to the code"**, with the explicit loop `Figma comment → Cursor maps it to the code → change made → re-imported to Figma`. Real pins/quotes re-fetched from the Figma API (node `7283:480`).
+- `figma-room.png` regenerated: panel captions now read "Built in code, reviewed in Figma" / "Built in code, presented in Figma", and the intro says every artefact is code-built.
+- Deck: title lede, phase map (03/04/05 descriptions), prototype slide (new "content updates in minutes, not hours" bullet), and the checklist (now **10 items**, including "Wireframe in code; present it in Figma" and "Map every Figma comment to the code with Cursor").
+- Speaker notes rewritten around the corrected thesis, with new Q&A for "Isn't building wireframes in code slower?" and "How do Figma comments actually get actioned?".
+- Phase map gets an empty filler cell so the 7-item grid doesn't show a grey gap.
+
 ## 2026-09-23 — CORRECTION: Figma is the client room, code is the engine (DSH)
 
 Matt corrected the core premise of the playbook. The previous version's headline — **"Design happens in code, not in a static file"** — implied Figma gets sidelined. **The opposite is true.**
