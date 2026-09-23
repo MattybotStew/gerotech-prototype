@@ -2,19 +2,30 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
-## 2026-09-23 — Internal process playbook deck for leadership (DSH)
+## 2026-09-23 — Process playbook rebuilt as a visual how-to (DSH)
 
-Built a case-study deliverable for a **leadership audience**, entirely outside the prototype/theme build — no site files touched.
+Leadership-facing deliverable, entirely outside the prototype/theme build — **no site files touched**.
 
-- **`case-study/gerotech-process-playbook.html`** — 17-slide self-contained deck (no build step, no server). Styled on the project's own design system (Barlow Condensed + Navigo, brand tokens) so the deck demonstrates the discipline it documents.
-  - Nav: ← / → / Space, Prev/Next buttons, swipe, `#slide-N` deep links, **N** toggles speaker notes, **P** prints (each slide a landscape page for PDF export).
-  - Embedded per-slide notes in `<aside class="notes">` blocks.
-  - **Dropped the "We couldn't start designing" problem slide (Matt, 2026-09-23)** as unnecessary for this audience; the deck now opens on the insight. Remaining slides and speaker-note headings renumbered with no gaps.
-- **`case-study/speaker-notes.md`** — companion: per-slide talking points, likely Q&A, and a glossary of tech terms to avoid out loud.
-- **Framing decisions (user-set):** audience = internal/process playbook; all four narrative threads; **low candor** — failures are presented as **roadblocks, prioritised by impact, with the fix leading and a status column**; leadership will see it.
-- **Tooling named once** (slide 09): Cursor + VS Code, using Cline + opencode on DeepSeek.
-- **Verified:** 17 slides / 17 note blocks, tag balance clean; headless-Chrome renders of slides 1, 14 (roadblock table) and 16 (playbook rules) confirmed legible at 1600×900.
-- Not committed yet. No `.clinerules` state change — the build is unaffected.
+**Story arc across the session:** 18-slide case study → problem slide dropped (17) → reframed as a **nine-step how-to with real screenshots** (16).
+
+- **`case-study/gerotech-process-playbook.html`** — 16-slide self-contained deck (no build step, no server). Styled on the project's own design system (Barlow Condensed + Navigo, brand tokens) so the deck demonstrates the discipline it documents.
+  - **How-to spine:** method map → 9 numbered steps (draft · style guide · feedback channel · shared brief · carry across · cost the path · build · hand over · verify) → checklist → roadblocks → outcomes → the ask.
+  - **Two slide types:** guide slides (figure + "How to do it" bullets + a *"how you know it worked"* proof box) and full-bleed **figure slides** (the generated one-pagers). `body.sheet-mode` hides the deck wordmark on figure slides, which carry their own header.
+  - Nav: ← / → / Space, Prev/Next, swipe, `#slide-N` deep links, **N** notes, **P** print (one landscape page per slide).
+- **`case-study/images/` (12 images, 2.7 MB) — all captured from the real thing, nothing mocked:**
+  - Prototype + built-site pages via headless Chrome/CDP against a local server and `gerotech.local`.
+  - Generated one-pagers: style guide (parsed from the **real `tokens.css`**), shared brief (excerpts from the **real `AGENTS.md` / `.clinerules` / `JOURNAL.md`**), feedback channel (**real Figma comment pins + verbatim client quotes** via the REST API, node `7283:480`), client controls (real wp-admin), verification (**real `audit-acf-applied.php` output — 279/291**), and the design-to-build comparison.
+  - Heavy PNGs converted to JPEG q85 (8.1 MB → 2.7 MB).
+- **`case-study/speaker-notes.md`** — rewritten for the how-to: per-step talking points, tone rules, likely Q&A, and terms to avoid out loud.
+- **Verified:** 16 slides / 16 note blocks, tag balance clean, all image refs resolve, no orphans; headless renders of slides 1–5, 10 and 13 confirmed layout and trim.
+- **Tally:** `L-01` 18 → `L-02` 17 → `L-03` 16 slides.
+
+### Local-env side effects (record, no repo change)
+
+Capturing the admin screens needed `gerotech.local` working again:
+
+1. **`wp-admin` was 502-ing** (php-fpm fork crash; fresh crash reports at 09:41). Local had regenerated `wp-config.php`, dropping the fix from 2026-09-16. **Re-applied** `@ini_set('display_errors','0')` + `WP_HTTP_BLOCK_EXTERNAL` + `DISABLE_WP_CRON` (local-only, not in repo). Verified: 5× consecutive `wp-admin` 200, no new crash reports.
+2. **Local admin password is no longer `localpass123`.** Rather than reset anyone's credential, a **temporary admin `gerotech-shotbot`** was created for capture and **deleted afterwards** — administrator list is back to the original 8. If admin access is needed later, reset via Local's bundled PHP + `wp-load` bootstrap.
 
 ## 2026-09-22 — Orphaned hero attachments deleted on Local + Dev (Cline)
 
