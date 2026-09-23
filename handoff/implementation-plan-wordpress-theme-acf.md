@@ -302,3 +302,29 @@ wp cdn-cache flush  --path=/nas/content/live/gerotechdev
 Verify with a checksum dry-run (`rsync -avnc --itemize-changes`) — expect zero drift.
 
 **Still true:** unconverted Dev URLs look unfinished. Do not full-push Local DB (would overwrite Dev users/content and ship local `wp-config` workarounds).
+
+---
+
+## 15. If the client requires a page builder
+
+**The process doesn't change — only the conversion target does.** Everything up to conversion is identical: the prototype (root `*.html` + `assets/images/`) and Figma (`YgHwqyyFj57c1ZSbmfkL0c`, home frame `7306:1063`) both hold the final pages, images and content, and remain the QA references (§1 of `qa-checklist.md`).
+
+If the client insists on a traditional builder, the design system still survives — but the build cost changes sharply depending on which one.
+
+| Route | Effort | Notes |
+|---|---|---|
+| **Native editor + ACF** *(our recommendation)* | Lowest | What this plan delivers. Structured editing, no builder licence, no lock-in, no grid conflict. |
+| **Elementor** | Moderate | **Accelerated by [UiChemy](https://uichemy.com/)** — a Figma→WordPress converter (Figma plugin + WP plugin) that exports designs to **Elementor, Gutenberg or Bricks**, including global styles. Turns much of the conversion from hand-building into an import plus cleanup. |
+| **WP Bakery** | Highest | **Full development.** Every bespoke section must be hand-built as a custom element (24+ for this design system), on top of its grid conflict and AJAX re-init problems. Previously estimated at **46–70 developer days**, plus long-term lock-in. |
+
+### What stays true whichever route is taken
+
+- **The header and footer stay theme-level** — never built in the builder, regardless of choice.
+- **The design system remains the source of truth.** A builder's stock components can't reproduce the bespoke sections (Haas watermark band, machine lineup tabs, editorial news split, stat counter, gallery collections), so those become custom elements either way.
+- **The prototype remains the QA reference.** Compare the built page to the prototype, not to the builder's preview — see `qa-checklist.md` §1.
+- **The two-sources-of-truth rule applies unchanged.** Final pages, images and content live in both the prototype and Figma.
+
+### Recommendation
+
+Do not raise a builder unless the client asks for one. If they do, push for **Elementor + UiChemy** over WP Bakery — the import path removes most of the hand-building, and the cost gap is large. Keep ACF fields for structured content in every case: they are what gives the client plain-language editing, and they survive a builder change.
+
