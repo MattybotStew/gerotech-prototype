@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building the Design Before the Approval — Gerotech Process Playbook</title>
+  <meta name="description" content="Internal process playbook: a repeatable method for design-to-build projects, using the Gerotech website redesign as the worked example." />
+
+  <!-- Same typefaces as the live project (Navigo needs the Adobe kit; system sans is the fallback) -->
+  <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       GEROTECH PROCESS PLAYBOOK — deck styles
+       Built on the project's own design system (tokens + type).
+       ============================================================ */
+
+    :root {
+      --clr-orange:       #F38A2C;
+      --clr-orange-light: #F9A94A;
+      --clr-orange-deep:  #B45000;
+      --clr-orange-tint:  rgba(243, 138, 44, 0.10);
+      --clr-ink:          #0D0D0D;
+      --clr-dark-bg:      #1C1C21;
+      --clr-dark-band:    #242426;
+      --clr-dark-nav:     #3A3A40;
+      --clr-gray-body:    #6B6B76;
+      --clr-gray-muted:   #9A9AA8;
+      --clr-gray-border:  #E4E4EA;
+      --clr-gray-card:    #F9F9FB;
+      --clr-gray-band:    #F2F2F2;
+      --clr-white:        #FFFFFF;
+
+      --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+      --font-sans: 'navigo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+      --ls-caps: 0.14em;
+      --ls-meta: 0.08em;
+
+      --max: 1120px;
+      --gutter: clamp(24px, 5vw, 96px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: var(--clr-dark-bg);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--clr-ink);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* ── Slide shell ───────────────────────────────────────── */
+
+    .deck { position: relative; height: 100%; width: 100%; }
+
+    .slide {
+      display: none;
+      position: absolute;
+      inset: 0;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(48px, 6vh, 88px) var(--gutter) clamp(72px, 9vh, 104px);
+      background: var(--clr-white);
+      overflow: hidden;
+    }
+
+    .slide.is-active { display: flex; }
+
+    .slide--dark { background: var(--clr-dark-bg); color: var(--clr-white); }
+    .slide--card { background: var(--clr-gray-card); }
+
+    .slide__inner {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* ── Typography ────────────────────────────────────────── */
+
+    .eyebrow {
+      margin: 0 0 18px;
+      font-size: clamp(11px, 0.85vw, 13px);
+      font-weight: 700;
+      letter-spacing: var(--ls-caps);
+      text-transform: uppercase;
+      color: var(--clr-orange-deep);
+    }
+
+    .slide--dark .eyebrow { color: var(--clr-orange); }
+
+    .headline-rule {
+      width: 48px;
+      height: 4px;
+      background: var(--clr-orange);
+      margin: 0 0 26px;
+      border-radius: 0;
+    }
+
+    h1.slide__title,
+    h2.slide__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(38px, 4.4vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.012em;
+      margin: 0 0 26px;
+      max-width: 22ch;
+    }
+
+    .slide__title .accent { color: var(--clr-orange); }
+    .slide--dark .slide__title .accent { color: var(--clr-orange); }
+
+    .lede {
+      font-size: clamp(16px, 1.25vw, 20px);
+      line-height: 1.6;
+      color: var(--clr-gray-body);
+      max-width: 62ch;
+      margin: 0 0 20px;
+    }
+
+    .slide--dark .lede { color: #D9D9E0; }
+
+    .body-text {
+      font-size: clamp(15px, 1.1vw, 17px);
+      line-height: 1.65;
+      color: var(--clr-gray-body);
+      max-width: 64ch;
+    }
+
+    .slide--dark .body-text { color: #CFCFD8; }
+
+    strong { color: var(--clr-ink); font-weight: 700; }
+    .slide--dark strong { color: var(--clr-white); }
+
+    /* ── Bullets ───────────────────────────────────────────── */
+
+    .bullets {
+      list-style: none;
+      margin: 0 0 8px;
+      padding: 0;
+      max-width: 72ch;
+    }
+
+    .bullets li {
+      position: relative;
+      padding: 0 0 0 30px;
+      margin: 0 0 16px;
+      font-size: clamp(15px, 1.15vw, 18px);
+      line-height: 1.55;
+      color: var(--clr-gray-body);
+    }
+
+    .bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 14px;
+      height: 3px;
+      background: var(--clr-orange);
+    }
+
+    .bullets li strong { color: var(--clr-ink); }
+    .slide--dark .bullets li { color: #CFCFD8; }
+    .slide--dark .bullets li strong { color: var(--clr-white); }
+
+    /* ── Rule callout ──────────────────────────────────────── */
+
+    .callout {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-top: clamp(20px, 3vh, 36px);
+      padding: clamp(18px, 2.2vh, 26px) clamp(20px, 2vw, 30px);
+      background: var(--clr-orange-tint);
+      border-left: 4px solid var(--clr-orange);
+      max-width: 80ch;
+    }
+
+    .callout__label {
+      flex: none;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: var(--ls-caps);
+      text-transform: uppercase;
+      color: var(--clr-orange-deep);
+      padding-top: 4px;
+      white-space: nowrap;
+    }
+
+    .callout__text {
+      margin: 0;
+      font-size: clamp(15px, 1.15vw, 18px);
+      line-height: 1.5;
+      color: var(--clr-ink);
+    }
+
+    .slide--dark .callout {
+      background: rgba(243, 138, 44, 0.14);
+    }
+    .slide--dark .callout__label { color: var(--clr-orange); }
+    .slide--dark .callout__text { color: var(--clr-white); }
+
+    /* ── Stats ─────────────────────────────────────────────── */
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1px;
+      background: var(--clr-gray-border);
+      border-top: 1px solid var(--clr-gray-border);
+      border-bottom: 1px solid var(--clr-gray-border);
+      margin: clamp(22px, 3vh, 38px) 0 0;
+    }
+
+    .stat {
+      background: var(--clr-white);
+      padding: clamp(18px, 2.4vh, 28px) 20px;
+    }
+
+    .slide--card .stat { background: var(--clr-gray-card); }
+    .slide--dark .stat-row { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.12); }
+    .slide--dark .stat { background: var(--clr-dark-bg); }
+
+    .stat__value {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(30px, 3vw, 46px);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--clr-ink);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .slide--dark .stat__value { color: var(--clr-orange); }
+
+    .stat__label {
+      font-size: clamp(11px, 0.82vw, 13px);
+      font-weight: 700;
+      letter-spacing: var(--ls-meta);
+      text-transform: uppercase;
+      color: var(--clr-gray-body);
+      line-height: 1.4;
+      display: block;
+    }
+
+    /* ── Thread map (title slide) ──────────────────────────── */
+
+    .threads {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.14);
+      margin-top: clamp(30px, 5vh, 56px);
+    }
+
+    .thread {
+      background: var(--clr-dark-bg);
+      padding: clamp(18px, 2.4vh, 26px) 22px;
+    }
+
+    .thread__num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--clr-orange);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .thread__title {
+      font-size: clamp(14px, 1vw, 16px);
+      font-weight: 700;
+      color: var(--clr-white);
+      line-height: 1.35;
+      display: block;
+    }
+
+    /* ── Data table ────────────────────────────────────────── */
+
+    .table-wrap { margin-top: clamp(18px, 2.6vh, 30px); }
+
+    table.data {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(12px, 0.95vw, 14.5px);
+      line-height: 1.45;
+    }
+
+    table.data th {
+      text-align: left;
+      font-size: clamp(10px, 0.72vw, 11px);
+      font-weight: 700;
+      letter-spacing: var(--ls-meta);
+      text-transform: uppercase;
+      color: var(--clr-gray-body);
+      padding: 0 16px 10px 0;
+      border-bottom: 2px solid var(--clr-ink);
+      vertical-align: bottom;
+    }
+
+    table.data td {
+      padding: 13px 16px 13px 0;
+      border-bottom: 1px solid var(--clr-gray-border);
+      vertical-align: top;
+      color: var(--clr-gray-body);
+    }
+
+    table.data td:first-child { color: var(--clr-ink); font-weight: 700; }
+
+    .fix { color: var(--clr-ink); }
+    .fix__pri {
+      display: inline-block;
+      min-width: 20px;
+      font-weight: 700;
+      color: var(--clr-orange-deep);
+    }
+
+    .status {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: var(--ls-meta);
+      text-transform: uppercase;
+      padding: 4px 9px;
+      white-space: nowrap;
+      background: var(--clr-orange-tint);
+      color: var(--clr-orange-deep);
+    }
+
+    /* ── Steps (build sequence) ────────────────────────────── */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1px;
+      background: var(--clr-gray-border);
+      border-top: 1px solid var(--clr-gray-border);
+      border-bottom: 1px solid var(--clr-gray-border);
+      margin-top: clamp(20px, 3vh, 34px);
+    }
+
+    .step { background: var(--clr-white); padding: clamp(16px, 2.2vh, 24px) 20px; }
+
+    .step__num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--clr-orange-deep);
+      letter-spacing: var(--ls-meta);
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .step__text {
+      font-size: clamp(13px, 0.95vw, 15px);
+      line-height: 1.5;
+      color: var(--clr-gray-body);
+    }
+
+    .step__text strong { color: var(--clr-ink); display: block; margin-bottom: 4px; font-size: 1.05em; }
+
+    /* ── Playbook rules list ───────────────────────────────── */
+
+    .rules {
+      list-style: none;
+      margin: clamp(16px, 2.4vh, 28px) 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 0 44px;
+      counter-reset: rule;
+    }
+
+    .rules li {
+      counter-increment: rule;
+      position: relative;
+      padding: 16px 0 16px 44px;
+      border-bottom: 1px solid var(--clr-gray-border);
+      font-size: clamp(14px, 1.05vw, 16.5px);
+      line-height: 1.5;
+      color: var(--clr-ink);
+    }
+
+    .rules li::before {
+      content: counter(rule, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 15px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--clr-orange-deep);
+    }
+
+    /* ── Two-column split ──────────────────────────────────── */
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(28px, 4vw, 64px);
+      margin-top: 8px;
+    }
+
+    .split__head {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(20px, 1.6vw, 26px);
+      margin: 0 0 14px;
+      color: var(--clr-ink);
+    }
+
+    .split--muted .split__head { color: var(--clr-gray-body); }
+
+    /* ── Deck chrome ───────────────────────────────────────── */
+
+    .chrome {
+      position: fixed;
+      left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      pointer-events: none;
+    }
+
+    .chrome--top {
+      top: 0;
+      padding: 18px var(--gutter);
+      justify-content: space-between;
+    }
+
+    .chrome--bottom {
+      bottom: 0;
+      padding: 16px var(--gutter);
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: var(--ls-caps);
+      text-transform: uppercase;
+      color: var(--clr-gray-muted);
+    }
+
+    .slide--dark .brand { color: rgba(255,255,255,0.55); }
+
+    .counter {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: var(--ls-meta);
+      color: var(--clr-gray-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slide--dark .counter { color: rgba(255,255,255,0.55); }
+
+    .counter__now { color: var(--clr-ink); font-weight: 700; }
+    .slide--dark .counter__now { color: var(--clr-white); }
+
+    .nav { display: flex; gap: 10px; pointer-events: auto; }
+
+    .nav button {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--clr-ink);
+      background: transparent;
+      border: 1px solid var(--clr-gray-border);
+      padding: 9px 18px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .nav button:hover { background: var(--clr-ink); color: var(--clr-white); border-color: var(--clr-ink); }
+    .nav button:focus-visible { outline: 2px solid var(--clr-orange); outline-offset: 2px; }
+    .slide--dark ~ .chrome--bottom .nav button { color: #fff; border-color: rgba(255,255,255,0.25); }
+
+    .hint {
+      font-size: 12px;
+      color: var(--clr-gray-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .slide--dark .hint { color: rgba(255,255,255,0.5); }
+
+    .progress {
+      position: fixed;
+      left: 0; bottom: 0;
+      height: 3px;
+      background: var(--clr-orange);
+      width: 0;
+      z-index: 20;
+      transition: width 0.25s ease;
+    }
+
+    /* ── Speaker notes (press N) ───────────────────────────── */
+
+    .notes {
+      display: none;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      max-height: 40vh;
+      overflow-y: auto;
+      background: var(--clr-ink);
+      color: #E7E7EE;
+      padding: 22px var(--gutter) 30px;
+      font-size: 14px;
+      line-height: 1.6;
+      z-index: 30;
+      border-top: 3px solid var(--clr-orange);
+    }
+
+    body.notes-on .notes.is-active { display: block; }
+    .notes strong { color: var(--clr-orange); }
+    .notes p { margin: 0 0 10px; }
+    .notes p:last-child { margin-bottom: 0; }
+
+    /* ── Print (export to PDF) ─────────────────────────────── */
+
+    @page { size: landscape; margin: 0; }
+
+    @media print {
+      html, body { overflow: visible; height: auto; }
+      .chrome, .progress, .notes { display: none !important; }
+      .deck { position: static; height: auto; }
+      .slide {
+        display: flex !important;
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: 100vh;
+        page-break-after: always;
+        break-after: page;
+      }
+      .slide:last-child { page-break-after: auto; }
+    }
+
+    /* ── Small screens ─────────────────────────────────────── */
+
+    @media (max-width: 720px) {
+      .slide { justify-content: flex-start; padding-top: clamp(72px, 12vh, 96px); overflow-y: auto; }
+      .hint { display: none; }
+      table.data { font-size: 11.5px; }
+      table.data td, table.data th { padding-right: 10px; }
+      .rules { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- ══════════ 01 · TITLE ══════════ -->
+  <section class="slide slide--dark is-active" data-title="Title">
+    <div class="slide__inner">
+      <p class="eyebrow">Internal process playbook</p>
+      <h1 class="slide__title">Building the design <span class="accent">before</span> the approval</h1>
+      <p class="lede">A repeatable method for design-to-build projects — using the Gerotech website redesign as the worked example.</p>
+
+      <div class="threads">
+        <div class="thread"><span class="thread__num">01</span><span class="thread__title">Build it early</span></div>
+        <div class="thread"><span class="thread__num">02</span><span class="thread__title">One feedback channel</span></div>
+        <div class="thread"><span class="thread__num">03</span><span class="thread__title">AI as one team</span></div>
+        <div class="thread"><span class="thread__num">04</span><span class="thread__title">Design carried into the build</span></div>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Open (30s).</strong> This is a method deck, not a project recap. Gerotech is the example; the four threads on this slide are the method.</p>
+      <p>Frame the ask early: by the end we want agreement to reuse this on the next engagement.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 02 · THE PROBLEM ══════════ -->
+  <section class="slide" data-title="The problem">
+    <div class="slide__inner">
+      <p class="eyebrow">The problem</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">We couldn't start designing.</h2>
+      <ul class="bullets">
+        <li>The design phase was <strong>waiting on written sign-off</strong> that hadn't arrived.</li>
+        <li>The client presentation date was <strong>already fixed</strong>.</li>
+        <li>Waiting would have meant arriving with concepts — instead of something that <strong>actually worked</strong>.</li>
+      </ul>
+      <div class="callout">
+        <span class="callout__label">The risk</span>
+        <p class="callout__text">The schedule risk wasn't the design itself. It was the wait.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Slide purpose:</strong> establish that this wasn't an aesthetic problem — it was a schedule problem.</p>
+      <p>Keep it short. Leadership has lived this: a gate blocks work, and the deadline doesn't move.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 03 · THE IDEA ══════════ -->
+  <section class="slide slide--card" data-title="The idea">
+    <div class="slide__inner">
+      <p class="eyebrow">The idea</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">Build a working draft instead of waiting.</h2>
+      <p class="lede">We built a clickable draft of the site — real pages, real structure, real behaviour — and used it to make the design tangible and reviewable.</p>
+
+      <div class="split">
+        <div>
+          <h3 class="split__head">Use it when</h3>
+          <ul class="bullets">
+            <li>A sign-off gate is blocking progress</li>
+            <li>The deadline is fixed and close</li>
+            <li>The design is complex enough to need testing</li>
+          </ul>
+        </div>
+        <div class="split--muted">
+          <h3 class="split__head">Don't use it when</h3>
+          <ul class="bullets">
+            <li>The underlying scope is still being decided</li>
+            <li>The audience needs strategy, not an artefact</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Key point:</strong> we didn't skip the process — we built the next step's evidence early.</p>
+      <p>The "don't use it when" column is what makes this a decision rule rather than a boast. Say it out loud so the method isn't oversold.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 04 · WHAT WE BUILT ══════════ -->
+  <section class="slide" data-title="What we built">
+    <div class="slide__inner">
+      <p class="eyebrow">What we built</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">A clickable site, in nine days.</h2>
+      <ul class="bullets">
+        <li>Built by hand, with <strong>no website software in the way</strong> — fast to change, easy to review.</li>
+        <li><strong>Honest placeholders</strong> wherever content wasn't confirmed. We never guessed and never faked.</li>
+        <li>Started at two pages; grew to the full site once the direction was approved.</li>
+      </ul>
+      <div class="stat-row">
+        <div class="stat"><span class="stat__value">9 days</span><span class="stat__label">To a presentable draft</span></div>
+        <div class="stat"><span class="stat__value">2 → 12</span><span class="stat__label">Pages designed</span></div>
+        <div class="stat"><span class="stat__value">229</span><span class="stat__label">Tracked changes</span></div>
+      </div>
+      <div class="callout">
+        <span class="callout__label">Rule</span>
+        <p class="callout__text">Placeholders are a feature, not a failure. They show exactly where a decision is still owed.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Numbers:</strong> 9 days from first line to client-ready draft; the page count grew over the following months.</p>
+      <p>The placeholder point matters for leadership: placeholders make outstanding decisions visible instead of hiding them in assumptions.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 05 · STYLE GUIDE ══════════ -->
+  <section class="slide" data-title="A style guide from day one">
+    <div class="slide__inner">
+      <p class="eyebrow">Why it held together</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">One style guide, from the first day.</h2>
+      <ul class="bullets">
+        <li>Colours, type and spacing were defined <strong>once</strong>, then reused everywhere.</li>
+        <li>Every page was assembled from the <strong>same building blocks</strong> — not designed in isolation.</li>
+        <li>Months of changes and new pages never broke the look, because the rules lived in one place.</li>
+      </ul>
+      <div class="callout">
+        <span class="callout__label">Rule</span>
+        <p class="callout__text">Decide the rules once. After that, every page is a variation — not a new decision.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Why it matters commercially:</strong> a shared style guide is what makes page 12 as fast to build as page 2, and what keeps a client-facing design consistent as more people touch it.</p>
+      <p>Avoid the technical vocabulary. Say "shared style guide and building blocks."</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 06 · PAYOFF ══════════ -->
+  <section class="slide slide--card" data-title="The payoff">
+    <div class="slide__inner">
+      <p class="eyebrow">The payoff</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">The draft became the blueprint.</h2>
+      <ul class="bullets">
+        <li><strong>Nothing was thrown away.</strong> The pages the client approved were the pages we built from.</li>
+        <li>The build team worked from a <strong>working reference</strong>, not a static picture.</li>
+        <li>Fewer handoff gaps — because what was approved and what was built were the same thing.</li>
+      </ul>
+      <div class="callout">
+        <span class="callout__label">Rule</span>
+        <p class="callout__text">When the draft is the specification, approval and build can't drift apart.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>The single most important slide.</strong> The prototype paid for itself twice: it moved the design forward while blocked, then it removed the ambiguity from the build.</p>
+      <p>Pause here. This is the argument for adopting the method.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 07 · SCALING ══════════ -->
+  <section class="slide" data-title="Scaling up">
+    <div class="slide__inner">
+      <p class="eyebrow">Scaling up</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">From 2 pages to 12.</h2>
+      <p class="lede">The method scaled — but the real work stopped being the design and became <strong>coordination</strong>.</p>
+      <ul class="bullets">
+        <li>More pages, more feedback, more changes in flight at once.</li>
+        <li>What strained wasn't quality. It was <strong>keeping everything and everyone in step</strong>.</li>
+        <li>So we formalised two things: one feedback channel, and one shared brief.</li>
+      </ul>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Transition slide.</strong> Sets up the next two mechanisms — the feedback loop and the shared brief.</p>
+      <p>Honest framing without blame: growth exposed a coordination gap, and we closed it with process.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 08 · MECHANISM A ══════════ -->
+  <section class="slide" data-title="One feedback channel">
+    <div class="slide__inner">
+      <p class="eyebrow">Mechanism one</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">One place for feedback, tied to the exact spot.</h2>
+      <ul class="bullets">
+        <li>Client notes were attached to the <strong>precise part of the design</strong> they referred to.</li>
+        <li>Every note became a <strong>tracked item with an owner</strong> — and was closed off one by one.</li>
+        <li>Nothing was lost in email threads or meeting recollections.</li>
+      </ul>
+      <div class="callout">
+        <span class="callout__label">Rule</span>
+        <p class="callout__text">Feedback is only useful if it's tied to a place and has an owner.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Plain version:</strong> the client commented directly on the design, and each comment became a task we could tick off.</p>
+      <p>This is what kept a long review cycle from becoming an argument about what was agreed.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 09 · MECHANISM B ══════════ -->
+  <section class="slide" data-title="AI assistants with shared memory">
+    <div class="slide__inner">
+      <p class="eyebrow">Mechanism two</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">AI assistants that don't forget.</h2>
+      <p class="lede">Three plain documents let any assistant, on any day, pick up the work cold:</p>
+      <div class="split">
+        <div>
+          <h3 class="split__head">Instructions</h3>
+          <p class="body-text">How we work — the rules and standards, written once.</p>
+        </div>
+        <div>
+          <h3 class="split__head">Current status</h3>
+          <p class="body-text">What's true right now: what's done, what's blocked, what's next.</p>
+        </div>
+        <div>
+          <h3 class="split__head">Project diary</h3>
+          <p class="body-text">What happened and why, so decisions aren't re-litigated.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <span class="callout__label">Rule</span>
+        <p class="callout__text">Shared memory is what turns many separate sessions into one continuous project.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Demystify it.</strong> These are three ordinary documents, not software. The point is that a new session — human or AI — starts informed instead of guessing.</p>
+      <p>Leadership takeaway: continuity is a process choice, not a technology feature.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 10 · TOOLING ══════════ -->
+  <section class="slide slide--card" data-title="Who did what">
+    <div class="slide__inner">
+      <p class="eyebrow">Who did what</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">The right tool for each job.</h2>
+      <ul class="bullets">
+        <li>Our AI assistants ran inside <strong>Cursor</strong> and <strong>VS Code</strong>.</li>
+        <li>Using <strong>Cline</strong> and <strong>opencode</strong>, powered by <strong>DeepSeek</strong>.</li>
+        <li>Each was used where it was strongest. <strong>People set direction and made every decision.</strong></li>
+      </ul>
+      <div class="callout">
+        <span class="callout__label">Rule</span>
+        <p class="callout__text">Tools are interchangeable. The shared brief is not.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Keep this slide factual and brief.</strong> Name the tools, then move the emphasis back to the method.</p>
+      <p>Pre-empt the obvious question: the tools changed during the project; the brief didn't. That's why continuity survived.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 11 · ROADBLOCKS: METHOD ══════════ -->
+  <section class="slide" data-title="Roadblocks in how we worked">
+    <div class="slide__inner">
+      <p class="eyebrow">Roadblocks · prioritised by impact</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">Roadblocks in how we worked — and the fixes.</h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr><th style="width:26%">Roadblock</th><th style="width:32%">Why it mattered</th><th style="width:30%">Fix</th><th style="width:12%">Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Work lost between sessions</td>
+              <td>Context had to be rebuilt from scratch each time</td>
+              <td class="fix"><span class="fix__pri">1.</span> One project diary plus a current-status file</td>
+              <td><span class="status">Fixed</span></td>
+            </tr>
+            <tr>
+              <td>Parallel edits drifting apart</td>
+              <td>Two people could change the same thing differently</td>
+              <td class="fix"><span class="fix__pri">2.</span> One source of truth per layer, with comparison checks</td>
+              <td><span class="status">Fixed</span></td>
+            </tr>
+            <tr>
+              <td>Coordination overhead grew with page count</td>
+              <td>Review cycles slowed as the site grew</td>
+              <td class="fix"><span class="fix__pri">3.</span> Clear division of labour by strength, agreed up front</td>
+              <td><span class="status">Managed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Priority 1</strong> items could have stalled delivery. <strong>3</strong> was friction, not risk.</p>
+      <p>Every row leads with the remedy. The message: problems surfaced, and each one produced a lasting process fix.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 12 · THE FORK ══════════ -->
+  <section class="slide" data-title="Choosing how to build it">
+    <div class="slide__inner">
+      <p class="eyebrow">Choosing how to build it</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">We costed the options before committing.</h2>
+      <ul class="bullets">
+        <li>Route A required rebuilding every custom section inside a page builder — estimated at <strong>46–70 developer days</strong>, with ongoing lock-in.</li>
+        <li>Route B — the chosen path — was a <strong>custom layer on the existing site</strong>, with editing controls the client owns.</li>
+        <li>The decision was made on <strong>numbers and risk</strong>, not preference.</li>
+      </ul>
+      <div class="callout">
+        <span class="callout__label">Rule</span>
+        <p class="callout__text">Cost the build path before it starts — and write the decision down.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>This slide protects the team.</strong> It shows the expensive option was genuinely considered and rejected on evidence.</p>
+      <p>Keep the builder discussion high-level — the reasoning is what leadership needs, not the tooling.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 13 · THE BRIDGE ══════════ -->
+  <section class="slide slide--card" data-title="Keeping design and build in step">
+    <div class="slide__inner">
+      <p class="eyebrow">Keeping design and build in step</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">One source of truth, with safety checks.</h2>
+      <ul class="bullets">
+        <li>The design stayed the single source of truth until the build was ready to take over.</li>
+        <li>Safe, repeatable steps moved approved changes across — and a <strong>comparison check</strong> proved nothing drifted.</li>
+        <li>A planned <strong>handover point</strong> transferred ownership cleanly, with no ambiguity about which copy wins.</li>
+      </ul>
+      <div class="callout">
+        <span class="callout__label">Rule</span>
+        <p class="callout__text">Two copies of the truth is one too many. Name the winner, and check for drift.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Plain version:</strong> we agreed which copy was authoritative at each stage, and verified it automatically rather than trusting memory.</p>
+      <p>This is the discipline that prevented "it looked right on our screen" conversations.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 14 · THE BUILD ══════════ -->
+  <section class="slide" data-title="The build">
+    <div class="slide__inner">
+      <p class="eyebrow">The build</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">Six days, start to finish.</h2>
+      <div class="steps">
+        <div class="step"><span class="step__num">Days 1–2</span><p class="step__text"><strong>Set up &amp; inspect</strong>The test site was prepared and the existing site reviewed.</p></div>
+        <div class="step"><span class="step__num">Days 3–4</span><p class="step__text"><strong>Rebuild &amp; wire up</strong>Pages rebuilt from the approved design; editing controls added.</p></div>
+        <div class="step"><span class="step__num">Day 5</span><p class="step__text"><strong>Content &amp; control</strong>Content moved in; client-editable settings configured.</p></div>
+        <div class="step"><span class="step__num">Day 6</span><p class="step__text"><strong>Publish &amp; verify</strong>Published to the test site and checked page by page.</p></div>
+      </div>
+      <div class="callout">
+        <span class="callout__label">Result</span>
+        <p class="callout__text">14 pages live and verified — every page returning correctly, with no errors.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Speed came from preparation, not shortcuts.</strong> The design was already a working reference, so the build was translation rather than invention.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 15 · ROADBLOCKS: BUILD ══════════ -->
+  <section class="slide" data-title="Roadblocks in the build">
+    <div class="slide__inner">
+      <p class="eyebrow">Roadblocks · prioritised by impact</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">Roadblocks in the build — and the fixes.</h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr><th style="width:24%">Roadblock</th><th style="width:26%">Why it mattered</th><th style="width:36%">Fix</th><th style="width:14%">Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Editing controls looked empty while the site looked right</td>
+              <td>The client couldn't update their own content — and nothing appeared broken</td>
+              <td class="fix"><span class="fix__pri">1.</span> New rule: every control is verified automatically</td>
+              <td><span class="status">Fixed</span></td>
+            </tr>
+            <tr>
+              <td>A routine save in the admin wiped chosen colours</td>
+              <td>The approved design drifted with no warning</td>
+              <td class="fix"><span class="fix__pri">1.</span> Removed the risky defaults; blank now means "leave as designed"</td>
+              <td><span class="status">Fixed</span></td>
+            </tr>
+            <tr>
+              <td>Changing the design didn't change the live page</td>
+              <td>Two copies of the truth</td>
+              <td class="fix"><span class="fix__pri">1.</span> One rule — saved content wins — applied with safe, repeatable fixes</td>
+              <td><span class="status">Fixed</span></td>
+            </tr>
+            <tr>
+              <td>The test site drifted from what was approved</td>
+              <td>An unreviewed change could have gone live</td>
+              <td class="fix"><span class="fix__pri">2.</span> Save to the project before publishing; compare file by file</td>
+              <td><span class="status">Fixed</span></td>
+            </tr>
+            <tr>
+              <td>A live older page looked like a duplicate</td>
+              <td>We nearly removed a page the client still uses</td>
+              <td class="fix"><span class="fix__pri">2.</span> Compare full web addresses, never just page names</td>
+              <td><span class="status">Prevented</span></td>
+            </tr>
+            <tr>
+              <td>Publishing was slow and unreliable</td>
+              <td>Every release cost time and confidence</td>
+              <td class="fix"><span class="fix__pri">3.</span> One documented publishing process</td>
+              <td><span class="status">Fixed</span></td>
+            </tr>
+            <tr>
+              <td>Some fonts quietly fell back to a default</td>
+              <td>Inconsistent typography across pages</td>
+              <td class="fix"><span class="fix__pri">3.</span> Audited which fonts were actually loading</td>
+              <td><span class="status">Fixed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Priority key:</strong> <strong>1</strong> = could have blocked the client from editing, or damaged the approved design. <strong>3</strong> = friction. Every row leads with the fix and shows the status.</p>
+      <p>The two "silent" roadblocks are the most valuable lesson: they looked fine on screen. That's why automated verification is now a standing rule.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 16 · OUTCOMES ══════════ -->
+  <section class="slide slide--card" data-title="What we achieved">
+    <div class="slide__inner">
+      <p class="eyebrow">What we achieved</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">Evidence the method worked.</h2>
+      <div class="stat-row">
+        <div class="stat"><span class="stat__value">12</span><span class="stat__label">Pages designed</span></div>
+        <div class="stat"><span class="stat__value">291</span><span class="stat__label">Editing controls the client owns</span></div>
+        <div class="stat"><span class="stat__value">14</span><span class="stat__label">Pages live and verified</span></div>
+        <div class="stat"><span class="stat__value">~3 months</span><span class="stat__label">Draft to live test site</span></div>
+      </div>
+      <div class="callout">
+        <span class="callout__label">Reusable</span>
+        <p class="callout__text">The style guide, the shared-brief method, the safety checks — and this playbook.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Numbers as evidence, not trophies.</strong> Each one is a consequence of the method, not a separate achievement.</p>
+      <p>If asked about the 291: those are the content controls the client can edit themselves without calling us.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 17 · THE PLAYBOOK ══════════ -->
+  <section class="slide" data-title="Our playbook">
+    <div class="slide__inner">
+      <p class="eyebrow">The playbook</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">Eight rules worth reusing.</h2>
+      <ol class="rules">
+        <li>When a gate blocks progress, build the working draft.</li>
+        <li>Placeholders are a feature — they expose open decisions.</li>
+        <li>Decide the rules once; every page after that is a variation.</li>
+        <li>If the draft is the spec, approval and build can't drift.</li>
+        <li>Tie every piece of feedback to a place and an owner.</li>
+        <li>Give every session shared memory.</li>
+        <li>Cost the build path before committing to it.</li>
+        <li>A fix isn't done until it's verified automatically.</li>
+      </ol>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>This is the slide to keep.</strong> Everything before it is justification; everything after is next steps.</p>
+      <p>Read them aloud slowly — these are the eight sentences we want people to leave with.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 18 · WHAT'S NEXT ══════════ -->
+  <section class="slide slide--dark" data-title="What's next">
+    <div class="slide__inner">
+      <p class="eyebrow">What's next</p>
+      <div class="headline-rule"></div>
+      <h2 class="slide__title">Two things we'd like to agree today.</h2>
+      <div class="split">
+        <div>
+          <h3 class="split__head">Adopt the method</h3>
+          <p class="body-text">Use the shared-brief approach — instructions, status, diary — as the default on the next project.</p>
+        </div>
+        <div>
+          <h3 class="split__head">Fund the verification step</h3>
+          <p class="body-text">Make automated checks standard, so silent problems can't reach a client-facing site.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <span class="callout__label">Still open</span>
+        <p class="callout__text">Launch settings for the live domain, design direction for the remaining older pages, and a short list of client decisions.</p>
+      </div>
+    </div>
+    <div class="notes" data-notes>
+      <p><strong>Close on an ask, not a summary.</strong> Two decisions: adopt the method, and fund verification.</p>
+      <p>The "still open" items are deliberately brief — enough to show nothing is hidden, without turning the close into a risk review.</p>
+    </div>
+  </section>
+
+</div><!-- /.deck -->
+
+<!-- ══════════ CHROME ══════════ -->
+<div class="chrome chrome--top">
+  <span class="brand">CloudMellow · Process Playbook</span>
+  <span class="counter"><span class="counter__now" id="counterNow">01</span> / <span id="counterTotal">18</span></span>
+</div>
+
+<div class="chrome chrome--bottom">
+  <span class="hint">← → to navigate · N for notes · P to print</span>
+  <div class="nav">
+    <button type="button" id="btnPrev" aria-label="Previous slide">Prev</button>
+    <button type="button" id="btnNext" aria-label="Next slide">Next</button>
+  </div>
+</div>
+
+<div class="progress" id="progress"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var index = 0;
+
+  var counterNow = document.getElementById('counterNow');
+  var counterTotal = document.getElementById('counterTotal');
+  var progress = document.getElementById('progress');
+
+  counterTotal.textContent = total < 10 ? '0' + total : String(total);
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  function show(n, push) {
+    index = Math.max(0, Math.min(total - 1, n));
+
+    slides.forEach(function (slide, i) {
+      var active = i === index;
+      slide.classList.toggle('is-active', active);
+      var notes = slide.querySelector('.notes');
+      if (notes) notes.classList.toggle('is-active', active);
+    });
+
+    counterNow.textContent = pad(index + 1);
+    progress.style.width = ((index + 1) / total * 100) + '%';
+
+    if (push !== false) {
+      try { history.replaceState(null, '', '#slide-' + (index + 1)); } catch (e) {}
+    }
+  }
+
+  function next() { show(index + 1); }
+  function prev() { show(index - 1); }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+      case ' ':
+      case 'PageDown':
+        e.preventDefault(); next(); break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+      case 'PageUp':
+        e.preventDefault(); prev(); break;
+      case 'Home':
+        e.preventDefault(); show(0); break;
+      case 'End':
+        e.preventDefault(); show(total - 1); break;
+      case 'n':
+      case 'N':
+        document.body.classList.toggle('notes-on'); break;
+      case 'p':
+      case 'P':
+        window.print(); break;
+    }
+  });
+
+  // Touch / swipe
+  var startX = null;
+  document.addEventListener('touchstart', function (e) {
+    startX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 60) { dx < 0 ? next() : prev(); }
+    startX = null;
+  }, { passive: true });
+
+  // Deep link: #slide-7
+  var hash = window.location.hash.match(/slide-(\d+)/);
+  show(hash ? parseInt(hash[1], 10) - 1 : 0, false);
+})();
+</script>
+
+</body>
+</html>

@@ -2,6 +2,19 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-23 — Internal process playbook deck for leadership (DSH)
+
+Built a case-study deliverable for a **leadership audience**, entirely outside the prototype/theme build — no site files touched.
+
+- **`case-study/gerotech-process-playbook.html`** — 18-slide self-contained deck (no build step, no server). Styled on the project's own design system (Barlow Condensed + Navigo, brand tokens) so the deck demonstrates the discipline it documents.
+  - Nav: ← / → / Space, Prev/Next buttons, swipe, `#slide-N` deep links, **N** toggles speaker notes, **P** prints (each slide a landscape page for PDF export).
+  - Embedded per-slide notes in `<aside class="notes">` blocks.
+- **`case-study/speaker-notes.md`** — companion: per-slide talking points, likely Q&A, and a glossary of tech terms to avoid out loud.
+- **Framing decisions (user-set):** audience = internal/process playbook; all four narrative threads; **low candor** — failures are presented as **roadblocks, prioritised by impact, with the fix leading and a status column**; leadership will see it.
+- **Tooling named once** (slide 10): Cursor + VS Code, using Cline + opencode on DeepSeek.
+- **Verified:** 18 slides / 18 note blocks, tag balance clean; headless-Chrome renders of slides 1, 15 (roadblock table) and 17 (playbook rules) confirmed legible at 1600×900.
+- Not committed yet. No `.clinerules` state change — the build is unaffected.
+
 ## 2026-09-22 — Orphaned hero attachments deleted on Local + Dev (Cline)
 
 Removed the two retired hero uploads left over from the 2026-09-21 hero-art swap:
