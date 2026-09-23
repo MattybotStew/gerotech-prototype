@@ -28,7 +28,7 @@
 
 - The two tools are **not competitors**, and code is not "instead of" Figma. **Everything is built in code; Figma is where it's presented.** If you catch yourself saying "we design in code instead of Figma", stop — that's a version we corrected twice.
 - Talk in outcomes and decisions, never technology.
-- Never say "zero licences". The precise claim is on slide 17 — use it exactly.
+- **Don't argue licences.** The build target is a kickoff decision, not a process point. Slide 17 is about the process holding up whichever target is chosen.
 - Phases 1–3 are the ones teams skip. Say why skipping them makes phases 4–5 expensive.
 
 ---
@@ -96,7 +96,7 @@ This is what lets several people *and several AI assistants* work on one project
 
 ### 14 · Phase 6 — Convert to WordPress *(figure slide)*
 **The payoff.** Because the design was already working code, conversion is **translation rather than reconstruction**. The page the client approved is the page that ships.
-Technically: WordPress's native editor plus structured fields, on a child theme. No page builder in the middle.
+Technically the build target is a **kickoff decision** — structured fields on the client's existing theme by default, or a page builder if the client wants one. The conversion work is the same either way, and nothing earlier in the process depends on it.
 
 ### 15 · The client's editing experience *(figure slide)*
 They edit their own content without calling us. Two habits make it usable: labels in plain language, and the safe default stated inside the field.
@@ -107,13 +107,13 @@ Dev doesn't start from a static mockup and a blank template — they start from 
 **Land this sentence:** *we pass to dev a fully designed front end that is ready for the more complex functionality our clients need.*
 Already done: every page built and responsive, the design system in version control, editing controls the client owns. What dev adds: integrations, dynamic data, quoting flows, CRM and ERP connections.
 
-### 17 · The payoff — what the client doesn't pay for
-**Be precise here. This is the claim most likely to be challenged.**
-- **Not needed:** page-builder licence — a builder would fight a bespoke design system, add lock-in, and cost more to maintain.
-- **Not needed:** commercial theme licence — no purchased theme and no annual renewal.
-- **One licence:** Advanced Custom Fields — a single plugin licence replaces both, and it's what gives the client structured, plain-language editing.
+### 17 · The payoff — the process holds up whatever we build it in
+**This slide is about independence, not licences.**
+- **The design survives** — bespoke sections aren't compromised to fit a tool's stock components. The design system stays the source of truth.
+- **The client owns their content** — plain-language structured fields, with or without a builder.
+- **Dev starts ahead** — a working front end, not a folder of mockups.
 
-If asked about the parent theme: the build is a **child theme of the client's existing bespoke theme**, so there's no purchased theme and no renewal. A block theme would remove that dependency entirely — that's the next step, not something we've shipped. **Do not overclaim.**
+The build target is **settled at kickoff**: structured fields by default, or a page builder if the client wants one. **Do not turn this into a cost argument** — that's a project-specific budget conversation. The point is that choosing a builder costs the client nothing in process, design quality or editability.
 
 ### 18 · Verified, not assumed *(figure slide)*
 The rule that prevents the worst failure: a control can render the design perfectly while being empty in the admin. Nothing looks broken, which is why it gets missed.
@@ -154,8 +154,8 @@ We map each comment to the code **with Cursor**. The change is made once, in one
 **"Why not use a page builder? The client could edit anything then."**
 We costed it: 46–70 developer days, plus lock-in, and it can't reproduce a bespoke design system from stock components. Editor-plus-fields gives structured editing without the builder.
 
-**"So there are no licences at all?"**
-Precisely: no page-builder licence, no commercial theme licence. One plugin licence (ACF Pro) replaces both.
+**"What if the client wants a page builder?"**
+They can have one. It's agreed at kickoff, and nothing in the process changes — the design system, the structured fields and the QA reference all still apply. The build target is a delivery detail, not a redesign.
 
 **"How does dev pick this up without a handover meeting?"**
 The shared brief. Instructions, current status and a project diary live with the project, so a new team starts informed rather than guessing.

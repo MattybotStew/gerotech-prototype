@@ -307,13 +307,13 @@ Verify with a checksum dry-run (`rsync -avnc --itemize-changes`) — expect zero
 
 ## 15. If the client requires a page builder
 
-**The process doesn't change — only the conversion target does.** Everything up to conversion is identical: the prototype (root `*.html` + `assets/images/`) and Figma (`YgHwqyyFj57c1ZSbmfkL0c`, home frame `7306:1063`) both hold the final pages, images and content, and remain the QA references (§1 of `qa-checklist.md`).
+**The build target is the client's choice, agreed at kickoff — and this process is independent of it.** Everything up to conversion is identical: the prototype (root `*.html` + `assets/images/`) and Figma (`YgHwqyyFj57c1ZSbmfkL0c`, home frame `7306:1063`) both hold the final pages, images and content, and remain the QA references (§1 of `qa-checklist.md`).
 
-If the client insists on a traditional builder, the design system still survives — but the build cost changes sharply depending on which one.
+This plan describes the **native-editor route** because that is our default recommendation. If the client picks a builder instead, everything above still applies — only the conversion target changes.
 
 | Route | Effort | Notes |
 |---|---|---|
-| **Native editor + ACF** *(our recommendation)* | Lowest | What this plan delivers. Structured editing, no builder licence, no lock-in, no grid conflict. |
+| **Native editor + ACF** *(our default)* | Lowest | What this plan delivers. Structured editing, no builder licence, no lock-in, no grid conflict. |
 | **Elementor** | Moderate | **Accelerated by [UiChemy](https://uichemy.com/)** — a Figma→WordPress converter (Figma plugin + WP plugin) that exports designs to **Elementor, Gutenberg or Bricks**, including global styles. Turns much of the conversion from hand-building into an import plus cleanup. |
 | **WP Bakery** | Highest | **Full development.** Every bespoke section must be hand-built as a custom element (24+ for this design system), on top of its grid conflict and AJAX re-init problems. Previously estimated at **46–70 developer days**, plus long-term lock-in. |
 
@@ -326,5 +326,7 @@ If the client insists on a traditional builder, the design system still survives
 
 ### Recommendation
 
-Do not raise a builder unless the client asks for one. If they do, push for **Elementor + UiChemy** over WP Bakery — the import path removes most of the hand-building, and the cost gap is large. Keep ACF fields for structured content in every case: they are what gives the client plain-language editing, and they survive a builder change.
+**The build target is the client's call, and it is settled at kickoff — never mid-project.** Offer the routes above with their costs so the decision is informed; don't turn it into a debate about whether the process works, because it works either way.
+
+If a builder is chosen, push for **Elementor + UiChemy** over WP Bakery — the import path removes most of the hand-building, and the cost gap is large. Keep ACF fields for structured content in every case: they are what gives the client plain-language editing, and they survive a builder change.
 

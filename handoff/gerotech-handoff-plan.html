@@ -115,7 +115,7 @@
 <p>This is safer than editing the parent theme directly. We would only build a fully new theme if, on inspection of the staging copy, the parent proves unmaintainable. That inspection is the one remaining fork in the road.</p>
 
 <h3>4.2 Page Builder Decision</h3>
-<p><strong>The process does not change if a builder is required — only the conversion target does.</strong> Everything up to conversion is identical: the prototype and the Figma file both hold the final pages, images and content, and both remain the QA references. The header and footer stay theme-level in every case; a builder only ever governs page content.</p>
+<p><strong>The build target is the client's choice, agreed at kickoff — and the process is independent of it.</strong> Everything up to conversion is identical whichever target is picked: the prototype and the Figma file both hold the final pages, images and content, and both remain the QA references. The header and footer stay theme-level in every case; a builder only ever governs page content.</p>
 <table>
   <thead>
     <tr>
@@ -135,7 +135,8 @@
     <tr><td>Compatibility with the classic theme</td><td>Excellent</td><td>Good</td><td>Excellent</td></tr>
   </tbody>
 </table>
-<p><strong>Recommendation: the native WordPress editor plus ACF fields — no page builder.</strong> It is the only option where the prototype’s design system survives intact, the client gets structured editing fields in plain language, and there is no shortcode lock-in on a site we will maintain for years.</p>
+<p><strong>Our default recommendation is the native WordPress editor plus ACF fields.</strong> It is the option where the prototype’s design system survives intact, the client gets structured editing fields in plain language, and there is no shortcode lock-in on a site we will maintain for years.</p>
+<p><strong>But this is the client’s decision, made at kickoff.</strong> If they prefer a familiar visual builder, they can have one — and nothing earlier in this process changes: the design system still governs, the structured fields still carry the content, and the prototype is still the QA reference. The trade-offs below are about cost and long-term maintenance, not about whether the process works.</p>
 <p><strong>If the client requires a traditional builder, Elementor is the one to push for.</strong> <a href="https://uichemy.com/">UiChemy</a> is a Figma-to-WordPress converter (a Figma plugin plus a WordPress plugin) that exports designs to <strong>Elementor, Gutenberg or Bricks</strong>, including global styles — so much of the conversion becomes an import plus cleanup rather than hand-building every section.</p>
 <p><strong>WP Bakery is full development, not the safe option.</strong> Every bespoke section in this design — the Haas watermark band, machine lineup tabs, editorial news split, stat counter, gallery collections — has to be hand-built as a custom element, on top of its own grid and script-reinitialisation problems. Treat it as the most expensive route.</p>
 <p><strong>Unchanged whichever route is taken:</strong> the header and footer stay theme-level; the design system remains the source of truth; the prototype remains the QA reference (see <em>handoff/qa-checklist.md</em> §1); and ACF stays for structured content, because it is what gives the client plain-language editing.</p>
