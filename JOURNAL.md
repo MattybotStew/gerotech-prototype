@@ -2,6 +2,19 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+### GitHub Pages — the deck now lives in its own repo
+
+**Incident (2026-09-23):** the repo was accidentally switched to **private**, which disabled GitHub Pages on the current plan — the whole site 404'd (root, deck and `/JOURNAL.md`). The Pages deploy run showed **build succeeded, "Deploy to GitHub Pages" failed**, and `has_pages` flipped to `false`. The repo has been **restored to public**.
+
+**Deck moved to a dedicated public repo** so the internal source stays separate from the published artifact:
+
+- **Repo:** https://github.com/MattybotStew/gerotech-process-playbook (public)
+- **Live:** https://mattybotstew.github.io/gerotech-process-playbook/
+- Contains only `index.html` (redirect), `gerotech-process-playbook.html`, `speaker-notes.md`, `images/` and a README.
+- ⚠️ **Pages is intentionally left OFF on this prototype repo** — the deck's canonical URL is now the dedicated repo above. The old `mattybotstew.github.io/gerotech-prototype/case-study/...` URLs are dead. Re-enable here only if the whole-repo exposure is acceptable.
+- ✅ This also resolves the earlier concern that Pages was serving `JOURNAL.md`, `AGENTS.md`, `docs/PROJECT_BRIEF.md` and the theme PHP: none of that is published now.
+- **Drift warning:** `case-study/` in this repo and the playbook repo are now two copies. Edit here first, then re-copy `case-study/` → playbook repo.
+
 ## 2026-09-23 — Playbook restructured as the 8-phase process (DSH)
 
 Matt redefined the story: the deck now follows the **engagement lifecycle** — kickoff/discovery → sitemap → wireframes → **design built in code, not Figma** → iterate between code and the design file → review → convert to WordPress (native editor + ACF, no builder) → hand off a designed front end to dev for complex functionality.
