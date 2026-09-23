@@ -115,27 +115,30 @@
 <p>This is safer than editing the parent theme directly. We would only build a fully new theme if, on inspection of the staging copy, the parent proves unmaintainable. That inspection is the one remaining fork in the road.</p>
 
 <h3>4.2 Page Builder Decision</h3>
-<p>The header and footer are excluded from this decision — they live in the theme. The builder only governs page content. Our assessment against this project’s actual criteria:</p>
+<p><strong>The process does not change if a builder is required — only the conversion target does.</strong> Everything up to conversion is identical: the prototype and the Figma file both hold the final pages, images and content, and both remain the QA references. The header and footer stay theme-level in every case; a builder only ever governs page content.</p>
 <table>
   <thead>
     <tr>
-      <th style="width:30%;">Criterion</th>
-      <th style="width:23%;">WP Bakery</th>
-      <th style="width:24%;">Gutenberg + ACF Blocks</th>
-      <th style="width:23%;">Elementor</th>
+      <th style="width:26%;">Criterion</th>
+      <th style="width:24%;">Native editor + ACF <em>(recommended)</em></th>
+      <th style="width:25%;">Elementor <em>(with UiChemy)</em></th>
+      <th style="width:25%;">WP Bakery</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>Fit with our custom design system</td><td>Poor unless we build custom elements; injects its own grid</td><td><strong>Native</strong> — markup stays ours</td><td>Poor — heavy wrapper markup</td></tr>
-    <tr><td>Client editing experience</td><td>Familiar, visual</td><td>Structured fields + live preview; excellent when well built</td><td>Familiar, visual</td></tr>
-    <tr><td>Shortcode / vendor lock-in</td><td>High</td><td><strong>None</strong></td><td>High</td></tr>
-    <tr><td>Performance</td><td>Adds weight</td><td><strong>Lightest</strong></td><td>Heaviest</td></tr>
-    <tr><td>Long-term maintenance (retainer)</td><td>Builder + our CSS can conflict</td><td><strong>Fewest moving parts</strong></td><td>Most moving parts</td></tr>
-    <tr><td>Compatibility with the classic theme</td><td>Excellent</td><td>Excellent</td><td>Good</td></tr>
+    <tr><td>Fit with our custom design system</td><td><strong>Native</strong> — markup stays ours</td><td>Poor — heavy wrapper markup unless each section is built as a custom widget</td><td>Poor unless every section is built as a custom element; injects its own grid</td></tr>
+    <tr><td>Build effort</td><td><strong>Lowest</strong> — translation from the approved prototype</td><td>Moderate — Figma-to-Elementor import, then cleanup</td><td><strong>Highest</strong> — 24+ custom elements; previously estimated 46–70 developer days</td></tr>
+    <tr><td>Client editing experience</td><td>Structured fields + live preview</td><td>Familiar, visual</td><td>Familiar, visual</td></tr>
+    <tr><td>Shortcode / vendor lock-in</td><td><strong>None</strong></td><td>High</td><td>High</td></tr>
+    <tr><td>Performance</td><td><strong>Lightest</strong></td><td>Heaviest</td><td>Adds weight</td></tr>
+    <tr><td>Long-term maintenance (retainer)</td><td><strong>Fewest moving parts</strong></td><td>Most moving parts</td><td>Builder and our CSS can conflict</td></tr>
+    <tr><td>Compatibility with the classic theme</td><td>Excellent</td><td>Good</td><td>Excellent</td></tr>
   </tbody>
 </table>
-<p><strong>Recommendation:</strong> <strong>Gutenberg + ACF Blocks.</strong> It is the only option where the prototype’s design system survives intact, the client gets structured editing fields, and there is no shortcode lock-in on a site we will maintain for years.</p>
-<p><strong>WP Bakery is a defensible second choice</strong> — appropriate if the client already knows it or the team standardises on it. In that case we would build custom Gerotech elements, disable its default grid, and still keep header, footer, and structured content in the theme. We will include build-cost estimates for both so the trade-off is concrete.</p>
+<p><strong>Recommendation: the native WordPress editor plus ACF fields — no page builder.</strong> It is the only option where the prototype’s design system survives intact, the client gets structured editing fields in plain language, and there is no shortcode lock-in on a site we will maintain for years.</p>
+<p><strong>If the client requires a traditional builder, Elementor is the one to push for.</strong> <a href="https://uichemy.com/">UiChemy</a> is a Figma-to-WordPress converter (a Figma plugin plus a WordPress plugin) that exports designs to <strong>Elementor, Gutenberg or Bricks</strong>, including global styles — so much of the conversion becomes an import plus cleanup rather than hand-building every section.</p>
+<p><strong>WP Bakery is full development, not the safe option.</strong> Every bespoke section in this design — the Haas watermark band, machine lineup tabs, editorial news split, stat counter, gallery collections — has to be hand-built as a custom element, on top of its own grid and script-reinitialisation problems. Treat it as the most expensive route.</p>
+<p><strong>Unchanged whichever route is taken:</strong> the header and footer stay theme-level; the design system remains the source of truth; the prototype remains the QA reference (see <em>handoff/qa-checklist.md</em> §1); and ACF stays for structured content, because it is what gives the client plain-language editing.</p>
 
 <h2>5. Handoff Deliverables</h2>
 <p>A <em>handoff/</em> package in the project repository:</p>
