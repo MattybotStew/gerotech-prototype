@@ -3,7 +3,7 @@
 **Companion to:** `case-study/gerotech-process-playbook.html`
 **Audience:** CloudMellow leadership
 **Format:** seven-phase process, taught from the Gerotech website redesign
-**Runtime:** ~22 minutes at roughly a minute per slide, plus questions
+**Runtime:** ~21 minutes at roughly a minute per slide, plus questions
 
 ---
 
@@ -126,17 +126,14 @@ Real output: 279 of 291 controls applied. The other 12 are correct by design —
 Priority key: **1** could have blocked the client from editing or damaged the approved design; **3** was friction. Every row leads with the fix.
 The two "silent" roadblocks are the most instructive — they looked fine on screen. That pair is why the automated check exists.
 
-### 21 · What it produced
+### 21 · What it produced — the closing slide
 Frame every number as a consequence of the process, not a trophy:
 - 9 days from kickoff to a presentable draft
 - 12 pages designed
 - 291 controls the client owns
 - 6 days to convert and verify the build
 
-### 22 · Next steps — close on an ask
-Two decisions:
-1. **Adopt the process** — all seven phases as the default, including the sitemap and wireframe gates most teams skip.
-2. **Fund the verification step** — so a control can never ship empty behind a site that looks correct.
+This is now the last slide, so **close on it directly** — the numbers are the argument. If a decision is needed from the room, ask for it here rather than adding a summary.
 
 ---
 
