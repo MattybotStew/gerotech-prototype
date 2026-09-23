@@ -2,6 +2,25 @@
 
 Shared session log for all AI agents. Newest entries at the top.
 
+## 2026-09-23 — CORRECTION: Figma is the client room, code is the engine (DSH)
+
+Matt corrected the core premise of the playbook. The previous version's headline — **"Design happens in code, not in a static file"** — implied Figma gets sidelined. **The opposite is true.**
+
+**The corrected model (now the spine of the deck):**
+- **Figma is the room.** Every client-facing moment happens there — wireframes, moodboards, designs, comments, conversation. *"Figma is where we present to the client for everything."*
+- **The code prototype is the engine.** It is **internal until the design phase**; from there it's what lets us explore **responsive behaviour, layouts and animation concepts** fast.
+- **Design phase = moodboards/reference sites → agree the homepage → iterate all pages**, moving between Figma and Cursor.
+- **The bridge:** **html.to.design** (Chrome extension + Figma plugin) imports the HTML prototype into **editable Figma artboards**, so code-built work is reviewed in Figma. *Not "Figma or code" — code for the hard-to-judge parts, back into Figma for the conversation.*
+- **Figma is a design AND presentation tool**, alongside the code prototype.
+
+**Deck changes (`case-study/gerotech-process-playbook.html`, now 22 slides, 18 images):**
+- Phase model corrected to **seven phases**: discovery · sitemap · wireframes · design · review · convert · hand off. (Wireframes and design stay separate steps — Matt's call.)
+- **New slide 3 — "Figma is the room"**, stating the collaboration model up front.
+- **New slide 8 — "What the code prototype adds"** (responsive, animation, layout; internal until design).
+- **New slide 10 — "HTML → Figma artboards"** with the html.to.design bridge.
+- Phase 4 sheet reframed to "Design & iterate" (moodboards → homepage → all pages).
+- Three sheets regenerated so their baked-in phase labels match the seven-phase model; `client-controls` had its stale "Phase 8" eyebrow clipped (the admin screenshot source was never committed, and `/tmp` was cleaned mid-session — capture tooling now lives in the gitignored `.tmp/gtcap/`).
+
 ### GitHub Pages — the deck now lives in its own repo
 
 **Incident (2026-09-23):** the repo was accidentally switched to **private**, which disabled GitHub Pages on the current plan — the whole site 404'd (root, deck and `/JOURNAL.md`). The Pages deploy run showed **build succeeded, "Deploy to GitHub Pages" failed**, and `has_pages` flipped to `false`. The repo has been **restored to public**.

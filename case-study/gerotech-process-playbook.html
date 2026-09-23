@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>From Kickoff Call to Dev-Ready Build — CloudMellow Process Playbook</title>
-  <meta name="description" content="The CloudMellow process: discovery, sitemap, wireframes, design built in code, iteration with the design file, then conversion to WordPress with the native editor and ACF." />
+  <meta name="description" content="The CloudMellow process in seven phases: discovery, sitemap, wireframes, design across Figma and code, review, conversion to WordPress, and hand-off to dev." />
 
   <link rel="stylesheet" href="https://use.typekit.net/lqh7ybe.css" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
-       CLOUDMELLOW PROCESS PLAYBOOK — phase model
+       CLOUDMELLOW PROCESS PLAYBOOK — seven-phase model
        Built on the project's own design system (tokens + type).
        ============================================================ */
 
@@ -128,12 +128,16 @@
     .slide--dark .bullets li { color: #CFCFD8; }
     .slide--dark .bullets li strong { color: var(--clr-white); }
 
-    /* ── Step layout: figure + guide ───────────────────────── */
+    /* ── Figure + guide ────────────────────────────────────── */
 
     .stepgrid {
       display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr);
       gap: clamp(26px, 3.2vw, 48px); align-items: start;
     }
+
+    .stepgrid--narrow { grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.5fr); }
+    /* a portrait phone shot would otherwise drive the slide height */
+    .stepgrid--narrow .shot img { max-height: 520px; width: auto; margin: 0 auto; }
 
     .shot { background: #fff; border: 1px solid var(--clr-gray-border); overflow: hidden; }
     .shot img { display: block; width: 100%; height: auto; }
@@ -242,7 +246,7 @@
     .stat__value { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 2.6vw, 40px); line-height: 1; letter-spacing: -0.01em; color: var(--clr-ink); display: block; margin-bottom: 7px; }
     .stat__label { font-size: clamp(10px, 0.76vw, 12px); font-weight: 700; letter-spacing: var(--ls-meta); text-transform: uppercase; color: var(--clr-gray-body); line-height: 1.4; display: block; }
 
-    /* ── Two-column split ──────────────────────────────────── */
+    /* ── Split ─────────────────────────────────────────────── */
 
     .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(24px, 3.4vw, 56px); }
     .split__head { font-family: var(--font-display); font-weight: 600; font-size: clamp(19px, 1.5vw, 25px); margin: 0 0 12px; color: var(--clr-ink); }
@@ -317,7 +321,7 @@
     /* ── Small screens ─────────────────────────────────────── */
 
     @media (max-width: 900px) {
-      .stepgrid, .split, .licences { grid-template-columns: 1fr; }
+      .stepgrid, .stepgrid--narrow, .split, .licences { grid-template-columns: 1fr; }
       .phases { grid-template-columns: 1fr 1fr; }
       .checklist { grid-auto-flow: row; grid-template-columns: 1fr; grid-template-rows: none; }
       .slide { justify-content: flex-start; padding-top: clamp(64px, 11vh, 88px); overflow-y: auto; }
@@ -337,14 +341,14 @@
     <div class="slide__inner">
       <p class="eyebrow">Internal process playbook</p>
       <h1 class="slide__title">From kickoff call to a <span class="accent">dev-ready</span> build</h1>
-      <p class="lede">We take a website from discovery to a fully designed, fully editable front end — designing in code rather than static files, then converting that prototype into WordPress without a page builder or a commercial theme.</p>
+      <p class="lede">Figma is where the client sees and discusses everything. The code prototype is how we make the design fast, responsive and real — and it becomes the build. Seven phases, taught from the Gerotech redesign.</p>
       <div style="margin-top:28px;font-size:clamp(12px,.9vw,14px);letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);line-height:2">
-        Discovery &nbsp;·&nbsp; Sitemap &nbsp;·&nbsp; Wireframes &nbsp;·&nbsp; Design in code &nbsp;·&nbsp; Iterate &nbsp;·&nbsp; Review &nbsp;·&nbsp; Convert &nbsp;·&nbsp; Hand off
+        Discovery &nbsp;·&nbsp; Sitemap &nbsp;·&nbsp; Wireframes &nbsp;·&nbsp; Design &nbsp;·&nbsp; Review &nbsp;·&nbsp; Convert &nbsp;·&nbsp; Hand off
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Open (45s).</strong> This is a process deck. Gerotech is the worked example; the eight phases are the method.</p>
-      <p>Land the shape early: we design in code, the design file stays in step, and the result converts straight to WordPress with no builder licence.</p>
+      <p><strong>Open (45s).</strong> This is a process deck. Gerotech is the worked example; the seven phases are the method.</p>
+      <p>Land the shape early: <strong>Figma is the room the client lives in</strong>, code is the engine, and the two run together from the design phase onward.</p>
     </div>
   </section>
 
@@ -353,16 +357,15 @@
     <div class="slide__inner">
       <p class="eyebrow">The process at a glance</p>
       <div class="headline-rule"></div>
-      <h2 class="slide__title">Eight phases, in order.</h2>
+      <h2 class="slide__title">Seven phases, in order.</h2>
       <div class="phases">
         <div class="phase"><span class="phase__num">01</span><span class="phase__name">Kickoff &amp; discovery</span><span class="phase__why">Understand the business, audit what exists, agree what success looks like.</span></div>
         <div class="phase"><span class="phase__num">02</span><span class="phase__name">Sitemap</span><span class="phase__why">Agree the structure and navigation before anything is designed.</span></div>
-        <div class="phase"><span class="phase__num">03</span><span class="phase__name">Wireframes</span><span class="phase__why">Settle content, hierarchy and section order.</span></div>
-        <div class="phase"><span class="phase__num">04</span><span class="phase__name">Design — in code</span><span class="phase__why">Build the design as a working front end, not a static file.</span></div>
-        <div class="phase"><span class="phase__num">05</span><span class="phase__name">Iterate</span><span class="phase__why">Move changes between code and the design file, both ways.</span></div>
-        <div class="phase"><span class="phase__num">06</span><span class="phase__name">Review &amp; approve</span><span class="phase__why">One feedback channel, tied to the exact spot.</span></div>
-        <div class="phase"><span class="phase__num">07</span><span class="phase__name">Convert to WordPress</span><span class="phase__why">Native editor plus structured fields. No page builder.</span></div>
-        <div class="phase"><span class="phase__num">08</span><span class="phase__name">Hand off to dev</span><span class="phase__why">A designed, working front end ready for complex functionality.</span></div>
+        <div class="phase"><span class="phase__num">03</span><span class="phase__name">Wireframes</span><span class="phase__why">Settle content, hierarchy and section order — in Figma.</span></div>
+        <div class="phase"><span class="phase__num">04</span><span class="phase__name">Design</span><span class="phase__why">Direction, then the homepage, then every page — Figma and code together.</span></div>
+        <div class="phase"><span class="phase__num">05</span><span class="phase__name">Review &amp; approve</span><span class="phase__why">One feedback channel, tied to the exact spot.</span></div>
+        <div class="phase"><span class="phase__num">06</span><span class="phase__name">Convert to WordPress</span><span class="phase__why">Native editor plus structured fields. No page builder.</span></div>
+        <div class="phase"><span class="phase__num">07</span><span class="phase__name">Hand off to dev</span><span class="phase__why">A designed, working front end ready for complex functionality.</span></div>
       </div>
       <div class="callout">
         <span class="callout__label">Use it when</span>
@@ -370,90 +373,108 @@
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Walk the eight phases</strong> — one line each. This is the map; the rest of the deck is the detail.</p>
-      <p>Phases 1–3 are the ones teams skip when they're in a hurry. Skipping them is what makes phases 4–6 expensive.</p>
+      <p><strong>Walk the seven phases</strong> — one line each. This is the map; the rest of the deck is the detail.</p>
+      <p>Phases 1–3 are the ones teams skip when they're in a hurry. Skipping them is what makes phases 4–5 expensive.</p>
     </div>
   </section>
 
-  <!-- ══════════ 03 · PHASE 1 (sheet) ══════════ -->
-  <section class="slide slide--sheet slide--card" data-title="Phase 1 — Kickoff and discovery">
+  <!-- ══════════ 03 · FIGMA IS THE ROOM (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="Figma is the room">
+    <div class="sheetimg"><img src="images/figma-room.png" alt="Wireframes, the design, and client comments — all in Figma." /></div>
+    <div class="notes" data-notes>
+      <p><strong>This slide sets up everything after it.</strong> Figma is where the client sees and comments on the work — wireframes, moodboards, designs, all of it.</p>
+      <p>Say it plainly: <em>Figma is the room. Code is how we make it, not where they review it.</em></p>
+    </div>
+  </section>
+
+  <!-- ══════════ 04 · PHASE 1 (sheet) ══════════ -->
+  <section class="slide slide--sheet" data-title="Phase 1 — Kickoff and discovery">
     <div class="sheetimg"><img src="images/discovery.png" alt="Discovery findings on the live site alongside what each finding changed." /></div>
     <div class="notes" data-notes>
-      <p><strong>Phase 1.</strong> We audited the live site before designing anything, so the redesign was grounded in facts.</p>
-      <p>The finding that shaped everything: the client could not edit their own page content. That became a hard requirement for the build.</p>
-      <p>Note the last point on the right — inventory content that wasn't in the new structure was flagged for a client decision rather than silently dropped.</p>
+      <p><strong>Phase 1.</strong> We audit the live site before designing anything, so the redesign is grounded in facts.</p>
+      <p>The finding that shaped Gerotech: the client could not edit their own page content. That became a hard requirement for the build.</p>
     </div>
   </section>
 
-  <!-- ══════════ 04 · PHASE 2 (sheet) ══════════ -->
-  <section class="slide slide--sheet" data-title="Phase 2 — Sitemap">
+  <!-- ══════════ 05 · PHASE 2 (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="Phase 2 — Sitemap">
     <div class="sheetimg"><img src="images/sitemap.png" alt="The agreed site structure showing top-level navigation and its children." /></div>
     <div class="notes" data-notes>
       <p><strong>Phase 2.</strong> The structure is agreed before any design work, when changing it is free.</p>
-      <p>One decision here gets reused everywhere — navigation, mega-menu, mobile menu, breadcrumbs, search. That's why the same heading sits in the same place on all twelve pages.</p>
+      <p>One decision here gets reused everywhere — navigation, mega-menu, mobile menu, breadcrumbs, search.</p>
     </div>
   </section>
 
-  <!-- ══════════ 05 · PHASE 3 (sheet) ══════════ -->
-  <section class="slide slide--sheet slide--card" data-title="Phase 3 — Wireframes">
-    <div class="sheetimg"><img src="images/wireframes.png" alt="A real wireframe from the design file, showing page structure without colour or photography." /></div>
+  <!-- ══════════ 06 · PHASE 3 (sheet) ══════════ -->
+  <section class="slide slide--sheet" data-title="Phase 3 — Wireframes">
+    <div class="sheetimg"><img src="images/wireframes.png" alt="A real wireframe from the design file, showing structure with grey image slots." /></div>
     <div class="notes" data-notes>
-      <p><strong>Phase 3.</strong> Structure before style. Copy and section order get settled while changes are still cheap.</p>
-      <p>The wireframe carries forward: every section in it becomes a section in the built page, in the same order.</p>
+      <p><strong>Phase 3.</strong> Structure before style. Wireframes go into Figma, so the client reviews and comments on them there.</p>
+      <p>Copy and section order get settled while changes are still cheap. Every section here becomes a section in the built page, in the same order.</p>
     </div>
   </section>
 
-  <!-- ══════════ 06 · PHASE 4 ══════════ -->
-  <section class="slide" data-title="Phase 4 — Design built in code">
+  <!-- ══════════ 07 · PHASE 4 (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="Phase 4 — Design and iterate">
+    <div class="sheetimg"><img src="images/iteration-loop.png" alt="The design in Figma beside the same design built in code, with changes flowing both ways." /></div>
+    <div class="notes" data-notes>
+      <p><strong>Phase 4 — the heart of the method.</strong> Moodboards and reference sites set the direction; the homepage is agreed; then every page is designed in a loop between Figma and code.</p>
+      <p>Neither tool is doing the other's job: <strong>Figma is where the design is presented and discussed, code is where responsive behaviour and motion are worked out.</strong></p>
+      <p>Because it runs both ways, neither copy drifts.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 08 · WHAT THE PROTOTYPE ADDS ══════════ -->
+  <section class="slide" data-title="What the prototype adds">
     <div class="slide__inner">
-      <p class="eyebrow">Phase 4 of 8 · the headline idea</p>
+      <p class="eyebrow">Phase 4 · the engine</p>
       <div class="headline-rule"></div>
-      <h2 class="slide__title">Design happens in code, not in a static file.</h2>
-      <div class="stepgrid">
+      <h2 class="slide__title">What the code prototype adds.</h2>
+      <div class="stepgrid stepgrid--narrow">
         <figure class="shot">
-          <img src="images/proto-home.jpg" alt="The homepage built as working code, showing navigation, hero and stats band." />
-          <figcaption>The design, running in a browser — nine days from kickoff.</figcaption>
+          <img src="images/proto-mobile.jpg" alt="The design on a phone screen, showing the responsive layout." />
+          <figcaption>Resize it, and it behaves — because it's real.</figcaption>
         </figure>
         <div class="guide">
-          <h3>How it works</h3>
+          <h3>What it's for</h3>
           <ul class="bullets">
-            <li>We build the design as a <strong>working front end</strong> — real layout, real type, real breakpoints.</li>
-            <li>The client reviews <strong>a page they can scroll and click</strong>, not an image.</li>
-            <li>Feedback becomes <strong>a change we make in minutes</strong>, not a redraw and a re-export.</li>
-            <li>Nothing is thrown away — <strong>this becomes the build</strong>.</li>
+            <li><strong>Responsive ideas tested for real.</strong> Breakpoints, stacking and type scaling are judged in a browser, not imagined in a frame.</li>
+            <li><strong>Animation concepts the client can watch.</strong> Motion is the hardest thing to review as a static image.</li>
+            <li><strong>Layout experiments in minutes.</strong> Try three options before lunch and keep the one that works.</li>
+            <li><strong>Internal until design.</strong> Before the design phase it's ours to think in; from there it's what the client sees — through Figma.</li>
           </ul>
           <div class="proof">
             <span>Why it matters</span>
-            <p>The design starts behaving like the finished thing on day one, so the conversation moves from taste to specifics.</p>
+            <p>The design starts behaving like the finished thing, so review is about specifics rather than taste.</p>
           </div>
         </div>
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>This is the differentiator.</strong> Say it plainly: the design is not a picture of a website, it is the website.</p>
-      <p>Every objection you'd normally hear later — "that spacing looks different on my screen", "how does it behave on mobile" — is answered live.</p>
+      <p><strong>Frame the prototype correctly:</strong> it isn't a rival to Figma. It's how we settle the things Figma is bad at judging — responsive behaviour and motion.</p>
+      <p>Also make the sequencing clear: internal until design, client-facing from design onward.</p>
     </div>
   </section>
 
-  <!-- ══════════ 07 · PHASE 4 CONTINUED ══════════ -->
-  <section class="slide slide--card" data-title="Phase 4 continued — every page">
+  <!-- ══════════ 09 · EVERY PAGE ══════════ -->
+  <section class="slide slide--card" data-title="Every page, one system">
     <div class="slide__inner">
       <p class="eyebrow">Phase 4 · continued</p>
       <div class="headline-rule"></div>
-      <h2 class="slide__title">Every page, not just the homepage.</h2>
+      <h2 class="slide__title">Every page, one system.</h2>
       <div class="thumbs thumbs--uniform">
-        <figure class="shot"><img src="images/proto-es.jpg" alt="Hub page built in code." /><figcaption>Hub page</figcaption></figure>
-        <figure class="shot"><img src="images/proto-mcs.jpg" alt="Solutions page built in code." /><figcaption>Solutions</figcaption></figure>
-        <figure class="shot"><img src="images/proto-automation.jpg" alt="Automation page built in code." /><figcaption>Automation</figcaption></figure>
-        <figure class="shot"><img src="images/proto-mobile.jpg" alt="The design on a phone screen." /><figcaption>Mobile</figcaption></figure>
+        <figure class="shot"><img src="images/proto-home.jpg" alt="Homepage." /><figcaption>Homepage</figcaption></figure>
+        <figure class="shot"><img src="images/proto-es.jpg" alt="Hub page." /><figcaption>Hub page</figcaption></figure>
+        <figure class="shot"><img src="images/proto-mcs.jpg" alt="Solutions page." /><figcaption>Solutions</figcaption></figure>
+        <figure class="shot"><img src="images/proto-automation.jpg" alt="Automation page." /><figcaption>Automation</figcaption></figure>
       </div>
       <div class="split" style="margin-top:22px">
         <div class="guide">
-          <h3>How it works</h3>
+          <h3>How it goes</h3>
           <ul class="bullets">
             <li>New pages are <strong>variations on the same system</strong>, not new decisions — so page twelve costs a fraction of page two.</li>
+            <li>A shared style guide means a change lands <strong>everywhere at once</strong>, not page by page.</li>
             <li>Responsive is built as we go. Retrofitting mobile at the end always costs more.</li>
-            <li>Real imagery goes in as soon as the client sends it; placeholders mark the gaps.</li>
           </ul>
         </div>
         <div class="proof" style="margin-top:0">
@@ -467,53 +488,53 @@
     </div>
   </section>
 
-  <!-- ══════════ 08 · PHASE 5 (sheet) ══════════ -->
-  <section class="slide slide--sheet" data-title="Phase 5 — The iteration loop">
-    <div class="sheetimg"><img src="images/iteration-loop.png" alt="The working draft in code beside the Figma design file, with changes flowing both ways." /></div>
+  <!-- ══════════ 10 · HTML → FIGMA (sheet) ══════════ -->
+  <section class="slide slide--sheet" data-title="HTML to Figma artboards">
+    <div class="sheetimg"><img src="images/html-to-figma.png" alt="The design built in code, imported into Figma as editable artboards." /></div>
     <div class="notes" data-notes>
-      <p><strong>Phase 5.</strong> The design file doesn't get abandoned — it stays in step with the code, and changes flow both directions.</p>
-      <p>In practice this is driven from the editor: an AI assistant working against the shared brief makes the change in code, and the design file is updated to match what was approved.</p>
-      <p>Why keep both: the client and their stakeholders are comfortable reviewing in the design file, while the code is the thing that actually ships.</p>
+      <p><strong>The bridge that makes the two-tool approach work.</strong> Work built in code goes back into Figma as editable artboards, so the client reviews it in the room they already use.</p>
+      <p>This is the piece people miss: it's not "design in Figma <em>or</em> code". It's code for the hard-to-judge parts, back into Figma for the conversation.</p>
+      <p>Tool: <strong>html.to.design</strong> — a Chrome extension plus a Figma plugin that converts HTML into editable Figma artboards.</p>
     </div>
   </section>
 
-  <!-- ══════════ 09 · PHASE 6 (sheet) ══════════ -->
-  <section class="slide slide--sheet slide--card" data-title="Phase 6 — Review and approve">
+  <!-- ══════════ 11 · PHASE 5 (sheet) ══════════ -->
+  <section class="slide slide--sheet slide--card" data-title="Phase 5 — Review and approve">
     <div class="sheetimg"><img src="images/feedback-channel.png" alt="A design frame with numbered client comment pins and the real comments listed alongside." /></div>
     <div class="notes" data-notes>
-      <p><strong>Phase 6.</strong> One feedback channel: notes attach to the exact spot in the design, and each becomes a tracked item with an owner.</p>
-      <p>Real comments from the Gerotech design file. The benefit: a long review cycle never turns into an argument about what was agreed.</p>
+      <p><strong>Phase 5.</strong> One feedback channel, in Figma: notes attach to the exact spot, and each becomes a tracked item with an owner.</p>
+      <p>Real comments from the Gerotech file. The benefit: a long review cycle never turns into an argument about what was agreed.</p>
     </div>
   </section>
 
-  <!-- ══════════ 10 · THE STYLE GUIDE (sheet) ══════════ -->
+  <!-- ══════════ 12 · THE STYLE GUIDE (sheet) ══════════ -->
   <section class="slide slide--sheet" data-title="The style guide">
     <div class="sheetimg"><img src="images/style-guide.png" alt="The style guide: brand colours, type samples and spacing steps." /></div>
     <div class="notes" data-notes>
       <p><strong>Runs across every phase.</strong> Decide the rules once — colour, type, spacing — then every page is a variation.</p>
-      <p>Avoid systems vocabulary out loud. Say "we decided the rules once". This is the file that stops page twelve drifting from page two.</p>
+      <p>Avoid systems vocabulary out loud. Say "we decided the rules once". This is what stops page twelve drifting from page two.</p>
     </div>
   </section>
 
-  <!-- ══════════ 11 · THE SHARED BRIEF (sheet) ══════════ -->
+  <!-- ══════════ 13 · THE SHARED BRIEF (sheet) ══════════ -->
   <section class="slide slide--sheet slide--card" data-title="The shared brief">
     <div class="sheetimg"><img src="images/shared-brief.png" alt="Three documents: instructions, current status and project diary." /></div>
     <div class="notes" data-notes>
       <p><strong>Runs across every phase.</strong> Three ordinary documents — not software. Instructions (how we work), current status (what's true now), project diary (what happened and why).</p>
-      <p>This is what lets several people and several AI assistants work on one project without losing state. Continuity is a process choice, not a technology feature.</p>
+      <p>This is what lets several people and several AI assistants work on one project without losing state.</p>
     </div>
   </section>
 
-  <!-- ══════════ 12 · PHASE 7 (sheet) ══════════ -->
-  <section class="slide slide--sheet" data-title="Phase 7 — Convert to WordPress">
-    <div class="sheetimg"><img src="images/design-to-build.png" alt="The approved prototype page beside the same page running in WordPress." /></div>
+  <!-- ══════════ 14 · PHASE 6 (sheet) ══════════ -->
+  <section class="slide slide--sheet" data-title="Phase 6 — Convert to WordPress">
+    <div class="sheetimg"><img src="images/design-to-build.png" alt="The approved design beside the same page running in WordPress." /></div>
     <div class="notes" data-notes>
-      <p><strong>Phase 7 — the payoff.</strong> Because the design was already working code, conversion is translation rather than reconstruction. The page the client approved is the page that ships.</p>
+      <p><strong>Phase 6 — the payoff.</strong> Because the design was already working code, conversion is translation rather than reconstruction. The page the client approved is the page that ships.</p>
       <p>Technically: WordPress's native editor plus structured fields, on a child theme. No page builder in the middle.</p>
     </div>
   </section>
 
-  <!-- ══════════ 13 · THE EDITING EXPERIENCE (sheet) ══════════ -->
+  <!-- ══════════ 15 · CLIENT CONTROLS (sheet) ══════════ -->
   <section class="slide slide--sheet slide--card" data-title="The client's editing experience">
     <div class="sheetimg"><img src="images/client-controls.png" alt="The client's WordPress admin showing plain-language content controls." /></div>
     <div class="notes" data-notes>
@@ -522,10 +543,10 @@
     </div>
   </section>
 
-  <!-- ══════════ 14 · PHASE 8 · HANDOFF ══════════ -->
-  <section class="slide" data-title="Phase 8 — Hand off to dev">
+  <!-- ══════════ 16 · PHASE 7 · HANDOFF ══════════ -->
+  <section class="slide" data-title="Phase 7 — Hand off to dev">
     <div class="slide__inner">
-      <p class="eyebrow">Phase 8 of 8</p>
+      <p class="eyebrow">Phase 7 of 7</p>
       <div class="headline-rule"></div>
       <h2 class="slide__title">What development receives.</h2>
       <div class="stepgrid">
@@ -536,7 +557,7 @@
         <div class="guide">
           <h3>Already done</h3>
           <ul class="bullets">
-            <li><strong>Every page designed and built</strong>, responsive, and verified against the approved draft.</li>
+            <li><strong>Every page designed and built</strong>, responsive, and verified against the approved design.</li>
             <li><strong>The whole design system</strong> — colour, type, spacing and components — in version control.</li>
             <li><strong>Editing controls</strong> the client already owns, so content work isn't blocked on dev.</li>
           </ul>
@@ -548,12 +569,12 @@
       </div>
     </div>
     <div class="notes" data-notes>
-      <p><strong>Phase 8.</strong> Dev doesn't start from a static mockup and a blank template. They start from working pages and add the hard parts.</p>
+      <p><strong>Phase 7.</strong> Dev doesn't start from a static mockup and a blank template. They start from working pages and add the hard parts.</p>
       <p>This is the sentence to land: <em>we pass to dev a fully designed front end that is ready for the more complex functionality our clients need.</em></p>
     </div>
   </section>
 
-  <!-- ══════════ 15 · THE PAYOFF ══════════ -->
+  <!-- ══════════ 17 · THE PAYOFF ══════════ -->
   <section class="slide" data-title="What the client doesn't pay for">
     <div class="slide__inner">
       <p class="eyebrow">The payoff</p>
@@ -583,20 +604,20 @@
     </div>
     <div class="notes" data-notes>
       <p><strong>Be precise here — it's the claim most likely to be challenged.</strong> We are not saying "zero licences". We are saying: no page-builder licence, no commercial theme licence, and one plugin licence covers both jobs.</p>
-      <p>If asked about the parent theme: the build is a child theme of the client's existing bespoke theme, so there is no purchased theme and no renewal. A block theme would remove that dependency entirely — that's the next step, not something we've shipped.</p>
+      <p>If asked about the parent theme: the build is a child theme of the client's existing bespoke theme, so there's no purchased theme and no renewal. A block theme would remove that dependency entirely — that's the next step, not something we've shipped.</p>
     </div>
   </section>
 
-  <!-- ══════════ 16 · QUALITY (sheet) ══════════ -->
+  <!-- ══════════ 18 · QUALITY (sheet) ══════════ -->
   <section class="slide slide--sheet slide--card" data-title="Verified, not assumed">
     <div class="sheetimg"><img src="images/verification.png" alt="Real audit output listing unset editing controls, with the result 279 of 291." /></div>
     <div class="notes" data-notes>
       <p><strong>The rule that prevents the worst failure:</strong> a control can render the design perfectly while being empty in the admin. Nothing looks broken — which is why it gets missed.</p>
-      <p>This is real output from the audit script: 279 of 291 controls applied. The remaining 12 are correct by design — a blank colour choice means "keep the design colour".</p>
+      <p>Real output: 279 of 291 controls applied. The other 12 are correct by design — a blank colour choice means "keep the design colour".</p>
     </div>
   </section>
 
-  <!-- ══════════ 17 · CHECKLIST ══════════ -->
+  <!-- ══════════ 19 · CHECKLIST ══════════ -->
   <section class="slide" data-title="The checklist">
     <div class="slide__inner">
       <p class="eyebrow">One page to keep</p>
@@ -605,12 +626,12 @@
       <ol class="checklist">
         <li>Audit what exists before designing anything.</li>
         <li>Agree the sitemap while changing it is free.</li>
-        <li>Settle structure and content in wireframes.</li>
-        <li>Design in code, so the design behaves like the site.</li>
-        <li>Keep the design file and the code in step.</li>
+        <li>Settle structure and content in wireframes — in Figma.</li>
+        <li>Set direction with moodboards, then agree the homepage.</li>
+        <li>Design in a loop: code for behaviour, Figma for the conversation.</li>
+        <li>Import code into Figma as artboards so the client reviews it there.</li>
         <li>One feedback channel, tied to a spot and an owner.</li>
-        <li>Convert to the native editor plus structured fields — no builder.</li>
-        <li>Leave the client editing controls they actually understand.</li>
+        <li>Convert with the native editor plus structured fields — no builder.</li>
         <li>Hand dev a working front end, not a mockup.</li>
       </ol>
     </div>
@@ -620,7 +641,7 @@
     </div>
   </section>
 
-  <!-- ══════════ 18 · WATCH OUT FOR ══════════ -->
+  <!-- ══════════ 20 · WATCH OUT FOR ══════════ -->
   <section class="slide" data-title="Watch out for these">
     <div class="slide__inner">
       <p class="eyebrow">Watch out for these · prioritised by impact</p>
@@ -684,7 +705,7 @@
     </div>
   </section>
 
-  <!-- ══════════ 19 · WHAT IT PRODUCED ══════════ -->
+  <!-- ══════════ 21 · WHAT IT PRODUCED ══════════ -->
   <section class="slide slide--card" data-title="What it produced">
     <div class="slide__inner">
       <p class="eyebrow">What it produced</p>
@@ -692,7 +713,7 @@
       <h2 class="slide__title">The method, measured.</h2>
       <div class="stat-row">
         <div class="stat"><span class="stat__value">9 days</span><span class="stat__label">Kickoff to a presentable draft</span></div>
-        <div class="stat"><span class="stat__value">12</span><span class="stat__label">Pages designed in code</span></div>
+        <div class="stat"><span class="stat__value">12</span><span class="stat__label">Pages designed</span></div>
         <div class="stat"><span class="stat__value">291</span><span class="stat__label">Controls the client owns</span></div>
         <div class="stat"><span class="stat__value">6 days</span><span class="stat__label">To convert and verify the build</span></div>
       </div>
@@ -706,7 +727,7 @@
     </div>
   </section>
 
-  <!-- ══════════ 20 · NEXT STEPS ══════════ -->
+  <!-- ══════════ 22 · NEXT STEPS ══════════ -->
   <section class="slide slide--dark" data-title="Next steps">
     <div class="slide__inner">
       <p class="eyebrow">Next steps</p>
@@ -715,7 +736,7 @@
       <div class="split">
         <div>
           <h3 class="split__head">Adopt the process</h3>
-          <p class="body-text">Run all eight phases as the default on the next design-to-build project — including the sitemap and wireframe gates most teams skip.</p>
+          <p class="body-text">Run all seven phases as the default on the next design-to-build project — including the sitemap and wireframe gates most teams skip.</p>
         </div>
         <div>
           <h3 class="split__head">Fund the verification step</h3>
@@ -729,7 +750,6 @@
     </div>
     <div class="notes" data-notes>
       <p><strong>Close on an ask, not a summary.</strong> Two decisions: adopt the process, and fund verification.</p>
-      <p>Keep the "still open" line brief — enough to show nothing is hidden, without turning the close into a risk review.</p>
     </div>
   </section>
 
@@ -737,7 +757,7 @@
 
 <div class="chrome chrome--top">
   <span class="brand">CloudMellow · Process Playbook</span>
-  <span class="counter"><span class="counter__now" id="counterNow">01</span> / <span id="counterTotal">20</span></span>
+  <span class="counter"><span class="counter__now" id="counterNow">01</span> / <span id="counterTotal">22</span></span>
 </div>
 
 <div class="chrome chrome--bottom">
@@ -776,9 +796,7 @@
       if (notes) notes.classList.toggle('is-active', active);
     });
 
-    // Figure slides carry their own header, so quiet the deck brand.
     document.body.classList.toggle('sheet-mode', slides[index].classList.contains('slide--sheet'));
-    // Keep the chrome legible over dark slides (the chrome lives outside the slides).
     document.body.classList.toggle('dark-mode', slides[index].classList.contains('slide--dark'));
 
     counterNow.textContent = pad(index + 1);
